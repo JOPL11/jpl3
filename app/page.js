@@ -1,94 +1,107 @@
-import Image from "next/image";
+'use client';
+
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import styles from "./page.module.css";
+
+function CopyrightYear() {
+  const [year, setYear] = useState('');
+  
+  useEffect(() => {
+    setYear(new Date().getFullYear().toString());
+  }, []);
+  
+  return <>{year}</>;
+}
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className={styles.container}>
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+
+      <main className={styles.main}>
+        <div className={styles.contentWrapper}>
+          <div className={styles.logoSidebar}>
+            <Image 
+              src="/images/jp.svg" 
+              alt="JP Logo" 
+              width={380}
+              height={380}
+              className={styles.contentLogo}
+              priority
             />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
+          </div>
+          <section className={styles.content}>
+            <h2>Welcome to my Website</h2>
+            <p>Hello, my name is Jan Peiro.</p>
+
+            <p>I studied communication design in 
+            Munich Germany.</p>
+
+            <p> I am passionate about code, 
+            visualization & animation. </p>
+
+            <p>20 years experience spans clients in the 
+            entertainment, automotive, software and 
+            aerospace industries,such as Airbus Group, 
+            Spiegel TV, BMW Group, Audi, NATO, 
+            Pro7, and many others.</p>
+
+            <p>Throughout this time I have worked freelance and employed 
+            in capacities  ranging from visual concept developer, designer, 
+            art director, coder  & motion designer.</p> 
+
+            <div>
+            <section id="work" className={styles.section}>
+          <h2>Selected Projects</h2>
+          <div className={styles.projectsGrid}>
+            {/* Add your project cards here */}
+            <div className={styles.projectCard}>
+              <h3>Stadtberichter</h3>
+              <p>Next.js/React</p>
+            </div>
+            <div className={styles.projectCard}>
+              <h3>PFP Festival</h3>
+              <p>Next.js</p>
+            </div>
+            <div className={styles.projectCard}>
+              <h3>Hoyieo Health</h3>
+              <p>Conceptual UI/UX</p>
+            </div>
+          </div>
+        </section>
+
+              <h2>Technical Skills</h2>
+              <ul className={styles.skillsList}>
+                <li>React, Next.js</li>
+                <li>Three.js, R3F</li>
+                <li>GSAP Animation</li>
+                <li>Cinema4D, Blender</li>
+                <li>After Effects</li>
+              </ul>
+            </div>
+            <div>
+              <h2>Languages</h2>
+              <ul className={styles.skillsList}>
+                <li>English</li>
+                <li>German</li>
+                <li>Spanish</li>
+                <li>French</li>
+              </ul>
+            </div>
+          </section>
         </div>
       </main>
+
       <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        <p>&copy; <CopyrightYear /> Jan Peiro. All rights reserved.</p>
+        <div className={styles.footerLinks}>
+          <a href="#" className={styles.footerLink}>Privacy Policy</a>
+          <span> | </span>
+          <a href="#" className={styles.footerLink}>Terms of Service</a>
+          <span> | </span>
+          <a href="#" className={styles.footerLink}>Contact Us</a>
+        </div>
       </footer>
     </div>
   );
