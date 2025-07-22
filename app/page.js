@@ -1,64 +1,14 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import styles from "./page.module.css";
+import ProjectCard from './components/ProjectCard';
+import ContactForm from './components/ContactForm';
 
 function CopyrightYear() {
-  const [year, setYear] = useState('');
-  
-  useEffect(() => {
-    setYear(new Date().getFullYear().toString());
-  }, []);
-  
+  const [year] = useState(new Date().getFullYear());
   return <>{year}</>;
-}
-
-function ProjectCard({ title, children, image, alt, link }) {
-  const [isExpanded, setIsExpanded] = useState(false);
-  
-  return (
-    <div className={`${styles.projectCard} ${isExpanded ? styles.expanded : ''}`} role="gridcell" tabIndex="0">
-      <h3>{title}</h3>
-      <div className={`${styles.cardContent} ${isExpanded ? styles.showContent : ''}`}>
-        {children}
-      </div>
-      <div className={styles.projectImage}>
-        <Image 
-          src={image} 
-          alt={alt}
-          width={800}
-          height={600}
-          style={{
-            width: '100%',
-            height: '150px',
-            objectFit: 'cover',
-            objectPosition: 'center'
-          }}
-          priority
-        />
-      </div>
-      <div className={styles.cardActions}>
-        <button 
-          className={styles.moreButton}
-          onClick={() => setIsExpanded(!isExpanded)}
-          aria-expanded={isExpanded}
-        >
-          {isExpanded ? 'Less' : 'More'}
-        </button>
-        {link && (
-          <a 
-            href={link} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className={styles.projectLink}
-          >
-            View Project
-          </a>
-        )}
-      </div>
-    </div>
-  );
 }
 
 export default function Home() {
@@ -87,7 +37,7 @@ export default function Home() {
             <p>I studied communication design in 
             Munich Germany.</p>
 
-            <p> I am passionate about code, 
+            <p>Passionate about code, 
             visualization & animation. </p>
 
             <p>20 years experience spans clients in the 
@@ -96,11 +46,11 @@ export default function Home() {
             Spiegel TV, BMW Group, Audi, NATO, 
             Pro7, and many others.</p>
 
-            <p>Throughout this time I have worked freelance and employed 
+            <p>Throughout this time I&apos;ve worked freelance and employed 
             in capacities ranging from visual concept artist, designer, 
             art director, creative developer & motion designer.</p>
 
-            <p> This site is under development. In the interim, feel free to drop me a line if you have specific questions.</p>
+            <p>This site is under development. In the interim, feel free to drop me a line if you have specific questions.</p>
             
             <hr className={styles.divider} />
 
@@ -169,6 +119,17 @@ export default function Home() {
                   <p>Duration: 4 Days</p>
                 </ProjectCard>
                 <ProjectCard 
+                  title="Spiegel Geschichte TV Website"
+                  image="/images/JPL3Poster_SG.jpg"
+                  alt="Spiegel Geschichte TV Website"
+                  link="#"
+                >
+                  <p>Conceptual UI/UX</p>
+                  <p>Target Audience: Spiegel Geschichte TV Viewers</p>
+                  <p>Role: Lead Designer / Coder</p>
+                  <p>Duration: 1 Month</p>
+                </ProjectCard>
+                <ProjectCard 
                   title="Homeopathy Health App Design"
                   image="/images/JPL3Poster_HA2.jpg"
                   alt="Homeopathy Health App Design"
@@ -229,9 +190,11 @@ export default function Home() {
               </div>
 
             </section>
+            <hr className={styles.divider} />
             <section id="contact">
               <h2>Let&apos;s talk</h2>
               <a href="mailto:jan.peiro@protonmail.com">jan.peiro@protonmail.com</a>
+              <ContactForm />
             </section>
           </section>
 

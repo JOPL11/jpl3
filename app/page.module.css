@@ -260,7 +260,7 @@
 }
 
 .projectLink {
-  background-color: #2a5b6d;
+  background: linear-gradient(180deg, #548da0 0%, #345f6d 100%);
   color: white;
   text-decoration: none;
   padding: 0.5rem 1rem;
@@ -276,8 +276,7 @@
 }
 
 .projectLink:hover {
-  background-color: #3a7a91;
-  color: white;
+  background: linear-gradient(180deg, #548da0 0%, #345f6d 70%);
 }
 
 .projectLink:focus {
@@ -286,7 +285,7 @@
 }
 
 .moreButton {
-  background-color: #264651;
+  background: linear-gradient(180deg, #548da0 0%, #345f6d 100%);
   border: none;
   border-radius: 4px;
   padding: 0.5rem 1rem;
@@ -299,11 +298,11 @@
 }
 
 .moreButton:hover {
-  background-color: #366575;
+  background: linear-gradient(180deg, #548da0 0%, #345f6d 70%);
 }
 
 .moreButton:focus {
-  outline: 2px solid #0070f3;
+  background: linear-gradient(180deg, #548da0 0%, #345f6d 100%);
   outline-offset: 2px;
 }
 
