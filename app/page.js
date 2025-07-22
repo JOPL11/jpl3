@@ -52,6 +52,8 @@ export default function Home() {
             <p>Throughout this time I have worked freelance and employed 
             in capacities ranging from visual concept artist, designer, 
             art director, creative developer & motion designer.</p>
+
+            <p> This site is under development. In the interim, feel free to drop me a line if you have specific questions.</p>
             
             <hr className={styles.divider} />
 
@@ -63,6 +65,10 @@ export default function Home() {
             <div className={styles.projectCard} role="gridcell" tabIndex="0">
               <h3>Stadtberichter</h3>
               <p>Next.js/React</p>
+              <p>Target Audience: Municipal Authorities</p>
+              <p>Project Type: Informational Website</p>
+              <p>Role: Lead Developer</p>
+              <p>Duration: 5 days</p>
               <div className={styles.projectImage}>
                 <Image 
                   src="/images/JPL3Poster_SB.jpg" 
@@ -82,6 +88,10 @@ export default function Home() {
             <div className={styles.projectCard} role="gridcell" tabIndex="0">
               <h3>PFP Festival</h3>
               <p>Next.js</p>
+              <p>Target Audience: Festival Attendees</p>
+              <p>Project Type: Informational Website</p>
+              <p>Role: Lead Developer</p>
+              <p>Duration: 2 days</p>
               <div className={styles.projectImage}>
                 <Image 
                   src="/images/JPL3Poster_BB.jpg" 
@@ -101,6 +111,10 @@ export default function Home() {
             <div className={styles.projectCard} role="gridcell" tabIndex="0">
               <h3>Hoyieo Health</h3>
               <p>Conceptual UI/UX App Design</p>
+              <p>Target Audience: Homeopathy Patients</p>
+              <p>Project Type: Informational Website</p>
+              <p>Role: Designer</p>
+              <p>Duration: 4 days</p>
               <div className={styles.projectImage}>
                 <Image 
                   src="/images/JPL3Poster_HA2.jpg" 
@@ -120,6 +134,10 @@ export default function Home() {
             <div className={styles.projectCard} role="gridcell" tabIndex="0">
               <h3>Airbus Group Headquarters Berlin Touchtable</h3>
               <p>Conceptual UI/UX</p>
+              <p>Target Audience: Visiting Dignitaries at Airbus Group Headquarters, Berlin</p>
+              <p>Project Type: Interactive Touchtable Experience</p>
+              <p>Role: Designer, Lead Developer</p>
+              <p>Duration: 3 months</p>
               <div className={styles.projectImage}>
                 <Image 
                   src="/images/JPL3Poster_AB.jpg" 
@@ -139,6 +157,10 @@ export default function Home() {
             <div className={styles.projectCard} role="gridcell" tabIndex="0">
               <h3>Airbus Group Ottobrunn Showroom Expo piece</h3>
               <p>Conceptual UI/UX</p>
+              <p>Target Audience: Visitors at Airbus Group Ottobrunn Showroom, Ottobrunn</p>
+              <p>Project Type: RFID Driven Interactive Experience</p>
+              <p>Role: Lead Designer, Lead Developer</p>
+              <p>Duration: 3 months</p>
               <div className={styles.projectImage}>
                 <Image 
                   src="/images/JPL3Poster_AB3.jpg" 
@@ -202,10 +224,12 @@ export default function Home() {
               <li role="listitem">React, Next.js</li>
               <li role="listitem">Three.js, React 3 Fiber</li>
               <li role="listitem">vite, git, npm</li>
+              <li role="listitem">SQL / Supabase</li>
               <li role="listitem">GSAP Animation</li>
               <li role="listitem">Cinema4D, Blender</li>
+              <li role="listitem">SEO</li>
               <li role="listitem">Octane, Redshift, Corona Render Engines</li>
-              <li role="listitem">After Effects</li>
+              <li role="listitem">After Effects, Video Edit, Video Post-Production</li>
             </ul>
           </section>
           <hr className={styles.divider} />
@@ -224,6 +248,7 @@ export default function Home() {
             <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
               <div className={styles.projectCard} role="gridcell" tabIndex="0">
                 <h3>React Three Fiber / GSAP</h3>
+                <p>An abandoned attempt at a 3D portfolio website, I thought it wasn&apos;t serious enough and just chucked it out. Might have some technical merit. 3D Models, concept, interaction all homemade.</p>
                 <a 
                   href="https://jpl3d2.vercel.app/" 
                   target="_blank" 
@@ -250,10 +275,34 @@ export default function Home() {
                 </div>
                 </a>
               </div>
-              
               <div className={styles.projectCard} role="gridcell" tabIndex="0">
-                <h3>Pure Three.js / GSAP</h3>
-                <p>Coming soon</p>
+                <h3>React Three Fiber / GSAP</h3>
+                <p>Schrödinger & Bohr Quantum Pocketwatches - Desktop Only. 3D Models, concept, interaction all homemade.</p>
+                <a 
+                  href="https://quantum-pocketwatch.vercel.app/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className={styles.showcaseLink}
+                  aria-label="View React Three Fiber / GSAP project"
+                >
+                  View Project
+                
+                <div className={styles.projectImage}>
+                  <Image 
+                    src="/images/JPL3Poster_QC.jpg" 
+                    alt="Quantum Pocketwatch project visualization" 
+                    width={800}
+                    height={600}
+                    style={{
+                      width: '100%',
+                      height: '150px',
+                      objectFit: 'cover',
+                      objectPosition: 'center'
+                    }}
+                    priority
+                  />
+                </div>
+                </a>
               </div>
             </div>
 
