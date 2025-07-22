@@ -34,7 +34,7 @@ export default function Home() {
             />
           </div>
           <section className={styles.content} aria-labelledby="welcome-heading">
-            <h1 id="welcome-heading">Welcome to my Website</h1>
+            <h2 id="welcome-heading">Welcome to my Website</h2>
             <p>Hello, my name is Jan Peiro.</p>
 
             <p>I studied communication design in 
@@ -52,8 +52,6 @@ export default function Home() {
             <p>Throughout this time I have worked freelance and employed 
             in capacities ranging from visual concept artist, designer, 
             art director, creative developer & motion designer.</p> 
-
-            <p>More on these projects coming soon.</p>
 
             <section id="work" className={styles.section} aria-labelledby="projects-heading">
               <h2 id="projects-heading">Selected Projects</h2>
