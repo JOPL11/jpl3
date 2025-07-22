@@ -190,11 +190,13 @@ export default function Home() {
                 <li role="listitem">Three.js, React 3 Fiber</li>
                 <li role="listitem">vite, git, npm</li>
                 <li role="listitem">SQL / Supabase</li>
-                <li role="listitem">GSAP Animation</li>
+                <li role="listitem">GSAP Animation Engine</li>
                 <li role="listitem">Cinema4D, Blender</li>
-                <li role="listitem">SEO</li>
                 <li role="listitem">Octane, Redshift, Corona Render Engines</li>
                 <li role="listitem">After Effects, Video Edit, Video Post-Production</li>
+                <li role="listitem">Adobe Suite</li>
+                <li role="listitem">Design, Animation, Development, Rapid Prototyping</li>
+                <li role="listitem">SEO</li>
               </ul>
             </section>
             <hr className={styles.divider} />
