@@ -271,7 +271,7 @@ export default function Home() {
             <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
               <div className={styles.projectCard} role="gridcell" tabIndex="0">
                 <h3>React Three Fiber / GSAP</h3>
-                <p>An abandoned attempt at a 3D portfolio website, I thought it wasn&apos;t serious enough and just chucked it out. Might have some technical merit. 3D Models, concept, interaction all homemade.</p>
+                <p>3D portfolio website experiment featuring custom 3D models and interactions. Abandoned midway for being too playful.</p>
                 <a 
                   href="https://jpl3d2.vercel.app/" 
                   target="_blank" 
@@ -300,7 +300,7 @@ export default function Home() {
               </div>
               <div className={styles.projectCard} role="gridcell" tabIndex="0">
                 <h3>React Three Fiber / GSAP</h3>
-                <p>Schrödinger & Bohr Quantum Pocketwatches - Desktop Only. 3D Models, concept, interaction all homemade.</p>
+                <p>Schrödinger & Bohr Quantum Pocketwatches featuring custom 3D models and interactions. Desktop Only.</p>
                 <a 
                   href="https://quantum-pocketwatch.vercel.app/" 
                   target="_blank" 
