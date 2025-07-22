@@ -86,13 +86,28 @@ export default function Home() {
                   title="Airbus Group Berlin Showroom Expo piece"
                   image="/images/JPL3Poster_AB.jpg"
                   alt="Airbus Group Berlin Showroom Expo piece"
-                  link="#"
-                >
+                
+                  modalContent={{
+                    description: `Touchtable interface`,
+                    images: [
+                      { src: "/images/airbus_berlin/table2.jpg", alt: "Project Screenshot 1" },
+                      { src: "/images/airbus_berlin/table1.jpg", alt: "Project Screenshot 2" },
+                      { src: "/images/airbus_berlin/table3.jpg", alt: "Project Screenshot 3" },
+                      { src: "/images/airbus_berlin/table4.jpg", alt: "Project Screenshot 4" },
+                      { src: "/images/airbus_berlin/table5.png", alt: "Project Screenshot 5" },
+                      { src: "/images/airbus_berlin/table6.jpg", alt: "Project Screenshot 6" },
+                      { src: "/images/airbus_berlin/table7.jpg", alt: "Project Screenshot 7" },
+                      { src: "/images/airbus_berlin/table8.jpg", alt: "Project Screenshot 8" },
+                      { src: "/images/airbus_berlin/table9.jpg", alt: "Project Screenshot 9" },
+                      { src: "/images/airbus_berlin/table10.jpg", alt: "Project Screenshot 10" }
+                    ]
+                  }}>
                   <p>Conceptual UI/UX</p>
                   <p>Target Audience: Visitors at Airbus Group Berlin Showroom, Berlin</p>
                   <p>Project Type: Touchtable Interface</p>
                   <p>Role: Lead Designer, Lead Developer</p>
                   <p>Duration: 3 months</p>
+                  
                 </ProjectCard>
                 <ProjectCard 
                   title="Airbus Group Ottobrunn Showroom Expo piece"
@@ -133,7 +148,24 @@ export default function Home() {
                   title="Homeopathy Health App Design"
                   image="/images/JPL3Poster_HA2.jpg"
                   alt="Homeopathy Health App Design"
-                  link="#"
+    
+                  modalContent={{
+                    description: `Logo, CI/CD, UI/UX, and development of a health app for homeopathy.`,
+                    images: [
+                      { src: "/images/JPL3Poster_HA0.jpg", alt: "Project Screenshot 1" },
+                      { src: "/images/JPL3Poster_HA3.jpg", alt: "Project Screenshot 2" },
+                      { src: "/images/JPL3Poster_HA4.jpg", alt: "Project Screenshot 3" },
+                      { src: "/images/JPL3Poster_HA6.jpg", alt: "Project Screenshot 4" },
+                      { src: "/images/JPL3Poster_HA5.jpg", alt: "Project Screenshot 5" },
+                      { src: "/images/JPL3Poster_HA7.jpg", alt: "Project Screenshot 6" },
+                      { src: "/images/JPL3Poster_HA8.jpg", alt: "Project Screenshot 7" },
+                      { src: "/images/JPL3Poster_HA9.jpg", alt: "Project Screenshot 8" },
+                      { src: "/images/JPL3Poster_HA10.jpg", alt: "Project Screenshot 9" },
+                      { src: "/images/JPL3Poster_HA11.jpg", alt: "Project Screenshot 10" },
+                      { src: "/images/JPL3Poster_HA12.jpg", alt: "Project Screenshot 11" },
+                      { src: "/images/JPL3Poster_HA13.jpg", alt: "Project Screenshot 12" },
+                    ]
+                  }}
                 >
                   <p>Conceptual UI/UX</p>
                   <p>Target Audience: Health App Users</p>

@@ -3,10 +3,33 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import styles from '../page.module.css';
+import { useModal } from './ModalContext';
+import ProjectModal from './ProjectModal';
 
-export default function ProjectCard({ title, children, image, alt, link }) {
+export default function ProjectCard({ 
+  title, 
+  children, 
+  image, 
+  alt, 
+  link,
+  modalContent // { description: string, images: Array<{src: string, alt: string}> }
+}) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const { openModal } = useModal();
   
+  const handleViewProject = (e) => {
+    e.stopPropagation();
+    if (modalContent) {
+      openModal(
+        <ProjectModal 
+          title={title}
+          description={modalContent.description}
+          images={modalContent.images}
+        />
+      );
+    }
+  };
+
   return (
     <div className={`${styles.projectCard} ${isExpanded ? styles.expanded : ''}`} role="gridcell" tabIndex="0">
       <h3>{title}</h3>
@@ -36,6 +59,14 @@ export default function ProjectCard({ title, children, image, alt, link }) {
         >
           {isExpanded ? 'Less' : 'More'}
         </button>
+        {modalContent && (
+          <button 
+            className={styles.viewProjectButton}
+            onClick={handleViewProject}
+          >
+            View Project
+          </button>
+        )}
         {link && (
           <a 
             href={link} 

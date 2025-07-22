@@ -1,5 +1,6 @@
 import { Inter } from 'next/font/google';
 import "./globals.css";
+import { ModalProvider } from './components/ModalContext';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -33,7 +34,9 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body suppressHydrationWarning>
-        {children}
+        <ModalProvider>
+          {children}
+        </ModalProvider>
       </body>
     </html>
   );
