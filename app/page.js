@@ -65,10 +65,6 @@ export default function Home() {
             <div className={styles.projectCard} role="gridcell" tabIndex="0">
               <h3>Stadtberichter</h3>
               <p>Next.js/React</p>
-              <p>Target Audience: Municipal Authorities</p>
-              <p>Project Type: Informational Website</p>
-              <p>Role: Lead Developer</p>
-              <p>Duration: 5 days</p>
               <a 
                   href="https://sb-info.vercel.app/" 
                   target="_blank" 
@@ -98,10 +94,7 @@ export default function Home() {
             <div className={styles.projectCard} role="gridcell" tabIndex="0">
               <h3>Stadtberichter App</h3>
               <p>Next.js/React</p>
-              <p>Target Audience: Citizens</p>
-              <p>Project Type: Civic Participation App</p>
-              <p>Role: Lead Developer</p>
-              <p>Duration: 1 month</p>
+
               <div className={styles.projectImage}>
                 <Image 
                   src="/images/JPL3Poster_SB2.jpg" 
@@ -121,10 +114,7 @@ export default function Home() {
             <div className={styles.projectCard} role="gridcell" tabIndex="0">
               <h3>PFP Festival</h3>
               <p>Next.js</p>
-              <p>Target Audience: Festival Attendees</p>
-              <p>Project Type: Informational Website</p>
-              <p>Role: Lead Developer</p>
-              <p>Duration: 2 days</p>
+
               <div className={styles.projectImage}>
                 <Image 
                   src="/images/JPL3Poster_BB.jpg" 
@@ -144,10 +134,7 @@ export default function Home() {
             <div className={styles.projectCard} role="gridcell" tabIndex="0">
               <h3>Hoyieo Health</h3>
               <p>Conceptual UI/UX App Design</p>
-              <p>Target Audience: Homeopathy Patients</p>
-              <p>Project Type: Informational Website</p>
-              <p>Role: Designer</p>
-              <p>Duration: 4 days</p>
+
               <div className={styles.projectImage}>
                 <Image 
                   src="/images/JPL3Poster_HA2.jpg" 
@@ -167,10 +154,7 @@ export default function Home() {
             <div className={styles.projectCard} role="gridcell" tabIndex="0">
               <h3>Airbus Group Headquarters Berlin Touchtable</h3>
               <p>Conceptual UI/UX</p>
-              <p>Target Audience: Visiting Dignitaries at Airbus Group Headquarters, Berlin</p>
-              <p>Project Type: Interactive Touchtable Experience</p>
-              <p>Role: Designer, Lead Developer</p>
-              <p>Duration: 3 months</p>
+
               <div className={styles.projectImage}>
                 <Image 
                   src="/images/JPL3Poster_AB.jpg" 
@@ -189,11 +173,6 @@ export default function Home() {
             </div>
             <div className={styles.projectCard} role="gridcell" tabIndex="0">
               <h3>Airbus Group Ottobrunn Showroom Expo piece</h3>
-              <p>Conceptual UI/UX</p>
-              <p>Target Audience: Visitors at Airbus Group Ottobrunn Showroom, Ottobrunn</p>
-              <p>Project Type: RFID Driven Interactive Experience</p>
-              <p>Role: Lead Designer, Lead Developer</p>
-              <p>Duration: 3 months</p>
               <div className={styles.projectImage}>
                 <Image 
                   src="/images/JPL3Poster_AB3.jpg" 
@@ -340,6 +319,10 @@ export default function Home() {
             </div>
 
           </section>
+          <section id="contact">
+  <h2>Let&apos;s talk</h2>
+  <a href="mailto:jan.peiro@protonmail.com">jan.peiro@protonmail.com</a>
+</section>
           </section>
 
         
