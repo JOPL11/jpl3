@@ -69,6 +69,15 @@ export default function Home() {
               <p>Project Type: Informational Website</p>
               <p>Role: Lead Developer</p>
               <p>Duration: 5 days</p>
+              <a 
+                  href="https://sb-info.vercel.app/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className={styles.showcaseLink}
+                  aria-label="View React Three Fiber / GSAP project"
+                >
+                  View Project
+               
               <div className={styles.projectImage}>
                 <Image 
                   src="/images/JPL3Poster_SB.jpg" 
@@ -84,6 +93,7 @@ export default function Home() {
                   priority
                 />
               </div>
+              </a>
             </div>
             <div className={styles.projectCard} role="gridcell" tabIndex="0">
               <h3>Stadtberichter App</h3>
