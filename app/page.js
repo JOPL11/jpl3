@@ -48,12 +48,15 @@ export default function Home() {
             Pro7, and many others.</p>
 
             <p>Throughout this time I have worked freelance and employed 
-            in capacities  ranging from visual concept developer, designer, 
-            art director, coder  & motion designer.</p> 
+            in capacities ranging from visual concept artist, designer, 
+            art director, creative developer & motion designer.</p> 
+
+            <p>More on these projects coming soon.</p>
 
             <div>
             <section id="work" className={styles.section}>
           <h2>Selected Projects</h2>
+          <p>More coming soon</p>
           <div className={styles.projectsGrid}>
             {/* Add your project cards here */}
             <div className={styles.projectCard}>
@@ -67,6 +70,22 @@ export default function Home() {
             <div className={styles.projectCard}>
               <h3>Hoyieo Health</h3>
               <p>Conceptual UI/UX</p>
+            </div>
+            <div className={styles.projectCard}>
+              <h3>Airbus Group Headquarters Berlin Touchtable</h3>
+              <p>Conceptual UI/UX</p>
+            </div>
+            <div className={styles.projectCard}>
+              <h3>Airbus Group Ottobrunn Showroom Expo piece</h3>
+              <p>Conceptual UI/UX</p>
+            </div>
+            <div className={styles.projectCard}>
+              <h3>Spiegel TV</h3>
+              <p>Conceptual UI/UX</p>
+            </div>
+            <div className={styles.projectCard}>
+              <h3>RedBull Austria</h3>
+              <p>Intranet Project</p>
             </div>
           </div>
         </section>
