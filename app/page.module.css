@@ -210,54 +210,132 @@
 }
 
 .projectCard {
-  background: rgba(0, 0, 0, 0.2);
+  background: #222d38;
   border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
   overflow: hidden;
-}
-
-.projectCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255,255,255,.1);
 }
 
 .projectCard h3 {
-  color: #a2feff;
   margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #a2feff;
+  font-size: 1.25rem;
 }
 
-.projectCard p {
-  color: rgba(255, 255, 255, 0.8);
+.cardContent {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+  padding: 0;
   margin: 0;
+  line-height: 1.3;
+}
+
+.cardContent p {
+  margin: 0.25rem 0;
   font-size: 0.9rem;
+}
+
+.cardContent.showContent {
+  max-height: 500px;
+  opacity: 1;
+  padding: 0.5rem 0;
+  margin-bottom: 0.5rem;
+}
+
+.cardActions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.projectLink {
+  background-color: #2a5b6d;
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 120px;
+  text-align: center;
+}
+
+.projectLink:hover {
+  background-color: #3a7a91;
+  color: white;
+}
+
+.projectLink:focus {
+  outline: 2px solid #0070f3;
+  outline-offset: 2px;
+}
+
+.moreButton {
+  background-color: #264651;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  color: white;
+  flex: 1;
+  min-width: 120px;
+}
+
+.moreButton:hover {
+  background-color: #366575;
+}
+
+.moreButton:focus {
+  outline: 2px solid #0070f3;
+  outline-offset: 2px;
 }
 
 .projectImage {
   margin-top: 1rem;
+  width: 100%;
   border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-  height: 150px;
-  position: relative;
-  width: 100%;
+  transition: all 0.3s ease;
 }
 
-/* Ensure image fills container while maintaining aspect ratio */
 .projectImage img {
+  border-radius: 6px;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
 }
 
-.projectCard:hover .projectImage {
-  transform: translateY(-4px);
+.projectCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 480px) {
+  .cardActions {
+    flex-direction: column;
+  }
+  
+  .moreButton,
+  .projectLink {
+    width: 100%;
+  }
 }
 
 /* Footer Styles */
