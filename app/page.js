@@ -86,6 +86,29 @@ export default function Home() {
               </div>
             </div>
             <div className={styles.projectCard} role="gridcell" tabIndex="0">
+              <h3>Stadtberichter App</h3>
+              <p>Next.js/React</p>
+              <p>Target Audience: Citizens</p>
+              <p>Project Type: Civic Participation App</p>
+              <p>Role: Lead Developer</p>
+              <p>Duration: 1 month</p>
+              <div className={styles.projectImage}>
+                <Image 
+                  src="/images/JPL3Poster_SB2.jpg" 
+                  alt="Stadtberichter project screenshot" 
+                  width={800}
+                  height={600}
+                  style={{
+                    width: '100%',
+                    height: '150px',
+                    objectFit: 'cover',
+                    objectPosition: 'center'
+                  }}
+                  priority
+                />
+              </div>
+            </div>
+            <div className={styles.projectCard} role="gridcell" tabIndex="0">
               <h3>PFP Festival</h3>
               <p>Next.js</p>
               <p>Target Audience: Festival Attendees</p>
