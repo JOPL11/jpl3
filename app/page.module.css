@@ -79,9 +79,24 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .projectsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
 @media (max-width: 768px) {
   .contentWrapper {
     flex-direction: column;
+  }
+  
+  .projectImage {
+    height: 150px; /* Maintain 150px height on mobile */
+  }
+  
+  .projectsGrid {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 1rem;
   }
   
   .logoSidebar {
@@ -160,6 +175,89 @@
 .content p {
   margin-bottom: 1rem;
   line-height: 1.7;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 2rem 0;
+  width: 100%;
+  border: none;
+}
+
+/* Showcase Link */
+.showcaseLink {
+  color: #a2feff;
+  text-decoration: none;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.showcaseLink:hover,
+.showcaseLink:focus {
+  color: #61dafb;
+  text-decoration: underline;
+  outline: none;
+}
+
+/* Project Styles */
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+.projectCard {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.projectCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.projectCard h3 {
+  color: #a2feff;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.projectCard p {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.projectImage {
+  margin-top: 1rem;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  height: 150px;
+  position: relative;
+  width: 100%;
+}
+
+/* Ensure image fills container while maintaining aspect ratio */
+.projectImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.projectCard:hover .projectImage {
+  transform: translateY(-4px);
 }
 
 /* Footer Styles */
