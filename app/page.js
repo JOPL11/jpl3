@@ -284,7 +284,7 @@ export default function Home() {
                   title="Showreel 2025"
                   image="/images/JPL3Poster.jpg"
                   alt="Showreel 2025"
-                  link="https://www.youtube.com/watch?v=WGGgQzQwH54&ab_channel=JanPeiro"
+                  link="https://vimeo.com/1103891139"
                 >
                   <p>2D / 3D Motion</p>
                   <p>Concept, 3D Modeling, Animation, VFX, Design, Post-Production</p>
