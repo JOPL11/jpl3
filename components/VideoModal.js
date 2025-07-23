@@ -32,7 +32,7 @@ export default function VideoModal({ isOpen, onClose, videoUrl }) {
   };
 
   const videoId = getVideoId(videoUrl);
-  const embedUrl = `https://player.vimeo.com/video/${videoId}?autoplay=1`;
+  const embedUrl = `https://player.vimeo.com/video/${videoId}?autoplay=1&controls=1&title=0&byline=0&portrait=0&badge=0&transparent=0`;
 
   return (
     <div className={styles.modalOverlay} onClick={handleBackdropClick}>

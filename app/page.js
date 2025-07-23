@@ -74,7 +74,7 @@ export default function Home() {
             Munich Germany.</p>
 
             <p>Passionate about code, 
-            visualization & animation. </p>
+            design & animation. </p>
 
             <p>20 years experience spans end-clients in the 
             entertainment, automotive, software and 
@@ -98,7 +98,7 @@ export default function Home() {
                 <li role="listitem">vite, git, npm</li>
                 <li role="listitem">SQL / Supabase</li>
                 <li role="listitem">GSAP Animation Engine</li>
-                <li role="listitem"><a href="https://www.youtube.com/watch?v=WGGgQzQwH54&ab_channel=JanPeiro" target="_blank" rel="noopener noreferrer" className={styles.skillLink}>Cinema4D</a>, Blender</li>
+                <li role="listitem">Cinema4D, Blender</li>
                 <li role="listitem">Octane, Redshift, Corona Render Engines</li>
                 <li role="listitem">After Effects, Video Edit, Video Post-Production</li>
                 <li role="listitem">Adobe Suite</li>

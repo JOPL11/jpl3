@@ -15,8 +15,8 @@ export default function VideoProjectCard({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const handleCardClick = (e) => {
-    e.preventDefault();
+  const handleLaunchVideo = (e) => {
+    e.stopPropagation();
     setIsModalOpen(true);
   };
 
@@ -35,8 +35,6 @@ export default function VideoProjectCard({
         className={`${styles.projectCard} ${isExpanded ? styles.expanded : ''}`} 
         role="gridcell" 
         tabIndex="0"
-        onClick={handleCardClick}
-        style={{ cursor: 'pointer' }}
       >
         <h3>{title}</h3>
         <div className={`${styles.cardContent} ${isExpanded ? styles.showContent : ''}`}>
@@ -64,6 +62,18 @@ export default function VideoProjectCard({
               objectPosition: 'center'
             }}
           />
+          <button 
+            className={styles.viewProjectButton}
+            onClick={handleLaunchVideo}
+            style={{
+              width: '100%',
+              marginTop: '10px',
+              padding: '8px 0',
+              cursor: 'pointer'
+            }}
+          >
+            Launch Video
+          </button>
         </div>
       </div>
       
