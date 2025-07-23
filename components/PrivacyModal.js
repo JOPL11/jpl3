@@ -39,10 +39,12 @@ export default function PrivacyModal({ isOpen, onClose, type = 'privacy' }) {
             <>
               <section className={styles.section}>
                 <h3 className={styles.modalContentH3}>Information We Collect</h3>
-                <p>We collect minimal information to provide and improve our services to you. This includes:</p>
+                <p>We collect minimal information to provide our services to you:</p>
                 <ul>
-                  <li>Information you provide when contacting us through our contact form (your email address and message)</li>
-                  <li>Basic usage data through server logs (IP address, browser type, pages visited)</li>
+                  <li>Information you provide when contacting us through our contact form (your email address and message content)</li>
+                  <li>No analytics or tracking scripts are used on this website</li>
+                  <li>Our hosting provider (Vercel) may collect basic request logs (IP address, browser type, pages visited) for security and operational purposes, but if he does, he doesn&apos;t share that with me. And honestly, I don&apos;t even want to see that kind of stuff.</li>
+                  <li>I have no interest in it at all.</li>
                 </ul>
               </section>
 
