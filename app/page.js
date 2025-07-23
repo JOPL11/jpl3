@@ -145,13 +145,13 @@ export default function Home() {
                   <p>Duration: 3 months</p>
                 </ProjectCard>
                 <ProjectCard 
-                  title="PFP Festival"
+                  title="PFP Carribean Festival"
                   image="/images/JPL3Poster_BB.jpg"
                   alt="PFP Carribean Festival"
                   link="https://newest-ulf.vercel.app/"
                 >
                   <p>Conceptual UI/UX</p>
-                  <p>Target Audience: Festival Attendees</p>
+                  <p>Target Audience: Carribean Party People</p>
                   <p>Project Type: Simple Next.js/React/R3F website</p>
                   <p>Role: Lead Designer, Lead Developer</p>
                   <p>Duration: 4 Days</p>
