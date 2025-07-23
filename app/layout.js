@@ -70,7 +70,7 @@ export const metadata = {
     apple: '/images/apple-touch-icon.png',
   },
   verification: {
-    google: 'YOUR_GOOGLE_VERIFICATION_CODE',
+    google: 'google-site-verification=iGLpuC-ydCLPjzPlxwOi7JVmXibniROkt6LEreUROtE',
     yandex: 'YOUR_YANDEX_VERIFICATION_CODE',
   },
 };
