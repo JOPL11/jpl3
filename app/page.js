@@ -118,14 +118,14 @@ export default function Home() {
                 </ul>
               </section>
               <div className={styles.profileImageContainer}>
-                <Image 
-                  src="/images/me3.jpg" 
+              {/*  <Image 
+               src="/images/me3.jpg"
                   alt="Jan Peiro" 
                   width={200}
                   height={200}
                   className={styles.profileImage}
                   priority
-                />
+                />*/}
               </div>
             </div>
             <hr className={styles.divider} />
@@ -222,7 +222,7 @@ export default function Home() {
                   <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
                   <p><strong>Duration:</strong> 4 Days</p>
                 </ProjectCard>
-                <ProjectCard 
+            {/*     <ProjectCard 
                   title="Spiegel Geschichte TV Website"
                   image="/images/JPL3Poster_SG.jpg"
                   alt="Spiegel Geschichte TV Website"
@@ -236,12 +236,15 @@ export default function Home() {
                   <p><strong>Target Audience:</strong> Spiegel Geschichte TV Viewers</p>
                   <p><strong>Role:</strong> Lead Designer / Coder</p>
                   <p><strong>Duration:</strong> 1 Month</p>
-                </ProjectCard>
+                </ProjectCard> */}
                 <ProjectCard 
                   title="Homeopathy Health App Design"
                   image="/images/JPL3Poster_HA2.jpg"
                   alt="Homeopathy Health App Design"
-    
+                  client={{
+                    name: "Uniqued",
+                    website: "https://www.uniqued.de/"
+                  }}
                   modalContent={{
                     description: `Logo, CI/CD, UI/UX, and development of a health app for homeopathy.`,
                     images: [
