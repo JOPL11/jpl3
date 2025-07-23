@@ -9,6 +9,7 @@ const PrivacyModal = dynamic(() => import('../components/PrivacyModal'), {
 });
 import styles from "./page.module.css";
 import ProjectCard from './components/ProjectCard';
+import VideoProjectCard from './components/VideoProjectCard';
 import ContactForm from './components/ContactForm';
 
 function CopyrightYear() {
@@ -280,17 +281,19 @@ export default function Home() {
             <section className={styles.section}>
               <h2 id="motion-heading">Motion</h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
-              <ProjectCard 
+                
+              <VideoProjectCard 
                   title="Showreel 2025"
                   image="/images/JPL3Poster.jpg"
                   alt="Showreel 2025"
-                  link="https://vimeo.com/1103891139"
+                  videoUrl="https://vimeo.com/1103891139"
                 >
                   <p>2D / 3D Motion</p>
                   <p>Concept, 3D Modeling, Animation, VFX, Design, Post-Production</p>
                   <p>Cinema4D, After Effects, Duik Tools, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
                   <p>Role: Concept / Animation / Post-Production</p>
-                </ProjectCard>
+                  <p>3D Video Production for endclients such as Airbus Group, MTU Aero Engines, Mercedees Benz, Audi, TÜV Süd, and more.</p>
+                </VideoProjectCard>
               </div>
             </section>
             <hr className={styles.divider} />
