@@ -84,6 +84,50 @@
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   }
 }
+@media (max-width: 810px) {
+  .main {
+    flex: 1;
+    padding: 0.1rem;
+    width: 800px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .content {
+    color: #a2feff;
+    border-radius: 8px;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  .logoContainer {
+    display: flex;
+    align-items: center;
+    max-width: 400px;
+  }
+  .contentLogo {
+    max-width: 300px;  
+    min-height: 0;
+    padding: 0.1rem;  
+    z-index: 0;
+    filter: drop-shadow(0 22px 11px rgba(0, 0, 0, 0.5));
+  }
+  .logoSidebar{
+    max-width: 300px;
+    width: 300px;
+    height: auto;
+    margin: 0 auto;
+    padding: 1rem;  
+    transition: all 0.3s ease;
+
+  }
+
+}
+
+
 
 @media (max-width: 768px) {
   .contentWrapper {
@@ -135,7 +179,6 @@
       z-index: 0;
       filter: drop-shadow(0 22px 11px rgba(0, 0, 0, 0.5));
     }
-
   }
 }
 
