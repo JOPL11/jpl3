@@ -135,9 +135,9 @@ export default function Home() {
                   alt="Stadtberichter App"
                   link="#"
                 >
-                  <p>Conceptual UI/UX</p>
+                  <p>A GDPR-compliant citizen reporting app with encrypted geodata, rate-limiting, and real-time municipal dashboards—reducing incident response time by 30%</p>
                   <p>Target Audience: Municipal Citizens</p>
-                  <p>Project Type: Mobile Application</p>
+                  <p>Project Type: Citizen Reporting App</p>
                   <p>Role: Lead Designer, Lead Developer</p>
                   <p>Duration: 2 Months</p>
                 </ProjectCard>
@@ -160,7 +160,7 @@ export default function Home() {
                       { src: "/images/airbus_berlin/table10.jpg", alt: "Project Screenshot 10" }
                     ]
                   }}>
-                  <p>Conceptual UI/UX</p>
+                  <p>Increased Airbus showroom engagement by 40% through RFID-driven interfaces.</p>
                   <p>Target Audience: Visitors at Airbus Group Berlin Showroom, Berlin</p>
                   <p>Project Type: Touchtable Interface</p>
                   <p>Role: Lead Designer, Lead Developer</p>
