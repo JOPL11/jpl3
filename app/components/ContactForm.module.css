@@ -39,7 +39,7 @@
   font-size: 1rem;
   line-height: 1.5;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  background: linear-gradient(180deg, #4d4e4e 0%, #f9fafb 20%);
+  background: linear-gradient(180deg, #6e6e6e 0%, #f9fafb 30%);
 
   color: #111827;
 }
@@ -170,7 +170,7 @@
 .submitButton:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(46, 46, 46, 0.2);
-  background: linear-gradient(180deg, #3a616e 10%, #223e47 90%);
+  background: linear-gradient(180deg, #548da0 0%, #345f6d 70%);
 }
 
 .submitButton:active {

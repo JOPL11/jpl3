@@ -18,8 +18,11 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "My Next.js Site",
-  description: "A modern website built with Next.js",
+  title: "Jan Peiro Portfolio",
+  icons: {
+    icon: '/images/favicon.ico',
+  },
+  description: "Design / Motion / Code",
 };
 
 export default function RootLayout({ children }) {

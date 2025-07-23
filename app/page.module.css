@@ -94,7 +94,7 @@
     box-sizing: border-box;
   }
   .content {
-    color: #a2feff;
+    color: #acfeff;
     border-radius: 8px;
     padding: 2rem;
     max-width: 800px;
@@ -240,7 +240,7 @@
 }
 
 .content {
-  color: #a2feff;
+  color: #acfeff;
   border-radius: 8px;
   padding: 2rem;
   max-width: 600px;
@@ -250,7 +250,7 @@
 }
 
 .content h2 {
-  color: #a2feff;
+  color: #bbffff;
   margin-top: 0;
   margin-bottom: 1.5rem;
   font-size: 2rem;
