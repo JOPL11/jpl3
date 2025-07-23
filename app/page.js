@@ -175,7 +175,7 @@ export default function Home() {
                       { src: "/images/airbus_berlin/table10.jpg", alt: "Project Screenshot 10" }
                     ]
                   }}>
-                  <p>Increased Airbus showroom engagement by 40% through RFID-driven interfaces.</p>
+                  <p>Increased visitor awe-factor by 30% through interactive touchtable interface.</p>
                   <p>Target Audience: Visitors at Airbus Group Berlin Showroom, Berlin</p>
                   <p>Project Type: Touchtable Interface</p>
                   <p>Role: Lead Designer, Lead Developer</p>
@@ -197,20 +197,20 @@ export default function Home() {
                     ]
                   }}
                 >
-                  <p>Conceptual UI/UX</p>
+                  <p>Increased Airbus showroom engagement by 40% through RFID-driven interfaces.</p>
                   <p>Target Audience: Visitors at Airbus Group Ottobrunn Showroom, Ottobrunn</p>
                   <p>Project Type: RFID Driven Interactive Experience</p>
                   <p>Role: Lead Designer, Lead Developer</p>
                   <p>Duration: 3 months</p>
                 </ProjectCard>
                 <ProjectCard 
-                  title="PFP Carribean Festival"
+                  title="PFP Caribbean Festival"
                   image="/images/JPL3Poster_BB.jpg"
-                  alt="PFP Carribean Festival"
+                  alt="PFP Caribbean Festival"
                   link="https://newest-ulf.vercel.app/"
                 >
                   <p>Conceptual UI/UX</p>
-                  <p>Target Audience: Carribean Party People</p>
+                  <p>Target Audience: Caribbean Party People</p>
                   <p>Project Type: Simple Next.js/React/R3F website</p>
                   <p>Role: Lead Designer, Lead Developer</p>
                   <p>Duration: 4 Days</p>
@@ -292,7 +292,7 @@ export default function Home() {
                   <p>Concept, 3D Modeling, Animation, VFX, Design, Post-Production</p>
                   <p>Cinema4D, After Effects, Duik Tools, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
                   <p>Role: Concept / Animation / Post-Production</p>
-                  <p>3D Video Production for endclients such as Airbus Group, MTU Aero Engines, Mercedees Benz, Audi, TÜV Süd, and more.</p>
+                  <p>3D Video Production for end-clients such as Airbus Group, MTU Aero Engines, Mercedes Benz, Audi, TÜV Süd, and more.</p>
                 </VideoProjectCard>
               </div>
             </section>
