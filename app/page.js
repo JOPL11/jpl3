@@ -258,9 +258,27 @@ export default function Home() {
                   <p>Role: Concept / Animation / Developer</p>
                   <p>Duration: 2 weeks</p>
                 </ProjectCard>
+                
     
               </div>
 
+            </section>
+            <hr className={styles.divider} />
+            <section className={styles.section}>
+              <h2 id="motion-heading">Motion</h2>
+              <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
+              <ProjectCard 
+                  title="Showreel 2025"
+                  image="/images/JPL3Poster.jpg"
+                  alt="Showreel 2025"
+                  link="https://www.youtube.com/watch?v=WGGgQzQwH54&ab_channel=JanPeiro"
+                >
+                  <p>2D / 3D Motion</p>
+                  <p>Concept, 3D Modeling, Animation, VFX, Design, Post-Production</p>
+                  <p>Cinema4D, After Effects, Duik Tools, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
+                  <p>Role: Concept / Animation / Post-Production</p>
+                </ProjectCard>
+              </div>
             </section>
             <hr className={styles.divider} />
             <section id="contact">
