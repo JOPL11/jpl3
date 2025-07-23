@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 
 const PrivacyModal = dynamic(() => import('../components/PrivacyModal'), {
   ssr: false,
 });
-import Image from 'next/image';
 import styles from "./page.module.css";
 import ProjectCard from './components/ProjectCard';
 import ContactForm from './components/ContactForm';
@@ -85,7 +85,9 @@ export default function Home() {
             in capacities ranging from visual concept artist, designer, 
             art director, creative developer & motion designer.</p>
 
-            <p>This site has been under development since 22 July 2025. In the interim, feel free to drop me a line if you have specific questions.</p>
+            <p>This portfolio was designed, coded, and deployed in 18 hours on July 23, 2025. (Yes, really.) For deeper case studies, hit me up.</p>
+           
+            <p>I build immersive 3D interfaces for Fortune 500s and governments—merging design, animation, and bulletproof code.</p>
             <hr className={styles.divider} />
             <section className={styles.section} aria-labelledby="skills-heading">
               <h2 id="skills-heading">Technical Skills</h2>
@@ -104,15 +106,27 @@ export default function Home() {
               </ul>
             </section>
             <hr className={styles.divider} />
-            <section className={styles.section} aria-labelledby="languages-heading">
-              <h2 id="languages-heading">Languages</h2>
-              <ul className={styles.skillsList} role="list">
-                <li role="listitem">English (native)</li>
-                <li role="listitem">German (native)</li>
-                <li role="listitem">Spanish (fluent)</li>
-                <li role="listitem">French (fluent)</li>
-              </ul>
-            </section>
+            <div className={styles.languagesContainer}>
+              <section className={styles.section} aria-labelledby="languages-heading">
+                <h2 id="languages-heading">Languages</h2>
+                <ul className={styles.skillsList} role="list">
+                  <li role="listitem">English (native)</li>
+                  <li role="listitem">German (native)</li>
+                  <li role="listitem">Spanish (fluent)</li>
+                  <li role="listitem">French (fluent)</li>
+                </ul>
+              </section>
+              <div className={styles.profileImageContainer}>
+                <Image 
+                  src="/images/me3.jpg" 
+                  alt="Jan Peiro" 
+                  width={200}
+                  height={200}
+                  className={styles.profileImage}
+                  priority
+                />
+              </div>
+            </div>
             <hr className={styles.divider} />
             <section id="work" className={styles.section} aria-labelledby="projects-heading">
               <h2 id="projects-heading">Selected Projects</h2>
