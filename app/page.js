@@ -85,7 +85,7 @@ export default function Home() {
             in capacities ranging from visual concept artist, designer, 
             art director, creative developer & motion designer.</p>
 
-            <p>This site is under development. In the interim, feel free to drop me a line if you have specific questions.</p>
+            <p>This site has been under development since 22 July 2025. In the interim, feel free to drop me a line if you have specific questions.</p>
             <hr className={styles.divider} />
             <section className={styles.section} aria-labelledby="skills-heading">
               <h2 id="skills-heading">Technical Skills</h2>
@@ -116,7 +116,6 @@ export default function Home() {
             <hr className={styles.divider} />
             <section id="work" className={styles.section} aria-labelledby="projects-heading">
               <h2 id="projects-heading">Selected Projects</h2>
-              <p>More coming soon</p>
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
               <ProjectCard 
                   title="Stadtberichter Info Page"
