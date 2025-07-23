@@ -116,6 +116,7 @@
     margin: 0 auto;
     padding: 1rem;  
     transition: all 0.3s ease;
+    filter: drop-shadow(0 22px 11px rgba(0, 0, 0, 0.5));
   }
   .logoContainer {
     position: static; /* Allow logo to scroll with the page on mobile */
@@ -132,6 +133,7 @@
       min-height: 0;
       padding: 0.25rem;  
       z-index: 0;
+      filter: drop-shadow(0 22px 11px rgba(0, 0, 0, 0.5));
     }
 
   }
@@ -183,6 +185,7 @@
     height: auto;
     margin: 0 auto;
     padding: 0.5rem;
+    filter: drop-shadow(0 22px 11px rgba(0, 0, 0, 0.5));
   }
 }
 
@@ -192,6 +195,7 @@
   padding: 2rem;
   max-height: 100vh; /* Allow it to take up to the full viewport height */
   object-fit: contain; /* Maintain aspect ratio */
+  filter: drop-shadow(0 22px 11px rgba(0, 0, 0, 0.5));
 }
 
 .content {
