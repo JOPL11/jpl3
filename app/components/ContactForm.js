@@ -7,16 +7,28 @@ export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
+    gdprConsent: false
   });
   const [status, setStatus] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [touched, setTouched] = useState({
+    gdprConsent: false
+  });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+  const handleBlur = (e) => {
+    const { name } = e.target;
+    setTouched(prev => ({
+      ...prev,
+      [name]: true
     }));
   };
 
@@ -38,7 +50,7 @@ export default function ContactForm() {
 
       if (response.ok) {
         setStatus('Message sent successfully!');
-        setFormData({ name: '', email: '', message: '' });
+        setFormData({ name: '', email: '', message: '', gdprConsent: false });
       } else {
         throw new Error(data.message || 'Something went wrong');
       }
@@ -90,9 +102,39 @@ export default function ContactForm() {
         />
       </div>
       
+      <div className={`${styles.formGroup} ${styles.checkboxGroup}`}>
+        <input
+          type="checkbox"
+          id="gdprConsent"
+          name="gdprConsent"
+          checked={formData.gdprConsent}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          required
+          className={styles.checkboxInput}
+        />
+        <label htmlFor="gdprConsent" className={styles.checkboxLabel}>
+          I consent to having my data processed according to the{' '}
+          <a 
+            href="#" 
+            onClick={(e) => {
+              e.preventDefault();
+              const event = new CustomEvent('openPrivacyModal');
+              window.dispatchEvent(event);
+            }}
+            className={styles.privacyLink}
+          >
+            Privacy Policy
+          </a>{' '}*
+        </label>
+        {touched.gdprConsent && !formData.gdprConsent && (
+          <p className={styles.errorText}>You must agree to the privacy policy to continue</p>
+        )}
+      </div>
+      
       <button 
         type="submit" 
-        disabled={isLoading}
+        disabled={isLoading || !formData.gdprConsent}
         className={`${styles.submitButton} ${isLoading ? styles.loading : ''}`}
       >
         {isLoading ? 'Sending...' : 'Send Message'}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 
 const PrivacyModal = dynamic(() => import('../components/PrivacyModal'), {
@@ -34,6 +34,18 @@ export default function Home() {
     // Prevent default anchor behavior
     return false;
   };
+
+  useEffect(() => {
+    const handleOpenPrivacyModal = () => {
+      openModal('privacy');
+    };
+
+    window.addEventListener('openPrivacyModal', handleOpenPrivacyModal);
+    
+    return () => {
+      window.removeEventListener('openPrivacyModal', handleOpenPrivacyModal);
+    };
+  }, []);
 
   return (
     <div className={styles.container} role="document">
