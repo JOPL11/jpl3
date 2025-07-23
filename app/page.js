@@ -75,11 +75,11 @@ export default function Home() {
             <p>Passionate about code, 
             visualization & animation. </p>
 
-            <p>20 years experience spans clients in the 
+            <p>20 years experience spans end-clients in the 
             entertainment, automotive, software and 
             aerospace industries - such as Airbus Group, 
-            Spiegel TV, BMW Group, Audi, NATO, 
-            Pro7, and many others.</p>
+            Spiegel TV, Red Bull Austria, BMW Group, Audi, NATO, 
+            Pro7, Warner Brothers, and many others.</p>
 
             <p>Throughout this time I&apos;ve worked freelance and employed 
             in capacities ranging from visual concept artist, designer, 
@@ -101,6 +101,16 @@ export default function Home() {
                 <li role="listitem">Adobe Suite</li>
                 <li role="listitem">Design, Animation, Development, Rapid Prototyping</li>
                 <li role="listitem">SEO</li>
+              </ul>
+            </section>
+            <hr className={styles.divider} />
+            <section className={styles.section} aria-labelledby="languages-heading">
+              <h2 id="languages-heading">Languages</h2>
+              <ul className={styles.skillsList} role="list">
+                <li role="listitem">English (native)</li>
+                <li role="listitem">German (native)</li>
+                <li role="listitem">Spanish (fluent)</li>
+                <li role="listitem">French (fluent)</li>
               </ul>
             </section>
             <hr className={styles.divider} />
@@ -231,16 +241,6 @@ export default function Home() {
                   <p>Duration: 1.5 weeks</p>
                 </ProjectCard>
               </div>
-            </section>
-            <hr className={styles.divider} />
-            <section className={styles.section} aria-labelledby="languages-heading">
-              <h2 id="languages-heading">Languages</h2>
-              <ul className={styles.skillsList} role="list">
-                <li role="listitem">English (native)</li>
-                <li role="listitem">German (native)</li>
-                <li role="listitem">Spanish (fluent)</li>
-                <li role="listitem">French (fluent)</li>
-              </ul>
             </section>
             <hr className={styles.divider} />
             <section className={styles.section}>
