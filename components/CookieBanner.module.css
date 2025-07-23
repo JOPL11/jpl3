@@ -29,11 +29,20 @@
   color: #ffffff;
 }
 
-.link {
+.linkButton {
+  background: none;
+  border: none;
   color: #2563eb;
   text-decoration: underline;
-  margin-left: 0.3rem;
+  margin: 0 0.3rem;
+  padding: 0;
+  cursor: pointer;
+  font-size: inherit;
   white-space: nowrap;
+}
+
+.linkButton:hover {
+  text-decoration: none;
 }
 
 .button {

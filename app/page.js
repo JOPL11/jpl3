@@ -1,6 +1,11 @@
 'use client';
 
 import { useState } from 'react';
+import dynamic from 'next/dynamic';
+
+const PrivacyModal = dynamic(() => import('../components/PrivacyModal'), {
+  ssr: false,
+});
 import Image from 'next/image';
 import styles from "./page.module.css";
 import ProjectCard from './components/ProjectCard';
@@ -12,6 +17,24 @@ function CopyrightYear() {
 }
 
 export default function Home() {
+  const [showPrivacyModal, setShowPrivacyModal] = useState(false);
+  const [modalContent, setModalContent] = useState('privacy');
+
+  const openModal = (type) => {
+    // Scroll to top of the page
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+    
+    // Set modal content and show modal
+    setModalContent(type);
+    setShowPrivacyModal(true);
+    
+    // Prevent default anchor behavior
+    return false;
+  };
+
   return (
     <div className={styles.container} role="document">
       <header role="banner" className={styles.header}>
@@ -241,13 +264,32 @@ export default function Home() {
       <footer className={styles.footer} role="contentinfo">
 
         <div className={styles.footerLinks} role="navigation" aria-label="Footer">
-        <p>&copy; <CopyrightYear /> Jan Peiro. All rights reserved.</p>
-          <a href="#" className={styles.footerLink} aria-label="Privacy Policy">Privacy Policy</a>
+          <p>&copy; <CopyrightYear /> Jan Peiro. All rights reserved.</p>
+          <button 
+            onClick={() => openModal('privacy')} 
+            className={styles.footerLink} 
+            aria-label="Privacy Policy"
+          >
+            Privacy Policy
+          </button>
           <span aria-hidden="true">  </span>
-          <a href="#" className={styles.footerLink} aria-label="Terms of Service">Terms of Service</a>
+          <button 
+            onClick={() => openModal('tos')} 
+            className={styles.footerLink} 
+            aria-label="Terms of Service"
+          >
+            Terms of Service
+          </button>
           <span aria-hidden="true">  </span>
-          <a href="#" className={styles.footerLink} aria-label="Contact Us">Contact</a>
+          <a href="#contact" className={styles.footerLink} aria-label="Contact">
+            Contact
+          </a>
         </div>
+        <PrivacyModal 
+          isOpen={showPrivacyModal} 
+          onClose={() => setShowPrivacyModal(false)}
+          type={modalContent}
+        />
       </footer>
     </div>
   );

@@ -1,0 +1,98 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 1rem;
+  backdrop-filter: blur(3px);
+}
+
+.modalContent {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  padding: 0.25rem 0.5rem;
+  line-height: 1;
+  border-radius: 4px;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.closeButton:hover {
+  color: #000;
+  background-color: #f0f0f0;
+}
+
+.modalContentH2 {
+  margin-top: 0;
+  color: #ffffff;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  padding-right: 2rem;
+}
+
+.modalContentH3 {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.section {
+  margin-bottom: 1.5rem;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.modalContent p {
+  margin: 0.75rem 0;
+  line-height: 1.6;
+}
+
+.modalContent ul {
+  padding-left: 1.25rem;
+  margin: 0.75rem 0;
+}
+
+.modalContent li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .modalContent {
+    padding: 1.5rem;
+  }
+  
+  .modalContentH2 {
+    font-size: 1.5rem;
+  }
+  
+  .modalContentH3 {
+    font-size: 1.1rem;
+  }
+}
