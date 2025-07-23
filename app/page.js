@@ -227,6 +227,10 @@ export default function Home() {
                   image="/images/JPL3Poster_SG.jpg"
                   alt="Spiegel Geschichte TV Website"
                   link="#"
+                  client={{
+                    name: "Autentic GmbH",
+                    website: "https://www.autentic.com/"
+                  }}
                 >
                   <p>Conceptual UI/UX</p>
                   <p><strong>Target Audience:</strong> Spiegel Geschichte TV Viewers</p>
