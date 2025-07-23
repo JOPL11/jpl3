@@ -88,7 +88,7 @@ export default function Home() {
                   alt="Airbus Group Berlin Showroom Expo piece"
                 
                   modalContent={{
-                    description: `Touchtable interface`,
+                    description: `Touchtable interface / 7680 x 1080 // Dynamic Content / 4 Chapters`,
                     images: [
                       { src: "/images/airbus_berlin/table2.jpg", alt: "Project Screenshot 1" },
                       { src: "/images/airbus_berlin/table1.jpg", alt: "Project Screenshot 2" },
@@ -113,7 +113,16 @@ export default function Home() {
                   title="Airbus Group Ottobrunn Showroom Expo piece"
                   image="/images/JPL3Poster_AB3.jpg"
                   alt="Airbus Group Ottobrunn Showroom Expo piece"
-                  link="#"
+                  modalContent={{
+                    description: `15 Chapters // RFID Powered Touchscreen Interface // 3D Models`,
+                    images: [
+                      { src: "/images/airbus_ottobrunn/bgbg.jpg", alt: "Project Screenshot 1" },
+                      { src: "/images/airbus_ottobrunn/posterC.jpg", alt: "Project Screenshot 2" },
+                      { src: "/images/airbus_ottobrunn/airbus_14B.jpg", alt: "Project Screenshot 3" },
+                      { src: "/images/airbus_ottobrunn/airbus_18B.jpg", alt: "Project Screenshot 4" },
+                      { src: "/images/airbus_ottobrunn/airbus_21B.jpg", alt: "Project Screenshot 5" },
+                    ]
+                  }}
                 >
                   <p>Conceptual UI/UX</p>
                   <p>Target Audience: Visitors at Airbus Group Ottobrunn Showroom, Ottobrunn</p>
@@ -125,7 +134,7 @@ export default function Home() {
                   title="PFP Festival"
                   image="/images/JPL3Poster_BB.jpg"
                   alt="PFP Carribean Festival"
-                  link="#"
+                  link="https://newest-ulf.vercel.app/"
                 >
                   <p>Conceptual UI/UX</p>
                   <p>Target Audience: Festival Attendees</p>
@@ -224,7 +233,7 @@ export default function Home() {
             </section>
             <hr className={styles.divider} />
             <section id="contact">
-              <h2>Let&apos;s talk</h2>
+              <h2>Contact</h2>
               <a href="mailto:jan.peiro@protonmail.com">jan.peiro@protonmail.com</a>
               <ContactForm />
             </section>
