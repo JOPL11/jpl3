@@ -51,9 +51,24 @@ export default function Home() {
             art director, creative developer & motion designer.</p>
 
             <p>This site is under development. In the interim, feel free to drop me a line if you have specific questions.</p>
-            
             <hr className={styles.divider} />
-
+            <section className={styles.section} aria-labelledby="skills-heading">
+              <h2 id="skills-heading">Technical Skills</h2>
+              <ul className={styles.skillsList} role="list">
+                <li role="listitem">React, Next.js</li>
+                <li role="listitem">Three.js, React 3 Fiber</li>
+                <li role="listitem">vite, git, npm</li>
+                <li role="listitem">SQL / Supabase</li>
+                <li role="listitem">GSAP Animation Engine</li>
+                <li role="listitem"><a href="https://www.youtube.com/watch?v=WGGgQzQwH54&ab_channel=JanPeiro" target="_blank" rel="noopener noreferrer" className={styles.skillLink}>Cinema4D</a>, Blender</li>
+                <li role="listitem">Octane, Redshift, Corona Render Engines</li>
+                <li role="listitem">After Effects, Video Edit, Video Post-Production</li>
+                <li role="listitem">Adobe Suite</li>
+                <li role="listitem">Design, Animation, Development, Rapid Prototyping</li>
+                <li role="listitem">SEO</li>
+              </ul>
+            </section>
+            <hr className={styles.divider} />
             <section id="work" className={styles.section} aria-labelledby="projects-heading">
               <h2 id="projects-heading">Selected Projects</h2>
               <p>More coming soon</p>
@@ -83,7 +98,7 @@ export default function Home() {
                   <p>Duration: 2 Months</p>
                 </ProjectCard>
               <ProjectCard 
-                  title="Airbus Group Berlin Showroom Expo piece"
+                  title="Airbus Group Berlin Showroom Expo Interface"
                   image="/images/JPL3Poster_AB.jpg"
                   alt="Airbus Group Berlin Showroom Expo piece"
                 
@@ -94,7 +109,6 @@ export default function Home() {
                       { src: "/images/airbus_berlin/table1.jpg", alt: "Project Screenshot 2" },
                       { src: "/images/airbus_berlin/table3.jpg", alt: "Project Screenshot 3" },
                       { src: "/images/airbus_berlin/table4.jpg", alt: "Project Screenshot 4" },
-                      { src: "/images/airbus_berlin/table5.png", alt: "Project Screenshot 5" },
                       { src: "/images/airbus_berlin/table6.jpg", alt: "Project Screenshot 6" },
                       { src: "/images/airbus_berlin/table7.jpg", alt: "Project Screenshot 7" },
                       { src: "/images/airbus_berlin/table8.jpg", alt: "Project Screenshot 8" },
@@ -110,7 +124,7 @@ export default function Home() {
                   
                 </ProjectCard>
                 <ProjectCard 
-                  title="Airbus Group Ottobrunn Showroom Expo piece"
+                  title="Airbus Group Ottobrunn Showroom Expo Interface"
                   image="/images/JPL3Poster_AB3.jpg"
                   alt="Airbus Group Ottobrunn Showroom Expo piece"
                   modalContent={{
@@ -167,7 +181,6 @@ export default function Home() {
                       { src: "/images/JPL3Poster_HA6.jpg", alt: "Project Screenshot 4" },
                       { src: "/images/JPL3Poster_HA5.jpg", alt: "Project Screenshot 5" },
                       { src: "/images/JPL3Poster_HA7.jpg", alt: "Project Screenshot 6" },
-                      { src: "/images/JPL3Poster_HA8.jpg", alt: "Project Screenshot 7" },
                       { src: "/images/JPL3Poster_HA9.jpg", alt: "Project Screenshot 8" },
                       { src: "/images/JPL3Poster_HA10.jpg", alt: "Project Screenshot 9" },
                       { src: "/images/JPL3Poster_HA11.jpg", alt: "Project Screenshot 10" },
@@ -183,23 +196,6 @@ export default function Home() {
                   <p>Duration: 1.5 weeks</p>
                 </ProjectCard>
               </div>
-            </section>
-            <hr className={styles.divider} />
-            <section className={styles.section} aria-labelledby="skills-heading">
-              <h2 id="skills-heading">Technical Skills</h2>
-              <ul className={styles.skillsList} role="list">
-                <li role="listitem">React, Next.js</li>
-                <li role="listitem">Three.js, React 3 Fiber</li>
-                <li role="listitem">vite, git, npm</li>
-                <li role="listitem">SQL / Supabase</li>
-                <li role="listitem">GSAP Animation Engine</li>
-                <li role="listitem">Cinema4D, Blender</li>
-                <li role="listitem">Octane, Redshift, Corona Render Engines</li>
-                <li role="listitem">After Effects, Video Edit, Video Post-Production</li>
-                <li role="listitem">Adobe Suite</li>
-                <li role="listitem">Design, Animation, Development, Rapid Prototyping</li>
-                <li role="listitem">SEO</li>
-              </ul>
             </section>
             <hr className={styles.divider} />
             <section className={styles.section} aria-labelledby="languages-heading">
@@ -243,12 +239,13 @@ export default function Home() {
         </div>
       </main>
       <footer className={styles.footer} role="contentinfo">
-        <p>&copy; <CopyrightYear /> Jan Peiro. All rights reserved.</p>
+
         <div className={styles.footerLinks} role="navigation" aria-label="Footer">
+        <p>&copy; <CopyrightYear /> Jan Peiro. All rights reserved.</p>
           <a href="#" className={styles.footerLink} aria-label="Privacy Policy">Privacy Policy</a>
-          <span aria-hidden="true"> | </span>
+          <span aria-hidden="true">  </span>
           <a href="#" className={styles.footerLink} aria-label="Terms of Service">Terms of Service</a>
-          <span aria-hidden="true"> | </span>
+          <span aria-hidden="true">  </span>
           <a href="#" className={styles.footerLink} aria-label="Contact Us">Contact</a>
         </div>
       </footer>

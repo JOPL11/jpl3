@@ -200,6 +200,40 @@
   outline: none;
 }
 
+/* Skills List */
+.skillsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+  color: #a2feff;
+}
+
+.skillsList li {
+  position: relative;
+  padding-left: 1.25rem;
+  line-height: 1.5;
+}
+
+.skillsList li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #61dafb;
+}
+
+.skillLink {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.skillLink:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
 /* Project Styles */
 .projectsGrid {
   display: grid;
@@ -378,32 +412,63 @@
 .footer {
   background-color: #1a1a1a;
   color: #ffffff;
-  padding: 2rem;
-  text-align: center;
+  padding: 1rem 1rem;
   margin-top: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: left;
+
+}
+
+.footerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .footer p {
-  margin: 0;  /* Reduced bottom margin */
+  margin: 0 0 0.5rem 0;
   color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+  text-align: center;
+  width: 100%;
+  padding: 0;
+  align-self: flex-start;
 }
 
 .footerLinks {
   display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: left;
+  gap: 0.5rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .footerLink {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
 }
 
 .footerLink:hover {
   color: #61dafb;
-  text-decoration: underline;
+  background: rgba(255, 255, 255, 0.05);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.footerLink:active {
+  transform: translateY(0);
 }
 
 /* Responsive Design */
@@ -434,7 +499,7 @@
   }
   
   .footer {
-    padding: 1.5rem 1rem;
+    padding: 0rem 0rem;
   }
 }
 
@@ -484,13 +549,19 @@ a.secondary {
 .footer {
   grid-row-start: 3;
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 24px;
+  width: 100%;
+  padding: 1.5rem 0;
 }
 
 .footer a {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  text-align: center;
 }
 
 .footer img {
