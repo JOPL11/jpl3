@@ -138,11 +138,11 @@ export default function Home() {
                   alt="Stadtberichter Info Page"
                   link="#"
                 >
-                  <p>Conceptual UI/UX</p>
-                  <p>Target Audience: Municipal Authorities</p>
-                  <p>Project Type: Infopage about an Application</p>
-                  <p>Role: Lead Designer, Lead Developer</p>
-                  <p>Duration: 4 days</p>
+                  <p>A GDPR-compliant info page for a citizen reporting app</p>
+                  <p><strong>Target Audience:</strong> Municipal Authorities</p>
+                  <p><strong>Project Type:</strong> Infopage about an Application</p>
+                  <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
+                  <p><strong>Duration:</strong> 4 days</p>
                 </ProjectCard>
                 <ProjectCard 
                   title="Stadtberichter App"
@@ -151,16 +151,19 @@ export default function Home() {
                   link="#"
                 >
                   <p>A GDPR-compliant citizen reporting app with encrypted geodata, rate-limiting, and real-time municipal dashboards—reducing incident response time by 30%</p>
-                  <p>Target Audience: Municipal Citizens</p>
-                  <p>Project Type: Citizen Reporting App</p>
-                  <p>Role: Lead Designer, Lead Developer</p>
-                  <p>Duration: 2 Months</p>
+                  <p><strong>Target Audience:</strong> Municipal Citizens</p>
+                  <p><strong>Project Type:</strong> Citizen Reporting App</p>
+                  <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
+                  <p><strong>Duration:</strong> 2 Months</p>
                 </ProjectCard>
               <ProjectCard 
                   title="Airbus Group Berlin Showroom Expo Interface"
                   image="/images/JPL3Poster_AB.jpg"
                   alt="Airbus Group Berlin Showroom Expo piece"
-                
+                  client={{
+                    name: "SMMD e.K. München",
+                    website: "https://www.smmd.team"
+                  }}
                   modalContent={{
                     description: `Touchtable interface / 7680 x 1080 // Dynamic Content / 4 Chapters`,
                     images: [
@@ -176,16 +179,20 @@ export default function Home() {
                     ]
                   }}>
                   <p>Increased visitor awe-factor by 30% through interactive touchtable interface.</p>
-                  <p>Target Audience: Visitors at Airbus Group Berlin Showroom, Berlin</p>
-                  <p>Project Type: Touchtable Interface</p>
-                  <p>Role: Lead Designer, Lead Developer</p>
-                  <p>Duration: 3 months</p>
+                  <p><strong>Target Audience:</strong> Visitors at Airbus Group Berlin Showroom, Berlin</p>
+                  <p><strong>Project Type:</strong> Touchtable Interface</p>
+                  <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
+                  <p><strong>Duration:</strong> 3 months</p>
                   
                 </ProjectCard>
                 <ProjectCard 
                   title="Airbus Group Ottobrunn Showroom Expo Interface"
                   image="/images/JPL3Poster_AB3.jpg"
                   alt="Airbus Group Ottobrunn Showroom Expo piece"
+                  client={{
+                    name: "SMMD e.K. München",
+                    website: "https://www.smmd.team"
+                  }}
                   modalContent={{
                     description: `15 Chapters // RFID Powered Touchscreen Interface // 3D Models`,
                     images: [
@@ -198,10 +205,10 @@ export default function Home() {
                   }}
                 >
                   <p>Increased Airbus showroom engagement by 40% through RFID-driven interfaces.</p>
-                  <p>Target Audience: Visitors at Airbus Group Ottobrunn Showroom, Ottobrunn</p>
-                  <p>Project Type: RFID Driven Interactive Experience</p>
-                  <p>Role: Lead Designer, Lead Developer</p>
-                  <p>Duration: 3 months</p>
+                  <p><strong>Target Audience:</strong> Visitors at Airbus Group Ottobrunn Showroom, Ottobrunn</p>
+                  <p><strong>Project Type:</strong> RFID Driven Interactive Experience</p>
+                  <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
+                  <p><strong>Duration:</strong> 3 months</p>
                 </ProjectCard>
                 <ProjectCard 
                   title="PFP Caribbean Festival"
@@ -210,10 +217,10 @@ export default function Home() {
                   link="https://newest-ulf.vercel.app/"
                 >
                   <p>Conceptual UI/UX</p>
-                  <p>Target Audience: Caribbean Party People</p>
-                  <p>Project Type: Simple Next.js/React/R3F website</p>
-                  <p>Role: Lead Designer, Lead Developer</p>
-                  <p>Duration: 4 Days</p>
+                  <p><strong>Target Audience:</strong> Caribbean Party People</p>
+                  <p><strong>Project Type:</strong> Simple Next.js/React/R3F website</p>
+                  <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
+                  <p><strong>Duration:</strong> 4 Days</p>
                 </ProjectCard>
                 <ProjectCard 
                   title="Spiegel Geschichte TV Website"
@@ -222,9 +229,9 @@ export default function Home() {
                   link="#"
                 >
                   <p>Conceptual UI/UX</p>
-                  <p>Target Audience: Spiegel Geschichte TV Viewers</p>
-                  <p>Role: Lead Designer / Coder</p>
-                  <p>Duration: 1 Month</p>
+                  <p><strong>Target Audience:</strong> Spiegel Geschichte TV Viewers</p>
+                  <p><strong>Role:</strong> Lead Designer / Coder</p>
+                  <p><strong>Duration:</strong> 1 Month</p>
                 </ProjectCard>
                 <ProjectCard 
                   title="Homeopathy Health App Design"
@@ -249,10 +256,10 @@ export default function Home() {
                   }}
                 >
                   <p>Conceptual UI/UX</p>
-                  <p>Target Audience: Health App Users</p>
-                  <p>Project Type: Next.js / React Interface Design</p>
-                  <p>Role: Lead Designer</p>
-                  <p>Duration: 1.5 weeks</p>
+                  <p><strong>Target Audience:</strong> Health App Users</p>
+                  <p><strong>Project Type:</strong> Next.js / React Interface Design</p>
+                  <p><strong>Role:</strong> Lead Designer</p>
+                  <p><strong>Duration:</strong> 1.5 weeks</p>
                 </ProjectCard>
               </div>
             </section>
@@ -267,10 +274,10 @@ export default function Home() {
                   link="https://quantum-pocketwatch.vercel.app/"
                 >
                   <p>Conceptual UI/UX</p>
-                  <p>Target Audience: Genius level freaks</p>
-                  <p>Project Type: React Three Fiber</p>
-                  <p>Role: Concept / Animation / Developer</p>
-                  <p>Duration: 2 weeks</p>
+                  <p><strong>Target Audience:</strong> Genius-level freaks</p>
+                  <p><strong>Project Type:</strong> React Three Fiber</p>
+                  <p><strong>Role:</strong> Concept / Animation / Developer</p>
+                  <p><strong>Duration:</strong> 2 weeks</p>
                 </ProjectCard>
                 
     
@@ -291,7 +298,7 @@ export default function Home() {
                   <p>2D / 3D Motion</p>
                   <p>Concept, 3D Modeling, Animation, VFX, Design, Post-Production</p>
                   <p>Cinema4D, After Effects, Duik Tools, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
-                  <p>Role: Concept / Animation / Post-Production</p>
+                  <p><strong>Role:</strong>Concept / Animation / Post-Production</p>
                   <p>3D Video Production for end-clients such as Airbus Group, MTU Aero Engines, Mercedes Benz, Audi, TÜV Süd, and more.</p>
                 </VideoProjectCard>
               </div>

@@ -12,6 +12,7 @@ export default function ProjectCard({
   image, 
   alt, 
   link,
+  client,
   modalContent // { description: string, images: Array<{src: string, alt: string}> }
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -33,6 +34,33 @@ export default function ProjectCard({
   return (
     <div className={`${styles.projectCard} ${isExpanded ? styles.expanded : ''}`} role="gridcell" tabIndex="0">
       <h3>{title}</h3>
+      {client && (
+        <a 
+          href={client.website || '#'} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className={styles.clientInfo}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <span><strong>Client:</strong> {client.name}</span>
+          {client.logo && (
+            <div className={styles.clientLogo}>
+              <Image 
+                src={client.logo} 
+                alt={`${client.name} logo`}
+                width={80}
+                height={40}
+                style={{
+                  width: 'auto',
+                  height: '20px',
+                  objectFit: 'contain',
+                  marginLeft: '10px'
+                }}
+              />
+            </div>
+          )}
+        </a>
+      )}
       <div className={`${styles.cardContent} ${isExpanded ? styles.showContent : ''}`}>
         {children}
       </div>

@@ -9,6 +9,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 /* Languages & Profile Section */
 .languagesContainer {
   display: flex;
@@ -57,7 +58,7 @@
     height: 120px;
     position: sticky;
     right: 0;
-    top: 37%;
+    top: 45%;
     background: white;
     z-index: 1;
   }
@@ -668,9 +669,12 @@
   background: var(--gray-alpha-100);
   padding: 2px 4px;
   border-radius: 4px;
-  font-weight: 600;
+  font-weight: 300;
 }
-
+.projectCard p strong {
+  font-weight: 600; /* Slightly bolder */
+  color: white;
+}
 .ctas {
   display: flex;
   gap: 16px;
