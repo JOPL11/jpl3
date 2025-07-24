@@ -116,14 +116,14 @@ export default function Home() {
                 </ul>
               </section>
               <div className={styles.profileImageContainer}>
-              {/*  <Image 
+                <Image 
                src="/images/me3.jpg"
                   alt="Jan Peiro" 
                   width={200}
                   height={200}
                   className={styles.profileImage}
                   priority
-                />*/}
+                />
               </div>
             </div>
             <hr className={styles.divider} />
@@ -201,7 +201,7 @@ export default function Home() {
                   image="/images/JPL3Poster_SB2.jpg"
                   alt="Stadtberichter App"
                   link="#"
-                  text="A GDPR-compliant civics oriented app with encrypted geodata, rate-limiting and other security features feeding into a real-time municipal dashboard — reducing incident response time by 30%"
+                  text="A GDPR-compliant civics oriented app with encrypted geodata, rate-limiting and other security features feeding into a real-time municipal dashboard"
                 >
                   <p><strong>Target Audience:</strong> Municipal Citizens</p>
                   <p><strong>Project Type:</strong> Citizen Reporting App</p>
@@ -221,11 +221,12 @@ export default function Home() {
                   <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
                   <p><strong>Duration:</strong> 4 Days</p>
                 </ProjectCard>
-            {/*     <ProjectCard 
+                <ProjectCard 
                   title="Spiegel Geschichte TV Website"
                   image="/images/JPL3Poster_SG.jpg"
                   alt="Spiegel Geschichte TV Website"
                   link="#"
+                  text="<b>Legacy Project:</b> Official Website for the Pay TV channel Spiegel Geschichte TV"
                   client={{
                     name: "Autentic GmbH",
                     website: "https://www.autentic.com/"
@@ -235,7 +236,7 @@ export default function Home() {
                   <p><strong>Target Audience:</strong> Spiegel Geschichte TV Viewers</p>
                   <p><strong>Role:</strong> Lead Designer / Coder</p>
                   <p><strong>Duration:</strong> 1 Month</p>
-                </ProjectCard> */}
+                </ProjectCard> 
                 <ProjectCard 
                   title="Homeopathy Health App Design"
                   image="/images/JPL3Poster_HA2.jpg"

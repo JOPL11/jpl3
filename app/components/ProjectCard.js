@@ -63,9 +63,10 @@ export default function ProjectCard({
         </a>
       )}
       {text && (
-        <div className={styles.additionalText}>
-          {text}
-        </div>
+        <div 
+          className={styles.additionalText}
+          dangerouslySetInnerHTML={{ __html: text }}
+        />
       )}
       <div className={`${styles.cardContent} ${isExpanded ? styles.showContent : ''}`}>
         {children}

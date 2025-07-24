@@ -151,6 +151,7 @@
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   }
 }
+
 @media (max-width: 810px) {
   .main {
     flex: 1;
@@ -190,10 +191,7 @@
     transition: all 0.3s ease;
 
   }
-
 }
-
-
 
 @media (max-width: 768px) {
   .contentWrapper {
@@ -440,7 +438,13 @@
   font-size: 0.9rem;
   margin: 0.25rem 0 0.75rem 0;
   line-height: 1.4;
-  font-size: 0.9rem;
+}
+
+.additionalText strong,
+.additionalText b {
+  font-weight: 700; /* Increased from default 600 */
+  color: #ffffff; /* Brighter color for better contrast */
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.3); /* Subtle text shadow */
 }
 
 .cardContent {
