@@ -130,7 +130,7 @@ export default function Home() {
             <section id="work" className={styles.section} aria-labelledby="projects-heading">
               <h2 id="projects-heading">Selected Projects</h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
-              <ProjectCard 
+             <ProjectCard 
                   title="Airbus Group Berlin Showroom Expo Interface"
                   image="/images/JPL3Poster_AB.jpg"
                   alt="Airbus Group Berlin Showroom Expo piece"
@@ -184,7 +184,7 @@ export default function Home() {
                   <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
                   <p><strong>Duration:</strong> 3 months and years of updates</p>
                 </ProjectCard>
-                <ProjectCard 
+             {/*   <ProjectCard 
                   title="Stadtberichter Info Page"
                   image="/images/JPL3Poster_SB.jpg"
                   alt="Stadtberichter Info Page"
@@ -237,6 +237,7 @@ export default function Home() {
                   <p><strong>Role:</strong> Lead Designer / Coder</p>
                   <p><strong>Duration:</strong> 1 Month</p>
                 </ProjectCard> 
+                 */} 
                 <ProjectCard 
                   title="Homeopathy Health App Design"
                   image="/images/JPL3Poster_HA2.jpg"
