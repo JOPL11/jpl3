@@ -189,7 +189,7 @@ export default function Home() {
                   image="/images/JPL3Poster_SB.jpg"
                   alt="Stadtberichter Info Page"
                   text="A GDPR-compliant info page for a civics oriented app."
-                  link="#"
+                  link="https://sb-info.vercel.app/"
                 >
                   <p><strong>Target Audience:</strong> Municipal Authorities</p>
                   <p><strong>Project Type:</strong> Infopage about an Application</p>
@@ -200,7 +200,7 @@ export default function Home() {
                   title="Stadtberichter App"
                   image="/images/JPL3Poster_SB2.jpg"
                   alt="Stadtberichter App"
-                  link="#"
+                  link="https://sb-info.vercel.app/"
                   text="A GDPR-compliant civics oriented app with encrypted geodata, rate-limiting and other security features feeding into a real-time municipal dashboard"
                 >
                   <p><strong>Target Audience:</strong> Municipal Citizens</p>
