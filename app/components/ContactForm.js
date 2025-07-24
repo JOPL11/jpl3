@@ -114,7 +114,7 @@ export default function ContactForm() {
           className={styles.checkboxInput}
         />
         <label htmlFor="gdprConsent" className={styles.checkboxLabel}>
-          I consent to having my data processed according to the{' '}
+          I understand that by submitting this form, I am providing my name, email address, and message to Jan Peiro for the purpose of responding to my inquiry. I consent to the processing of this data in accordance with the{' '}
           <a 
             href="#" 
             onClick={(e) => {

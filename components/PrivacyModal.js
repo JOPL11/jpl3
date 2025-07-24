@@ -41,10 +41,17 @@ export default function PrivacyModal({ isOpen, onClose, type = 'privacy' }) {
                 <h3 className={styles.modalContentH3}>Information We Collect</h3>
                 <p>We collect minimal information to provide our services to you:</p>
                 <ul>
-                  <li>Information you provide when contacting us through our contact form (your email address and message content)</li>
+                  <li>When you contact us through our contact form, we collect:
+                    <ul className={styles.sublist}>
+                      <li>Your name</li>
+                      <li>Your email address</li>
+                      <li>Your message content</li>
+                      <li>Your IP address (for spam prevention)</li>
+                      <li>Timestamp of your submission</li>
+                    </ul>
+                  </li>
                   <li>No analytics or tracking scripts are used on this website</li>
-                  <li>Our hosting provider (Vercel) may collect basic request logs (IP address, browser type, pages visited) for security and operational purposes, but if he does, he doesn&apos;t share that with me. And honestly, I don&apos;t even want to see that kind of stuff.</li>
-                  <li>I have no interest in it at all.</li>
+                  <li>Our hosting provider (Vercel) may collect basic request logs (IP address, browser type, pages visited) for security and operational purposes</li>
                 </ul>
               </section>
 
@@ -52,20 +59,29 @@ export default function PrivacyModal({ isOpen, onClose, type = 'privacy' }) {
                 <h3 className={styles.modalContentH3}>How We Use Your Information</h3>
                 <p>We use the information we collect to:</p>
                 <ul>
-                  <li>Respond to your inquiries and provide customer support</li>
-                  <li>Improve our website and services</li>
-                  <li>Ensure the security of our website</li>
+                  <li>Respond to your inquiries and provide support</li>
+                  <li>Prevent spam and ensure website security</li>
+                  <li>Improve our website based on user feedback</li>
+                  <li>Comply with legal obligations</li>
                 </ul>
               </section>
 
               <section className={styles.section}>
-                <h3 className={styles.modalContentH3}>Cookies and Similar Technologies</h3>
-                <p>We use necessary cookies to:</p>
+                <h3 className={styles.modalContentH3}>Data Storage</h3>
+                <p>We use minimal, strictly necessary technologies:</p>
                 <ul>
-                  <li>Load and display our custom fonts (InterDisplay)</li>
-                  <li>Remember your cookie preferences</li>
+                  <li><strong>Form Submissions</strong>: When you submit the contact form:
+                    <ul className={styles.sublist}>
+                      <li>Your message is sent directly to Jan Peiro&apos;s email via a serverless function</li>
+                      <li>The data is not stored in any database</li>
+                      <li>Email records are kept for as long as necessary to handle your inquiry</li>
+                      <li>You can request deletion of your data by sending an email to the address provided in the response to your inquiry</li>
+                    </ul>
+                  </li>
+                  <li><strong>Self-hosted Fonts</strong>: All fonts are downloaded at build time and served directly from our domain with no external requests or tracking</li>
                 </ul>
-                <p>These cookies are essential for the website to function properly and cannot be disabled.</p>
+                <p>We do not use any cookies, tracking pixels, or analytics services.</p>
+                <p>Our hosting provider (Vercel) may collect basic request logs (IP address, browser type, pages visited) for security and operational purposes, but this data is not shared with us or any third parties for tracking or marketing purposes.</p>
               </section>
             </>
           ) : (
