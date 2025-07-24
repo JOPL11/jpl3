@@ -11,6 +11,7 @@ export default function VideoProjectCard({
   image, 
   alt, 
   videoUrl,
+  text, // Additional text to display below title
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -37,17 +38,13 @@ export default function VideoProjectCard({
         tabIndex="0"
       >
         <h3>{title}</h3>
+        {text && (
+          <div className={styles.additionalText}>
+            {text}
+          </div>
+        )}
         <div className={`${styles.cardContent} ${isExpanded ? styles.showContent : ''}`}>
           {children}
-        </div>
-        <div className={styles.cardActions}>
-          <button 
-            className={styles.moreButton}
-            onClick={handleMoreClick}
-            aria-expanded={isExpanded}
-          >
-            {isExpanded ? 'Less' : 'More'}
-          </button>
         </div>
         <div className={styles.projectImage}>
           <Image 
@@ -62,15 +59,18 @@ export default function VideoProjectCard({
               objectPosition: 'center'
             }}
           />
+        </div>
+        <div className={styles.cardActions}>
+          <button 
+            className={styles.moreButton}
+            onClick={handleMoreClick}
+            aria-expanded={isExpanded}
+          >
+            {isExpanded ? 'Less' : 'More'}
+          </button>
           <button 
             className={styles.viewProjectButton}
             onClick={handleLaunchVideo}
-            style={{
-              width: '100%',
-              marginTop: '10px',
-              padding: '8px 0',
-              cursor: 'pointer'
-            }}
           >
             Launch Video
           </button>

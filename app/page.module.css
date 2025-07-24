@@ -410,9 +410,37 @@
 
 .projectCard h3 {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   color: #a2feff;
   font-size: 1.25rem;
+}
+
+.clientInfo {
+  font-size: 0.9rem;
+  color: #e5e7eb;
+  margin: 0.25rem 0 0.75rem 0;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.clientInfo span {
+  font-size: 0.9rem;
+}
+
+.clientInfo strong {
+  font-weight: 600;
+  color: #a2feff;
+}
+
+.additionalText {
+  color: #e5e7eb;
+  font-size: 0.9rem;
+  margin: 0.25rem 0 0.75rem 0;
+  line-height: 1.4;
+  font-size: 0.9rem;
 }
 
 .cardContent {

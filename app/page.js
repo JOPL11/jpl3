@@ -68,7 +68,7 @@ export default function Home() {
           </div>
           <section className={styles.content} aria-labelledby="welcome-heading">
             <h2 id="welcome-heading">Welcome to my Portfolio</h2>
-            <p>Hello, my name is Jan Peiro.</p>
+            <p>My name is Jan Peiro.</p>
 
             <p>I studied communication design in 
             Munich Germany.</p>
@@ -76,13 +76,13 @@ export default function Home() {
             <p>Passionate about code, 
             design & animation. </p>
 
-            <p>20 years experience spans end-clients in the 
+            <p>20 years experience spans clients in the 
             entertainment, automotive, software and 
             aerospace industries - such as Airbus Group, 
             Spiegel TV, Red Bull Austria, BMW Group, Audi, NATO, 
             Pro7, Warner Brothers, and many others.</p>
 
-            <p>Throughout this time I&apos;ve worked freelance and employed 
+            <p>Throughout that time I&apos;ve worked freelance and employed 
             in capacities ranging from visual concept artist, designer, 
             art director, creative developer & motion designer.</p>
            
@@ -156,7 +156,7 @@ export default function Home() {
                   <p><strong>Target Audience:</strong> Visitors at Airbus Group Berlin Showroom, Berlin</p>
                   <p><strong>Project Type:</strong> Touchtable Interface</p>
                   <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
-                  <p><strong>Duration:</strong> 3 months</p>
+                  <p><strong>Duration:</strong> 3 months and years of updates</p>
                   
                 </ProjectCard>
                 <ProjectCard 
@@ -182,15 +182,15 @@ export default function Home() {
                   <p><strong>Target Audience:</strong> Visitors at Airbus Group Ottobrunn Showroom, Ottobrunn</p>
                   <p><strong>Project Type:</strong> RFID Driven Interactive Experience</p>
                   <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
-                  <p><strong>Duration:</strong> 3 months</p>
+                  <p><strong>Duration:</strong> 3 months and years of updates</p>
                 </ProjectCard>
                 <ProjectCard 
                   title="Stadtberichter Info Page"
                   image="/images/JPL3Poster_SB.jpg"
                   alt="Stadtberichter Info Page"
+                  text="A GDPR-compliant info page for a civics oriented app."
                   link="#"
                 >
-                  <p>A GDPR-compliant info page for a civics oriented app.</p>
                   <p><strong>Target Audience:</strong> Municipal Authorities</p>
                   <p><strong>Project Type:</strong> Infopage about an Application</p>
                   <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
@@ -201,8 +201,8 @@ export default function Home() {
                   image="/images/JPL3Poster_SB2.jpg"
                   alt="Stadtberichter App"
                   link="#"
+                  text="A GDPR-compliant civics oriented app with encrypted geodata, rate-limiting and other security features feeding into a real-time municipal dashboard — reducing incident response time by 30%"
                 >
-                  <p>A GDPR-compliant civics oriented app with encrypted geodata, rate-limiting, and real-time municipal dashboards—reducing incident response time by 30%</p>
                   <p><strong>Target Audience:</strong> Municipal Citizens</p>
                   <p><strong>Project Type:</strong> Citizen Reporting App</p>
                   <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
@@ -213,6 +213,7 @@ export default function Home() {
                   image="/images/JPL3Poster_BB.jpg"
                   alt="PFP Caribbean Festival"
                   link="https://newest-ulf.vercel.app/"
+                  text="A mobile app for the PFP Caribbean Festival"
                 >
                   <p>Conceptual UI/UX</p>
                   <p><strong>Target Audience:</strong> Caribbean Party People</p>
@@ -239,6 +240,7 @@ export default function Home() {
                   title="Homeopathy Health App Design"
                   image="/images/JPL3Poster_HA2.jpg"
                   alt="Homeopathy Health App Design"
+                  text="Logo, CI/CD, UI/UX of a health app for homeopathy."
                   client={{
                     name: "Uniqued",
                     website: "https://www.uniqued.de/"
@@ -273,10 +275,11 @@ export default function Home() {
               <h2 id="showcase-heading">Showcase</h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
               <ProjectCard 
-                  title="Schrödinger & Bohr Quantum Pocketwatches featuring custom 3D models and interactions. Desktop Only."
+                  title="Schrödinger & Bohr Quantum Pocketwatches "
                   image="/images/JPL3Poster_QC.jpg"
                   alt="Homeopathy Health App Design"
                   link="https://quantum-pocketwatch.vercel.app/"
+                  text="Featuring custom 3D models and interactions. Desktop Only."
                 >
                   <p>Conceptual UI/UX</p>
                   <p><strong>Target Audience:</strong> Genius-level freaks</p>
@@ -299,8 +302,8 @@ export default function Home() {
                   image="/images/JPL3Poster.jpg"
                   alt="Showreel 2025"
                   videoUrl="https://vimeo.com/1103891139"
+                  text="2D / 3D Motion Reel featuring Commercial and Personal Work "
                 >
-                  <p>2D / 3D Motion</p>
                   <p>Concept, 3D Modeling, Animation, VFX, Design, Post-Production</p>
                   <p>Cinema4D, After Effects, Duik Tools, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
                   <p><strong>Role:</strong>Concept / Animation / Post-Production</p>

@@ -13,6 +13,7 @@ export default function ProjectCard({
   alt, 
   link,
   client,
+  text, // Additional text to display below client info
   modalContent // { description: string, images: Array<{src: string, alt: string}> }
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -60,6 +61,11 @@ export default function ProjectCard({
             </div>
           )}
         </a>
+      )}
+      {text && (
+        <div className={styles.additionalText}>
+          {text}
+        </div>
       )}
       <div className={`${styles.cardContent} ${isExpanded ? styles.showContent : ''}`}>
         {children}
