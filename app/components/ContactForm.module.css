@@ -115,7 +115,7 @@
 .checkboxInput:checked + .checkboxLabel:after {
   content: '';
   position: absolute;
-  left: -1.1rem; /* Adjust checkmark position to align with moved checkbox */
+  left: -1.55rem; /* Adjust checkmark position to align with moved checkbox */
   top: 0.5rem;
   width: 0.4rem;
   height: 0.7rem;
