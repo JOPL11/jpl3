@@ -85,10 +85,8 @@ export default function Home() {
             <p>Throughout this time I&apos;ve worked freelance and employed 
             in capacities ranging from visual concept artist, designer, 
             art director, creative developer & motion designer.</p>
-
-            <p>This portfolio was designed, coded, and deployed in 18 hours on July 23, 2025. (Yes, really.) For deeper case studies, hit me up.</p>
            
-            <p>I build immersive 3D interfaces for Fortune 500s and governments—merging design, animation, and bulletproof code.</p>
+            <p>I build immersive interfaces and video content for corporations and governments — merging design, animation, and bulletproof code.</p>
             <hr className={styles.divider} />
             <section className={styles.section} aria-labelledby="skills-heading">
               <h2 id="skills-heading">Technical Skills</h2>
@@ -133,35 +131,11 @@ export default function Home() {
               <h2 id="projects-heading">Selected Projects</h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
               <ProjectCard 
-                  title="Stadtberichter Info Page"
-                  image="/images/JPL3Poster_SB.jpg"
-                  alt="Stadtberichter Info Page"
-                  link="#"
-                >
-                  <p>A GDPR-compliant info page for a citizen reporting app</p>
-                  <p><strong>Target Audience:</strong> Municipal Authorities</p>
-                  <p><strong>Project Type:</strong> Infopage about an Application</p>
-                  <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
-                  <p><strong>Duration:</strong> 4 days</p>
-                </ProjectCard>
-                <ProjectCard 
-                  title="Stadtberichter App"
-                  image="/images/JPL3Poster_SB2.jpg"
-                  alt="Stadtberichter App"
-                  link="#"
-                >
-                  <p>A GDPR-compliant citizen reporting app with encrypted geodata, rate-limiting, and real-time municipal dashboards—reducing incident response time by 30%</p>
-                  <p><strong>Target Audience:</strong> Municipal Citizens</p>
-                  <p><strong>Project Type:</strong> Citizen Reporting App</p>
-                  <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
-                  <p><strong>Duration:</strong> 2 Months</p>
-                </ProjectCard>
-              <ProjectCard 
                   title="Airbus Group Berlin Showroom Expo Interface"
                   image="/images/JPL3Poster_AB.jpg"
                   alt="Airbus Group Berlin Showroom Expo piece"
                   client={{
-                    name: "SMMD e.K. München",
+                    name: "SMMD Munich",
                     website: "https://www.smmd.team"
                   }}
                   modalContent={{
@@ -178,7 +152,7 @@ export default function Home() {
                       { src: "/images/airbus_berlin/table10.jpg", alt: "Project Screenshot 10" }
                     ]
                   }}>
-                  <p>Increased visitor awe-factor by 30% through interactive touchtable interface.</p>
+                  <p>An interactive catalogue of Airbus technology and the company&apos;s history made for visiting foreign state officials and clients.</p>
                   <p><strong>Target Audience:</strong> Visitors at Airbus Group Berlin Showroom, Berlin</p>
                   <p><strong>Project Type:</strong> Touchtable Interface</p>
                   <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
@@ -190,7 +164,7 @@ export default function Home() {
                   image="/images/JPL3Poster_AB3.jpg"
                   alt="Airbus Group Ottobrunn Showroom Expo piece"
                   client={{
-                    name: "SMMD e.K. München",
+                    name: "SMMD Munich",
                     website: "https://www.smmd.team"
                   }}
                   modalContent={{
@@ -204,11 +178,35 @@ export default function Home() {
                     ]
                   }}
                 >
-                  <p>Increased Airbus showroom engagement by 40% through RFID-driven interfaces.</p>
+                  <p>A physically interactive showcase of Airbus technology explained on interactive touchscreens</p>
                   <p><strong>Target Audience:</strong> Visitors at Airbus Group Ottobrunn Showroom, Ottobrunn</p>
                   <p><strong>Project Type:</strong> RFID Driven Interactive Experience</p>
                   <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
                   <p><strong>Duration:</strong> 3 months</p>
+                </ProjectCard>
+                <ProjectCard 
+                  title="Stadtberichter Info Page"
+                  image="/images/JPL3Poster_SB.jpg"
+                  alt="Stadtberichter Info Page"
+                  link="#"
+                >
+                  <p>A GDPR-compliant info page for a civics oriented app.</p>
+                  <p><strong>Target Audience:</strong> Municipal Authorities</p>
+                  <p><strong>Project Type:</strong> Infopage about an Application</p>
+                  <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
+                  <p><strong>Duration:</strong> 4 days</p>
+                </ProjectCard>
+                <ProjectCard 
+                  title="Stadtberichter App"
+                  image="/images/JPL3Poster_SB2.jpg"
+                  alt="Stadtberichter App"
+                  link="#"
+                >
+                  <p>A GDPR-compliant civics oriented app with encrypted geodata, rate-limiting, and real-time municipal dashboards—reducing incident response time by 30%</p>
+                  <p><strong>Target Audience:</strong> Municipal Citizens</p>
+                  <p><strong>Project Type:</strong> Citizen Reporting App</p>
+                  <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
+                  <p><strong>Duration:</strong> 2 Months</p>
                 </ProjectCard>
                 <ProjectCard 
                   title="PFP Caribbean Festival"
@@ -246,7 +244,7 @@ export default function Home() {
                     website: "https://www.uniqued.de/"
                   }}
                   modalContent={{
-                    description: `Logo, CI/CD, UI/UX, and development of a health app for homeopathy.`,
+                    description: `Logo, CI/CD, UI/UX of a health app for homeopathy.`,
                     images: [
                       { src: "/images/JPL3Poster_HA0.jpg", alt: "Project Screenshot 1" },
                       { src: "/images/JPL3Poster_HA3.jpg", alt: "Project Screenshot 2" },
@@ -262,7 +260,7 @@ export default function Home() {
                     ]
                   }}
                 >
-                  <p>Conceptual UI/UX</p>
+                  <p>Conceptual UI/UX Design</p>
                   <p><strong>Target Audience:</strong> Health App Users</p>
                   <p><strong>Project Type:</strong> Next.js / React Interface Design</p>
                   <p><strong>Role:</strong> Lead Designer</p>
