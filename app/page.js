@@ -209,19 +209,6 @@ export default function Home() {
                   <p><strong>Duration:</strong> 2 Months</p>
                 </ProjectCard>
                 <ProjectCard 
-                  title="PFP Caribbean Festival"
-                  image="/images/JPL3Poster_BB.jpg"
-                  alt="PFP Caribbean Festival"
-                  link="https://newest-ulf.vercel.app/"
-                  text="A mobile app for the PFP Caribbean Festival"
-                >
-                  <p>Conceptual UI/UX</p>
-                  <p><strong>Target Audience:</strong> Caribbean Party People</p>
-                  <p><strong>Project Type:</strong> Simple Next.js/React/R3F website</p>
-                  <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
-                  <p><strong>Duration:</strong> 4 Days</p>
-                </ProjectCard>
-                <ProjectCard 
                   title="Spiegel Geschichte TV Website"
                   image="/images/JPL3Poster_SG.jpg"
                   alt="Spiegel Geschichte TV Website"
@@ -238,6 +225,19 @@ export default function Home() {
                   <p><strong>Duration:</strong> 1 Month</p>
                 </ProjectCard> 
                  */} 
+                 <ProjectCard 
+                  title="PFP Caribbean Festival"
+                  image="/images/JPL3Poster_BB.jpg"
+                  alt="PFP Caribbean Festival"
+                  link="https://newest-ulf.vercel.app/"
+                  text="A mobile app for the PFP Caribbean Festival"
+                >
+                  <p>Conceptual UI/UX</p>
+                  <p><strong>Target Audience:</strong> Caribbean Party People</p>
+                  <p><strong>Project Type:</strong> Simple Next.js/React/R3F website</p>
+                  <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
+                  <p><strong>Duration:</strong> 4 Days</p>
+                </ProjectCard>
                 <ProjectCard 
                   title="Homeopathy Health App Design"
                   image="/images/JPL3Poster_HA2.jpg"
