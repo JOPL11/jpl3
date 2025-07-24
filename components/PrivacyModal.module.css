@@ -14,7 +14,7 @@
 }
 
 .modalContent {
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 1);
   border-radius: 8px;
   padding: 2rem;
   max-width: 800px;
