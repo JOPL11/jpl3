@@ -86,7 +86,7 @@ export default function Home() {
             in capacities ranging from visual concept artist, designer, 
             art director, creative developer & motion designer.</p>
            
-            <p>I build immersive interfaces and video content for corporations and governments — merging design, animation, and bulletproof code.</p>
+            <p>I build immersive interfaces and video content for people, corporations and governments — merging design, animation, and bulletproof code.</p>
             <hr className={styles.divider} />
             <section className={styles.section} aria-labelledby="skills-heading">
               <h2 id="skills-heading">Technical Skills</h2>
@@ -184,7 +184,7 @@ export default function Home() {
                   <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
                   <p><strong>Duration:</strong> 3 months and years of updates</p>
                 </ProjectCard>
-             {/*   <ProjectCard 
+             {/*   */}   <ProjectCard 
                   title="Stadtberichter Info Page"
                   image="/images/JPL3Poster_SB.jpg"
                   alt="Stadtberichter Info Page"
@@ -224,7 +224,7 @@ export default function Home() {
                   <p><strong>Role:</strong> Lead Designer / Coder</p>
                   <p><strong>Duration:</strong> 1 Month</p>
                 </ProjectCard> 
-                 */} 
+                
                  <ProjectCard 
                   title="PFP Caribbean Festival"
                   image="/images/JPL3Poster_BB.jpg"
@@ -294,7 +294,7 @@ export default function Home() {
               </div>
 
             </section>
-            <hr className={styles.divider} />
+       {/*    <hr className={styles.divider} />
             <section className={styles.section}>
               <h2 id="motion-heading">Motion</h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
@@ -312,11 +312,11 @@ export default function Home() {
                   <p>3D Video Production for end-clients such as Airbus Group, MTU Aero Engines, Mercedes Benz, Audi, TÜV Süd, and more.</p>
                 </VideoProjectCard>
               </div>
-            </section>
+            </section> 
+            */}  
             <hr className={styles.divider} />
             <section id="contact">
               <h2>Contact</h2>
-              <a href="mailto:jan.peiro@protonmail.com">jan.peiro@protonmail.com</a>
               <ContactForm />
             </section>
           </section>
