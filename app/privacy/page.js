@@ -33,21 +33,7 @@ export default function PrivacyPage() {
         </ul>
       </section>
 
-      <section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Cookies and Similar Technologies</h2>
-        <p className="mb-4">
-          We use necessary cookies to:
-        </p>
-        <ul className="list-disc pl-6 mb-4 space-y-2">
-          <li>Load and display our custom fonts (InterDisplay)</li>
-          <li>Remember your cookie preferences</li>
-        </ul>
-        <p>
-          These cookies are essential for the website to function properly and cannot be disabled.
-        </p>
-      </section>
-
-      <section className="mb-8">
+<section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Your Rights</h2>
         <p className="mb-4">
           You have the right to:

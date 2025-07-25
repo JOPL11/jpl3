@@ -1,7 +1,6 @@
 import { Inter } from 'next/font/google';
 import "./globals.css";
 import { ModalProvider } from './components/ModalContext';
-import CookieBannerWrapper from '../components/CookieBannerWrapper';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -79,7 +78,6 @@ export default function RootLayout({ children }) {
       <body suppressHydrationWarning>
         <ModalProvider>
           {children}
-          <CookieBannerWrapper />
         </ModalProvider>
       </body>
     </html>
