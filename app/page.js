@@ -67,7 +67,7 @@ export default function Home() {
             />
           </div>
           <section className={styles.content} aria-labelledby="welcome-heading">
-            <h2 id="welcome-heading">Welcome to my Portfolio</h2>
+            <h2 id="welcome-heading">Hi</h2>
             <p>My name is Jan Peiro.</p>
 
             <p>I studied communication design in 
@@ -115,7 +115,7 @@ export default function Home() {
                   <li role="listitem">French (fluent)</li>
                 </ul>
               </section>
-              <div className={styles.profileImageContainer}>
+           {/*<div className={styles.profileImageContainer}>
                 <Image 
                src="/images/me3.jpg"
                   alt="Jan Peiro" 
@@ -124,7 +124,7 @@ export default function Home() {
                   className={styles.profileImage}
                   priority
                 />
-              </div>
+              </div> */}   
             </div>
             <hr className={styles.divider} />
             <section id="work" className={styles.section} aria-labelledby="projects-heading">
@@ -233,7 +233,7 @@ export default function Home() {
                   text="A mobile app for the PFP Caribbean Festival"
                 >
                   <p>Conceptual UI/UX</p>
-                  <p><strong>Target Audience:</strong> Caribbean Party People</p>
+                  <p><strong>Target Audience:</strong> Caribbean Festival Attendees</p>
                   <p><strong>Project Type:</strong> Simple Next.js/React/R3F website</p>
                   <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
                   <p><strong>Duration:</strong> 4 Days</p>
@@ -284,7 +284,6 @@ export default function Home() {
                   text="Featuring custom 3D models and interactions. Desktop Only."
                 >
                   <p>Conceptual UI/UX</p>
-                  <p><strong>Target Audience:</strong> Genius-level freaks</p>
                   <p><strong>Project Type:</strong> React Three Fiber</p>
                   <p><strong>Role:</strong> Concept / Animation / Developer</p>
                   <p><strong>Duration:</strong> 2 weeks</p>
