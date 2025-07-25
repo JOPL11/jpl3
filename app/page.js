@@ -226,9 +226,9 @@ export default function Home() {
                 </ProjectCard> 
                 
                  <ProjectCard 
-                  title="PFP Caribbean Festival"
+                  title="Middle Caicos Festival"
                   image="/images/JPL3Poster_BB.jpg"
-                  alt="PFP Caribbean Festival"
+                  alt="Middle Caicos Festival"
                   link="https://newest-ulf.vercel.app/"
                   text="A mobile app for the PFP Caribbean Festival"
                 >
