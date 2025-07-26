@@ -416,18 +416,22 @@
   opacity: 0;
   overflow: hidden;
   transition: all 0.2s ease;
-  margin: 1rem;
+  margin: 1rem 0.5rem 1rem;
   padding: 1.5rem 1.5rem 1.5rem 2rem;
   background: rgba(0, 0, 0, 0.2);
   border-radius: 0 0 8px 8px;
+}
+.cardContent p {
+  margin: 1rem 0.5rem 1rem;
 
 }
+
 
 .cardContent.showContent {
   max-height: 1000px;
   opacity: 1;
   padding: 1.5rem 1.5rem 1.5rem 2rem;
-  margin: 1rem 0 1rem;
+  margin: 1rem 0rem 1rem;
   background: rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);

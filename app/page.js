@@ -76,7 +76,7 @@ export default function Home() {
             <p>Passionate about code, 
             design & animation. </p>
 
-            <p>20 years experience spans clients in the 
+            <p>15 years experience spans clients in the 
             entertainment, automotive, software and 
             aerospace industries - such as Airbus Group, 
             Spiegel TV, Red Bull Austria, BMW Group, Audi, NATO, 
@@ -95,7 +95,7 @@ export default function Home() {
                 <li role="listitem">Three.js, React 3 Fiber</li>
                 <li role="listitem">vite, git, npm</li>
                 <li role="listitem">SQL / Supabase</li>
-                <li role="listitem">GSAP Animation Engine</li>
+                <li role="listitem">GSAP Animation Engine, Framer Motion, css animations, Spring</li>
                 <li role="listitem">Cinema4D, Blender</li>
                 <li role="listitem">Octane, Redshift, Corona Render Engines</li>
                 <li role="listitem">After Effects, Video Edit, Video Post-Production</li>
@@ -222,7 +222,7 @@ export default function Home() {
                   <p>Conceptual UI/UX</p>
                   <p><strong>Target Audience:</strong> Spiegel Geschichte TV Viewers</p>
                   <p><strong>Role:</strong> Lead Designer / Coder</p>
-                  <p><strong>Duration:</strong> 1 Month</p>
+                  <p><strong>Duration:</strong> 1 Month / 6 years of updates</p>
                 </ProjectCard> 
                 
                  <ProjectCard 
