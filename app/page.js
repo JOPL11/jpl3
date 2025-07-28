@@ -186,8 +186,32 @@ export default function Home() {
             </div>
             <hr className={styles.divider} />
             <section id="work" className={styles.section} aria-labelledby="projects-heading">
-              <h2 id="projects-heading">Code & Design</h2>
+              <h2 id="projects-heading">Code</h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
+                  {/*   */}   <ProjectCard 
+                  title="Stadtberichter Info Page"
+                  image="/images/corp/sb.jpg"
+                  alt="Stadtberichter Info Page"
+                  text="A GDPR-compliant info page for a civics oriented app."
+                  link="https://sb-info.vercel.app/"
+                >
+                  <p><strong>Target Audience:</strong> Municipal Authorities</p>
+                  <p><strong>Project Type:</strong> Infopage about an Application</p>
+                  <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
+                  <p><strong>Duration:</strong> 4 days</p>
+                </ProjectCard>
+                <ProjectCard 
+                  title="Stadtberichter App"
+                  image="/images/corp/sb.jpg"
+                  alt="Stadtberichter App"
+                  link="https://sb-whole.vercel.app/"
+                  text="Currently in development. A GDPR-compliant civics oriented app with encrypted geodata, voice-to-text, i18n language versioning, rate-limiting and other security features feeding into a real-time municipal dashboard"
+                >
+                  <p><strong>Target Audience:</strong> Municipal Citizens</p>
+                  <p><strong>Project Type:</strong> Citizen Reporting App</p>
+                  <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
+                  <p><strong>Duration:</strong> 2 Months</p>
+                </ProjectCard>
              <ProjectCard 
                   title="Berlin Showroom Expo Interface"
                   image="/images/corp/airbus.jpg"
@@ -241,30 +265,6 @@ export default function Home() {
                   <p><strong>Project Type:</strong> RFID Driven Interactive Experience</p>
                   <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
                   <p><strong>Duration:</strong> 3 months and years of updates</p>
-                </ProjectCard>
-             {/*   */}   <ProjectCard 
-                  title="Stadtberichter Info Page"
-                  image="/images/corp/sb.jpg"
-                  alt="Stadtberichter Info Page"
-                  text="A GDPR-compliant info page for a civics oriented app."
-                  link="https://sb-info.vercel.app/"
-                >
-                  <p><strong>Target Audience:</strong> Municipal Authorities</p>
-                  <p><strong>Project Type:</strong> Infopage about an Application</p>
-                  <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
-                  <p><strong>Duration:</strong> 4 days</p>
-                </ProjectCard>
-                <ProjectCard 
-                  title="Stadtberichter App"
-                  image="/images/corp/sb.jpg"
-                  alt="Stadtberichter App"
-                  link="https://sb-whole.vercel.app/"
-                  text="Currently in development. A GDPR-compliant civics oriented app with encrypted geodata, voice-to-text, i18n language versioning, rate-limiting and other security features feeding into a real-time municipal dashboard"
-                >
-                  <p><strong>Target Audience:</strong> Municipal Citizens</p>
-                  <p><strong>Project Type:</strong> Citizen Reporting App</p>
-                  <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
-                  <p><strong>Duration:</strong> 2 Months</p>
                 </ProjectCard>
                 <ProjectCard 
                   title="Spiegel Geschichte TV Website"
