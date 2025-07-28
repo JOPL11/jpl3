@@ -144,7 +144,7 @@ export default function Home() {
               <h2 id="skills-heading">Technical Skills</h2>
               <ul className={styles.skillsList} role="list">
                 <li role="listitem">React, Next.js</li>
-                <li role="listitem">Three.js, React 3 Fiber</li>
+                <li role="listitem">Three.js, React 3 Fiber, WebXR</li>
                 <li role="listitem">vite, git, npm</li>
                 <li role="listitem">SQL / Supabase</li>
                 <li role="listitem">GSAP Animation Engine, Framer Motion, css animations, Spring</li>
