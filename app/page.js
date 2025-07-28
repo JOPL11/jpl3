@@ -189,9 +189,9 @@ export default function Home() {
               <h2 id="projects-heading">Code & Design</h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
              <ProjectCard 
-                  title="Airbus Group Berlin Showroom Expo Interface"
+                  title="Berlin Showroom Expo Interface"
                   image="/images/corp/airbus.jpg"
-                  alt="Airbus Group Berlin Showroom Expo piece"
+                  alt="Berlin Showroom Expo piece"
                   client={{
                     name: "SMMD Munich",
                     website: "https://www.smmd.team"
@@ -218,9 +218,9 @@ export default function Home() {
                   
                 </ProjectCard>
                 <ProjectCard 
-                  title="Airbus Group Ottobrunn Showroom Expo Interface"
+                  title="Ottobrunn Showroom Expo Interface"
                   image="/images/corp/airbus.jpg"
-                  alt="Airbus Group Ottobrunn Showroom Expo piece"
+                  alt="Ottobrunn Showroom Expo piece"
                   client={{
                     name: "SMMD Munich",
                     website: "https://www.smmd.team"
@@ -259,7 +259,7 @@ export default function Home() {
                   image="/images/corp/sb.jpg"
                   alt="Stadtberichter App"
                   link="https://sb-whole.vercel.app/"
-                  text="Currently in development. A GDPR-compliant civics oriented app with encrypted geodata, i18n language versioning, rate-limiting and other security features feeding into a real-time municipal dashboard"
+                  text="Currently in development. A GDPR-compliant civics oriented app with encrypted geodata, voice-to-text, i18n language versioning, rate-limiting and other security features feeding into a real-time municipal dashboard"
                 >
                   <p><strong>Target Audience:</strong> Municipal Citizens</p>
                   <p><strong>Project Type:</strong> Citizen Reporting App</p>
