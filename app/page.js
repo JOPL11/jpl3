@@ -98,11 +98,11 @@ export default function Home() {
                   Motion
                 </a>
                 <a 
-                  href="#design" 
+                  href="#webgl-heading" 
                   className={styles.navLink}
-                  onClick={(e) => scrollToSection(e, 'design')}
+                  onClick={(e) => scrollToSection(e, 'webgl-heading')}
                 >
-                  Design
+                  WebGL
                 </a>
               </nav>
               <hr className={styles.divider} />
@@ -324,21 +324,32 @@ export default function Home() {
             </section>
             <hr className={styles.divider} />
             <section className={styles.section}>
-              <h2 id="showcase-heading">Showcase</h2>
+              <h2 id="webgl-heading">WebGL</h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
               <ProjectCard 
                   title="Schrödinger & Bohr Quantum Pocketwatches "
                   image="/images/JPL3Poster_QC.jpg"
-                  alt="Homeopathy Health App Design"
+                  alt="Quantum Pocketwatch Company"
                   link="https://quantum-pocketwatch.vercel.app/"
                   text="Featuring custom 3D models and interactions. Desktop Only."
                 >
                   <p>Conceptual UI/UX</p>
-                  <p><strong>Project Type:</strong> React Three Fiber</p>
+                  <p><strong>Project Type:</strong>React Three Fiber</p>
                   <p><strong>Role:</strong> Concept / Animation / Developer</p>
                   <p><strong>Duration:</strong> 2 weeks</p>
                 </ProjectCard>
-
+                <ProjectCard 
+                  title="Blade Runner 2033"
+                  image="/images/JPL3Poster_R3F.jpg"
+                  alt="Blade Runner 2033"
+                  link="https://jpl3d2.vercel.app"
+                  text="Featuring custom 3D models and interactions."
+                >
+                  <p>Technical Demo</p>
+                  <p><strong>Project Type:</strong> React Three Fiber</p>
+                  <p><strong>Role:</strong> Concept / Animation / Development</p>
+                  <p><strong>Duration:</strong> 3 weeks</p>
+                  </ProjectCard>
     
               </div>
 
