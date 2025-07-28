@@ -171,7 +171,7 @@ export default function Home() {
             </div>
             <hr className={styles.divider} />
             <section id="work" className={styles.section} aria-labelledby="projects-heading">
-              <h2 id="projects-heading">Selected Projects</h2>
+              <h2 id="projects-heading">Code & Design</h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
              <ProjectCard 
                   title="Airbus Group Berlin Showroom Expo Interface"
