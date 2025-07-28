@@ -8,6 +8,10 @@ const PrivacyModal = dynamic(() => import('../components/PrivacyModal'), {
   ssr: false,
 });
 import styles from "./page.module.css";
+import PrivacyStyles from '../components/PrivacyModal.module.css';
+const ImpressumModal = dynamic(() => import('../components/ImpressumModal'), {
+  ssr: false,
+});
 import ProjectCard from './components/ProjectCard';
 import VideoProjectCard from './components/VideoProjectCard';
 import ContactForm from './components/ContactForm';
@@ -19,6 +23,7 @@ function CopyrightYear() {
 
 export default function Home() {
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
+  const [showImpressumModal, setShowImpressumModal] = useState(false);
   const [modalContent, setModalContent] = useState('privacy');
 
   const scrollToSection = (e, sectionId) => {
@@ -91,6 +96,13 @@ export default function Home() {
                   Code
                 </a>
                 <a 
+                  href="#webgl-heading" 
+                  className={styles.navLink}
+                  onClick={(e) => scrollToSection(e, 'webgl-heading')}
+                >
+                  WebGL
+                </a>
+                <a 
                   href="#motion-heading" 
                   className={styles.navLink}
                   onClick={(e) => scrollToSection(e, 'motion-heading')}
@@ -98,12 +110,15 @@ export default function Home() {
                   Motion
                 </a>
                 <a 
-                  href="#webgl-heading" 
+                  href="#contact" 
                   className={styles.navLink}
-                  onClick={(e) => scrollToSection(e, 'webgl-heading')}
+                  onClick={(e) => scrollToSection(e, 'contact')}
                 >
-                  WebGL
+                  Contact
                 </a>
+
+
+ 
               </nav>
               <hr className={styles.divider} />
               {/*<div className={styles.profileImageContainer}>
@@ -486,14 +501,26 @@ export default function Home() {
             Contact
           </a>
           <span aria-hidden="true">  </span>
-          <a href="#impressum" className={styles.footerLink} aria-label="Impressum">
+          <button 
+            onClick={(e) => {
+              e.preventDefault();
+              setShowImpressumModal(true);
+            }} 
+            className={styles.footerLink} 
+            aria-label="Impressum"
+            style={{ background: 'none', border: 'none', padding: 0, font: 'inherit', cursor: 'pointer', color: 'inherit' }}
+          >
             Impressum
-          </a>
+          </button>
         </div>
         <PrivacyModal 
           isOpen={showPrivacyModal} 
           onClose={() => setShowPrivacyModal(false)}
           type={modalContent}
+        />
+        <ImpressumModal 
+          isOpen={showImpressumModal} 
+          onClose={() => setShowImpressumModal(false)}
         />
       </footer>
     </div>
