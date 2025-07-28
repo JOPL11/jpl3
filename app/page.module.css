@@ -303,10 +303,12 @@
 .navLinks {
   display: flex;
   justify-content: center;
-  gap: 0.3rem;
-  margin-top: 0.5rem;
+  text-align: center;
+  gap: 0.2rem;
+  margin-top: 0.4rem;
   font-size: 1.1rem;
   width: 100%;
+  margin-left: 0.3rem;
 }
 
 .navLink {

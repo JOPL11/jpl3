@@ -210,7 +210,7 @@ export default function Home() {
                   <p><strong>Target Audience:</strong> Municipal Citizens</p>
                   <p><strong>Project Type:</strong> Citizen Reporting App</p>
                   <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
-                  <p><strong>Duration:</strong> 2 Months</p>
+                  <p><strong>Duration:</strong> 3 Months</p>
                 </ProjectCard>
              <ProjectCard 
                   title="Berlin Showroom Expo Interface"
@@ -342,11 +342,23 @@ export default function Home() {
               <h2 id="webgl-heading">WebGL</h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
               <ProjectCard 
+                  title="Bytes101"
+                  image="/images/bytes101.jpg"
+                  alt="Bytes101"
+                  link="https://bytes101.vercel.app"
+                  text="Featuring custom 3D models and animations."
+                >
+                  <p>Technical Demo</p>
+                  <p><strong>Project Type:</strong> React Three Fiber</p>
+                  <p><strong>Role:</strong> Concept / Animation / Development</p>
+                  <p><strong>Duration:</strong> 1 week</p>
+                  </ProjectCard>
+              <ProjectCard 
                   title="Schrödinger & Bohr Quantum Pocketwatches "
                   image="/images/JPL3Poster_QC.jpg"
                   alt="Quantum Pocketwatch Company"
                   link="https://quantum-pocketwatch.vercel.app/"
-                  text="Featuring custom 3D models and interactions. Desktop Only."
+                  text="<strong>Desktop Only</strong>. Featuring custom 3D models and interactions." 
                 >
                   <p>Conceptual UI/UX</p>
                   <p><strong>Project Type:</strong>React Three Fiber</p>
@@ -358,7 +370,7 @@ export default function Home() {
                   image="/images/JPL3Poster_R3F.jpg"
                   alt="Blade Runner 2033"
                   link="https://jpl3d2.vercel.app"
-                  text="Featuring custom 3D models and interactions."
+                  text="Featuring custom 3D models and animations."
                 >
                   <p>Technical Demo</p>
                   <p><strong>Project Type:</strong> React Three Fiber</p>
