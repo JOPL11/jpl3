@@ -229,7 +229,7 @@ export default function Home() {
                 </ProjectCard>
              {/*   */}   <ProjectCard 
                   title="Stadtberichter Info Page"
-                  image="/images/JPL3Poster_SB.jpg"
+                  image="/images/corp/sb.jpg"
                   alt="Stadtberichter Info Page"
                   text="A GDPR-compliant info page for a civics oriented app."
                   link="https://sb-info.vercel.app/"
@@ -255,11 +255,18 @@ export default function Home() {
                   title="Spiegel Geschichte TV Website"
                  image="/images/corp/spg.jpg"
                   alt="Spiegel Geschichte TV Website"
-                  link="#"
                   text="<b>Legacy Project:</b> Official Website for the Pay TV channel Spiegel Geschichte TV"
                   client={{
                     name: "Autentic GmbH",
                     website: "https://www.autentic.com/"
+                  }}
+                  modalContent={{
+                    description: `Logo, CI/CD, UI/UX of a health app for homeopathy.`,
+                    images: [
+                      { src: "/images/SGA_1.jpg", alt: "Project Screenshot 1" },
+                      { src: "/images/SGA_2.jpg", alt: "Project Screenshot 2" },
+                      { src: "/images/SGA_3.jpg", alt: "Project Screenshot 3" },
+                    ]
                   }}
                 >
                   <p>Conceptual UI/UX</p>
