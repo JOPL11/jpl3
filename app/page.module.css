@@ -263,9 +263,8 @@
   padding: 1rem;
   background-color: transparent;
   border-radius: 8px;
-  height: 100vh;
-  max-height: 100vh;
-  overflow-y: auto;
+  height: auto;
+  overflow: hidden;
 }
 
 /* Mobile styles */
@@ -298,6 +297,32 @@
 .contentLogo {
   width: 100%;
   height: auto;
+  margin-bottom: 1rem;
+}
+
+.navLinks {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  width: 100%;
+}
+
+.navLink {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  cursor: pointer;
+  font-weight: 600; /* Making the text bold */
+}
+
+.navLink:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.contentLogo {
   padding: 2rem;
   max-height: 100vh; /* Allow it to take up to the full viewport height */
   object-fit: contain; /* Maintain aspect ratio */

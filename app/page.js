@@ -21,6 +21,14 @@ export default function Home() {
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
   const [modalContent, setModalContent] = useState('privacy');
 
+  const scrollToSection = (e, sectionId) => {
+    e.preventDefault();
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const openModal = (type) => {
     // Scroll to top of the page
     window.scrollTo({
@@ -55,19 +63,63 @@ export default function Home() {
       </header>
       <main className={styles.main} role="main" id="main-content">
         <div className={styles.contentWrapper}>
-          <div className={styles.logoSidebar} role="complementary" aria-label="Logo">
-            <Image 
-              src="/images/jp.svg" 
-              alt="" 
-              width={380}
-              height={380}
-              className={styles.contentLogo}
-              priority
-              aria-hidden="true"
-            />
+          <div className={styles.logoSidebar} role="complementary" aria-label="Logo and Navigation">
+            <div>
+              <Image 
+                src="/images/jp.svg" 
+                alt="" 
+                width={380}
+                height={380}
+                className={styles.contentLogo}
+                priority
+                aria-hidden="true"
+              />
+              <hr className={styles.divider} />
+              <nav className={styles.navLinks} aria-label="Main navigation">
+                <a 
+                  href="#welcome-heading" 
+                  className={styles.navLink} 
+                  onClick={(e) => scrollToSection(e, 'welcome-heading')}
+                >
+                  About
+                </a>
+                <a 
+                  href="#projects-heading" 
+                  className={styles.navLink}
+                  onClick={(e) => scrollToSection(e, 'projects-heading')}
+                >
+                  Code
+                </a>
+                <a 
+                  href="#motion-heading" 
+                  className={styles.navLink}
+                  onClick={(e) => scrollToSection(e, 'motion-heading')}
+                >
+                  Motion
+                </a>
+                <a 
+                  href="#design" 
+                  className={styles.navLink}
+                  onClick={(e) => scrollToSection(e, 'design')}
+                >
+                  Design
+                </a>
+              </nav>
+              <hr className={styles.divider} />
+              {/*<div className={styles.profileImageContainer}>
+                <Image 
+               src="/images/me3.jpg"
+                  alt="Jan Peiro" 
+                  width={200}
+                  height={200}
+                  className={styles.profileImage}
+                  priority
+                />
+              </div> */}  
+            </div>
           </div>
           <section className={styles.content} aria-labelledby="welcome-heading">
-            <h2 id="welcome-heading">Hi</h2>
+            <h2 id="welcome-heading">About</h2>
             <p>My name is Jan Peiro.</p>
 
             <p>I studied communication design in 
@@ -115,16 +167,7 @@ export default function Home() {
                   <li role="listitem">French (fluent)</li>
                 </ul>
               </section>
-           {/*<div className={styles.profileImageContainer}>
-                <Image 
-               src="/images/me3.jpg"
-                  alt="Jan Peiro" 
-                  width={200}
-                  height={200}
-                  className={styles.profileImage}
-                  priority
-                />
-              </div> */}   
+ 
             </div>
             <hr className={styles.divider} />
             <section id="work" className={styles.section} aria-labelledby="projects-heading">
@@ -132,7 +175,7 @@ export default function Home() {
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
              <ProjectCard 
                   title="Airbus Group Berlin Showroom Expo Interface"
-                  image="/images/JPL3Poster_AB.jpg"
+                  image="/images/corp/airbus.jpg"
                   alt="Airbus Group Berlin Showroom Expo piece"
                   client={{
                     name: "SMMD Munich",
@@ -161,7 +204,7 @@ export default function Home() {
                 </ProjectCard>
                 <ProjectCard 
                   title="Airbus Group Ottobrunn Showroom Expo Interface"
-                  image="/images/JPL3Poster_AB3.jpg"
+                  image="/images/corp/airbus.jpg"
                   alt="Airbus Group Ottobrunn Showroom Expo piece"
                   client={{
                     name: "SMMD Munich",
@@ -198,10 +241,10 @@ export default function Home() {
                 </ProjectCard>
                 <ProjectCard 
                   title="Stadtberichter App"
-                  image="/images/JPL3Poster_SB2.jpg"
+                  image="/images/corp/sb.jpg"
                   alt="Stadtberichter App"
-                  link="https://sb-info.vercel.app/"
-                  text="A GDPR-compliant civics oriented app with encrypted geodata, rate-limiting and other security features feeding into a real-time municipal dashboard"
+                  link="https://sb-whole.vercel.app/"
+                  text="A GDPR-compliant civics oriented app with encrypted geodata, i18n language versioning, rate-limiting and other security features feeding into a real-time municipal dashboard"
                 >
                   <p><strong>Target Audience:</strong> Municipal Citizens</p>
                   <p><strong>Project Type:</strong> Citizen Reporting App</p>
@@ -210,7 +253,7 @@ export default function Home() {
                 </ProjectCard>
                 <ProjectCard 
                   title="Spiegel Geschichte TV Website"
-                  image="/images/JPL3Poster_SG.jpg"
+                 image="/images/corp/spg.jpg"
                   alt="Spiegel Geschichte TV Website"
                   link="#"
                   text="<b>Legacy Project:</b> Official Website for the Pay TV channel Spiegel Geschichte TV"
@@ -288,12 +331,12 @@ export default function Home() {
                   <p><strong>Role:</strong> Concept / Animation / Developer</p>
                   <p><strong>Duration:</strong> 2 weeks</p>
                 </ProjectCard>
-                
+
     
               </div>
 
             </section>
-       {/*    <hr className={styles.divider} />
+       <hr className={styles.divider} />
             <section className={styles.section}>
               <h2 id="motion-heading">Motion</h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
@@ -310,9 +353,87 @@ export default function Home() {
                   <p><strong>Role:</strong>Concept / Animation / Post-Production</p>
                   <p>3D Video Production for end-clients such as Airbus Group, MTU Aero Engines, Mercedes Benz, Audi, TÜV Süd, and more.</p>
                 </VideoProjectCard>
+                <ProjectCard 
+                  title="Audi Nüremberg"
+                  image="/images/corp/audi.jpg"
+                  alt="Audi Nüremberg"
+                  text="Cinemascreen sized animation for a VIP Event"
+                  client={{
+                    name: "Planstand Agency",
+                    website: "https://www.planstand.com/"
+                  }}
+                  modalContent={{
+                    description: `10 Minute long foreground / backdrop screen animation for VIP event, tailored to a stage setup featuring live dancers and a hi-tech sprinkler installation that could depict the Audi logo and more.`,
+                    images: [
+                      { src: "/images/audi_1.jpg", alt: "Project Screenshot 1" },
+                      { src: "/images/audi_2.jpg", alt: "Project Screenshot 2" },
+                      { src: "/images/audi_3.jpg", alt: "Project Screenshot 3" },
+                      { src: "/images/audi_4.jpg", alt: "Project Screenshot 4" },
+                      { src: "/images/audi_5.jpg", alt: "Project Screenshot 6" },
+                      { src: "/images/audi_6.jpg", alt: "Project Screenshot 8" },
+                    ]
+                  }}
+                >
+                  <p>Animation Event</p>
+                  <p><strong>Target Audience:</strong> Showroom visitors</p>
+                  <p><strong>Project Type:</strong> After Effects / Cinema4D</p>
+                  <p><strong>Role:</strong> Lead Designer / animator</p>
+                  <p><strong>Duration:</strong> 2 Months</p>
+                </ProjectCard>
+                <ProjectCard 
+                  title="Mercedes Benz Animation"
+                  image="/images/corp/mercedes.jpg"
+                  alt="Mercedes Benz Animation"
+                  text="Logo animation for Mercedes Benz"
+                  client={{
+                    name: "Sieber & Wolf Werbeagentur",
+                    website: "https://sieberundwolf.de/"
+                  }}
+                  modalContent={{
+                    description: `Logo animation for Mercedes Benz`,
+                    images: [
+                      { src: "/images/mercedes0.jpg", alt: "Project Screenshot 1" },
+                      { src: "/images/mercedes1.jpg", alt: "Project Screenshot 1" },
+                      { src: "/images/mercedes2.jpg", alt: "Project Screenshot 2" },
+                    ]
+                  }}
+                >
+                  <p>Logo Animation</p>
+                  <p><strong>Project Type:</strong> After Effects / Cinema4D</p>
+                  <p><strong>Role:</strong> Lead Designer / animator</p>
+                  <p><strong>Duration:</strong> 2 weeks</p>
+                </ProjectCard>
+                <ProjectCard 
+                  title="Airbus Group"
+                  image="/images/corp/airbus.jpg"
+                  alt="Audi Nüremberg"
+                  text="Multimonitor animation for the Airbus Showroom Ottobrunn"
+                  client={{
+                    name: "SMMD",
+                    website: "https://www.smmd.team/"
+                  }}
+                  modalContent={{
+                    description: `Multimonitor animation for the Airbus Showroom Ottobrunn`,
+                    images: [
+                      { src: "/images/airbus_ottobrunn/video/1C.jpg", alt: "Project Screenshot 1" },
+                      { src: "/images/airbus_ottobrunn/video/1.jpg", alt: "Project Screenshot 2" },
+                      { src: "/images/airbus_ottobrunn/video/2.jpg", alt: "Project Screenshot 3" },
+                      { src: "/images/airbus_ottobrunn/video/3.jpg", alt: "Project Screenshot 4" },
+                      { src: "/images/airbus_ottobrunn/video/6.jpg", alt: "Project Screenshot 6" },
+                      { src: "/images/airbus_ottobrunn/video/8.jpg", alt: "Project Screenshot 8" },
+                    ]
+                  }}
+                >
+                  <p>Multi Monitor Animation</p>
+                  <p><strong>Target Audience:</strong> Showroom visitors</p>
+                  <p><strong>Project Type:</strong> After Effects / Cinema4D</p>
+                  <p><strong>Role:</strong> Lead Designer / animator</p>
+                  <p><strong>Duration:</strong> 2 weeks</p>
+                </ProjectCard>
+          
               </div>
             </section> 
-            */}  
+            {/*    */}  
             <hr className={styles.divider} />
             <section id="contact">
               <h2>Contact</h2>
@@ -345,6 +466,10 @@ export default function Home() {
           <span aria-hidden="true">  </span>
           <a href="#contact" className={styles.footerLink} aria-label="Contact">
             Contact
+          </a>
+          <span aria-hidden="true">  </span>
+          <a href="#impressum" className={styles.footerLink} aria-label="Impressum">
+            Impressum
           </a>
         </div>
         <PrivacyModal 
