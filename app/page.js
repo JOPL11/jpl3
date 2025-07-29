@@ -135,11 +135,8 @@ export default function Home() {
           </div>
           <section className={styles.content} aria-labelledby="welcome-heading">
             <h2 id="welcome-heading">About</h2>
-            <p>My name is Jan Peiro.</p>
-
-            <p>I studied communication design in 
-            Munich Germany.</p>
-
+            <p>Hi! My name is Jan.</p>
+            
             <p>Passionate about code, 
             design & animation. </p>
 
