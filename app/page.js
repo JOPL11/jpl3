@@ -136,7 +136,7 @@ export default function Home() {
           <section className={styles.content} aria-labelledby="welcome-heading">
             <h2 id="welcome-heading">About</h2>
             <p>Hi! My name is Jan.</p>
-            
+
             <p>Passionate about code, 
             design & animation. </p>
 
@@ -146,7 +146,7 @@ export default function Home() {
             Spiegel TV, Red Bull Austria, BMW Group, Audi, NATO, 
             Pro7, Warner Brothers, and many others.</p>
 
-            <p>Throughout that time I&apos;ve worked freelance and employed 
+            <p>Throughout this time I&apos;ve worked freelance and employed 
             in capacities ranging from visual concept artist, designer, 
             art director, creative developer & motion designer.</p>
            
@@ -214,7 +214,8 @@ export default function Home() {
                   image="/images/corp/airbus.jpg"
                   alt="Berlin Showroom Expo piece"
                   client={{
-                    name: "SMMD Munich",
+                    name: "SMMD Team  |",
+                    logo: "/images/agencies/SMMD.png",
                     website: "https://www.smmd.team"
                   }}
                   modalContent={{
@@ -243,7 +244,8 @@ export default function Home() {
                   image="/images/corp/airbus.jpg"
                   alt="Ottobrunn Showroom Expo piece"
                   client={{
-                    name: "SMMD Munich",
+                    name: "SMMD Team |",
+                    logo: "/images/agencies/SMMD.png",
                     website: "https://www.smmd.team"
                   }}
                   modalContent={{
@@ -269,7 +271,7 @@ export default function Home() {
                   alt="Spiegel Geschichte TV Website"
                   text="<b>Legacy Project:</b> Official Website for the Pay TV channel Spiegel Geschichte TV"
                   client={{
-                    name: "Autentic GmbH",
+                    name: "Autentic GmbH |",
                     website: "https://www.autentic.com/"
                   }}
                   modalContent={{
@@ -401,11 +403,13 @@ export default function Home() {
                   alt="Audi Nüremberg"
                   text="Cinemascreen sized animation for a VIP Event"
                   client={{
-                    name: "Planstand Agency",
-                    website: "https://www.planstand.com/"
+                    name: "Planstand Agency  |",
+                    website: "https://www.planstand.com/",
+                    logo: "/images/agencies/planstand_logo.png"
                   }}
                   modalContent={{
-                    description: `10 Minute long foreground / backdrop screen animation for VIP event, tailored to a stage setup featuring live dancers and a hi-tech sprinkler installation that could depict the Audi logo and more.`,
+                    description: `10 Minute long foreground / backdrop screen animation for VIP event, tailored to a stage setup featuring live dancers and a hi-tech sprinkler installation that could depict the Audi logo and more.
+                    <p>Animated excerpts can be seen in the motion reel</p>`,
                     images: [
                       { src: "/images/audi_1.jpg", alt: "Project Screenshot 1" },
                       { src: "/images/audi_2.jpg", alt: "Project Screenshot 2" },
@@ -428,11 +432,14 @@ export default function Home() {
                   alt="Mercedes Benz Animation"
                   text="Logo animation for Mercedes Benz"
                   client={{
-                    name: "Sieber & Wolf Werbeagentur",
-                    website: "https://sieberundwolf.de/"
+                    name: "Sieber & Wolf Werbeagentur  |",
+                    website: "https://sieberundwolf.de/",
+                    logo: "/images/agencies/SW_white.png"
                   }}
                   modalContent={{
-                    description: `Logo animation for Mercedes Benz`,
+                    description: `Logo animation for Mercedes Benz.
+
+                    <p>Animated excerpts can be seen in the motion reel</p>`,
                     images: [
                       { src: "/images/mercedes0.jpg", alt: "Project Screenshot 1" },
                       { src: "/images/mercedes1.jpg", alt: "Project Screenshot 1" },
@@ -451,11 +458,15 @@ export default function Home() {
                   alt="Audi Nüremberg"
                   text="Multimonitor animation for the Airbus Showroom Ottobrunn"
                   client={{
-                    name: "SMMD",
-                    website: "https://www.smmd.team/"
+                    name: "SMMD Team |",
+                    logo: "/images/agencies/SMMD.png",
+                    website: "https://www.smmd.team/",
+                    
                   }}
                   modalContent={{
-                    description: `Multimonitor animation for the Airbus Showroom Ottobrunn`,
+                    description: `Multimonitor animation for the <strong>Airbus Showroom Ottobrunn</strong>.
+  
+                   <p>Animated excerpts can be seen in the motion reel</p>`,
                     images: [
                       { src: "/images/airbus_ottobrunn/video/1C.jpg", alt: "Project Screenshot 1" },
                       { src: "/images/airbus_ottobrunn/video/1.jpg", alt: "Project Screenshot 2" },

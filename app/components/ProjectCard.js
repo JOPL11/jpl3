@@ -27,6 +27,7 @@ export default function ProjectCard({
           title={title}
           description={modalContent.description}
           images={modalContent.images}
+          clientLogo={client?.logo}
         />
       );
     }

@@ -3,13 +3,27 @@
 import Image from 'next/image';
 import styles from '../Modal.module.css';
 
-export default function ProjectModal({ title, description, images }) {
+export default function ProjectModal({ title, description, images, clientLogo }) {
   return (
     <div className={styles.projectModal}>
-      <h2>{title}</h2>
-      <div className={styles.modalDescription}>
-        {description}
+      <div className={styles.modalHeader}>
+        <h2>{title}</h2>
+        {clientLogo && (
+          <div className={styles.clientLogo}>
+            <Image
+              src={clientLogo}
+              alt="Client Logo"
+              width={80}
+              height={40}
+              className={styles.logoImage}
+            />
+          </div>
+        )}
       </div>
+      <div 
+        className={styles.modalDescription}
+        dangerouslySetInnerHTML={{ __html: description }}
+      />
       <div className={styles.modalImages}>
         {images.map((img, index) => (
           <div key={index} className={styles.modalImageContainer}>
