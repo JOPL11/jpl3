@@ -63,11 +63,9 @@
 }
 
 .modalHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 1.5rem;
-  gap: 2rem;
+  display: block;
+  clear: both;
 }
 
 .projectModal h2 {
@@ -80,8 +78,14 @@
 }
 
 .clientLogo {
-  flex-shrink: 0;
-  display: flex;
+  display: block;
+  margin: 1rem 0 0 0rem;
+  padding: 0;
+  clear: both;
+}
+
+.clientLogo > div {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   background: rgba(255, 255, 255, 0.05);
@@ -89,7 +93,16 @@
   padding: 0.5rem;
   height: 60px;
   min-width: 120px;
+  margin: 0;
 }
+
+/* Specific adjustment for SMMD logo */
+.clientLogo > div img[src*="SMMD"] {
+  margin-left: 0;
+  transform: none;
+}
+
+
 
 .logoImage {
   object-fit: contain;

@@ -140,6 +140,8 @@ export default function Home() {
             <p>Passionate about code, 
             design & animation. </p>
 
+            <p>Studied Communications Design in Munich, Germany</p>
+
             <p>15 years experience spans clients in the 
             entertainment, automotive, software and 
             aerospace industries - such as Airbus Group, 
@@ -215,7 +217,7 @@ export default function Home() {
                   alt="Berlin Showroom Expo piece"
                   client={{
                     name: "SMMD Team  |",
-                    logo: "/images/agencies/SMMD.png",
+                    logo: "/images/agencies/SMMD_wide.png",
                     website: "https://www.smmd.team"
                   }}
                   modalContent={{
@@ -245,7 +247,7 @@ export default function Home() {
                   alt="Ottobrunn Showroom Expo piece"
                   client={{
                     name: "SMMD Team |",
-                    logo: "/images/agencies/SMMD.png",
+                    logo: "/images/agencies/SMMD_wide.png",
                     website: "https://www.smmd.team"
                   }}
                   modalContent={{
@@ -459,7 +461,7 @@ export default function Home() {
                   text="Multimonitor animation for the Airbus Showroom Ottobrunn"
                   client={{
                     name: "SMMD Team |",
-                    logo: "/images/agencies/SMMD.png",
+                    logo: "/images/agencies/SMMD_wide.png",
                     website: "https://www.smmd.team/",
                     
                   }}
