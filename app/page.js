@@ -434,7 +434,7 @@ export default function Home() {
                   client={{
                     name: "Sieber & Wolf Werbeagentur  |",
                     website: "https://sieberundwolf.de/",
-                    logo: "/images/agencies/SW_neu_white.png"
+                    logo: "/images/agencies/sw_neu_white.png"
                   }}
                   modalContent={{
                     description: `Logo animation for Mercedes Benz.
