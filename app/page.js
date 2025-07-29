@@ -405,7 +405,7 @@ export default function Home() {
                   alt="Audi Nüremberg"
                   text="Cinemascreen sized animation for a VIP Event"
                   client={{
-                    name: "Planstand Agency  |",
+                    name: "Planstand |",
                     website: "https://www.planstand.com/",
                     logo: "/images/agencies/planstand_logo.png"
                   }}
@@ -434,7 +434,7 @@ export default function Home() {
                   alt="Mercedes Benz Animation"
                   text="Logo animation for Mercedes Benz"
                   client={{
-                    name: "Sieber & Wolf Werbeagentur  |",
+                    name: "Sieber & Wolf |",
                     website: "https://sieberundwolf.de/",
                     logo: "/images/agencies/sw_neu_white.png"
                   }}
