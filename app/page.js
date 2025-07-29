@@ -153,7 +153,7 @@ export default function Home() {
             in capacities ranging from visual concept artist, designer, 
             art director, creative developer & motion designer.</p>
            
-            <p>I build immersive interfaces and video content for people, corporations and governments — merging design, animation, and bulletproof code.</p>
+            <p>I build immersive interfaces merging design, animation, and bulletproof code.</p>
             <hr className={styles.divider} />
             <section className={styles.section} aria-labelledby="skills-heading">
               <h2 id="skills-heading">Technical Skills</h2>
