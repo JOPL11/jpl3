@@ -275,7 +275,7 @@ export default function Home() {
                     website: "https://www.autentic.com/"
                   }}
                   modalContent={{
-                    description: `Logo, CI/CD, UI/UX of a health app for homeopathy.`,
+                    description: `Official Website for the Pay TV channel Spiegel Geschichte TV. Legacy project, not the current Spiegel Geschichte TV website.`,
                     images: [
                       { src: "/images/SGA_1.jpg", alt: "Project Screenshot 1" },
                       { src: "/images/SGA_2.jpg", alt: "Project Screenshot 2" },
