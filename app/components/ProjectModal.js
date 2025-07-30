@@ -106,7 +106,7 @@ export default function ProjectModal({ title, description, images = [], videos =
       <div className={styles.mediaContainer}>
         {showConsentBanner && (
           <div className={styles.consentBanner}>
-            <p>This content is hosted on external platforms. By clicking "I Understand", you consent to their cookie policies.</p>
+            <p>This content is hosted on external platforms. By clicking &quot;I Understand&quot;, you consent to their cookie policies.</p>
             <div className={styles.consentButtons}>
               <button onClick={handleReject} className={styles.rejectButton}>
                 Reject
