@@ -7,8 +7,8 @@ import Image from 'next/image';
 const PrivacyModal = dynamic(() => import('../components/PrivacyModal'), {
   ssr: false,
 });
-import styles from "./page.module.css";
-import PrivacyStyles from '../components/PrivacyModal.module.css';
+import styles from "./css/page.module.css";
+import PrivacyStyles from './css/PrivacyModal.module.css';
 const ImpressumModal = dynamic(() => import('../components/ImpressumModal'), {
   ssr: false,
 });

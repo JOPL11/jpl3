@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import styles from './VideoModal.module.css';
+import styles from '../app/css/VideoModal.module.css';
 
 export default function VideoModal({ isOpen, onClose, videoUrl }) {
   const [hasConsent, setHasConsent] = useState(false);

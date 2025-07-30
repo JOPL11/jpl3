@@ -28,7 +28,7 @@
   overflow: auto;
   position: relative;
   padding: 2.5rem;
-  border: 1px solid #333;
+  border: 0px solid #333;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   color: #f0f0f0;
 }

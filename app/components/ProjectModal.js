@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import styles from '../Modal.module.css';
+import styles from '../css/Modal.module.css';
 
 export default function ProjectModal({ title, description, images = [], videos = [], clientLogo }) {
   const [hasConsent, setHasConsent] = useState(false);

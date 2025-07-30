@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import styles from './PrivacyModal.module.css';
+import styles from '../app/css/PrivacyModal.module.css';
 
 export default function ImpressumModal({ isOpen, onClose }) {
   // Prevent background scrolling when modal is open

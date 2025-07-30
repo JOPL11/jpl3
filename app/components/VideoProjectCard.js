@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import styles from '../page.module.css';
+import styles from '../css/page.module.css';
 import VideoModal from '../../components/VideoModal';
 
 export default function VideoProjectCard({ 

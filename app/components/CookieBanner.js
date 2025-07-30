@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import styles from './CookieBanner.module.css';
+import styles from '../css/CookieBanner.module.css';
 
 export default function CookieBanner() {
   const [showBanner, setShowBanner] = useState(false);

@@ -103,21 +103,21 @@
 }
 
 .consentButtons .acceptButton {
-  background: #4CAF50;
+  background: linear-gradient(180deg, #548da0 0%, #345f6d 100%);
   color: white;
 }
 
 .consentButtons .acceptButton:hover {
-  background: #43A047;
+  background: linear-gradient(180deg, #548da0 0%, #345f6d 70%);
 }
 
 .consentButtons .rejectButton {
-  background: #f44336;
+  background: linear-gradient(180deg, #d32f2f 0%, #743a0b 100%);
   color: white;
 }
 
 .consentButtons .rejectButton:hover {
-  background: #d32f2f;
+  background: linear-gradient(180deg, #d32f2f 0%, #743a0b 70%);
 }
 
 /* Responsive adjustments */
