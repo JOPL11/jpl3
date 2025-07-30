@@ -102,8 +102,6 @@
   transform: none;
 }
 
-
-
 .logoImage {
   object-fit: contain;
   max-width: 100%;
@@ -180,6 +178,58 @@
   max-height: 70vh;
   object-fit: contain;
   display: block;
+}
+
+/* Consent Banner Styles */
+.consentBanner {
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.consentBanner p {
+  color: #f0f0f0;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.consentButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.consentButtons button {
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.consentButtons .acceptButton {
+  background: #4CAF50;
+  color: white;
+}
+
+.consentButtons .acceptButton:hover {
+  background: #43A047;
+}
+
+.consentButtons .rejectButton {
+  background: #f44336;
+  color: white;
+}
+
+.consentButtons .rejectButton:hover {
+  background: #d32f2f;
 }
 
 /* Custom scrollbar for modal content */

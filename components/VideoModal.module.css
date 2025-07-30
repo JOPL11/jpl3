@@ -21,6 +21,9 @@
   border-radius: 8px;
   overflow: hidden;
   aspect-ratio: 16/9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .closeButton {
@@ -30,20 +33,21 @@
   background: rgba(0, 0, 0, 0.7);
   color: white;
   border: none;
-  border-radius: 10%;
+  border-radius: 4px;
   width: 2rem;
   height: 2rem;
-  font-size: 24px;
+  font-size: 1.2rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1001;
-  transition: background-color 0.2s;
+  transition: all 0.2s ease;
 }
 
 .closeButton:hover {
   background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
 }
 
 .videoContainer {
@@ -51,6 +55,7 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background: #000;
 }
 
 .videoContainer iframe {
@@ -62,26 +67,23 @@
   border: none;
 }
 
-.consentContainer {
-  padding: 2rem;
-  max-width: 500px;
-  margin: 0 auto;
-  text-align: center;
+.consentBanner {
   background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
-  color: white;
+  padding: 1.5rem;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.consentContainer h3 {
-  margin-top: 0;
-  color: #4dabf7;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.consentContainer p {
+.consentBanner p {
+  color: #f0f0f0;
   margin-bottom: 1.5rem;
-  line-height: 1.5;
+  line-height: 1.6;
+  font-size: 1rem;
 }
 
 .consentButtons {
@@ -90,46 +92,52 @@
   justify-content: center;
 }
 
-.consentAccept,
-.consentReject {
-  padding: 0.75rem 1.5rem;
+.consentButtons button {
+  padding: 0.6rem 1.5rem;
   border: none;
   border-radius: 4px;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
 }
 
-.consentAccept {
-  background-color: #4dabf7;
+.consentButtons .acceptButton {
+  background: #4CAF50;
   color: white;
 }
 
-.consentAccept:hover {
-  background-color: #339af0;
+.consentButtons .acceptButton:hover {
+  background: #43A047;
 }
 
-.consentReject {
-  background-color: transparent;
-  color: #adb5bd;
-  border: 1px solid #495057;
-}
-
-.consentReject:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+.consentButtons .rejectButton {
+  background: #f44336;
   color: white;
 }
 
-.consentPlaceholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  min-height: 300px;
-  background: rgba(0, 0, 0, 0.5);
-  color: #adb5bd;
-  font-size: 1.1rem;
-  text-align: center;
-  padding: 2rem;
-  border-radius: 4px;
+.consentButtons .rejectButton:hover {
+  background: #d32f2f;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .modalContent {
+    width: 95%;
+    max-height: 80vh;
+  }
+  
+  .consentBanner {
+    padding: 1rem;
+  }
+  
+  .consentButtons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .consentButtons button {
+    width: 100%;
+    padding: 0.75rem;
+  }
 }
