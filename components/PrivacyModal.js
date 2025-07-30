@@ -80,7 +80,23 @@ export default function PrivacyModal({ isOpen, onClose, type = 'privacy' }) {
                   </li>
                   <li><strong>Self-hosted Fonts</strong>: All fonts are downloaded at build time and served directly from our domain with no external requests or tracking</li>
                 </ul>
-                <p>We do not use any cookies, tracking pixels, or analytics services.</p>
+
+                <h3 className={styles.modalContentH3} style={{ marginTop: '1.5rem' }}>Third-Party Services</h3>
+                <p>This website uses the following third-party services that may collect data:</p>
+                <ul>
+                  <li><strong>Cloudflare</strong>: We use Cloudflare for security and performance optimization. Cloudflare may set a <code>__cf_bm</code> cookie for bot management and security purposes. <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">View Cloudflare&apos;s privacy policy</a>.</li>
+                  <li><strong>ArtStation</strong>: Some pages may include embedded content from ArtStation (videos, images, etc.). When you view embedded ArtStation content, ArtStation may collect data about your interaction with that content, set cookies, and track your activity, similar to visiting their website directly. <a href="https://www.artstation.com/legal/privacy" target="_blank" rel="noopener noreferrer">View ArtStation&apos;s privacy policy</a>.</li>
+                </ul>
+
+                <h3 className={styles.modalContentH3} style={{ marginTop: '1.5rem' }}>Cookies</h3>
+                <p>This website uses the following types of cookies:</p>
+                <ul>
+                  <li><strong>Essential Cookies</strong>: Necessary for the website to function properly (e.g., Cloudflare&apos;s bot management cookie).</li>
+                  <li><strong>Third-Party Cookies</strong>: Set by services like ArtStation when you interact with embedded content. These are subject to the respective third party&apos;s privacy policy.</li>
+                </ul>
+                
+                <p>You can manage or disable cookies through your browser settings. However, please note that disabling certain cookies may affect the functionality of our website and the embedded content.</p>
+                
                 <p>Our hosting provider (Vercel) may collect basic request logs (IP address, browser type, pages visited) for security and operational purposes, but this data is not shared with us or any third parties for tracking or marketing purposes.</p>
               </section>
             </>
