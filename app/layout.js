@@ -26,14 +26,14 @@ export const metadata = {
   authors: [{ name: 'Jan Peiro' }],
   creator: 'Jan Peiro',
   publisher: 'Jan Peiro',
-  metadataBase: new URL('https://jpl3.vercel.app'),
+  metadataBase: new URL('https://janpeiro.vercel.app'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: 'Jan Peiro - Creative Developer & Motion Designer',
     description: 'Portfolio of Jan Peiro - Creative Developer and Motion Designer specializing in 3D animation, web development, and visual effects.',
-    url: 'https://jpl3.vercel.app',
+    url: 'https://janpeiro.vercel.app',
     siteName: 'Jan Peiro Portfolio',
     images: [
       {

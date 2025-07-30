@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const baseUrl = 'https://jpl3.vercel.app';
+  const baseUrl = 'https://janpeiro.vercel.app';
 
   return [
     {
