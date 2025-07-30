@@ -1,19 +1,64 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import styles from '../app/css/VideoModal.module.css';
+
+// Helper function to check if cookies are enabled
+const areCookiesEnabled = () => {
+  try {
+    localStorage.setItem('test-cookie', '1');
+    const enabled = localStorage.getItem('test-cookie') === '1';
+    localStorage.removeItem('test-cookie');
+    return enabled;
+  } catch (e) {
+    return false;
+  }
+};
 
 export default function VideoModal({ isOpen, onClose, videoUrl }) {
   const [hasConsent, setHasConsent] = useState(false);
   const [showConsentBanner, setShowConsentBanner] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [needsConsent, setNeedsConsent] = useState(true);
+  const iframeRef = useRef(null);
+  const isMounted = useRef(true);
+
+  // Check for existing consent
+  const checkConsent = useCallback(() => {
+    if (typeof window === 'undefined') return false;
+    
+    // First check if we can access localStorage
+    const canAccessStorage = areCookiesEnabled();
+    
+    // If we can't access storage, we need to show the banner
+    if (!canAccessStorage) {
+      return { hasConsent: false, showBanner: true };
+    }
+    
+    // Try to get the consent from localStorage
+    try {
+      const savedConsent = localStorage.getItem('cookieConsent');
+      return {
+        hasConsent: savedConsent === 'true',
+        showBanner: savedConsent === null
+      };
+    } catch (e) {
+      // If we can't access localStorage, show the banner
+      return { hasConsent: false, showBanner: true };
+    }
+  }, []);
 
   // Check for existing consent when modal opens
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
-      const savedConsent = localStorage.getItem('cookieConsent');
-      setHasConsent(savedConsent === 'true');
-      setShowConsentBanner(savedConsent === null);
+      const consentState = checkConsent();
+      setHasConsent(consentState.hasConsent);
+      setShowConsentBanner(consentState.showBanner);
+      setIsLoading(false);
+      
+      // Set a flag if we need to show consent banner
+      setNeedsConsent(consentState.showBanner);
     } else {
       document.body.style.overflow = 'unset';
     }
@@ -21,18 +66,45 @@ export default function VideoModal({ isOpen, onClose, videoUrl }) {
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [isOpen]);
+  }, [isOpen, checkConsent]);
 
-  const handleConsent = (consent) => {
-    localStorage.setItem('cookieConsent', String(consent));
-    setHasConsent(consent);
-    setShowConsentBanner(false);
-    window.dispatchEvent(new Event('cookieConsent'));
+  const handleConsent = useCallback((consent) => {
+    if (!isMounted.current) return;
     
-    if (!consent) {
-      onClose();
+    try {
+      // Try to save consent to localStorage
+      localStorage.setItem('cookieConsent', String(consent));
+      
+      // Update state
+      setHasConsent(consent);
+      setShowConsentBanner(false);
+      setNeedsConsent(false);
+      
+      // Dispatch event for other components
+      window.dispatchEvent(new Event('cookieConsent'));
+      
+      if (!consent) {
+        onClose();
+      } else if (iframeRef.current) {
+        // Force reload the iframe after consent
+        const src = iframeRef.current.src;
+        if (src) {
+          iframeRef.current.src = '';
+          setTimeout(() => {
+            if (isMounted.current && iframeRef.current) {
+              iframeRef.current.src = src;
+            }
+          }, 100);
+        }
+      }
+    } catch (e) {
+      console.error('Failed to save consent:', e);
+      // If we can't save consent, still try to show the video
+      setHasConsent(true);
+      setShowConsentBanner(false);
+      setNeedsConsent(false);
     }
-  };
+  }, [onClose]);
 
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
@@ -41,15 +113,25 @@ export default function VideoModal({ isOpen, onClose, videoUrl }) {
   };
 
   // Extract video ID from Vimeo URL
-  const getVideoId = (url) => {
+  const getVideoId = useCallback((url) => {
+    if (!url) return '';
     const match = url.match(/(?:vimeo\.com\/(\d+))|(?:vimeo\.com\/video\/(\d+))/);
-    return match && (match[1] || match[2]);
-  };
+    return match && (match[1] || match[2] || '');
+  }, []);
+
+  // Get the embed URL with privacy-enhanced mode for better Chrome compatibility
+  const getEmbedUrl = useCallback((url) => {
+    const videoId = getVideoId(url);
+    if (!videoId) return '';
+    
+    // Use dnt=1 for privacy and no tracking
+    return `https://player.vimeo.com/video/${videoId}?autoplay=1&controls=1&title=0&byline=0&portrait=0&badge=0&transparent=0&dnt=1`;
+  }, [getVideoId]);
 
   if (!isOpen) return null;
 
-  const videoId = getVideoId(videoUrl);
-  const embedUrl = `https://player.vimeo.com/video/${videoId}?autoplay=1&controls=1&title=0&byline=0&portrait=0&badge=0&transparent=0`;
+  const embedUrl = getEmbedUrl(videoUrl);
+  const showVideo = hasConsent && !showConsentBanner && !isLoading && embedUrl;
 
   return (
     <div className={styles.modalOverlay} onClick={handleBackdropClick}>
@@ -82,9 +164,11 @@ export default function VideoModal({ isOpen, onClose, videoUrl }) {
           </div>
         )}
 
-        {hasConsent && (
+        {showVideo && (
           <div className={styles.videoContainer}>
             <iframe
+              ref={iframeRef}
+              key={`video-${getVideoId(videoUrl)}`}
               src={embedUrl}
               width="100%"
               height="100%"
@@ -92,6 +176,34 @@ export default function VideoModal({ isOpen, onClose, videoUrl }) {
               allow="autoplay; fullscreen; picture-in-picture"
               allowFullScreen
               title="Video Player"
+              style={{ 
+                opacity: 1,
+                backgroundColor: '#000',
+                border: 'none',
+                display: 'block'
+              }}
+              loading="eager"
+              onLoad={() => {
+                if (iframeRef.current) {
+                  iframeRef.current.style.opacity = '1';
+                }
+              }}
+              onError={() => {
+                if (iframeRef.current) {
+                  // Try reloading with a small delay
+                  setTimeout(() => {
+                    if (iframeRef.current) {
+                      const src = iframeRef.current.src;
+                      iframeRef.current.src = '';
+                      setTimeout(() => {
+                        if (iframeRef.current) {
+                          iframeRef.current.src = src;
+                        }
+                      }, 100);
+                    }
+                  }, 500);
+                }
+              }}
             />
           </div>
         )}

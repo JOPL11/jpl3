@@ -1,3 +1,25 @@
+/* Reset box-sizing to ensure consistent sizing */
+.modalOverlay,
+.modalOverlay::before,
+.modalOverlay::after,
+.modalContent,
+.modalContent::before,
+.modalContent::after,
+.closeButton,
+.closeButton::before,
+.closeButton::after,
+.consentBanner,
+.consentBanner::before,
+.consentBanner::after,
+.consentButtons,
+.consentButtons::before,
+.consentButtons::after,
+.videoContainer,
+.videoContainer::before,
+.videoContainer::after {
+  box-sizing: border-box;
+}
+
 .modalOverlay {
   position: fixed;
   top: 0;
@@ -10,6 +32,11 @@
   align-items: center;
   z-index: 1000;
   padding: 20px;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  -webkit-tap-highlight-color: transparent;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .modalContent {
@@ -17,13 +44,18 @@
   width: 90%;
   max-width: 1200px;
   max-height: 90vh;
-  background: transparent;
+  background: #000;
   border-radius: 8px;
   overflow: hidden;
   aspect-ratio: 16/9;
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: translateZ(0);
+  will-change: transform;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 .closeButton {
@@ -33,50 +65,49 @@
   background: rgba(0, 0, 0, 0.7);
   color: white;
   border: none;
-  border-radius: 4px;
-  width: 2rem;
-  height: 2rem;
-  font-size: 1.2rem;
+  border-radius: 5px;
+  width: 32px;
+  height: 32px;
+  font-size: 1.5rem;
+  font-weight: 300;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1001;
   transition: all 0.2s ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .closeButton:hover {
   background: rgba(255, 255, 255, 0.2);
-  transform: rotate(90deg);
-}
-
-.videoContainer {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: #000;
-}
-
-.videoContainer iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
+  transform: rotate(90deg) translateZ(0);
 }
 
 .consentBanner {
-  background: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateZ(0);
+  background: rgba(0, 0, 0, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
-  padding: 1.5rem;
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto;
+  padding: 2rem;
+  max-width: 80%;
   width: 100%;
+  text-align: center;
+  z-index: 1002;
   box-sizing: border-box;
+  will-change: transform;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .consentBanner p {
@@ -84,12 +115,14 @@
   margin-bottom: 1.5rem;
   line-height: 1.6;
   font-size: 1rem;
+  margin-top: 0;
 }
 
 .consentButtons {
   display: flex;
   gap: 1rem;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .consentButtons button {
@@ -100,6 +133,13 @@
   cursor: pointer;
   transition: all 0.2s ease;
   font-size: 0.9rem;
+  min-width: 120px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-family: inherit;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .consentButtons .acceptButton {
@@ -120,15 +160,41 @@
   background: linear-gradient(180deg, #d32f2f 0%, #743a0b 70%);
 }
 
+.videoContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.videoContainer iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  background: #000;
+  transform: translateZ(0);
+  will-change: transform;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .modalContent {
     width: 95%;
-    max-height: 80vh;
+    max-height: 70vh;
   }
   
   .consentBanner {
-    padding: 1rem;
+    padding: 1.5rem;
+    max-width: 95%;
   }
   
   .consentButtons {
@@ -138,6 +204,22 @@
   
   .consentButtons button {
     width: 100%;
-    padding: 0.75rem;
+  }
+  
+  .closeButton {
+    right: 0.5rem;
+    top: 0.5rem;
+  }
+}
+
+/* Chrome-specific fixes */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .modalContent {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+  
+  .consentBanner {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
   }
 }

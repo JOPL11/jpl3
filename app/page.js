@@ -376,9 +376,9 @@ export default function Home() {
                   <p><strong>Duration:</strong> 2 weeks</p>
                 </ProjectCard>
                 <ProjectCard 
-                  title="Blade Runner 2033"
+                  title="Streetlamp 2033"
                   image="/images/JPL3Poster_R3F.jpg"
-                  alt="Blade Runner 2033"
+                  alt="Streetlamp 2033"
                   text="Featuring custom audiotracks, 3D models and animations."
                   modalContent={{
                     description: "Featuring custom audiotracks, 3D models and animations.",
