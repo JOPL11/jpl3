@@ -26,7 +26,8 @@ export default function ProjectCard({
         <ProjectModal 
           title={title}
           description={modalContent.description}
-          images={modalContent.images}
+          images={modalContent.images || []}
+          videos={modalContent.videos || []}
           clientLogo={client?.logo}
         />
       );

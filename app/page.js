@@ -16,6 +16,12 @@ import ProjectCard from './components/ProjectCard';
 import VideoProjectCard from './components/VideoProjectCard';
 import ContactForm from './components/ContactForm';
 
+// Dynamically import the 3D hero with SSR disabled
+const Hero3D = dynamic(() => import('./components/Hero3D'), {
+  ssr: false,
+  loading: () => <div style={{ width: '100%', height: '60vh', background: '#000' }} />
+});
+
 function CopyrightYear() {
   const [year] = useState(new Date().getFullYear());
   return <>{year}</>;
@@ -134,6 +140,9 @@ export default function Home() {
             </div>
           </div>
           <section className={styles.content} aria-labelledby="welcome-heading">
+           {/*     <div className={styles.heroContainer}>
+              <Hero3D />
+            </div>*/} 
             <h2 id="welcome-heading">About</h2>
             <p>Hi! My name is Jan.</p>
 
@@ -370,8 +379,46 @@ export default function Home() {
                   title="Blade Runner 2033"
                   image="/images/JPL3Poster_R3F.jpg"
                   alt="Blade Runner 2033"
-                  link="https://jpl3d2.vercel.app"
-                  text="Featuring custom 3D models and animations."
+                  text="Featuring custom audiotracks, 3D models and animations."
+                  modalContent={{
+                    description: "Featuring custom audiotracks, 3D models and animations.",
+                    images: [
+                      { src: "https://cdna.artstation.com/p/assets/images/images/077/342/134/large/jan-peiro-street3.jpg?1719229425", alt: "Project Screenshot 1" },
+                      { src: "https://cdnb.artstation.com/p/assets/images/images/077/342/125/large/jan-peiro-street2.jpg?1719229632", alt: "Project Screenshot 2" },
+                      { src: "https://cdnb.artstation.com/p/assets/images/images/077/342/139/large/jan-peiro-street4.jpg?1719229437", alt: "Project Screenshot 3" }
+                    ],
+                    videos: [
+                      {
+                        src: "https://cdn.artstation.com/p/video_sources/002/116/001/streetlight-copy-1.mp4",
+                        title: "Project Video"
+                      }
+                    ]
+                  }}
+                >
+                  <p>Technical Demo</p>
+                  <p><strong>Project Type:</strong> React Three Fiber</p>
+                  <p><strong>Role:</strong> Concept / Animation / Development</p>
+                  <p><strong>Duration:</strong> 3 weeks</p>
+                  </ProjectCard>
+                  <ProjectCard 
+                  title="The Facility"
+                  image="https://cdna.artstation.com/p/assets/images/images/077/341/642/large/jan-peiro-box1.jpg?1719257986"
+                  alt="The Facility"
+                  text="Featuring custom audiotracks, 3D models and animations."
+                  modalContent={{
+                    description: "Featuring custom audiotracks, 3D models and animations.",
+                    images: [
+                      { src: "https://cdna.artstation.com/p/assets/images/images/077/358/876/large/jan-peiro-box5.jpg?1728290074", alt: "Project Screenshot 1" },
+                      { src: "https://cdna.artstation.com/p/assets/images/images/077/341/642/large/jan-peiro-box1.jpg?1719257986", alt: "Project Screenshot 2" },
+                      { src: "https://cdna.artstation.com/p/assets/images/images/077/341/704/large/jan-peiro-box3.jpg?1719228705.jpg", alt: "Project Screenshot 3" }
+                    ],
+                    videos: [
+                      {
+                        src: "https://cdn.artstation.com/p/video_sources/002/116/008/facility-web.mp4",
+                        title: "Project Video"
+                      }
+                    ]
+                  }}
                 >
                   <p>Technical Demo</p>
                   <p><strong>Project Type:</strong> React Three Fiber</p>
