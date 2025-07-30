@@ -1,6 +1,8 @@
 import { Inter } from 'next/font/google';
 import "./globals.css";
 import { ModalProvider } from './components/ModalContext';
+import dynamic from 'next/dynamic';
+import CookieBanner from './components/CookieBanner';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -12,6 +14,7 @@ const inter = Inter({
   adjustFontFallback: true,
   preload: true,
 });
+
 
 export const metadata = {
   title: {
@@ -73,11 +76,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={inter.className} suppressHydrationWarning>
+    <html lang="en" className={inter.variable}>
       <head />
-      <body suppressHydrationWarning>
+      <body className={inter.className} suppressHydrationWarning={true}>
         <ModalProvider>
           {children}
+          <CookieBanner /> 
         </ModalProvider>
       </body>
     </html>
