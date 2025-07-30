@@ -201,7 +201,7 @@ export default function Home() {
                   image="/images/corp/sb.jpg"
                   alt="Stadtberichter Info Page"
                   text="A GDPR-compliant info page for a civics oriented app."
-                  link="https://sb-info.vercel.app/"
+                 // link="https://sb-info.vercel.app/"
                 >
                   <p><strong>Target Audience:</strong> Municipal Authorities</p>
                   <p><strong>Project Type:</strong> Infopage about an Application</p>
@@ -212,7 +212,7 @@ export default function Home() {
                   title="Stadtberichter App"
                   image="/images/corp/sb.jpg"
                   alt="Stadtberichter App"
-                  link="https://sb-whole.vercel.app/"
+               //   link="https://sb-whole.vercel.app/"
                   text="Currently in development. A GDPR-compliant civics oriented app with encrypted geodata, voice-to-text, i18n language versioning, rate-limiting and other security features feeding into a real-time municipal dashboard"
                 >
                   <p><strong>Target Audience:</strong> Municipal Citizens</p>
