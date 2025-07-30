@@ -144,24 +144,11 @@ export default function Home() {
               <Hero3D />
             </div>*/} 
             <h2 id="welcome-heading">About</h2>
-            <p>Hi! My name is Jan.</p>
-
-            <p>Passionate about code, 
-            design & animation. </p>
+            <p>Hi! My name is Jan Peiro.</p>
 
             <p>Studied Communications Design in Munich, Germany</p>
-
-            <p>15 years experience spans clients in the 
-            entertainment, automotive, software and 
-            aerospace industries - such as Airbus Group, 
-            Spiegel TV, Red Bull Austria, BMW Group, Audi, NATO, 
-            Pro7, Warner Brothers, and many others.</p>
-
-            <p>Throughout this time I&apos;ve worked freelance and employed 
-            in capacities ranging from visual concept artist, designer, 
-            art director, creative developer & motion designer.</p>
            
-            <p>I build immersive interfaces merging design, animation, and bulletproof code.</p>
+            <p>I build immersive interfaces merging design, animation, and code.</p>
             <hr className={styles.divider} />
             <section className={styles.section} aria-labelledby="skills-heading">
               <h2 id="skills-heading">Technical Skills</h2>
