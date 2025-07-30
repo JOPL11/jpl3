@@ -149,6 +149,10 @@ export default function Home() {
             <p>Studied Communications Design in Munich, Germany</p>
            
             <p>I build immersive interfaces merging design, animation, and code.</p>
+
+            <p>Based in Germany</p>
+
+            
             <hr className={styles.divider} />
             <section className={styles.section} aria-labelledby="skills-heading">
               <h2 id="skills-heading">Technical Skills</h2>
@@ -177,7 +181,6 @@ export default function Home() {
                   <li role="listitem">French (fluent)</li>
                 </ul>
               </section>
- 
             </div>
             <hr className={styles.divider} />
             <section id="work" className={styles.section} aria-labelledby="projects-heading">
@@ -528,9 +531,10 @@ export default function Home() {
               <h2>Contact</h2>
               <ContactForm />
             </section>
+            <p style={{textDecoration: 'underline', textAlign: 'center'}}><a href="https://github.com/JOPL11/jpl3" target="_blank">git</a></p>
           </section>
 
-        
+         
         </div>
       </main>
       <footer className={styles.footer} role="contentinfo">
@@ -578,6 +582,7 @@ export default function Home() {
           isOpen={showImpressumModal} 
           onClose={() => setShowImpressumModal(false)}
         />
+       
       </footer>
     </div>
   );
