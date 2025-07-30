@@ -215,7 +215,8 @@
 /* Chrome-specific fixes */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   .modalContent {
-    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0); /* Keep for older Safari/iOS versions */
   }
   
   .consentBanner {
