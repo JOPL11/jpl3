@@ -37,7 +37,10 @@ export default function Home() {
     e.preventDefault();
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
   };
 
@@ -143,7 +146,7 @@ export default function Home() {
               </div> */}  
             </div>
           </div>
-          <section className={styles.content} aria-labelledby="welcome-heading">
+          <section id="welcome-heading" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="welcome-heading">
 
            {/*     <div className={styles.heroContainer}>
               <Hero3D />
@@ -189,7 +192,7 @@ export default function Home() {
             </div>
             <hr className={styles.divider} />
             <section id="work" className={styles.section} aria-labelledby="projects-heading">
-              <h2 id="projects-heading">Code</h2>
+              <h2 id="projects-heading" className={styles.scrollTarget}>Code</h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
                   {/*   */}   <ProjectCard 
                   title="Stadtberichter Info Page"
@@ -343,8 +346,8 @@ export default function Home() {
               </div>
             </section>
             <hr className={styles.divider} />
-            <section className={styles.section}>
-              <h2 id="webgl-heading">WebGL</h2>
+            <section id="webgl-heading" className={`${styles.section} ${styles.scrollTarget}`}>
+              <h2>WebGL</h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
               <ProjectCard 
                   title="Bytes101"
@@ -425,8 +428,8 @@ export default function Home() {
 
             </section>
        <hr className={styles.divider} />
-            <section className={styles.section}>
-              <h2 id="motion-heading">Motion</h2>
+            <section id="motion-heading" className={`${styles.section} ${styles.scrollTarget}`}>
+              <h2>Motion</h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
                 
               <VideoProjectCard 
@@ -532,7 +535,7 @@ export default function Home() {
             </section> 
             {/*    */}  
             <hr className={styles.divider} />
-            <section id="contact">
+            <section id="contact" className={`${styles.section} ${styles.scrollTarget}`}>
               <h2>Contact</h2>
               <ContactForm />
             </section>
