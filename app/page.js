@@ -74,6 +74,13 @@ export default function Home() {
   return (
     <div className={styles.container} role="document">
       <header role="banner" className={styles.header}>
+        <button 
+          className={styles.backToTop}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          aria-label="Back to top"
+        >
+          ↑
+        </button>
         <div className={styles.legalLinks}>
           <button 
             onClick={() => setShowImpressumModal(true)}
@@ -152,6 +159,12 @@ export default function Home() {
                   target="_blank"
                 >
                   Artstation
+                </a>
+                <a
+                  href="https://github.com/JOPL11/jpl3" 
+                  className={styles.navLink}
+                  target="_blank">
+                    Github
                 </a>
 
 
@@ -563,7 +576,6 @@ export default function Home() {
               <h2>Contact</h2>
               <ContactForm />
             </section>
-            <p style={{textDecoration: 'underline', textAlign: 'center'}}><a href="https://github.com/JOPL11/jpl3" target="_blank">git</a></p>
           </section>
 
          
@@ -572,6 +584,13 @@ export default function Home() {
       <footer className={styles.footer} role="contentinfo">
 
         <div className={styles.footerLinks} role="navigation" aria-label="Footer">
+          <button 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className={`${styles.footerLink} ${styles.backToTopFooter}`}
+            aria-label="Back to top"
+          >
+            ↑
+          </button>
           <p>&copy; <CopyrightYear /> Jan Peiro. All rights reserved.</p>
           <button 
             onClick={() => openModal('privacy')} 
