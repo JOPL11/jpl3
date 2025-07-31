@@ -41,9 +41,9 @@ export default function Modal({ isOpen, onClose, children, fullBleed = false }) 
   if (!isOpen) return null;
 
   return (
-    <div className={styles.modalOverlay} onClick={onClose} ref={modalRef}>
-      <div className={`${styles.modalContent} ${fullBleed ? styles.fullBleed : ''}`} onClick={(e) => e.stopPropagation()}>
-        <button className={styles.closeButton} onClick={onClose} aria-label="Close modal">
+    <div className={styles.modalOverlay} onClick={onClose} ref={modalRef} role="dialog" aria-modal="true">
+      <div className={`${styles.modalContent} ${fullBleed ? styles.fullBleed : ''}`} onClick={(e) => e.stopPropagation()} tabIndex="-1">
+        <button className={styles.closeButton} onClick={onClose}  aria-label="Close modal" >
           &times;
         </button>
         {children}

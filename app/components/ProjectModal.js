@@ -1,12 +1,20 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import styles from '../css/Modal.module.css';
 
 export default function ProjectModal({ title, description, images = [], videos = [], clientLogo }) {
   const [hasConsent, setHasConsent] = useState(false);
   const [showConsentBanner, setShowConsentBanner] = useState(false);
+  const headingRef = useRef(null);
+
+  useEffect(() => {
+    // Focus the heading when the modal opens
+    if (headingRef.current) {
+      headingRef.current.focus();
+    }
+  }, []); // Empty dependency array means this runs once on mount
 
   useEffect(() => {
     // Check for existing consent
@@ -85,8 +93,12 @@ export default function ProjectModal({ title, description, images = [], videos =
 
   return (
     <div className={styles.projectModal}>
-      <div className={styles.modalHeader}>
-        <h2>{title}</h2>
+      <div className={styles.modalHeader} >
+        <h2 ref={headingRef}
+          tabIndex="0" // Make it focusable
+          role="heading" 
+          aria-level="2"
+          aria-label={title}>{title}</h2>
         {clientLogo && (
           <div className={styles.clientLogo}>
             <Image
