@@ -235,7 +235,7 @@ export default function Home() {
               <h2 id="projects-heading" className={styles.scrollTarget}>Code</h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
               <ProjectCard 
-                  title="Berlin Showroom Expo Interface"
+                  title="Airbus Berlin Showroom Expo Interface"
                  // image="/images/corp/airbus.jpg"
                  image="/images/JPL3Poster_AB.jpg"
                   alt="Berlin Showroom Expo piece"
@@ -291,7 +291,7 @@ export default function Home() {
                 </ProjectCard>
 
                 <ProjectCard 
-                  title="Ottobrunn Showroom Expo Interface"
+                  title="Airbus Ottobrunn Showroom Expo Interface"
                   image="/images/corp/airbus.jpg"
                   alt="Ottobrunn Showroom Expo piece"
                   client={{
