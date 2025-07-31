@@ -477,7 +477,7 @@ export default function Home() {
                 
               <VideoProjectCard 
                   title="Showreel 2025"
-                  image="/images/JPL3Poster.jpg"
+                  image="/images/JPL3Poster_AB2.jpg"
                   alt="Showreel 2025"
                   videoUrl="https://vimeo.com/1103891139"
                   text="2D / 3D Motion Reel featuring Commercial and Personal Work "
