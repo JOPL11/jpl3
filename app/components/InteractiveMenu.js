@@ -54,13 +54,13 @@ const InteractiveMenu = () => {
     if (innerCircleRef.current) {
         innerCircleRef.current.style.transform = `rotate(${rotation-13}deg)`;
         innerCircleRef.current.style.transformOrigin = 'center';
-        innerCircleRef.current.style.transition = 'transform 3.8s cubic-bezier(0.16, 1, 0.3, 1)';
+        innerCircleRef.current.style.transition = 'transform 1.8s cubic-bezier(0.16, 1, 0.3, 1)';
     }
   }, [rotation]);
 
 
   return (
-    <div className={styles.menuContainer}>
+    <div className={styles.menuContainer} style={{ transform: 'scale(0.9)', transformOrigin: 'center' }}>
       <svg 
         xmlns="http://www.w3.org/2000/svg" 
         viewBox="0 0 800 800" 
@@ -95,9 +95,9 @@ const InteractiveMenu = () => {
 	.st1{fill:#347384;}
 	.st2{fill:#231F20;}
 	.st3{fill:#a2feff;}
-	.st4{fill:#2D2D2D;}
-	.st5{fill:#5E5E5E;}
-	.st6{fill:#347384;}
+	.st4{fill:#a2feff;}
+	.st5{fill:#a2feff;}
+	.st6{fill:#347384; transform: scale(1.1); transform-origin: center;}
           .menuItem {
             cursor: pointer;
             transition: filter 0.3s ease, transform 0.3s ease;
@@ -226,7 +226,7 @@ const InteractiveMenu = () => {
           onClick={(e) => scrollToSection(e, 'motion-heading')}
         >
       
-          <path className="st1" d="M432.7,618.72c-0.79-0.64-1.77-0.97-2.94-0.97s-2.15,0.32-2.93,0.97c-0.78,0.64-1.37,1.53-1.77,2.66
+    <path className="st1" d="M432.7,618.72c-0.79-0.64-1.77-0.97-2.94-0.97s-2.15,0.32-2.93,0.97c-0.78,0.64-1.37,1.53-1.77,2.66
 		s-0.59,2.42-0.59,3.87c0,1.42,0.2,2.7,0.59,3.83c0.4,1.13,0.99,2.03,1.77,2.68c0.78,0.65,1.76,0.98,2.93,0.98s2.15-0.33,2.94-0.98
 		c0.79-0.65,1.38-1.55,1.78-2.68c0.39-1.14,0.59-2.41,0.59-3.83c0-1.45-0.2-2.74-0.59-3.87
 		C434.08,620.25,433.49,619.36,432.7,618.72z"/>
