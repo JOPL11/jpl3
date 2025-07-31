@@ -4,7 +4,7 @@
 import { useEffect, useRef } from 'react';
 import styles from '../css/Modal.module.css';
 
-export default function Modal({ isOpen, onClose, children }) {
+export default function Modal({ isOpen, onClose, children, fullBleed = false }) {
   const modalRef = useRef(null);
 
   // Close modal on ESC key and handle scroll locking
@@ -42,7 +42,7 @@ export default function Modal({ isOpen, onClose, children }) {
 
   return (
     <div className={styles.modalOverlay} onClick={onClose} ref={modalRef}>
-      <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+      <div className={`${styles.modalContent} ${fullBleed ? styles.fullBleed : ''}`} onClick={(e) => e.stopPropagation()}>
         <button className={styles.closeButton} onClick={onClose} aria-label="Close modal">
           &times;
         </button>

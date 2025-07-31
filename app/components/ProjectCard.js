@@ -5,6 +5,7 @@ import Image from 'next/image';
 import styles from '../css/page.module.css';
 import { useModal } from './ModalContext';
 import ProjectModal from './ProjectModal';
+import ModalLink from './ModalLink';
 
 export default function ProjectCard({ 
   title, 
@@ -12,6 +13,7 @@ export default function ProjectCard({
   image, 
   alt, 
   link,
+  openInModal = false, // New prop for modal behavior
   client,
   text, // Additional text to display below client info
   modalContent // { description: string, images: Array<{src: string, alt: string}> }
@@ -104,15 +106,25 @@ export default function ProjectCard({
             View Project
           </button>
         )}
-        {link && (
-          <a 
-            href={link} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className={styles.projectLink}
-          >
-            View Project
-          </a>
+        {link && !modalContent && (
+          openInModal ? (
+            <ModalLink 
+              href={link}
+              className={styles.projectLink}
+              title={title}
+            >
+              View Project
+            </ModalLink>
+          ) : (
+            <a 
+              href={link} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={styles.projectLink}
+            >
+              View Project
+            </a>
+          )
         )}
       </div>
     </div>
