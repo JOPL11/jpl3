@@ -74,6 +74,23 @@ export default function Home() {
   return (
     <div className={styles.container} role="document">
       <header role="banner" className={styles.header}>
+        <div className={styles.legalLinks}>
+          <button 
+            onClick={() => setShowImpressumModal(true)}
+            className={styles.legalLink}
+            aria-label="View Impressum"
+          >
+            Impressum
+          </button>
+          <span className={styles.legalSeparator}>|</span>
+          <button 
+            onClick={() => setShowPrivacyModal(true)}
+            className={styles.legalLink}
+            aria-label="View Privacy Policy"
+          >
+            Privacy
+          </button>
+        </div>
         {/* Header content would go here */}
       </header>
       <main className={styles.main} role="main" id="main-content">

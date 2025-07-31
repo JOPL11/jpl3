@@ -52,6 +52,8 @@ export default function PrivacyModal({ isOpen, onClose, type = 'privacy' }) {
                   </li>
                   <li>No analytics or tracking scripts are used on this website</li>
                   <li>Our hosting provider (Vercel) may collect basic request logs (IP address, browser type, pages visited) for security and operational purposes</li>
+                  <li>Our email provider (Resend) may collect basic request logs (IP address, browser type, pages visited) for security and operational purposes</li>
+                  <li>Three portfolio entries take images and video from my ArtStation profile and Vimeo, they may collect cookies. I&apos;ll get around to hosting that stuff myself soon.</li>
                 </ul>
               </section>
 
