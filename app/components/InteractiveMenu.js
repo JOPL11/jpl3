@@ -49,12 +49,12 @@ const InteractiveMenu = () => {
     if (outerCircleRef.current) {
       outerCircleRef.current.style.transform = `rotate(${rotation}deg)`;
       outerCircleRef.current.style.transformOrigin = 'center';
-      outerCircleRef.current.style.transition = 'transform 0.8s ease-in-out';
+      outerCircleRef.current.style.transition = 'transform 0.5s ease-out';
     }
     if (innerCircleRef.current) {
         innerCircleRef.current.style.transform = `rotate(${rotation-13}deg)`;
         innerCircleRef.current.style.transformOrigin = 'center';
-        innerCircleRef.current.style.transition = 'transform 1.8s ease-in-out';
+        innerCircleRef.current.style.transition = 'transform 0.9s ease-out';
     }
   }, [rotation]);
 

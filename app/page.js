@@ -146,6 +146,13 @@ export default function Home() {
                 >
                   Contact
                 </a>
+                <a 
+                  href="https://www.artstation.com/jopl" 
+                  className={styles.navLink}
+                  target="_blank"
+                >
+                  Artstation
+                </a>
 
 
  
