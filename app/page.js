@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import InteractiveMenu from './components/InteractiveMenu';
 
 const PrivacyModal = dynamic(() => import('../components/PrivacyModal'), {
   ssr: false,
@@ -85,6 +86,9 @@ export default function Home() {
                 priority
                 aria-hidden="true"
               />
+                        <div className={styles.menuContainer}>
+          <InteractiveMenu />
+          </div>
               <hr className={styles.divider} />
               <nav className={styles.navLinks} aria-label="Main navigation">
                 <a 
@@ -140,6 +144,7 @@ export default function Home() {
             </div>
           </div>
           <section className={styles.content} aria-labelledby="welcome-heading">
+
            {/*     <div className={styles.heroContainer}>
               <Hero3D />
             </div>*/} 

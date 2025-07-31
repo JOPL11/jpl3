@@ -4,7 +4,7 @@
 import dynamic from 'next/dynamic';
 
 const CookieBanner = dynamic(
-  () => import('CookieBanner'),
+  () => import('./CookieBanner'),
   { ssr: false }
 );
 
