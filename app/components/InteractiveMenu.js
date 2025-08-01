@@ -70,9 +70,9 @@ const InteractiveMenu = () => {
         filter="url(#dropShadow)"
       >
         <defs>
-  <filter id="menuGlow" height="130%" width="130%" filterUnits="userSpaceOnUse">
+  <filter id="menuGlow" height="160%" width="160%" filterUnits="userSpaceOnUse">
     <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
-    <feFlood floodColor="#347384" floodOpacity="0.5" result="glowColor" />
+    <feFlood floodColor="#0cc6f9" floodOpacity="1" result="glowColor" />
     <feComposite in="glowColor" in2="blur" operator="in" result="softGlow" />
     <feMerge>
       <feMergeNode in="softGlow" />
