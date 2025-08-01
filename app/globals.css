@@ -27,6 +27,17 @@ html {
   background-color: var(--background);
 }
 
+/* Text selection styles */
+::selection {
+  background: transparent;
+  color: inherit;
+}
+
+::-moz-selection {
+  background: transparent;
+  color: inherit;
+}
+
 /* Ensure content stays above the gradient */
 .content-wrapper {
   position: relative;

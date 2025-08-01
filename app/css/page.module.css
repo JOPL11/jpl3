@@ -885,12 +885,18 @@
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
-  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 100%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 100%, transparent 100%);
 }
 
 .projectCard:hover {
   transform: translateY(-2px);
+}
+
+/* Prevent transform during text selection */
+.projectCard:active,
+.projectCard:focus {
+  transform: none !important;
 }
 
 .projectCard:hover::after {
