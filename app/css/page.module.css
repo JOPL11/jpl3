@@ -918,22 +918,38 @@
 /* Footer Styles */
 .footer {
   width: 100%;
-  padding: 2rem 0;
+
+  min-height: 800px; /* Taller footer */
+  padding: 5rem;
   background-color: #000;
   color: #fff;
   position: relative;
-  margin-top: 2rem;
+  margin-top: 4rem;
+
+  display: flex;
+  align-items: center;
+}
+
+.footerContainer {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
 
 .footerLinks {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-  position: relative;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 300px;
 }
 
 /* Footer back to top button */
@@ -1007,21 +1023,40 @@
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   transition: all 0.2s ease;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem 0;
   border-radius: 4px;
   background: none;
   border: none;
   font-family: inherit;
-  font-size: inherit;
+  font-size: 1.1rem;
   cursor: pointer;
-  line-height: 1.5;
+  line-height: 1.6;
+  display: block;
+  width: 100%;
+  text-align: left;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.footerLink::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  opacity: 0.5;
+  transition: all 0.2s ease;
 }
 
 .footerLink:hover {
-  color: #61dafb;
-  background: rgba(255, 255, 255, 0.05);
+  color: #a2feff;
+  background: transparent;
   text-decoration: none;
-  transform: translateY(-1px);
+  transform: translateX(8px);
+  padding-left: 1.8rem;
+}
+
+.footerLink:hover::before {
+  opacity: 1;
+  transform: translateX(4px);
 }
 
 .footerLink:active {

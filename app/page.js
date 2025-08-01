@@ -591,47 +591,48 @@ export default function Home() {
         </div>
       </main>
       <footer className={styles.footer} role="contentinfo">
-
-        <div className={styles.footerLinks} role="navigation" aria-label="Footer">
-          <button 
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className={`${styles.footerLink} ${styles.backToTopFooter}`}
-            aria-label="Back to top"
-          >
-            ↑
-          </button>
-          <p>&copy; <CopyrightYear /> Jan Peiro. All rights reserved.</p>
-          <button 
-            onClick={() => openModal('privacy')} 
-            className={styles.footerLink} 
-            aria-label="Privacy Policy"
-          >
-            Privacy Policy
-          </button>
-          <span aria-hidden="true">  </span>
-          <button 
-            onClick={() => openModal('tos')} 
-            className={styles.footerLink} 
-            aria-label="Terms of Service"
-          >
-            Terms of Service
-          </button>
-          <span aria-hidden="true">  </span>
-          <a href="#contact" className={styles.footerLink} aria-label="Contact">
-            Contact
-          </a>
-          <span aria-hidden="true">  </span>
-          <button 
-            onClick={(e) => {
-              e.preventDefault();
-              setShowImpressumModal(true);
-            }} 
-            className={styles.footerLink} 
-            aria-label="Impressum"
-            style={{ background: 'none', border: 'none', padding: 0, font: 'inherit', cursor: 'pointer', color: 'inherit' }}
-          >
-            Impressum
-          </button>
+        <div className={styles.footerContainer}>
+          <nav className={styles.footerLinks} role="navigation" aria-label="Footer navigation">
+            <button 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className={styles.backToTopFooter}
+              aria-label="Back to top"
+            >
+              ↑
+            </button>
+            <p>&copy; <CopyrightYear /> Jan Peiro. All rights reserved.</p>
+            <button 
+              onClick={() => openModal('privacy')} 
+              className={styles.footerLink} 
+              aria-label="Privacy Policy"
+            >
+              Privacy Policy
+            </button>
+            <button 
+              onClick={() => openModal('tos')} 
+              className={styles.footerLink} 
+              aria-label="Terms of Service"
+            >
+              Terms of Service
+            </button>
+            <button 
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} 
+              className={styles.footerLink} 
+              aria-label="Contact"
+            >
+              Contact
+            </button>
+            <button 
+              onClick={(e) => {
+                e.preventDefault();
+                setShowImpressumModal(true);
+              }} 
+              className={styles.footerLink} 
+              aria-label="Impressum"
+            >
+              Impressum
+            </button>
+          </nav>
         </div>
         <PrivacyModal 
           isOpen={showPrivacyModal} 
