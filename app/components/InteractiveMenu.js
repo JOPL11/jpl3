@@ -80,24 +80,32 @@ const InteractiveMenu = () => {
     </feMerge>
   </filter>
   <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
-  <feGaussianBlur in="SourceAlpha" stdDeviation="20" result="blur" />
-  <feOffset in="blur" dx="5" dy="5" result="offsetBlur" />
-  <feFlood floodColor="#000000" floodOpacity="0.5" result="offsetColor" />
-  <feComposite in="offsetColor" in2="offsetBlur" operator="in" result="offsetBlur" />
-  <feMerge>
-    <feMergeNode in="offsetBlur" />
-    <feMergeNode in="SourceGraphic" />
-  </feMerge>
-</filter>
+    <feGaussianBlur in="SourceAlpha" stdDeviation="20" result="blur" />
+    <feOffset in="blur" dx="5" dy="5" result="offsetBlur" />
+    <feFlood floodColor="#000000" floodOpacity="0.5" result="offsetColor" />
+    <feComposite in="offsetColor" in2="offsetBlur" operator="in" result="offsetBlur" />
+    <feMerge>
+      <feMergeNode in="offsetBlur" />
+      <feMergeNode in="SourceGraphic" />
+    </feMerge>
+  </filter>
+  <radialGradient id="menuGradient1" >
+    <stop offset="0%" stopColor= "#313566" />
+    <stop offset="100%" stopColor="#202c44" />
+  </radialGradient>
+  <radialGradient id="menuGradient2" >
+    <stop offset="0%" stopColor= "#0cc6f9" />
+    <stop offset="100%" stopColor="#a2feff" />
+  </radialGradient>
 </defs>
         <style type="text/css">
 {`	.st0{fill:#313566;}
-	.st1{fill:#313566;}
+	.st1{fill:url(#menuGradient1);}
 	.st2{fill:#090c11;}
 	.st3{fill:#a2feff;}
 	.st4{fill:#a2feff;}
 	.st5{fill:#a2feff;}
-	.st6{fill:#347384; transform: scale(1.1); transform-origin: center;}
+	.st6{fill:url(#menuGradient1); transform: scale(1.1); transform-origin: center;}
           .menuItem {
             cursor: pointer;
             transition: filter 0.3s ease, transform 0.3s ease;
@@ -107,7 +115,7 @@ const InteractiveMenu = () => {
             filter: url(#menuGlow);
           }
           .menuItem.active path {
-            fill: #347384 !important;
+            fill:url(#menuGradient2)
           }
           #outerCircle {
               transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);

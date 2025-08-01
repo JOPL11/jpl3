@@ -571,7 +571,7 @@
   background: -moz-linear-gradient(180deg, #202c44, transparent);
   background: -o-linear-gradient(180deg, #202c44, transparent);
   border-radius: 8px;
-  filter: drop-shadow(0 11px 11px rgba(3, 9, 20, 1));
+  filter: drop-shadow(0 -3px 11px rgba(3, 9, 20, 1));
   padding: 1.5rem;
   transition: all 0.3s ease;
   display: flex;
