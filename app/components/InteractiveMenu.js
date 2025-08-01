@@ -91,9 +91,9 @@ const InteractiveMenu = () => {
 </filter>
 </defs>
         <style type="text/css">
-{`	.st0{fill:#FFFFFF;}
-	.st1{fill:#347384;}
-	.st2{fill:#231F20;}
+{`	.st0{fill:#507373;}
+	.st1{fill:#202c44;}
+	.st2{fill:#090c11;}
 	.st3{fill:#a2feff;}
 	.st4{fill:#a2feff;}
 	.st5{fill:#a2feff;}
