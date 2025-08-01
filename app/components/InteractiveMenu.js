@@ -91,8 +91,8 @@ const InteractiveMenu = () => {
 </filter>
 </defs>
         <style type="text/css">
-{`	.st0{fill:#FFFFFF;}
-	.st1{fill:#202c44;}
+{`	.st0{fill:#313566;}
+	.st1{fill:#313566;}
 	.st2{fill:#090c11;}
 	.st3{fill:#a2feff;}
 	.st4{fill:#a2feff;}
@@ -107,7 +107,7 @@ const InteractiveMenu = () => {
             filter: url(#menuGlow);
           }
           .menuItem.active path {
-            fill: #a2feff !important;
+            fill: #347384 !important;
           }
           #outerCircle {
               transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);

@@ -204,7 +204,7 @@ export default function Home() {
             <p>Based in Germany</p>
 
             
-            <hr className={styles.divider} />
+            <hr className={styles.divider2} />
             <section className={styles.section} aria-labelledby="skills-heading">
               <h2 id="skills-heading">Technical Skills</h2>
               <ul className={styles.skillsList} role="list">
@@ -221,7 +221,7 @@ export default function Home() {
                 <li role="listitem">SEO</li>
               </ul>
             </section>
-            <hr className={styles.divider} />
+            <hr className={styles.divider2} />
             <div className={styles.languagesContainer}>
               <section className={styles.section} aria-labelledby="languages-heading">
                 <h2 id="languages-heading">Languages</h2>
@@ -233,7 +233,7 @@ export default function Home() {
                 </ul>
               </section>
             </div>
-            <hr className={styles.divider} />
+            <hr className={styles.divider2} />
             <section id="work" className={styles.section} aria-labelledby="projects-heading">
               <h2 id="projects-heading" className={styles.scrollTarget}>Code</h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
@@ -390,7 +390,7 @@ export default function Home() {
                 </ProjectCard>
               </div>
             </section>
-            <hr className={styles.divider} />
+            <hr className={styles.divider2} />
             <section id="webgl-heading" className={`${styles.section} ${styles.scrollTarget}`}>
               <h2>WebGL</h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
@@ -473,7 +473,7 @@ export default function Home() {
               </div>
 
             </section>
-       <hr className={styles.divider} />
+       <hr className={styles.divider2} />
             <section id="motion-heading" className={`${styles.section} ${styles.scrollTarget}`}>
               <h2>Motion</h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
