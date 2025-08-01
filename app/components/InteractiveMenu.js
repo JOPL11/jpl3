@@ -6,7 +6,7 @@ import { useState, useRef, useEffect } from 'react';
 <style type="text/css">
   {`
     .menuItem.active path {
-      fill: #a2feff !important;
+      fill: #347384 !important;
     }
     /* Keep your existing styles */
     .menuItem {
@@ -91,7 +91,7 @@ const InteractiveMenu = () => {
 </filter>
 </defs>
         <style type="text/css">
-{`	.st0{fill:#507373;}
+{`	.st0{fill:#FFFFFF;}
 	.st1{fill:#202c44;}
 	.st2{fill:#090c11;}
 	.st3{fill:#a2feff;}

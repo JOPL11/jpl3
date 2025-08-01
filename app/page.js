@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import InteractiveMenu from './components/InteractiveMenu';
+import MouseGradient from './components/MouseGradient';
 
 const PrivacyModal = dynamic(() => import('../components/PrivacyModal'), {
   ssr: false,
@@ -73,6 +74,8 @@ export default function Home() {
 
   return (
     <div className={styles.container} role="document">
+      <MouseGradient />
+      <div className="content-wrapper">
       <header role="banner" className={styles.header}>
         <button 
           className={styles.backToTop}
@@ -641,6 +644,7 @@ export default function Home() {
         />
        
       </footer>
+      </div>
     </div>
   );
 }
