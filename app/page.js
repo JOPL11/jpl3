@@ -580,7 +580,7 @@ export default function Home() {
               </div>
             </section> 
             {/*    */}  
-            <hr className={styles.divider} />
+            <hr className={styles.divider2} />
             <section id="contact" className={`${styles.section} ${styles.scrollTarget}`}>
               <h2>Contact</h2>
               <ContactForm />
