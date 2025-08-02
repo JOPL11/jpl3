@@ -1,3 +1,6 @@
+
+
+
 /* Hero Container */
 .heroContainer {
   width: 100%;
@@ -930,6 +933,101 @@
   opacity: 1;
 }
 
+/* iPad Pro (portrait & landscape) */
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+  .logoSidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    flex: 0 0 240px;  /* Slightly wider for the larger screen */
+    padding: 1rem;
+    top: 1rem;
+    height: calc(100vh - 2rem); /* Full viewport height with some spacing */
+    overflow-y: auto; /* Allow scrolling if content is too long */
+  }
+}
+
+/* Asus Zenbook (portrait & landscape) */
+@media only screen 
+  and (min-device-width: 853px) 
+  and (max-device-width: 853px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+  .logoSidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    flex: 0 0 150px !important;
+    top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0rem;
+    background-color: transparent;
+    height: auto;
+    overflow-y: auto;
+  }
+}
+
+/* iPad Air (portrait & landscape) */
+@media only screen 
+  and (min-device-width: 820px) 
+  and (max-device-width: 820px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+  .logoSidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    flex: 0 0 220px !important;
+    top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0rem;
+    background-color: transparent;
+    height: auto;
+    overflow-y: auto;
+  }
+}
+
+/* iPad OS  (portrait & landscape) */
+@media only screen 
+  and (min-device-width: 810px) 
+  and (max-device-width: 810px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+  .logoSidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    flex: 0 0 250px !important;
+    top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1rem;
+    background-color: transparent;
+    height: auto;
+    overflow-y: auto;
+  }
+  .content {
+    scroll-padding-top: 1500px;
+  }
+}
+
+/* SurfacePro 7 (portrait & landscape) */
+@media only screen 
+  and (min-device-width: 912px) 
+  and (max-device-width: 912px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+  .logoSidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    flex: 0 0 240px;  /* Narrower for Surface Pro's aspect ratio */
+    padding: 0.5rem;
+    top: 3.5rem;
+    height: calc(100vh - 1.5rem);
+    overflow-y: auto;
+  }
+}
+
 @media (max-width: 480px) {
   .cardActions {
     flex-direction: column;
@@ -1094,6 +1192,8 @@
   outline: 2px solid #61dafb;
   outline-offset: 2px;
 }
+
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
