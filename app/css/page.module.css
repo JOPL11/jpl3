@@ -1247,7 +1247,44 @@ a.secondary {
     justify-content: center;
   }
 }
+@media (max-width: 360px) {
+  .page {
+    padding: 16px;
+    padding-bottom: 80px;
+  }
 
+  .main {
+    align-items: center;
+  }
+  .projectsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    justify-content: center;
+  }
+
+  .main ol {
+    text-align: center;
+  }
+
+  .ctas {
+    flex-direction: column;
+  }
+
+  .ctas a {
+    font-size: 14px;
+    height: 40px;
+    padding: 0 16px;
+  }
+
+  a.secondary {
+    min-width: auto;
+  }
+
+  .footer {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
 @media (prefers-color-scheme: dark) {
   .logo {
     filter: invert();
