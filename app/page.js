@@ -79,7 +79,7 @@ export default function Home() {
       <header role="banner" className={styles.header}>
         <button 
           className={styles.backToTop}
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          onClick={() => window.scrollTo({ top: -50, behavior: 'smooth' })}
           aria-label="Back to top"
         >
           ↑
@@ -189,12 +189,13 @@ export default function Home() {
               </div> */}  
             </div>
           </div>
+          
           <section id="welcome-heading" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="welcome-heading">
-
+         
            {/*     <div className={styles.heroContainer}>
               <Hero3D />
             </div>*/} 
-            <h2 id="welcome-heading">About</h2>
+            <h2 id="welcome-heading" style={{paddingTop: "4rem"}}>About</h2>
             <p>Hi! My name is Jan Peiro.</p>
 
             <p>Studied Communications Design in Munich, Germany</p>
