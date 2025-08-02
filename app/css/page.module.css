@@ -283,7 +283,6 @@
     -khtml-user-drag: none;
     -moz-user-drag: none;
     -o-user-drag: none;
-    user-drag: none;
     pointer-events: none;
   }
   .logoSidebar{
@@ -429,8 +428,6 @@
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
-  user-drag: none;
-  pointer-events: none;
 }
 
 .navLink {
@@ -655,7 +652,7 @@
   padding: 1.5rem 1.5rem 1.5rem 2rem;
   margin: 1rem 0rem 1rem;
   background: rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
+  border-radius: 6px;
   box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
@@ -679,7 +676,6 @@
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
-  user-drag: none;
   pointer-events: none;
 }
 
@@ -694,7 +690,7 @@
   border-radius: 6px; /* Match the card's border radius */
   background: linear-gradient(
     to top, 
-    rgba(100, 144, 180, 0.3) 0%,
+    rgba(100, 144, 180, 0.4) 0%,
     rgba(100, 144, 180, 0) 30%
   ) border-box;
   -webkit-mask: 
@@ -778,10 +774,12 @@
   opacity: 0;
   overflow: hidden;
   transition: all 0.3s ease-out;
-  padding: 0;
-  margin: 0;
+  padding: 0.5rem 0;
+  margin: 0.25rem 0;
   line-height: 1.3;
 }
+
+
 
 .cardContent p {
   margin: 0.25rem 0;
