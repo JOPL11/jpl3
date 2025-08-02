@@ -343,7 +343,7 @@ export default function Home() {
                   <p><strong>Role:</strong> Lead Designer / Coder</p>
                   <p><strong>Duration:</strong> 1 Month / 6 years of updates</p>
                 </ProjectCard> 
-                
+                {/* 
                  <ProjectCard 
                   title="Middle Caicos Festival"
                   image="/images/JPL3Poster_BB.jpg"
@@ -384,8 +384,9 @@ export default function Home() {
                   <p><strong>Project Type:</strong> Next.js / React Interface Design</p>
                   <p><strong>Role:</strong> Lead Designer</p>
                   <p><strong>Duration:</strong> 1.5 weeks</p>
-                </ProjectCard>
+                </ProjectCard> */}
               </div>
+              
             </section>
             <hr className={styles.divider2} />
             <section id="webgl-heading" className={`${styles.section} ${styles.scrollTarget}`}>
@@ -436,7 +437,7 @@ export default function Home() {
                     ]
                   }}
                 >
-                  <p>Technical Demo</p>
+                  <p>R3F Tech Demo</p>
                   <p><strong>Project Type:</strong> React Three Fiber</p>
                   <p><strong>Role:</strong> Concept / Animation / Dev</p>
                   <p><strong>Duration:</strong> 3 weeks</p>
