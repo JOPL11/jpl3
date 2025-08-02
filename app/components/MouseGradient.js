@@ -1,33 +1,99 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 
 const MouseGradient = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isVisible, setIsVisible] = useState(false);
+  const gradientRef = useRef();
+  const position = useRef({ x: 0, y: 0 });
+  const targetPosition = useRef({ x: 0, y: 0 });
+  const animationRef = useRef();
 
   useEffect(() => {
-    // Set a small delay before showing to prevent flash of unstyled content
-    const timer = setTimeout(() => setIsVisible(true), 100);
+    // Set initial position to center of screen
+    position.current = { 
+      x: window.innerWidth / 2, 
+      y: window.innerHeight / 2 
+    };
     
     const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      // Update target position immediately on mouse move
+      targetPosition.current = { x: e.clientX, y: e.clientY };
+      
+      // If we don't have an animation running yet, start one
+      if (!animationRef.current) {
+        animateGradient();
+      }
+    };
+
+    const handleResize = () => {
+      // Update position on resize to keep gradient centered
+      position.current = { 
+        x: window.innerWidth / 2, 
+        y: window.innerHeight / 2 
+      };
+    };
+
+    const animateGradient = () => {
+      // Use GSAP to smoothly animate towards the target position
+      gsap.to(position.current, {
+        x: targetPosition.current.x,
+        y: targetPosition.current.y,
+        duration: 1.5, // Adjust this value to control the lag/smoothness (higher = more lag)
+        ease: 'power2.out',
+        onUpdate: () => {
+          // Update the gradient position
+          if (gradientRef.current) {
+            gradientRef.current.style.setProperty('--x', `${position.current.x}px`);
+            gradientRef.current.style.setProperty('--y', `${position.current.y}px`);
+          }
+        },
+        onComplete: () => {
+          // Check if we need to keep animating
+          const dx = targetPosition.current.x - position.current.x;
+          const dy = targetPosition.current.y - position.current.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance > 1) {
+            // If we're not at the target, keep animating
+            animationRef.current = requestAnimationFrame(animateGradient);
+          } else {
+            // We've reached the target, clear the animation
+            animationRef.current = null;
+          }
+        }
+      });
     };
 
     window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('resize', handleResize);
+    
+    // Initial animation
+    const timer = setTimeout(() => {
+      if (gradientRef.current) {
+        gradientRef.current.style.opacity = '1';
+      }
+    }, 100);
+
     return () => {
-      clearTimeout(timer);
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(timer);
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
     };
   }, []);
 
   return (
     <div 
-      className="pointer-events-none fixed inset-0 z-0 transition-opacity duration-500 mix-blend-overlay"
+      ref={gradientRef}
+      className="pointer-events-none fixed inset-0 z-0 transition-opacity duration-1000 mix-blend-overlay opacity-0"
       style={{
-        opacity: isVisible ? 1 : 0,
+        '--x': '50%',
+        '--y': '50%',
         background: `radial-gradient(
-          800px circle at ${mousePosition.x}px ${mousePosition.y}px,
+          800px circle at var(--x, 50%) var(--y, 50%),
           rgba(99, 179, 237, 0.3),
           rgba(99, 102, 241, 0.2) 30%,
           rgba(79, 70, 229, 0.1) 50%,
