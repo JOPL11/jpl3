@@ -774,19 +774,22 @@
   background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 100%);
   color: #fff;
   text-decoration: none;
-  padding: 0.5rem 2rem;
+  padding: 0.6rem 1.5rem;
   border-radius: 4px;
   font-size: 0.9rem;
   cursor: pointer;
   font-weight: 400;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
   text-shadow: 0 0 3px rgba(48, 47, 47, 0.8);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex: 1;
   min-width: 120px;
+  height: 38px;
+  box-sizing: border-box;
   text-align: center;
+  line-height: 1.2;
 }
 
 .projectLink:hover {
@@ -805,7 +808,7 @@
   background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 100%);
   border: none;
   border-radius: 4px;
-  padding: 0.5rem 2rem;
+  padding: 0.6rem 1.5rem;
   font-size: 0.9rem;
   cursor: pointer;
   font-weight: 500;
@@ -813,7 +816,14 @@
   color: #fff;
   flex: 1;
   min-width: 120px;
+  height: 38px;
   text-shadow: 0 0 3px rgba(48, 47, 47, 0.8);
+  box-sizing: border-box;
+  line-height: 1.2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .moreButton:hover {
@@ -834,17 +844,20 @@
   text-shadow: 0 0 3px rgba(48, 47, 47, 0.8);
   border: none;
   border-radius: 4px;
-  padding: 0.5rem 2rem;
+  padding: 0.6rem 1.5rem;
   font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.5s ease;
   flex: 1;
   min-width: 120px;
+  height: 38px;
   font-weight: 500;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  box-sizing: border-box;
+  line-height: 1.2;
 }
 
 .viewProjectButton:hover {

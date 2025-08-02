@@ -109,6 +109,14 @@ const InteractiveMenu = () => {
           .menuItem {
             cursor: pointer;
             transition: filter 0.3s ease, transform 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            outline: none;
           }
           .menuItem:hover {
             opacity: 0.8;

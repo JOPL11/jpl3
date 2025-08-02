@@ -485,10 +485,10 @@ export default function Home() {
                   videoUrl="https://vimeo.com/1103891139"
                   text="2D / 3D Motion Reel featuring Commercial and Personal Work "
                 >
-                  <p>Concept, 3D Modeling, Animation, VFX, Design, Post-Production</p>
-                  <p>Cinema4D, After Effects, Duik Tools, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
-                  <p><strong>Role:</strong>Concept / Animation / Post-Production</p>
-                  <p>3D Video Production for end-clients such as Airbus Group, MTU Aero Engines, Mercedes Benz, Audi, TÜV Süd, and more.</p>
+                  <p><strong>Description:</strong> Concept, 3D Modeling, Motion, VFX, Design, Post-Production</p>
+                  <p><strong>Tools:</strong> Cinema4D, After Effects, Duik, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
+                  <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
+                 
                 </VideoProjectCard>
                 <ProjectCard 
                   title="Audi Nüremberg"
