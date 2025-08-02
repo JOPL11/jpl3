@@ -447,20 +447,7 @@ export default function Home() {
                   image="https://cdna.artstation.com/p/assets/images/images/077/341/642/large/jan-peiro-box1.jpg?1719257986"
                   alt="The Facility"
                   text="Featuring custom audiotracks, 3D models and animations."
-                  modalContent={{
-                    description: "Featuring custom audiotracks, 3D models and animations.",
-                    images: [
-                      { src: "https://cdna.artstation.com/p/assets/images/images/077/358/876/large/jan-peiro-box5.jpg?1728290074", alt: "Project Screenshot 1" },
-                      { src: "https://cdna.artstation.com/p/assets/images/images/077/341/642/large/jan-peiro-box1.jpg?1719257986", alt: "Project Screenshot 2" },
-                      { src: "https://cdna.artstation.com/p/assets/images/images/077/341/704/large/jan-peiro-box3.jpg?1719228705.jpg", alt: "Project Screenshot 3" }
-                    ],
-                    videos: [
-                      {
-                        src: "https://cdn.artstation.com/p/video_sources/002/116/008/facility-web.mp4",
-                        title: "Project Video"
-                      }
-                    ]
-                  }}
+                  link="https://facility3.vercel.app/"
                 >
                   <p>Technical Demo</p>
                   <p><strong>Project Type:</strong> React Three Fiber</p>
