@@ -370,14 +370,10 @@ export default function Home() {
                     images: [
                       { src: "/images/JPL3Poster_HA0.jpg", alt: "Project Screenshot 1" },
                       { src: "/images/JPL3Poster_HA3.jpg", alt: "Project Screenshot 2" },
-                      { src: "/images/JPL3Poster_HA4.jpg", alt: "Project Screenshot 3" },
                       { src: "/images/JPL3Poster_HA6.jpg", alt: "Project Screenshot 4" },
-                      { src: "/images/JPL3Poster_HA7.jpg", alt: "Project Screenshot 6" },
                       { src: "/images/JPL3Poster_HA9.jpg", alt: "Project Screenshot 8" },
                       { src: "/images/JPL3Poster_HA5B.jpg", alt: "Project Screenshot 5" },
                       { src: "/images/JPL3Poster_HA10.jpg", alt: "Project Screenshot 9" },
-                      { src: "/images/JPL3Poster_HA11.jpg", alt: "Project Screenshot 10" },
-                      { src: "/images/JPL3Poster_HA12.jpg", alt: "Project Screenshot 11" },
                       { src: "/images/JPL3Poster_HA13.jpg", alt: "Project Screenshot 12" },
                     ]
                   }}
