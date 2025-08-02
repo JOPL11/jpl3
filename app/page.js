@@ -198,11 +198,11 @@ export default function Home() {
             <h2 id="welcome-heading" style={{paddingTop: "4rem"}}>About</h2>
             <p>Hi! My name is Jan Peiro.</p>
 
-            <p>Studied Communications Design in Munich, Germany</p>
+            <p>Studied Communications Design in Munich, Germany.</p>
            
             <p>I build immersive interfaces merging design, animation, and code.</p>
 
-            <p>Based in Germany</p>
+            <p>Based in Germany.</p>
 
             
             <hr className={styles.divider2} />
@@ -263,7 +263,7 @@ export default function Home() {
                     ]
                   }}>
                   <p>An interactive catalogue of Airbus technology and the company&apos;s history made for visiting foreign state officials and clients.</p>
-                  <p><strong>Target Audience:</strong> Visitors at Airbus Group Berlin Showroom, Berlin</p>
+                  <p><strong>Target Audience:</strong> Guests at Airbus Headquarters, Berlin</p>
                   <p><strong>Project Type:</strong> Touchtable Interface</p>
                   <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
                   <p><strong>Duration:</strong> 3 months and years of updates</p>
@@ -399,7 +399,7 @@ export default function Home() {
                   text="Featuring custom 3D models and animations."
                   openInModal={true}
                 >
-                  <p>Technical Demo</p>
+                  <p>Tech Demo</p>
                   <p><strong>Project Type:</strong> React Three Fiber</p>
                   <p><strong>Role:</strong> Concept / Animation / Development</p>
                   <p><strong>Duration:</strong> 1 week</p>

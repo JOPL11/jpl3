@@ -559,8 +559,8 @@
   background: linear-gradient(
     to right, 
     transparent 0%,
-    rgba(255, 255, 255, 0.1) 20%,
-    rgba(255, 255, 255, 0.1) 80%,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0.2) 80%,
     transparent 100%
   );
   pointer-events: none;
@@ -665,8 +665,8 @@
   border-radius: 6px; /* Match the card's border radius */
   background: linear-gradient(
     to top, 
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0) 30%
+    rgba(100, 144, 180, 0.3) 0%,
+    rgba(100, 144, 180, 0) 30%
   ) border-box;
   -webkit-mask: 
     linear-gradient(#fff 0 0) padding-box, 
