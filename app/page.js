@@ -274,7 +274,7 @@ export default function Home() {
                   image="/images/corp/sb.jpg"
                   alt="Stadtberichter Info Page"
                   text="A GDPR-compliant info page for a civics oriented app."
-                 // link="https://sb-info.vercel.app/"
+                  link="https://sbinfo1.vercel.app"
                 >
                   <p><strong>Target Audience:</strong> Municipal Authorities</p>
                   <p><strong>Project Type:</strong> Infopage about an Application</p>
