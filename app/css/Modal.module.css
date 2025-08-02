@@ -13,6 +13,11 @@
   padding: 1rem;
   backdrop-filter: blur(4px);
   animation: fadeIn 0.3s ease-out;
+  pointer-events: auto;
+  -webkit-user-drag: auto;
+  -khtml-user-drag: auto;
+  -moz-user-drag: auto;
+  -o-user-drag: auto;
 }
 
 @keyframes fadeIn {
@@ -31,6 +36,11 @@
   border: 0px solid #333;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   color: #f0f0f0;
+  pointer-events: auto;
+  user-select: auto;
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
 }
 
 .closeButton {
