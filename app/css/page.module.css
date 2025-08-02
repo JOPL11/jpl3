@@ -793,8 +793,41 @@
   opacity: 1;
   padding: 0.5rem 0;
   margin-bottom: 0.5rem;
+  position: relative;
+  overflow: hidden;
 }
 
+.cardContent.showContent::after {
+  content: '';
+  position: absolute;
+  max-height: 500px;
+  opacity: 1;
+  padding: 0.5rem 0;
+  margin-bottom: 0.5rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  border: 1px solid transparent;
+  border-radius: 6px; /* Match the card's border radius */
+  background: linear-gradient(
+    to top, 
+    rgba(100, 144, 180, 0.3) 0%,
+    rgba(100, 144, 180, 0) 50%
+  ) border-box;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) padding-box, 
+    linear-gradient(#fff 0 0);
+  mask: 
+    linear-gradient(#fff 0 0) padding-box, 
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  pointer-events: none;
+  z-index: 11;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
 .cardActions {
   display: flex;
   gap: 0.75rem;

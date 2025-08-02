@@ -278,7 +278,7 @@ export default function Home() {
                 >
                   <p><strong>Target Audience:</strong> Municipal Authorities</p>
                   <p><strong>Project Type:</strong> Infopage about an Application</p>
-                  <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
+                  <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
                   <p><strong>Duration:</strong> 4 days</p>
                 </ProjectCard>
                 <ProjectCard 
@@ -290,7 +290,7 @@ export default function Home() {
                 >
                   <p><strong>Target Audience:</strong> Municipal Citizens</p>
                   <p><strong>Project Type:</strong> Citizen Reporting App</p>
-                  <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
+                  <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
                   <p><strong>Duration:</strong> 3 Months</p>
                 </ProjectCard>
 
@@ -317,7 +317,7 @@ export default function Home() {
                   <p>A physically interactive showcase of Airbus technology explained on interactive touchscreens</p>
                   <p><strong>Target Audience:</strong> Visitors at Airbus Group Ottobrunn Showroom, Ottobrunn</p>
                   <p><strong>Project Type:</strong> RFID Driven Interactive Experience</p>
-                  <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
+                  <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
                   <p><strong>Duration:</strong> 3 months and years of updates</p>
                 </ProjectCard>
                 <ProjectCard 
@@ -354,7 +354,7 @@ export default function Home() {
                   <p>Conceptual UI/UX</p>
                   <p><strong>Target Audience:</strong> Caribbean Festival Attendees</p>
                   <p><strong>Project Type:</strong> Simple Next.js/React/R3F website</p>
-                  <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
+                  <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
                   <p><strong>Duration:</strong> 4 Days</p>
                 </ProjectCard>
                 <ProjectCard 
@@ -401,7 +401,7 @@ export default function Home() {
                 >
                   <p>Tech Demo</p>
                   <p><strong>Project Type:</strong> React Three Fiber</p>
-                  <p><strong>Role:</strong> Concept / Animation / Development</p>
+                  <p><strong>Role:</strong> Concept / Animation / Dev</p>
                   <p><strong>Duration:</strong> 1 week</p>
                   </ProjectCard>
               <ProjectCard 
@@ -413,7 +413,7 @@ export default function Home() {
                 >
                   <p>Conceptual UI/UX</p>
                   <p><strong>Project Type:</strong>React Three Fiber</p>
-                  <p><strong>Role:</strong> Concept / Animation / Developer</p>
+                  <p><strong>Role:</strong> Concept / Animation / Dev</p>
                   <p><strong>Duration:</strong> 2 weeks</p>
                 </ProjectCard>
                 <ProjectCard 
@@ -438,7 +438,7 @@ export default function Home() {
                 >
                   <p>Technical Demo</p>
                   <p><strong>Project Type:</strong> React Three Fiber</p>
-                  <p><strong>Role:</strong> Concept / Animation / Development</p>
+                  <p><strong>Role:</strong> Concept / Animation / Dev</p>
                   <p><strong>Duration:</strong> 3 weeks</p>
                   </ProjectCard>
                   <ProjectCard 
@@ -463,7 +463,7 @@ export default function Home() {
                 >
                   <p>Technical Demo</p>
                   <p><strong>Project Type:</strong> React Three Fiber</p>
-                  <p><strong>Role:</strong> Concept / Animation / Development</p>
+                  <p><strong>Role:</strong> Concept / Animation / Dev</p>
                   <p><strong>Duration:</strong> 3 weeks</p>
                   </ProjectCard>
     
