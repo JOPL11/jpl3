@@ -21,7 +21,6 @@
 }
 
 .modalContent {
-
   background: linear-gradient(180deg, #0f172a 10%, #070a13 70%);
   border-radius: 12px;
   max-width: 90vw;
@@ -50,6 +49,13 @@
   cursor: pointer;
   color: #fff;
   transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .closeButton:hover {
