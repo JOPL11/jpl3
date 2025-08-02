@@ -771,13 +771,16 @@
 }
 
 .projectLink {
-  background: linear-gradient(180deg, #548da0 0%, #345f6d 100%);
-  color: white;
+  background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 100%);
+  color: #fff;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 2rem;
   border-radius: 4px;
   font-size: 0.9rem;
+  cursor: pointer;
+  font-weight: 400;
   transition: background-color 0.2s ease;
+  text-shadow: 0 0 3px rgba(48, 47, 47, 0.8);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -787,47 +790,54 @@
 }
 
 .projectLink:hover {
-  background: linear-gradient(180deg, #548da0 0%, #345f6d 70%);
-  box-shadow: 0 2px 8px rgba(97, 218, 251, 0.3);
+  background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 70%);
+  box-shadow: 0 -2px 8px rgba(97, 218, 251, 0.7);
+  transition: all 0.5s ease;
 }
 
 .projectLink:focus {
   outline: 2px solid #0070f3;
   outline-offset: 2px;
+  transition: all 0.5s ease;
 }
 
 .moreButton {
-  background: linear-gradient(180deg, #548da0 0%, #345f6d 100%);
+  background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 100%);
   border: none;
   border-radius: 4px;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 2rem;
   font-size: 0.9rem;
   cursor: pointer;
-  transition: all 0.2s ease;
-  color: white;
+  font-weight: 500;
+  transition: all 0.5s ease;
+  color: #fff;
   flex: 1;
   min-width: 120px;
+  text-shadow: 0 0 3px rgba(48, 47, 47, 0.8);
 }
 
 .moreButton:hover {
-  background: linear-gradient(180deg, #548da0 0%, #345f6d 70%);
-  box-shadow: 0 2px 8px rgba(97, 218, 251, 0.3);
+  background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 70%);
+  box-shadow: 0 -2px 8px rgba(97, 218, 251, 0.7);
+  transition: all 0.5s ease;
 }
 
 .moreButton:focus {
-  background: linear-gradient(180deg, #548da0 0%, #345f6d 100%);
+  background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 80%);
   outline-offset: 2px;
+  transition: all 0.5s ease;
 }
 
 .viewProjectButton {
-  background: linear-gradient(180deg, #548da0 0%, #345f6d 100%);
-  color: #ffffff;
+  background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 100%);
+  color: #fff;
+  text-shadow: 0 0 3px rgba(48, 47, 47, 0.8);
   border: none;
   border-radius: 4px;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 2rem;
   font-size: 0.9rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.5s ease;
   flex: 1;
   min-width: 120px;
   font-weight: 500;
@@ -838,9 +848,11 @@
 }
 
 .viewProjectButton:hover {
-  background: linear-gradient(180deg, #548da0 0%, #345f6d 70%);
+  background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 70%);
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(97, 218, 251, 0.3);
+  box-shadow: 0 -2px 8px rgba(97, 218, 251, 0.7);
+  transition: all 0.5s ease;
+
 }
 
 .viewProjectButton:active {
@@ -851,6 +863,7 @@
 .viewProjectButton:focus {
   outline: 2px solid #0070f3;
   outline-offset: 2px;
+  transition: all 0.5s ease;
 }
 
 .projectImage {

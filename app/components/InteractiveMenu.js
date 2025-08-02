@@ -81,7 +81,7 @@ const InteractiveMenu = () => {
   </filter>
   <filter id="dropShadow" x="-20%" y="-20%" width="140%" height="140%">
     <feGaussianBlur in="SourceAlpha" stdDeviation="20" result="blur" />
-    <feOffset in="blur" dx="5" dy="5" result="offsetBlur" />
+    <feOffset in="blur" dx="15" dy="15" result="offsetBlur" />
     <feFlood floodColor="#000000" floodOpacity="0.5" result="offsetColor" />
     <feComposite in="offsetColor" in2="offsetBlur" operator="in" result="offsetBlur" />
     <feMerge>
@@ -103,7 +103,7 @@ const InteractiveMenu = () => {
 	.st1{fill:url(#menuGradient1);}
 	.st2{fill:#090c11;}
 	.st3{fill:#a2feff;}
-	.st4{fill:#a2feff;}
+	.st4{fill:url(#menuGradient2);}
 	.st5{fill:#a2feff;}
 	.st6{fill:url(#menuGradient1); transform: scale(1.1); transform-origin: center;}
           .menuItem {
