@@ -299,7 +299,7 @@ export default function Home() {
             </div>*/} 
              {/*About Section Detector Here*/} 
              <SectionTracker onSectionChange={setActiveSection} />
-             <div data-section="A"></div>
+             <div data-section="welcome-heading"></div>
             <h2 style={{paddingTop: "4rem"}}>About</h2>
             <p>Hi! My name is Jan Peiro.</p>
 
@@ -339,14 +339,14 @@ export default function Home() {
                 </ul>
               </section>
             </div>
-            <SectionTracker onSectionChange={setActiveSection} />
-            <div data-section="A"></div>
 
-             {/*About Section Detector Here*/}
+             {/* About section End */}
 
             <hr className={styles.divider2} />
             <SectionTracker onSectionChange={setActiveSection} />
-            <div data-section="B"></div>         
+            <div data-section="projects-heading"></div>      
+
+
             <section id="work" className={styles.section} aria-labelledby="projects-heading">
             <div data-section="projects-heading"></div>
               <h2 id="projects-heading" className={styles.scrollTarget}>Code</h2>
@@ -501,96 +501,14 @@ export default function Home() {
                   <p><strong>Duration:</strong> 1.5 weeks</p>
                 </ProjectCard> */}
               </div>
-              
             </section>
-            <SectionTracker onSectionChange={setActiveSection} />
-            <div data-section="B"></div>
-
-                  {/*   WebGL Section */}
-
-            <hr className={styles.divider2} />
-            <SectionTracker onSectionChange={setActiveSection} />
-            <div data-section="C"></div>
-             <div data-section="webgl-heading"></div>
-            <section id="webgl-heading" className={`${styles.section} ${styles.scrollTarget}`}>
-              <h2>WebGL</h2>
-              <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
-              <ProjectCard 
-                  title="Bytes101"
-                  image="/images/bytes101.jpg"
-                  alt="Bytes101"
-                  link="https://bytes101.vercel.app"
-                  text="Featuring custom 3D models and animations."
-                  //openInModal={true}
-                >
-                  <p>Tech Demo</p>
-                  <p><strong>Project Type:</strong> React Three Fiber</p>
-                  <p><strong>Role:</strong> Concept / Animation / Dev</p>
-                  <p><strong>Duration:</strong> 1 week</p>
-                  </ProjectCard>
-              <ProjectCard 
-                  title="Schrödinger & Bohr Quantum Pocketwatches "
-                  image="/images/JPL3Poster_QC.jpg"
-                  alt="Quantum Pocketwatch Company"
-                  link="https://quantum-pocketwatch.vercel.app/"
-                  text="<strong>Desktop Only</strong>. Featuring custom 3D models and interactions." 
-                >
-                  <p>Conceptual UI/UX</p>
-                  <p><strong>Project Type:</strong>React Three Fiber</p>
-                  <p><strong>Role:</strong> Concept / Animation / Dev</p>
-                  <p><strong>Duration:</strong> 2 weeks</p>
-                </ProjectCard>
-              {/*  <ProjectCard 
-                  title="Streetlamp 2033"
-                  image="/images/JPL3Poster_R3F.jpg"
-                  alt="Streetlamp 2033"
-                  text="Featuring custom audiotracks, 3D models and animations."
-                  modalContent={{
-                    description: "Featuring custom audiotracks, 3D models and animations.",
-                    images: [
-                      { src: "https://cdna.artstation.com/p/assets/images/images/077/342/134/large/jan-peiro-street3.jpg?1719229425", alt: "Project Screenshot 1" },
-                      { src: "https://cdnb.artstation.com/p/assets/images/images/077/342/125/large/jan-peiro-street2.jpg?1719229632", alt: "Project Screenshot 2" },
-                      { src: "https://cdnb.artstation.com/p/assets/images/images/077/342/139/large/jan-peiro-street4.jpg?1719229437", alt: "Project Screenshot 3" }
-                    ],
-                    videos: [
-                      {
-                        src: "https://cdn.artstation.com/p/video_sources/002/116/001/streetlight-copy-1.mp4",
-                        title: "Project Video"
-                      }
-                    ]
-                  }}
-                >
-                  <p>R3F Tech Demo</p>
-                  <p><strong>Project Type:</strong> React Three Fiber</p>
-                  <p><strong>Role:</strong> Concept / Animation / Dev</p>
-                  <p><strong>Duration:</strong> 3 weeks</p>
-                  </ProjectCard> */ } 
-                  <ProjectCard 
-                  title="The Facility"
-                  image="https://cdna.artstation.com/p/assets/images/images/077/341/642/large/jan-peiro-box1.jpg?1719257986"
-                  alt="The Facility"
-                  text="Featuring custom audiotracks, 3D models and animations."
-                  link="https://facility3.vercel.app/"
-                >
-                  <p>Technical Demo</p>
-                  <p><strong>Project Type:</strong> React Three Fiber</p>
-                  <p><strong>Role:</strong> Concept / Animation / Dev</p>
-                  <p><strong>Duration:</strong> 3 weeks</p>
-                  </ProjectCard>
-    
-              </div>
-
-            </section>
-
-       <hr className={styles.divider2} />
-
 
        {/*   Motion Section */}
 
 
        <SectionTracker onSectionChange={setActiveSection} />
-       <div data-section="D"></div>
        <div data-section="motion-heading"></div>
+
         {/*Motion Section Detector Here*/}
             <section id="motion-heading" className={`${styles.section} ${styles.scrollTarget}`}>
               <h2>Motion</h2>
@@ -697,7 +615,92 @@ export default function Home() {
           
               </div>
             </section> 
-            {/*    */}  
+
+
+            {/*   MOTION ENDS HERE */}  
+
+            
+                  {/*   WebGL Section */}
+
+                  <hr className={styles.divider2} />
+            <SectionTracker onSectionChange={setActiveSection} />
+        
+            <div data-section="webgl-heading"></div>
+            <section id="webgl-heading" className={`${styles.section} ${styles.scrollTarget}`}>
+              <h2>WebGL</h2>
+              <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
+              <ProjectCard 
+                  title="Bytes101"
+                  image="/images/bytes101.jpg"
+                  alt="Bytes101"
+                  link="https://bytes101.vercel.app"
+                  text="Featuring custom 3D models and animations."
+                  //openInModal={true}
+                >
+                  <p>Tech Demo</p>
+                  <p><strong>Project Type:</strong> React Three Fiber</p>
+                  <p><strong>Role:</strong> Concept / Animation / Dev</p>
+                  <p><strong>Duration:</strong> 1 week</p>
+                  </ProjectCard>
+              <ProjectCard 
+                  title="Schrödinger & Bohr Quantum Pocketwatches "
+                  image="/images/JPL3Poster_QC.jpg"
+                  alt="Quantum Pocketwatch Company"
+                  link="https://quantum-pocketwatch.vercel.app/"
+                  text="<strong>Desktop Only</strong>. Featuring custom 3D models and interactions." 
+                >
+                  <p>Conceptual UI/UX</p>
+                  <p><strong>Project Type:</strong>React Three Fiber</p>
+                  <p><strong>Role:</strong> Concept / Animation / Dev</p>
+                  <p><strong>Duration:</strong> 2 weeks</p>
+                </ProjectCard>
+              {/*  <ProjectCard 
+                  title="Streetlamp 2033"
+                  image="/images/JPL3Poster_R3F.jpg"
+                  alt="Streetlamp 2033"
+                  text="Featuring custom audiotracks, 3D models and animations."
+                  modalContent={{
+                    description: "Featuring custom audiotracks, 3D models and animations.",
+                    images: [
+                      { src: "https://cdna.artstation.com/p/assets/images/images/077/342/134/large/jan-peiro-street3.jpg?1719229425", alt: "Project Screenshot 1" },
+                      { src: "https://cdnb.artstation.com/p/assets/images/images/077/342/125/large/jan-peiro-street2.jpg?1719229632", alt: "Project Screenshot 2" },
+                      { src: "https://cdnb.artstation.com/p/assets/images/images/077/342/139/large/jan-peiro-street4.jpg?1719229437", alt: "Project Screenshot 3" }
+                    ],
+                    videos: [
+                      {
+                        src: "https://cdn.artstation.com/p/video_sources/002/116/001/streetlight-copy-1.mp4",
+                        title: "Project Video"
+                      }
+                    ]
+                  }}
+                >
+                  <p>R3F Tech Demo</p>
+                  <p><strong>Project Type:</strong> React Three Fiber</p>
+                  <p><strong>Role:</strong> Concept / Animation / Dev</p>
+                  <p><strong>Duration:</strong> 3 weeks</p>
+                  </ProjectCard> */ } 
+                  <ProjectCard 
+                  title="The Facility"
+                  image="https://cdna.artstation.com/p/assets/images/images/077/341/642/large/jan-peiro-box1.jpg?1719257986"
+                  alt="The Facility"
+                  text="Featuring custom audiotracks, 3D models and animations."
+                  link="https://facility3.vercel.app/"
+                >
+                  <p>Technical Demo</p>
+                  <p><strong>Project Type:</strong> React Three Fiber</p>
+                  <p><strong>Role:</strong> Concept / Animation / Dev</p>
+                  <p><strong>Duration:</strong> 3 weeks</p>
+                  </ProjectCard>
+    
+              </div>
+
+            </section>
+
+       <hr className={styles.divider2} />
+
+
+
+
             <hr className={styles.divider2} />
             <section id="contact" className={`${styles.section} ${styles.scrollTarget}`}>
               <h2>Contact</h2>

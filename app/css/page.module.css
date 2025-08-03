@@ -663,13 +663,13 @@
   opacity: 0;
   overflow: hidden;
   transition: all 0.2s ease;
-  margin: 1rem 0.5rem 1rem;
-  padding: 1.5rem 1.5rem 1.5rem 2rem;
+  margin: 1rem 0.5rem 0.1rem;
+  padding: 1.5rem 1.5rem 0.5rem 2rem;
   background: rgba(0, 0, 0, 0.2);
   border-radius: 0 0 8px 8px;
 }
 .cardContent p {
-  margin: 0.25rem 0;
+  margin: 0.25rem 0.3rem 0.25rem 0.5rem ;
   font-size: 0.9rem;
 }
 
@@ -686,6 +686,7 @@
 
 .cardContent.showContent p {
   margin-left: 0.5rem;
+ 
 }
 
 .projectImage {
@@ -765,7 +766,7 @@
 .clientInfo {
   font-size: 0.9rem;
   color: #e5e7eb;
-  margin: 0.25rem 0 0.75rem 0;
+  margin: 0.rem 0 0.05rem 0;
   line-height: 1.4;
   display: flex;
   align-items: center;
@@ -801,9 +802,9 @@
   opacity: 0;
   overflow: hidden;
   transition: all 0.3s ease-out;
-  padding: 0.5rem 0;
-  margin: 0.25rem 0;
-  line-height: 1.3;
+  padding: 0.5rem 0.5rem;
+  margin: 0.25rem 0.1rem;
+  line-height: 1.4;
 }
 
 
@@ -816,8 +817,8 @@
 .cardContent.showContent {
   max-height: 500px;
   opacity: 1;
-  padding: 0.5rem 0;
-  margin-bottom: 0.5rem;
+  padding: 0.5rem 0.5rem;
+  margin-bottom: 0.4rem;
   position: relative;
   overflow: hidden;
 }
@@ -856,7 +857,7 @@
 .cardActions {
   display: flex;
   gap: 0.75rem;
-  margin-top: 1rem;
+  margin-top: 0.2rem;
   flex-wrap: wrap;
 }
 
@@ -868,6 +869,7 @@
   border-radius: 4px;
   font-size: 0.9rem;
   cursor: pointer;
+  height: 45px;
   font-weight: 400;
   transition: all 0.2s ease;
   text-shadow: 0 0 3px rgba(48, 47, 47, 0.8);
@@ -876,7 +878,6 @@
   justify-content: center;
   flex: 1;
   min-width: 120px;
-  height: 38px;
   box-sizing: border-box;
   text-align: center;
   line-height: 1.2;
@@ -906,7 +907,7 @@
   color: #fff;
   flex: 1;
   min-width: 120px;
-  height: 38px;
+  height: 45px;
   text-shadow: 0 0 3px rgba(48, 47, 47, 0.8);
   box-sizing: border-box;
   line-height: 1.2;
@@ -940,7 +941,7 @@
   transition: all 0.5s ease;
   flex: 1;
   min-width: 120px;
-  height: 38px;
+  height: 45px;
   font-weight: 500;
   display: inline-flex;
   align-items: center;
@@ -970,7 +971,8 @@
 }
 
 .projectImage {
-  margin-top: 1rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
   width: 100%;
   border-radius: 6px;
   overflow: hidden;
