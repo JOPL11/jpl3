@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import InteractiveMenu from './components/InteractiveMenu';
+import SectionTracker from './components/SectionTracker';
 import MouseGradient from './components/MouseGradient';
 
 const PrivacyModal = dynamic(() => import('../components/PrivacyModal'), {
@@ -153,7 +154,7 @@ export default function Home() {
     window.addEventListener('openPrivacyModal', handleOpenPrivacyModal);
     
     // Intersection Observer for section detection
-    const sections = ['welcome-heading', 'projects-heading', 'webgl-heading', 'motion-heading'];
+    const sections = ['A', 'B', 'C', 'D'];
     const observers = [];
 
     const options = {
@@ -203,6 +204,7 @@ export default function Home() {
         </div>
         {/* Header content would go here */}
       </header>
+     
       <main className={styles.main} role="main" id="main-content">
         <div className={styles.contentWrapper}>
           <div className={styles.logoSidebar} role="complementary" aria-label="Logo and Navigation">
@@ -291,14 +293,14 @@ export default function Home() {
           </div>
           
           <section id="welcome-heading" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="welcome-heading">
-         
+            <div data-section="welcome-heading"></div>
            {/*     <div className={styles.heroContainer}>
               <Hero3D />
             </div>*/} 
-             {/*About Section Detector Here*/}
-            <div className={styles.sectionDetector} data-section="welcome-heading"></div>
-
-            <h2 id="welcome-heading" style={{paddingTop: "4rem"}}>About</h2>
+             {/*About Section Detector Here*/} 
+             <SectionTracker onSectionChange={setActiveSection} />
+             <div data-section="A"></div>
+            <h2 style={{paddingTop: "4rem"}}>About</h2>
             <p>Hi! My name is Jan Peiro.</p>
 
             <p>Studied Communications Design in Munich, Germany.</p>
@@ -337,11 +339,16 @@ export default function Home() {
                 </ul>
               </section>
             </div>
+            <SectionTracker onSectionChange={setActiveSection} />
+            <div data-section="A"></div>
+
              {/*About Section Detector Here*/}
+
             <hr className={styles.divider2} />
-            
+            <SectionTracker onSectionChange={setActiveSection} />
+            <div data-section="B"></div>         
             <section id="work" className={styles.section} aria-labelledby="projects-heading">
-            <div className={styles.sectionDetector} data-section="projects-heading"></div>
+            <div data-section="projects-heading"></div>
               <h2 id="projects-heading" className={styles.scrollTarget}>Code</h2>
           
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
@@ -496,8 +503,15 @@ export default function Home() {
               </div>
               
             </section>
+            <SectionTracker onSectionChange={setActiveSection} />
+            <div data-section="B"></div>
+
+                  {/*   WebGL Section */}
+
             <hr className={styles.divider2} />
-             <div className={styles.sectionDetector} data-section="webgl-heading"></div>
+            <SectionTracker onSectionChange={setActiveSection} />
+            <div data-section="C"></div>
+             <div data-section="webgl-heading"></div>
             <section id="webgl-heading" className={`${styles.section} ${styles.scrollTarget}`}>
               <h2>WebGL</h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
@@ -569,7 +583,14 @@ export default function Home() {
             </section>
 
        <hr className={styles.divider2} />
-       <div className={styles.sectionDetector} data-section="motion-heading"></div>
+
+
+       {/*   Motion Section */}
+
+
+       <SectionTracker onSectionChange={setActiveSection} />
+       <div data-section="D"></div>
+       <div data-section="motion-heading"></div>
         {/*Motion Section Detector Here*/}
             <section id="motion-heading" className={`${styles.section} ${styles.scrollTarget}`}>
               <h2>Motion</h2>
