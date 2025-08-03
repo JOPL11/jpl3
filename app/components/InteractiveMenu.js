@@ -3,6 +3,8 @@
 import { useCallback } from 'react';
 import styles from '../css/page.module.css';
 import { useState, useRef, useEffect } from 'react';
+
+
 <style type="text/css">
   {`
     .menuItem.active path {
@@ -22,6 +24,21 @@ const InteractiveMenu = ({ activeSection = 'welcome-heading', onSectionChange = 
   const [rotation, setRotation] = useState(0);
   const outerCircleRef = useRef(null);
   const innerCircleRef = useRef(null);
+  
+  // Map of section names to menu item IDs
+  const sectionToMenuItem = {
+    'welcome-heading': 'about',
+    'projects-heading': 'code',
+    'webgl-heading': 'webgl',
+    'motion-heading': 'motion'
+  };
+  
+  // Get the current active menu item ID
+  const getActiveMenuItem = () => {
+    const menuItem = sectionToMenuItem[activeSection] || '';
+    console.log('Active Section:', activeSection, 'Menu Item:', menuItem);
+    return menuItem;
+  };
 
 
   //Scrollto Section
@@ -36,7 +53,6 @@ const InteractiveMenu = ({ activeSection = 'welcome-heading', onSectionChange = 
 
   // Update rotation when activeSection changes
   useEffect(() => {
-    // Map of section names to rotation angles
     const sectionRotations = {
       'welcome-heading': 328,
       'projects-heading': 58,
@@ -139,7 +155,7 @@ const InteractiveMenu = ({ activeSection = 'welcome-heading', onSectionChange = 
         {/* About Button */}
         <g 
           id="about" 
-          className={`menuItem ${activeSection === 'welcome-heading' ? 'active' : ''}`}
+          className={`menuItem ${getActiveMenuItem() === 'about' ? 'active' : ''}`}
           onClick={(e) => scrollToSection(e, 'welcome-heading')}
         >
           <path className="st1" d="M402.49,175.11c-0.79-0.64-1.77-0.97-2.94-0.97s-2.15,0.32-2.93,0.97c-0.78,0.64-1.37,1.53-1.77,2.66"/>
@@ -171,7 +187,7 @@ const InteractiveMenu = ({ activeSection = 'welcome-heading', onSectionChange = 
         {/* Code Button */}
         <g 
           id="code" 
-          className={`menuItem ${activeSection === 'projects-heading' ? 'active' : ''}`}
+          className={`menuItem ${getActiveMenuItem() === 'code' ? 'active' : ''}`}
           onClick={(e) => scrollToSection(e, 'projects-heading')}
         >
          
@@ -208,7 +224,7 @@ const InteractiveMenu = ({ activeSection = 'welcome-heading', onSectionChange = 
         {/* WebGL Button */}
         <g 
           id="webgl" 
-          className={`menuItem ${activeSection === 'webgl-heading' ? 'active' : ''}`}
+          className={`menuItem ${getActiveMenuItem() === 'webgl' ? 'active' : ''}`}
           onClick={(e) => scrollToSection(e, 'webgl-heading')}
         >
        
@@ -244,7 +260,7 @@ const InteractiveMenu = ({ activeSection = 'welcome-heading', onSectionChange = 
         {/* Motion Button */}
         <g 
           id="motion" 
-          className={`menuItem ${activeSection === 'motion-heading' ? 'active' : ''}`}
+          className={`menuItem ${getActiveMenuItem() === 'motion' ? 'active' : ''}`}
           onClick={(e) => scrollToSection(e, 'motion-heading')}
         >
       

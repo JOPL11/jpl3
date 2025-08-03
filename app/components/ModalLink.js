@@ -2,7 +2,7 @@
 
 import { useModal } from './ModalContext';
 import { useCallback } from 'react';
-import styles from './ModalLink.module.css';
+import styles from '../css/ModalLink.module.css';
 
 export default function ModalLink({ 
   href, 

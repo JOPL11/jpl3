@@ -53,31 +53,53 @@ export default function Home() {
       let mostVisible = { ratio: 0, id: null };
       
       entries.forEach(entry => {
-        if (entry.isIntersecting && entry.intersectionRatio > mostVisible.ratio) {
-          mostVisible = {
-            ratio: entry.intersectionRatio,
-            id: entry.target.dataset.section
-          };
+        if (entry.isIntersecting) {
+          const intersectionRatio = entry.intersectionRatio;
+          console.log('Intersection observed:', entry.target.dataset.section, 'ratio:', intersectionRatio);
+          
+          if (intersectionRatio > mostVisible.ratio) {
+            mostVisible = {
+              ratio: intersectionRatio,
+              id: entry.target.dataset.section
+            };
+          }
         }
       });
       
       // Update active section if we found a visible section
-      if (mostVisible.id && mostVisible.ratio > 0.1) {
+      if (mostVisible.id) {
+        console.log('Most visible section:', mostVisible.id, 'with ratio:', mostVisible.ratio);
         setActiveSection(mostVisible.id);
       }
     };
     
-    // Create observer with a small threshold to detect when sections enter/exit viewport
+    // Create observer with multiple thresholds for better detection
     const observer = new IntersectionObserver(updateActiveSection, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -80% 0px'  // Consider an element "in view" when it's within the top 20% of the viewport
+      threshold: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+      rootMargin: '0px 0px -50% 0px'  // Consider an element "in view" when it's within the top 50% of the viewport
     });
     
-    // Add observer to all section detectors
-    const detectors = document.querySelectorAll('.sectionDetector');
-    detectors.forEach(detector => observer.observe(detector));
+    // Add observer to all section detectors with a small delay to ensure DOM is ready
+    const setupObserver = () => {
+      const detectors = document.querySelectorAll('[data-section]');
+      console.log('Found section detectors:', detectors.length);
+      
+      if (detectors.length === 0) {
+        console.warn('No section detectors found! Looking for elements with data-section attribute');
+        return;
+      }
+      
+      detectors.forEach(detector => {
+        console.log('Observing section:', detector.dataset.section);
+        observer.observe(detector);
+      });
+    };
+    
+    // Small delay to ensure all elements are rendered
+    const timer = setTimeout(setupObserver, 500);
     
     return () => {
+      clearTimeout(timer);
       window.removeEventListener('scrollend', handleScrollEnd);
       observer.disconnect();
     };
@@ -275,6 +297,7 @@ export default function Home() {
             </div>*/} 
              {/*About Section Detector Here*/}
             <div className={styles.sectionDetector} data-section="welcome-heading"></div>
+
             <h2 id="welcome-heading" style={{paddingTop: "4rem"}}>About</h2>
             <p>Hi! My name is Jan Peiro.</p>
 
@@ -316,9 +339,11 @@ export default function Home() {
             </div>
              {/*About Section Detector Here*/}
             <hr className={styles.divider2} />
+            
             <section id="work" className={styles.section} aria-labelledby="projects-heading">
+            <div className={styles.sectionDetector} data-section="projects-heading"></div>
               <h2 id="projects-heading" className={styles.scrollTarget}>Code</h2>
-              <div className={styles.sectionDetector} data-section="projects-heading"></div>
+          
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
               <ProjectCard 
                   title="Airbus Berlin Showroom Expo Interface"
@@ -471,7 +496,6 @@ export default function Home() {
               </div>
               
             </section>
-             <div className={styles.sectionDetector} data-section="projects-heading"></div>
             <hr className={styles.divider2} />
              <div className={styles.sectionDetector} data-section="webgl-heading"></div>
             <section id="webgl-heading" className={`${styles.section} ${styles.scrollTarget}`}>
@@ -543,8 +567,9 @@ export default function Home() {
               </div>
 
             </section>
-             <div className={styles.sectionDetector} data-section="webgl-heading"></div>
+
        <hr className={styles.divider2} />
+       <div className={styles.sectionDetector} data-section="motion-heading"></div>
         {/*Motion Section Detector Here*/}
             <section id="motion-heading" className={`${styles.section} ${styles.scrollTarget}`}>
               <h2>Motion</h2>
@@ -651,7 +676,6 @@ export default function Home() {
           
               </div>
             </section> 
-             <div className={styles.sectionDetector} data-section="motion-heading"></div>
             {/*    */}  
             <hr className={styles.divider2} />
             <section id="contact" className={`${styles.section} ${styles.scrollTarget}`}>
@@ -659,8 +683,6 @@ export default function Home() {
               <ContactForm />
             </section>
           </section>
-
-         
         </div>
       </main>
       <footer className={styles.footer} role="contentinfo">

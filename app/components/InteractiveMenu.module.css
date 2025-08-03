@@ -1,0 +1,12 @@
+.menuItem {
+  cursor: pointer;
+  transition: filter 1.3s ease, transform 1.3s ease;
+}
+
+.menuItem:hover {
+  filter: url(#menuGlow);
+}
+
+.menuItem.active path {
+  fill: #347384 !important;
+}

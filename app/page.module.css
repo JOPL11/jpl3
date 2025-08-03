@@ -1,0 +1,21 @@
+/* Section styles for intersection observation */
+section {
+  min-height: 100vh; /* Ensure sections take up at least the full viewport height */
+  position: relative;
+  padding: 2rem 0;
+}
+
+/* Debug styles - can be removed later */
+.sectionDetector {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: rgba(255, 0, 0, 0.5);
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Add your other styles below */

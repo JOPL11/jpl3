@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import styles from './SplashScreen.module.css';
+import styles from '../css/SplashScreen.module.css';
 
 export default function SplashScreen() {
   const [isVisible, setIsVisible] = useState(true);
@@ -20,7 +20,7 @@ export default function SplashScreen() {
       }, 500);
       
       return () => clearTimeout(removeTimer);
-    }, 3000);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
