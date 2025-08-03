@@ -70,8 +70,35 @@
   }
   
   .header {
-    padding-right: 5rem; /* Add space for the button */
+    padding-right: 5rem; /* Section detectors - these are used for scroll detection but should be invisible */
   }
+}
+
+/* Section detectors - used for scroll detection */
+.sectionDetector {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  pointer-events: none;
+  opacity: 0;
+  background: transparent;
+  z-index: -1;
+  top: 0;
+}
+
+/* Ensure sections can contain absolute positioned detectors */
+.sectionContainer {
+  position: relative;
+}
+
+#welcome-heading,
+#projects-heading,
+#webgl-heading,
+#motion-heading,
+#work,
+#contact {
+  position: relative;
 }
 
 /* Add padding to main content to account for fixed header */

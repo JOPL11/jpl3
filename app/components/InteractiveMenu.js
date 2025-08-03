@@ -18,19 +18,12 @@ import { useState, useRef, useEffect } from 'react';
     }
   `}
 </style>
-const InteractiveMenu = () => {
+const InteractiveMenu = ({ activeSection = 'welcome-heading', onSectionChange = () => {} }) => {
   const [rotation, setRotation] = useState(0);
-  const [activeSection, setActiveSection] = useState('welcome-heading');
   const outerCircleRef = useRef(null);
   const innerCircleRef = useRef(null);
 
-  // Map of section names to rotation angles
-  const sectionRotations = {
-    'welcome-heading': 328,
-    'projects-heading': 58,
-    'webgl-heading': 240,
-    'motion-heading': 148
-  };
+
   //Scrollto Section
   const scrollToSection = (e, sectionId) => {
     e.preventDefault();
@@ -38,10 +31,22 @@ const InteractiveMenu = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-    setActiveSection(sectionId);
-    const targetRotation = sectionRotations[sectionId] || 0;
-    setRotation(targetRotation);
+    onSectionChange(sectionId);
   };
+
+  // Update rotation when activeSection changes
+  useEffect(() => {
+    // Map of section names to rotation angles
+    const sectionRotations = {
+      'welcome-heading': 328,
+      'projects-heading': 58,
+      'webgl-heading': 240,
+      'motion-heading': 148
+    };
+    
+    const targetRotation = sectionRotations[activeSection] || 0;
+    setRotation(targetRotation);
+  }, [activeSection]);
 
 
   // Update transform when rotation changes
@@ -65,9 +70,10 @@ const InteractiveMenu = () => {
         xmlns="http://www.w3.org/2000/svg" 
         viewBox="0 0 800 800" 
         width="100%" 
-        height="auto"
+        height="100%"
         className={styles.menuSvg}
         filter="url(#dropShadow)"
+        preserveAspectRatio="xMidYMid meet"
       >
         <defs>
   <filter id="menuGlow" height="160%" width="160%" filterUnits="userSpaceOnUse">

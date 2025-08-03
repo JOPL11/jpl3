@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import InteractiveMenu from './components/InteractiveMenu';
@@ -33,15 +33,78 @@ export default function Home() {
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
   const [showImpressumModal, setShowImpressumModal] = useState(false);
   const [modalContent, setModalContent] = useState('privacy');
+  const [activeSection, setActiveSection] = useState('welcome-heading');
+  const isProgrammaticScroll = useRef(false);
+  const scrollTimeout = useRef(null);
+
+  // Setup section detection using IntersectionObserver
+  useEffect(() => {
+    const handleScrollEnd = () => {
+      isProgrammaticScroll.current = false;
+    };
+
+    window.addEventListener('scrollend', handleScrollEnd);
+    
+    // Track which section is currently most visible
+    const updateActiveSection = (entries) => {
+      if (isProgrammaticScroll.current) return;
+      
+      // Find the most visible section
+      let mostVisible = { ratio: 0, id: null };
+      
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.intersectionRatio > mostVisible.ratio) {
+          mostVisible = {
+            ratio: entry.intersectionRatio,
+            id: entry.target.dataset.section
+          };
+        }
+      });
+      
+      // Update active section if we found a visible section
+      if (mostVisible.id && mostVisible.ratio > 0.1) {
+        setActiveSection(mostVisible.id);
+      }
+    };
+    
+    // Create observer with a small threshold to detect when sections enter/exit viewport
+    const observer = new IntersectionObserver(updateActiveSection, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -80% 0px'  // Consider an element "in view" when it's within the top 20% of the viewport
+    });
+    
+    // Add observer to all section detectors
+    const detectors = document.querySelectorAll('.sectionDetector');
+    detectors.forEach(detector => observer.observe(detector));
+    
+    return () => {
+      window.removeEventListener('scrollend', handleScrollEnd);
+      observer.disconnect();
+    };
+  }, []);
 
   const scrollToSection = (e, sectionId) => {
     e.preventDefault();
     const element = document.getElementById(sectionId);
     if (element) {
+      isProgrammaticScroll.current = true;
+      
+      // Update active section immediately
+      setActiveSection(sectionId);
+      
+      // Scroll to the element
       element.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
+      
+      // Fallback in case scrollend event doesn't fire
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current);
+      }
+      scrollTimeout.current = setTimeout(() => {
+        isProgrammaticScroll.current = false;
+      }, 1000);
     }
   };
 
@@ -67,8 +130,23 @@ export default function Home() {
 
     window.addEventListener('openPrivacyModal', handleOpenPrivacyModal);
     
+    // Intersection Observer for section detection
+    const sections = ['welcome-heading', 'projects-heading', 'webgl-heading', 'motion-heading'];
+    const observers = [];
+
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5
+    };
+
+    // Cleanup any existing detectors
+    document.querySelectorAll('.section-detector').forEach(el => el.remove());
+    
     return () => {
       window.removeEventListener('openPrivacyModal', handleOpenPrivacyModal);
+      // Cleanup observers
+      observers.forEach(observer => observer.disconnect());
     };
   }, []);
 
@@ -117,7 +195,7 @@ export default function Home() {
                 aria-hidden="true"
               />
               <div className={styles.menuContainer}>
-          <InteractiveMenu />
+          <InteractiveMenu activeSection={activeSection} onSectionChange={setActiveSection} />
           </div>
               <hr className={styles.divider} />
               <nav className={styles.navLinks} aria-label="Main navigation">
@@ -195,6 +273,8 @@ export default function Home() {
            {/*     <div className={styles.heroContainer}>
               <Hero3D />
             </div>*/} 
+             {/*About Section Detector Here*/}
+            <div className={styles.sectionDetector} data-section="welcome-heading"></div>
             <h2 id="welcome-heading" style={{paddingTop: "4rem"}}>About</h2>
             <p>Hi! My name is Jan Peiro.</p>
 
@@ -234,9 +314,11 @@ export default function Home() {
                 </ul>
               </section>
             </div>
+             {/*About Section Detector Here*/}
             <hr className={styles.divider2} />
             <section id="work" className={styles.section} aria-labelledby="projects-heading">
               <h2 id="projects-heading" className={styles.scrollTarget}>Code</h2>
+              <div className={styles.sectionDetector} data-section="projects-heading"></div>
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
               <ProjectCard 
                   title="Airbus Berlin Showroom Expo Interface"
@@ -269,7 +351,8 @@ export default function Home() {
                   <p><strong>Duration:</strong> 3 months and years of updates</p>
                   
                 </ProjectCard>
-                  {/*   */}   <ProjectCard 
+                  {/*   */}   
+                  <ProjectCard 
                   title="Stadtberichter Info Page"
                   image="/images/corp/sb.jpg"
                   alt="Stadtberichter Info Page"
@@ -388,7 +471,9 @@ export default function Home() {
               </div>
               
             </section>
+             <div className={styles.sectionDetector} data-section="projects-heading"></div>
             <hr className={styles.divider2} />
+             <div className={styles.sectionDetector} data-section="webgl-heading"></div>
             <section id="webgl-heading" className={`${styles.section} ${styles.scrollTarget}`}>
               <h2>WebGL</h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
@@ -458,7 +543,9 @@ export default function Home() {
               </div>
 
             </section>
+             <div className={styles.sectionDetector} data-section="webgl-heading"></div>
        <hr className={styles.divider2} />
+        {/*Motion Section Detector Here*/}
             <section id="motion-heading" className={`${styles.section} ${styles.scrollTarget}`}>
               <h2>Motion</h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
@@ -564,6 +651,7 @@ export default function Home() {
           
               </div>
             </section> 
+             <div className={styles.sectionDetector} data-section="motion-heading"></div>
             {/*    */}  
             <hr className={styles.divider2} />
             <section id="contact" className={`${styles.section} ${styles.scrollTarget}`}>
