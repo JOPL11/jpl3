@@ -483,7 +483,7 @@ export default function Home() {
                   alt="Bytes101"
                   link="https://bytes101.vercel.app"
                   text="Featuring custom 3D models and animations."
-                  openInModal={true}
+                  //openInModal={true}
                 >
                   <p>Tech Demo</p>
                   <p><strong>Project Type:</strong> React Three Fiber</p>

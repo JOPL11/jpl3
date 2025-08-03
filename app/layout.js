@@ -3,6 +3,7 @@ import "./globals.css";
 import { ModalProvider } from './components/ModalContext';
 import dynamic from 'next/dynamic';
 import CookieBanner from './components/CookieBanner';
+import SplashScreen from './components/SplashScreen';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -80,6 +81,7 @@ export default function RootLayout({ children }) {
       <head />
       <body className={inter.className} suppressHydrationWarning={true}>
         <ModalProvider>
+          <SplashScreen />
           {children}
           <CookieBanner /> 
         </ModalProvider>
