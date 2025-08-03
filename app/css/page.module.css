@@ -612,10 +612,10 @@
 
 .projectCard {
   position: relative;
-  background: linear-gradient(180deg, #202c44 10%, transparent 80%);
-  background: -webkit-linear-gradient(180deg, #202c44 10%, transparent 80%);
-  background: -moz-linear-gradient(180deg, #202c44 10%, transparent 80%);
-  background: -o-linear-gradient(180deg, #202c44 10%, transparent 80%);
+  background: linear-gradient(180deg, #181e40 10%, transparent 80%);
+  background: -webkit-linear-gradient(180deg, #181e40 10%, transparent 80%);
+  background: -moz-linear-gradient(180deg, #181e40 10%, transparent 80%);
+  background: -o-linear-gradient(180deg, #181e40 10%, transparent 80%);
   border-radius: 8px;
   filter: drop-shadow(0 -3px 11px rgba(3, 9, 20, 1));
   padding: 1.5rem;
