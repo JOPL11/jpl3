@@ -505,13 +505,13 @@ export default function Home() {
 
        {/*   Motion Section */}
 
-
+       <hr className={styles.divider2} />
        <SectionTracker onSectionChange={setActiveSection} />
        <div data-section="motion-heading"></div>
 
         {/*Motion Section Detector Here*/}
             <section id="motion-heading" className={`${styles.section} ${styles.scrollTarget}`}>
-              <h2>Motion</h2>
+              <h2> Motion</h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
                 
               <VideoProjectCard 
@@ -696,7 +696,7 @@ export default function Home() {
 
             </section>
 
-       <hr className={styles.divider2} />
+
 
 
 
