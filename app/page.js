@@ -659,20 +659,7 @@ export default function Home() {
                   image="/images/JPL3Poster_R3F.jpg"
                   alt="Streetlamp 2033"
                   text="Featuring custom audiotracks, 3D models and animations."
-                  modalContent={{
-                    description: "Featuring custom audiotracks, 3D models and animations.",
-                    images: [
-                      { src: "https://cdna.artstation.com/p/assets/images/images/077/342/134/large/jan-peiro-street3.jpg?1719229425", alt: "Project Screenshot 1" },
-                      { src: "https://cdnb.artstation.com/p/assets/images/images/077/342/125/large/jan-peiro-street2.jpg?1719229632", alt: "Project Screenshot 2" },
-                      { src: "https://cdnb.artstation.com/p/assets/images/images/077/342/139/large/jan-peiro-street4.jpg?1719229437", alt: "Project Screenshot 3" }
-                    ],
-                    videos: [
-                      {
-                        src: "https://cdn.artstation.com/p/video_sources/002/116/001/streetlight-copy-1.mp4",
-                        title: "Project Video"
-                      }
-                    ]
-                  }}
+                  link="https://jpl3d2.vercel.app/"
                 >
                   <p>R3F Tech Demo</p>
                   <p><strong>Project Type:</strong> React Three Fiber</p>
