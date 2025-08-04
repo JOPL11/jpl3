@@ -650,7 +650,7 @@ export default function Home() {
                   text="<strong>Desktop Only</strong>. Featuring custom 3D models and interactions." 
                 >
                   <p>Conceptual UI/UX</p>
-                  <p><strong>Project Type:</strong>React Three Fiber</p>
+                  <p><strong>Project Type:</strong>React Three Fiber / GSAP / Router</p>
                   <p><strong>Role:</strong> Concept / Animation / Dev</p>
                   <p><strong>Duration:</strong> 2 weeks</p>
                 </ProjectCard>
@@ -662,7 +662,7 @@ export default function Home() {
                   link="https://jpl3d2.vercel.app/"
                 >
                   <p>R3F Tech Demo</p>
-                  <p><strong>Project Type:</strong> React Three Fiber</p>
+                  <p><strong>Project Type:</strong> React Three Fiber / GSAP</p>
                   <p><strong>Role:</strong> Concept / Animation / Dev</p>
                   <p><strong>Duration:</strong> 3 weeks</p>
                   </ProjectCard> {/*  */ } 
@@ -674,7 +674,7 @@ export default function Home() {
                   link="https://facility3.vercel.app/"
                 >
                   <p>Technical Demo</p>
-                  <p><strong>Project Type:</strong> React Three Fiber</p>
+                  <p><strong>Project Type:</strong> React Three Fiber / GLSL / GSAP</p>
                   <p><strong>Role:</strong> Concept / Animation / Dev</p>
                   <p><strong>Duration:</strong> 3 weeks</p>
                   </ProjectCard>
