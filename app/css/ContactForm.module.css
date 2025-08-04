@@ -198,6 +198,8 @@
     flex: 1;
     min-width: 120px;
     text-align: center;
+    height: 38px !important;
+    line-height: 38px !important;
   }
   
   .submitButton:hover {
