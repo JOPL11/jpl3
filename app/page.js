@@ -314,16 +314,17 @@ export default function Home() {
             <section className={styles.section} aria-labelledby="skills-heading">
               <h2 id="skills-heading">Core Skills</h2>
               <ul className={styles.skillsList} role="list">
+                <li role="listitem">Design, Animation, Development, Rapid Prototyping</li>
                 <li role="listitem">React, Next.js</li>
                 <li role="listitem">Three.js, React 3 Fiber, WebXR</li>
-                <li role="listitem">vite, git, npm</li>
+                <li role="listitem">vite, git, npm, yarn</li>
                 <li role="listitem">SQL / Supabase Experience</li>
-                <li role="listitem">GSAP Animation Engine, Framer Motion, css animations, Spring</li>
+                <li role="listitem">GSAP, Framer Motion, CSS Animations, Spring</li>
                 <li role="listitem">Cinema4D, Blender, Adobe Suite</li>
+                <li role="listitem">3D Modeling, Animation, Rendering</li>
                 <li role="listitem">Octane, Redshift, Corona Render Engines</li>
                 <li role="listitem">After Effects, Video Edit, Video Post-Production</li>
-                <li role="listitem">Design, Animation, Development, SEO, Rapid Prototyping</li>
-
+                <li role="listitem">SEO</li>
               </ul>
             </section>
             <hr className={styles.divider2} />
