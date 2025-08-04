@@ -383,6 +383,32 @@ export default function Home() {
                   <p><strong>Duration:</strong> 3 months and years of updates</p>
                   
                 </ProjectCard>
+                <ProjectCard 
+                  title="Airbus Ottobrunn Showroom Expo Interface"
+                  image="/images/corp/airbus.jpg"
+                  alt="Ottobrunn Showroom Expo piece"
+                  client={{
+                    name: "SMMD Team |",
+                    logo: "/images/agencies/SMMD_wide.png",
+                    website: "https://www.smmd.team"
+                  }}
+                  modalContent={{
+                    description: `15 Chapters // RFID Powered Touchscreen Interface // 3D Models`,
+                    images: [
+                      { src: "/images/airbus_ottobrunn/bgbg.jpg", alt: "Project Screenshot 1" },
+                      { src: "/images/airbus_ottobrunn/posterC.jpg", alt: "Project Screenshot 2" },
+                      { src: "/images/airbus_ottobrunn/airbus_14B.jpg", alt: "Project Screenshot 3" },
+                      { src: "/images/airbus_ottobrunn/airbus_18B.jpg", alt: "Project Screenshot 4" },
+                      { src: "/images/airbus_ottobrunn/airbus_21B.jpg", alt: "Project Screenshot 5" },
+                    ]
+                  }}
+                >
+                  <p>A physically interactive showcase of Airbus technology explained on interactive touchscreens</p>
+                  <p><strong>Target Audience:</strong> Visitors at Airbus Group Ottobrunn Showroom, Ottobrunn</p>
+                  <p><strong>Project Type:</strong> RFID Driven Interactive Experience</p>
+                  <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
+                  <p><strong>Duration:</strong> 3 months and years of updates</p>
+                </ProjectCard>
                   {/*   */}   
                   <ProjectCard 
                   title="Stadtberichter Info Page"
@@ -421,32 +447,7 @@ export default function Home() {
                   <p><strong>Duration:</strong> 3 Months</p>
                 </ProjectCard>
 
-                <ProjectCard 
-                  title="Airbus Ottobrunn Showroom Expo Interface"
-                  image="/images/corp/airbus.jpg"
-                  alt="Ottobrunn Showroom Expo piece"
-                  client={{
-                    name: "SMMD Team |",
-                    logo: "/images/agencies/SMMD_wide.png",
-                    website: "https://www.smmd.team"
-                  }}
-                  modalContent={{
-                    description: `15 Chapters // RFID Powered Touchscreen Interface // 3D Models`,
-                    images: [
-                      { src: "/images/airbus_ottobrunn/bgbg.jpg", alt: "Project Screenshot 1" },
-                      { src: "/images/airbus_ottobrunn/posterC.jpg", alt: "Project Screenshot 2" },
-                      { src: "/images/airbus_ottobrunn/airbus_14B.jpg", alt: "Project Screenshot 3" },
-                      { src: "/images/airbus_ottobrunn/airbus_18B.jpg", alt: "Project Screenshot 4" },
-                      { src: "/images/airbus_ottobrunn/airbus_21B.jpg", alt: "Project Screenshot 5" },
-                    ]
-                  }}
-                >
-                  <p>A physically interactive showcase of Airbus technology explained on interactive touchscreens</p>
-                  <p><strong>Target Audience:</strong> Visitors at Airbus Group Ottobrunn Showroom, Ottobrunn</p>
-                  <p><strong>Project Type:</strong> RFID Driven Interactive Experience</p>
-                  <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
-                  <p><strong>Duration:</strong> 3 months and years of updates</p>
-                </ProjectCard>
+               
                 <ProjectCard 
                   title="Spiegel Geschichte TV Website"
                  image="/images/corp/spg.jpg"
