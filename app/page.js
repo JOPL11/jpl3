@@ -410,6 +410,18 @@ export default function Home() {
                 </ProjectCard>
 
                 <ProjectCard 
+                  title="Stadtberichter Municipal Backend"
+                  image="/images/corp/sb.jpg"
+                  alt="Stadtberichter Municipal Backend"
+                  text="<b>Currently in development.</b> A dashboard that lets a municipal authority manage citizen reports and view data."
+                >
+                  <p><strong>Target Audience:</strong> Municipal Authorities</p>
+                  <p><strong>Project Type:</strong> Municipal Dashboard</p>
+                  <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
+                  <p><strong>Duration:</strong> 3 Months</p>
+                </ProjectCard>
+
+                <ProjectCard 
                   title="Airbus Ottobrunn Showroom Expo Interface"
                   image="/images/corp/airbus.jpg"
                   alt="Ottobrunn Showroom Expo piece"
