@@ -506,7 +506,7 @@
 .divider2 {
   height: 1px;
   width: 100%;
-  margin: 20px 0;
+  margin: 50px 0;
   background-image: linear-gradient(
     to right,
     #a2feff,
@@ -612,9 +612,8 @@
 
 .projectCard {
   position: relative;
-
- 
-  padding: 1.5rem 0rem 0rem 0rem;
+  margin-bottom: 1rem;
+  padding: 3.0rem 0rem 0rem 0rem;
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -677,8 +676,8 @@
   opacity: 0;
   overflow: hidden;
   transition: all 0.2s ease;
-  margin: 1rem 0.5rem 0.1rem ;
-  padding: 0.3rem 1.5rem 0.5rem 0.22rem;
+  margin: 0rem 0.5rem 0.1rem ;
+  padding: 0.3rem 0.5rem 0.5rem 0.22rem;
   background: rgba(0, 0, 0, 0.2);
   border-radius: 0 0 8px 8px;
 }
