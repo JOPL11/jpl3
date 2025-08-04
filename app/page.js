@@ -654,7 +654,7 @@ export default function Home() {
                   <p><strong>Role:</strong> Concept / Animation / Dev</p>
                   <p><strong>Duration:</strong> 2 weeks</p>
                 </ProjectCard>
-              {/*  <ProjectCard 
+               <ProjectCard 
                   title="Streetlamp 2033"
                   image="/images/JPL3Poster_R3F.jpg"
                   alt="Streetlamp 2033"
@@ -678,7 +678,7 @@ export default function Home() {
                   <p><strong>Project Type:</strong> React Three Fiber</p>
                   <p><strong>Role:</strong> Concept / Animation / Dev</p>
                   <p><strong>Duration:</strong> 3 weeks</p>
-                  </ProjectCard> */ } 
+                  </ProjectCard> {/*  */ } 
                   <ProjectCard 
                   title="The Facility"
                   image="https://cdna.artstation.com/p/assets/images/images/077/341/642/large/jan-peiro-box1.jpg?1719257986"
