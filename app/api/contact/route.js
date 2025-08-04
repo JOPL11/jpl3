@@ -1,7 +1,16 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import DOMPurify from 'isomorphic-dompurify';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+
+// Helper function to sanitize HTML
+function sanitizeInput(input) {
+  // Convert to string in case input is not a string
+  const str = String(input || '');
+  // Sanitize and return
+  return DOMPurify.sanitize(str);
+}
 
 export async function POST(request) {
   try {
@@ -15,28 +24,33 @@ export async function POST(request) {
       );
     }
 
+    // Sanitize all inputs
+    const sanitizedName = sanitizeInput(name);
+    const sanitizedEmail = sanitizeInput(email);
+    const sanitizedMessage = sanitizeInput(message);
+
     // Send email using Resend
     const { data, error } = await resend.emails.send({
       from: 'Portfolio Contact <onboarding@resend.dev>',
       to: 'jan.peiro@protonmail.com',
-      reply_to: email,
-      subject: `New Contact Form Submission from ${name}`,
+      reply_to: sanitizedEmail,
+      subject: `New Contact Form Submission from ${sanitizedName}`,
       text: `
         You've received a new message from your portfolio contact form.
         
-        Name: ${name}
-        Email: ${email}
+        Name: ${sanitizedName}
+        Email: ${sanitizedEmail}
         
         Message:
-        ${message}
+        ${sanitizedMessage}
       `,
       html: `
         <h2>New Contact Form Submission</h2>
         <p>You've received a new message from your portfolio contact form.</p>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Name:</strong> ${sanitizedName}</p>
+        <p><strong>Email:</strong> ${sanitizedEmail}</p>
         <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
+        <p>${sanitizedMessage.replace(/\n/g, '<br>')}</p>
       `,
     });
 
