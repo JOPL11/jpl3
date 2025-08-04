@@ -673,6 +673,7 @@
 
 .cardContent {
   max-height: 0;
+  display: none;
   opacity: 0;
   overflow: hidden;
   transition: all 0.2s ease;
@@ -688,6 +689,7 @@
 
 .cardContent.showContent {
   max-height: 1000px;
+  display: block;
   opacity: 1;
   padding: 1.5rem 1.5rem 1.5rem 2rem;
   margin: 0.3rem 0rem 1rem;
