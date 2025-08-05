@@ -416,6 +416,11 @@ export default function Home() {
                   alt="Stadtberichter Info Page"
                   text="A GDPR-compliant info page for a civics oriented app."
                   link="https://sbinfo1.vercel.app"
+                  client={{
+                    name: "Stadtberichter |",
+                    logo: "/images/agencies/stadtberichter.png",
+                    website: "https://sbinfo1.vercel.app"
+                  }}
                 >
                   <p><strong>Target Audience:</strong> Municipal Authorities</p>
                   <p><strong>Project Type:</strong> Infopage about an Application</p>
@@ -428,6 +433,11 @@ export default function Home() {
                   alt="Stadtberichter App"
                   link="https://sb202.vercel.app/"
                   text="<b>Currently in development. Screening can be arranged.</b> A GDPR-compliant civics oriented app with encrypted geodata, voice-to-text, i18n language versioning, rate-limiting and other security features feeding into a real-time municipal dashboard"
+                  client={{
+                    name: "Stadtberichter |",
+                    logo: "/images/agencies/stadtberichter.png",
+                    website: "https://sbinfo1.vercel.app"
+                  }}
                 >
                   <p><strong>Target Audience:</strong> Municipal Citizens</p>
                   <p><strong>Project Type:</strong> Citizen Reporting App</p>
@@ -440,6 +450,11 @@ export default function Home() {
                   image="/images/corp/sb2.jpg"
                   alt="Stadtberichter Municipal Backend"
                   text="<b>Currently in development.</b> A dashboard that lets a municipal authority manage citizen reports and view data."
+                  client={{
+                    name: "Stadtberichter |",
+                    logo: "/images/agencies/stadtberichter.png",
+                    website: "https://sbinfo1.vercel.app"
+                  }}
                 >
                   <p><strong>Target Audience:</strong> Municipal Authorities</p>
                   <p><strong>Project Type:</strong> Municipal Dashboard</p>
@@ -603,7 +618,6 @@ export default function Home() {
                     name: "SMMD Team |",
                     logo: "/images/agencies/SMMD_wide.png",
                     website: "https://www.smmd.team/",
-                    
                   }}
                   modalContent={{
                     description: `Multimonitor animation for the <strong>Airbus Showroom Ottobrunn</strong>.
@@ -629,13 +643,10 @@ export default function Home() {
               </div>
             </section> 
 
-
             {/*   MOTION ENDS HERE */}  
+            {/*   WebGL Section */}
 
-            
-                  {/*   WebGL Section */}
-
-                  <hr className={styles.divider2} />
+            <hr className={styles.divider2} />
             <SectionTracker onSectionChange={setActiveSection} />
         
             <div data-section="webgl-heading"></div>
@@ -651,7 +662,7 @@ export default function Home() {
                   //openInModal={true}
                 >
                   <p>Tech Demo</p>
-                  <p><strong>Project Type:</strong> React Three Fiber</p>
+                  <p><strong>Project Type:</strong>Three.js / React Three Fiber</p>
                   <p><strong>Role:</strong> Concept / Animation / Dev</p>
                   <p><strong>Duration:</strong> 1 week</p>
                   </ProjectCard>
@@ -663,7 +674,7 @@ export default function Home() {
                   text="<strong>Desktop Only</strong>. Featuring custom 3D models and interactions." 
                 >
                   <p>Conceptual UI/UX</p>
-                  <p><strong>Tools:</strong>React Three Fiber / GSAP / Router / Next.js</p>
+                  <p><strong>Tools:</strong>Three.js / React Three Fiber / GSAP / Router / Next.js</p>
                   <p><strong>Role:</strong> Concept / Animation / Dev</p>
                   <p><strong>Duration:</strong> 2 weeks</p>
                 </ProjectCard>
@@ -675,7 +686,7 @@ export default function Home() {
                   link="https://jpl3d2.vercel.app/"
                 >
                   <p>R3F Tech Demo</p>
-                  <p><strong>Tools:</strong> React Three Fiber / GSAP</p>
+                  <p><strong>Tools:</strong>Three.js / React Three Fiber / GSAP</p>
                   <p><strong>Role:</strong> Concept / Animation / Dev</p>
                   <p><strong>Duration:</strong> 3 weeks</p>
                   </ProjectCard> {/*  */ } 
@@ -687,7 +698,7 @@ export default function Home() {
                   link="https://facility3.vercel.app/"
                 >
                   <p>Technical Demo</p>
-                  <p><strong>Tools:</strong> React Three Fiber / GLSL / GSAP</p>
+                  <p><strong>Tools:</strong>Three.js / React Three Fiber / GLSL / GSAP</p>
                   <p><strong>Role:</strong> Concept / Animation / Dev</p>
                   <p><strong>Duration:</strong> 3 weeks</p>
                   </ProjectCard>
