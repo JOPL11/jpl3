@@ -375,7 +375,7 @@ export default function Home() {
                 >
                   <p><strong>Target Audience:</strong> Municipal Authorities</p>
                   <p><strong>Project Type:</strong> Infopage about the Neighborhood Clean-up mobile App</p>
-                  <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
+                  <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Duration:</strong> 4 days</p>
                   <p><strong>Tools:</strong> Next.js, Vercel</p>
                 </ProjectCard>
@@ -402,7 +402,7 @@ export default function Home() {
                 >
                   <p><strong>Target Audience:</strong> Municipal Citizens</p>
                   <p><strong>Project Type:</strong> Neighborhood clean-up App</p>
-                  <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
+                  <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Tools:</strong> Next.js, TypeScript, TailwindCSS, Supabase, Vercel & more</p>
                 </ProjectCard>
 
@@ -435,7 +435,7 @@ export default function Home() {
                 >
                   <p><strong>Target Audience:</strong> Municipal Authorities</p>
                   <p><strong>Project Type:</strong> Municipal Dashboard</p>
-                  <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
+                  <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Tools:</strong> Next.js, TypeScript, Supabase, Geoman-io, leaflet, Openstreetmap, Vercel & more</p>
                 </ProjectCard>
 
@@ -750,9 +750,9 @@ export default function Home() {
                   <p><strong>Duration:</strong> 2 weeks</p>
                 </ProjectCard>
                <ProjectCard 
-                  title="Streetlamp 2033"
+                  title="Streetlamp 2044"
                   image="/images/JPL3Poster_R3F.jpg"
-                  alt="Streetlamp 2033"
+                  alt="Streetlamp 2044"
                   text="Featuring custom audiotracks, 3D models and animations."
                   link="https://jpl3d2.vercel.app/"
                 >
