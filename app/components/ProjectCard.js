@@ -16,7 +16,10 @@ export default function ProjectCard({
   openInModal = false, // New prop for modal behavior
   client,
   text, // Additional text to display below client info
-  modalContent // { description: string, images: Array<{src: string, alt: string}> }
+  modalContent, // { description: string, images: Array<{src: string, alt: string}> }
+  logoWidth = 160,  // Default width
+  logoHeight = 80,
+  logoStyle = {}   // Default height
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const { openModal } = useModal();
@@ -53,13 +56,15 @@ export default function ProjectCard({
               <Image 
                 src={client.logo} 
                 alt={`${client.name} logo`}
-                width={80}
-                height={40}
+                width={logoWidth}
+                height={logoHeight}
+                className={styles.logoImage}
                 style={{
-                  width: 'auto',
-                  height: '20px',
+                  ...logoStyle,  // Spread the custom styles first
+                  width: logoStyle.width || 'auto',
+                  height: logoStyle.height || '100%',
                   objectFit: 'contain',
-                  marginLeft: '10px'
+                  marginLeft: '0px',
                 }}
               />
             </div>

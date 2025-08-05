@@ -362,6 +362,13 @@ export default function Home() {
                     logo: "/images/agencies/SMMD_wide.png",
                     website: "https://www.smmd.team"
                   }}
+                  logoWidth={300}
+                  logoHeight={50}
+                  logoStyle={{
+                    height: '20px',  // Directly set the height
+                    width: 'auto',   // Let width adjust to maintain aspect ratio
+                    maxWidth: '100%' // Ensure it doesn't overflow
+                  }}
                   modalContent={{
                     description: `Touchtable interface / 7680 x 1080 // Dynamic Content / 4 Chapters`,
                     images: [
@@ -392,6 +399,13 @@ export default function Home() {
                     logo: "/images/agencies/SMMD_wide.png",
                     website: "https://www.smmd.team"
                   }}
+                  logoWidth={300}
+                  logoHeight={50}
+                  logoStyle={{
+                    height: '20px',  // Directly set the height
+                    width: 'auto',   // Let width adjust to maintain aspect ratio
+                    maxWidth: '100%' // Ensure it doesn't overflow
+                  }}
                   modalContent={{
                     description: `15 Chapters // RFID Powered Touchscreen Interface // 3D Models`,
                     images: [
@@ -418,14 +432,22 @@ export default function Home() {
                   link="https://sbinfo1.vercel.app"
                   client={{
                     name: "Stadtberichter |",
-                    logo: "/images/agencies/stadtberichter.png",
-                    website: "https://sbinfo1.vercel.app"
+                    logo: "/images/agencies/sblogo_whitelong.svg",
+                    website: "https://sbinfo1.vercel.app",
+                  }}
+                  logoWidth={300}
+                  logoHeight={50}
+                  logoStyle={{
+                    height: '30px',  // Directly set the height
+                    width: 'auto',   // Let width adjust to maintain aspect ratio
+                    maxWidth: '100%' // Ensure it doesn't overflow
                   }}
                 >
                   <p><strong>Target Audience:</strong> Municipal Authorities</p>
-                  <p><strong>Project Type:</strong> Infopage about an Application</p>
+                  <p><strong>Project Type:</strong> Infopage about the Neighborhood Clean-up mobile App</p>
                   <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
                   <p><strong>Duration:</strong> 4 days</p>
+                  <p><strong>Tools:</strong> Next.js, Vercel</p>
                 </ProjectCard>
                 <ProjectCard 
                   title="Stadtberichter App"
@@ -435,12 +457,19 @@ export default function Home() {
                   text="<b>Currently in development. Screening can be arranged.</b> A GDPR-compliant civics oriented app with encrypted geodata, voice-to-text, i18n language versioning, rate-limiting and other security features feeding into a real-time municipal dashboard"
                   client={{
                     name: "Stadtberichter |",
-                    logo: "/images/agencies/stadtberichter.png",
+                    logo: "/images/agencies/sblogo_whitelong.svg",
                     website: "https://sbinfo1.vercel.app"
+                  }}
+                  logoWidth={300}
+                  logoHeight={50}
+                  logoStyle={{
+                    height: '30px',  // Directly set the height
+                    width: 'auto',   // Let width adjust to maintain aspect ratio
+                    maxWidth: '100%' // Ensure it doesn't overflow
                   }}
                 >
                   <p><strong>Target Audience:</strong> Municipal Citizens</p>
-                  <p><strong>Project Type:</strong> Citizen Reporting App</p>
+                  <p><strong>Project Type:</strong> Neighborhood clean-up App</p>
                   <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
                   <p><strong>Tools:</strong> Next.js, TypeScript, TailwindCSS, Supabase, Vercel & more</p>
                 </ProjectCard>
@@ -452,8 +481,15 @@ export default function Home() {
                   text="<b>Currently in development.</b> A dashboard that lets a municipal authority manage citizen reports and view data."
                   client={{
                     name: "Stadtberichter |",
-                    logo: "/images/agencies/stadtberichter.png",
+                    logo: "/images/agencies/sblogo_whitelong.svg",
                     website: "https://sbinfo1.vercel.app"
+                  }}
+                  logoWidth={300}
+                  logoHeight={50}
+                  logoStyle={{
+                    height: '30px',  // Directly set the height
+                    width: 'auto',   // Let width adjust to maintain aspect ratio
+                    maxWidth: '100%' // Ensure it doesn't overflow
                   }}
                 >
                   <p><strong>Target Audience:</strong> Municipal Authorities</p>
@@ -564,6 +600,13 @@ export default function Home() {
                     website: "https://www.planstand.com/",
                     logo: "/images/agencies/planstand_logo.png"
                   }}
+                  logoWidth={300}
+                  logoHeight={50}
+                  logoStyle={{
+                    height: '20px',  // Directly set the height
+                    width: 'auto',   // Let width adjust to maintain aspect ratio
+                    maxWidth: '100%' // Ensure it doesn't overflow
+                  }}
                   modalContent={{
                     description: `10 Minute long foreground / backdrop screen animation for VIP event, tailored to a stage setup featuring live dancers and a hi-tech sprinkler installation that could depict the Audi logo and more.
                     <p>Animated excerpts can be seen in the motion reel</p>`,
@@ -593,6 +636,13 @@ export default function Home() {
                     website: "https://sieberundwolf.de/",
                     logo: "/images/agencies/sw_neu_white.png"
                   }}
+                  logoWidth={300}
+                  logoHeight={50}
+                  logoStyle={{
+                    height: '20px',  // Directly set the height
+                    width: 'auto',   // Let width adjust to maintain aspect ratio
+                    maxWidth: '100%' // Ensure it doesn't overflow
+                  }}
                   modalContent={{
                     description: `Logo animation for Mercedes Benz.
 
@@ -618,6 +668,13 @@ export default function Home() {
                     name: "SMMD Team |",
                     logo: "/images/agencies/SMMD_wide.png",
                     website: "https://www.smmd.team/",
+                  }}
+                  logoWidth={300}
+                  logoHeight={50}
+                  logoStyle={{
+                    height: '20px',  // Directly set the height
+                    width: 'auto',   // Let width adjust to maintain aspect ratio
+                    maxWidth: '100%' // Ensure it doesn't overflow
                   }}
                   modalContent={{
                     description: `Multimonitor animation for the <strong>Airbus Showroom Ottobrunn</strong>.
