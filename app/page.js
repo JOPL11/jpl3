@@ -410,7 +410,7 @@ export default function Home() {
                   title="Stadtberichter Municipal Dashboard"
                   image="/images/corp/sb2.jpg"
                   alt="Stadtberichter Municipal Backend"
-                  text="<b>Currently in development.</b> A dashboard that lets a municipal authority manage citizen reports and view data."
+                  text="<b>Currently in development.</b> A dashboard that lets a municipal authority manage citizen reports, set participant scores, set up geofencing, and view data transmitted by the Stadtmelder app."
                   client={{
                     name: "Stadtberichter |",
                     logo: "/images/agencies/sblogo_whitelong.svg",
