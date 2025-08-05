@@ -424,8 +424,9 @@ export default function Home() {
                     maxWidth: '100%' // Ensure it doesn't overflow
                   }}
                   modalContent={{
-                    description: `Dashboard interface v1`,
+                    description: `Dashboard interface v1 prototype`,
                     images: [
+                      { src: "/images/SB_A3.jpg", alt: "Project Screenshot 1" },
                       { src: "/images/SB_A1.jpg", alt: "Project Screenshot 1" },
                       { src: "/images/SB_A2.jpg", alt: "Project Screenshot 2" }
 
