@@ -412,7 +412,7 @@ export default function Home() {
                   {/*   */}   
                   <ProjectCard 
                   title="Stadtberichter Info Page"
-                  image="/images/corp/sb.jpg"
+                  image="/images/corp/sb0.jpg"
                   alt="Stadtberichter Info Page"
                   text="A GDPR-compliant info page for a civics oriented app."
                   link="https://sbinfo1.vercel.app"
@@ -424,9 +424,9 @@ export default function Home() {
                 </ProjectCard>
                 <ProjectCard 
                   title="Stadtberichter App"
-                  image="/images/corp/sb.jpg"
+                  image="/images/corp/sb3.jpg"
                   alt="Stadtberichter App"
-                  //link="https://sb2025.vercel.app/"
+                  link="https://sb2025.vercel.app/"
                   text="<b>Currently in development. Screening can be arranged.</b> A GDPR-compliant civics oriented app with encrypted geodata, voice-to-text, i18n language versioning, rate-limiting and other security features feeding into a real-time municipal dashboard"
                 >
                   <p><strong>Target Audience:</strong> Municipal Citizens</p>
@@ -437,7 +437,7 @@ export default function Home() {
 
                 <ProjectCard 
                   title="Stadtberichter Municipal Backend"
-                  image="/images/corp/sb.jpg"
+                  image="/images/corp/sb2.jpg"
                   alt="Stadtberichter Municipal Backend"
                   text="<b>Currently in development.</b> A dashboard that lets a municipal authority manage citizen reports and view data."
                 >
