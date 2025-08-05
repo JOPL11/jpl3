@@ -432,7 +432,7 @@ export default function Home() {
                   <p><strong>Target Audience:</strong> Municipal Citizens</p>
                   <p><strong>Project Type:</strong> Citizen Reporting App</p>
                   <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
-                  <p><strong>Duration:</strong> 3 Months</p>
+                  <p><strong>Tools:</strong> Next.js, TypeScript, TailwindCSS, Supabase, Vercel & more</p>
                 </ProjectCard>
 
                 <ProjectCard 
