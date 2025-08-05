@@ -352,79 +352,8 @@ export default function Home() {
               <h2 id="projects-heading" className={styles.scrollTarget}>Code</h2>
           
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
+
               <ProjectCard 
-                  title="Airbus Berlin Showroom Interface"
-                 // image="/images/corp/airbus.jpg"
-                 image="/images/JPL3Poster_AB.jpg"
-                  alt="Berlin Showroom Expo piece"
-                  client={{
-                    name: "SMMD Team  |",
-                    logo: "/images/agencies/SMMD_wide.png",
-                    website: "https://www.smmd.team"
-                  }}
-                  logoWidth={300}
-                  logoHeight={50}
-                  logoStyle={{
-                    height: '20px',  // Directly set the height
-                    width: 'auto',   // Let width adjust to maintain aspect ratio
-                    maxWidth: '100%' // Ensure it doesn't overflow
-                  }}
-                  modalContent={{
-                    description: `Touchtable interface / 7680 x 1080 // Dynamic Content / 4 Chapters`,
-                    images: [
-                      { src: "/images/airbus_berlin/table2.jpg", alt: "Project Screenshot 1" },
-                      { src: "/images/airbus_berlin/table1.jpg", alt: "Project Screenshot 2" },
-                      { src: "/images/airbus_berlin/table3.jpg", alt: "Project Screenshot 3" },
-                      { src: "/images/airbus_berlin/table4.jpg", alt: "Project Screenshot 4" },
-                      { src: "/images/airbus_berlin/table6.jpg", alt: "Project Screenshot 6" },
-                      { src: "/images/airbus_berlin/table7.jpg", alt: "Project Screenshot 7" },
-                      { src: "/images/airbus_berlin/table8.jpg", alt: "Project Screenshot 8" },
-                      { src: "/images/airbus_berlin/table9.jpg", alt: "Project Screenshot 9" },
-                      { src: "/images/airbus_berlin/table10.jpg", alt: "Project Screenshot 10" }
-                    ]
-                  }}>
-                  <p>An interactive catalogue of Airbus technology and the company&apos;s history made for visiting foreign state officials and clients.</p>
-                  <p><strong>Target Audience:</strong> Guests at Airbus Headquarters, Berlin</p>
-                  <p><strong>Project Type:</strong> Touchtable Interface</p>
-                  <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
-                  <p><strong>Duration:</strong> 3 months and years of updates</p>
-                  
-                </ProjectCard>
-                <ProjectCard 
-                  title="Airbus Munich Interface"
-                  image="/images/JPL3Poster_AB2.jpg"
-                  alt="Ottobrunn Showroom Expo piece"
-                  client={{
-                    name: "SMMD Team |",
-                    logo: "/images/agencies/SMMD_wide.png",
-                    website: "https://www.smmd.team"
-                  }}
-                  logoWidth={300}
-                  logoHeight={50}
-                  logoStyle={{
-                    height: '20px',  // Directly set the height
-                    width: 'auto',   // Let width adjust to maintain aspect ratio
-                    maxWidth: '100%' // Ensure it doesn't overflow
-                  }}
-                  modalContent={{
-                    description: `15 Chapters // RFID Powered Touchscreen Interface // 3D Models`,
-                    images: [
-                      { src: "/images/airbus_ottobrunn/bgbg.jpg", alt: "Project Screenshot 1" },
-                      { src: "/images/airbus_ottobrunn/posterC.jpg", alt: "Project Screenshot 2" },
-                      { src: "/images/airbus_ottobrunn/airbus_14B.jpg", alt: "Project Screenshot 3" },
-                      { src: "/images/airbus_ottobrunn/airbus_18B.jpg", alt: "Project Screenshot 4" },
-                      { src: "/images/airbus_ottobrunn/airbus_21B.jpg", alt: "Project Screenshot 5" },
-                    ]
-                  }}
-                >
-                  <p>A physically interactive showcase of Airbus technology explained on interactive touchscreens</p>
-                  <p><strong>Target Audience:</strong> Visitors at Airbus Group Ottobrunn Showroom, Ottobrunn</p>
-                  <p><strong>Project Type:</strong> RFID Driven Interactive Experience</p>
-                  <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
-                  <p><strong>Duration:</strong> 3 months and years of updates</p>
-                </ProjectCard>
-                  {/*   */}   
-                  <ProjectCard 
                   title="Stadtberichter Info Page"
                   image="/images/corp/sb0.jpg"
                   alt="Stadtberichter Info Page"
@@ -498,6 +427,79 @@ export default function Home() {
                   <p><strong>Tools:</strong> Next.js, TypeScript, Supabase, Geoman-io, leaflet, Openstreetmap, Vercel & more</p>
                 </ProjectCard>
 
+              <ProjectCard 
+                  title="Airbus Berlin Showroom Interface"
+                 // image="/images/corp/airbus.jpg"
+                 image="/images/JPL3Poster_AB.jpg"
+                  alt="Berlin Showroom Expo piece"
+                  client={{
+                    name: "SMMD Team  |",
+                    logo: "/images/agencies/SMMD_wide.png",
+                    website: "https://www.smmd.team"
+                  }}
+                  logoWidth={300}
+                  logoHeight={50}
+                  logoStyle={{
+                    height: '20px',  // Directly set the height
+                    width: 'auto',   // Let width adjust to maintain aspect ratio
+                    maxWidth: '100%' // Ensure it doesn't overflow
+                  }}
+                  modalContent={{
+                    description: `Touchtable interface / 7680 x 1080 // Dynamic Content / 4 Chapters`,
+                    images: [
+                      { src: "/images/airbus_berlin/table2.jpg", alt: "Project Screenshot 1" },
+                      { src: "/images/airbus_berlin/table1.jpg", alt: "Project Screenshot 2" },
+                      { src: "/images/airbus_berlin/table3.jpg", alt: "Project Screenshot 3" },
+                      { src: "/images/airbus_berlin/table4.jpg", alt: "Project Screenshot 4" },
+                      { src: "/images/airbus_berlin/table6.jpg", alt: "Project Screenshot 6" },
+                      { src: "/images/airbus_berlin/table7.jpg", alt: "Project Screenshot 7" },
+                      { src: "/images/airbus_berlin/table8.jpg", alt: "Project Screenshot 8" },
+                      { src: "/images/airbus_berlin/table9.jpg", alt: "Project Screenshot 9" },
+                      { src: "/images/airbus_berlin/table10.jpg", alt: "Project Screenshot 10" }
+                    ]
+                  }}>
+                  <p>An interactive catalogue of Airbus technology and the company&apos;s history made for visiting foreign state officials and clients.</p>
+                  <p><strong>Target Audience:</strong> Guests at Airbus Headquarters, Berlin</p>
+                  <p><strong>Project Type:</strong> Touchtable Interface</p>
+                  <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
+                  <p><strong>Duration:</strong> 3 months and years of updates</p>
+                  
+                </ProjectCard>
+                <ProjectCard 
+                  title="Airbus Munich Interface"
+                  image="/images/JPL3Poster_AB2.jpg"
+                  alt="Ottobrunn Showroom Expo piece"
+                  client={{
+                    name: "SMMD Team |",
+                    logo: "/images/agencies/SMMD_wide.png",
+                    website: "https://www.smmd.team"
+                  }}
+                  logoWidth={300}
+                  logoHeight={50}
+                  logoStyle={{
+                    height: '20px',  // Directly set the height
+                    width: 'auto',   // Let width adjust to maintain aspect ratio
+                    maxWidth: '100%' // Ensure it doesn't overflow
+                  }}
+                  modalContent={{
+                    description: `15 Chapters // RFID Powered Touchscreen Interface // 3D Models`,
+                    images: [
+                      { src: "/images/airbus_ottobrunn/bgbg.jpg", alt: "Project Screenshot 1" },
+                      { src: "/images/airbus_ottobrunn/posterC.jpg", alt: "Project Screenshot 2" },
+                      { src: "/images/airbus_ottobrunn/airbus_14B.jpg", alt: "Project Screenshot 3" },
+                      { src: "/images/airbus_ottobrunn/airbus_18B.jpg", alt: "Project Screenshot 4" },
+                      { src: "/images/airbus_ottobrunn/airbus_21B.jpg", alt: "Project Screenshot 5" },
+                    ]
+                  }}
+                >
+                  <p>A physically interactive showcase of Airbus technology explained on interactive touchscreens</p>
+                  <p><strong>Target Audience:</strong> Visitors at Airbus Group Ottobrunn Showroom, Ottobrunn</p>
+                  <p><strong>Project Type:</strong> RFID Driven Interactive Experience</p>
+                  <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
+                  <p><strong>Duration:</strong> 3 months and years of updates</p>
+                </ProjectCard>
+                  {/*   */}   
+            
                
                 <ProjectCard 
                   title="Spiegel Geschichte TV Website"
