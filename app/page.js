@@ -444,7 +444,7 @@ export default function Home() {
                   <p><strong>Target Audience:</strong> Municipal Authorities</p>
                   <p><strong>Project Type:</strong> Municipal Dashboard</p>
                   <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
-                  <p><strong>Duration:</strong> 3 Months</p>
+                  <p><strong>Tools:</strong> Next.js, TypeScript, Supabase, Geoman-io, leaflet, Openstreetmap, Vercel & more</p>
                 </ProjectCard>
 
                
