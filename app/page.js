@@ -423,6 +423,14 @@ export default function Home() {
                     width: 'auto',   // Let width adjust to maintain aspect ratio
                     maxWidth: '100%' // Ensure it doesn't overflow
                   }}
+                  modalContent={{
+                    description: `Dashboard interface v1`,
+                    images: [
+                      { src: "/images/SB_A1.jpg", alt: "Project Screenshot 1" },
+                      { src: "/images/SB_A2.jpg", alt: "Project Screenshot 2" }
+
+                    ]
+                  }}
                 >
                   <p><strong>Target Audience:</strong> Municipal Authorities</p>
                   <p><strong>Project Type:</strong> Municipal Dashboard</p>
