@@ -154,7 +154,7 @@ export default function Home() {
     window.addEventListener('openPrivacyModal', handleOpenPrivacyModal);
     
     // Intersection Observer for section detection
-    const sections = ['A', 'B', 'C', 'D'];
+    const sections = ['welcome-heading', 'projects-heading', 'webgl-heading', 'motion-heading'];
     const observers = [];
 
     const options = {
@@ -294,12 +294,13 @@ export default function Home() {
           
           <section id="welcome-heading" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="welcome-heading">
             <div data-section="welcome-heading"></div>
-           {/*     <div className={styles.heroContainer}>
+              {/*     
+           <div className={styles.heroContainer}>
               <Hero3D />
-            </div>*/} 
+            </div>
+            */} 
              {/*About Section Detector Here*/} 
              <SectionTracker onSectionChange={setActiveSection} />
-             <div data-section="welcome-heading"></div>
             <h2 style={{paddingTop: "4rem"}}>About</h2>
             <p>Hi! My name is Jan Peiro.</p>
 
@@ -383,7 +384,7 @@ export default function Home() {
                   image="/images/corp/sb3.jpg"
                   alt="Stadtberichter App"
                   link="https://sb202.vercel.app/"
-                  text="<b>Pre-Alpha Demo.</b> A GDPR-compliant civics oriented app with encrypted geodata, voice-to-text, i18n language versioning, rate-limiting and other security features feeding into a real-time municipal dashboard"
+                  text="<b>Pre-Alpha Demo. Some features disabled.</b> A GDPR-compliant civics oriented app with encrypted geodata, voice-to-text, i18n language versioning, rate-limiting and other security features feeding into a real-time municipal dashboard"
                   client={{
                     name: "Stadtberichter |",
                     logo: "/images/agencies/sblogo_whitelong.svg",

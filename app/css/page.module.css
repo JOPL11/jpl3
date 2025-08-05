@@ -37,7 +37,7 @@
 .backToTop {
   display: none;
   position: absolute;
-  left: 1rem;
+  left: 1.4rem;
   background: rgba(255, 255, 255, 0.0);
   border: 0px solid rgba(255, 255, 255, 0.2);
   color: white;
