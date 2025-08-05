@@ -392,7 +392,7 @@ export default function Home() {
                 </ProjectCard>
                 <ProjectCard 
                   title="Airbus Ottobrunn Showroom Expo Interface"
-                  image="/images/corp/airbus.jpg"
+                  image="/images/JPL3Poster_AB2.jpg"
                   alt="Ottobrunn Showroom Expo piece"
                   client={{
                     name: "SMMD Team |",
@@ -580,7 +580,7 @@ export default function Home() {
                 
               <VideoProjectCard 
                   title="Showreel 2025"
-                  image="/images/JPL3Poster_AB2.jpg"
+                  image="/images/JPL3Poster_Reel.jpg"
                   alt="Showreel 2025"
                   videoUrl="https://vimeo.com/1103891139"
                   text="2D / 3D Motion Reel featuring Commercial and Personal Work "
