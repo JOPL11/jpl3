@@ -384,7 +384,9 @@ export default function Home() {
                   image="/images/corp/sb3.jpg"
                   alt="Stadtberichter App"
                   link="https://sb202.vercel.app/"
-                  text="<b>Pre-Alpha Demo. Some features disabled.</b> A GDPR-compliant civics oriented app with encrypted geodata, voice-to-text, i18n language versioning, rate-limiting and other security features feeding into a near real-time municipal dashboard"
+                  text="<b>Pre-Alpha Demo. Some features disabled.</b></br>
+                  (The language switcher for example, its too complicated to update while adding other features).</br>
+                  A GDPR-compliant civics oriented app with encrypted geodata, voice-to-text, i18n language versioning, rate-limiting and other security features feeding into a near real-time municipal dashboard"
                   client={{
                     name: "Stadtberichter |",
                     logo: "/images/agencies/sblogo_whitelong.svg",
