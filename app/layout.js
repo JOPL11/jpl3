@@ -19,11 +19,11 @@ const inter = Inter({
 
 export const metadata = {
   title: {
-    default: 'Jan Peiro - Creative Developer & Motion Designer',
+    default: 'Jan Peiro - Creative Developer',
     template: '%s | Jan Peiro',
   },
-  description: 'Portfolio of Jan Peiro - Creative Developer and Motion Designer specializing in 3D animation, web development, and visual effects. Based in Munich, Germany.',
-  keywords: ['Jan Peiro', 'Creative Developer', 'Motion Designer', '3D Animation', 'Web Development', 'Munich', 'Portfolio'],
+  description: 'Portfolio of Jan Peiro - Creative Developer.',
+  keywords: ['Jan Peiro', 'Creative Developer', 'Motion Designer', '3D Animation', 'Web Development', 'Germany', 'Portfolio'],
   authors: [{ name: 'Jan Peiro' }],
   creator: 'Jan Peiro',
   publisher: 'Jan Peiro',
@@ -32,8 +32,8 @@ export const metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Jan Peiro - Creative Developer & Motion Designer',
-    description: 'Portfolio of Jan Peiro - Creative Developer and Motion Designer specializing in 3D animation, web development, and visual effects.',
+    title: 'Jan Peiro - Creative Technologist.',
+    description: 'Portfolio of Jan Peiro - Creative Developer.',
     url: 'https://janpeiro.vercel.app',
     siteName: 'Jan Peiro Portfolio',
     images: [
@@ -49,8 +49,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jan Peiro - Creative Developer & Motion Designer',
-    description: 'Portfolio of Jan Peiro - Creative Developer and Motion Designer',
+    title: 'Jan Peiro - Creative Technologist',
+    description: 'Portfolio of Jan Peiro - Creative Developer.',
     images: ['/images/og-image.jpg'],
     creator: '@janpeiro',
   },

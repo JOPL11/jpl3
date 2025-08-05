@@ -353,7 +353,7 @@ export default function Home() {
           
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
               <ProjectCard 
-                  title="Airbus Berlin Showroom Expo Interface"
+                  title="Airbus Berlin Showroom Interface"
                  // image="/images/corp/airbus.jpg"
                  image="/images/JPL3Poster_AB.jpg"
                   alt="Berlin Showroom Expo piece"
@@ -391,7 +391,7 @@ export default function Home() {
                   
                 </ProjectCard>
                 <ProjectCard 
-                  title="Airbus Ottobrunn Showroom Expo Interface"
+                  title="Airbus Munich Interface"
                   image="/images/JPL3Poster_AB2.jpg"
                   alt="Ottobrunn Showroom Expo piece"
                   client={{
