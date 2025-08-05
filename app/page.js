@@ -426,7 +426,7 @@ export default function Home() {
                   title="Stadtberichter App"
                   image="/images/corp/sb3.jpg"
                   alt="Stadtberichter App"
-                  link="https://sb2025.vercel.app/"
+                  link="https://sb202.vercel.app/"
                   text="<b>Currently in development. Screening can be arranged.</b> A GDPR-compliant civics oriented app with encrypted geodata, voice-to-text, i18n language versioning, rate-limiting and other security features feeding into a real-time municipal dashboard"
                 >
                   <p><strong>Target Audience:</strong> Municipal Citizens</p>
