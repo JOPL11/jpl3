@@ -108,7 +108,7 @@ export default function ProjectCard({
             className={styles.viewProjectButton}
             onClick={handleViewProject}
           >
-            View Project
+            View 
           </button>
         )}
         {link && !modalContent && (
@@ -118,7 +118,7 @@ export default function ProjectCard({
               className={styles.projectLink}
               title={title}
             >
-              View Project
+              Launch
             </ModalLink>
           ) : (
             <a 
@@ -127,7 +127,7 @@ export default function ProjectCard({
               rel="noopener noreferrer"
               className={styles.projectLink}
             >
-              View Project
+              Launch
             </a>
           )
         )}
