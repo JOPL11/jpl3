@@ -368,9 +368,9 @@ export default function Home() {
                   logoWidth={300}
                   logoHeight={50}
                   logoStyle={{
-                    height: '30px',  // Directly set the height
-                    width: 'auto',   // Let width adjust to maintain aspect ratio
-                    maxWidth: '100%' // Ensure it doesn't overflow
+                    height: '30px',  
+                    width: 'auto', 
+                    maxWidth: '100%'
                   }}
                 >
                   <p><strong>Target Audience:</strong> Municipal Authorities</p>
@@ -384,9 +384,10 @@ export default function Home() {
                   image="/images/corp/sb3.jpg"
                   alt="Stadtberichter App"
                   link="https://sb202.vercel.app/"
-                  text="<b>Pre-Alpha Demo. Some features disabled.</b></br>
-                  (The language switcher for example, its too complicated to update while adding other features).</br>
-                  A GDPR-compliant civics oriented app with encrypted geodata, voice-to-text, i18n language versioning, rate-limiting and other security features feeding into a near real-time municipal dashboard"
+                  text={`<b>Pre-Alpha Demo. Some features disabled.</b>
+                  <br />
+                  <br />
+                  A GDPR-compliant civics-oriented app designed to help keep local neighborhoods clean.`}
                   client={{
                     name: "Stadtberichter |",
                     logo: "/images/agencies/sblogo_whitelong.svg",
@@ -395,15 +396,16 @@ export default function Home() {
                   logoWidth={300}
                   logoHeight={50}
                   logoStyle={{
-                    height: '30px',  // Directly set the height
-                    width: 'auto',   // Let width adjust to maintain aspect ratio
-                    maxWidth: '100%' // Ensure it doesn't overflow
+                    height: '30px',
+                    width: 'auto',   
+                    maxWidth: '100%'
                   }}
                 >
                   <p><strong>Target Audience:</strong> Municipal Citizens</p>
                   <p><strong>Project Type:</strong> Neighborhood clean-up App</p>
                   <p><strong>Role:</strong> Design & Development</p>
-                  <p><strong>Tools:</strong> Next.js, TypeScript, TailwindCSS, Supabase, Vercel & more</p>
+                  <p><strong>Tools:</strong> Next.js, Supabase</p>
+                  <p><strong>More:</strong> Some features are disabled, the language switcher for example, while I add other features.<br /> App uses geodata, voice-to-text, i18n language versioning, rate-limiting and other security features feeding into a near real-time municipal dashboard</p>
                 </ProjectCard>
 
                 <ProjectCard 
@@ -421,17 +423,16 @@ export default function Home() {
                   logoWidth={300}
                   logoHeight={50}
                   logoStyle={{
-                    height: '30px',  // Directly set the height
-                    width: 'auto',   // Let width adjust to maintain aspect ratio
-                    maxWidth: '100%', // Ensure it doesn't overflow
+                    height: '30px', 
+                    width: 'auto',   
+                    maxWidth: '100%', 
                     
                   }}
-
                 >
                   <p><strong>Target Audience:</strong> Municipal Authorities</p>
                   <p><strong>Project Type:</strong> Municipal Dashboard</p>
                   <p><strong>Role:</strong> Design & Development</p>
-                  <p><strong>Tools:</strong> Next.js, TypeScript, Supabase, Geoman-io, leaflet, Openstreetmap, Vercel & more</p>
+                  <p><strong>Tools:</strong> Next.js, Supabase, Geoman-io, leaflet, Openstreetmap</p>
                 </ProjectCard>
 
               <ProjectCard 
@@ -447,9 +448,9 @@ export default function Home() {
                   logoWidth={300}
                   logoHeight={50}
                   logoStyle={{
-                    height: '20px',  // Directly set the height
-                    width: 'auto',   // Let width adjust to maintain aspect ratio
-                    maxWidth: '100%' // Ensure it doesn't overflow
+                    height: '20px', 
+                    width: 'auto', 
+                    maxWidth: '100%'
                   }}
                   modalContent={{
                     description: `Touchtable interface / 7680 x 1080 // Dynamic Content / 4 Chapters`,
@@ -484,9 +485,9 @@ export default function Home() {
                   logoWidth={300}
                   logoHeight={50}
                   logoStyle={{
-                    height: '20px',  // Directly set the height
-                    width: 'auto',   // Let width adjust to maintain aspect ratio
-                    maxWidth: '100%' // Ensure it doesn't overflow
+                    height: '20px', 
+                    width: 'auto',   
+                    maxWidth: '100%'
                   }}
                   modalContent={{
                     description: `15 Chapters // RFID Powered Touchscreen Interface // Animated interactive 3D Models & 2D UI menu system & content.
@@ -588,7 +589,7 @@ export default function Home() {
        <SectionTracker onSectionChange={setActiveSection} />
        <div data-section="motion-heading"></div>
 
-        {/*Motion Section Detector Here*/}
+        {/* Motion Section Detector Here */}
             <section id="motion-heading" className={`${styles.section} ${styles.scrollTarget}`}>
               <h2> Motion</h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
