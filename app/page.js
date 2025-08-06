@@ -384,7 +384,7 @@ export default function Home() {
                   image="/images/corp/sb3.jpg"
                   alt="Stadtberichter App"
                   link="https://sb202.vercel.app/"
-                  text={`<b>Pre-Alpha Demo. Some features disabled.</b>
+                  text={`<b>Pre-Alpha Demo.</b>
                   <br />
                   <br />
                   A GDPR-compliant civics-oriented app designed to help keep local neighborhoods clean.`}
@@ -405,7 +405,7 @@ export default function Home() {
                   <p><strong>Project Type:</strong> Neighborhood clean-up App</p>
                   <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Tools:</strong> Next.js, Supabase</p>
-                  <p><strong>More:</strong> Some features are disabled, the language switcher for example, while I add other features.<br /> App uses geodata, voice-to-text, i18n language versioning, rate-limiting and other security features feeding into a near real-time municipal dashboard</p>
+                  <p><strong>More:</strong><br /> App uses geodata, voice-to-text, i18n language versioning, rate-limiting and other security features feeding into a near real-time municipal dashboard</p>
                 </ProjectCard>
 
                 <ProjectCard 
@@ -538,7 +538,7 @@ export default function Home() {
                   <p><strong>Role:</strong> Lead Designer / Coder</p>
                   <p><strong>Duration:</strong> 1 Month / 6 years of updates</p>
                 </ProjectCard> 
-                {/* 
+               
                  <ProjectCard 
                   title="Middle Caicos Festival"
                   image="/images/JPL3Poster_BB.jpg"
@@ -549,10 +549,11 @@ export default function Home() {
                   <p>Conceptual UI/UX</p>
                   <p><strong>Target Audience:</strong> Caribbean Festival Attendees</p>
                   <p><strong>Project Type:</strong> Simple Next.js/React/R3F website</p>
-                  <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
+                  <p><strong>Role:</strong> Quick work for a friend, he paid me in fried chicken.</p>
                   <p><strong>Duration:</strong> 4 Days</p>
+                  <p><strong>Tools:</strong> Next.js, React Three Fiber, Three.js</p>
                 </ProjectCard>
-                <ProjectCard 
+                 <ProjectCard 
                   title="Homeopathy Health App Design"
                   image="/images/JPL3Poster_HA2.jpg"
                   alt="Homeopathy Health App Design"
@@ -579,7 +580,7 @@ export default function Home() {
                   <p><strong>Project Type:</strong> Next.js / React Interface Design</p>
                   <p><strong>Role:</strong> Lead Designer</p>
                   <p><strong>Duration:</strong> 1.5 weeks</p>
-                </ProjectCard> */}
+                </ProjectCard> {/* */}
               </div>
             </section>
 
