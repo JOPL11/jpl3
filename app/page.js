@@ -539,7 +539,7 @@ export default function Home() {
                   <p><strong>Duration:</strong> 1 Month / 6 years of updates</p>
                 </ProjectCard> 
                
-                 <ProjectCard 
+           {/*       <ProjectCard 
                   title="Middle Caicos Festival"
                   image="/images/JPL3Poster_BB.jpg"
                   alt="Middle Caicos Festival"
@@ -580,7 +580,7 @@ export default function Home() {
                   <p><strong>Project Type:</strong> Next.js / React Interface Design</p>
                   <p><strong>Role:</strong> Lead Designer</p>
                   <p><strong>Duration:</strong> 1.5 weeks</p>
-                </ProjectCard> {/* */}
+                </ProjectCard> */}
               </div>
             </section>
 
