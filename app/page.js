@@ -411,18 +411,20 @@ export default function Home() {
                   image="/images/corp/sb2.jpg"
                   alt="Stadtberichter Municipal Backend"
                   text="<b>Currently in development.</b> A dashboard that lets a municipal authority manage citizen reports, set participant scores, set up geofencing, and view data transmitted by the Stadtmelder app."
+                  link="https://sb-map.vercel.app/"
                   client={{
                     name: "Stadtberichter |",
                     logo: "/images/agencies/sblogo_whitelong.svg",
                     website: "https://sbinfo1.vercel.app"
                   }}
+                  
                   logoWidth={300}
                   logoHeight={50}
                   logoStyle={{
                     height: '30px',  // Directly set the height
                     width: 'auto',   // Let width adjust to maintain aspect ratio
                     maxWidth: '100%', // Ensure it doesn't overflow
-                    link: "https://sb-map.vercel.app/"
+                    
                   }}
 
                 >
