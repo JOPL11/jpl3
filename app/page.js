@@ -421,17 +421,10 @@ export default function Home() {
                   logoStyle={{
                     height: '30px',  // Directly set the height
                     width: 'auto',   // Let width adjust to maintain aspect ratio
-                    maxWidth: '100%' // Ensure it doesn't overflow
+                    maxWidth: '100%', // Ensure it doesn't overflow
+                    link: "https://sb-map.vercel.app/"
                   }}
-                  modalContent={{
-                    description: `Dashboard interface v1 prototype`,
-                    images: [
-                      { src: "/images/SB_A3.jpg", alt: "Project Screenshot 1" },
-                      { src: "/images/SB_A1.jpg", alt: "Project Screenshot 1" },
-                      { src: "/images/SB_A2.jpg", alt: "Project Screenshot 2" }
 
-                    ]
-                  }}
                 >
                   <p><strong>Target Audience:</strong> Municipal Authorities</p>
                   <p><strong>Project Type:</strong> Municipal Dashboard</p>
@@ -494,7 +487,13 @@ export default function Home() {
                     maxWidth: '100%' // Ensure it doesn't overflow
                   }}
                   modalContent={{
-                    description: `15 Chapters // RFID Powered Touchscreen Interface // 3D Models`,
+                    description: `15 Chapters // RFID Powered Touchscreen Interface // Animated interactive 3D Models & 2D UI menu system & content.
+                     A visitor would walk over to a wall mounted collection of plexiglass cubes which each contained a piece of Airbus tech, 
+                     take one cube and place it on a recepticle, which read an RFID chip and opened a touchscreen interface explaining the
+                     tech inside the cube.
+                     <br />
+                     Each tech was symbolized by a 3D model modeled after it, in the form of a symbolic kernel of the tech - a technocule , not a molecule -
+                     and explained using text, images & video.`,
                     images: [
                       { src: "/images/airbus_ottobrunn/bgbg.jpg", alt: "Project Screenshot 1" },
                       { src: "/images/airbus_ottobrunn/posterC.jpg", alt: "Project Screenshot 2" },
