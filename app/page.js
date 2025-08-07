@@ -422,7 +422,7 @@ export default function Home() {
                     website: "https://sbinfo1.vercel.app"
                   }}
                   modalContent={{
-                    description: `Official Website for the Pay TV channel Spiegel Geschichte TV. Legacy project, not the current Spiegel Geschichte TV website.`,
+                    description: `This is the Stadtberichter app Dashboard for municipal authorities to manage citizen reports, set participant scores, set up geofencing, and view data transmitted by the Stadtmelder app.`,
                     images: [
                       { src: "/images/SB_A1.jpg", alt: "Stadtberichter Municipal Dashboard Screenshot 1" },
                       { src: "/images/SB_A2.jpg", alt: "Stadtberichter Municipal Dashboard Screenshot 2" },
