@@ -413,11 +413,19 @@ export default function Home() {
                   image="/images/corp/sb2.jpg"
                   alt="Stadtberichter Municipal Backend"
                   text="<b>Currently in development.</b> A dashboard that lets a municipal authority manage citizen reports, set participant scores, set up geofencing, and view data transmitted by the Stadtmelder app."
-                  link="https://sb-map.vercel.app/"
+                  //link="https://sb-map.vercel.app/"
                   client={{
                     name: "Stadtberichter |",
                     logo: "/images/agencies/sblogo_whitelong.svg",
                     website: "https://sbinfo1.vercel.app"
+                  }}
+                  modalContent={{
+                    description: `Official Website for the Pay TV channel Spiegel Geschichte TV. Legacy project, not the current Spiegel Geschichte TV website.`,
+                    images: [
+                      { src: "/images/SB_A1.jpg", alt: "Stadtberichter Municipal Dashboard Screenshot 1" },
+                      { src: "/images/SB_A2.jpg", alt: "Stadtberichter Municipal Dashboard Screenshot 2" },
+                      { src: "/images/SB_A3.jpg", alt: "Stadtberichter Municipal Dashboard Screenshot 3" },
+                    ]
                   }}
                   
                   logoWidth={300}
