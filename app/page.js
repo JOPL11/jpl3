@@ -227,16 +227,14 @@ export default function Home() {
                 <a 
                   href="#welcome-heading" 
                   className={styles.navLink} 
-                  onClick={(e) =>{e.preventDefault();
-                    smoothScrollTo(e, 'welcome-heading', 3000)}}
+                    onClick={(e) => scrollToSection(e, 'welcome-heading', 3000)}
                 >
                   About
                 </a>
                 <a 
                   href="#projects-heading" 
                   className={styles.navLink}
-                  onClick={(e) =>{e.preventDefault();
-                    smoothScrollTo(e, 'projects-heading', 3000)}}
+                    onClick={(e) => scrollToSection(e, 'projects-heading')}
                 >
                   Code
                 </a>
@@ -748,57 +746,59 @@ export default function Home() {
                   link="https://bytes101.vercel.app"
                   text="Featuring custom 3D models and animations."
                   className="webglProject"
-                  //openInModal={true}
                 >
                   <p>Tech Demo</p>
                   <p><strong>Project Type:</strong>Three.js / React Three Fiber</p>
                   <p><strong>Role:</strong> Concept / Animation / Dev</p>
                   <p><strong>Duration:</strong> 1 week</p>
                   <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
-                  </ProjectCard>
-              <ProjectCard 
-                  title="Schrödinger & Bohr Quantum Pocketwatches "
-                  image="/images/JPL3Poster_QC.jpg"
-                  alt="Quantum Pocketwatch Company"
-                  link="https://quantum-pocketwatch.vercel.app/"
-                  text="<strong>Desktop Only</strong>. Featuring custom 3D models and interactions." 
-                  className="webglProject"
-                >
-                  <p>Conceptual UI/UX</p>
-                  <p><strong>Tools:</strong>Three.js / React Three Fiber / GSAP / Router / Next.js</p>
-                  <p><strong>Role:</strong> Concept / Animation / Dev</p>
-                  <p><strong>Duration:</strong> 2 weeks</p>
-                  <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
                 </ProjectCard>
-               <ProjectCard 
-                  title="Streetlamp 2044"
-                  image="/images/JPL3Poster_R3F.jpg"
-                  alt="Streetlamp 2044"
-                  text="Featuring custom audiotracks, 3D models and animations."
-                  link="https://jpl3d2.vercel.app/"
-                  className="webglProject"
-                >
-                  <p>R3F Tech Demo</p>
-                  <p><strong>Tools:</strong>Three.js / React Three Fiber / GSAP</p>
-                  <p><strong>Role:</strong> Concept / Animation / Dev</p>
-                  <p><strong>Duration:</strong> 3 weeks</p>
-                  <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
-                  </ProjectCard> {/*  */ } 
-                  <ProjectCard 
-                  title="The Facility"
-                  image="https://cdna.artstation.com/p/assets/images/images/077/341/642/large/jan-peiro-box1.jpg?1719257986"
-                  alt="The Facility"
-                  text="Featuring custom audiotracks, 3D models and animations."
-                  link="https://facility3.vercel.app/"
-                  className="webglProject"
-                >
-                  <p>Technical Demo</p>
-                  <p><strong>Tools:</strong>Three.js / React Three Fiber / GLSL / GSAP</p>
-                  <p><strong>Role:</strong> Concept / Animation / Dev</p>
-                  <p><strong>Duration:</strong> 3 weeks</p>
-                  <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
-                  </ProjectCard>
-    
+                {typeof window === 'undefined' || window.innerWidth >= 768 ? (
+                  <>
+                    <ProjectCard 
+                      title="Schrödinger & Bohr Quantum Pocketwatches "
+                      image="/images/JPL3Poster_QC.jpg"
+                      alt="Quantum Pocketwatch Company"
+                      link="https://quantum-pocketwatch.vercel.app/"
+                      text="<strong>Desktop Only</strong>. Featuring custom 3D models and interactions." 
+                      className="webglProject"
+                    >
+                      <p>Conceptual UI/UX</p>
+                      <p><strong>Tools:</strong>Three.js / React Three Fiber / GSAP / Router / Next.js</p>
+                      <p><strong>Role:</strong> Concept / Animation / Dev</p>
+                      <p><strong>Duration:</strong> 2 weeks</p>
+                      <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
+                    </ProjectCard>
+                    <ProjectCard 
+                      title="Streetlamp 2044"
+                      image="/images/JPL3Poster_R3F.jpg"
+                      alt="Streetlamp 2044"
+                      text="Featuring custom audiotracks, 3D models and animations."
+                      link="https://jpl3d2.vercel.app/"
+                      className="webglProject"
+                    >
+                      <p>R3F Tech Demo</p>
+                      <p><strong>Tools:</strong>Three.js / React Three Fiber / GSAP</p>
+                      <p><strong>Role:</strong> Concept / Animation / Dev</p>
+                      <p><strong>Duration:</strong> 3 weeks</p>
+                      <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
+                    </ProjectCard>
+                    <ProjectCard 
+                      title="The Facility"
+                      image="https://cdna.artstation.com/p/assets/images/images/077/341/642/large/jan-peiro-box1.jpg?1719257986"
+                      alt="The Facility"
+                      text="Featuring custom audiotracks, 3D models and animations."
+                      link="https://facility3.vercel.app/"
+                      className="webglProject"
+                    >
+                      <p>Technical Demo</p>
+                      <p><strong>Tools:</strong>Three.js / React Three Fiber / GLSL / GSAP</p>
+                      <p><strong>Role:</strong> Concept / Animation / Dev</p>
+                      <p><strong>Duration:</strong> 3 weeks</p>
+                      <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
+                    </ProjectCard>
+                  </>
+                ) : null}
               </div>
 
             </section>

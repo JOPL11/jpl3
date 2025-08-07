@@ -19,7 +19,8 @@ export default function ProjectCard({
   modalContent, // { description: string, images: Array<{src: string, alt: string}> }
   logoWidth = 160,  // Default width
   logoHeight = 80,
-  logoStyle = {}   // Default height
+  logoStyle = {},   // Default height
+  className = ''    // Add className prop with default empty string
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const { openModal } = useModal();
@@ -40,7 +41,7 @@ export default function ProjectCard({
   };
 
   return (
-    <div className={`${styles.projectCard} ${isExpanded ? styles.expanded : ''}`} role="gridcell" tabIndex="0">
+    <div className={`${styles.projectCard} ${isExpanded ? styles.expanded : ''} ${className}`} role="gridcell" tabIndex="0">
       <h3>{title}</h3>
       {client && (
         <a 

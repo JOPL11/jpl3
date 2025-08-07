@@ -19,13 +19,13 @@ section {
 }
 
 /* Hide WebGL projects on mobile, except the first one */
-.webglProject:not(:first-child) {
+.projectsGrid > :global(.webglProject) ~ :global(.webglProject) {
   display: none;
 }
 
 /* Show all projects on larger screens */
 @media (min-width: 768px) {
-  .webglProject:not(:first-child) {
+  .projectsGrid > :global(.webglProject) ~ :global(.webglProject) {
     display: block;
   }
 }
