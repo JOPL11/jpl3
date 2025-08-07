@@ -321,11 +321,12 @@ export default function Home() {
                 <li role="listitem">vite, git, npm, yarn</li>
                 <li role="listitem">SQL / Supabase Experience</li>
                 <li role="listitem">GSAP, Framer Motion, CSS Animations, Spring</li>
-                <li role="listitem">Cinema4D, Blender, Adobe Suite</li>
-                <li role="listitem">3D Modeling, Animation, Rendering</li>
-                <li role="listitem">Octane, Redshift, Corona Render Engines</li>
-                <li role="listitem">After Effects, Video Edit, Video Post-Production</li>
                 <li role="listitem">SEO</li>
+                <li role="listitem">Cinema4D, Blender, Adobe Suite</li>
+                <li role="listitem">3D Modeling, Animation, Rendering</li> 
+                 {/*  
+                <li role="listitem">Octane, Redshift, Corona Render Engines</li>
+                <li role="listitem">After Effects, Video Edit, Video Post-Production</li>*/}
               </ul>
             </section>
             <hr className={styles.divider2} />
@@ -523,7 +524,7 @@ export default function Home() {
                   {/*   */}   
             
                
-                <ProjectCard 
+         {/*          <ProjectCard 
                   title="Spiegel Geschichte TV Website"
                  image="/images/corp/spg.jpg"
                   alt="Spiegel Geschichte TV Website"
@@ -547,7 +548,7 @@ export default function Home() {
                   <p><strong>Duration:</strong> 1 Month / 6 years of updates</p>
                 </ProjectCard> 
                
-           {/*       <ProjectCard 
+               <ProjectCard 
                   title="Middle Caicos Festival"
                   image="/images/JPL3Poster_BB.jpg"
                   alt="Middle Caicos Festival"
@@ -615,6 +616,7 @@ export default function Home() {
                   <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
                  
                 </VideoProjectCard>
+                 {/*   Motion Section 
                 <ProjectCard 
                   title="Audi Nüremberg"
                   image="/images/corp/audi.jpg"
@@ -721,8 +723,9 @@ export default function Home() {
                   <p><strong>Role:</strong> Lead Designer / animator</p>
                   <p><strong>Duration:</strong> 2 weeks</p>
                 </ProjectCard>
+                */}
           
-              </div>
+              </div> 
             </section> 
 
             {/*   MOTION ENDS HERE */}  
