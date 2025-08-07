@@ -750,6 +750,7 @@ export default function Home() {
                   <p><strong>Project Type:</strong>Three.js / React Three Fiber</p>
                   <p><strong>Role:</strong> Concept / Animation / Dev</p>
                   <p><strong>Duration:</strong> 1 week</p>
+                  <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
                   </ProjectCard>
               <ProjectCard 
                   title="Schrödinger & Bohr Quantum Pocketwatches "
@@ -762,6 +763,7 @@ export default function Home() {
                   <p><strong>Tools:</strong>Three.js / React Three Fiber / GSAP / Router / Next.js</p>
                   <p><strong>Role:</strong> Concept / Animation / Dev</p>
                   <p><strong>Duration:</strong> 2 weeks</p>
+                  <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
                 </ProjectCard>
                <ProjectCard 
                   title="Streetlamp 2044"
@@ -774,6 +776,7 @@ export default function Home() {
                   <p><strong>Tools:</strong>Three.js / React Three Fiber / GSAP</p>
                   <p><strong>Role:</strong> Concept / Animation / Dev</p>
                   <p><strong>Duration:</strong> 3 weeks</p>
+                  <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
                   </ProjectCard> {/*  */ } 
                   <ProjectCard 
                   title="The Facility"
@@ -786,6 +789,7 @@ export default function Home() {
                   <p><strong>Tools:</strong>Three.js / React Three Fiber / GLSL / GSAP</p>
                   <p><strong>Role:</strong> Concept / Animation / Dev</p>
                   <p><strong>Duration:</strong> 3 weeks</p>
+                  <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
                   </ProjectCard>
     
               </div>
