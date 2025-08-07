@@ -18,4 +18,16 @@ section {
   opacity: 0.5;
 }
 
+/* Hide WebGL projects on mobile, except the first one */
+.webglProject:not(:first-child) {
+  display: none;
+}
+
+/* Show all projects on larger screens */
+@media (min-width: 768px) {
+  .webglProject:not(:first-child) {
+    display: block;
+  }
+}
+
 /* Add your other styles below */

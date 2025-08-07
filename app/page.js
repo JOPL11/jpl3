@@ -3,9 +3,10 @@
 import { useState, useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import InteractiveMenu from './components/InteractiveMenu';
+//import InteractiveMenu from './components/InteractiveMenu';
 import SectionTracker from './components/SectionTracker';
 import MouseGradient from './components/MouseGradient';
+import { smoothScrollTo } from './components/smoothScroll';
 
 const PrivacyModal = dynamic(() => import('../components/PrivacyModal'), {
   ssr: false,
@@ -219,21 +220,23 @@ export default function Home() {
                 aria-hidden="true"
               />
               <div className={styles.menuContainer}>
-          <InteractiveMenu activeSection={activeSection} onSectionChange={setActiveSection} />
+          {/* <InteractiveMenu activeSection={activeSection} onSectionChange={setActiveSection} /> */}
           </div>
               <hr className={styles.divider} />
               <nav className={styles.navLinks} aria-label="Main navigation">
                 <a 
                   href="#welcome-heading" 
                   className={styles.navLink} 
-                  onClick={(e) => scrollToSection(e, 'welcome-heading')}
+                  onClick={(e) =>{e.preventDefault();
+                    smoothScrollTo(e, 'welcome-heading', 3000)}}
                 >
                   About
                 </a>
                 <a 
                   href="#projects-heading" 
                   className={styles.navLink}
-                  onClick={(e) => scrollToSection(e, 'projects-heading')}
+                  onClick={(e) =>{e.preventDefault();
+                    smoothScrollTo(e, 'projects-heading', 3000)}}
                 >
                   Code
                 </a>
@@ -744,6 +747,7 @@ export default function Home() {
                   alt="Bytes101"
                   link="https://bytes101.vercel.app"
                   text="Featuring custom 3D models and animations."
+                  className="webglProject"
                   //openInModal={true}
                 >
                   <p>Tech Demo</p>
@@ -758,6 +762,7 @@ export default function Home() {
                   alt="Quantum Pocketwatch Company"
                   link="https://quantum-pocketwatch.vercel.app/"
                   text="<strong>Desktop Only</strong>. Featuring custom 3D models and interactions." 
+                  className="webglProject"
                 >
                   <p>Conceptual UI/UX</p>
                   <p><strong>Tools:</strong>Three.js / React Three Fiber / GSAP / Router / Next.js</p>
@@ -771,6 +776,7 @@ export default function Home() {
                   alt="Streetlamp 2044"
                   text="Featuring custom audiotracks, 3D models and animations."
                   link="https://jpl3d2.vercel.app/"
+                  className="webglProject"
                 >
                   <p>R3F Tech Demo</p>
                   <p><strong>Tools:</strong>Three.js / React Three Fiber / GSAP</p>
@@ -784,6 +790,7 @@ export default function Home() {
                   alt="The Facility"
                   text="Featuring custom audiotracks, 3D models and animations."
                   link="https://facility3.vercel.app/"
+                  className="webglProject"
                 >
                   <p>Technical Demo</p>
                   <p><strong>Tools:</strong>Three.js / React Three Fiber / GLSL / GSAP</p>
