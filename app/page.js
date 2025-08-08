@@ -439,7 +439,7 @@ export default function Home() {
                   alt="Stadtberichter App"
                   link="https://sb202.vercel.app"
                   textPosition="bottom"
-                  text={`<b>Pre-Alpha Demo.</b>
+                  text={`<b>Current Project Pre-Alpha Demo.</b>
                   <br />
                   <br />
                   A GDPR-compliant civics-oriented app designed to help keep local neighborhoods clean. Some features get enabled and disabled based on current development stage.  
