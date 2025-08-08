@@ -278,7 +278,7 @@ export default function Home() {
                   Contact
                 </a>
                 <a 
-                  href="https://www.artstation.com/jopl" 
+                  href="https://jopl.artstation.com/" 
                   className={styles.navLink}
                   target="_blank"
                 >
@@ -425,7 +425,7 @@ export default function Home() {
                   <p><strong>Project Type:</strong> Neighborhood clean-up App</p>
                   <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Tools:</strong> Next.js, Supabase</p>
-                  <p><strong>More:</strong><br /> App uses geodata, voice-to-text, i18n language versioning, rate-limiting and other security features feeding into a near real-time municipal dashboard</p>
+                  <p><strong>More:</strong><br /> App uses geodata, voice-to-text, i18n language versioning, rate-limiting and other security features (auth csrf, xss prevention, rls, etc.) feeding into a near real-time municipal dashboard</p>
                 </ProjectCard>
 
                 <ProjectCard 
