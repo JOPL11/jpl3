@@ -409,7 +409,8 @@ export default function Home() {
                   <br /> <br />i18m multi-language support, image capture / reduction / sanitation / downscaling / compression / optimization, hash3 GDPR programmatic compliance, rate limiting, auth csrf, xss prevention, rls, optional analytics, optional auth, hashed ip geofencing, comprehensive crash-guarding. 
                    <br /> <br />The app uses geofencing, optional geolocation, text-input, voice-to-text - hash3 deviceID, -ip address and user-agent scrambling, rate-limiting and other security features (optional auth, csrf, xss prevention, rls, etc.) feeding into a near real-time municipal dashboard. 
                    <br /> <br />Optional game mode with score distribution and leaderboard in the works. Participant winners get a free coffee at participating local cafe's  or free entry to the city Hallenbad or whatever prize is decided on by community officials. 
-                   <br /> <br />The goal is to make something easy to use and secure in compliance with GDPR.</p>`}
+                   <br /> <br />The goal is to make something fun, easy to use and secure in compliance with GDPR. At the same time making for a more streamlined and efficient process for municipal authorities to manage citizen reports.
+                   <br /> <br />The design is purposfully vague to give a generic look and feel because the visual identity of whatever city that uses it can be implemented upon their request.</p>`}
                   client={{
                     name: "Stadtberichter |",
                     logo: "/images/agencies/sblogo_whitelong.svg",
