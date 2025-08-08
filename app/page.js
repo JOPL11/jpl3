@@ -572,7 +572,8 @@ export default function Home() {
                   modalContent={{
                     description: `Official Website for the Pay TV channel Spiegel Geschichte TV. Legacy project, not the current Spiegel Geschichte TV website.<br/>
                     It was more like generative historical thoughtprovoker. Well known images of historical photographs were used in a slideshow that was the backdrop for the UI, which had famous historical videoclip thumbnails. If left alone,
-                    the UI would continue to cycle through its various sections of images and videos and interactive content, creating a never-ending slideshow of historical content acyclicly. Sometimes creating bizarre and unexpected semantic impressions.`,
+                    the UI would continue to cycle through its various sections of images and videos and interactive content, creating a never-ending slideshow of historical content acyclicly. Sometimes creating bizarre and unexpected semantic impressions.
+                    All branded behind and inside the Spiegel's iconic bright red Visual Identity stripe as its main UI element.`,
                     images: [
                       { src: "/images/SGA_1.jpg", alt: "Project Screenshot 1" },
                       { src: "/images/SGA_2.jpg", alt: "Project Screenshot 2" },
