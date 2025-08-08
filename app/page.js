@@ -371,33 +371,7 @@ export default function Home() {
               <h2 id="projects-heading" className={styles.scrollTarget}>Code</h2>
           
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
-
               <ProjectCard 
-                  title="Stadtberichter Info Page"
-                  image="/images/corp/sb0.jpg"
-                  alt="Stadtberichter Info Page"
-                  text="A GDPR-compliant info page for a civics oriented app."
-                  link="https://sbinfo1.vercel.app"
-                  client={{
-                    name: "Stadtberichter |",
-                    logo: "/images/agencies/sblogo_whitelong.svg",
-                    website: "https://sbinfo1.vercel.app",
-                  }}
-                  logoWidth={300}
-                  logoHeight={50}
-                  logoStyle={{
-                    height: '30px',  
-                    width: 'auto', 
-                    maxWidth: '100%'
-                  }}
-                >
-                  <p><strong>Target Audience:</strong> Municipal Authorities</p>
-                  <p><strong>Project Type:</strong> Infopage about the Neighborhood Clean-up mobile App</p>
-                  <p><strong>Role:</strong> Design & Development</p>
-                  <p><strong>Duration:</strong> 4 days</p>
-                  <p><strong>Tools:</strong> Next.js, react</p>
-                </ProjectCard>
-                <ProjectCard 
                   title="Stadtberichter App"
                   image="/images/corp/sb3.jpg"
                   alt="Stadtberichter App"
@@ -428,9 +402,7 @@ export default function Home() {
                   <p><strong>Project Type:</strong> Neighborhood clean-up App</p>
                   <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Tools:</strong> Next.js, Supabase</p>
-                 
                 </ProjectCard>
-
                 <ProjectCard 
                   title="Stadtberichter Municipal Dashboard"
                   image="/images/corp/sb2.jpg"
@@ -467,7 +439,31 @@ export default function Home() {
                   <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Tools:</strong> Next.js, Supabase, Geoman-io, leaflet, Openstreetmap</p>
                 </ProjectCard>
-
+                <ProjectCard 
+                  title="Stadtberichter Info Page"
+                  image="/images/corp/sb0.jpg"
+                  alt="Stadtberichter Info Page"
+                  text="A GDPR-compliant info page for a civics oriented app."
+                  link="https://sbinfo1.vercel.app"
+                  client={{
+                    name: "Stadtberichter |",
+                    logo: "/images/agencies/sblogo_whitelong.svg",
+                    website: "https://sbinfo1.vercel.app",
+                  }}
+                  logoWidth={300}
+                  logoHeight={50}
+                  logoStyle={{
+                    height: '30px',  
+                    width: 'auto', 
+                    maxWidth: '100%'
+                  }}
+                >
+                  <p><strong>Target Audience:</strong> Municipal Authorities</p>
+                  <p><strong>Project Type:</strong> Infopage about the Neighborhood Clean-up mobile App</p>
+                  <p><strong>Role:</strong> Design & Development</p>
+                  <p><strong>Duration:</strong> 4 days</p>
+                  <p><strong>Tools:</strong> Next.js, react</p>
+                </ProjectCard>
               <ProjectCard 
                   title="Airbus Berlin Showroom Interface"
                  // image="/images/corp/airbus.jpg"
