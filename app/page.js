@@ -488,7 +488,7 @@ export default function Home() {
                     The second chapter was a showcase featuring the corporations humanitarian projects and capacities. 
                     <br />
                     <br />
-                    The third chapter was an interactive look at the future of the aerospace company and aviation in general. The fourth chapter was a video presentation of the company.
+                    The third chapter was an interactive look at the future of the aerospace company and aviation in general.
                     <br />
                     <br />
                     The fourth chapter was an interactive showcase of the wide range of aircraft, satellites and spacecraft vehicles they build, interactively outlineing their capabilities using video, images and text. 
