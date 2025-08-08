@@ -6,7 +6,24 @@ import Image from 'next/image';
 //import InteractiveMenu from './components/InteractiveMenu';
 import SectionTracker from './components/SectionTracker';
 import MouseGradient from './components/MouseGradient';
-import { smoothScrollTo } from './components/smoothScroll';
+
+function useViewportWidth() {
+  const [width, setWidth] = useState(0);
+
+  useEffect(() => {
+    // Set initial width
+    setWidth(window.innerWidth);
+    
+    // Update width on resize
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return width;
+}
 
 const PrivacyModal = dynamic(() => import('../components/PrivacyModal'), {
   ssr: false,
@@ -38,7 +55,8 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState('welcome-heading');
   const isProgrammaticScroll = useRef(false);
   const scrollTimeout = useRef(null);
-
+  const viewportWidth = useViewportWidth();
+  const isMobile = viewportWidth < 768;
   // Setup section detection using IntersectionObserver
   useEffect(() => {
     const handleScrollEnd = () => {
@@ -389,7 +407,7 @@ export default function Home() {
                   text={`<b>Pre-Alpha Demo.</b>
                   <br />
                   <br />
-                  A GDPR-compliant civics-oriented app designed to help keep local neighborhoods clean.`}
+                  A GDPR-compliant civics-oriented app designed to help keep local neighborhoods clean. Some features get enabled and disabled based on current development stage.`}
                   client={{
                     name: "Stadtberichter |",
                     logo: "/images/agencies/sblogo_whitelong.svg",
@@ -615,7 +633,7 @@ export default function Home() {
                   <p><strong>Description:</strong> Concept, 3D Modeling, Motion, VFX, Design, Post-Production</p>
                   <p><strong>Tools:</strong> Cinema4D, After Effects, Duik, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
                   <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
-                 
+                  <p><strong>More:</strong><br /> Be advised this hasn&apos;t been rebranded with my new logo. Still uses the JPL logo instead, hope that doesn&apos;t cause any confusion.</p>
                 </VideoProjectCard>
                  {/*   Motion Section 
                 <ProjectCard 
@@ -747,13 +765,13 @@ export default function Home() {
                   text="Featuring custom 3D models and animations."
                   className="webglProject"
                 >
-                  <p>Tech Demo</p>
+                  <p>Concept Demo</p>
                   <p><strong>Project Type:</strong>Three.js / React Three Fiber</p>
                   <p><strong>Role:</strong> Concept / Animation / Dev</p>
                   <p><strong>Duration:</strong> 1 week</p>
                   <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
                 </ProjectCard>
-                {typeof window === 'undefined' || window.innerWidth >= 768 ? (
+                {!isMobile && (
                   <>
                     <ProjectCard 
                       title="Schrödinger & Bohr Quantum Pocketwatches "
@@ -763,7 +781,7 @@ export default function Home() {
                       text="<strong>Desktop Only</strong>. Featuring custom 3D models and interactions." 
                       className="webglProject"
                     >
-                      <p>Conceptual UI/UX</p>
+                      <p>Visual Concept Experiment</p>
                       <p><strong>Tools:</strong>Three.js / React Three Fiber / GSAP / Router / Next.js</p>
                       <p><strong>Role:</strong> Concept / Animation / Dev</p>
                       <p><strong>Duration:</strong> 2 weeks</p>
@@ -777,7 +795,7 @@ export default function Home() {
                       link="https://jpl3d2.vercel.app/"
                       className="webglProject"
                     >
-                      <p>R3F Tech Demo</p>
+                      <p>R3F Concept Demo</p>
                       <p><strong>Tools:</strong>Three.js / React Three Fiber / GSAP</p>
                       <p><strong>Role:</strong> Concept / Animation / Dev</p>
                       <p><strong>Duration:</strong> 3 weeks</p>
@@ -791,14 +809,14 @@ export default function Home() {
                       link="https://facility3.vercel.app/"
                       className="webglProject"
                     >
-                      <p>Technical Demo</p>
+                      <p>Visual Concept Demo</p>
                       <p><strong>Tools:</strong>Three.js / React Three Fiber / GLSL / GSAP</p>
                       <p><strong>Role:</strong> Concept / Animation / Dev</p>
                       <p><strong>Duration:</strong> 3 weeks</p>
                       <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
                     </ProjectCard>
                   </>
-                ) : null}
+                )}
               </div>
 
             </section>
