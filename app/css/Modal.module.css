@@ -138,6 +138,7 @@
   color: #a2feff;
   font-size: 1rem;
   font-weight: 300;
+  max-width: 70%;
 }
 
 .mediaContainer {
@@ -265,4 +266,26 @@
 
 .modalContent::-webkit-scrollbar-thumb:hover {
   background: #5a5a5a;
+}
+
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .modalContent {
+    padding: 1.5rem;
+    max-width: 95vw;
+    max-height: 95vh;
+    border-radius: 8px;
+  }
+
+  .modalDescription {
+    max-width: 100%;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .projectModal h2 {
+    font-size: 1.5rem;
+    padding-right: 2rem; /* Ensure text doesn't go behind close button */
+  }
 }
