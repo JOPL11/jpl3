@@ -479,7 +479,22 @@ export default function Home() {
                     maxWidth: '100%'
                   }}
                   modalContent={{
-                    description: `Touchtable interface / 7680 x 1080 // Dynamic Content / 4 Chapters`,
+                    description: `I had never designed things for big screens. 7680 x 1080. The content had to appear dynamically according to where the user was situated along its width. The UI consisted of a touchable fullscreen main menu which revealed 4 chapters of interactive content.
+                    <br />
+                    <br />
+                    The first chapter was a history timeline of all of aviation history and how Airbus fit into it. 
+                    <br />
+                    <br />
+                    The second chapter was a showcase featuring the corporations humanitarian projects and capacities. 
+                    <br />
+                    <br />
+                    The third chapter was an interactive look at the future of the aerospace company and aviation in general. The fourth chapter was a video presentation of the company.
+                    <br />
+                    <br />
+                    The fourth chapter was an interactive showcase of the wide range of aircraft, satellites and spacecraft vehicles they build, interactively outlineing their capabilities using video, images and text. 
+                    <br />
+                    <br /> 
+                    `,
                     images: [
                       { src: "/images/airbus_berlin/table2.jpg", alt: "Project Screenshot 1" },
                       { src: "/images/airbus_berlin/table1.jpg", alt: "Project Screenshot 2" },
