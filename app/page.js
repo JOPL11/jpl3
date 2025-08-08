@@ -395,7 +395,7 @@ export default function Home() {
                   <p><strong>Project Type:</strong> Infopage about the Neighborhood Clean-up mobile App</p>
                   <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Duration:</strong> 4 days</p>
-                  <p><strong>Tools:</strong> Next.js, Vercel</p>
+                  <p><strong>Tools:</strong> Next.js, react</p>
                 </ProjectCard>
                 <ProjectCard 
                   title="Stadtberichter App"
@@ -405,7 +405,9 @@ export default function Home() {
                   text={`<b>Pre-Alpha Demo.</b>
                   <br />
                   <br />
-                  A GDPR-compliant civics-oriented app designed to help keep local neighborhoods clean. Some features get enabled and disabled based on current development stage.`}
+                  A GDPR-compliant civics-oriented app designed to help keep local neighborhoods clean. Some features get enabled and disabled based on current development stage.  
+                  <br /> <br />i18m multi-language support, image capture / reduction / sanitation / downscaling / compression / optimization, hash3 GDPR programmatic compliance, rate limiting, auth csrf, xss prevention, rls, optional analytics, optional auth, hashed ip geofencing, comprehensive crash-guarding. 
+                   <br /> <br />The app uses geofencing, optional geolocation, text-input, voice-to-text - hash3 deviceID, -ip address and user-agent scrambling, rate-limiting and other security features (optional auth, csrf, xss prevention, rls, etc.) feeding into a near real-time municipal dashboard. The goal is to make something easy to use and secure in compliance with GDPR.</p>`}
                   client={{
                     name: "Stadtberichter |",
                     logo: "/images/agencies/sblogo_whitelong.svg",
@@ -423,7 +425,7 @@ export default function Home() {
                   <p><strong>Project Type:</strong> Neighborhood clean-up App</p>
                   <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Tools:</strong> Next.js, Supabase</p>
-                  <p><strong>More:</strong><br /> App uses geodata, voice-to-text, i18n language versioning, rate-limiting and other security features (auth csrf, xss prevention, rls, etc.) feeding into a near real-time municipal dashboard</p>
+                 
                 </ProjectCard>
 
                 <ProjectCard 
