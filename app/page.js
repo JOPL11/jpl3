@@ -430,7 +430,7 @@ export default function Home() {
                   title="Stadtberichter Municipal Dashboard"
                   image="/images/corp/sb2.jpg"
                   alt="Stadtberichter Municipal Backend"
-                  text="<b>Currently in development.</b> A dashboard that lets a municipal authority manage citizen reports, set participant scores, set up geofencing, and view data transmitted by the Stadtmelder app."
+                  text="<b>Currently in development.</b> A dashboard that lets a municipal authority manage citizen reports, set participant scores if game-mode is activated, set up geofencing, and view data transmitted by the Stadtmelder app."
                   //link="https://sb-map.vercel.app/"
                   client={{
                     name: "Stadtberichter |",
@@ -438,7 +438,7 @@ export default function Home() {
                     website: "https://sbinfo1.vercel.app"
                   }}
                   modalContent={{
-                    description: `This is the Stadtberichter app Dashboard for municipal authorities to manage citizen reports, set participant scores, set up geofencing, and view data transmitted by the Stadtmelder app.`,
+                    description: `This is the Stadtberichter app Dashboard for municipal authorities to manage citizen reports, set participant scores if game-mode is activated, set up geofencing, and view data transmitted by the Stadtmelder app.`,
                     images: [
                       { src: "/images/SB_A1.jpg", alt: "Stadtberichter Municipal Dashboard Screenshot 1" },
                       { src: "/images/SB_A2.jpg", alt: "Stadtberichter Municipal Dashboard Screenshot 2" },
