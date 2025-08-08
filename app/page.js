@@ -292,7 +292,7 @@ export default function Home() {
                     Github
                 </a>
                 <Link href="/blog" className={styles.navLink}>
-                  Blog
+                  devBlog
                 </Link>
               </nav>
               <hr className={styles.divider} />
@@ -516,7 +516,7 @@ export default function Home() {
                     maxWidth: '100%'
                   }}
                   modalContent={{
-                    description: `15 Chapters // RFID Powered Touchscreen Interface // Animated interactive 3D Models & 2D UI menu system & content.
+                    description: `15 Chapters // RFID Powered Touchscreen Interface <br/>// Animated interactive 3D Models & 2D UI menu system & content.
                      A visitor would walk over to a wall mounted collection of plexiglass cubes which each contained a piece of Airbus tech, 
                      take one cube and place it on a recepticle, which read an RFID chip and opened a touchscreen interface explaining the
                      tech inside the cube.
@@ -551,7 +551,9 @@ export default function Home() {
                     website: "https://www.autentic.com/"
                   }}
                   modalContent={{
-                    description: `Official Website for the Pay TV channel Spiegel Geschichte TV. Legacy project, not the current Spiegel Geschichte TV website.`,
+                    description: `Official Website for the Pay TV channel Spiegel Geschichte TV. Legacy project, not the current Spiegel Geschichte TV website.<br/>
+                    It was more like generative historical thoughtprovoker. Well known images of historical photographs were used in a slideshow that was the backdrop for the UI, which had famous historical videoclip thumbnails. If left alone,
+                    the UI would continue to cycle through its various sections of images and videos and interactive content, creating a never-ending slideshow of historical content acyclicly. Sometimes creating bizarre and unexpected semantic impressions.`,
                     images: [
                       { src: "/images/SGA_1.jpg", alt: "Project Screenshot 1" },
                       { src: "/images/SGA_2.jpg", alt: "Project Screenshot 2" },
