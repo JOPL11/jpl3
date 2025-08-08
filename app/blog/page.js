@@ -35,7 +35,7 @@ export default function BlogPage() {
               height={40} 
               className={styles.logo}
             />
-            <h1 className={styles.title}>Blog</h1>
+            <h1 className={styles.title}>devBlog</h1>
           </div>
           <Link href="/" className={styles.backButton}>
             ← Back to Portfolio

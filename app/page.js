@@ -541,11 +541,11 @@ export default function Home() {
                   {/*   */}   
             
                
-         {/*          <ProjectCard 
+                 <ProjectCard 
                   title="Spiegel Geschichte TV Website"
                  image="/images/corp/spg.jpg"
                   alt="Spiegel Geschichte TV Website"
-                  text="<b>Legacy Project:</b> Official Website for the Pay TV channel Spiegel Geschichte TV"
+                  text="<b>Legacy Project:</b> Official Website for the Pay TV channel."
                   client={{
                     name: "Autentic GmbH |",
                     website: "https://www.autentic.com/"
@@ -562,10 +562,10 @@ export default function Home() {
                   <p>Conceptual UI/UX</p>
                   <p><strong>Target Audience:</strong> Spiegel Geschichte TV Viewers</p>
                   <p><strong>Role:</strong> Lead Designer / Coder</p>
-                  <p><strong>Duration:</strong> 1 Month / 6 years of updates</p>
+                  <p><strong>Duration:</strong> 3 months / 6 years of updates</p>
                 </ProjectCard> 
                
-               <ProjectCard 
+            {/*     <ProjectCard 
                   title="Middle Caicos Festival"
                   image="/images/JPL3Poster_BB.jpg"
                   alt="Middle Caicos Festival"
