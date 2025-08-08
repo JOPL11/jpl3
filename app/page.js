@@ -401,7 +401,7 @@ export default function Home() {
                   title="Stadtberichter App"
                   image="/images/corp/sb3.jpg"
                   alt="Stadtberichter App"
-                  link="https://sb202.vercel.app/"
+                  link="https://sb202.vercel.app"
                   text={`<b>Pre-Alpha Demo.</b>
                   <br />
                   <br />
