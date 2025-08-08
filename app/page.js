@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import Link from 'next/link';
 //import InteractiveMenu from './components/InteractiveMenu';
 import SectionTracker from './components/SectionTracker';
 import MouseGradient from './components/MouseGradient';
@@ -290,12 +291,9 @@ export default function Home() {
                   target="_blank">
                     Github
                 </a>
-                <span className={`${styles.navLink} ${styles.disabledLink}`}>
+                <Link href="/blog" className={styles.navLink}>
                   Blog
-                </span>
-
-
- 
+                </Link>
               </nav>
               <hr className={styles.divider} />
               {/*<div className={styles.profileImageContainer}>

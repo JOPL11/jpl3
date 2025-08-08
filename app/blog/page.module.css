@@ -1,0 +1,144 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.backButton {
+  padding: 0.5rem 1rem;
+  background: rgba(172, 254, 255, 0.1);
+  color: #acfeff;
+  border: 1px solid rgba(172, 254, 255, 0.2);
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.backButton:hover {
+  background: rgba(172, 254, 255, 0.2);
+  border-color: rgba(172, 254, 255, 0.4);
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  filter: invert(1) sepia(1) saturate(5) hue-rotate(150deg);
+  opacity: 0.9;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin: 0;
+  color: #acfeff;
+}
+
+
+/* Divider */
+.divider2 {
+    height: 1px;
+    width: 100%;
+    margin: 50px 0;
+    background-image: linear-gradient(
+      to right,
+      #a2feff,
+      transparent
+    );
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    border: none;
+    opacity: 0.6;
+  }
+  
+  
+  /* Divider */
+  .divider {
+    height: 1px;
+    width: 100%;
+    margin: 20px 0;
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      #a2feff,
+      transparent
+    );
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    border: none;
+    opacity: 0.3;
+  }
+  
+
+.posts {
+  display: grid;
+  gap: 2rem;
+}
+
+.post {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+
+
+.post:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.postLink {
+  color: #acfeff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.postLink:hover {
+  text-decoration: underline;
+}
+
+.date {
+  display: block;
+  color: #acfeff;
+  font-size: 0.875rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.excerpt {
+  color: #acfeff;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .postLink {
+    font-size: 1.25rem;
+  }
+}
