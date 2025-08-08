@@ -407,7 +407,9 @@ export default function Home() {
                   <br />
                   A GDPR-compliant civics-oriented app designed to help keep local neighborhoods clean. Some features get enabled and disabled based on current development stage.  
                   <br /> <br />i18m multi-language support, image capture / reduction / sanitation / downscaling / compression / optimization, hash3 GDPR programmatic compliance, rate limiting, auth csrf, xss prevention, rls, optional analytics, optional auth, hashed ip geofencing, comprehensive crash-guarding. 
-                   <br /> <br />The app uses geofencing, optional geolocation, text-input, voice-to-text - hash3 deviceID, -ip address and user-agent scrambling, rate-limiting and other security features (optional auth, csrf, xss prevention, rls, etc.) feeding into a near real-time municipal dashboard. The goal is to make something easy to use and secure in compliance with GDPR.</p>`}
+                   <br /> <br />The app uses geofencing, optional geolocation, text-input, voice-to-text - hash3 deviceID, -ip address and user-agent scrambling, rate-limiting and other security features (optional auth, csrf, xss prevention, rls, etc.) feeding into a near real-time municipal dashboard. 
+                   <br /> <br />Optional game mode with score distribution and leaderboard in the works. Participant winners get a free coffee at participating local cafe's  or free entry to the city Hallenbad or whatever prize is decided on by community officials. 
+                   <br /> <br />The goal is to make something easy to use and secure in compliance with GDPR.</p>`}
                   client={{
                     name: "Stadtberichter |",
                     logo: "/images/agencies/sblogo_whitelong.svg",
@@ -575,6 +577,17 @@ export default function Home() {
                       { src: "/images/SGA_1.jpg", alt: "Project Screenshot 1" },
                       { src: "/images/SGA_2.jpg", alt: "Project Screenshot 2" },
                       { src: "/images/SGA_3.jpg", alt: "Project Screenshot 3" },
+                      { src: "/images/SG1.jpg", alt: "Project Screenshot 4" },
+                      { src: "/images/SG2.jpg", alt: "Project Screenshot 5" },
+                      { src: "/images/SG3.jpg", alt: "Project Screenshot 6" },
+                      { src: "/images/SG4.jpg", alt: "Project Screenshot 7" },
+                      { src: "/images/wsg3.jpg", alt: "Project Screenshot 8" },
+                      { src: "/images/wsg5.jpg", alt: "Project Screenshot 9" },
+                      { src: "/images/wsg6.jpg", alt: "Project Screenshot 10" },
+                      { src: "/images/wsg7.jpg", alt: "Project Screenshot 11" },
+                      { src: "/images/wsg8.jpg", alt: "Project Screenshot 12" },
+                      { src: "/images/wsg9.jpg", alt: "Project Screenshot 13" },
+                      { src: "/images/wsg10.jpg", alt: "Project Screenshot 14" },
                     ]
                   }}
                 >
