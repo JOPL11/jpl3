@@ -407,9 +407,9 @@ export default function Home() {
                   <br />
                   A GDPR-compliant civics-oriented app designed to help keep local neighborhoods clean. Some features get enabled and disabled based on current development stage.  
                   <br /> <br />i18m multi-language support, image capture / reduction / sanitation / downscaling / compression / optimization, hash3 GDPR programmatic compliance, rate limiting, auth csrf, xss prevention, rls, optional analytics, optional auth, hashed ip geofencing, comprehensive crash-guarding. 
-                   <br /> <br />The app uses geofencing, optional geolocation, text-input, voice-to-text - hash3 deviceID, -ip address and user-agent scrambling, rate-limiting and other security features (optional auth, csrf, xss prevention, rls, etc.) feeding into a near real-time municipal dashboard. 
+                   <br /> <br />The app uses geofencing, optional geolocation, text-input, voice-to-text. Hash3 deviceID, -ip address and user-agent scrambling, rate-limiting and other security features (optional auth, csrf, xss prevention, rls, etc.) feeding into a near real-time municipal dashboard. 
                    <br /> <br />Optional game mode with score distribution and leaderboard in the works. Participant winners get a free coffee at participating local cafe's  or free entry to the city Hallenbad or whatever prize is decided on by community officials. 
-                   <br /> <br />The goal is to make something fun, easy to use and secure in compliance with GDPR. At the same time making for a more streamlined and efficient process for municipal authorities to manage citizen reports.
+                   <br /> <br />The goal is to make something fun, easy to use and secure in compliance with GDPR. At the same time making for a more streamlined and efficient process for municipal authorities to manage environmental reports.
                    <br /> <br />The design is purposfully vague to give a generic look and feel because the visual identity of whatever city that uses it can be implemented upon their request.</p>`}
                   client={{
                     name: "Stadtberichter |",
@@ -435,7 +435,9 @@ export default function Home() {
                   title="Stadtberichter Municipal Dashboard"
                   image="/images/corp/sb2.jpg"
                   alt="Stadtberichter Municipal Backend"
-                  text="<b>Currently in development.</b> A dashboard that lets a municipal authority manage citizen reports, set participant scores if game-mode is activated, set up geofencing, and view data transmitted by the Stadtmelder app."
+                  text="<b>Currently in development.</b> A dashboard that lets a municipal authority manage citizen's reports, set participant scores if game-mode is activated, set up geofencing, and view data transmitted by the Stadtmelder app. 
+                  <br /><br />Thus enabling the city to streamline its coordination of cleaning crews and manage city-wide cleaning events with pinpoint accuracy.
+                  <br /><br />The dashboard is currently in development and will be available for live-testing soon. "
                   //link="https://sb-map.vercel.app/"
                   client={{
                     name: "Stadtberichter |",
@@ -483,6 +485,7 @@ export default function Home() {
                     width: 'auto', 
                     maxWidth: '100%'
                   }}
+                  text={"An interactive catalogue of Airbus technology and the company&apos;s history made for visiting foreign state officials and clients. Situated at Airbus Group's company headquarters."}
                   modalContent={{
                     description: `I had never designed things for big screens. 7680 x 1080. The content had to appear dynamically according to where the user was situated along its width. The UI consisted of a touchable fullscreen main menu which revealed 4 chapters of interactive content.
                     <br />
@@ -535,6 +538,7 @@ export default function Home() {
                     width: 'auto',   
                     maxWidth: '100%'
                   }}
+                  text={"An interactive catalogue of Airbus technology made for the Ottobrunn showroom. Situated at Airbus Group's Munich offices."}
                   modalContent={{
                     description: `15 Chapters // RFID Powered Touchscreen Interface <br/>// Animated interactive 3D Models & 2D UI menu system & content.
                      A visitor would walk over to a wall mounted collection of plexiglass cubes which each contained a piece of Airbus tech, 
