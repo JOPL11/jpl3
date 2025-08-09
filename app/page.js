@@ -433,7 +433,7 @@ export default function Home() {
                   title="Bumpi Citylink Dashboard"
                   image="/images/corp/sb2.jpg"
                   alt="Bumpi Citylink - Municipal Backend"
-                  text="<b>Currently in development.</b> A dashboard that lets a municipal authority manage citizen's reports, set participant scores if game-mode is activated, set up geofencing, and view data transmitted by the Stadtmelder app. 
+                  text="<b>Currently in development.</b> A dashboard that lets a municipal authority manage citizen's reports, set participant scores if game-mode is activated, set up geofencing, and view data transmitted by the Bumpi app. 
                   <br /><br />Thus enabling the city to streamline its coordination of cleaning crews and manage city-wide cleaning events with pinpoint accuracy.
                   <br /><br />The dashboard is currently in development and will be available for live-testing soon. "
                   //link="https://sb-map.vercel.app/"
@@ -443,7 +443,7 @@ export default function Home() {
                     website: "https://sbinfo1.vercel.app"
                   }}
                   modalContent={{
-                    description: `This is the Bumpi app Dashboard for municipal authorities to manage citizen reports, set participant scores if game-mode is activated, set up geofencing, and view data transmitted by the Stadtmelder app.`,
+                    description: `This is a first draft view of the beginnings of the CityLink Dashboard for municipal authorities to manage citizen reports, set participant scores if game-mode is activated, set up geofencing, and view data transmitted by the Bumpi app.`,
                     images: [
                       { src: "/images/SB_A1.jpg", alt: "Stadtberichter Municipal Dashboard Screenshot 1" },
                       { src: "/images/SB_A2.jpg", alt: "Stadtberichter Municipal Dashboard Screenshot 2" },
