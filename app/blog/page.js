@@ -10,12 +10,18 @@ const posts = [
   {
     id: 'first-post',
     title: 'Glassfinder App Update',
-    date: '2025-08-08',
+    date: '2025-07-20',
     excerpt: 'This is my first blog post. Welcome to my blog!',
   },
   {
     id: 'second-post',
     title: 'Glassmapper Dashboard Updates',
+    date: '2025-08-05',
+    excerpt: 'This is another blog post with more content.',
+  },
+  {
+    id: 'third-post',
+    title: 'App Name Change',
     date: '2025-08-09',
     excerpt: 'This is another blog post with more content.',
   },

@@ -5,7 +5,7 @@ import BlogPostContent from './BlogPostContent';
 const posts = {
   'first-post': {
     title: 'My First Blog Post',
-    date: '2025-08-04',
+    date: '2025-07-20',
     content: (
       <>
         <p>Added a login section with registration, login capability, and made the app work with that or without it. Fixed some database stuff in the backend. </p>
@@ -17,7 +17,7 @@ const posts = {
   },
   'second-post': {
     title: 'Another Blog Post',
-    date: '2025-08-08',
+    date: '2025-08-05',
     content: (
       <>
         <p>Heres updates to the main stadtberichter app</p>
@@ -42,6 +42,21 @@ const posts = {
         <li>currently adding score distribution. </li>
         </ul>
    
+      </>
+    ),
+  },
+  'third-post': {
+    title: 'App Name Change',
+    date: '2025-08-09',
+    content: (
+      <>
+        <p>This app has had a few names during development. Starting with Glassfinder, then came Scherbenmelder, then the concept evolved and it became Stadtmelder. 
+          </p>
+        <p>They all sound silly or overly serious. So I&apos;m going with Bumpi. </p>
+        <p>It&apos;s on the fine line between cute and harmless and maybe a bit fun. </p>
+        <p>Way better than Stadtmelder. Which comes off as wa too severe and vaguely evoking surveillance so it had to go.</p>
+        <p>New logo is created and implemented.</p>
+        <p>I toyed around with Glip, Blispi, Dingit, Wombi. Naah - it&apos;s gotta be Bumpi.</p>
       </>
     ),
   },

@@ -372,14 +372,14 @@ export default function Home() {
           
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
               <ProjectCard 
-                  title="Stadtberichter Info Page"
-                  image="/images/corp/sb0.jpg"
-                  alt="Stadtberichter Info Page"
+                  title="CityLink Info Page"
+                  image="/images/corp/sb.jpg"
+                  alt="CityLink Info Page"
                   text="A GDPR-compliant info page for a civics oriented app."
                   link="https://sbinfo1.vercel.app"
                   client={{
-                    name: "Stadtberichter |",
-                    logo: "/images/agencies/sblogo_whitelong.svg",
+                    name: "CityLink |",
+                    logo: "/images/citylinklongwhite.svg",
                     website: "https://sbinfo1.vercel.app",
                   }}
                   logoWidth={300}
@@ -396,22 +396,54 @@ export default function Home() {
                   <p><strong>Duration:</strong> 4 days</p>
                   <p><strong>Tools:</strong> Next.js, react</p>
                 </ProjectCard>
-
                 <ProjectCard 
-                  title="Stadtberichter Municipal Dashboard"
+                  title="Bumpi App"
+                  image="/images/corp/sb3.jpg"
+                  alt="Bumpi App"
+                  link="https://sb202.vercel.app"
+                  textPosition="bottom"
+                  text={`<b>Current Project Pre-Alpha Demo.</b>
+                  <br />
+                  <br />
+                  A GDPR-compliant civics-oriented app designed to help keep local neighborhoods clean. Some features get enabled and disabled based on current development stage.  
+                  <br /> <br />i18m multi-language support, image capture / reduction / sanitation / downscaling / compression / optimization, hash3 GDPR programmatic compliance, rate limiting, auth csrf, xss prevention, rls, optional analytics, optional auth, hashed ip geofencing, comprehensive crash-guarding. 
+                   <br /> <br />The app uses geofencing, optional geolocation, text-input, voice-to-text. Hash3 deviceID, -ip address and user-agent scrambling, rate-limiting and other security features (optional auth, csrf, xss prevention, rls, etc.) feeding into a near real-time municipal dashboard. 
+                   <br /> <br />Optional game mode with score distribution and leaderboard in the works. Participant winners get a free coffee at participating local cafe's  or free entry to the city Hallenbad or whatever prize is decided on by community officials. 
+                   <br /> <br />The goal is to make something fun, easy to use and secure in compliance with GDPR. At the same time making for a more streamlined and efficient process for municipal authorities to manage environmental reports.
+                   <br /> <br />The design of this demo is purposfully vague to give a generic look and feel because the visual identity of whatever city that uses it can be implemented upon their request.</p>`}
+                  client={{
+                    name: "Bumpi App |",
+                    logo: "/images/bumpilongwhite.svg",
+                    website: "https://sbinfo1.vercel.app"
+                  }}
+                  logoWidth={250}
+                  logoHeight={40}
+                  logoStyle={{
+                    height: '20px',
+                    width: 'auto',   
+                    maxWidth: '100%'
+                  }}
+                >
+                  <p><strong>Target Audience:</strong> Municipal Citizens</p>
+                  <p><strong>Project Type:</strong> Neighborhood clean-up App</p>
+                  <p><strong>Role:</strong> Design & Development</p>
+                  <p><strong>Tools:</strong> Next.js, Supabase</p>
+                </ProjectCard>
+                <ProjectCard 
+                  title="Bumpi Citylink Dashboard"
                   image="/images/corp/sb2.jpg"
-                  alt="Stadtberichter Municipal Backend"
+                  alt="Bumpi Citylink - Municipal Backend"
                   text="<b>Currently in development.</b> A dashboard that lets a municipal authority manage citizen's reports, set participant scores if game-mode is activated, set up geofencing, and view data transmitted by the Stadtmelder app. 
                   <br /><br />Thus enabling the city to streamline its coordination of cleaning crews and manage city-wide cleaning events with pinpoint accuracy.
                   <br /><br />The dashboard is currently in development and will be available for live-testing soon. "
                   //link="https://sb-map.vercel.app/"
                   client={{
-                    name: "Stadtberichter |",
-                    logo: "/images/agencies/sblogo_whitelong.svg",
+                    name: "Bumpi |",
+                    logo: "/images/citylinklongwhite.svg",
                     website: "https://sbinfo1.vercel.app"
                   }}
                   modalContent={{
-                    description: `This is the Stadtberichter app Dashboard for municipal authorities to manage citizen reports, set participant scores if game-mode is activated, set up geofencing, and view data transmitted by the Stadtmelder app.`,
+                    description: `This is the Bumpi app Dashboard for municipal authorities to manage citizen reports, set participant scores if game-mode is activated, set up geofencing, and view data transmitted by the Stadtmelder app.`,
                     images: [
                       { src: "/images/SB_A1.jpg", alt: "Stadtberichter Municipal Dashboard Screenshot 1" },
                       { src: "/images/SB_A2.jpg", alt: "Stadtberichter Municipal Dashboard Screenshot 2" },
@@ -433,39 +465,7 @@ export default function Home() {
                   <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Tools:</strong> Next.js, Supabase, Geoman-io, leaflet, Openstreetmap</p>
                 </ProjectCard>
-              <ProjectCard 
-                  title="Stadtberichter App"
-                  image="/images/corp/sb3.jpg"
-                  alt="Stadtberichter App"
-                  link="https://sb202.vercel.app"
-                  textPosition="bottom"
-                  text={`<b>Current Project Pre-Alpha Demo.</b>
-                  <br />
-                  <br />
-                  A GDPR-compliant civics-oriented app designed to help keep local neighborhoods clean. Some features get enabled and disabled based on current development stage.  
-                  <br /> <br />i18m multi-language support, image capture / reduction / sanitation / downscaling / compression / optimization, hash3 GDPR programmatic compliance, rate limiting, auth csrf, xss prevention, rls, optional analytics, optional auth, hashed ip geofencing, comprehensive crash-guarding. 
-                   <br /> <br />The app uses geofencing, optional geolocation, text-input, voice-to-text. Hash3 deviceID, -ip address and user-agent scrambling, rate-limiting and other security features (optional auth, csrf, xss prevention, rls, etc.) feeding into a near real-time municipal dashboard. 
-                   <br /> <br />Optional game mode with score distribution and leaderboard in the works. Participant winners get a free coffee at participating local cafe's  or free entry to the city Hallenbad or whatever prize is decided on by community officials. 
-                   <br /> <br />The goal is to make something fun, easy to use and secure in compliance with GDPR. At the same time making for a more streamlined and efficient process for municipal authorities to manage environmental reports.
-                   <br /> <br />The design is purposfully vague to give a generic look and feel because the visual identity of whatever city that uses it can be implemented upon their request.</p>`}
-                  client={{
-                    name: "Stadtberichter |",
-                    logo: "/images/agencies/sblogo_whitelong.svg",
-                    website: "https://sbinfo1.vercel.app"
-                  }}
-                  logoWidth={300}
-                  logoHeight={50}
-                  logoStyle={{
-                    height: '30px',
-                    width: 'auto',   
-                    maxWidth: '100%'
-                  }}
-                >
-                  <p><strong>Target Audience:</strong> Municipal Citizens</p>
-                  <p><strong>Project Type:</strong> Neighborhood clean-up App</p>
-                  <p><strong>Role:</strong> Design & Development</p>
-                  <p><strong>Tools:</strong> Next.js, Supabase</p>
-                </ProjectCard>
+        
               
               
               <ProjectCard 
