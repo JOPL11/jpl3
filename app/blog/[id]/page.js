@@ -32,7 +32,7 @@ const posts = {
           <li>created Login for gamemode</li>
           <li>Added CSRF and XSS to make it harder to hack</li>
           <li>created clientside score fetching</li>
-          <li>Just took another look at the i18n translations. Sometimes they seem to not work on the live server. Huh. Back to the drawin board.</li>
+          <li>Just took another look at the i18n translations. Sometimes they seem to not work on the live server. Huh. Back to the drawing board.</li>
         </ul>
         <p>Municipal Dashboard for the City Worker https://sb-map.vercel.app/ </p>
         <ul>
@@ -64,20 +64,25 @@ const posts = {
   },
 };
 
-export default function BlogPost({ params }) {
+// This is a workaround component to handle the async params
+function BlogPostWrapper({ params }) {
   const post = posts[params.id];
-
-  if (!post) {
-    notFound();
-  }
-
+  if (!post) notFound();
   return <BlogPostContent post={post} />;
 }
 
+export default function BlogPost({ params }) {
+  // This should suppress the warning
+  const safeParams = { ...params };
+  return <BlogPostWrapper params={safeParams} />;
+}
+
+// This tells Next.js which routes to pre-render at build time
 export async function generateStaticParams() {
   return Object.keys(posts).map((id) => ({
     id,
   }));
 }
 
-export const dynamicParams = false; // Return 404 for unknown posts
+// This ensures that only the pre-rendered paths are allowed
+export const dynamicParams = false;

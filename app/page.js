@@ -407,10 +407,7 @@ export default function Home() {
                   <br />
                   A GDPR-compliant civics-oriented app designed to help keep local neighborhoods clean. Some features get enabled and disabled based on current development stage.  
                   <br /> <br />i18m multi-language support, image capture / reduction / sanitation / downscaling / compression / optimization, hash3 GDPR programmatic compliance, rate limiting, auth csrf, xss prevention, rls, optional analytics, optional auth, hashed ip geofencing, comprehensive crash-guarding. 
-                   <br /> <br />The app uses geofencing, optional geolocation, text-input, voice-to-text. Hash3 deviceID, -ip address and user-agent scrambling, rate-limiting and other security features (optional auth, csrf, xss prevention, rls, etc.) feeding into a near real-time municipal dashboard. 
-                   <br /> <br />Optional game mode with score distribution and leaderboard in the works. Participant winners get a free coffee at participating local cafe's  or free entry to the city Hallenbad or whatever prize is decided on by community officials. 
-                   <br /> <br />The goal is to make something fun, easy to use and secure in compliance with GDPR. At the same time making for a more streamlined and efficient process for municipal authorities to manage environmental reports.
-                   <br /> <br />The design of this demo is purposfully vague to give a generic look and feel because the visual identity of whatever city that uses it can be implemented upon their request.</p>`}
+                   <br /> <br />The app uses geofencing, optional geolocation, text-input, voice-to-text. Hash3 deviceID, -ip address and user-agent scrambling, rate-limiting and other security features (optional auth, csrf, xss prevention, rls, etc.) feeding into a near real-time municipal dashboard.</p>`}
                   client={{
                     name: "Bumpi App |",
                     logo: "/images/bumpilongwhite.svg",
@@ -428,6 +425,9 @@ export default function Home() {
                   <p><strong>Project Type:</strong> Neighborhood clean-up App</p>
                   <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Tools:</strong> Next.js, Supabase</p>
+                  <p><strong>Optional Features:</strong> Game Mode, Leaderboard, Score Distribution, Analytics, Auth, Geofencing, Geolocation, Text Input, Voice-to-Text, Rate Limiting, CSRF Prevention, XSS Prevention, RLS, Optional Analytics, Optional Auth, Hashed IP Geofencing, Comprehensive Crash Guarding</p>
+                  <p><strong>Goal:</strong> Make something fun, easy to use and secure in compliance with GDPR. At the same time making for a more streamlined and efficient process for municipal authorities to manage environmental reports.</p>
+                  <p><strong>Design:</strong> The design of this demo is purposfully vague to give a generic look and feel because the visual identity of whatever city that uses it can be implemented upon their request.</p>
                 </ProjectCard>
                 <ProjectCard 
                   title="Bumpi Citylink Dashboard"
@@ -465,9 +465,6 @@ export default function Home() {
                   <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Tools:</strong> Next.js, Supabase, Geoman-io, leaflet, Openstreetmap</p>
                 </ProjectCard>
-        
-              
-              
               <ProjectCard 
                   title="Airbus Berlin Showroom Interface"
                  // image="/images/corp/airbus.jpg"
