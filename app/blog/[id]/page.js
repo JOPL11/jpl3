@@ -57,6 +57,8 @@ const posts = {
         <p>Way better than Stadtmelder. Which comes off as wa too severe and vaguely evoking surveillance so it had to go.</p>
         <p>New logo is created and implemented.</p>
         <p>I toyed around with Glip, Blispi, Dingit, Wombi. Naah - it&apos;s gotta be Bumpi.</p>
+        <p>Same goes for the dashboard. But this would have to be a little more serious than Bumpi. Nocity official is going to take themselves seriosuly working with an app called Bumpi. That&apos;s why we&apos;ll called the backend dashboard - CityLink.</p>
+        <p>CityLink is a bit more serious and professional.</p>
       </>
     ),
   },
