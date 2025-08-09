@@ -50,14 +50,14 @@ const posts = {
     date: '2025-08-09',
     content: (
       <>
-        <p>This app has had a few names during development. Starting with Glassfinder, then came Scherbenmelder, then the concept evolved and it became Stadtmelder. 
+        <p>This app has had a few names during development. Starting with Glassfinder, then came Scherbenmelder, then the concept evolved and it became Stadtberichter. 
           </p>
         <p>They all sound silly or overly serious. So I&apos;m going with Bumpi. </p>
         <p>It&apos;s on the fine line between cute and harmless and maybe a bit fun. </p>
-        <p>Way better than Stadtmelder. Which comes off as wa too severe and vaguely evoking surveillance so it had to go.</p>
+        <p>Way better than Stadtmelder  or StadtBerichter . . . which come off as way too severe and vaguely evoking surveillance so it had to go.</p>
         <p>New logo is created and implemented.</p>
-        <p>I toyed around with Glip, Blispi, Dingit, Wombi. Naah - it&apos;s gotta be Bumpi.</p>
-        <p>Same goes for the dashboard. But this would have to be a little more serious than Bumpi. Nocity official is going to take themselves seriosuly working with an app called Bumpi. That&apos;s why we&apos;ll called the backend dashboard - CityLink.</p>
+        <p>I toyed around with Glip, Blipsy, Dingit, Wombi. Naah - it&apos;s gotta be Bumpi.</p>
+        <p>Same goes for the dashboard. But this would have to be a little more serious than Bumpi. No city official is going to take themselves seriously working with an app called Bumpi. That&apos;s why we&apos;ll called the backend dashboard - CityLink.</p>
         <p>CityLink is a bit more serious and professional.</p>
       </>
     ),
