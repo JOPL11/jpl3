@@ -20,7 +20,7 @@ const posts = {
     date: '2025-08-05',
     content: (
       <>
-        <p>Heres updates to the main stadtberichter app</p>
+        <p>Here are updates to the main stadtberichter app</p>
 
         <ul>
           <li>Added geofencing (restricting reports to a specific geographic area)</li>
@@ -60,6 +60,13 @@ const posts = {
         <p>Same goes for the dashboard. But this would have to be a little more serious than Bumpi. No city official is going to take themselves seriously working with a dashboard app called Bumpi.</p> 
         <p>That&apos;s why we&apos;ll called the backend dashboard - CityLink.</p>
         <p>CityLink is a bit more serious and professional.</p>
+        <br /> 
+        <p>Heres updates to CityLink app</p>
+          <ul>
+            <li>Added Filter-by-Month dropdown</li>
+            <li>Added Report Detail Overlay for more explicit information about reports</li>
+            <li>Thats also a place where more actions can be taken, like adding scores for gamemode maybe.</li>
+          </ul>
       </>
     ),
   },
