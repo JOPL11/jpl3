@@ -34,7 +34,7 @@ const posts = {
           <li>created clientside score fetching</li>
           <li>Just took another look at the i18n translations. Sometimes they seem to not work on the live server. Huh. Back to the drawing board.</li>
         </ul>
-        <p>Municipal Dashboard for the City Worker https://sb-map.vercel.app/ </p>
+        <p>Municipal Dashboard for the City Workers</p>
         <ul>
         <li>improved dashboard styling</li>
         <li>added geofencing tool</li>
