@@ -60,12 +60,7 @@
   color: #fff;
   transition: all 0.2s ease;
   -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  z-index: 1001; /* Increased z-index to ensure it stays on top */
 }
 
 .closeButton:hover {
