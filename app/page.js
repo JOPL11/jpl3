@@ -390,7 +390,7 @@ export default function Home() {
                     maxWidth: '100%'
                   }}
                 >
-                  <p><strong>Target Audience:</strong> Municipal Authorities</p>
+                  <p><strong>Target Audience:</strong> Municipal officials</p>
                   <p><strong>Project Type:</strong> Infopage about the Neighborhood Clean-up mobile App</p>
                   <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Duration:</strong> 4 days</p>
@@ -426,7 +426,7 @@ export default function Home() {
                   <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Tools:</strong> Next.js, Supabase</p>
                   <p><strong>Features:</strong> Game Mode, Leaderboard, Score Distribution, Analytics, manual or automatic Geolocation, Rate Limiting, CSRF Prevention, XSS Prevention, RLS, Optional Analytics, Optional Auth, Hashed IP Geofencing, Comprehensive Crash Guarding, i18n multilanguage support</p>
-                  <p><strong>Goal:</strong> Make something fun, easy to use and secure in compliance with GDPR. At the same time making for a more streamlined and efficient process for municipal authorities to manage environmental reports.</p>
+                  <p><strong>Goal:</strong> Make something fun, easy to use and secure in compliance with GDPR. At the same time making for a more streamlined and efficient process for municipal officials to manage environmental reports.</p>
                   <p><strong>Design:</strong> The design of this demo is purposfully vague to give a generic look and feel because the visual identity of whatever city that uses it can be implemented upon their request.</p>
                 </ProjectCard>
                 <ProjectCard 
@@ -443,7 +443,7 @@ export default function Home() {
                     website: "https://sbinfo1.vercel.app"
                   }}
                   modalContent={{
-                    description: `This is a first draft view of the beginnings of the CityLink Dashboard for municipal authorities to manage citizen reports, set participant scores if game-mode is activated, set up geofencing, and view data transmitted by the Bumpi app.`,
+                    description: `This is a first draft view of the beginnings of the CityLink Dashboard for municipal officials to manage citizen reports, set participant scores if game-mode is activated, set up geofencing, and view data transmitted by the Bumpi app.`,
                     images: [
                       { src: "/images/SB_A1.jpg", alt: "Stadtberichter Municipal Dashboard Screenshot 1" },
                       { src: "/images/SB_A2.jpg", alt: "Stadtberichter Municipal Dashboard Screenshot 2" },
@@ -460,7 +460,7 @@ export default function Home() {
                     
                   }}
                 >
-                  <p><strong>Target Audience:</strong> Municipal Officials</p>
+                  <p><strong>Target Audience:</strong> Municipal officials</p>
                   <p><strong>Project Type:</strong> Municipal Dashboard</p>
                   <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Tools:</strong> Next.js, Supabase, Geoman-io, leaflet, Openstreetmap</p>
