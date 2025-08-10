@@ -444,9 +444,10 @@ export default function Home() {
                   modalContent={{
                     description: `This is a first draft view of the beginnings of the CityLink Dashboard for municipal officials to manage citizen reports, set participant scores if game-mode is activated, set up geofencing, and view data transmitted by the Bumpi app.`,
                     images: [
+                      { src: "/images/SB_A7.jpg", alt: "Stadtberichter Municipal Dashboard Screenshot 0" },
                       { src: "/images/SB_A4.jpg", alt: "Stadtberichter Municipal Dashboard Screenshot 1" },
                       { src: "/images/SB_A5.jpg", alt: "Stadtberichter Municipal Dashboard Screenshot 2" },
-                      { src: "/images/SB_A6.jpg", alt: "Stadtberichter Municipal Dashboard Screenshot 3" },
+                      { src: "/images/SB_A6.jpg", alt: "Stadtberichter Municipal Dashboard Screenshot 3" }
                     ]
                   }}
                   
