@@ -396,6 +396,7 @@ export default function Home() {
                   <p><strong>Duration:</strong> 4 days</p>
                   <p><strong>Tools:</strong> Next.js, react</p>
                 </ProjectCard>
+
                 <ProjectCard 
                   title="Bumpi App"
                   image="/images/corp/sb3.jpg"
@@ -406,8 +407,7 @@ export default function Home() {
                   <br />
                   <br />
                   A GDPR-compliant civics-oriented app designed to help keep local neighborhoods clean. Some features get enabled and disabled based on current development stage.  
-                  <br /> <br />i18m multi-language support, image capture / reduction / sanitation / downscaling / compression / optimization, hash3 GDPR programmatic compliance, rate limiting, auth csrf, xss prevention, rls, optional analytics, optional auth, hashed ip geofencing, comprehensive crash-guarding. 
-                   <br /> <br />The app uses geofencing, optional geolocation, text-input, voice-to-text. Hash3 deviceID, -ip address and user-agent scrambling, rate-limiting and other security features (optional auth, csrf, xss prevention, rls, etc.) feeding into a near real-time municipal dashboard.</p>`}
+                   <br /> <br />The app uses geofencing, optional geolocation, text-input, voice-to-text. Hash3 deviceID, -ip address and user-agent scrambling and other security features feeding into a near real-time municipal dashboard.`}
                   client={{
                     name: "Bumpi App |",
                     logo: "/images/bumpilongwhite.svg",
@@ -425,7 +425,7 @@ export default function Home() {
                   <p><strong>Project Type:</strong> Neighborhood clean-up App</p>
                   <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Tools:</strong> Next.js, Supabase</p>
-                  <p><strong>Optional Features:</strong> Game Mode, Leaderboard, Score Distribution, Analytics, Auth, Geofencing, Geolocation, Text Input, Voice-to-Text, Rate Limiting, CSRF Prevention, XSS Prevention, RLS, Optional Analytics, Optional Auth, Hashed IP Geofencing, Comprehensive Crash Guarding</p>
+                  <p><strong>Features:</strong> Game Mode, Leaderboard, Score Distribution, Analytics, manual or automatic Geolocation, Rate Limiting, CSRF Prevention, XSS Prevention, RLS, Optional Analytics, Optional Auth, Hashed IP Geofencing, Comprehensive Crash Guarding, i18n multilanguage support</p>
                   <p><strong>Goal:</strong> Make something fun, easy to use and secure in compliance with GDPR. At the same time making for a more streamlined and efficient process for municipal authorities to manage environmental reports.</p>
                   <p><strong>Design:</strong> The design of this demo is purposfully vague to give a generic look and feel because the visual identity of whatever city that uses it can be implemented upon their request.</p>
                 </ProjectCard>
@@ -645,6 +645,79 @@ export default function Home() {
               </div>
             </section>
 
+            {/*   WebGL Section */}
+
+            <hr className={styles.divider2} />
+            <SectionTracker onSectionChange={setActiveSection} />
+        
+            <div data-section="webgl-heading"></div>
+            <section id="webgl-heading" className={`${styles.section} ${styles.scrollTarget}`}>
+              <h2>WebGL</h2>
+              <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
+              <ProjectCard 
+                  title="Bytes101"
+                  image="/images/bytes101.jpg"
+                  alt="Bytes101"
+                  link="https://bytes101.vercel.app"
+                  text="Featuring custom 3D models and animations."
+                  className="webglProject"
+                >
+                  <p>Concept Demo</p>
+                  <p><strong>Project Type:</strong>Three.js / React Three Fiber</p>
+                  <p><strong>Role:</strong> Concept / Animation / Dev</p>
+                  <p><strong>Duration:</strong> 1 week</p>
+                  <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
+                </ProjectCard>
+                {!isMobile && (
+                  <>
+                    <ProjectCard 
+                      title="Schrödinger & Bohr Quantum Pocketwatches "
+                      image="/images/JPL3Poster_QC.jpg"
+                      alt="Quantum Pocketwatch Company"
+                      link="https://quantum-pocketwatch.vercel.app/"
+                      text="<strong>Desktop Only</strong>. Featuring custom 3D models and interactions." 
+                      className="webglProject"
+                    >
+                      <p>Visual Concept Experiment</p>
+                      <p><strong>Tools:</strong>Three.js / React Three Fiber / GSAP / Router / Next.js</p>
+                      <p><strong>Role:</strong> Concept / Animation / Dev</p>
+                      <p><strong>Duration:</strong> 2 weeks</p>
+                      <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
+                    </ProjectCard>
+                    <ProjectCard 
+                      title="Streetlamp 2044"
+                      image="/images/JPL3Poster_R3F.jpg"
+                      alt="Streetlamp 2044"
+                      text="Featuring custom audiotracks, 3D models and animations."
+                      link="https://jpl3d2.vercel.app/"
+                      className="webglProject"
+                    >
+                      <p>R3F Concept Demo</p>
+                      <p><strong>Tools:</strong>Three.js / React Three Fiber / GSAP</p>
+                      <p><strong>Role:</strong> Concept / Animation / Dev</p>
+                      <p><strong>Duration:</strong> 3 weeks</p>
+                      <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
+                    </ProjectCard>
+                    <ProjectCard 
+                      title="The Facility"
+                      image="https://cdna.artstation.com/p/assets/images/images/077/341/642/large/jan-peiro-box1.jpg?1719257986"
+                      alt="The Facility"
+                      text="Featuring custom audiotracks, 3D models and animations."
+                      link="https://facility3.vercel.app/"
+                      className="webglProject"
+                    >
+                      <p>Visual Concept Demo</p>
+                      <p><strong>Tools:</strong>Three.js / React Three Fiber / GLSL / GSAP</p>
+                      <p><strong>Role:</strong> Concept / Animation / Dev</p>
+                      <p><strong>Duration:</strong> 3 weeks</p>
+                      <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
+                    </ProjectCard>
+                  </>
+                )}
+              </div>
+
+            </section>
+            
        {/*   Motion Section */}
 
        <hr className={styles.divider2} />
@@ -781,78 +854,6 @@ export default function Home() {
             </section> 
 
             {/*   MOTION ENDS HERE */}  
-            {/*   WebGL Section */}
-
-            <hr className={styles.divider2} />
-            <SectionTracker onSectionChange={setActiveSection} />
-        
-            <div data-section="webgl-heading"></div>
-            <section id="webgl-heading" className={`${styles.section} ${styles.scrollTarget}`}>
-              <h2>WebGL</h2>
-              <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
-              <ProjectCard 
-                  title="Bytes101"
-                  image="/images/bytes101.jpg"
-                  alt="Bytes101"
-                  link="https://bytes101.vercel.app"
-                  text="Featuring custom 3D models and animations."
-                  className="webglProject"
-                >
-                  <p>Concept Demo</p>
-                  <p><strong>Project Type:</strong>Three.js / React Three Fiber</p>
-                  <p><strong>Role:</strong> Concept / Animation / Dev</p>
-                  <p><strong>Duration:</strong> 1 week</p>
-                  <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
-                </ProjectCard>
-                {!isMobile && (
-                  <>
-                    <ProjectCard 
-                      title="Schrödinger & Bohr Quantum Pocketwatches "
-                      image="/images/JPL3Poster_QC.jpg"
-                      alt="Quantum Pocketwatch Company"
-                      link="https://quantum-pocketwatch.vercel.app/"
-                      text="<strong>Desktop Only</strong>. Featuring custom 3D models and interactions." 
-                      className="webglProject"
-                    >
-                      <p>Visual Concept Experiment</p>
-                      <p><strong>Tools:</strong>Three.js / React Three Fiber / GSAP / Router / Next.js</p>
-                      <p><strong>Role:</strong> Concept / Animation / Dev</p>
-                      <p><strong>Duration:</strong> 2 weeks</p>
-                      <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
-                    </ProjectCard>
-                    <ProjectCard 
-                      title="Streetlamp 2044"
-                      image="/images/JPL3Poster_R3F.jpg"
-                      alt="Streetlamp 2044"
-                      text="Featuring custom audiotracks, 3D models and animations."
-                      link="https://jpl3d2.vercel.app/"
-                      className="webglProject"
-                    >
-                      <p>R3F Concept Demo</p>
-                      <p><strong>Tools:</strong>Three.js / React Three Fiber / GSAP</p>
-                      <p><strong>Role:</strong> Concept / Animation / Dev</p>
-                      <p><strong>Duration:</strong> 3 weeks</p>
-                      <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
-                    </ProjectCard>
-                    <ProjectCard 
-                      title="The Facility"
-                      image="https://cdna.artstation.com/p/assets/images/images/077/341/642/large/jan-peiro-box1.jpg?1719257986"
-                      alt="The Facility"
-                      text="Featuring custom audiotracks, 3D models and animations."
-                      link="https://facility3.vercel.app/"
-                      className="webglProject"
-                    >
-                      <p>Visual Concept Demo</p>
-                      <p><strong>Tools:</strong>Three.js / React Three Fiber / GLSL / GSAP</p>
-                      <p><strong>Role:</strong> Concept / Animation / Dev</p>
-                      <p><strong>Duration:</strong> 3 weeks</p>
-                      <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
-                    </ProjectCard>
-                  </>
-                )}
-              </div>
-
-            </section>
 
 
 
