@@ -73,7 +73,8 @@ const posts = {
             <li>Encrypted Geofence coords in the geofence creation tool</li>
             <li>Decrypted Geofence coords in all the other places</li>
             <li>Fixed duplicate i18n triggers</li>
-            <li>Started on a honeypot dead-end for attackers that made it look like they were being referred to Langley VA and unit 8200 but that ate up too much time so I dropped it.</li>
+            <li>Added a few </li>
+            <li>Started on a honeypot dead-end for attackers that made it look like they were being referred to Langley VA but that ate up too much time so I dropped it.</li>
             <li>Fixed i18 routing issues</li>
             <li>Fixed some RLS issues (I think)</li>
           </ul>
