@@ -54,12 +54,12 @@ const posts = {
         <p>They all sound off the mark or too serious. We need something fun and harmless for civilian citizens to identify with.</p>
         <p>So I&apos;m going with Bumpi. </p>
         <p>It&apos;s on the fine line between cute and harmless and maybe a bit fun. </p>
-        <p>Way better than Stadtmelder or StadtBerichter . . . which come off as way too severe and vaguely evoking some twisted brand of teutonic surveillance, so it had to go. Especially since I am anonymizing the living shit out of personal data.</p>
+        <p>Way better than Stadtmelder or StadtBerichter . . . which come off as way too severe and vaguely evoking some twisted brand of teutonic surveillance, so it had to go. Especially since I am anonymizing the heck out of personal data.</p>
         <p>New logo is created and implemented.</p>
         <p>I toyed around with Glip, Blipsy, Dingit, Wombi. Naah - it&apos;s gotta be Bumpi.</p>
         <p>Same goes for the dashboard. But this would have to be a little more serious than Bumpi. No city official is going to take themselves seriously working with a dashboard app called Bumpi.</p> 
         <p>That&apos;s why we shall henceforth call the backend dashboard - CityLink.</p>
-        <p>CityLink is a bit more serious and professional than Bumpi - but not as evisceral as STADTBERICHTER. ( ACHTUNG! ) </p>
+        <p>CityLink is a bit more serious and professional than Bumpi - but not as evisceral as STADTBERICHTER. ( achtung, schnell schnell ) </p>
         <br /> 
         <p>Heres updates to CityLink app</p>
           <ul>
