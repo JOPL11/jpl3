@@ -58,7 +58,7 @@ const posts = {
         <p>New logo is created and implemented.</p>
         <p>I toyed around with Glip, Blipsy, Dingit, Wombi. Naah - it&apos;s gotta be Bumpi.</p>
         <p>Same goes for the dashboard. But this would have to be a little more serious than Bumpi. No city official is going to take themselves seriously working with a dashboard app called Bumpi.</p> 
-        <p>That&apos;s why shall henceforth call the backend dashboard - CityLink.</p>
+        <p>That&apos;s why we shall henceforth call the backend dashboard - CityLink.</p>
         <p>CityLink is a bit more serious and professional than Bumpi - but not as evisceral as STADTBERICHTER. ( ACHTUNG! ) </p>
         <br /> 
         <p>Heres updates to CityLink app</p>
@@ -75,7 +75,7 @@ const posts = {
             <li>Fixed duplicate i18n triggers</li>
             <li>Started on a honeypot dead-end for attackers that made it look like they were being referred to Langley VA and unit 8200 but that ate up too much time so I dropped it.</li>
             <li>Fixed i18 routing issues</li>
-            <li>Fixed some RLS issues (I think) </li>
+            <li>Fixed some RLS issues (I think)</li>
           </ul>
       </>
     ),
