@@ -352,7 +352,7 @@ export default function Home() {
                 <h2 id="languages-heading">Languages</h2>
                 <ul className={styles.skillsList} role="list">
                   <li role="listitem">English (native)</li>
-                  <li role="listitem">German (native)</li>
+                  <li role="listitem">German (fluent)</li>
                   <li role="listitem">Spanish (fluent)</li>
                   <li role="listitem">French (fluent)</li>
                 </ul>
