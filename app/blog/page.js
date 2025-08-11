@@ -25,6 +25,12 @@ const posts = [
     date: '2025-08-09',
     excerpt: '3rd.',
   },
+  {
+    id: 'Nummer Vier',
+    title: 'App(s) Update(s)',
+    date: '2025-08-11',
+    excerpt: '4th.',
+  },
 ];
 
 export default function BlogPage() {

@@ -8,7 +8,7 @@ const posts = {
     date: '2025-07-20',
     content: (
       <>
-        <p>Added a login section with registration, login capability, and made the app work with that or without it. Fixed some database stuff in the backend. </p>
+        <p>Added a login section with registration, auth, and made the app work with that or without it. Fixed some database stuff in the backend. </p>
 
         <p>(Had to disable all language versions other than German for the time, the complexity the other languages introduce in the program aren&apos;t worth dealing with until the basic architecture is completed.)</p>
 
@@ -41,13 +41,12 @@ const posts = {
         <li>(the city worker in charge of coordinating the cleaning crews flips the report from Neu to Erledigt and this should trigger a score incrementation for the report submitter. .. this is really hard to get right now.)</li>
         <li>currently adding score distribution. </li>
         </ul>
-   
       </>
     ),
   },
   'third-post': {
     title: 'App Name Change',
-    date: '2025-08-09',
+    date: '2025-08-11',
     content: (
       <>
         <p>This app has had a few names during development. Starting with Glassfinder, then came Scherbenmelder, then the concept evolved and it became Stadtberichter. </p>
@@ -73,10 +72,33 @@ const posts = {
             <li>Encrypted Geofence coords in the geofence creation tool</li>
             <li>Decrypted Geofence coords in all the other places</li>
             <li>Fixed duplicate i18n triggers</li>
-            <li>Added a few </li>
-            <li>Started on a honeypot dead-end for attackers that made it look like they were being referred to Langley VA but that ate up too much time so I dropped it.</li>
+            <li>Started on a honeypot dead-end for attackers that made it look like they were being referred to Langley VA.</li>
             <li>Fixed i18 routing issues</li>
-            <li>Fixed some RLS issues (I think)</li>
+            <li>Fixed some RLS issues</li>
+          </ul>
+      </>
+    ),
+  },
+  'third-post': {
+    title: 'App Name Change',
+    date: '2025-08-11',
+    content: (
+      <>
+        <p>Heres updates to CityLink app</p>
+          <ul>
+            <li>Added Filter-by-Month dropdown</li>
+            <li>Added Report Detail Overlay for more explicit information about reports</li>
+            <li>Thats also a place where more actions can be taken, like adding scores for gamemode maybe.</li>
+          </ul>
+          <p>Heres updates to Bumpi</p>
+          <ul>
+            <li>Added French lang support</li>
+            <li>Encrypted Geofence coords in the geofence creation tool</li>
+            <li>Decrypted Geofence coords in all the other places</li>
+            <li>Fixed duplicate i18n triggers</li>
+            <li>Started on a honeypot dead-end for attackers that made it look like they were being referred to Langley VA.</li>
+            <li>Fixed i18 routing issues</li>
+            <li>Fixed some RLS issues</li>
           </ul>
       </>
     ),
