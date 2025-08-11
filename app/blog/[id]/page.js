@@ -54,18 +54,28 @@ const posts = {
         <p>They all sound off the mark or too serious. We need something fun and harmless for civilian citizens to identify with.</p>
         <p>So I&apos;m going with Bumpi. </p>
         <p>It&apos;s on the fine line between cute and harmless and maybe a bit fun. </p>
-        <p>Way better than Stadtmelder or StadtBerichter . . . which come off as way too severe and vaguely evoking surveillance so it had to go.</p>
+        <p>Way better than Stadtmelder or StadtBerichter . . . which come off as way too severe and vaguely evoking some twisted brand of teutonic surveillance, so it had to go. Especially since I am anonymizing the living shit out of personal data.</p>
         <p>New logo is created and implemented.</p>
         <p>I toyed around with Glip, Blipsy, Dingit, Wombi. Naah - it&apos;s gotta be Bumpi.</p>
         <p>Same goes for the dashboard. But this would have to be a little more serious than Bumpi. No city official is going to take themselves seriously working with a dashboard app called Bumpi.</p> 
-        <p>That&apos;s why we&apos;ll called the backend dashboard - CityLink.</p>
-        <p>CityLink is a bit more serious and professional.</p>
+        <p>That&apos;s why shall henceforth call the backend dashboard - CityLink.</p>
+        <p>CityLink is a bit more serious and professional than Bumpi - but not as evisceral as STADTBERICHTER. ( ACHTUNG! ) </p>
         <br /> 
         <p>Heres updates to CityLink app</p>
           <ul>
             <li>Added Filter-by-Month dropdown</li>
             <li>Added Report Detail Overlay for more explicit information about reports</li>
             <li>Thats also a place where more actions can be taken, like adding scores for gamemode maybe.</li>
+          </ul>
+          <p>Heres updates to Bumpi</p>
+          <ul>
+            <li>Added French lang support</li>
+            <li>Encrypted Geofence coords in the geofence creation tool</li>
+            <li>Decrypted Geofence coords in all the other places</li>
+            <li>Fixed duplicate i18n triggers</li>
+            <li>Started on a honeypot dead-end for attackers that made it look like they were being referred to Langley VA and unit 8200 but that ate up too much time so I dropped it.</li>
+            <li>Fixed i18 routing issues</li>
+            <li>Fixed some RLS issues (I think) </li>
           </ul>
       </>
     ),
