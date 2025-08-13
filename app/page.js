@@ -437,32 +437,14 @@ export default function Home() {
                   alt="Bumpi Citylink - Municipal Backend"
                   text="<b>Currently in development.</b> A dashboard that lets a municipal authority manage citizen's reports, set participant scores if game-mode is activated, set up geofencing, and view data transmitted by the Bumpi app. 
                   <br /><br />Thus enabling the city to streamline its coordination of cleaning crews and manage city-wide cleaning events with pinpoint accuracy.
-                  <br /><br />The dashboard is currently in development and will be available for live-testing soon. "
-                  //link="https://sb-map.vercel.app/"
+                  <br /><br />The dashboard is currently in development but available for live-testing. Login not yet functional."
+                  link="https://glassmapperwip.vercel.app/"
                   client={{
                     name: "Bumpi |",
                     logo: "/images/citylinklongwhite.svg",
                     website: "https://sbinfo1.vercel.app"
-                  }}
-                  modalContent={{
-                    description: `This is a first draft view of the beginnings of the CityLink Dashboard for municipal officials to manage citizen reports, set participant scores if game-mode is activated, set up geofencing, and view data transmitted by the Bumpi app.`,
-                    images: [
-                      { src: "/images/SB_A7.jpg", alt: "Stadtberichter Municipal Dashboard Screenshot 0" },
-                      { src: "/images/SB_A4.jpg", alt: "Stadtberichter Municipal Dashboard Screenshot 1" },
-                      { src: "/images/SB_A5.jpg", alt: "Stadtberichter Municipal Dashboard Screenshot 2" },
-                      { src: "/images/SB_A6.jpg", alt: "Stadtberichter Municipal Dashboard Screenshot 3" }
-                    ]
-                  }}
-                  
-                  logoWidth={300}
-                  logoHeight={50}
-                  logoStyle={{
-                    height: '30px', 
-                    width: 'auto',   
-                    maxWidth: '100%', 
-                    
-                  }}
-                >
+                  }}    
+                > 
                   <p><strong>Target Audience:</strong> Municipal officials</p>
                   <p><strong>Project Type:</strong> Municipal Dashboard</p>
                   <p><strong>Role:</strong> Design & Development</p>
