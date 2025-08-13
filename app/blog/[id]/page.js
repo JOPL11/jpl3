@@ -79,8 +79,8 @@ const posts = {
       </>
     ),
   },
-  'third-post': {
-    title: 'App Name Change',
+  'Nummer-Vier': {
+    title: 'Updates to both apps',
     date: '2025-08-11',
     content: (
       <>
@@ -99,6 +99,21 @@ const posts = {
             <li>Started on a honeypot dead-end for attackers that made it look like they were being referred to Langley VA.</li>
             <li>Fixed i18 routing issues</li>
             <li>Fixed some RLS issues</li>
+          </ul>
+      </>
+    ),
+  },
+  'five': {
+    title: 'Mapper upgrade',
+    date: '2025-08-13',
+    content: (
+      <>
+        <p>Heres updates to CityLink app</p>
+          <ul>
+            <li>UI Fixes / Mobile Menu zIndex issue</li>
+            <li>Report Overlay: Restyle, Textfixes, added Notes input field and SQL&apos;d it, gave it a scroller</li>
+            <li>Geofencer modal restyled</li>
+            <li>Added MaterialUI thing bottom right. No real point to it other than psychological / visual. Makes the app look more like a cohesive tool. I mean it&apos;s something. Maybe I&apos;ll give it a function later.</li>
           </ul>
       </>
     ),

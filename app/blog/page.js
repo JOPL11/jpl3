@@ -26,10 +26,16 @@ const posts = [
     excerpt: '3rd.',
   },
   {
-    id: 'Nummer Vier',
+    id: 'Nummer-Vier',
     title: 'App(s) Update(s)',
     date: '2025-08-11',
     excerpt: '4th.',
+  },
+  {
+    id: 'five',
+    title: 'App(s) Update(s)',
+    date: '2025-08-13',
+    excerpt: '5th.',
   },
 ];
 
