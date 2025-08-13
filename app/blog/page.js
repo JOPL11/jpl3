@@ -27,13 +27,13 @@ const posts = [
   },
   {
     id: 'Nummer-Vier',
-    title: 'App(s) Update(s)',
+    title: 'Bumpi & CityLink updates',
     date: '2025-08-11',
     excerpt: '4th.',
   },
   {
     id: 'five',
-    title: 'App(s) Update(s)',
+    title: 'updates to CityLink',
     date: '2025-08-13',
     excerpt: '5th.',
   },
