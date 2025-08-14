@@ -2,9 +2,9 @@
 import { TextSplitter } from '../textSplitter.js';
 
 //const lettersAndSymbols = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '!', '@', '#', '$', '%', '^', '&', '*', '-', '_', '+', '=', ';', ':', '<', '>', ','];
-const lettersAndSymbols = ['!', '/', '#', '$', '%', '||', '&&', '*', '-', '_', '+', '=', ';', ':', '<<', '//:', '{', '});'];
+const lettersAndSymbols = ['!', '/', '<#>', '$', '%', '||', '&&', '*', '-', '_', '+', '=', ';', ':', '<<', '//:', '{', '});'];
 
-const randomColors = ['#22a3a9', '#1d4ed8', '#2563eb', '#0f172a']; // Example colors
+const randomColors = ['#22a3a9', '#1d4ed8', '#2563eb', '#98e8ec']; // Example colors
 
 // Defines a class to create hover effects on text.
 export class TextAnimator {

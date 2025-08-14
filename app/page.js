@@ -206,7 +206,14 @@ export default function Home() {
   const citylink1TextRef = useRef(null);
   const citylink2TextRef = useRef(null);
   const bumpiTextRef = useRef(null);
-  
+  const airbusTextRef = useRef(null);
+  const airbus2TextRef = useRef(null);
+  const motionTextRef = useRef(null);
+  const streetlampTextRef = useRef(null);
+  const qcTextRef = useRef(null);
+  const facilityTextRef = useRef(null);
+
+
   // Map section IDs to their refs
   const sectionRefs = useMemo(() => ({
     'welcome-heading': aboutHeadingRef,
@@ -507,6 +514,51 @@ export default function Home() {
                   <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Tools:</strong><AnimatedText ref={citylink2TextRef} type="project">Next.js, Supabase, Geoman-io, leaflet, Openstreetmap</AnimatedText></p>
                 </ProjectCard>
+                <ProjectCard 
+                  onMoreClick={() => {
+                    console.log('Airbus1 More button clicked, triggering animation');
+                    airbusTextRef.current?.animate();
+                  }}
+                  title="Airbus Munich Interface"
+                  image="/images/JPL3Poster_AB2.jpg"
+                  alt="Ottobrunn Showroom Expo piece"
+                  client={{
+                    name: "SMMD Team |",
+                    logo: "/images/agencies/SMMD_wide.png",
+                    website: "https://www.smmd.team"
+                  }}
+                  logoWidth={300}
+                  logoHeight={50}
+                  logoStyle={{
+                    height: '20px', 
+                    width: 'auto',   
+                    maxWidth: '100%'
+                  }}
+                  text={"An interactive catalogue of Airbus technology made for the Ottobrunn showroom. Situated at Airbus Group's Munich offices."}
+                  modalContent={{
+                    description: `15 Chapters // RFID Powered Touchscreen Interface <br/>// Animated interactive 3D Models & 2D UI menu system & content.
+                     A visitor would walk over to a wall mounted collection of plexiglass cubes which each contained a piece of Airbus tech, 
+                     take one cube and place it on a recepticle, which read an RFID chip and opened a touchscreen interface explaining the
+                     tech inside the cube.
+                     <br />
+                     Each tech was symbolized by a 3D model modeled after it, in the form of a symbolic kernel of the tech - a technocule , not a molecule -
+                     and explained using text, images & video.`,
+                    images: [
+                      { src: "/images/airbus_ottobrunn/bgbg.jpg", alt: "Project Screenshot 1" },
+                      { src: "/images/airbus_ottobrunn/posterC.jpg", alt: "Project Screenshot 2" },
+                      { src: "/images/airbus_ottobrunn/airbus_14B.jpg", alt: "Project Screenshot 3" },
+                      { src: "/images/airbus_ottobrunn/airbus_18B.jpg", alt: "Project Screenshot 4" },
+                      { src: "/images/airbus_ottobrunn/airbus_21B.jpg", alt: "Project Screenshot 5" },
+                    ]
+                  }}
+                >
+                  <p>A physically interactive showcase of Airbus technology explained on interactive touchscreens</p>
+                  <p><strong>Target Audience:</strong> Visitors at Airbus Group Ottobrunn Showroom, Ottobrunn</p>
+                  <p><strong>Project Type:</strong><AnimatedText ref={airbusTextRef} type="project">RFID Driven Interactive Experience</AnimatedText></p>
+                  <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
+                  <p><strong>Duration:</strong> 3 months and years of updates</p>
+                </ProjectCard>
+                    
              {/*   <ProjectCard 
                   title="Airbus Berlin Showroom Interface"
                  // image="/images/corp/airbus.jpg"
@@ -561,47 +613,7 @@ export default function Home() {
                   <p><strong>Duration:</strong> 3 months and years of updates</p>
                   
                 </ProjectCard>
-                <ProjectCard 
-                  title="Airbus Munich Interface"
-                  image="/images/JPL3Poster_AB2.jpg"
-                  alt="Ottobrunn Showroom Expo piece"
-                  client={{
-                    name: "SMMD Team |",
-                    logo: "/images/agencies/SMMD_wide.png",
-                    website: "https://www.smmd.team"
-                  }}
-                  logoWidth={300}
-                  logoHeight={50}
-                  logoStyle={{
-                    height: '20px', 
-                    width: 'auto',   
-                    maxWidth: '100%'
-                  }}
-                  text={"An interactive catalogue of Airbus technology made for the Ottobrunn showroom. Situated at Airbus Group's Munich offices."}
-                  modalContent={{
-                    description: `15 Chapters // RFID Powered Touchscreen Interface <br/>// Animated interactive 3D Models & 2D UI menu system & content.
-                     A visitor would walk over to a wall mounted collection of plexiglass cubes which each contained a piece of Airbus tech, 
-                     take one cube and place it on a recepticle, which read an RFID chip and opened a touchscreen interface explaining the
-                     tech inside the cube.
-                     <br />
-                     Each tech was symbolized by a 3D model modeled after it, in the form of a symbolic kernel of the tech - a technocule , not a molecule -
-                     and explained using text, images & video.`,
-                    images: [
-                      { src: "/images/airbus_ottobrunn/bgbg.jpg", alt: "Project Screenshot 1" },
-                      { src: "/images/airbus_ottobrunn/posterC.jpg", alt: "Project Screenshot 2" },
-                      { src: "/images/airbus_ottobrunn/airbus_14B.jpg", alt: "Project Screenshot 3" },
-                      { src: "/images/airbus_ottobrunn/airbus_18B.jpg", alt: "Project Screenshot 4" },
-                      { src: "/images/airbus_ottobrunn/airbus_21B.jpg", alt: "Project Screenshot 5" },
-                    ]
-                  }}
-                >
-                  <p>A physically interactive showcase of Airbus technology explained on interactive touchscreens</p>
-                  <p><strong>Target Audience:</strong> Visitors at Airbus Group Ottobrunn Showroom, Ottobrunn</p>
-                  <p><strong>Project Type:</strong> RFID Driven Interactive Experience</p>
-                  <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
-                  <p><strong>Duration:</strong> 3 months and years of updates</p>
-                </ProjectCard>
-                    
+                
             
                
                  <ProjectCard 
@@ -717,6 +729,10 @@ export default function Home() {
                 {!isMobile && (
                   <>
                     <ProjectCard 
+                    onMoreClick={() => {
+                      console.log('Bytes101 More button clicked, triggering animation');
+                      qcTextRef.current?.animate();
+                    }}
                       title="Schrödinger & Bohr Quantum Pocketwatches "
                       image="/images/JPL3Poster_QC.jpg"
                       alt="Quantum Pocketwatch Company"
@@ -725,12 +741,16 @@ export default function Home() {
                       className="webglProject"
                     >
                       <p>Visual Concept Experiment</p>
-                      <p><strong>Tools:</strong> Three.js / React Three Fiber / GSAP / Router / Next.js</p>
+                      <p><strong>Tools:</strong><AnimatedText ref={qcTextRef} type="project">Three.js / React 3 Fiber / GSAP / Router / Next.js</AnimatedText></p>
                       <p><strong>Role:</strong> Concept / Animation / Dev</p>
                       <p><strong>Duration:</strong> 2 weeks</p>
                       <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
                     </ProjectCard>
                     <ProjectCard 
+                      onMoreClick={() => {
+                        console.log('streetlamp More button clicked, triggering animation');
+                        streetlampTextRef.current?.animate();
+                      }}
                       title="Streetlamp 2044"
                       image="/images/JPL3Poster_R3F.jpg"
                       alt="Streetlamp 2044"
@@ -739,12 +759,16 @@ export default function Home() {
                       className="webglProject"
                     >
                       <p>R3F Concept Demo</p>
-                      <p><strong>Tools:</strong>Three.js / React Three Fiber / GSAP</p>
+                      <p><strong>Tools:</strong><AnimatedText ref={streetlampTextRef} type="project">Three.js / React 3 Fiber / GSAP</AnimatedText></p>
                       <p><strong>Role:</strong> Concept / Animation / Dev</p>
                       <p><strong>Duration:</strong> 3 weeks</p>
                       <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
                     </ProjectCard>
                     <ProjectCard 
+                      onMoreClick={() => {
+                        console.log('Facility More button clicked, triggering animation');
+                        facilityTextRef.current?.animate();
+                      }}
                       title="The Facility"
                       image="https://cdna.artstation.com/p/assets/images/images/077/341/642/large/jan-peiro-box1.jpg?1719257986"
                       alt="The Facility"
@@ -753,7 +777,7 @@ export default function Home() {
                       className="webglProject"
                     >
                       <p>Visual Concept Demo</p>
-                      <p><strong>Tools:</strong>Three.js / React Three Fiber / GLSL / GSAP</p>
+                      <p><strong>Tools:</strong><AnimatedText ref={facilityTextRef} type="project">Three.js / React 3 Fiber / GLSL / GSAP</AnimatedText></p>
                       <p><strong>Role:</strong> Concept / Animation / Dev</p>
                       <p><strong>Duration:</strong> 3 weeks</p>
                       <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>

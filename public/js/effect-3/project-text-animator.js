@@ -2,9 +2,9 @@
 import { TextSplitter } from '../textSplitter.js';
 
 //const lettersAndSymbols = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '!', '@', '#', '$', '%', '^', '&', '*', '-', '_', '+', '=', ';', ':', '<', '>', ','];
-const lettersAndSymbols = ['!', '/', '#', '$', '%', '||', '&&', '*', '-', '_', '+', '=', ';', ':', '<<', '//:', '{', '});'];
+const lettersAndSymbols = ['!', '/', '<#>', '$', '%', '||', '&&', '*', '-', '_', '+', '=', ';', ':', '<<', '//:', '{', '});'];
 
-const randomColors = ['#22a3a9', '#1d4ed8', '#2563eb', '#0f172a']; // Example colors
+const randomColors = ['#22a3a9', '#1d4ed8', '#2563eb', '#98e8ec']; // Example colors
 
 // Defines a class to create hover effects on text.
 export class ProjectTextAnimator {
@@ -54,7 +54,7 @@ export class ProjectTextAnimator {
         repeat: 3,
         repeatRefresh: true,
         repeatDelay: 0.1, // delay between repeats
-        delay: (position + 1) * 0.08, // delay between chars
+        delay: (position + 1) * 0.02, // delay between chars
         innerHTML: () => {
           const randomChar = lettersAndSymbols[Math.floor(Math.random() * lettersAndSymbols.length)];
           const randomColor = randomColors[Math.floor(Math.random() * randomColors.length)];
