@@ -41,7 +41,7 @@
   z-index: 1;
 }
 
-.contactForm::before {
+.contactForm3::before {
   content: '';
   position: absolute;
   top: 0;
@@ -78,7 +78,7 @@
 }
 
 
-.contactForm::after {
+.contactForm4::after {
   content: '';
   position: absolute;
   top: 0;
@@ -106,7 +106,7 @@
 
 
 .contactForm:hover {
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  /* box-shadow: inset 0 3px 3px 2px rgba(0, 0, 0, 0.4);*/
 }
 
 .formGroup {
@@ -137,7 +137,7 @@
   line-height: 1;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   background:  #f9fafb ;
-  box-shadow: inset 0 3px 3px 2px rgba(0, 0, 0, 0.4);
+ /* box-shadow: inset 0 3px 3px 2px rgba(0, 0, 0, 0.4);*/
   color: #111827;
 }
 
@@ -245,7 +245,10 @@
 }
 
 .submitButton {
-    background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 100%);
+    /*background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 100%);
+    text-shadow: 0 0 3px rgba(48, 47, 47, 0.8);
+        transition: background-color 0.2s ease;*/
+    background:  #459bb3;
     color: #fff;
     text-decoration: none;
     padding: 0.5rem 2rem;
@@ -254,8 +257,6 @@
     font-size: 0.9rem;
     cursor: pointer;
     font-weight: 400;
-    transition: background-color 0.2s ease;
-    text-shadow: 0 0 3px rgba(48, 47, 47, 0.8);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -267,15 +268,17 @@
   }
   
   .submitButton:hover {
-    background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 70%);
+    /*background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 70%);
     box-shadow: 0 -2px 8px rgba(97, 218, 251, 0.7);
-    transition: all 0.5s ease;
+    transition: all 0.5s ease;*/
+    background:  #459bb3;
   }
   
   .submitButton:focus {
-    outline: 0px solid #0070f3;
+    /*outline: 0px solid #0070f3;
     outline-offset: 0px;
-    transition: all 0.5s ease;
+    transition: all 0.5s ease;*/
+    background:  #459bb3;
   }
 
 

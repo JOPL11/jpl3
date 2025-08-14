@@ -732,7 +732,7 @@
   pointer-events: none;
 }
 
-.projectImage::after {
+.projectImage2::after {
   content: '';
   position: absolute;
   top: 0;
@@ -758,7 +758,7 @@
   z-index: 1;
 }
 
-.projectImage::before {
+.projectImage2::before {
   content: '';
   position: absolute;
   top: 0;
@@ -846,7 +846,7 @@
   overflow: hidden;
 }
 
-.cardContent.showContent::after {
+.cardContent2.showContent::after {
   content: '';
   position: absolute;
   max-height: 500px;
@@ -885,7 +885,8 @@
 }
 
 .projectLink {
-  background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 100%);
+ /* background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 100%);*/
+  background:  #459bb3;
   color: #fff;
   text-decoration: none;
   padding: 0.6rem 1.5rem;
@@ -907,19 +908,22 @@
 }
 
 .projectLink:hover {
-  background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 70%);
+ /* background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 70%);
   box-shadow: 0 -2px 8px rgba(97, 218, 251, 0.7);
-  transition: all 0.5s ease;
+  transition: all 0.5s ease;*/
+  background:  #459bb3;
 }
 
 .projectLink:focus {
-  outline: 2px solid #0070f3;
+ /* outline: 2px solid #0070f3;
   outline-offset: 2px;
-  transition: all 0.5s ease;
+  transition: all 0.5s ease;*/
+  background:  #459bb3;
 }
 
 .moreButton {
-  background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 100%);
+  /* background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 100%); */
+  background:  #459bb3;
   border: none;
   border-radius: 4px;
   padding: 0.6rem 1.5rem;
@@ -941,19 +945,22 @@
 }
 
 .moreButton:hover {
-  background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 70%);
+ /*  background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 70%);
   box-shadow: 0 -2px 8px rgba(97, 218, 251, 0.7);
-  transition: all 0.5s ease;
+  transition: all 0.5s ease;*/
+  background:  #459bb3;
 }
 
 .moreButton:focus {
-  background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 80%);
+ /* background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 80%);
   outline-offset: 2px;
-  transition: all 0.5s ease;
+  transition: all 0.5s ease; */
+  background:  #459bb3;
 }
 
 .viewProjectButton {
-  background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 100%);
+ /* background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 100%); */
+  background:  #459bb3;
   color: #fff;
   text-shadow: 0 0 3px rgba(48, 47, 47, 0.8);
   border: none;
@@ -975,11 +982,11 @@
 }
 
 .viewProjectButton:hover {
-  background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 70%);
+ /* background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 70%);
   transform: translateY(-1px);
   box-shadow: 0 -2px 8px rgba(97, 218, 251, 0.7);
-  transition: all 0.5s ease;
-
+  transition: all 0.5s ease;*/
+  background:  #459bb3;
 }
 
 .viewProjectButton:active {
@@ -988,9 +995,10 @@
 }
 
 .viewProjectButton:focus {
-  outline: 2px solid #0070f3;
+ /* outline: 2px solid #0070f3;
   outline-offset: 2px;
-  transition: all 0.5s ease;
+  transition: all 0.5s ease; */
+  background:  #459bb3;
 }
 
 .projectImage {

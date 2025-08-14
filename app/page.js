@@ -239,10 +239,12 @@ export default function Home() {
                 aria-hidden="true"
               />
               <div className={styles.menuContainer}>
+          {/* <InteractiveMenu activeSection={activeSection} onSectionChange={setActiveSection} /> 
           {/* <InteractiveMenu activeSection={activeSection} onSectionChange={setActiveSection} /> */}
+          
+       
           </div>
-          <div  style={{overflow: 'visible'}}>
-            <div className={styles.projectCard2} style={{margin: '20px',  zIndex: 1}}>
+         
                 <nav className={styles.navLinks} aria-label="Main navigation">
                 <a 
                   href="#welcome-heading" 
@@ -305,9 +307,9 @@ export default function Home() {
                   className={styles.profileImage}
                   priority
                 />
+              </div>              </div>
               </div> */}  
-              </div>
-              </div>
+
             </div>
           </div>
           
@@ -320,7 +322,7 @@ export default function Home() {
             */} 
              {/*About Section Detector Here*/} 
              <SectionTracker onSectionChange={setActiveSection} />
-            <h2 style={{paddingTop: "4rem"}}>About</h2>
+            <h2 style={{paddingTop: "1rem"}}>About</h2>
             <p>Hi! My name is Jan Peiro.</p>
 
             <p>Studied Communications Design in Munich, Germany.</p>
@@ -840,14 +842,7 @@ export default function Home() {
               </div> 
             </section> 
 
-            {/*   MOTION ENDS HERE */}  
-
-
-
-
-
-
-            <hr className={styles.divider2} />
+            {/*   MOTION ENDS HERE             <hr className={styles.divider2} /> */}  
             <section id="contact" className={`${styles.section} ${styles.scrollTarget}`}>
               <h2>Contact</h2>
               <ContactForm />
