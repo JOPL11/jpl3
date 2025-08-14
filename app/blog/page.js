@@ -37,6 +37,13 @@ const posts = [
     date: '2025-08-13',
     excerpt: '5th.',
   },
+  {
+    id: 'six',
+    title: 'CityLink Design Overhaul',
+    date: '2025-08-14',
+    excerpt: '6th.',
+  },
+
 ];
 
 export default function BlogPage() {
