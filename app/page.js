@@ -370,7 +370,7 @@ export default function Home() {
             */} 
              {/*About Section Detector Here*/} 
              <SectionTracker onSectionChange={setActiveSection} />
-            <h2 style={{paddingTop: "1rem"}}><AnimatedText ref={aboutHeadingRef}>About</AnimatedText></h2>
+            <h2 style={{paddingTop: "1rem"}}><AnimatedText ref={aboutHeadingRef}>&#47;&#47; About</AnimatedText></h2>
             <p>Hi! My name is Jan Peiro.</p>
 
             <p>Studied Communications Design in Munich, Germany.</p>
@@ -382,7 +382,7 @@ export default function Home() {
             
            
             <section className={styles.section} aria-labelledby="skills-heading">
-              <h2 id="skills-heading"><AnimatedText ref={skillsHeadingRef}>Core Skills</AnimatedText></h2>
+              <h2 id="skills-heading"><AnimatedText ref={skillsHeadingRef}>&#47;&#47; Core Skills</AnimatedText></h2>
               <ul className={styles.skillsList} role="list">
                 <li role="listitem">Design, Animation, Development, Rapid Prototyping</li>
                 <li role="listitem">React, Next.js, Vue.js, html, css, .js</li>
@@ -423,7 +423,7 @@ export default function Home() {
 
             <section id="work" className={styles.section} aria-labelledby="projects-heading">
 
-              <h2 id="projects-heading" className={styles.scrollTarget}><AnimatedText ref={workHeadingRef}>Code</AnimatedText></h2>
+              <h2 id="projects-heading" className={styles.scrollTarget}><AnimatedText ref={workHeadingRef}>&#47;&#47; Code</AnimatedText></h2>
           
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
               <ProjectCard
@@ -706,7 +706,7 @@ export default function Home() {
         
             <div data-section="webgl-heading"></div>
             <section id="webgl-heading" className={`${styles.section} ${styles.scrollTarget}`}>
-              <h2><AnimatedText ref={webglHeadingRef}>WebGL</AnimatedText></h2>
+              <h2><AnimatedText ref={webglHeadingRef}>&#47;&#47; WebGL</AnimatedText></h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
               <ProjectCard 
                   onMoreClick={() => {
@@ -796,7 +796,7 @@ export default function Home() {
 
         {/* Motion Section Detector Here */}
             <section id="motion-heading" className={`${styles.section} ${styles.scrollTarget}`}>
-              <h2><AnimatedText ref={motionHeadingRef}>Motion</AnimatedText></h2>
+              <h2><AnimatedText ref={motionHeadingRef}>&#47;&#47; Motion</AnimatedText></h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
                 
               <VideoProjectCard 

@@ -68,10 +68,16 @@ a {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6,
+h1, h3, h4, h5, h6,
 p, button, input, textarea, select {
   font-family: var(--font-inter);
   text-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+}
+h2 {
+  font-family: var(--font-inter);
+  text-shadow: 0 4 20px rgba(0, 240, 255, 0.2);
+  font-size: 2rem;
+  font-weight: 200;
 }
 
 @media (prefers-color-scheme: dark) {
