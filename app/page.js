@@ -200,7 +200,7 @@ export default function Home() {
       <header role="banner" className={styles.header}>
         <button 
           className={styles.backToTop}
-          onClick={() => window.scrollTo({ top: -50, behavior: 'smooth' })}
+          onClick={() => window.scrollTo({ top: 10, behavior: 'smooth' })}
           aria-label="Back to top"
         >
           ↑
@@ -241,8 +241,9 @@ export default function Home() {
               <div className={styles.menuContainer}>
           {/* <InteractiveMenu activeSection={activeSection} onSectionChange={setActiveSection} /> */}
           </div>
-              <hr className={styles.divider} />
-              <nav className={styles.navLinks} aria-label="Main navigation">
+          <div  style={{overflow: 'visible'}}>
+            <div className={styles.projectCard2} style={{margin: '20px',  zIndex: 1}}>
+                <nav className={styles.navLinks} aria-label="Main navigation">
                 <a 
                   href="#welcome-heading" 
                   className={styles.navLink} 
@@ -295,7 +296,6 @@ export default function Home() {
                   devBlog
                 </Link>
               </nav>
-              <hr className={styles.divider} />
               {/*<div className={styles.profileImageContainer}>
                 <Image 
                src="/images/me3.jpg"
@@ -306,6 +306,8 @@ export default function Home() {
                   priority
                 />
               </div> */}  
+              </div>
+              </div>
             </div>
           </div>
           
@@ -328,7 +330,7 @@ export default function Home() {
             <p>Based in Germany.</p>
 
             
-            <hr className={styles.divider2} />
+           
             <section className={styles.section} aria-labelledby="skills-heading">
               <h2 id="skills-heading">Core Skills</h2>
               <ul className={styles.skillsList} role="list">
@@ -349,7 +351,7 @@ export default function Home() {
                 <li role="listitem">After Effects, Video Edit, Video Post-Production</li>*/}
               </ul>
             </section>
-            <hr className={styles.divider2} />
+       
             <div className={styles.languagesContainer}>
               <section className={styles.section} aria-labelledby="languages-heading">
                 <h2 id="languages-heading">Languages</h2>
@@ -364,7 +366,7 @@ export default function Home() {
 
              {/* About section End */}
 
-            <hr className={styles.divider2} />
+      
             <SectionTracker onSectionChange={setActiveSection} />
             <div data-section="projects-heading"></div>      
 
@@ -450,7 +452,7 @@ export default function Home() {
                   <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Tools:</strong> Next.js, Supabase, Geoman-io, leaflet, Openstreetmap</p>
                 </ProjectCard>
-              <ProjectCard 
+             {/*   <ProjectCard 
                   title="Airbus Berlin Showroom Interface"
                  // image="/images/corp/airbus.jpg"
                  image="/images/JPL3Poster_AB.jpg"
@@ -544,7 +546,7 @@ export default function Home() {
                   <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
                   <p><strong>Duration:</strong> 3 months and years of updates</p>
                 </ProjectCard>
-                  {/*   */}   
+                    
             
                
                  <ProjectCard 
@@ -632,7 +634,7 @@ export default function Home() {
 
             {/*   WebGL Section */}
 
-            <hr className={styles.divider2} />
+         
             <SectionTracker onSectionChange={setActiveSection} />
         
             <div data-section="webgl-heading"></div>
@@ -703,9 +705,9 @@ export default function Home() {
 
             </section>
             
-       {/*   Motion Section */}
+       {/*   Motion Section 
 
-       <hr className={styles.divider2} />
+       <hr className={styles.divider2} />*/}
        <SectionTracker onSectionChange={setActiveSection} />
        <div data-section="motion-heading"></div>
 

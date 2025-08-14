@@ -493,6 +493,7 @@
   color: #bbffff;
   margin-top: 0;
   margin-bottom: 1.5rem;
+  margin-top: 3.7rem;
   font-size: 2rem;
 }
 
@@ -659,7 +660,7 @@
 .projectCard {
   position: relative;
   margin-bottom: 1rem;
-  padding: 7rem 0rem 0rem 0rem;
+  padding: 1rem 0rem 0rem 0rem;
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
