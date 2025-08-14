@@ -4,9 +4,11 @@ import { useState, useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
-//import InteractiveMenu from './components/InteractiveMenu';
 import SectionTracker from './components/SectionTracker';
 import MouseGradient from './components/MouseGradient';
+import AnimatedText from './components/AnimatedText';
+import { useMemo } from 'react';
+
 
 function useViewportWidth() {
   const [width, setWidth] = useState(0);
@@ -127,27 +129,27 @@ export default function Home() {
   }, []);
 
   const scrollToSection = (e, sectionId) => {
+    console.log('scrollToSection called with sectionId:', sectionId);
     e.preventDefault();
+    console.log('Setting active section to:', sectionId);
+    setActiveSection(sectionId); // Update active section to trigger animation
+    
     const element = document.getElementById(sectionId);
+    console.log('Found element for section:', sectionId, element);
+    
     if (element) {
-      isProgrammaticScroll.current = true;
-      
-      // Update active section immediately
-      setActiveSection(sectionId);
-      
-      // Scroll to the element
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
+      console.log('Scrolling to section:', sectionId, 'at position:', element.offsetTop - 50);
+      window.scrollTo({
+        top: element.offsetTop - 110,
+        behavior: 'smooth'
       });
       
-      // Fallback in case scrollend event doesn't fire
-      if (scrollTimeout.current) {
-        clearTimeout(scrollTimeout.current);
-      }
-      scrollTimeout.current = setTimeout(() => {
+      // Reset the flag after scroll completes
+      setTimeout(() => {
         isProgrammaticScroll.current = false;
       }, 1000);
+    } else {
+      console.error('Could not find element with id:', sectionId);
     }
   };
 
@@ -192,6 +194,45 @@ export default function Home() {
       observers.forEach(observer => observer.disconnect());
     };
   }, []);
+
+  // Refs for animated headings
+  const aboutHeadingRef = useRef(null);
+  const webglHeadingRef = useRef(null);
+  const skillsHeadingRef = useRef(null);
+  const workHeadingRef = useRef(null);
+  const contactHeadingRef = useRef(null);
+  const motionHeadingRef = useRef(null);
+  const bytes101TextRef = useRef(null);
+  const citylink1TextRef = useRef(null);
+  const citylink2TextRef = useRef(null);
+  const bumpiTextRef = useRef(null);
+  
+  // Map section IDs to their refs
+  const sectionRefs = useMemo(() => ({
+    'welcome-heading': aboutHeadingRef,
+    'projects-heading': workHeadingRef,
+    'skills-heading': skillsHeadingRef,
+    'webgl-heading': webglHeadingRef,
+    'motion-heading': motionHeadingRef,
+    'contact': contactHeadingRef
+  }), [aboutHeadingRef, workHeadingRef, webglHeadingRef, skillsHeadingRef, contactHeadingRef, motionHeadingRef]);
+  
+  // Trigger animation when section changes
+  useEffect(() => {
+    console.log('Active section changed to:', activeSection);
+    console.log('Section refs:', sectionRefs);
+    
+    if (activeSection && sectionRefs[activeSection]?.current) {
+      console.log('Calling animate() on section ref:', activeSection, sectionRefs[activeSection].current);
+      try {
+        sectionRefs[activeSection].current.animate();
+      } catch (error) {
+        console.error('Error calling animate():', error);
+      }
+    } else {
+      console.log('No animation triggered - section ref not found or not ready:', activeSection);
+    }
+  }, [activeSection, sectionRefs]);
 
   return (
     <div className={styles.container} role="document">
@@ -322,7 +363,7 @@ export default function Home() {
             */} 
              {/*About Section Detector Here*/} 
              <SectionTracker onSectionChange={setActiveSection} />
-            <h2 style={{paddingTop: "1rem"}}>About</h2>
+            <h2 style={{paddingTop: "1rem"}}><AnimatedText ref={aboutHeadingRef}>About</AnimatedText></h2>
             <p>Hi! My name is Jan Peiro.</p>
 
             <p>Studied Communications Design in Munich, Germany.</p>
@@ -334,7 +375,7 @@ export default function Home() {
             
            
             <section className={styles.section} aria-labelledby="skills-heading">
-              <h2 id="skills-heading">Core Skills</h2>
+              <h2 id="skills-heading"><AnimatedText ref={skillsHeadingRef}>Core Skills</AnimatedText></h2>
               <ul className={styles.skillsList} role="list">
                 <li role="listitem">Design, Animation, Development, Rapid Prototyping</li>
                 <li role="listitem">React, Next.js, Vue.js, html, css, .js</li>
@@ -374,11 +415,15 @@ export default function Home() {
 
 
             <section id="work" className={styles.section} aria-labelledby="projects-heading">
-            <div data-section="projects-heading"></div>
-              <h2 id="projects-heading" className={styles.scrollTarget}>Code</h2>
+
+              <h2 id="projects-heading" className={styles.scrollTarget}><AnimatedText ref={workHeadingRef}>Code</AnimatedText></h2>
           
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
-              <ProjectCard 
+              <ProjectCard
+               onMoreClick={() => {
+                console.log('citylink1 More button clicked, triggering animation');
+                citylink1TextRef.current?.animate();
+              }} 
                   title="CityLink Info Page"
                   image="/images/corp/sb.jpg"
                   alt="CityLink Info Page"
@@ -401,10 +446,14 @@ export default function Home() {
                   <p><strong>Project Type:</strong> Infopage about the Neighborhood Clean-up mobile App</p>
                   <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Duration:</strong> 4 days</p>
-                  <p><strong>Tools:</strong> Next.js, react</p>
+                  <p><strong>Tools:</strong><AnimatedText ref={citylink1TextRef} type="project"> Next.js, react</AnimatedText></p>
                 </ProjectCard>
 
                 <ProjectCard 
+                 onMoreClick={() => {
+                  console.log('bumpi More button clicked, triggering animation');
+                  bumpiTextRef.current?.animate();
+                }}
                   title="Bumpi App"
                   image="/images/corp/sb3.jpg"
                   alt="Bumpi App"
@@ -431,11 +480,15 @@ export default function Home() {
                   <p><strong>Target Audience:</strong> Municipal Citizens</p>
                   <p><strong>Project Type:</strong> Neighborhood clean-up App</p>
                   <p><strong>Role:</strong> Design & Development</p>
-                  <p><strong>Tools:</strong> Next.js, Supabase</p>
+                  <p><strong>Tools:</strong><AnimatedText ref={bumpiTextRef} type="project"> Next.js, Supabase, Openstreetmap, dompurify</AnimatedText></p>
                   <p><strong>Features:</strong> Game Mode, Leaderboard, Score Distribution, manual or automatic Geolocation, Rate Limiting, CSRF Prevention, XSS Prevention, RLS, Optional Analytics, Optional Auth, Hashed IP Geofencing, Comprehensive Crash Guarding, i18n multilanguage support</p>
                   <p><strong>Goal:</strong> Make something fun, easy to use and secure in compliance with GDPR. At the same time making for a more streamlined and efficient process for municipal officials to manage environmental reports.</p>
                 </ProjectCard>
                 <ProjectCard 
+                 onMoreClick={() => {
+                  console.log('citylink2 More button clicked, triggering animation');
+                  citylink2TextRef.current?.animate();
+                }}
                   title="Bumpi Citylink Dashboard"
                   image="/images/corp/sb2.jpg"
                   alt="Bumpi Citylink - Municipal Backend"
@@ -452,7 +505,7 @@ export default function Home() {
                   <p><strong>Target Audience:</strong> Municipal officials</p>
                   <p><strong>Project Type:</strong> Municipal Dashboard</p>
                   <p><strong>Role:</strong> Design & Development</p>
-                  <p><strong>Tools:</strong> Next.js, Supabase, Geoman-io, leaflet, Openstreetmap</p>
+                  <p><strong>Tools:</strong><AnimatedText ref={citylink2TextRef} type="project">Next.js, Supabase, Geoman-io, leaflet, Openstreetmap</AnimatedText></p>
                 </ProjectCard>
              {/*   <ProjectCard 
                   title="Airbus Berlin Showroom Interface"
@@ -641,9 +694,13 @@ export default function Home() {
         
             <div data-section="webgl-heading"></div>
             <section id="webgl-heading" className={`${styles.section} ${styles.scrollTarget}`}>
-              <h2>WebGL</h2>
+              <h2><AnimatedText ref={webglHeadingRef}>WebGL</AnimatedText></h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
               <ProjectCard 
+                  onMoreClick={() => {
+                    console.log('Bytes101 More button clicked, triggering animation');
+                    bytes101TextRef.current?.animate();
+                  }}
                   title="Bytes101"
                   image="/images/bytes101.jpg"
                   alt="Bytes101"
@@ -652,7 +709,7 @@ export default function Home() {
                   className="webglProject"
                 >
                   <p>Concept Demo</p>
-                  <p><strong>Project Type:</strong>Three.js / React Three Fiber</p>
+                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> Three.js / React Three Fiber</AnimatedText></p>
                   <p><strong>Role:</strong> Concept / Animation / Dev</p>
                   <p><strong>Duration:</strong> 1 week</p>
                   <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
@@ -668,7 +725,7 @@ export default function Home() {
                       className="webglProject"
                     >
                       <p>Visual Concept Experiment</p>
-                      <p><strong>Tools:</strong>Three.js / React Three Fiber / GSAP / Router / Next.js</p>
+                      <p><strong>Tools:</strong> Three.js / React Three Fiber / GSAP / Router / Next.js</p>
                       <p><strong>Role:</strong> Concept / Animation / Dev</p>
                       <p><strong>Duration:</strong> 2 weeks</p>
                       <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
@@ -715,7 +772,7 @@ export default function Home() {
 
         {/* Motion Section Detector Here */}
             <section id="motion-heading" className={`${styles.section} ${styles.scrollTarget}`}>
-              <h2> Motion</h2>
+              <h2><AnimatedText ref={motionHeadingRef}>Motion</AnimatedText></h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
                 
               <VideoProjectCard 
@@ -844,7 +901,7 @@ export default function Home() {
 
             {/*   MOTION ENDS HERE             <hr className={styles.divider2} /> */}  
             <section id="contact" className={`${styles.section} ${styles.scrollTarget}`}>
-              <h2>Contact</h2>
+              <h2><AnimatedText ref={contactHeadingRef}>Contact</AnimatedText></h2>
               <ContactForm />
             </section>
           </section>

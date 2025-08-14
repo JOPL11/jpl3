@@ -716,7 +716,7 @@
 .projectImage {
   position: relative;
   margin: 1.5rem 0;
-  border-radius: 8px;
+  border-radius: 0px;
   overflow: hidden;
   border: none; /* Remove the solid border */
   background: #2a3540;
@@ -739,7 +739,7 @@
   right: 0;
   bottom: 0;
   border: 1px solid transparent;
-  border-radius: 6px; /* Match the card's border radius */
+  border-radius: 0px; /* Match the card's border radius */
   background: linear-gradient(
     to top, 
     rgba(100, 144, 180, 0.4) 0%,

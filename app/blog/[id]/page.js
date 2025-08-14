@@ -125,7 +125,7 @@ const posts = {
       <>
         <p>Heres updates to CityLink app</p>
           <ul>
-            <li>Complete overhault of the design</li>
+            <li>Complete overhaul of the design</li>
             <li>Away from the winXP look (dunno why that happened, maybe I couldnt think of anything better while I was working on the functionality) / towards a more modern look</li>
             <li>Geofencer included</li>
           </ul>

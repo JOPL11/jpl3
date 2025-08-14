@@ -103,12 +103,12 @@
   pointer-events: none;
   z-index: 1;
 }
-
+ /*
 
 .contactForm:hover {
-  /* box-shadow: inset 0 3px 3px 2px rgba(0, 0, 0, 0.4);*/
+  box-shadow: inset 0 3px 3px 2px rgba(0, 0, 0, 0.4);
 }
-
+*/
 .formGroup {
   margin-bottom: 2rem;
   position: relative;

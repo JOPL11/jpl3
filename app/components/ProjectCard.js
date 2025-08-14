@@ -20,13 +20,20 @@ export default function ProjectCard({
   logoWidth = 160,  // Default width
   logoHeight = 80,
   logoStyle = {},   // Default height
-  className = ''    // Add className prop with default empty string
+  className = '',    // Add className prop with default empty string
+  onViewProject,
+  onMoreClick = () => {} // Add onMoreClick with default empty function
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const { openModal } = useModal();
   
   const handleViewProject = (e) => {
     e.stopPropagation();
+    console.log('View project clicked');
+    if (onViewProject) {
+      console.log('Calling onViewProject');
+      onViewProject();
+    }
     if (modalContent) {
       openModal(
         <ProjectModal 
@@ -99,7 +106,13 @@ export default function ProjectCard({
       <div className={styles.cardActions}>
         <button 
           className={styles.moreButton}
-          onClick={() => setIsExpanded(!isExpanded)}
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsExpanded(!isExpanded);
+            if (onMoreClick) {
+              onMoreClick();
+            }
+          }}
           aria-expanded={isExpanded}
         >
           {isExpanded ? 'Less' : 'More'}

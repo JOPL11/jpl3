@@ -4,6 +4,10 @@ import { ModalProvider } from './components/ModalContext';
 import dynamic from 'next/dynamic';
 import CookieBanner from './components/CookieBanner';
 import SplashScreen from './components/SplashScreen';
+import ScriptLoader from './components/ScriptLoader';
+
+
+
 
 const inter = Inter({
   subsets: ['latin'],
@@ -78,7 +82,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.variable}>
-      <head />
+      <head>
+        <ScriptLoader />
+      </head>
       <body className={inter.className} suppressHydrationWarning={true}>
         <ModalProvider>
           <SplashScreen />
