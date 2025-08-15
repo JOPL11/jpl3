@@ -409,6 +409,7 @@ export default function Home() {
               <ul className={styles.skillsList} role="list">
                 <li role="listitem">Design, Animation, Development, Rapid Prototyping</li>
                 <li role="listitem">React, Next.js, Vue.js, html, css, .js</li>
+                <li role="listitem">Typescript</li>
                 <li role="listitem">Bootstrap, Tailwind, MaterialUI</li>
                 <li role="listitem">Three.js, React 3 Fiber, WebXR</li>
                 <li role="listitem">vite, git, npm, yarn</li>
