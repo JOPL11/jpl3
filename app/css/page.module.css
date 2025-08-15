@@ -216,8 +216,8 @@
 
 .siteTitle {
   margin: 0;
-  font-size: 1.8rem;
-  font-weight: 600;
+  font-size: 1.9rem;
+  font-weight: 500;
   color: white;
 }
 
@@ -241,7 +241,8 @@
   text-decoration: none;
   transition: color 0.2s ease;
   cursor: pointer;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 500;
   white-space: nowrap;
   padding: 0.25rem 0.5rem;
 }
@@ -784,7 +785,8 @@
   margin-top: 0;
   margin-bottom: 0rem;
   color: #a2feff;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .clientInfo {
