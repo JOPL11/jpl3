@@ -8,6 +8,8 @@ import SectionTracker from './components/SectionTracker';
 import MouseGradient from './components/MouseGradient';
 import AnimatedText from './components/AnimatedText';
 import { useMemo } from 'react';
+import LocomotiveScroll from 'locomotive-scroll';
+
 
 
 function useViewportWidth() {
@@ -59,6 +61,9 @@ export default function Home() {
   const isProgrammaticScroll = useRef(false);
   const scrollTimeout = useRef(null);
   const viewportWidth = useViewportWidth();
+
+
+
   const isMobile = viewportWidth < 768;
   // Setup section detection using IntersectionObserver
   useEffect(() => {
@@ -214,6 +219,7 @@ export default function Home() {
   const facilityTextRef = useRef(null);
 
 
+
   // Map section IDs to their refs
   const sectionRefs = useMemo(() => ({
     'welcome-heading': aboutHeadingRef,
@@ -228,7 +234,24 @@ export default function Home() {
   useEffect(() => {
     console.log('Active section changed to:', activeSection);
     console.log('Section refs:', sectionRefs);
-    
+    //const locomotiveScroll = new LocomotiveScroll();
+
+    const locomotiveScroll = new LocomotiveScroll({
+      lenisOptions: {
+          wrapper: window,
+          content: document.documentElement,
+          lerp: 0.1,
+          duration: 1.2,
+          orientation: 'vertical',
+          gestureOrientation: 'vertical',
+          smoothWheel: true,
+          smoothTouch: false,
+          wheelMultiplier: 1,
+          touchMultiplier: 2,
+          normalizeWheel: true,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -15 * t)), // https://www.desmos.com/calculator/brs54l4xou
+      },
+  });
     if (activeSection && sectionRefs[activeSection]?.current) {
       console.log('Calling animate() on section ref:', activeSection, sectionRefs[activeSection].current);
       try {
