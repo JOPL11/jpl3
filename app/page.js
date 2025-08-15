@@ -461,7 +461,7 @@ export default function Home() {
                   alt="RoadRich App"
                   //link="https://sb202.vercel.app"
                   textPosition="bottom"
-                  text={`<b>App in development.</b>
+                  text={`<b>Demo coming soon</b>
                   <br />
                   <br />
                   Share locations of cool Sperrmüll you encounter on the streets. Maybe you don't want it. Maybe someone else will.`}
@@ -482,8 +482,8 @@ export default function Home() {
                   <p><strong>Project Type:</strong> Neighborhood clean-up App</p>
                   <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Tools:</strong><AnimatedText ref={roadrichTextRef} type="project"> Next.js, Typescript, Tailwind, Supabase, Openstreetmap, dompurify</AnimatedText></p>
-                  <p><strong>Features:</strong> Game Mode, Leaderboard, Score Distribution, manual or automatic Geolocation, Rate Limiting, CSRF Prevention, XSS Prevention, RLS, Optional Analytics, Optional Auth, Hashed IP Geofencing, Comprehensive Crash Guarding, i18n multilanguage support</p>
-                  <p><strong>Goal:</strong> Make something fun, easy to use and secure in compliance with GDPR. At the same time making for a more streamlined and efficient process for municipal officials to manage environmental reports.</p>
+                  <p><strong>Features:</strong> Manual or automatic Geolocation, Rate Limiting, XSS Prevention, RLS.</p>
+                  <p><strong>Goal:</strong> Make something fun, easy to use and secure in compliance with GDPR.</p>
                 </ProjectCard>
 
 
