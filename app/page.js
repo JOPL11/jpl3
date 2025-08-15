@@ -952,7 +952,7 @@ export default function Home() {
 
             {/*   MOTION ENDS HERE             <hr className={styles.divider2} /> */}  
             <section id="contact" className={`${styles.section} ${styles.scrollTarget}`}>
-              <h2><AnimatedText ref={contactHeadingRef}>Contact</AnimatedText></h2>
+              <h2><AnimatedText ref={contactHeadingRef}>&#47;&#47; Contact</AnimatedText></h2>
               <ContactForm />
             </section>
           </section>
