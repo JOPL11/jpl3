@@ -535,7 +535,7 @@ export default function Home() {
                   <p><strong>Target Audience:</strong> Municipal officials</p>
                   <p><strong>Project Type:</strong> Municipal Dashboard</p>
                   <p><strong>Role:</strong> Design & Development</p>
-                  <p><strong>Tools:</strong><AnimatedText ref={citylink2TextRef} type="project">Next.js, Supabase, Geoman-io, leaflet, Openstreetmap</AnimatedText></p>
+                  <p><strong>Tools:</strong><AnimatedText ref={citylink2TextRef} type="project">Next.js, Supabase, Geoman-io, leaflet, Openstreetmap, REST</AnimatedText></p>
                 </ProjectCard>
                 <ProjectCard 
                   onMoreClick={() => {
@@ -576,13 +576,17 @@ export default function Home() {
                   }}
                 >
                   <p>A physically interactive showcase of Airbus technology explained on interactive touchscreens</p>
-                  <p><strong>Target Audience:</strong> Visitors at Airbus Group Ottobrunn Showroom, Ottobrunn</p>
-                  <p><strong>Project Type:</strong><AnimatedText ref={airbusTextRef} type="project">RFID Driven Interactive Experience</AnimatedText></p>
+                  <p><strong>Target Audience:</strong> Visitors at Airbus Group Ottobrunn Showroom</p>
+                  <p><strong>Project Type:</strong><AnimatedText ref={airbusTextRef} type="project"> RFID Driven Interactive Experience</AnimatedText></p>
                   <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
                   <p><strong>Duration:</strong> 3 months and years of updates</p>
                 </ProjectCard>
                     
-             {/*   <ProjectCard 
+                <ProjectCard 
+                onMoreClick={() => {
+                    console.log('airbus2 More button clicked, triggering animation');
+                    airbus2TextRef.current?.animate();
+                  }}
                   title="Airbus Berlin Showroom Interface"
                  // image="/images/corp/airbus.jpg"
                  image="/images/JPL3Poster_AB.jpg"
@@ -631,7 +635,7 @@ export default function Home() {
                   }}>
                   <p>An interactive catalogue of Airbus technology and the company&apos;s history made for visiting foreign state officials and clients.</p>
                   <p><strong>Target Audience:</strong> Guests at Airbus Headquarters, Berlin</p>
-                  <p><strong>Project Type:</strong> Touchtable Interface</p>
+                  <p><strong>Project Type:</strong><AnimatedText ref={airbus2TextRef} type="project"> Touchtable Interface</AnimatedText></p>
                   <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
                   <p><strong>Duration:</strong> 3 months and years of updates</p>
                   
@@ -639,7 +643,7 @@ export default function Home() {
                 
             
                
-                 <ProjectCard 
+         {/*        <ProjectCard 
                   title="Spiegel Geschichte TV Website"
                  image="/images/corp/spg.jpg"
                   alt="Spiegel Geschichte TV Website"
