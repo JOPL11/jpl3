@@ -217,6 +217,7 @@ export default function Home() {
   const streetlampTextRef = useRef(null);
   const qcTextRef = useRef(null);
   const facilityTextRef = useRef(null);
+  const roadrichTextRef = useRef(null);
 
 
 
@@ -450,6 +451,43 @@ export default function Home() {
               <h2 id="projects-heading" className={styles.scrollTarget}><AnimatedText ref={workHeadingRef}>&#47;&#47; Code</AnimatedText></h2>
           
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
+              <ProjectCard 
+                 onMoreClick={() => {
+                  console.log('RoadRich More button clicked, triggering animation');
+                  roadrichTextRef.current?.animate();
+                }}
+                  title="RoadRich App"
+                  image="/images/corp/rr1.jpg"
+                  alt="RoadRich App"
+                  //link="https://sb202.vercel.app"
+                  textPosition="bottom"
+                  text={`<b>App in development.</b>
+                  <br />
+                  <br />
+                  Share locations of cool Sperrmüll you encounter on the streets. Maybe you don't want it. Maybe someone else will.`}
+                  client={{
+                    name: "RoadRich |",
+                    logo: "/images/rrlogolongwhite.svg",
+                    //website: "#"
+                  }}
+                  logoWidth={250}
+                  logoHeight={40}
+                  logoStyle={{
+                    height: '20px',
+                    width: 'auto',   
+                    maxWidth: '100%'
+                  }}
+                >
+                  <p><strong>Target Audience:</strong> Sperrmüll Hunters</p>
+                  <p><strong>Project Type:</strong> Neighborhood clean-up App</p>
+                  <p><strong>Role:</strong> Design & Development</p>
+                  <p><strong>Tools:</strong><AnimatedText ref={roadrichTextRef} type="project"> Next.js, Typescript, Tailwind, Supabase, Openstreetmap, dompurify</AnimatedText></p>
+                  <p><strong>Features:</strong> Game Mode, Leaderboard, Score Distribution, manual or automatic Geolocation, Rate Limiting, CSRF Prevention, XSS Prevention, RLS, Optional Analytics, Optional Auth, Hashed IP Geofencing, Comprehensive Crash Guarding, i18n multilanguage support</p>
+                  <p><strong>Goal:</strong> Make something fun, easy to use and secure in compliance with GDPR. At the same time making for a more streamlined and efficient process for municipal officials to manage environmental reports.</p>
+                </ProjectCard>
+
+
+
               <ProjectCard
                onMoreClick={() => {
                 console.log('citylink1 More button clicked, triggering animation');
