@@ -682,7 +682,7 @@ export default function Home() {
                 
             
                
-         {/*        <ProjectCard 
+                 <ProjectCard 
                   title="Spiegel Geschichte TV Website"
                  image="/images/corp/spg.jpg"
                   alt="Spiegel Geschichte TV Website"
@@ -720,7 +720,7 @@ export default function Home() {
                   <p><strong>Duration:</strong> 3 months / 6 years of updates</p>
                 </ProjectCard> 
                
-            {/*     <ProjectCard 
+            {/*   {/*  <ProjectCard 
                   title="Middle Caicos Festival"
                   image="/images/JPL3Poster_BB.jpg"
                   alt="Middle Caicos Festival"
