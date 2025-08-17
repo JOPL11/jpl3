@@ -698,7 +698,8 @@ export default function Home() {
                     <br /><br />Famous historical photographs were used in a slideshow that was the backdrop for the UI, which in turn had videoclip thumbnails of the station's documentaries.
                     <br /><br />If left alone, the UI would continue to cycle through its various sections of images and videos and interactive content automatically, creating a never-ending slideshow of historical content acyclicly.
                     <br /><br />Sometimes creating bizarre and unexpected semantic impressions.
-                    <br /><br />All branded behind and inside the Spiegel's iconic bright red Visual Identity stripe as its main UI element.`,
+                    <br /><br />All branded behind and inside the Spiegel's iconic bright orange Visual Identity stripe as its main UI element.
+                    <br /><br />It was the official site for over 6 years.`,     
                     images: [
                       { src: "/images/SGA_1.jpg", alt: "Project Screenshot 1" },
                       { src: "/images/SGA_2.jpg", alt: "Project Screenshot 2" },
