@@ -77,7 +77,7 @@ h2 {
   font-family: var(--font-inter);
   text-shadow: 0 4 20px rgba(0, 240, 255, 0.2);
   font-size: 2rem;
-  font-weight: 200;
+  font-weight: 400;
 }
 
 @media (prefers-color-scheme: dark) {

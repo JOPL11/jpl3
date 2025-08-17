@@ -459,9 +459,9 @@ export default function Home() {
                   title="RoadRich App"
                   image="/images/corp/rr1.jpg"
                   alt="RoadRich App"
-                  //link="https://sb202.vercel.app"
+                  link="https://roadrich.vercel.app/"
                   textPosition="bottom"
-                  text={`<b>Demo coming soon</b>
+                  text={`<b>Proof of concept Demo</b>
                   <br />
                   <br />
                   Share locations of cool Sperrmüll you encounter on the streets. Maybe you don't want it. Maybe someone else will.`}
@@ -481,8 +481,8 @@ export default function Home() {
                   <p><strong>Target Audience:</strong> Sperrmüll Hunters</p>
                   <p><strong>Project Type:</strong> Neighborhood clean-up App</p>
                   <p><strong>Role:</strong> Design & Development</p>
-                  <p><strong>Tools:</strong><AnimatedText ref={roadrichTextRef} type="project"> Next.js, Typescript, Tailwind, Supabase, Openstreetmap, dompurify</AnimatedText></p>
-                  <p><strong>Features:</strong> Manual or automatic Geolocation, Rate Limiting, XSS Prevention, RLS.</p>
+                  <p><strong>Tools:</strong><AnimatedText ref={roadrichTextRef} type="project"> Next.js, Typescript, Tailwind, Supabase, Openstreetmap</AnimatedText></p>
+                  <p><strong>Features:</strong> Photo capture / compression. Geolocation. Supabase. Openstreetmap.</p>
                   <p><strong>Goal:</strong> Make something fun, easy to use and secure in compliance with GDPR.</p>
                 </ProjectCard>
 
