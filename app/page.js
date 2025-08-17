@@ -250,6 +250,15 @@ export default function Home() {
           wheelMultiplier: 1,
           touchMultiplier: 2,
           normalizeWheel: true,
+          wrapper: (element) => {
+            // If the modal is open, return the modal's scrollable element
+            const modalContent = document.querySelector(`.${styles.modalContent}`);
+            if (modalContent && modalContent.offsetParent !== null) {
+              return modalContent;
+            }
+            // Otherwise use default window scrolling
+            return window;
+          },
           easing: (t) => Math.min(1, 1.001 - Math.pow(2, -15 * t)), // https://www.desmos.com/calculator/brs54l4xou
       },
   });
@@ -518,7 +527,7 @@ export default function Home() {
                   <p><strong>Tools:</strong><AnimatedText ref={citylink1TextRef} type="project"> Next.js, react</AnimatedText></p>
                 </ProjectCard>
 
-                <ProjectCard 
+            {/*   <ProjectCard 
                  onMoreClick={() => {
                   console.log('bumpi More button clicked, triggering animation');
                   bumpiTextRef.current?.animate();
@@ -576,6 +585,10 @@ export default function Home() {
                   <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Tools:</strong><AnimatedText ref={citylink2TextRef} type="project">Next.js, Supabase, Geoman-io, leaflet, Openstreetmap, REST</AnimatedText></p>
                 </ProjectCard>
+
+
+
+                */}  
                 <ProjectCard 
                   onMoreClick={() => {
                     console.log('Airbus1 More button clicked, triggering animation');
@@ -724,7 +737,7 @@ export default function Home() {
                   <p><strong>Duration:</strong> 3 months / 6 years of updates</p>
                 </ProjectCard> 
                
-            {/*   {/*  <ProjectCard 
+            {/*     <ProjectCard 
                   title="Middle Caicos Festival"
                   image="/images/JPL3Poster_BB.jpg"
                   alt="Middle Caicos Festival"
