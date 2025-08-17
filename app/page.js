@@ -464,7 +464,7 @@ export default function Home() {
                   text={`<b>Proof of concept Demo</b>
                   <br />
                   <br />
-                  Share locations of cool Sperrmüll you encounter on the streets. Maybe you don't want it. Maybe someone else will.`}
+                  Share locations of cool Sperrmüll you encounter on the streets of Berlin. Maybe you don't want it. Maybe someone else will.`}
                   client={{
                     name: "RoadRich |",
                     logo: "/images/rrlogolongwhite.svg",
@@ -692,10 +692,13 @@ export default function Home() {
                     website: "https://www.autentic.com/"
                   }}
                   modalContent={{
-                    description: `Official Website for the Pay TV channel Spiegel Geschichte TV. Legacy project, not the current Spiegel Geschichte TV website.<br/>
-                    It was more like generative historical thoughtprovoker. Well known images of historical photographs were used in a slideshow that was the backdrop for the UI, which had famous historical videoclip thumbnails. If left alone,
-                    the UI would continue to cycle through its various sections of images and videos and interactive content, creating a never-ending slideshow of historical content acyclicly. Sometimes creating bizarre and unexpected semantic impressions.
-                    All branded behind and inside the Spiegel's iconic bright red Visual Identity stripe as its main UI element.`,
+                    description: `Official Website for the Pay TV channel Spiegel Geschichte TV. 
+                    <br /><br />Legacy project, not the current Spiegel Geschichte TV website.
+                    <br /><br />It was more like generative art. Historical thoughtprovoker. 
+                    <br /><br />Famous historical photographs were used in a slideshow that was the backdrop for the UI, which in turn had videoclip thumbnails of the station's documentaries.
+                    <br /><br />If left alone, the UI would continue to cycle through its various sections of images and videos and interactive content automatically, creating a never-ending slideshow of historical content acyclicly.
+                    <br /><br />Sometimes creating bizarre and unexpected semantic impressions.
+                    <br /><br />All branded behind and inside the Spiegel's iconic bright red Visual Identity stripe as its main UI element.`,
                     images: [
                       { src: "/images/SGA_1.jpg", alt: "Project Screenshot 1" },
                       { src: "/images/SGA_2.jpg", alt: "Project Screenshot 2" },
