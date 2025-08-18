@@ -527,7 +527,7 @@ export default function Home() {
                   <p><strong>Tools:</strong><AnimatedText ref={citylink1TextRef} type="project"> Next.js, react</AnimatedText></p>
                 </ProjectCard>
 
-            {/*   <ProjectCard 
+            {/*    */}  <ProjectCard 
                  onMoreClick={() => {
                   console.log('bumpi More button clicked, triggering animation');
                   bumpiTextRef.current?.animate();
@@ -588,8 +588,8 @@ export default function Home() {
 
 
 
-                */}  
-                <ProjectCard 
+               
+         {/*         <ProjectCard 
                   onMoreClick={() => {
                     console.log('Airbus1 More button clicked, triggering animation');
                     airbusTextRef.current?.animate();
@@ -695,7 +695,7 @@ export default function Home() {
                 
             
                
-              {/*    <ProjectCard 
+                <ProjectCard 
                   title="Spiegel Geschichte TV Website"
                  image="/images/corp/spg.jpg"
                   alt="Spiegel Geschichte TV Website"
