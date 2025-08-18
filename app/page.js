@@ -562,7 +562,7 @@ export default function Home() {
                   <p><strong>Features:</strong> Game Mode, Leaderboard, Score Distribution, manual or automatic Geolocation, Rate Limiting, CSRF Prevention, XSS Prevention, RLS, Optional Analytics, Optional Auth, Hashed IP Geofencing, Comprehensive Crash Guarding, i18n multilanguage support</p>
                   <p><strong>Goal:</strong> Make something fun, easy to use and secure in compliance with GDPR. At the same time making for a more streamlined and efficient process for municipal officials to manage environmental reports.</p>
                 </ProjectCard>
-                <ProjectCard 
+         {/*           <ProjectCard 
                  onMoreClick={() => {
                   console.log('citylink2 More button clicked, triggering animation');
                   citylink2TextRef.current?.animate();
@@ -589,7 +589,7 @@ export default function Home() {
 
 
                
-         {/*         <ProjectCard 
+              <ProjectCard 
                   onMoreClick={() => {
                     console.log('Airbus1 More button clicked, triggering animation');
                     airbusTextRef.current?.animate();
@@ -811,24 +811,7 @@ export default function Home() {
                 </ProjectCard>
                 {!isMobile && (
                   <>
-                    <ProjectCard 
-                    onMoreClick={() => {
-                      console.log('Bytes101 More button clicked, triggering animation');
-                      qcTextRef.current?.animate();
-                    }}
-                      title="Schrödinger & Bohr Quantum Pocketwatches "
-                      image="/images/JPL3Poster_QC.jpg"
-                      alt="Quantum Pocketwatch Company"
-                      link="https://quantum-pocketwatch.vercel.app/"
-                      text="<strong>Desktop Only</strong>. Featuring custom 3D models and interactions." 
-                      className="webglProject"
-                    >
-                      <p>Visual Concept Experiment</p>
-                      <p><strong>Tools:</strong><AnimatedText ref={qcTextRef} type="project">Three.js / React 3 Fiber / GSAP / Router / Next.js</AnimatedText></p>
-                      <p><strong>Role:</strong> Concept / Animation / Dev</p>
-                      <p><strong>Duration:</strong> 2 weeks</p>
-                      <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
-                    </ProjectCard>
+               
                     <ProjectCard 
                       onMoreClick={() => {
                         console.log('streetlamp More button clicked, triggering animation');
@@ -863,6 +846,26 @@ export default function Home() {
                       <p><strong>Tools:</strong><AnimatedText ref={facilityTextRef} type="project">Three.js / React 3 Fiber / GLSL / GSAP</AnimatedText></p>
                       <p><strong>Role:</strong> Concept / Animation / Dev</p>
                       <p><strong>Duration:</strong> 3 weeks</p>
+                      <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
+                    </ProjectCard>
+
+
+                    <ProjectCard 
+                    onMoreClick={() => {
+                      console.log('Bytes101 More button clicked, triggering animation');
+                      qcTextRef.current?.animate();
+                    }}
+                      title="Schrödinger & Bohr Quantum Pocketwatches "
+                      image="/images/JPL3Poster_QC.jpg"
+                      alt="Quantum Pocketwatch Company"
+                      link="https://quantum-pocketwatch.vercel.app/"
+                      text="<strong>Desktop Only</strong>. Featuring custom 3D models and interactions." 
+                      className="webglProject"
+                    >
+                      <p>Visual Concept Experiment</p>
+                      <p><strong>Tools:</strong><AnimatedText ref={qcTextRef} type="project">Three.js / React 3 Fiber / GSAP / Router / Next.js</AnimatedText></p>
+                      <p><strong>Role:</strong> Concept / Animation / Dev</p>
+                      <p><strong>Duration:</strong> 2 weeks</p>
                       <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
                     </ProjectCard>
                   </>
