@@ -587,7 +587,7 @@ export default function Home() {
                 </ProjectCard>
 
 
-
+      */}
                
               <ProjectCard 
                   onMoreClick={() => {
@@ -694,7 +694,7 @@ export default function Home() {
                 </ProjectCard>
                 
             
-               
+          
                 <ProjectCard 
                   title="Spiegel Geschichte TV Website"
                  image="/images/corp/spg.jpg"
@@ -736,7 +736,7 @@ export default function Home() {
                   <p><strong>Role:</strong> Lead Designer / Coder</p>
                   <p><strong>Duration:</strong> 3 months / 6 years of updates</p>
                 </ProjectCard> 
-               */}
+              
             {/*     <ProjectCard 
                   title="Middle Caicos Festival"
                   image="/images/JPL3Poster_BB.jpg"

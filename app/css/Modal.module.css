@@ -18,6 +18,8 @@
   -khtml-user-drag: auto;
   -moz-user-drag: auto;
   -o-user-drag: auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 @keyframes fadeIn {
@@ -30,7 +32,7 @@
   border-radius: 12px;
   max-width: 90vw;
   max-height: 90vh;
-  overflow: auto;
+  overflow-y: auto;
   position: relative;
   padding: 2.5rem;
   border: 0px solid #333;
@@ -41,6 +43,9 @@
   -webkit-user-select: auto;
   -moz-user-select: auto;
   -ms-user-select: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  margin: auto;
 }
 
 .closeButton {
