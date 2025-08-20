@@ -414,7 +414,7 @@ export default function Home() {
              {/*About Section Detector Here*/} 
              <SectionTracker onSectionChange={setActiveSection} />
             <h2 style={{paddingTop: "1rem"}}><AnimatedText ref={aboutHeadingRef}>About</AnimatedText></h2>
-            <p>Hi! My name is Jan Peiro.</p>
+            <p>Hi! I&apos;m Jan Peiro.</p>
 
             <p>Studied Communications Design in Munich, Germany.</p>
            

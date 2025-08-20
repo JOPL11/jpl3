@@ -55,25 +55,27 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
       setIsIOS(isIOS);
       setIsMounted(true);
 
-      // Handle WebGL context lost
+      // Store the current ref in a variable for cleanup
+      const currentCanvas = canvasRef.current;
+      
       const handleContextLost = (event) => {
         console.warn('WebGL context lost, falling back to SVG');
         event.preventDefault();
         setUseFallback(true);
       };
 
-      if (canvasRef.current) {
-        const gl = canvasRef.current.getContext('webgl');
+      if (currentCanvas) {
+        const gl = currentCanvas.getContext('webgl');
         if (gl) {
-          gl.canvas.addEventListener('webglcontextlost', handleContextLost, false);
+          currentCanvas.addEventListener('webglcontextlost', handleContextLost, false);
         }
       }
 
       return () => {
-        if (canvasRef.current) {
-          const gl = canvasRef.current.getContext('webgl');
+        if (currentCanvas) {
+          const gl = currentCanvas.getContext('webgl');
           if (gl) {
-            gl.canvas.removeEventListener('webglcontextlost', handleContextLost, false);
+            currentCanvas.removeEventListener('webglcontextlost', handleContextLost, false);
           }
         }
       };
@@ -125,7 +127,7 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
           position={[1, 1, 2]} 
           intensity={0.7}
         />
-        <pointLight position={[5, 5, 5]} intensity={0.2} color="#87cacf" />
+        <pointLight position={[2, 2, -2]} intensity={0.2} color="#87cacf" />
         
         <Suspense fallback={null}>
           <Model url="/assets/logo.glb" position={[0, 0, 0]} />
@@ -134,11 +136,11 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
         <OrbitControls 
           enableZoom={false}
           autoRotate
-          autoRotateSpeed={1}
+          autoRotateSpeed={0.1}
           enablePan={false}
           enableDamping={true}
           dampingFactor={0.05}
-          rotateSpeed={0.01}
+          rotateSpeed={0.1}
           target={[0, 0, 0]}
         />
       </Canvas>

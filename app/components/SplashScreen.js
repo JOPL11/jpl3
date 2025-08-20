@@ -216,7 +216,7 @@ function SplashScreenScene() {
       <pointLight position={[0, 10, 10]} intensity={4} />
       {/* Logo - placed further back with proper 3D integration */}
       <mesh ref={meshRef} position={[0, 0, -22]} rotation={[0, 0, 0]}>
-        <planeGeometry args={[3, 4]} />
+        <planeGeometry args={[3, 4.2]} />
         <meshStandardMaterial 
           map={gradientTexture} 
           transparent={true}
