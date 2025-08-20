@@ -20,7 +20,7 @@ export default function SplashScreen() {
       }, 500);
       
       return () => clearTimeout(removeTimer);
-    }, 1700);
+    }, 1200);
 
     return () => clearTimeout(timer);
   }, []);

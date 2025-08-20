@@ -1,0 +1,168 @@
+/* DesktopCarousel.module.css */
+.carouselContainer {
+  position: relative;
+  max-width: 1100px;
+  max-height: 1100px;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  color: white;
+  border-radius: 8px;
+  overflow: hidden !important;
+}
+
+.carouselContent {
+  flex: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0rem;
+  min-height: 0; /* Allows content to shrink */
+}
+
+.descriptionSlide {
+  max-width: 1100px;
+  max-height: 1100px;
+  width: 100%;
+  height: 100%;
+  overflow-y: none;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.0);
+  border-radius: 8px 8px 0 0;
+
+}
+
+.descriptionSlide h3 {
+  margin-top: 0;
+  color: #00f0ff;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.descriptionText {
+  line-height: 1.7;
+  color: #e2e8f0;
+}
+
+.descriptionText p {
+  margin: 0 0 1.5rem 0;
+}
+
+.imageSlide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0);
+  padding: 0rem;
+  box-sizing: border-box;
+}
+
+.carouselImage {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  position: static;
+  transform: none;
+  top: auto;
+  left: auto;
+}
+
+.imagePlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 0, 0, 0.1);
+  border: 2px dashed rgba(255, 0, 0, 0.3);
+  color: #ff6b6b;
+  padding: 2rem;
+  text-align: center;
+}
+
+.imagePlaceholder p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0);
+  border-top: 0px solid rgba(255, 255, 255, 0.1);
+}
+
+.navButton {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: all 0.2s ease;
+  padding: 0;
+  margin: 0;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.navButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.pagination {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.paginationDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  padding: 0;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.paginationDot:hover {
+  transform: scale(1.2);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.paginationDot.active {
+  background: #00f0ff;
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+/* Hide on mobile */
+@media (max-width: 1024px) {
+  .carouselContainer {
+    display: none;
+  }
+}

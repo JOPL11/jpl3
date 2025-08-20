@@ -6,6 +6,18 @@ import styles from '../css/page.module.css';
 import { useModal } from './ModalContext';
 import ProjectModal from './ProjectModal';
 import ModalLink from './ModalLink';
+import dynamic from 'next/dynamic';
+
+const DesktopCarousel = dynamic(
+  () => import('./DesktopCarousel'),
+  { ssr: false }
+);
+
+const ModalWrapper = ({ children, isDesktop }) => (
+  <div className={isDesktop ? "desktop-only" : "mobile-only"}>
+    {children}
+  </div>
+);
 
 export default function ProjectCard({ 
   title, 
@@ -36,13 +48,24 @@ export default function ProjectCard({
     }
     if (modalContent) {
       openModal(
-        <ProjectModal 
-          title={title}
-          description={modalContent.description}
-          images={modalContent.images || []}
-          videos={modalContent.videos || []}
-          clientLogo={client?.logo}
-        />
+        <div className="modal-content-wrapper">
+          <ModalWrapper isDesktop={true}>
+            <DesktopCarousel 
+              title={title}
+              description={modalContent.description}
+              images={modalContent.images || []}
+            />
+          </ModalWrapper>
+          <ModalWrapper isDesktop={false}>
+            <ProjectModal 
+              title={title}
+              description={modalContent.description}
+              images={modalContent.images || []}
+              videos={modalContent.videos || []}
+              clientLogo={client?.logo}
+            />
+          </ModalWrapper>
+        </div>
       );
     }
   };

@@ -611,11 +611,13 @@ export default function Home() {
                   }}
                   text={"An interactive catalogue of Airbus technology made for the Ottobrunn showroom. Situated at Airbus Group's Munich offices."}
                   modalContent={{
-                    description: `15 Chapters // RFID Powered Touchscreen Interface <br/>// Animated interactive 3D Models & 2D UI menu system & content.
-                     A visitor would walk over to a wall mounted collection of plexiglass cubes which each contained a piece of Airbus tech, 
-                     take one cube and place it on a recepticle, which read an RFID chip and opened a touchscreen interface explaining the
+                    description: `15 Chapters 
+                    <br/><br/>RFID Powered Touchscreen Interface 
+                    <br/><br/>Animated interactive 3D Models & 2D UI menu system & content.
+                    <br/><br/>A visitor would walk over to a wall mounted collection of plexiglass cubes which each contained a piece of Airbus tech, 
+                     take one cube and place it on a recepticle, which read an RFID chip and opened a touchscreen interface on a 75" monitor explaining the
                      tech inside the cube.
-                     <br />
+                    <br/><br/>
                      Each tech was symbolized by a 3D model modeled after it, in the form of a symbolic kernel of the tech - a technocule , not a molecule -
                      and explained using text, images & video.`,
                     images: [
