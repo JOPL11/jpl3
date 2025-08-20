@@ -5,31 +5,51 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { PerspectiveCamera, useTexture } from '@react-three/drei';
 import * as THREE from 'three';
 
-export default function SplashScreen() {
+export default function SplashScreen({ onComplete }) {
   const [isVisible, setIsVisible] = useState(true);
   const [shouldRender, setShouldRender] = useState(true);
   const [isIOS, setIsIOS] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [assetsLoaded, setAssetsLoaded] = useState(false);
 
   useEffect(() => {
-    // Check if we're on iOS
     const userAgent = window.navigator.userAgent;
     const isIOSDevice = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
     setIsIOS(isIOSDevice);
-    setIsMounted(true);
+    
+    if (isIOSDevice) {
+      onComplete?.();
+      return;
+    }
 
-    const timer = setTimeout(() => {
+    setIsMounted(true);
+    
+    const loadTimer = setTimeout(() => {
+      setAssetsLoaded(true);
+    }, 100);
+
+    return () => clearTimeout(loadTimer);
+  }, [onComplete]);
+
+  useEffect(() => {
+    if (!assetsLoaded) return;
+
+    const fadeOutDuration = 1000; 
+    const minDisplayTime = 2000; 
+    
+    const fadeOutTimer = setTimeout(() => {
       setIsVisible(false);
       
       const removeTimer = setTimeout(() => {
         setShouldRender(false);
-      }, 500);
+        onComplete?.();
+      }, fadeOutDuration);
       
       return () => clearTimeout(removeTimer);
-    }, isIOSDevice ? 0 : 4500); // Skip animation on iOS
+    }, minDisplayTime);
 
-    return () => clearTimeout(timer);
-  }, []);
+    return () => clearTimeout(fadeOutTimer);
+  }, [assetsLoaded, onComplete]);
 
   if (!shouldRender || isIOS || !isMounted) return null;
 
@@ -46,7 +66,7 @@ export default function SplashScreen() {
       maxHeight: '100vh',
       zIndex: 9999,
       opacity: isVisible ? 1 : 0,
-      transition: isVisible ? 'opacity 1.5s ease-out' : 'none',
+      transition: 'opacity 1s ease-in-out',
       pointerEvents: isVisible ? 'auto' : 'none',
       background: '#0f172a',
       overflow: 'hidden',
@@ -82,11 +102,9 @@ function SplashScreenScene() {
   const animationStarted = useRef(false);
   const startTime = useRef(0);
   
-  // Generate multiple columns of cubes
   const cubes = useRef([]);
   
   if (cubes.current.length === 0) {
-    // Create multiple columns of cubes
     const columns = 15;
     const rows = 21;
     const layers = 5;
@@ -94,15 +112,14 @@ function SplashScreenScene() {
     for (let col = 0; col < columns; col++) {
       for (let row = 0; row < rows; row++) {
         for (let layer = 0; layer < layers; layer++) {
-          // Random chance to skip some cubes for a more interesting pattern
           if (Math.random() > 0.1) {
             const size = 0.01 + Math.random() * 0.9;
             
             cubes.current.push({
               position: [
-                (col / columns - 0.5) * 33, // x position (-4 to 4)
-                (row / rows - 0.5) * 22,    // y position (-3 to 3)
-                -2 - layer * 2 - Math.random() * 3.3, // z position (-2 to -12)
+                (col / columns - 0.5) * 33, 
+                (row / rows - 0.5) * 22,    
+                -2 - layer * 2 - Math.random() * 3.3, 
               ],
               size: size,
             });
@@ -112,27 +129,21 @@ function SplashScreenScene() {
     }
   }
 
-  // Animation loop - camera flies through cubes
   useFrame(({ clock, camera }) => {
     if (meshRef.current) {
-      // Floating animation for logo
       meshRef.current.position.y = Math.sin(clock.getElapsedTime() * 0.5) * 0.1;
     }
     
-    // Initialize start time on first frame
     if (!animationStarted.current) {
       animationStarted.current = true;
       startTime.current = clock.getElapsedTime();
       return;
     }
     
-    // Camera flies through cubes toward logo
     const elapsedTime = clock.getElapsedTime() - startTime.current;
     
-    // Start from initial position (z:33) and fly through to z:-12
     if (elapsedTime < 3) {
-      // Smooth interpolation from start to end position
-      const progress = elapsedTime / 3; // 0 to 1 over 3 seconds
+      const progress = elapsedTime / 3; 
       const startZ = 22;
       const endZ = -12;
       camera.position.z = startZ + (endZ - startZ) * progress;
@@ -149,17 +160,14 @@ function SplashScreenScene() {
         zoom={1} 
       />
       
-      {/* Ambient light for overall illumination */}
       <ambientLight intensity={0.3} />
       
-      {/* Directional light to create specular highlights on metallic surfaces */}
       <directionalLight
         position={[10, 10, 5]}
         intensity={1}
         castShadow
       />
       
-      {/* Background gradient */}
       <mesh position={[0, 0, -15]}>
         <planeGeometry args={[20, 20]} />
         <shaderMaterial
@@ -176,13 +184,12 @@ function SplashScreenScene() {
               vec2 center = vec2(0.5, 0.5);
               float dist = distance(uv, center);
               
-              vec3 color1 = vec3(0.388, 0.702, 0.929); // #63b3ed
-              vec3 color2 = vec3(0.31, 0.4, 0.98);     // #4f67e1
+              vec3 color1 = vec3(0.388, 0.702, 0.929); 
+              vec3 color2 = vec3(0.31, 0.4, 0.98);     
               
               float gradient = smoothstep(0.0, 0.7, 1.0 - dist * 1.0);
               vec3 finalColor = mix(color1, color2, gradient);
               
-              // Fade out at edges
               float alpha = smoothstep(0.7, 0.3, dist);
               
               gl_FragColor = vec4(finalColor * alpha * 0.3, alpha * 0.3);
@@ -192,7 +199,6 @@ function SplashScreenScene() {
         />
       </mesh>
       
-      {/* Multiple columns of metallic cubes */}
       {cubes.current.map((cube, index) => (
         <mesh
           key={index}
@@ -200,9 +206,9 @@ function SplashScreenScene() {
         >
           <boxGeometry args={[cube.size, cube.size, cube.size]} />
           <meshStandardMaterial 
-            color="#63b3ed" // Single blue color for all cubes
-            metalness={0.9}  // Highly metallic
-            roughness={0.2}  // Slightly rough for realistic metal
+            color="#63b3ed" 
+            metalness={0.9}  
+            roughness={0.2}  
             envMapIntensity={1}
           />
         </mesh>
@@ -214,7 +220,6 @@ function SplashScreenScene() {
         castShadow
       />
       <pointLight position={[0, 10, 10]} intensity={4} />
-      {/* Logo - placed further back with proper 3D integration */}
       <mesh ref={meshRef} position={[0, 0, -22]} rotation={[0, 0, 0]}>
         <planeGeometry args={[3, 4.2]} />
         <meshStandardMaterial 
