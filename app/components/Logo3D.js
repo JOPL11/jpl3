@@ -1,0 +1,147 @@
+'use client';
+
+import { useEffect, useState, Suspense, useRef } from 'react';
+import Image from 'next/image';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, useGLTF } from '@react-three/drei';
+import * as THREE from 'three';
+import styles from './Logo3D.module.css';
+
+// Preload the GLB file
+useGLTF.preload('/assets/logo.glb');
+
+// Simple model component
+function Model({ url, position = [0, 0, 0] }) {
+  const { scene } = useGLTF(url);
+  
+  // Apply default material to all meshes if they don't have one
+  scene.traverse((child) => {
+    if (child.isMesh) {
+      child.castShadow = true;
+      child.receiveShadow = true;
+      
+      // If no material or material is MeshStandardMaterial without map
+      if (!child.material || 
+          (child.material.isMeshStandardMaterial && !child.material.map)) {
+        child.material = new THREE.MeshPhongMaterial({
+          color: 0x87cacf,
+          shininess: 5,
+          specular: 0xFFFFFF,
+          emissive: 0x000000,
+          flatShading: false
+        });
+      }
+    }
+  });
+  
+  return (
+    <group position={position}>
+      <primitive object={scene} scale={0.05} />
+    </group>
+  );
+}
+
+export default function Logo3D({ width = 250, height = 250, className = '' }) {
+  const [isIOS, setIsIOS] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+  const [useFallback, setUseFallback] = useState(false);
+  const canvasRef = useRef();
+
+  useEffect(() => {
+    try {
+      // Check if we're on iOS
+      const userAgent = window.navigator.userAgent;
+      const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+      setIsIOS(isIOS);
+      setIsMounted(true);
+
+      // Handle WebGL context lost
+      const handleContextLost = (event) => {
+        console.warn('WebGL context lost, falling back to SVG');
+        event.preventDefault();
+        setUseFallback(true);
+      };
+
+      if (canvasRef.current) {
+        const gl = canvasRef.current.getContext('webgl');
+        if (gl) {
+          gl.canvas.addEventListener('webglcontextlost', handleContextLost, false);
+        }
+      }
+
+      return () => {
+        if (canvasRef.current) {
+          const gl = canvasRef.current.getContext('webgl');
+          if (gl) {
+            gl.canvas.removeEventListener('webglcontextlost', handleContextLost, false);
+          }
+        }
+      };
+    } catch (err) {
+      console.error('Error in Logo3D:', err);
+      setUseFallback(true);
+    }
+  }, []);
+
+  // Fallback to SVG if needed
+  if (useFallback || isIOS || !isMounted) {
+    return (
+      <Image 
+        src="/images/jp.svg"
+        alt="Jan Peiro Logo"
+        width={width}
+        height={height}
+        className={className}
+        priority
+      />
+    );
+  }
+
+  // Try to render the 3D model
+  return (
+    <div className={`${styles.logoContainer} ${className}`}>
+      <Canvas 
+        ref={canvasRef}
+        className={styles.canvasContainer}
+        camera={{ position: [0, 0, 5], fov: 45, near: 0.1, far: 1000 }}
+        gl={{
+          antialias: true,
+          powerPreference: 'high-performance',
+          alpha: true,
+          preserveDrawingBuffer: true,
+          alphaToCoverage: true,
+          premultipliedAlpha: false
+        }}
+        dpr={[1, 2]}
+        onCreated={({ gl, scene }) => {
+          gl.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+          gl.setClearColor(0, 0, 0, 0);
+          scene.background = null;
+        }}
+      >
+        <color attach="background" args={[0x000000, 0]} />
+        <ambientLight intensity={0.5} color={0xffffff} />
+        <directionalLight 
+          position={[1, 1, 2]} 
+          intensity={0.7}
+        />
+        <pointLight position={[5, 5, 5]} intensity={0.2} color="#87cacf" />
+        
+        <Suspense fallback={null}>
+          <Model url="/assets/logo.glb" position={[0, 0, 0]} />
+        </Suspense>
+        
+        <OrbitControls 
+          enableZoom={false}
+          autoRotate
+          autoRotateSpeed={1}
+          enablePan={false}
+          enableDamping={true}
+          dampingFactor={0.05}
+          rotateSpeed={0.01}
+          target={[0, 0, 0]}
+        />
+      </Canvas>
+    </div>
+  );
+}

@@ -230,9 +230,9 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.5rem;
-  margin: 0.8rem 0;
+  margin: 1rem 0 0.7rem 0 ;
   padding: 0 1rem;
-  width: 100%;
+  width: 80%;
   box-sizing: border-box;
 }
 
@@ -298,7 +298,7 @@
     max-width: 400px;
   }
   .contentLogo {
-    max-width: 300px;  
+    max-width: 200px;  
     min-height: 0;
     padding: 0.2rem;  
     z-index: 0;
@@ -314,8 +314,8 @@
     pointer-events: none;
   }
   .logoSidebar{
-    max-width: 300px;
-    width: 300px;
+    max-width: 250px;
+    width: 250px;
     height: auto;
     margin: 0 auto;
     padding: 1rem;  
@@ -368,7 +368,7 @@
   
   @media (max-width: 480px) {
     .contentLogo {
-      max-width: 400px;  
+      max-width: 300px;  
       min-height: 0;
       padding: 0.25rem;  
       z-index: 0;
@@ -409,7 +409,7 @@
     flex: 0 0 auto;
     height: auto;
     max-height: none;
-    padding: 0.5rem 0;
+    padding: 1rem 0;
   }
   
   .logoContainer {
@@ -421,7 +421,7 @@
   }
   
   .contentLogo {
-    max-width: 300px;
+    max-width: 20px;
     width: 100%;
     height: auto;
     margin: 0 auto;
@@ -445,9 +445,9 @@
   display: flex;
   justify-content: center;
   gap: 0.2rem;
-  margin-top: 0.4rem;
+  margin: 0.1rem 0rem 0 2.5rem;
   font-size: 1.2rem;
-  width: 100%;
+  width: 80%;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -472,12 +472,18 @@
 }
 
 .contentLogo {
-  padding: 2.5rem;
-  max-height: 29vh; /* Allow it to take up to the full viewport height */
-  object-fit: contain; /* Maintain aspect ratio */
+  padding: 1.5rem 2.5rem;
+  max-height: none;
+  height: auto;
+  width: 100%;
+  max-width: 380px;
+  margin: 3.4rem auto 0.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   filter: drop-shadow(0 5px 8px rgba(3, 9, 20, 0.5));
-  margin-top: 3.4rem; /* Add space above the logo */
- 
+  position: relative;
+  z-index: 1;
 }
 
 .content {

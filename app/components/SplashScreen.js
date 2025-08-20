@@ -1,42 +1,230 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import styles from '../css/SplashScreen.module.css';
+import { useEffect, useState, useRef } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { PerspectiveCamera, useTexture } from '@react-three/drei';
+import * as THREE from 'three';
 
 export default function SplashScreen() {
   const [isVisible, setIsVisible] = useState(true);
   const [shouldRender, setShouldRender] = useState(true);
+  const [isIOS, setIsIOS] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    // Hide the splash screen after 3 seconds
+    // Check if we're on iOS
+    const userAgent = window.navigator.userAgent;
+    const isIOSDevice = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+    setIsIOS(isIOSDevice);
+    setIsMounted(true);
+
     const timer = setTimeout(() => {
-      // Start fade out animation
       setIsVisible(false);
       
-      // Remove from DOM after animation completes
       const removeTimer = setTimeout(() => {
         setShouldRender(false);
       }, 500);
       
       return () => clearTimeout(removeTimer);
-    }, 1200);
+    }, isIOSDevice ? 0 : 4500); // Skip animation on iOS
 
     return () => clearTimeout(timer);
   }, []);
 
-  if (!shouldRender) return null;
+  if (!shouldRender || isIOS || !isMounted) return null;
 
   return (
-    <div className={`${styles.splashScreen} ${!isVisible ? styles.fadeOut : ''}`}>
-      <Image 
-        src="/images/jp.svg"
-        alt="Jan Peiro Logo"
-        width={150}
-        height={150}
-        className={styles.logo}
-        priority
-      />
+    <div style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      width: '100% !important',
+      height: '100% !important',
+      maxWidth: '100vw',
+      maxHeight: '100vh',
+      zIndex: 9999,
+      opacity: isVisible ? 1 : 0,
+      transition: isVisible ? 'opacity 1.5s ease-out' : 'none',
+      pointerEvents: isVisible ? 'auto' : 'none',
+      background: '#0f172a',
+      overflow: 'hidden',
+      margin: 0,
+      padding: 0
+    }}>
+      <Canvas 
+        dpr={[1, 2]}
+        gl={{ antialias: true }}
+        style={{
+          display: 'block',
+          position: 'absolute',
+          inset: '0',
+          width: '100% !important',
+          height: '100% !important',
+          maxWidth: '100vw',
+          maxHeight: '100vh',
+          margin: 0,
+          padding: 0,
+          touchAction: 'none'
+        }}
+      >
+        <SplashScreenScene />
+      </Canvas>
     </div>
+  );
+}
+
+function SplashScreenScene() {
+  const meshRef = useRef();
+  const cameraRef = useRef();
+  const gradientTexture = useTexture('/images/jp.svg');
+  const animationStarted = useRef(false);
+  const startTime = useRef(0);
+  
+  // Generate multiple columns of cubes
+  const cubes = useRef([]);
+  
+  if (cubes.current.length === 0) {
+    // Create multiple columns of cubes
+    const columns = 15;
+    const rows = 21;
+    const layers = 5;
+    
+    for (let col = 0; col < columns; col++) {
+      for (let row = 0; row < rows; row++) {
+        for (let layer = 0; layer < layers; layer++) {
+          // Random chance to skip some cubes for a more interesting pattern
+          if (Math.random() > 0.1) {
+            const size = 0.01 + Math.random() * 0.9;
+            
+            cubes.current.push({
+              position: [
+                (col / columns - 0.5) * 33, // x position (-4 to 4)
+                (row / rows - 0.5) * 22,    // y position (-3 to 3)
+                -2 - layer * 2 - Math.random() * 3.3, // z position (-2 to -12)
+              ],
+              size: size,
+            });
+          }
+        }
+      }
+    }
+  }
+
+  // Animation loop - camera flies through cubes
+  useFrame(({ clock, camera }) => {
+    if (meshRef.current) {
+      // Floating animation for logo
+      meshRef.current.position.y = Math.sin(clock.getElapsedTime() * 0.5) * 0.1;
+    }
+    
+    // Initialize start time on first frame
+    if (!animationStarted.current) {
+      animationStarted.current = true;
+      startTime.current = clock.getElapsedTime();
+      return;
+    }
+    
+    // Camera flies through cubes toward logo
+    const elapsedTime = clock.getElapsedTime() - startTime.current;
+    
+    // Start from initial position (z:33) and fly through to z:-12
+    if (elapsedTime < 3) {
+      // Smooth interpolation from start to end position
+      const progress = elapsedTime / 3; // 0 to 1 over 3 seconds
+      const startZ = 22;
+      const endZ = -12;
+      camera.position.z = startZ + (endZ - startZ) * progress;
+    }
+  });
+
+  return (
+    <>
+      <PerspectiveCamera 
+        ref={cameraRef}
+        makeDefault 
+        position={[0, 0, 22]} 
+        fov={75}
+        zoom={1} 
+      />
+      
+      {/* Ambient light for overall illumination */}
+      <ambientLight intensity={0.3} />
+      
+      {/* Directional light to create specular highlights on metallic surfaces */}
+      <directionalLight
+        position={[10, 10, 5]}
+        intensity={1}
+        castShadow
+      />
+      
+      {/* Background gradient */}
+      <mesh position={[0, 0, -15]}>
+        <planeGeometry args={[20, 20]} />
+        <shaderMaterial
+          uniforms={{
+            time: { value: 0 },
+            resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) }
+          }}
+          fragmentShader={`
+            uniform vec2 resolution;
+            varying vec2 vUv;
+            
+            void main() {
+              vec2 uv = gl_FragCoord.xy / resolution.xy;
+              vec2 center = vec2(0.5, 0.5);
+              float dist = distance(uv, center);
+              
+              vec3 color1 = vec3(0.388, 0.702, 0.929); // #63b3ed
+              vec3 color2 = vec3(0.31, 0.4, 0.98);     // #4f67e1
+              
+              float gradient = smoothstep(0.0, 0.7, 1.0 - dist * 1.0);
+              vec3 finalColor = mix(color1, color2, gradient);
+              
+              // Fade out at edges
+              float alpha = smoothstep(0.7, 0.3, dist);
+              
+              gl_FragColor = vec4(finalColor * alpha * 0.3, alpha * 0.3);
+            }
+          `}
+          transparent={true}
+        />
+      </mesh>
+      
+      {/* Multiple columns of metallic cubes */}
+      {cubes.current.map((cube, index) => (
+        <mesh
+          key={index}
+          position={cube.position}
+        >
+          <boxGeometry args={[cube.size, cube.size, cube.size]} />
+          <meshStandardMaterial 
+            color="#63b3ed" // Single blue color for all cubes
+            metalness={0.9}  // Highly metallic
+            roughness={0.2}  // Slightly rough for realistic metal
+            envMapIntensity={1}
+          />
+        </mesh>
+      ))}
+      <ambientLight intensity={1.9} color={0xffffff}/>
+      <directionalLight 
+        position={[0, 0, 5]} 
+        intensity={1.5}
+        castShadow
+      />
+      <pointLight position={[0, 10, 10]} intensity={4} />
+      {/* Logo - placed further back with proper 3D integration */}
+      <mesh ref={meshRef} position={[0, 0, -22]} rotation={[0, 0, 0]}>
+        <planeGeometry args={[3, 4]} />
+        <meshStandardMaterial 
+          map={gradientTexture} 
+          transparent={true}
+          metalness={0.3}
+          roughness={0.4}
+          envMapIntensity={0.8}
+        />
+      </mesh>
+    </>
   );
 }

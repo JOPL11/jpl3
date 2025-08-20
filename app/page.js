@@ -48,6 +48,22 @@ const Hero3D = dynamic(() => import('./components/Hero3D'), {
   loading: () => <div style={{ width: '100%', height: '60vh', background: '#000' }} />
 });
 
+// Dynamically import the 3D logo with SSR disabled
+const Logo3D = dynamic(() => import('./components/Logo3D'), {
+  ssr: false,
+  loading: () => (
+    <Image 
+      src="/images/jp.svg" 
+      alt="" 
+      width={380}
+      height={380}
+      className={styles.contentLogo}
+      priority
+      aria-hidden="true"
+    />
+  )
+});
+
 function CopyrightYear() {
   const [year] = useState(new Date().getFullYear());
   return <>{year}</>;
@@ -310,15 +326,9 @@ export default function Home() {
         <div className={styles.contentWrapper}>
           <div className={styles.logoSidebar} role="complementary" aria-label="Logo and Navigation">
             <div>
-              <Image 
-                src="/images/jp.svg" 
-                alt="" 
-                width={380}
-                height={380}
-                className={styles.contentLogo}
-                priority
-                aria-hidden="true"
-              />
+              <div className={styles.contentLogo}>
+                <Logo3D />
+              </div>
               <div className={styles.menuContainer}>
           {/* <InteractiveMenu activeSection={activeSection} onSectionChange={setActiveSection} /> 
           {/* <InteractiveMenu activeSection={activeSection} onSectionChange={setActiveSection} /> */}
