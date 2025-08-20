@@ -35,7 +35,7 @@ export default function SplashScreen({ onComplete }) {
     if (!assetsLoaded) return;
 
     const fadeOutDuration = 1000; 
-    const minDisplayTime = 2000; 
+    const minDisplayTime = 3400; 
     
     const fadeOutTimer = setTimeout(() => {
       setIsVisible(false);
@@ -144,8 +144,14 @@ function SplashScreenScene() {
     
     if (elapsedTime < 3) {
       const progress = elapsedTime / 3; 
+      const startX = 0;
+      const endX = -0.25;
+      const startY = 0;
+      const endY = -2.5;
       const startZ = 22;
       const endZ = -12;
+      camera.position.x = startX + (endX - startX) * progress;
+      camera.position.y = startY + (endY - startY) * progress;
       camera.position.z = startZ + (endZ - startZ) * progress;
     }
   });
@@ -221,7 +227,7 @@ function SplashScreenScene() {
       />
       <pointLight position={[0, 10, 10]} intensity={4} />
       <mesh ref={meshRef} position={[0, 0, -22]} rotation={[0, 0, 0]}>
-        <planeGeometry args={[3, 4.2]} />
+        <planeGeometry args={[3, 4.5]} />
         <meshStandardMaterial 
           map={gradientTexture} 
           transparent={true}
