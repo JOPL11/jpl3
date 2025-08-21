@@ -146,7 +146,17 @@ export default function VideoModal({ isOpen, onClose, videoUrl }) {
         
         {showConsentBanner && (
           <div className={styles.consentBanner}>
-            <p>This video is hosted on Vimeo. To watch it, you need to accept our cookie policy.</p>
+            <p style={{ marginBottom: '1rem' }}>
+              This video is hosted on Vimeo and may use cookies for analytics and personalization. 
+              By clicking &quot;Accept&quot;, you agree to Vimeo&apos;s use of cookies as described in their{' '}
+              <a href="https://vimeo.com/privacy" target="_blank" rel="noopener noreferrer" style={{ color: '#4a90e2', textDecoration: 'underline' }}>
+                Privacy Policy
+              </a>{' '}
+              and{' '}
+              <a href="https://vimeo.com/cookie_policy" target="_blank" rel="noopener noreferrer" style={{ color: '#4a90e2', textDecoration: 'underline' }}>
+                Cookie Policy
+              </a>.
+            </p>
             <div className={styles.consentButtons}>
               <button 
                 className={styles.rejectButton}

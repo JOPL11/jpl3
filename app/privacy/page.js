@@ -13,12 +13,15 @@ export default function PrivacyPage() {
       <section className="mb-8">
         <h2 className="text-2xl font-semibold mb-4">Information We Collect</h2>
         <p className="mb-4">
-          We collect minimal information to provide and improve our services to you. This includes:
+          We are committed to your privacy. The only information we collect and store is:
         </p>
         <ul className="list-disc pl-6 mb-4 space-y-2">
-          <li>Information you provide when contacting us through our contact form (your email address and message)</li>
-          <li>Basic usage data through server logs (IP address, browser type, pages visited)</li>
+          <li>Information you voluntarily provide when contacting us through our contact form (your email address and message)</li>
         </ul>
+        <p className="text-sm text-gray-600 mb-4">
+          Note: Our hosting provider (Vercel) may collect server logs for operational purposes, but we do not access or store these logs. 
+          We do not use any analytics tracking on this website.
+        </p>
       </section>
 
       <section className="mb-8">

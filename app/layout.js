@@ -2,7 +2,7 @@ import { Inter } from 'next/font/google';
 import "./globals.css";
 import { ModalProvider } from './components/ModalContext';
 import dynamic from 'next/dynamic';
-import CookieBanner from './components/CookieBanner';
+//import CookieBanner from './components/CookieBanner';           <CookieBanner /> 
 import SplashScreen from './components/SplashScreen';
 import ScriptLoader from './components/ScriptLoader';
 
@@ -89,7 +89,6 @@ export default function RootLayout({ children }) {
         <ModalProvider>
           <SplashScreen />
           {children}
-          <CookieBanner /> 
         </ModalProvider>
       </body>
     </html>
