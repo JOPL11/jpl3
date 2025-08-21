@@ -98,7 +98,7 @@ export default function SplashScreen({ onComplete }) {
 function SplashScreenScene() {
   const meshRef = useRef();
   const cameraRef = useRef();
-  const gradientTexture = useTexture('/images/jp.svg');
+  //const gradientTexture = useTexture('/images/jp.svg');
   const animationStarted = useRef(false);
   const startTime = useRef(0);
   
@@ -149,7 +149,7 @@ function SplashScreenScene() {
       const startY = 0;
       const endY = -2.5;
       const startZ = 22;
-      const endZ = -12;
+      const endZ = -14;
       camera.position.x = startX + (endX - startX) * progress;
       camera.position.y = startY + (endY - startY) * progress;
       camera.position.z = startZ + (endZ - startZ) * progress;
@@ -174,36 +174,6 @@ function SplashScreenScene() {
         castShadow
       />
       
-      <mesh position={[0, 0, -15]}>
-        <planeGeometry args={[20, 20]} />
-        <shaderMaterial
-          uniforms={{
-            time: { value: 0 },
-            resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) }
-          }}
-          fragmentShader={`
-            uniform vec2 resolution;
-            varying vec2 vUv;
-            
-            void main() {
-              vec2 uv = gl_FragCoord.xy / resolution.xy;
-              vec2 center = vec2(0.5, 0.5);
-              float dist = distance(uv, center);
-              
-              vec3 color1 = vec3(0.388, 0.702, 0.929); 
-              vec3 color2 = vec3(0.31, 0.4, 0.98);     
-              
-              float gradient = smoothstep(0.0, 0.7, 1.0 - dist * 1.0);
-              vec3 finalColor = mix(color1, color2, gradient);
-              
-              float alpha = smoothstep(0.7, 0.3, dist);
-              
-              gl_FragColor = vec4(finalColor * alpha * 0.3, alpha * 0.3);
-            }
-          `}
-          transparent={true}
-        />
-      </mesh>
       
       {cubes.current.map((cube, index) => (
         <mesh
@@ -226,16 +196,7 @@ function SplashScreenScene() {
         castShadow
       />
       <pointLight position={[0, 10, 10]} intensity={4} />
-      <mesh ref={meshRef} position={[0, 0, -22]} rotation={[0, 0, 0]}>
-        <planeGeometry args={[3, 4.5]} />
-        <meshStandardMaterial 
-          map={gradientTexture} 
-          transparent={true}
-          metalness={0.3}
-          roughness={0.4}
-          envMapIntensity={0.8}
-        />
-      </mesh>
+
     </>
   );
 }
