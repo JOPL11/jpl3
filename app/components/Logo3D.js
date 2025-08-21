@@ -3,9 +3,11 @@
 import { useEffect, useState, Suspense, useRef } from 'react';
 import Image from 'next/image';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, useGLTF } from '@react-three/drei';
+import { OrbitControls, useGLTF, useTexture} from '@react-three/drei';
 import * as THREE from 'three';
 import styles from './Logo3D.module.css';
+
+
 
 // Preload the GLB file
 useGLTF.preload('/assets/logo.glb');
@@ -33,11 +35,35 @@ function Model({ url, position = [0, 0, 0] }) {
       }
     }
   });
+
   
   return (
     <group position={position}>
       <primitive object={scene} scale={0.05} />
     </group>
+  );
+}
+
+function NameText() {
+  const texture = useTexture('/assets/janpeiro.png');
+  
+  useEffect(() => {
+    if (texture) {
+      texture.colorSpace = THREE.SRGBColorSpace;
+      texture.needsUpdate = true;
+    }
+  }, [texture]);
+
+  return (
+    <mesh position={[-0.15, 0, 0.5]}>
+      <planeGeometry args={[1.0, 0.18]} />
+      <meshBasicMaterial 
+        map={texture}
+        transparent={true}
+        alphaTest={0.5}
+        side={THREE.DoubleSide}
+      />
+    </mesh>
   );
 }
 
@@ -85,6 +111,8 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
     }
   }, []);
 
+
+
   // Fallback to SVG if needed
   if (useFallback || isIOS || !isMounted) {
     return (
@@ -131,6 +159,7 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
         
         <Suspense fallback={null}>
           <Model url="/assets/logo.glb" position={[0, 0, 0]} />
+          <NameText />
         </Suspense>
         
         <OrbitControls 
