@@ -432,7 +432,7 @@ export default function Home() {
                 <li role="listitem">Typescript</li>
                 <li role="listitem">Bootstrap, Tailwind, MaterialUI</li>
                 <li role="listitem">Three.js, React 3 Fiber, WebXR</li>
-                <li role="listitem">vite, git, npm, yarn</li>
+                <li role="listitem">vite, git, gitlab, npm, yarn</li>
                 <li role="listitem">SQL / Supabase Experience</li>
                 <li role="listitem">GSAP, Framer Motion, CSS Animations, Spring</li>
                 <li role="listitem">SEO</li>
