@@ -17,6 +17,7 @@
     "@mui/material": "^7.3.1",
     "@react-three/drei": "^10.6.1",
     "@react-three/fiber": "^9.3.0",
+    "@react-three/postprocessing": "^3.0.4",
     "dompurify": "^3.2.6",
     "gsap": "^3.13.0",
     "isomorphic-dompurify": "^2.26.0",
