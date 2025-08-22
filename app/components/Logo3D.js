@@ -6,7 +6,13 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF, useTexture } from '@react-three/drei';
 import * as THREE from 'three';
 import styles from './Logo3D.module.css';
-
+import { EffectComposer } from '@react-three/postprocessing';
+import { HalfFloatType, ReinhardToneMapping, WebGLRenderer } from 'three';
+import { Noise } from '@react-three/postprocessing';
+import { BlendFunction } from 'postprocessing';
+import { DepthOfField  } from '@react-three/postprocessing';
+import { Bloom } from '@react-three/postprocessing';
+import { SMAA } from '@react-three/postprocessing';
 
 
 // Preload the GLB file
@@ -93,15 +99,19 @@ function OrbitingCube({ radius = 1.5, speed = 0.5 }) {
   return (
     <mesh ref={cubeRef}>
       <boxGeometry args={[0.1, 0.1, 0.1]} />
-      <meshStandardMaterial 
+      <meshPhysicalMaterial 
     color="#63b3ed"
     emissive="#4b0082"
-    emissiveIntensity={22}
+    emissiveIntensity={44}
     toneMapped={false}
+    metalness={0.9}
+    roughness={0.1}
+    clearcoat={1}
+    clearcoatRoughness={0.1}
   />
   <pointLight 
     color="#63b3ed" 
-    intensity={3} 
+    intensity={2} 
     distance={3}
     decay={2}
   />
@@ -128,7 +138,7 @@ function OrbitingLight({ radius = 1.5, speed = 0.5 }) {
     <pointLight 
       ref={lightRef} 
       color="#4b0082" 
-      intensity={11} 
+      intensity={2} 
       distance={5} 
       decay={1} 
     />
@@ -140,7 +150,7 @@ function Scene({ modelUrl }) {
     <>
       <ambientLight intensity={0.5} color={0xffffff} />
       <directionalLight 
-        position={[1, 1, 2]} 
+        position={[1, 2, 3]} 
         intensity={0.7}
       />
       <pointLight position={[2, 2, -2]} intensity={0.2} color="#87cacf" />
@@ -225,7 +235,8 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
           alpha: true,
           preserveDrawingBuffer: true,
           alphaToCoverage: true,
-          premultipliedAlpha: false
+          premultipliedAlpha: false,
+          frameBufferType: HalfFloatType  
         }}
         dpr={[1, 2]}
         onCreated={({ gl, scene }) => {
@@ -236,6 +247,11 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
       >
         <color attach="background" args={[0x000000, 0]} />
         <Suspense fallback={null}>
+        <EffectComposer>
+          <Bloom luminanceThreshold={0.5} mipmapBlur luminanceSmoothing={1} intensity={2} />
+          <DepthOfField focusDistance={0.05} target={[0, 0, 0]} focalLength={0.0005} bokehScale={1} width={width} height={height} />
+        
+        </EffectComposer>
           <Scene modelUrl="/assets/logo.glb" />
         </Suspense>
         <OrbitControls 
