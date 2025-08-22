@@ -94,11 +94,44 @@ function OrbitingCube({ radius = 1.5, speed = 0.5 }) {
     <mesh ref={cubeRef}>
       <boxGeometry args={[0.1, 0.1, 0.1]} />
       <meshStandardMaterial 
-        color="#63b3ed" 
-        emissive="#4b0082"
-        emissiveIntensity={1}
-      />
+    color="#63b3ed"
+    emissive="#4b0082"
+    emissiveIntensity={22}
+    toneMapped={false}
+  />
+  <pointLight 
+    color="#63b3ed" 
+    intensity={3} 
+    distance={3}
+    decay={2}
+  />
     </mesh>
+  );
+}
+
+function OrbitingLight({ radius = 1.5, speed = 0.5 }) {
+  const lightRef = useRef();
+  
+  useFrame(({ clock }) => {
+    if (lightRef.current) {
+      const time = clock.getElapsedTime() * speed;
+      const x = Math.sin(time) * radius;
+      const z = Math.cos(time) * radius;
+      
+      lightRef.current.position.x = x * 0.7;
+      lightRef.current.position.y = x * 0.7;
+      lightRef.current.position.z = z * 0.5;
+    }
+  });
+
+  return (
+    <pointLight 
+      ref={lightRef} 
+      color="#4b0082" 
+      intensity={11} 
+      distance={5} 
+      decay={1} 
+    />
   );
 }
 
@@ -114,6 +147,7 @@ function Scene({ modelUrl }) {
       <Model url={modelUrl} />
       <NameText />
       <OrbitingCube />
+      <OrbitingLight />
     </>
   );
 }
