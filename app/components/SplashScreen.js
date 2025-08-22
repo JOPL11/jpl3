@@ -91,7 +91,7 @@ export default function SplashScreen({ onComplete }) {
     // Start fade in after a small delay to ensure the component is mounted
     const fadeInTimer = setTimeout(() => {
       setIsVisible(true);
-    }, 50);
+    }, 100);
     
     const loadTimer = setTimeout(() => {
       setAssetsLoaded(true);
@@ -106,8 +106,8 @@ export default function SplashScreen({ onComplete }) {
   useEffect(() => {
     if (!assetsLoaded || isIOS) return;
     
-    const fadeOutDuration = 2000; 
-    const minDisplayTime = 4000; 
+    const fadeOutDuration = 1000; 
+    const minDisplayTime = 3000; 
     
     const fadeOutTimer = setTimeout(() => {
       // Start fade out
