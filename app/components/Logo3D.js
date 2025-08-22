@@ -13,6 +13,7 @@ import { BlendFunction } from 'postprocessing';
 import { DepthOfField  } from '@react-three/postprocessing';
 import { Bloom } from '@react-three/postprocessing';
 import { SMAA } from '@react-three/postprocessing';
+import SoftParticlesComponent from './SoftParticlesComponent';
 
 
 // Preload the GLB file
@@ -158,6 +159,15 @@ function Scene({ modelUrl }) {
       <NameText />
       <OrbitingCube />
       <OrbitingLight />
+      <SoftParticlesComponent 
+        particleCount={11} 
+        orbitingGroups={1}
+        centralParticleSize={17}  
+        orbitingParticleSize={11} 
+        orbitRadius={0.8}       
+        orbitSpeed={0.5}
+        position={[0, 0, 1]}     
+      />
     </>
   );
 }
