@@ -5,6 +5,8 @@ import dynamic from 'next/dynamic';
 //import CookieBanner from './components/CookieBanner';           <CookieBanner /> 
 import SplashScreen from './components/SplashScreen';
 import ScriptLoader from './components/ScriptLoader';
+import { LoadingProvider } from './contexts/LoadingContext';
+import LoadingOverlay from './components/LoadingOverlay';
 
 
 
@@ -26,7 +28,7 @@ export const metadata = {
     default: 'Jan Peiro - Creative Developer',
     template: '%s | Jan Peiro',
   },
-  description: 'Portfolio of Jan Peiro - Creative Developer.',
+  description: 'Creative Developer and Designer',
   keywords: ['Jan Peiro', 'Creative Developer', 'Motion Designer', '3D Animation', 'Web Development', 'Germany', 'Portfolio'],
   authors: [{ name: 'Jan Peiro' }],
   creator: 'Jan Peiro',
@@ -36,9 +38,9 @@ export const metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Jan Peiro - Creative Technologist.',
-    description: 'Portfolio of Jan Peiro - Creative Developer.',
-    url: 'https://janpeiro.vercel.app',
+    title: 'Jan Peiro - Creative Developer',
+    description: 'Creative Developer and Designer',
+    url: 'https://www.janpeiro.com',
     siteName: 'Jan Peiro Portfolio',
     images: [
       {
@@ -86,10 +88,13 @@ export default function RootLayout({ children }) {
         <ScriptLoader />
       </head>
       <body className={inter.className} suppressHydrationWarning={true}>
-        <ModalProvider>
-          <SplashScreen />
-          {children}
-        </ModalProvider>
+        <LoadingProvider>
+          <ModalProvider>
+            <LoadingOverlay />
+            <SplashScreen />
+            {children}
+          </ModalProvider>
+        </LoadingProvider>
       </body>
     </html>
   );

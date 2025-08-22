@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { PerspectiveCamera, useTexture } from '@react-three/drei';
 import * as THREE from 'three';
+import { useLoading } from '../contexts/LoadingContext';
 
 export default function SplashScreen({ onComplete }) {
   const [isVisible, setIsVisible] = useState(true);
@@ -11,6 +12,7 @@ export default function SplashScreen({ onComplete }) {
   const [isIOS, setIsIOS] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const [assetsLoaded, setAssetsLoaded] = useState(false);
+  const { setIsLoading } = useLoading();
 
   useEffect(() => {
     const userAgent = window.navigator.userAgent;
@@ -18,8 +20,12 @@ export default function SplashScreen({ onComplete }) {
     setIsIOS(isIOSDevice);
     
     if (isIOSDevice) {
-      onComplete?.();
-      return;
+      // On iOS, we'll skip the splash screen but still want to prevent flash
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+        onComplete?.();
+      }, 100);
+      return () => clearTimeout(timer);
     }
 
     setIsMounted(true);
@@ -29,19 +35,20 @@ export default function SplashScreen({ onComplete }) {
     }, 100);
 
     return () => clearTimeout(loadTimer);
-  }, [onComplete]);
+  }, [onComplete, setIsLoading]);
 
   useEffect(() => {
-    if (!assetsLoaded) return;
+    if (!assetsLoaded || isIOS) return;
 
-    const fadeOutDuration = 1000; 
-    const minDisplayTime = 3400; 
+    const fadeOutDuration = 2000; 
+    const minDisplayTime = 2400; 
     
     const fadeOutTimer = setTimeout(() => {
       setIsVisible(false);
       
       const removeTimer = setTimeout(() => {
         setShouldRender(false);
+        setIsLoading(false);
         onComplete?.();
       }, fadeOutDuration);
       
@@ -49,7 +56,7 @@ export default function SplashScreen({ onComplete }) {
     }, minDisplayTime);
 
     return () => clearTimeout(fadeOutTimer);
-  }, [assetsLoaded, onComplete]);
+  }, [assetsLoaded, isIOS, onComplete, setIsLoading]);
 
   if (!shouldRender || isIOS || !isMounted) return null;
 
@@ -76,18 +83,7 @@ export default function SplashScreen({ onComplete }) {
       <Canvas 
         dpr={[1, 2]}
         gl={{ antialias: true }}
-        style={{
-          display: 'block',
-          position: 'absolute',
-          inset: '0',
-          width: '100% !important',
-          height: '100% !important',
-          maxWidth: '100vw',
-          maxHeight: '100vh',
-          margin: 0,
-          padding: 0,
-          touchAction: 'none'
-        }}
+        camera={{ position: [0, 0, 5], fov: 45 }}
       >
         <SplashScreenScene />
       </Canvas>
