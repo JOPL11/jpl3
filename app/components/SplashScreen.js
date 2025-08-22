@@ -161,22 +161,23 @@ export default function SplashScreen({ onComplete }) {
 function SplashScreenScene() {
   const meshRef = useRef();
   const cameraRef = useRef();
-  //const gradientTexture = useTexture('/images/jp.svg');
   const animationStarted = useRef(false);
   const startTime = useRef(0);
   
   const cubes = useRef([]);
+  const isMobile = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
   
   if (cubes.current.length === 0) {
-    const columns = 15;
-    const rows = 21;
-    const layers = 5;
-    const zSpacing = 11.0; // Increased from implicit ~2.0 to 3.0
+    // Reduced grid for mobile, full for desktop
+    const columns = isMobile ? 10 : 15;
+    const rows = isMobile ? 12 : 21;
+    const layers = isMobile ? 2 : 5;
+    const zSpacing = 11.0;
     
     for (let col = 0; col < columns; col++) {
       for (let row = 0; row < rows; row++) {
         for (let layer = 0; layer < layers; layer++) {
-          if (Math.random() > 0.1) {
+          if (Math.random() > 0.1) {  // Keep the 90% spawn rate
             const size = 0.01 + Math.random() * 0.9;
             
             cubes.current.push({
@@ -238,18 +239,17 @@ function SplashScreenScene() {
         castShadow
       />
       
-      
       {cubes.current.map((cube, index) => (
         <mesh
           key={index}
           position={cube.position}
+          scale={cube.size}
         >
-          <boxGeometry args={[cube.size, cube.size, cube.size]} />
+          <boxGeometry />
           <meshStandardMaterial 
             color="#63b3ed" 
             metalness={0.9}  
-            roughness={0.2}  
-            envMapIntensity={1}
+            roughness={0.2}
           />
         </mesh>
       ))}
@@ -260,7 +260,6 @@ function SplashScreenScene() {
         castShadow
       />
       <pointLight position={[0, 10, 10]} intensity={4} />
-
     </>
   );
 }
