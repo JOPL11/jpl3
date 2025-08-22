@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useState, Suspense, useRef } from 'react';
+import { useEffect, useState, Suspense, useRef} from 'react';
 import Image from 'next/image';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, useGLTF, useTexture} from '@react-three/drei';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { OrbitControls, useGLTF, useTexture } from '@react-three/drei';
 import * as THREE from 'three';
 import styles from './Logo3D.module.css';
 
@@ -64,6 +64,57 @@ function NameText() {
         side={THREE.DoubleSide}
       />
     </mesh>
+  );
+}
+
+function OrbitingCube({ radius = 1.5, speed = 0.5 }) {
+  const cubeRef = useRef();
+  
+  useFrame(({ clock }) => {
+    const time = clock.getElapsedTime();
+    if (cubeRef.current) {
+      // Calculate circular motion with diagonal orientation
+      const angle = time * speed;
+      const x = Math.sin(angle) * radius;
+      const z = Math.cos(angle) * radius;
+      
+      // Position for diagonal orbit (bottom-left to top-right)
+      cubeRef.current.position.x = x * 0.7;  // Reduce horizontal movement
+      cubeRef.current.position.y = x * 0.7;  // Add vertical movement
+      cubeRef.current.position.z = z * 0.5;  // Reduce depth movement
+      
+      // Rotate on multiple axes for more interesting motion
+      cubeRef.current.rotation.x = time * 0.5;
+      cubeRef.current.rotation.y = time * 0.7;
+      cubeRef.current.rotation.z = time * 0.3;
+    }
+  });
+
+  return (
+    <mesh ref={cubeRef}>
+      <boxGeometry args={[0.1, 0.1, 0.1]} />
+      <meshStandardMaterial 
+        color="#63b3ed" 
+        emissive="#4b0082"
+        emissiveIntensity={1}
+      />
+    </mesh>
+  );
+}
+
+function Scene({ modelUrl }) {
+  return (
+    <>
+      <ambientLight intensity={0.5} color={0xffffff} />
+      <directionalLight 
+        position={[1, 1, 2]} 
+        intensity={0.7}
+      />
+      <pointLight position={[2, 2, -2]} intensity={0.2} color="#87cacf" />
+      <Model url={modelUrl} />
+      <NameText />
+      <OrbitingCube />
+    </>
   );
 }
 
@@ -129,7 +180,7 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
 
   // Try to render the 3D model
   return (
-    <div className={`${styles.logoContainer} ${className}`}>
+    <div className={`${styles.logoContainer} ${className}`} style={{ width, height }}>
       <Canvas 
         ref={canvasRef}
         className={styles.canvasContainer}
@@ -150,18 +201,9 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
         }}
       >
         <color attach="background" args={[0x000000, 0]} />
-        <ambientLight intensity={0.5} color={0xffffff} />
-        <directionalLight 
-          position={[1, 1, 2]} 
-          intensity={0.7}
-        />
-        <pointLight position={[2, 2, -2]} intensity={0.2} color="#87cacf" />
-        
         <Suspense fallback={null}>
-          <Model url="/assets/logo.glb" position={[0, 0, 0]} />
-          <NameText />
+          <Scene modelUrl="/assets/logo.glb" />
         </Suspense>
-        
         <OrbitControls 
           enableZoom={false}
           autoRotate
