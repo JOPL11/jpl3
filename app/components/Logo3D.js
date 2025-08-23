@@ -42,7 +42,7 @@ function useMobileDetect() {
 }
 
 // Simple model component
-function Model({ url, position = [0, 0, 0] }) {
+function Model({ url, position = [0, -0.05, 0] }) {
   const { scene } = useGLTF(url);
   
   // Apply default material to all meshes if they don't have one
@@ -84,7 +84,7 @@ function NameText() {
   }, [texture]);
 
   return (
-    <mesh position={[-0.15, 0.1, 0.5]}>
+    <mesh position={[-0.15, -0.001, 0.5]}>
       <planeGeometry args={[1.05, 0.19]} />
       <meshBasicMaterial 
         map={texture}
@@ -205,7 +205,7 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
       <Canvas 
         ref={canvasRef}
         className={styles.canvasContainer}
-        camera={{ position: [0, 2, 4], fov: 45, near: 0.1, far: 1000 }}
+        camera={{ position: [0, 0, 4.2], fov: 45, near: 0.1, far: 1000 }}
         gl={{
           antialias: true,
           powerPreference: 'high-performance',
@@ -236,7 +236,7 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
                 luminanceThreshold={0.5} 
                 mipmapBlur 
                 luminanceSmoothing={1} 
-                intensity={3} 
+                intensity={2} 
               />
                  <DepthOfField
                   focusDistance={0.01}
