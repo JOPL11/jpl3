@@ -73,7 +73,7 @@ function NameText() {
     </mesh>
   );
 }
-
+{/* 
 function OrbitingCube({ radius = 1.5, speed = 0.5 }) {
   const cubeRef = useRef();
   
@@ -145,7 +145,7 @@ function OrbitingLight({ radius = 1.5, speed = 0.5 }) {
     />
   );
 }
-
+*/}
 function Scene({ modelUrl }) {
   return (
     <>
@@ -157,16 +157,15 @@ function Scene({ modelUrl }) {
       <pointLight position={[2, 2, -2]} intensity={0.2} color="#87cacf" />
       <Model url={modelUrl} />
       <NameText />
-      <OrbitingCube />
-      <OrbitingLight />
+
       <SoftParticlesComponent 
         particleCount={11} 
         orbitingGroups={1}
         centralParticleSize={17}  
         orbitingParticleSize={11} 
-        orbitRadius={0.8}       
+        orbitRadius={0.6}       
         orbitSpeed={0.2}
-        particleOrbitSpeed={2.0}
+        particleOrbitSpeed={1.0}
         position={[0, 0, 0]}     
       />
     </>

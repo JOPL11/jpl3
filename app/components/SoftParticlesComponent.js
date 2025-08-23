@@ -31,7 +31,8 @@ const SoftParticlesComponent = ({
   const depthTexture = useRef();
   const particleGeometry = useRef(new THREE.BufferGeometry());
   const particleSystem = useRef();
-  
+  const pointLight = useRef();
+
   const orbits = useRef([]);
 
   // Separate effect for depth texture initialization
@@ -61,6 +62,18 @@ const SoftParticlesComponent = ({
     };
   }, [scene, camera, gl]);
   
+  // Separate effect for point light initialization
+  useEffect(() => {
+    const light = new THREE.PointLight(0x87cacf, 1, 5);
+    light.position.set(0, 0, 0);
+    pointLight.current = light;
+    scene.add(light);
+    
+    return () => {
+      scene.remove(light);
+    };
+  }, [scene]);
+
   // Separate effect for particle generation and scene management
   useEffect(() => {
     // Generate particle positions and sizes
@@ -151,21 +164,23 @@ const SoftParticlesComponent = ({
     }
     
     // Update the main orbit angle (slower than particle orbits)
-    orbitAngle.current += 0.02 * orbitSpeed;
+    orbitAngle.current += 0.2 * orbitSpeed;
     
-    // Calculate the main orbit position (diagonal orbit around the center)
-    const orbitRadius = 1.7; // Distance from center
-    const orbitX = Math.cos(orbitAngle.current) * orbitRadius * 0.7; // Reduced X movement
-    const orbitY = Math.sin(orbitAngle.current) * orbitRadius * 0.5; // Add Y movement for diagonal orbit
-    const orbitZ = Math.sin(orbitAngle.current) * orbitRadius * 0.7; // Reduced Z movement
+    // Match the cube's orbit pattern
+    const orbitRadius = 1.5; // Distance from center
+    const angle = orbitAngle.current * orbitSpeed;
+    const orbitX = Math.sin(angle) * orbitRadius * 0.7;  // Horizontal movement (X)
+    const orbitY = orbitX;                               // Same as X for diagonal movement (Y = X)
+    const orbitZ = Math.cos(angle) * orbitRadius * 0.5;  // Depth movement (Z)
     
-    // Update the component's position
-    if (particleSystem.current) {
-      particleSystem.current.position.set(
-        x + orbitX,
-        y + orbitY, // Add Y movement for diagonal orbit
-        z + orbitZ
-      );
+    // Update the component's position and light
+    if (particleSystem.current && pointLight.current) {
+      const newX = x + orbitX;
+      const newY = y + orbitY;
+      const newZ = z + orbitZ;
+      
+      particleSystem.current.position.set(newX, newY, newZ);
+      pointLight.current.position.set(newX, newY, newZ);
     }
     
     // Update particle positions for individual orbiting
@@ -189,12 +204,12 @@ const SoftParticlesComponent = ({
           // Get orbit parameters
           const radius = orbit.radius;
           const center = orbit.center;
-          const timeOffset = j * 0.5; // Stagger orbits slightly
+          const timeOffset = j * 0.1; // Stagger orbits slightly
           
           // Calculate circular orbit in XZ plane with slight Y variation
           const angle = orbit.angle + time * 0.3 + timeOffset;
           const orbitX = Math.cos(angle) * radius;
-          const orbitZ = Math.sin(angle) * radius * 0.8; // Slightly elliptical
+          const orbitZ = Math.sin(angle) * radius * 0.2; // Slightly elliptical
           
           // Add subtle vertical movement (sine wave)
           const verticalOffset = Math.sin(orbit.angle * 1.5 + time * 0.5) * radius * 0.3;

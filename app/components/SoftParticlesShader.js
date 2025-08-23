@@ -29,11 +29,12 @@ const softParticleFragmentShader = `
   void main() {
       vec2 coord = gl_PointCoord - vec2(0.5); // Center of particle
       float dist = length(coord);
-      float alpha = smoothstep(0.5, 0.4, dist); // Smooth edge with 0.1 width
-
+      
       if (dist > 0.5) discard; // Discard outside circle
       
-      gl_FragColor = vec4(vColor.rgb, alpha); // Solid color with smooth edge
+      // Use a smooth falloff at the edges but keep the center fully opaque
+      float alpha = smoothstep(0.5, 0.4, dist);
+      gl_FragColor = vec4(vColor.rgb, 1.0); // Fully opaque color
   }
 `;
 
@@ -44,6 +45,6 @@ export const SoftParticlesMaterial = new THREE.ShaderMaterial({
     depthTexture: { value: null }, // The depth texture of the scene
     screenSize: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
   },
-  transparent: true,  // Make particles transparent
-  blending: THREE.AdditiveBlending,  // Use additive blending for better light interaction
+  transparent: false,  // Particles are not transparent
+  depthWrite: true,    // Enable depth writing for proper depth sorting
 });
