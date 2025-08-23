@@ -15,9 +15,31 @@ import { Bloom } from '@react-three/postprocessing';
 import { SMAA } from '@react-three/postprocessing';
 import SoftParticlesComponent from './SoftParticlesComponent';
 
-
 // Preload the GLB file
 useGLTF.preload('/assets/logo.glb');
+
+// Custom hook for mobile detection
+function useMobileDetect() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIfMobile = () => {
+      const isMobileDevice = window.innerWidth < 768; // Common breakpoint for tablets and below
+      setIsMobile(isMobileDevice);
+    };
+    
+    // Set initial value
+    checkIfMobile();
+    
+    // Add event listener for window resize
+    window.addEventListener('resize', checkIfMobile);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkIfMobile);
+  }, []);
+
+  return isMobile;
+}
 
 // Simple model component
 function Model({ url, position = [0, 0, 0] }) {
@@ -112,24 +134,7 @@ function OrbitingCube({ radius = 1.5, speed = 0.5, positionOffset = 0, rotationS
 
 
 function Scene({ modelUrl }) {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    // Simple mobile detection
-    const checkIfMobile = () => {
-      const isMobileDevice = window.innerWidth < 768; // Common breakpoint for tablets and below
-      setIsMobile(isMobileDevice);
-    };
-    
-    // Set initial value
-    checkIfMobile();
-    
-    // Add event listener for window resize
-    window.addEventListener('resize', checkIfMobile);
-    
-    // Cleanup
-    return () => window.removeEventListener('resize', checkIfMobile);
-  }, []);
+  const isMobile = useMobileDetect();
 
   return (
     <>
@@ -169,6 +174,7 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
   const [isMounted, setIsMounted] = useState(false);
   const [useFallback, setUseFallback] = useState(false);
   const canvasRef = useRef();
+  const isMobile = useMobileDetect();
 
   useEffect(() => {
     try {
@@ -238,22 +244,27 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
           preserveDrawingBuffer: true,
           alphaToCoverage: true,
           premultipliedAlpha: false,
-          frameBufferType: HalfFloatType  
+          frameBufferType: isMobile ? undefined : HalfFloatType  // Only use HalfFloatType on desktop
         }}
-        dpr={[1, 2]}
+        dpr={isMobile ? 1 : [1, 2]}  // Lower DPR on mobile
         onCreated={({ gl, scene }) => {
-          gl.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+          gl.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1 : 2));
           gl.setClearColor(0, 0, 0, 0);
           scene.background = null;
         }}
       >
         <color attach="background" args={[0x000000, 0]} />
         <Suspense fallback={null}>
-        <EffectComposer>
-          <Bloom luminanceThreshold={0.5} mipmapBlur luminanceSmoothing={1} intensity={2} />
-          <DepthOfField focusDistance={0.05} target={[0, 0, 0]} focalLength={0.0005} bokehScale={1} width={width} height={height} />
-        
-        </EffectComposer>
+          {!isMobile && (
+            <EffectComposer>
+              <Bloom 
+                luminanceThreshold={0.5} 
+                mipmapBlur 
+                luminanceSmoothing={1} 
+                intensity={2} 
+              />
+            </EffectComposer>
+          )}
           <Scene modelUrl="/assets/logo.glb" />
         </Suspense>
         <OrbitControls 
