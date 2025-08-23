@@ -10,6 +10,7 @@ const SoftParticlesComponent = ({
   orbitingParticleSize = 5,
   orbitRadius = 0.3,
   orbitSpeed = 0.01,
+  particleOrbitSpeed = 1.0, // New prop for particle orbit speed
   position = [0, 0, 0]
 }) => {
   const { scene, camera, gl } = useThree();
@@ -21,6 +22,9 @@ const SoftParticlesComponent = ({
   
   // Memoize position to prevent unnecessary effect re-runs
   const pos = useMemo(() => [x, y, z], [x, y, z]);
+  
+  // Store the offset for the orbital path
+  const orbitOffset = useRef([0, 0, 0]);
   
   // Local refs to avoid shared state across instances
   const depthRenderTarget = useRef();
@@ -135,7 +139,10 @@ const SoftParticlesComponent = ({
       }
     };
   }, [particleCount, orbitingGroups, centralParticleSize, 
-      orbitingParticleSize, orbitRadius, pos, scene]);
+      orbitingParticleSize, orbitRadius, pos, scene, orbitSpeed, particleOrbitSpeed]);
+  
+  // Track the main orbit angle
+  const orbitAngle = useRef(0);
   
   useFrame((state, delta) => {
     // If using SoftParticlesMaterial, update the depth texture uniform
@@ -143,7 +150,25 @@ const SoftParticlesComponent = ({
       SoftParticlesMaterial.uniforms.depthTexture.value = depthTexture.current;
     }
     
-    // Update particle positions for orbiting
+    // Update the main orbit angle (slower than particle orbits)
+    orbitAngle.current += 0.02 * orbitSpeed;
+    
+    // Calculate the main orbit position (diagonal orbit around the center)
+    const orbitRadius = 1.7; // Distance from center
+    const orbitX = Math.cos(orbitAngle.current) * orbitRadius * 0.7; // Reduced X movement
+    const orbitY = Math.sin(orbitAngle.current) * orbitRadius * 0.5; // Add Y movement for diagonal orbit
+    const orbitZ = Math.sin(orbitAngle.current) * orbitRadius * 0.7; // Reduced Z movement
+    
+    // Update the component's position
+    if (particleSystem.current) {
+      particleSystem.current.position.set(
+        x + orbitX,
+        y + orbitY, // Add Y movement for diagonal orbit
+        z + orbitZ
+      );
+    }
+    
+    // Update particle positions for individual orbiting
     if (particleSystem.current && orbits.current.length > 0) {
       const positions = particleSystem.current.geometry.attributes.position.array;
       let orbitIndex = 0;
@@ -159,7 +184,7 @@ const SoftParticlesComponent = ({
         
         for (let j = 0; j < numOrbiters && orbitIndex < orbits.current.length; j++) {
           const orbit = orbits.current[orbitIndex];
-          orbit.angle += orbit.speed * orbitSpeed * 0.5; // Control orbit speed
+          orbit.angle += orbit.speed * particleOrbitSpeed; // Use particleOrbitSpeed for particles
           
           // Get orbit parameters
           const radius = orbit.radius;

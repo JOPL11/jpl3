@@ -165,8 +165,9 @@ function Scene({ modelUrl }) {
         centralParticleSize={17}  
         orbitingParticleSize={11} 
         orbitRadius={0.8}       
-        orbitSpeed={0.5}
-        position={[0, 0, 1]}     
+        orbitSpeed={0.2}
+        particleOrbitSpeed={2.0}
+        position={[0, 0, 0]}     
       />
     </>
   );
