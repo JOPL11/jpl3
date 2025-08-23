@@ -256,14 +256,28 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
         <color attach="background" args={[0x000000, 0]} />
         <Suspense fallback={null}>
           {!isMobile && (
+            <>
+{console.log('isMobile:', isMobile)}
+{console.log('Should render EffectComposer:', !isMobile)}
             <EffectComposer>
               <Bloom 
                 luminanceThreshold={0.5} 
                 mipmapBlur 
                 luminanceSmoothing={1} 
-                intensity={2} 
+                intensity={5} 
               />
+                 <DepthOfField
+                  focusDistance={0.01}
+                  focalLength={0.0005}
+                  blur={3}    
+                  blendFunction={BlendFunction.NORMAL} 
+                  opacity={1}  
+                  target={[0, 0, 0.5]} 
+                 bokehScale={1.5} 
+                 width={width} height={height}
+                />
             </EffectComposer>
+            </>
           )}
           <Scene modelUrl="/assets/logo.glb" />
         </Suspense>
