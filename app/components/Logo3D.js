@@ -173,6 +173,7 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
   const [isIOS, setIsIOS] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const [useFallback, setUseFallback] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
   const canvasRef = useRef();
   const isMobile = useMobileDetect();
 
@@ -219,20 +220,39 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
   // Fallback to SVG if needed
   if (useFallback || isIOS || !isMounted) {
     return (
-      <Image 
-        src="/images/jp.svg"
-        alt="Jan Peiro Logo"
-        width={width}
-        height={height}
-        className={className}
-        priority
-      />
+      <div style={{
+        width: `${width}px`,
+        height: `${height}px`,
+        opacity: isLoaded ? 1 : 0,
+        transition: 'opacity 500ms ease-in-out',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+        <Image 
+          src="/images/jp.svg"
+          alt="Jan Peiro Logo"
+          width={width}
+          height={height}
+          className={className}
+          priority
+          onLoadingComplete={() => setIsLoaded(true)}
+        />
+      </div>
     );
   }
 
   // Try to render the 3D model
   return (
-    <div className={`${styles.logoContainer} ${className}`} style={{ width, height }}>
+    <div 
+      className={`${styles.logoContainer} ${className}`} 
+      style={{ 
+        width: `${width}px`, 
+        height: `${height}px`,
+        opacity: isLoaded ? 1 : 0,
+        transition: 'opacity 500ms ease-in-out'
+      }}
+    >
       <Canvas 
         ref={canvasRef}
         className={styles.canvasContainer}
@@ -250,6 +270,7 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
         }}
         dpr={isMobile ? 1 : [1, 2]}  // Lower DPR on mobile
         onCreated={({ gl, scene }) => {
+          setIsLoaded(true);
           gl.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1 : 2));
           gl.setClearColor(0, 0, 0, 0);
           scene.background = null;

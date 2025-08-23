@@ -42,28 +42,17 @@ import ProjectCard from './components/ProjectCard';
 import VideoProjectCard from './components/VideoProjectCard';
 import ContactForm from './components/ContactForm';
 
-// Dynamically import the 3D logo with SSR disabled
+// Dynamically import the 3D logo with SSR disabled and a loading delay
 const Logo3D = dynamic(() => 
-new Promise(resolve => 
-  setTimeout(() => resolve(import('./components/Logo3D')), 4000)
-),
-{
-  ssr: false,
-  loading: () => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [opacity, setOpacity] = useState(0);
-    
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useEffect(() => {
-      // Fade in when component mounts
-      setOpacity(1);
-    }, []);
-    
-    return (
+  new Promise(resolve => 
+    setTimeout(() => resolve(import('./components/Logo3D')), 4000)
+  ),
+  {
+    ssr: false,
+    loading: () => (
       <div style={{ 
-        opacity: opacity, 
-        transition: 'opacity 3000ms ease-in-out',
-        width: '100%',
+        width: '250px', 
+        height: '250px',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center'
@@ -71,16 +60,14 @@ new Promise(resolve =>
         <Image 
           src="/images/jp.svg" 
           alt="" 
-          width={380}
-          height={380}
-          className={styles.contentLogo}
+          width={250}
+          height={250}
           priority
           aria-hidden="true"
         />
       </div>
-    );
+    )
   }
-}
 );
 
 function CopyrightYear() {
