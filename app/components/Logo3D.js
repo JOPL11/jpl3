@@ -73,80 +73,64 @@ function NameText() {
     </mesh>
   );
 }
-{/* 
-function OrbitingCube({ radius = 1.5, speed = 0.5 }) {
+
+function OrbitingCube({ radius = 1.5, speed = 0.5, positionOffset = 0, rotationSpeed = 1 }) {
   const cubeRef = useRef();
   
   useFrame(({ clock }) => {
-    const time = clock.getElapsedTime();
     if (cubeRef.current) {
-      // Calculate circular motion with diagonal orientation
-      const angle = time * speed;
-      const x = Math.sin(angle) * radius;
-      const z = Math.cos(angle) * radius;
+      const time = clock.getElapsedTime() * speed;
+      const x = Math.sin(time + positionOffset) * radius * 0.7;
+      const y = Math.sin(time + positionOffset) * radius * 0.7;
+      const z = Math.cos(time + positionOffset) * radius * 0.5;
       
-      // Position for diagonal orbit (bottom-left to top-right)
-      cubeRef.current.position.x = x * 0.7;  // Reduce horizontal movement
-      cubeRef.current.position.y = x * 0.7;  // Add vertical movement
-      cubeRef.current.position.z = z * 0.5;  // Reduce depth movement
-      
-      // Rotate on multiple axes for more interesting motion
-      cubeRef.current.rotation.x = time * 0.5;
-      cubeRef.current.rotation.y = time * 0.7;
-      cubeRef.current.rotation.z = time * 0.3;
+      cubeRef.current.position.set(x, y, z);
+      cubeRef.current.rotation.x = time * rotationSpeed;
+      cubeRef.current.rotation.y = time * rotationSpeed * 0.5;
     }
   });
 
   return (
     <mesh ref={cubeRef}>
-      <boxGeometry args={[0.1, 0.1, 0.1]} />
+      <boxGeometry args={[0.05, 0.05, 0.05]} />
       <meshPhysicalMaterial 
-    color="#63b3ed"
-    emissive="#4b0082"
-    emissiveIntensity={44}
-    toneMapped={false}
-    metalness={0.9}
-    roughness={0.1}
-    clearcoat={1}
-    clearcoatRoughness={0.1}
-  />
-  <pointLight 
-    color="#63b3ed" 
-    intensity={2} 
-    distance={3}
-    decay={2}
-  />
+        color="#63b3ed"
+        emissive="#4b0082"
+        emissiveIntensity={2}
+        toneMapped={false}
+      />
+      <pointLight 
+        color="#63b3ed" 
+        intensity={1} 
+        distance={3} 
+        decay={2} 
+      />
     </mesh>
   );
 }
 
-function OrbitingLight({ radius = 1.5, speed = 0.5 }) {
-  const lightRef = useRef();
-  
-  useFrame(({ clock }) => {
-    if (lightRef.current) {
-      const time = clock.getElapsedTime() * speed;
-      const x = Math.sin(time) * radius;
-      const z = Math.cos(time) * radius;
-      
-      lightRef.current.position.x = x * 0.7;
-      lightRef.current.position.y = x * 0.7;
-      lightRef.current.position.z = z * 0.5;
-    }
-  });
 
-  return (
-    <pointLight 
-      ref={lightRef} 
-      color="#4b0082" 
-      intensity={2} 
-      distance={5} 
-      decay={1} 
-    />
-  );
-}
-*/}
+
 function Scene({ modelUrl }) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Simple mobile detection
+    const checkIfMobile = () => {
+      const isMobileDevice = window.innerWidth < 768; // Common breakpoint for tablets and below
+      setIsMobile(isMobileDevice);
+    };
+    
+    // Set initial value
+    checkIfMobile();
+    
+    // Add event listener for window resize
+    window.addEventListener('resize', checkIfMobile);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkIfMobile);
+  }, []);
+
   return (
     <>
       <ambientLight intensity={0.5} color={0xffffff} />
@@ -157,17 +141,25 @@ function Scene({ modelUrl }) {
       <pointLight position={[2, 2, -2]} intensity={0.2} color="#87cacf" />
       <Model url={modelUrl} />
       <NameText />
-
-      <SoftParticlesComponent 
-        particleCount={6} 
-        orbitingGroups={1}
-        centralParticleSize={17}  
-        orbitingParticleSize={11} 
-        orbitRadius={0.6}       
-        orbitSpeed={0.2}
-        particleOrbitSpeed={1.0}
-        position={[0, 0, 0]}     
-      />
+      
+      {/* First cube */}
+      <OrbitingCube speed={0.3} positionOffset={0} rotationSpeed={1} />
+      
+      {/* Second cube with offset position and different speed */}
+      <OrbitingCube speed={0.4} positionOffset={Math.PI} rotationSpeed={-0.8} />
+      
+      {!isMobile && (
+        <SoftParticlesComponent 
+          particleCount={6} 
+          orbitingGroups={1}
+          centralParticleSize={17}  
+          orbitingParticleSize={11} 
+          orbitRadius={0.6}       
+          orbitSpeed={0.2}
+          particleOrbitSpeed={1.0}
+          position={[0, 0, 0]}     
+        />
+      )}
     </>
   );
 }
