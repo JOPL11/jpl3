@@ -120,9 +120,9 @@ const SoftParticlesComponent = ({
         sizes[currentParticle] = orbitingParticleSize * (0.8 + Math.random() * 0.4);
     
         // Orbiting particle color (white)
-        colors[currentParticle * 3] = 0.2;   // Red
+        colors[currentParticle * 3] = 0.1;   // Red
         colors[currentParticle * 3 + 1] = 0; // Green
-        colors[currentParticle * 3 + 2] = 0.3; // Blue
+        colors[currentParticle * 3 + 2] = 0.8; // Blue
     
         orbits.current.push({
           center: [centerX, centerY, centerZ],

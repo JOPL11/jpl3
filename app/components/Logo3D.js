@@ -84,8 +84,8 @@ function NameText() {
   }, [texture]);
 
   return (
-    <mesh position={[-0.15, 0, 0.5]}>
-      <planeGeometry args={[1.0, 0.18]} />
+    <mesh position={[-0.18, 0.1, 0.5]}>
+      <planeGeometry args={[1.05, 0.19]} />
       <meshBasicMaterial 
         map={texture}
         transparent={true}
@@ -158,7 +158,7 @@ function Scene({ modelUrl }) {
           particleCount={6} 
           orbitingGroups={1}
           centralParticleSize={17}  
-          orbitingParticleSize={11} 
+          orbitingParticleSize={9} 
           orbitRadius={0.6}       
           orbitSpeed={0.2}
           particleOrbitSpeed={1.0}
@@ -244,7 +244,9 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
           preserveDrawingBuffer: true,
           alphaToCoverage: true,
           premultipliedAlpha: false,
-          frameBufferType: isMobile ? undefined : HalfFloatType  // Only use HalfFloatType on desktop
+          frameBufferType: isMobile ? undefined : HalfFloatType,
+          depth: true,
+          stencil: false,
         }}
         dpr={isMobile ? 1 : [1, 2]}  // Lower DPR on mobile
         onCreated={({ gl, scene }) => {
@@ -257,8 +259,8 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
         <Suspense fallback={null}>
           {!isMobile && (
             <>
-{console.log('isMobile:', isMobile)}
-{console.log('Should render EffectComposer:', !isMobile)}
+            {console.log('isMobile:', isMobile)}
+            {console.log('Should render EffectComposer:', !isMobile)}
             <EffectComposer>
               <Bloom 
                 luminanceThreshold={0.5} 
@@ -268,13 +270,16 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
               />
                  <DepthOfField
                   focusDistance={0.01}
-                  focalLength={0.0005}
-                  blur={3}    
+                  focalLength={0.0035}
+                  blur={2}    
                   blendFunction={BlendFunction.NORMAL} 
                   opacity={1}  
                   target={[0, 0, 0.5]} 
                  bokehScale={1.5} 
-                 width={width} height={height}
+                 width={width} 
+                 height={height}
+                 resolutionY={height / 2}
+                 resolutionX={width / 2} 
                 />
             </EffectComposer>
             </>
