@@ -159,7 +159,7 @@ function Scene({ modelUrl }) {
       <NameText />
 
       <SoftParticlesComponent 
-        particleCount={11} 
+        particleCount={6} 
         orbitingGroups={1}
         centralParticleSize={17}  
         orbitingParticleSize={11} 

@@ -33,7 +33,7 @@ const softParticleFragmentShader = `
       if (dist > 0.5) discard; // Discard outside circle
       
       // Use a smooth falloff at the edges but keep the center fully opaque
-      float alpha = smoothstep(0.5, 0.4, dist);
+      // float alpha = smoothstep(0.5, 0.5, dist);
       gl_FragColor = vec4(vColor.rgb, 1.0); // Fully opaque color
   }
 `;
