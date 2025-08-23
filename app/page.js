@@ -42,27 +42,46 @@ import ProjectCard from './components/ProjectCard';
 import VideoProjectCard from './components/VideoProjectCard';
 import ContactForm from './components/ContactForm';
 
-// Dynamically import the 3D hero with SSR disabled
-const Hero3D = dynamic(() => import('./components/Hero3D'), {
-  ssr: false,
-  loading: () => <div style={{ width: '100%', height: '60vh', background: '#000' }} />
-});
-
 // Dynamically import the 3D logo with SSR disabled
-const Logo3D = dynamic(() => import('./components/Logo3D'), {
+const Logo3D = dynamic(() => 
+new Promise(resolve => 
+  setTimeout(() => resolve(import('./components/Logo3D')), 2900)
+),
+{
   ssr: false,
-  loading: () => (
-    <Image 
-      src="/images/jp.svg" 
-      alt="" 
-      width={380}
-      height={380}
-      className={styles.contentLogo}
-      priority
-      aria-hidden="true"
-    />
-  )
-});
+  loading: () => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [opacity, setOpacity] = useState(0);
+    
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useEffect(() => {
+      // Fade in when component mounts
+      setOpacity(1);
+    }, []);
+    
+    return (
+      <div style={{ 
+        opacity: opacity, 
+        transition: 'opacity 3000ms ease-in-out',
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+        <Image 
+          src="/images/jp.svg" 
+          alt="" 
+          width={380}
+          height={380}
+          className={styles.contentLogo}
+          priority
+          aria-hidden="true"
+        />
+      </div>
+    );
+  }
+}
+);
 
 function CopyrightYear() {
   const [year] = useState(new Date().getFullYear());
