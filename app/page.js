@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -42,32 +42,57 @@ import ProjectCard from './components/ProjectCard';
 import VideoProjectCard from './components/VideoProjectCard';
 import ContactForm from './components/ContactForm';
 
-// Dynamically import the 3D logo with SSR disabled and a loading delay
-const Logo3D = dynamic(() => 
-  new Promise(resolve => 
-    setTimeout(() => resolve(import('./components/Logo3D')), 3000)
+// Check if we're on iOS
+const isIOS = () => {
+  if (typeof window === 'undefined') return false;
+  const userAgent = window.navigator.userAgent;
+  return /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+};
+
+// Only load Logo3D component on non-iOS devices
+const Logo3D = dynamic(
+  () => new Promise((resolve) => 
+    setTimeout(() => resolve(import('./components/Logo3D')), 2800)
   ),
-  {
-    ssr: false,
-    loading: () => (
-      <div style={{ 
-        width: '250px', 
-        height: '250px',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}>
-        <Image 
-          src="/images/jp.svg" 
-          alt="" 
-          width={250}
-          height={250}
-          priority
-          aria-hidden="true"
-        />
-      </div>
-    )
+  { ssr: false, loading: () => <div style={{ width: '250px', height: '250px' }} /> }
+);
+
+// Wrapper component to handle WebGL detection
+function Logo3DWrapper() {
+  const [hasWebGL, setHasWebGL] = useState(false);
+  const isIOSDevice = isIOS();
+
+  useEffect(() => {
+    // Skip WebGL check on iOS
+    if (isIOSDevice) return;
+    
+    try {
+      const canvas = document.createElement('canvas');
+      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+      setHasWebGL(!!gl);
+    } catch (e) {
+      setHasWebGL(false);
+    }
+  }, [isIOSDevice]);
+
+  if (isIOSDevice || !hasWebGL) {
+    return <Logo2D />;
   }
+
+  return <Logo3D />;
+}
+
+// 2D logo component for iOS
+export const Logo2D = ({ className = '' }) => (
+  <div className={className} style={{ width: 250, height: 250 }}>
+    <Image 
+      src="/images/jp.svg"
+      alt="Jan Peiro Logo"
+      width={250}
+      height={250}
+      priority
+    />
+  </div>
 );
 
 function CopyrightYear() {
@@ -333,7 +358,11 @@ export default function Home() {
           <div className={styles.logoSidebar} role="complementary" aria-label="Logo and Navigation">
             <div>
               <div className={styles.contentLogo}>
-                <Logo3D />
+                {isIOS() ? <Logo2D /> : (
+                  <Suspense fallback={<div style={{ width: '250px', height: '250px' }} />}>
+                    <Logo3DWrapper />
+                  </Suspense>
+                )}
               </div>
               <div className={styles.menuContainer}>
           {/* <InteractiveMenu activeSection={activeSection} onSectionChange={setActiveSection} /> 

@@ -84,7 +84,7 @@ function NameText() {
   }, [texture]);
 
   return (
-    <mesh position={[-0.18, 0.1, 0.5]}>
+    <mesh position={[-0.15, 0.1, 0.5]}>
       <planeGeometry args={[1.05, 0.19]} />
       <meshBasicMaterial 
         map={texture}
@@ -170,79 +170,28 @@ function Scene({ modelUrl }) {
 }
 
 export default function Logo3D({ width = 250, height = 250, className = '' }) {
-  const [isIOS, setIsIOS] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
-  const [useFallback, setUseFallback] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const canvasRef = useRef();
   const isMobile = useMobileDetect();
 
   useEffect(() => {
-    try {
-      // Check if we're on iOS
-      const userAgent = window.navigator.userAgent;
-      const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
-      setIsIOS(isIOS);
-      setIsMounted(true);
+    const currentCanvas = canvasRef.current;
+    const handleContextLost = (event) => {
+      console.warn('WebGL context lost');
+      event.preventDefault();
+    };
 
-      // Store the current ref in a variable for cleanup
-      const currentCanvas = canvasRef.current;
-      
-      const handleContextLost = (event) => {
-        console.warn('WebGL context lost, falling back to SVG');
-        event.preventDefault();
-        setUseFallback(true);
-      };
-
-      if (currentCanvas) {
-        const gl = currentCanvas.getContext('webgl');
-        if (gl) {
-          currentCanvas.addEventListener('webglcontextlost', handleContextLost, false);
-        }
-      }
-
-      return () => {
-        if (currentCanvas) {
-          const gl = currentCanvas.getContext('webgl');
-          if (gl) {
-            currentCanvas.removeEventListener('webglcontextlost', handleContextLost, false);
-          }
-        }
-      };
-    } catch (err) {
-      console.error('Error in Logo3D:', err);
-      setUseFallback(true);
+    if (currentCanvas) {
+      currentCanvas.addEventListener('webglcontextlost', handleContextLost, false);
     }
+
+    return () => {
+      if (currentCanvas) {
+        currentCanvas.removeEventListener('webglcontextlost', handleContextLost, false);
+      }
+    };
   }, []);
 
-
-
-  // Fallback to SVG if needed
-  if (useFallback || isIOS || !isMounted) {
-    return (
-      <div style={{
-        width: `${width}px`,
-        height: `${height}px`,
-        opacity: isLoaded ? 1 : 0,
-        transition: 'opacity 500ms ease-in-out',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}>
-        <Image 
-          src="/images/jp.svg"
-          alt="Jan Peiro Logo"
-          width={width}
-          height={height}
-          className={className}
-          priority
-          onLoadingComplete={() => setIsLoaded(true)}
-        />
-      </div>
-    );
-  }
-
-  // Try to render the 3D model
   return (
     <div 
       className={`${styles.logoContainer} ${className}`} 
@@ -250,13 +199,13 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
         width: `${width}px`, 
         height: `${height}px`,
         opacity: isLoaded ? 1 : 0,
-        transition: 'opacity 500ms ease-in-out'
+        transition: 'opacity 3000ms ease-in-out'
       }}
     >
       <Canvas 
         ref={canvasRef}
         className={styles.canvasContainer}
-        camera={{ position: [0, 0, 5], fov: 45, near: 0.1, far: 1000 }}
+        camera={{ position: [0, 2, 4], fov: 45, near: 0.1, far: 1000 }}
         gl={{
           antialias: true,
           powerPreference: 'high-performance',
@@ -287,7 +236,7 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
                 luminanceThreshold={0.5} 
                 mipmapBlur 
                 luminanceSmoothing={1} 
-                intensity={5} 
+                intensity={3} 
               />
                  <DepthOfField
                   focusDistance={0.01}
@@ -296,11 +245,11 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
                   blendFunction={BlendFunction.NORMAL} 
                   opacity={1}  
                   target={[0, 0, 0.5]} 
-                 bokehScale={1.5} 
-                 width={width} 
-                 height={height}
-                 resolutionY={height / 2}
-                 resolutionX={width / 2} 
+                  bokehScale={2} 
+                  width={width} 
+                  height={height}
+                  resolutionY={height / 2}
+                  resolutionX={width / 2} 
                 />
             </EffectComposer>
             </>
@@ -313,7 +262,7 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
           autoRotateSpeed={0.1}
           enablePan={false}
           enableDamping={true}
-          dampingFactor={0.05}
+          dampingFactor={0.1}
           rotateSpeed={0.1}
           target={[0, 0, 0]}
         />

@@ -13,7 +13,7 @@ export default function LoadingOverlay() {
     const timer = setTimeout(() => {
       setIsVisible(false);
       setIsLoading(false);
-    }, 1500);
+    }, 500);
 
     return () => clearTimeout(timer);
   }, [setIsLoading]);
