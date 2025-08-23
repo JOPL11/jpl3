@@ -45,7 +45,7 @@ import ContactForm from './components/ContactForm';
 // Dynamically import the 3D logo with SSR disabled and a loading delay
 const Logo3D = dynamic(() => 
   new Promise(resolve => 
-    setTimeout(() => resolve(import('./components/Logo3D')), 4000)
+    setTimeout(() => resolve(import('./components/Logo3D')), 3000)
   ),
   {
     ssr: false,
