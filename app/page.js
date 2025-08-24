@@ -84,7 +84,7 @@ function Logo3DWrapper() {
 
 // 2D logo component for iOS
 export const Logo2D = ({ className = '' }) => (
-  <div className={className} style={{ width: 250, height: 250 }}>
+  <div className={className} style={{ width: 250, height: 250 }} suppressHydrationWarning>
     <Image 
       src="/images/jp.svg"
       alt="Jan Peiro Logo"

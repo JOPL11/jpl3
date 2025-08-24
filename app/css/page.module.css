@@ -302,7 +302,7 @@
     min-height: 0;
     padding: 0.2rem;  
     z-index: 0;
-    filter: drop-shadow(0 22px 11px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 22px 11px rgba(0, 0, 0, 0));
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -355,7 +355,7 @@
     margin: 0 auto;
     padding: 1rem;  
     transition: all 0.3s ease;
-    filter: drop-shadow(0 22px 11px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0 22px 11px rgba(0, 0, 0, 0));
   }
   .logoContainer {
     position: static; /* Allow logo to scroll with the page on mobile */
@@ -372,7 +372,7 @@
       min-height: 0;
       padding: 0.25rem;  
       z-index: 0;
-      filter: drop-shadow(0 22px 11px rgba(0, 0, 0, 0.5));
+      filter: drop-shadow(0 22px 11px rgba(0, 0, 0, 0));
       
     }
     .backToTop {
@@ -481,7 +481,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  filter: drop-shadow(0 5px 8px rgba(3, 9, 20, 0.5));
+  filter: drop-shadow(0 5px 8px rgba(3, 9, 20, 0));
   position: relative;
   z-index: 1;
 }

@@ -231,12 +231,14 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
             <>
             {console.log('isMobile:', isMobile)}
             {console.log('Should render EffectComposer:', !isMobile)}
+            <SMAA />
             <EffectComposer>
               <Bloom 
-                luminanceThreshold={0.5} 
+                luminanceThreshold={1.0} 
                 mipmapBlur 
-                luminanceSmoothing={1} 
-                intensity={2} 
+                luminanceSmoothing={0.3} 
+                intensity={0.5} 
+                kernelSize={1}
               />
                  <DepthOfField
                   focusDistance={0.01}
