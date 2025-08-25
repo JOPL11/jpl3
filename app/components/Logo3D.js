@@ -44,14 +44,14 @@ void main() {
   
   // Calculate distance from glitch band with some easing
   float distanceToBand = abs(verticalPosition - glitchBand);
-  float glitchAmount = smoothstep(0.5, 0.0, distanceToBand);  // Creates a smooth falloff
+  float glitchAmount = smoothstep(0.2, 0.0, distanceToBand);  // Creates a smooth falloff
   
   // Only apply glitch when close to the band
   float glitchStrength = 0.0;
-  if (distanceToBand < 0.5) {
+  if (distanceToBand < 0.9) {
     // Create more interesting glitch pattern
-    float glitchTime = uTime * 4.0 + modelPosition.x * 10.0;
-    glitchStrength = sin(glitchTime) * sin(glitchTime * 0.5) * sin(glitchTime * 0.25);
+    float glitchTime = uTime * 7.0 + modelPosition.x * 10.0;
+    glitchStrength = sin(glitchTime) * sin(glitchTime * 0.2) * sin(glitchTime * 0.25);
     glitchStrength = abs(glitchStrength);
     glitchStrength = pow(glitchStrength, 0.5) * 2.0;  // Sharper peaks
     
@@ -99,21 +99,21 @@ const holographicFragmentShader = `
     scanLine = smoothstep(0.85, 1.55, scanLine);  // Very sharp transition for thin lines
     
     // Add subtle secondary pattern
-    float scanLine2 = sin(vPosition.y * 1.0 - uTime * 1.0) * 1.10 + 0.85;
+    float scanLine2 = sin(vPosition.y * 1.0 - uTime * 1.4) * 1.22 + 0.85;
     scanLine = min(scanLine, scanLine2);  // Combine patterns for more detail
     
     // High contrast for visibility
     scanLine = mix(0.2, 0.5, scanLine);
     
     // Base color - using a slightly darker base to make lines pop
-    vec3 finalColor = uColor * (0.9 + fresnel * 0.9);
+    vec3 finalColor = uColor * (0.7 + fresnel * 1.9);
     
     // Apply scan lines
     finalColor *= scanLine;
     
     // Subtle noise for digital feel
-    vec2 uv = gl_FragCoord.xy / 10.0;
-    finalColor += (random(uv + uTime * 0.2) - 0.5) * 0.06;
+    vec2 uv = gl_FragCoord.xy / 50.0;
+    finalColor += (random(uv + uTime * 0.5) - 0.8) * 0.06;
     
     // Final color with alpha
     gl_FragColor = vec4(finalColor, 1.9 * (0.5 + fresnel * 0.5));
@@ -300,9 +300,9 @@ function Scene({ modelUrl }) {
       <ambientLight intensity={1.5} color={0x87CEEB} />
       <directionalLight 
         position={[1, 2, 3]} 
-        intensity={0.7}
+        intensity={0.5}
       />
-      <pointLight position={[2, 2, -2]} intensity={0.2} color="#87cacf" />
+      <pointLight position={[2, 2, -2]} intensity={0.1} color="#87cacf" />
       <Model url={modelUrl} />
       <NameText />
       
@@ -401,12 +401,12 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
               />
                  <DepthOfField
                   focusDistance={0.01}
-                  focalLength={0.0035}
-                  blur={2}    
+                  focalLength={0.0005}
+                  blur={0}    
                   blendFunction={BlendFunction.NORMAL} 
                   opacity={1}  
                   target={[0, 0, 0.5]} 
-                  bokehScale={2} 
+                  bokehScale={1} 
                   width={width} 
                   height={height}
                   resolutionY={height / 2}
