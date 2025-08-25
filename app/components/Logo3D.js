@@ -249,7 +249,7 @@ function NameText() {
         map={texture}
         transparent={true}
         alphaTest={0.5}
-        side={THREE.DoubleSide}
+        side={THREE.FrontSide}
       />
     </mesh>
   );
