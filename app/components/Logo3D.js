@@ -112,11 +112,11 @@ const holographicFragmentShader = `
     finalColor *= scanLine;
     
     // Subtle noise for digital feel
-    vec2 uv = gl_FragCoord.xy / 50.0;
-    finalColor += (random(uv + uTime * 0.1) - 0.5) * 0.02;
+    vec2 uv = gl_FragCoord.xy / 10.0;
+    finalColor += (random(uv + uTime * 0.2) - 0.5) * 0.06;
     
     // Final color with alpha
-    gl_FragColor = vec4(finalColor, 0.9 * (0.5 + fresnel * 0.5));
+    gl_FragColor = vec4(finalColor, 1.9 * (0.5 + fresnel * 0.5));
   }
 `;
 
