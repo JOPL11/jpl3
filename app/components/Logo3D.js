@@ -415,7 +415,7 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
             </EffectComposer>
             </>
           )}
-          <Scene modelUrl="/assets/logo.glb" />
+          <Scene modelUrl="/assets/logo2.glb" />
         </Suspense>
         <OrbitControls 
           enableZoom={false}
