@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, Suspense, useRef} from 'react';
+import { useEffect, useState, Suspense, useRef, useMemo} from 'react';
 import Image from 'next/image';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF, useTexture } from '@react-three/drei';
@@ -14,6 +14,131 @@ import { DepthOfField  } from '@react-three/postprocessing';
 import { Bloom } from '@react-three/postprocessing';
 import { SMAA } from '@react-three/postprocessing';
 import SoftParticlesComponent from './SoftParticlesComponent';
+
+
+
+const random2D = `
+float random2D(vec2 value)
+{
+    return fract(sin(dot(value.xy, vec2(12.9898, 78.233))) * 43758.5453123);
+}
+`;
+const holographicVertexShader = `
+uniform float uTime;
+uniform float uHover;
+
+varying vec3 vPosition;
+varying vec3 vNormal;
+
+float random2D(vec2 value) {
+  return fract(sin(dot(value.xy, vec2(12.9898, 78.233))) * 43758.5453123);
+}
+
+void main() {
+  // Position
+  vec4 modelPosition = modelMatrix * vec4(position, 1.0);
+  
+  // Glitch band that sweeps up the model
+  float glitchBand = sin(uTime * 0.5) * 0.5 + 0.5;  // 0-1 value that moves up and down
+  float verticalPosition = modelPosition.y * 0.5 + 0.5;  // Normalize to 0-1 range
+  
+  // Calculate distance from glitch band with some easing
+  float distanceToBand = abs(verticalPosition - glitchBand);
+  float glitchAmount = smoothstep(0.5, 0.0, distanceToBand);  // Creates a smooth falloff
+  
+  // Only apply glitch when close to the band
+  float glitchStrength = 0.0;
+  if (distanceToBand < 0.5) {
+    // Create more interesting glitch pattern
+    float glitchTime = uTime * 4.0 + modelPosition.x * 10.0;
+    glitchStrength = sin(glitchTime) * sin(glitchTime * 0.5) * sin(glitchTime * 0.25);
+    glitchStrength = abs(glitchStrength);
+    glitchStrength = pow(glitchStrength, 0.5) * 2.0;  // Sharper peaks
+    
+    // Apply the band falloff
+    glitchStrength *= glitchAmount * (0.5 + 0.5 * uHover);
+    
+    // Apply glitch to position - more on X and Z axes
+    modelPosition.x += (random2D(modelPosition.xz + uTime) - 0.5) * glitchStrength * 0.5;
+    modelPosition.z += (random2D(modelPosition.zy + uTime * 1.5) - 0.5) * glitchStrength * 0.5;
+  }
+  
+  // Final position
+  gl_Position = projectionMatrix * viewMatrix * modelPosition;
+  
+  // Model normal
+  vec4 modelNormal = modelMatrix * vec4(normal, 0.0);
+  
+  // Varyings
+  vPosition = modelPosition.xyz;
+  vNormal = modelNormal.xyz;
+}
+`;
+        // ${effects}
+const holographicFragmentShader = `
+  uniform float uTime;
+  uniform vec3 uColor;
+  uniform float uHover;
+  
+  varying vec3 vPosition;
+  varying vec3 vNormal;
+  
+  // Noise function
+  float random(vec2 st) {
+    return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
+  }
+  
+  void main() {
+    // Base color with fresnel effect
+    vec3 normal = normalize(vNormal);
+    vec3 viewDir = normalize(cameraPosition - vPosition);
+    float fresnel = pow(1.0 - abs(dot(normal, viewDir)), 2.0);
+    
+    // Thin scan lines with high frequency
+    float scanLine = sin(vPosition.y * 20.0 + uTime * 10.0) * 0.5 + 0.5;
+    scanLine = smoothstep(0.45, 0.55, scanLine);  // Very sharp transition for thin lines
+    
+    // Add subtle secondary pattern
+    float scanLine2 = sin(vPosition.y * 10.0 - uTime * 2.0) * 0.2 + 0.25;
+    scanLine = min(scanLine, scanLine2);  // Combine patterns for more detail
+    
+    // High contrast for visibility
+    scanLine = mix(0.1, 0.4, scanLine);
+    
+    // Base color - using a slightly darker base to make lines pop
+    vec3 finalColor = uColor * (0.2 + fresnel * 0.9);
+    
+    // Apply scan lines
+    finalColor *= scanLine;
+    
+    // Subtle noise for digital feel
+    vec2 uv = gl_FragCoord.xy / 50.0;
+    finalColor += (random(uv + uTime * 0.1) - 0.5) * 0.02;
+    
+    // Final color with alpha
+    gl_FragColor = vec4(finalColor, 0.9 * (0.5 + fresnel * 0.5));
+  }
+`;
+
+const materialParameters = {}
+//materialParameters.color = '#0f81bd'
+const hologram = new THREE.ShaderMaterial({
+      vertexShader: holographicVertexShader,
+      fragmentShader: holographicFragmentShader,
+      uniforms:
+      {
+          uTime: new THREE.Uniform(0),
+          uColor: new THREE.Uniform(new THREE.Color(0.2, 1.4, 4.0)),
+          uEmissiveColor: new THREE.Uniform(new THREE.Color(0x0f81bd)), // Red emissive color
+          uEmissiveStrength: { value: 33.0 }, // Emissive strength
+      },
+      transparent: true,
+      side: THREE.DoubleSide,
+      depthWrite: false,
+     // specular: 0x000000, // Disable specular reflection
+      blending: THREE.AdditiveBlending
+})
+
 
 // Preload the GLB file
 useGLTF.preload('/assets/logo.glb');
@@ -41,33 +166,67 @@ function useMobileDetect() {
   return isMobile;
 }
 
-// Simple model component
+// Model component with holographic toggle
 function Model({ url, position = [0, -0.05, 0] }) {
+  const [isHolographic, setIsHolographic] = useState(false);
   const { scene } = useGLTF(url);
   
-  // Apply default material to all meshes if they don't have one
-  scene.traverse((child) => {
-    if (child.isMesh) {
-      child.castShadow = true;
-      child.receiveShadow = true;
-      
-      // If no material or material is MeshStandardMaterial without map
-      if (!child.material || 
-          (child.material.isMeshStandardMaterial && !child.material.map)) {
-        child.material = new THREE.MeshPhongMaterial({
-          color: 0x87cacf,
-          shininess: 5,
-          specular: 0xFFFFFF,
-          emissive: 0x000000,
-          flatShading: false
-        });
-      }
+  // Create holographic material
+  const hologramMaterial = useMemo(() => new THREE.ShaderMaterial({
+    vertexShader: holographicVertexShader,
+    fragmentShader: holographicFragmentShader,
+    uniforms: {
+      uTime: new THREE.Uniform(0),
+      uColor: new THREE.Uniform(new THREE.Color(0.2, 1.4, 4.0)),
+      uHover: { value: 0 }
+    },
+    transparent: true,
+    side: THREE.DoubleSide,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending
+  }), []);
+
+  // Animation frame for holographic effect
+  useFrame(({ clock }) => {
+    if (isHolographic) {
+      hologramMaterial.uniforms.uTime.value = clock.getElapsedTime();
     }
   });
 
+  // Apply materials to meshes
+  useEffect(() => {
+    scene.traverse((child) => {
+      if (child.isMesh) {
+        child.castShadow = true;
+        child.receiveShadow = true;
+        
+        // Store original material if not already stored
+        if (!child.userData.originalMaterial) {
+          child.userData.originalMaterial = child.material || new THREE.MeshPhongMaterial({
+            color: 0x87cacf,
+            shininess: 5,
+            specular: 0xFFFFFF,
+            emissive: 0x000000,
+            flatShading: false
+          });
+        }
+
+        // Apply appropriate material
+        child.material = isHolographic 
+          ? hologramMaterial 
+          : child.userData.originalMaterial;
+      }
+    });
+  }, [scene, isHolographic, hologramMaterial]);
   
   return (
-    <group position={position}>
+    <group 
+      position={position}
+      onClick={(e) => {
+        e.stopPropagation();
+        setIsHolographic(prev => !prev);
+      }}
+    >
       <primitive object={scene} scale={0.05} />
     </group>
   );
