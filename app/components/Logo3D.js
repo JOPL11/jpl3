@@ -203,10 +203,10 @@ function Model({ url, position = [0, -0.05, 0] }) {
         // Store original material if not already stored
         if (!child.userData.originalMaterial) {
           child.userData.originalMaterial = child.material || new THREE.MeshPhongMaterial({
-            color: 0x87cacf,
+            color: 0x0f81bd,
             shininess: 5,
-            specular: 0xFFFFFF,
-            emissive: 0x000000,
+            specular: 0x87cacf,
+            emissive: 0xFFFFFF,
             flatShading: false
           });
         }
@@ -297,7 +297,7 @@ function Scene({ modelUrl }) {
 
   return (
     <>
-      <ambientLight intensity={0.5} color={0xffffff} />
+      <ambientLight intensity={1.5} color={0x87CEEB} />
       <directionalLight 
         position={[1, 2, 3]} 
         intensity={0.7}
@@ -356,7 +356,7 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
       className={`${styles.logoContainer} ${className}`} 
       style={{ 
         width: `${width}px`, 
-        height: `${height}px`,
+        height: `${height + 25}px`,
         opacity: isLoaded ? 1 : 0,
         transition: 'opacity 3000ms ease-in-out'
       }}
@@ -364,7 +364,7 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
       <Canvas 
         ref={canvasRef}
         className={styles.canvasContainer}
-        camera={{ position: [0, 0, 4.2], fov: 45, near: 0.1, far: 1000 }}
+        camera={{ position: [0, 0, 4.7], fov: 45, near: 0.1, far: 1000 }}
         gl={{
           antialias: true,
           powerPreference: 'high-performance',
