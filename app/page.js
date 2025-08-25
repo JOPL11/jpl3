@@ -374,35 +374,35 @@ export default function Home() {
                 <nav className={styles.navLinks} aria-label="Main navigation">
                 <a 
                   href="#welcome-heading" 
-                  className={styles.navLink} 
-                    onClick={(e) => scrollToSection(e, 'welcome-heading', 3000)}
+                  className={`${styles.navLink} ${activeSection === 'welcome-heading' ? styles.active : ''}`}
+                  onClick={(e) => scrollToSection(e, 'welcome-heading', 3000)}
                 >
                   About
                 </a>
                 <a 
                   href="#projects-heading" 
-                  className={styles.navLink}
-                    onClick={(e) => scrollToSection(e, 'projects-heading')}
+                  className={`${styles.navLink} ${activeSection === 'projects-heading' ? styles.active : ''}`}
+                  onClick={(e) => scrollToSection(e, 'projects-heading')}
                 >
                   Code
                 </a>
                 <a 
                   href="#webgl-heading" 
-                  className={styles.navLink}
+                  className={`${styles.navLink} ${activeSection === 'webgl-heading' ? styles.active : ''}`}
                   onClick={(e) => scrollToSection(e, 'webgl-heading')}
                 >
                   WebGL
                 </a>
                 <a 
                   href="#motion-heading" 
-                  className={styles.navLink}
+                  className={`${styles.navLink} ${activeSection === 'motion-heading' ? styles.active : ''}`}
                   onClick={(e) => scrollToSection(e, 'motion-heading')}
                 >
                   Motion
                 </a>
                 <a 
                   href="#contact" 
-                  className={styles.navLink}
+                  className={`${styles.navLink} ${activeSection === 'contact' ? styles.active : ''}`}
                   onClick={(e) => scrollToSection(e, 'contact')}
                 >
                   Contact
@@ -630,10 +630,7 @@ export default function Home() {
                   <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Tools:</strong><AnimatedText ref={citylink2TextRef} type="project">Next.js, Supabase, Geoman-io, leaflet, Openstreetmap, REST</AnimatedText></p>
                 </ProjectCard>
-
-
-      */}
-               
+              */}
               <ProjectCard 
                   onMoreClick={() => {
                     console.log('Airbus1 More button clicked, triggering animation');
@@ -737,11 +734,8 @@ export default function Home() {
                   <p><strong>Project Type:</strong><AnimatedText ref={airbus2TextRef} type="project"> Touchtable Interface</AnimatedText></p>
                   <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
                   <p><strong>Duration:</strong> 3 months and years of updates</p>
-                  
                 </ProjectCard>
-                
-            
-          
+
                 <ProjectCard 
                   title="Spiegel Geschichte TV Website"
                  image="/images/corp/spg.jpg"
@@ -784,7 +778,7 @@ export default function Home() {
                   <p><strong>Duration:</strong> 3 months / 6 years of updates</p>
                 </ProjectCard> 
               
-            {/*     <ProjectCard 
+            {/*   <ProjectCard 
                   title="Middle Caicos Festival"
                   image="/images/JPL3Poster_BB.jpg"
                   alt="Middle Caicos Festival"
@@ -833,7 +827,6 @@ export default function Home() {
 
          
             <SectionTracker onSectionChange={setActiveSection} />
-        
             <div data-section="webgl-heading"></div>
             <section id="webgl-heading" className={`${styles.section} ${styles.scrollTarget}`}>
               <h2><AnimatedText ref={webglHeadingRef}>WebGL</AnimatedText></h2>
@@ -1057,6 +1050,8 @@ export default function Home() {
             </section> 
 
             {/*   MOTION ENDS HERE             <hr className={styles.divider2} /> */}  
+            <SectionTracker onSectionChange={setActiveSection} />
+            <div data-section="contact"></div>
             <section id="contact" className={`${styles.section} ${styles.scrollTarget}`}>
               <h2><AnimatedText ref={contactHeadingRef}>Contact</AnimatedText></h2>
               <ContactForm />

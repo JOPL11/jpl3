@@ -1,6 +1,3 @@
-
-
-
 /* Hero Container */
 .heroContainer {
   width: 100%;
@@ -231,14 +228,13 @@
   justify-content: center;
   gap: 0.5rem;
   margin: 1rem 0 0.7rem 0 ;
-  padding: 0 1rem;
+  padding: 0 0.1rem;
   width: 80%;
   box-sizing: border-box;
 }
 
 .navLink {
   color: #ccc;
-  text-decoration: none;
   transition: color 0.2s ease;
   cursor: pointer;
   font-size: 1.2rem;
@@ -249,7 +245,42 @@
 
 .navLink:hover {
   color: #fff;
-  text-decoration: underline;
+
+}
+
+/* Navigation Links */
+.navLinks {
+  display: flex;
+  gap: 1.1rem;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.navLink {
+  position: relative;
+  color: inherit;
+  padding: 0.5rem 0;
+  transition: color 0.3s ease 1s;
+}
+
+.navLink:hover {
+  color: #87cacf; /* Match the point light color from your particle system */
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 5px; /* Position below the text */
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #87cacf; /* Match the point light color */
+  transition: width 0.3s ease 1s;
+}
+
+.navLink.active::after {
+  width: 100%;
+
 }
 
 /* Main Content Styles */
@@ -444,7 +475,7 @@
 .navLinks {
   display: flex;
   justify-content: center;
-  gap: 0.2rem;
+  gap: 1.1rem;
   margin: 0.1rem 0rem 0 2.5rem;
   font-size: 1.2rem;
   width: 80%;
@@ -460,15 +491,13 @@
 
 .navLink {
   color: #ccc;
-  text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.1s ease;
   cursor: pointer;
   font-weight: 600; /* Making the text bold */
 }
 
 .navLink:hover {
   color: #fff;
-  text-decoration: underline;
 }
 
 .contentLogo {
@@ -555,7 +584,6 @@
 .showcaseLink:hover,
 .showcaseLink:focus {
   color: #61dafb;
-  text-decoration: underline;
   outline: none;
 }
 
@@ -1335,7 +1363,7 @@
   .nav {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 2rem;
     margin-top: 1rem;
   }
   
@@ -1438,7 +1466,7 @@ a.secondary {
   }
 
   .footer a:hover {
-    text-decoration: underline;
+    text-decoration: none;
     text-underline-offset: 4px;
   }
 }
