@@ -166,6 +166,54 @@ function useMobileDetect() {
   return isMobile;
 }
 
+// Component for hologram corner points
+function HologramCorners({ size = 0.1, distance = 1.2, intensity = 2.0 }) {
+  const points = useMemo(() => [
+    { position: [-distance, distance, 0] },    // Top-left
+    { position: [distance, distance, 0] },     // Top-right
+    { position: [-distance, -distance, 0] },   // Bottom-left
+    { position: [distance, -distance, 0] },     // Bottom-right
+    { position: [-distance, distance, -0.5] },    // Top-left
+    { position: [distance, distance, -0.5] },     // Top-right
+    { position: [-distance, -distance, -0.5] },   // Bottom-left
+    { position: [distance, -distance, -0.5] },     // Bottom-right
+    { position: [-distance, distance, 0.5] },    // Top-left
+    { position: [distance, distance, 0.5] },     // Top-right
+    { position: [-distance, -distance, 0.5] },   // Bottom-left
+    { position: [distance, -distance, 0.5] },     // Bottom-right
+    { position: [-distance, distance, 1.0] },    // Top-left
+    { position: [distance, distance, 1.0] },     // Top-right
+    { position: [-distance, -distance, 1.0] },   // Bottom-left
+    { position: [distance, -distance, 1.0] },     // Bottom-right
+    { position: [-distance, distance, -1.0] },    // Top-left
+    { position: [distance, distance, -1.0] },     // Top-right
+    { position: [-distance, -distance, -1.0] },   // Bottom-left
+    { position: [distance, -distance, -1.0] },  
+    { position: [-distance, distance, -1.5] },    // Top-left
+    { position: [distance, distance, -1.5] },     // Top-right
+    { position: [-distance, -distance, -1.5] },   // Bottom-left
+    { position: [distance, -distance, -1.5] }, 
+  ], [distance]);
+
+  return (
+    <group>
+      {points.map((point, index) => (
+        <mesh key={index} position={point.position}>
+          <boxGeometry args={[0.03, -0.03, 0.03]} />
+          <meshStandardMaterial 
+            color="#87ceeb"
+            emissive="#87ceeb"
+            emissiveIntensity={intensity}
+            toneMapped={false}
+            transparent
+            opacity={0.3}
+          />
+        </mesh>
+      ))}
+    </group>
+  );
+}
+
 // Model component with holographic toggle
 function Model({ url, position = [0, -0.05, 0] }) {
   const [isHolographic, setIsHolographic] = useState(false);
@@ -228,6 +276,7 @@ function Model({ url, position = [0, -0.05, 0] }) {
       }}
     >
       <primitive object={scene} scale={0.05} />
+      {isHolographic && <HologramCorners />}
     </group>
   );
 }
