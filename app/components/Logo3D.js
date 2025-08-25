@@ -95,18 +95,18 @@ const holographicFragmentShader = `
     float fresnel = pow(1.0 - abs(dot(normal, viewDir)), 2.0);
     
     // Thin scan lines with high frequency
-    float scanLine = sin(vPosition.y * 20.0 + uTime * 10.0) * 0.5 + 0.5;
-    scanLine = smoothstep(0.45, 0.55, scanLine);  // Very sharp transition for thin lines
+    float scanLine = sin(vPosition.y * 1.0 + uTime * 1.0) * 0.8 + 0.3;
+    scanLine = smoothstep(0.85, 1.55, scanLine);  // Very sharp transition for thin lines
     
     // Add subtle secondary pattern
-    float scanLine2 = sin(vPosition.y * 10.0 - uTime * 2.0) * 0.2 + 0.25;
+    float scanLine2 = sin(vPosition.y * 1.0 - uTime * 1.0) * 1.10 + 0.85;
     scanLine = min(scanLine, scanLine2);  // Combine patterns for more detail
     
     // High contrast for visibility
-    scanLine = mix(0.1, 0.4, scanLine);
+    scanLine = mix(0.2, 0.5, scanLine);
     
     // Base color - using a slightly darker base to make lines pop
-    vec3 finalColor = uColor * (0.2 + fresnel * 0.9);
+    vec3 finalColor = uColor * (0.9 + fresnel * 0.9);
     
     // Apply scan lines
     finalColor *= scanLine;
