@@ -79,9 +79,13 @@ const useIOSInteraction = () => {
 
 // Only load Logo3D component on non-iOS devices
 const Logo3D = dynamic(
-  () => new Promise((resolve) => 
-    setTimeout(() => resolve(import('./components/Logo3D')), 2800)
-  ),
+  () => {
+    // Only add delay for non-iOS devices
+    const loadLogo = () => import('./components/Logo3D');
+    return isIOS() ? loadLogo() : new Promise(resolve => 
+      setTimeout(() => resolve(loadLogo()), 2300)
+    );
+  },
   { ssr: false, loading: () => <div style={{ width: '250px', height: '250px' }} /> }
 );
 
