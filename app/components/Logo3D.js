@@ -200,19 +200,23 @@ function HologramCorners({ size = 0.1, distance = 1.2, intensity = 2.0 }) {
       {points.map((point, index) => (
         <mesh key={index} position={point.position}>
           <boxGeometry args={[0.03, -0.03, 0.03]} />
-          <meshStandardMaterial 
+          <meshPhongMaterial 
             color="#87ceeb"
             emissive="#87ceeb"
             emissiveIntensity={intensity}
             toneMapped={false}
             transparent
-            opacity={0.3}
+            opacity={0.5}
           />
         </mesh>
       ))}
     </group>
   );
 }
+
+
+
+
 
 // Model component with holographic toggle
 function Model({ url, position = [0, -0.05, 0] }) {
@@ -269,14 +273,17 @@ function Model({ url, position = [0, -0.05, 0] }) {
   
   return (
     <group 
-      position={position}
-      onClick={(e) => {
-        e.stopPropagation();
-        setIsHolographic(prev => !prev);
-      }}
+      position={position} 
+      onClick={() => setIsHolographic(!isHolographic)}
     >
       <primitive object={scene} scale={0.05} />
-      {isHolographic && <HologramCorners />}
+      {isHolographic && (
+        <>
+ 
+          <HologramCorners />
+    
+        </>
+      )}
     </group>
   );
 }
