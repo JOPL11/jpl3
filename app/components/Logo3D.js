@@ -631,7 +631,7 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
           enablePan={false}
           enableDamping={true}
           dampingFactor={0.1}
-          rotateSpeed={0.1}
+          rotateSpeed={0.3}
           target={[0, 0, 0]}
         />
       </Canvas>

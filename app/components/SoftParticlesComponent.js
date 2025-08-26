@@ -43,7 +43,7 @@ const SoftParticlesComponent = ({
     depthTexture.current.format = THREE.DepthFormat;
     depthTexture.current.minFilter = THREE.NearestFilter;
     depthTexture.current.magFilter = THREE.NearestFilter;
-    depthTexture.current.encoding = THREE.LinearEncoding;
+    // No need to set encoding for depth texture in newer Three.js versions
   
     depthRenderTarget.current = new THREE.WebGLRenderTarget(window.innerWidth, window.innerHeight);
     depthRenderTarget.current.depthTexture = depthTexture.current;
