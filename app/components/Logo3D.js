@@ -603,22 +603,22 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
                 luminanceThreshold={0.5} 
                 mipmapBlur 
                 luminanceSmoothing={0.3} 
-                intensity={0.5} 
+                intensity={2} 
                 kernelSize={1}
               />
-                 <DepthOfField
-                  focusDistance={0.01}
+       {/*        <DepthOfField
+                  focusDistance={0.1}
                   focalLength={0.0005}
                   blur={0}    
                   blendFunction={BlendFunction.NORMAL} 
                   opacity={1}  
-                  target={[0, 0, 0.5]} 
+                  target={[0, 0, -1]} 
                   bokehScale={1} 
                   width={width} 
                   height={height}
                   resolutionY={height / 2}
                   resolutionX={width / 2} 
-                />
+                /> */}   
             </EffectComposer>
             </>
           )}

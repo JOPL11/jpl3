@@ -370,7 +370,7 @@ export default function Home() {
           <div className={styles.logoSidebar} role="complementary" aria-label="Logo and Navigation">
             <div>
               <div className={styles.contentLogo}>
-                <Suspense fallback={<div style={{ width: '250px', height: '250px' }} />}>
+                <Suspense fallback={<div style={{ width: '250px', height: '300px' }} />}>
                   <Logo3DWrapper />
                 </Suspense>
               </div>
