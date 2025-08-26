@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, Suspense, useRef, useMemo } from 'react';
+import { useEffect, useState, Suspense, useRef, useMemo, useCallback } from 'react';
 import Image from 'next/image';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF, useTexture } from '@react-three/drei';
@@ -306,10 +306,10 @@ function Model({ url, position = [0, -0.05, 0], isHolographic, onHolographicChan
       {isHolographic && (
         <>
           <HologramCorners />
-          {[...Array(552)].map((_, i) => (
+          {[...Array(152)].map((_, i) => (
         <DelayedOscillatingBox 
           key={i} 
-          delay={i * 500} // Stagger the appearance of each box
+          delay={i * 100} // Stagger the appearance of each box
           color={i % 2 === 0 ? 0x87CEEB : 0x87CEEB} // Alternate colors
         />
       ))}
@@ -344,6 +344,13 @@ function DelayedOscillatingBox({ delay = 2000, color = 0x87CEEB }) {
       // Each box oscillates independently based on its own start time
       const elapsed = clock.getElapsedTime() - startTime.current;
       boxRef.current.position.z = Math.sin(elapsed * 0.5) * 22;
+
+      const isElongated = Math.floor(elapsed *2) % 2 === 0;
+      boxRef.current.scale.set(
+        0.08,  // x scale
+        0.08,  // y scale
+        isElongated ? 1 : 0.1  // z scale
+      );
     }
   });
 
@@ -353,7 +360,7 @@ function DelayedOscillatingBox({ delay = 2000, color = 0x87CEEB }) {
     <mesh 
       ref={boxRef} 
       position={[randomX.current, randomY.current, 0]} // Random x,y position, z=0
-      scale={[0.08, 0.08, 0.2]} // Slightly larger for better visibility
+      
     >
       <boxGeometry args={[0.2, 0.2, 1]} />
       <meshStandardMaterial 
@@ -481,24 +488,73 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const canvasRef = useRef();
   const isMobile = useMobileDetect();
+  const rendererRef = useRef();
+  const resizeTimeout = useRef();
 
-  useEffect(() => {
-    const currentCanvas = canvasRef.current;
-    const handleContextLost = (event) => {
-      console.warn('WebGL context lost');
-      event.preventDefault();
-    };
-
-    if (currentCanvas) {
-      currentCanvas.addEventListener('webglcontextlost', handleContextLost, false);
+  // Handle resize with debounce
+  const handleResize = useCallback(() => {
+    if (!rendererRef.current || !canvasRef.current) return;
+    
+    // Clear any pending resize
+    if (resizeTimeout.current) {
+      clearTimeout(resizeTimeout.current);
     }
+    
+    // Force clear the canvas immediately
+    const gl = rendererRef.current.getContext();
+    gl.clearColor(0, 0, 0, 0);
+    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    
+    resizeTimeout.current = setTimeout(() => {
+      if (!canvasRef.current || !rendererRef.current) return;
+      
+      const parent = canvasRef.current.parentElement;
+      if (!parent) return;
+      
+          const { width, height } = parent.getBoundingClientRect();
+      const pixelRatio = Math.min(window.devicePixelRatio, isMobile ? 1 : 2);
+      
+      // Update renderer size and pixel ratio
+      rendererRef.current.setPixelRatio(pixelRatio);
+      rendererRef.current.setSize(width, height, false);
+      
+      // Force a re-render to clear any artifacts
+      if (rendererRef.current.getScene && rendererRef.current.getCamera) {
+        rendererRef.current.render(
+          rendererRef.current.getScene(), 
+          rendererRef.current.getCamera()
+        );
+      }
+    }, 50); // Small delay to handle rapid resizing
+  }, [isMobile]);
 
+  // Set up resize listener
+  useEffect(() => {
+      window.addEventListener('resize', handleResize);
     return () => {
-      if (currentCanvas) {
-        currentCanvas.removeEventListener('webglcontextlost', handleContextLost, false);
+      window.removeEventListener('resize', handleResize);
+      if (resizeTimeout.current) {
+        clearTimeout(resizeTimeout.current);
       }
     };
-  }, []);
+  }, [handleResize]);
+
+  // Initial render and setup
+  const onCreated = useCallback(({ gl, scene, camera, size }) => {
+    setIsLoaded(true);
+    gl.setClearColor(0, 0, 0, 0);
+    scene.background = null;
+    
+    // Store renderer with additional methods
+    rendererRef.current = {
+      ...gl,
+      getScene: () => scene,
+      getCamera: () => camera
+    };
+    
+    // Trigger initial resize
+    handleResize();
+  }, [handleResize]);
 
   return (
     <div 
@@ -506,6 +562,7 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
       style={{ 
         width: `${width}px`, 
         height: `${height + 25}px`,
+        position: 'relative',
         opacity: isLoaded ? 1 : 0,
         transition: 'opacity 3000ms ease-in-out'
       }}
@@ -524,6 +581,7 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
           frameBufferType: isMobile ? undefined : HalfFloatType,
           depth: true,
           stencil: false,
+          preserveDrawingBuffer: false
         }}
         dpr={isMobile ? 1 : [1, 2]}  // Lower DPR on mobile
         onCreated={({ gl, scene }) => {
@@ -542,7 +600,7 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
             <SMAA />
             <EffectComposer>
               <Bloom 
-                luminanceThreshold={1.0} 
+                luminanceThreshold={0.5} 
                 mipmapBlur 
                 luminanceSmoothing={0.3} 
                 intensity={0.5} 
