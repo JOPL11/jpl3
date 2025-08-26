@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, Suspense, useRef, useMemo} from 'react';
+import { useEffect, useState, Suspense, useRef, useMemo } from 'react';
 import Image from 'next/image';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF, useTexture } from '@react-three/drei';
@@ -169,30 +169,54 @@ function useMobileDetect() {
 // Component for hologram corner points
 function HologramCorners({ size = 0.1, distance = 1.2, intensity = 2.0 }) {
   const points = useMemo(() => [
-    { position: [-distance, distance, 0] },    // Top-left
-    { position: [distance, distance, 0] },     // Top-right
-    { position: [-distance, -distance, 0] },   // Bottom-left
-    { position: [distance, -distance, 0] },     // Bottom-right
-    { position: [-distance, distance, -0.5] },    // Top-left
-    { position: [distance, distance, -0.5] },     // Top-right
-    { position: [-distance, -distance, -0.5] },   // Bottom-left
-    { position: [distance, -distance, -0.5] },     // Bottom-right
-    { position: [-distance, distance, 0.5] },    // Top-left
-    { position: [distance, distance, 0.5] },     // Top-right
-    { position: [-distance, -distance, 0.5] },   // Bottom-left
-    { position: [distance, -distance, 0.5] },     // Bottom-right
-    { position: [-distance, distance, 1.0] },    // Top-left
-    { position: [distance, distance, 1.0] },     // Top-right
-    { position: [-distance, -distance, 1.0] },   // Bottom-left
-    { position: [distance, -distance, 1.0] },     // Bottom-right
-    { position: [-distance, distance, -1.0] },    // Top-left
-    { position: [distance, distance, -1.0] },     // Top-right
-    { position: [-distance, -distance, -1.0] },   // Bottom-left
-    { position: [distance, -distance, -1.0] },  
+    // Top points (two corners)
     { position: [-distance, distance, -1.5] },    // Top-left
+    { position: [-distance, distance, -2.0] },  
+    { position: [-distance, distance, -2.5] }, 
+    { position: [-distance, distance, -1.5] }, 
+    { position: [-distance, distance, -1.0] }, 
+    { position: [-distance, distance, -0.5] }, 
+    { position: [-distance, distance, 0] }, 
+    { position: [-distance, distance, 0.5] },                   
+    { position: [-distance, distance, 1.0] },      
+    { position: [-distance, distance, 1.5] },   
+    { position: [-distance, distance, 2.0] },  
+    { position: [-distance, distance, 2.5] }, 
     { position: [distance, distance, -1.5] },     // Top-right
-    { position: [-distance, -distance, -1.5] },   // Bottom-left
-    { position: [distance, -distance, -1.5] }, 
+    { position: [distance, distance, -2.0] },  
+    { position: [distance, distance, -2.5] }, 
+    { position: [distance, distance, -1.5] }, 
+    { position: [distance, distance, -1.0] }, 
+    { position: [distance, distance, -0.5] }, 
+    { position: [distance, distance, 0] }, 
+    { position: [distance, distance, 0.5] },                   
+    { position: [distance, distance, 1.0] },      
+    { position: [distance, distance, 1.5] },   
+    { position: [distance, distance, 2.0] },  
+    { position: [distance, distance, 2.5] }, 
+    
+    // Middle points
+    { position: [-distance, 0, -0.5] },          // Middle-left
+    { position: [distance, 0, -0.5] },           // Middle-right
+    
+    // Bottom point (single, centered)
+    { position: [0, -distance, -2.0] },  
+    { position: [0, -distance, -2.5] }, 
+    { position: [0, -distance, -1.5] }, 
+    { position: [0, -distance, -1.0] }, 
+    { position: [0, -distance, -0.5] }, 
+    { position: [0, -distance, 0] }, 
+    { position: [0, -distance, 0.5] },                   
+    { position: [0, -distance, 1.0] },      
+    { position: [0, -distance, 1.5] },   
+    { position: [0, -distance, 2.0] },  
+    { position: [0, -distance, 2.5] }, 
+         
+    
+    // Additional points for visual effect
+    { position: [-distance, distance, 0] },      // Top-left middle
+    { position: [distance, distance, 0] },       // Top-right middle
+
   ], [distance]);
 
   return (
@@ -219,8 +243,7 @@ function HologramCorners({ size = 0.1, distance = 1.2, intensity = 2.0 }) {
 
 
 // Model component with holographic toggle
-function Model({ url, position = [0, -0.05, 0] }) {
-  const [isHolographic, setIsHolographic] = useState(false);
+function Model({ url, position = [0, -0.05, 0], isHolographic, onHolographicChange }) {
   const { scene } = useGLTF(url);
   
   // Create holographic material
@@ -270,21 +293,76 @@ function Model({ url, position = [0, -0.05, 0] }) {
       }
     });
   }, [scene, isHolographic, hologramMaterial]);
+
   
+
+
   return (
     <group 
       position={position} 
-      onClick={() => setIsHolographic(!isHolographic)}
+      onClick={() => onHolographicChange(!isHolographic)}
     >
       <primitive object={scene} scale={0.05} />
       {isHolographic && (
         <>
- 
           <HologramCorners />
-    
+          {[...Array(552)].map((_, i) => (
+        <DelayedOscillatingBox 
+          key={i} 
+          delay={i * 500} // Stagger the appearance of each box
+          color={i % 2 === 0 ? 0x87CEEB : 0x87CEEB} // Alternate colors
+        />
+      ))}
         </>
       )}
     </group>
+  );
+}
+
+
+function DelayedOscillatingBox({ delay = 2000, color = 0x87CEEB }) {
+  const boxRef = useRef();
+  const [visible, setVisible] = useState(false);
+  const randomX = useRef((Math.random() * 0.5 - 0.5) * 1.9); 
+  const randomY = useRef((Math.random() * -0.2 - 0.5) * 1.9);
+  const startTime = useRef(0);
+  
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setVisible(true);
+    }, delay);
+    
+    return () => clearTimeout(timer);
+  }, [delay]);
+  
+  useFrame(({ clock }) => {
+    if (boxRef.current && visible) {
+      // Start timing when the box becomes visible
+      if (startTime.current === 0) {
+        startTime.current = clock.getElapsedTime();
+      }
+      // Each box oscillates independently based on its own start time
+      const elapsed = clock.getElapsedTime() - startTime.current;
+      boxRef.current.position.z = Math.sin(elapsed * 0.5) * 22;
+    }
+  });
+
+  if (!visible) return null;
+
+  return (
+    <mesh 
+      ref={boxRef} 
+      position={[randomX.current, randomY.current, 0]} // Random x,y position, z=0
+      scale={[0.08, 0.08, 0.2]} // Slightly larger for better visibility
+    >
+      <boxGeometry args={[0.2, 0.2, 1]} />
+      <meshStandardMaterial 
+        color={color} 
+        emissive={color}
+        emissiveIntensity={0.8}
+        toneMapped={false}
+      />
+    </mesh>
   );
 }
 
@@ -311,11 +389,14 @@ function NameText() {
   );
 }
 
-function OrbitingCube({ radius = 1.5, speed = 0.5, positionOffset = 0, rotationSpeed = 1 }) {
+function OrbitingCube({ radius = 1.5, speed = 0.5, positionOffset = 0, rotationSpeed = 1, visible = true }) {
   const cubeRef = useRef();
+  const lightRef = useRef();
   
   useFrame(({ clock }) => {
     if (cubeRef.current) {
+      if (!visible) return;
+      
       const time = clock.getElapsedTime() * speed;
       const x = Math.sin(time + positionOffset) * radius * 0.7;
       const y = Math.sin(time + positionOffset) * radius * 0.7;
@@ -324,25 +405,33 @@ function OrbitingCube({ radius = 1.5, speed = 0.5, positionOffset = 0, rotationS
       cubeRef.current.position.set(x, y, z);
       cubeRef.current.rotation.x = time * rotationSpeed;
       cubeRef.current.rotation.y = time * rotationSpeed * 0.5;
+      
+      // Also update light position
+      if (lightRef.current) {
+        lightRef.current.position.set(x, y, z);
+      }
     }
   });
 
   return (
-    <mesh ref={cubeRef}>
-      <boxGeometry args={[0.05, 0.05, 0.05]} />
-      <meshPhysicalMaterial 
-        color="#63b3ed"
-        emissive="#4b0082"
-        emissiveIntensity={2}
-        toneMapped={false}
-      />
+    <>
+      <mesh ref={cubeRef} visible={visible}>
+        <boxGeometry args={[0.05, 0.05, 0.05]} />
+        <meshPhysicalMaterial 
+          color="#63b3ed"
+          emissive="#4b0082"
+          emissiveIntensity={2}
+          toneMapped={false}
+        />
+      </mesh>
       <pointLight 
+        ref={lightRef}
         color="#63b3ed" 
-        intensity={1} 
+        intensity={visible ? 1 : 0} 
         distance={3} 
         decay={2} 
       />
-    </mesh>
+    </>
   );
 }
 
@@ -350,6 +439,7 @@ function OrbitingCube({ radius = 1.5, speed = 0.5, positionOffset = 0, rotationS
 
 function Scene({ modelUrl }) {
   const isMobile = useMobileDetect();
+  const [isHolographic, setIsHolographic] = useState(false);
 
   return (
     <>
@@ -359,16 +449,19 @@ function Scene({ modelUrl }) {
         intensity={0.5}
       />
       <pointLight position={[2, 2, -2]} intensity={0.1} color="#87cacf" />
-      <Model url={modelUrl} />
+      <Model 
+        url={modelUrl} 
+        isHolographic={isHolographic}
+        onHolographicChange={setIsHolographic}
+      />
       <NameText />
-      
       {/* First cube */}
-      <OrbitingCube speed={0.3} positionOffset={0} rotationSpeed={1} />
+      <OrbitingCube speed={0.3} positionOffset={0} rotationSpeed={1} visible={!isHolographic}/>
       
       {/* Second cube with offset position and different speed */}
-      <OrbitingCube speed={0.4} positionOffset={Math.PI} rotationSpeed={-0.8} />
-      
-      {!isMobile && (
+      <OrbitingCube speed={0.4} positionOffset={Math.PI} rotationSpeed={-0.8} visible={!isHolographic}/>
+
+      {!isMobile && !isHolographic && (
         <SoftParticlesComponent 
           particleCount={6} 
           orbitingGroups={1}
