@@ -598,6 +598,8 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
             {console.log('isMobile:', isMobile)}
             {console.log('Should render EffectComposer:', !isMobile)}
             <SMAA />
+            </>
+          )}
             <EffectComposer>
               <Bloom 
                 luminanceThreshold={0.5} 
@@ -620,8 +622,8 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
                   resolutionX={width / 2} 
                 /> */}   
             </EffectComposer>
-            </>
-          )}
+           
+       
           <Scene modelUrl="/assets/logo2.glb" />
         </Suspense>
         <OrbitControls 
