@@ -646,20 +646,28 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
           antialias: true,
           powerPreference: 'high-performance',
           alpha: true,
-          preserveDrawingBuffer: true,
-          alphaToCoverage: true,
           premultipliedAlpha: false,
-          frameBufferType: isMobile ? undefined : HalfFloatType,
-          depth: true,
+          preserveDrawingBuffer: false,
           stencil: false,
-          preserveDrawingBuffer: false
+          depth: true,
         }}
-        dpr={isMobile ? 1 : [1, 2]}  // Lower DPR on mobile
+        dpr={isMobile ? 1 : [1, 2]}
         onCreated={({ gl, scene }) => {
           setIsLoaded(true);
           gl.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1 : 2));
           gl.setClearColor(0, 0, 0, 0);
           scene.background = null;
+          
+          // Force clear the canvas
+          gl.clearColor(0, 0, 0, 0);
+          gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+        }}
+        style={{
+          display: 'block',
+          background: 'transparent',
+          WebkitBackfaceVisibility: 'hidden',
+          WebkitTransform: 'translate3d(0,0,0)',
+          transform: 'translate3d(0,0,0)'
         }}
       >
         <color attach="background" args={[0x000000, 0]} />
@@ -689,7 +697,7 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
                 luminanceThreshold={0.5} 
                 mipmapBlur 
                 luminanceSmoothing={0.3} 
-                intensity={2} 
+                intensity={1} 
                 kernelSize={1}
               />
          
