@@ -396,7 +396,7 @@ function NameText() {
   );
 }
 
-function OrbitingCube({ radius = 1.5, speed = 0.5, positionOffset = 0, rotationSpeed = 1, visible = true }) {
+function OrbitingCube({ radius = 1.5, speed = 0.5, positionOffset = 1.3, rotationSpeed = 8, visible = true }) {
   const cubeRef = useRef();
   const lightRef = useRef();
   const smallCube1Ref = useRef();
@@ -405,16 +405,20 @@ function OrbitingCube({ radius = 1.5, speed = 0.5, positionOffset = 0, rotationS
   
   useFrame(({ clock }) => {
     if (!cubeRef.current || !visible) return;
-    
+
     const time = clock.getElapsedTime() * speed;
-    const x = Math.sin(time + positionOffset) * radius * 0.7;
-    const y = Math.sin(time + positionOffset) * radius * 0.7;
-    const z = Math.cos(time + positionOffset) * radius * 0.5;
+    const phaseShift = time * 0.3;
+    
+    const x = Math.sin(time * 0.1 + positionOffset  + phaseShift) * radius * 0.9;
+    const y = Math.sin(time * 0.1 + positionOffset + phaseShift * 0.1) * radius * 0.7;
+    const z = Math.cos(time * 0.1 + positionOffset + phaseShift) * radius * 0.6;
     
     // Update main cube position and rotation
     cubeRef.current.position.set(x, y, z);
     cubeRef.current.rotation.x = time * rotationSpeed;
     cubeRef.current.rotation.y = time * rotationSpeed * 0.5;
+
+
     
     // Update light position
     if (lightRef.current) {
@@ -528,10 +532,12 @@ function Scene({ modelUrl }) {
       />
       <NameText />
       {/* First cube */}
-      <OrbitingCube speed={0.3} positionOffset={0} rotationSpeed={1} visible={!isHolographic}/>
+      <OrbitingCube speed={1.3} positionOffset={0} rotationSpeed={1} visible={!isHolographic}/>
       
       {/* Second cube with offset position and different speed */}
-      <OrbitingCube speed={0.4} positionOffset={Math.PI} rotationSpeed={-0.8} visible={!isHolographic}/>
+      <OrbitingCube  speed={1.4} positionOffset={Math.PI} rotationSpeed={-0.8} visible={!isHolographic}/>
+
+      <OrbitingCube  speed={1.2} positionOffset={Math.PI / 2} rotationSpeed={0.9} visible={!isHolographic}/>
   {/* Second cube with offset position and different speed 
       {!isMobile && !isHolographic && (
         <SoftParticlesComponent 
