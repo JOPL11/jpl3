@@ -13,7 +13,7 @@ import { BlendFunction } from 'postprocessing';
 import { DepthOfField  } from '@react-three/postprocessing';
 import { Bloom } from '@react-three/postprocessing';
 import { SMAA } from '@react-three/postprocessing';
-import SoftParticlesComponent from './SoftParticlesComponent';
+//import SoftParticlesComponent from './SoftParticlesComponent';
 
 
 
@@ -399,38 +399,104 @@ function NameText() {
 function OrbitingCube({ radius = 1.5, speed = 0.5, positionOffset = 0, rotationSpeed = 1, visible = true }) {
   const cubeRef = useRef();
   const lightRef = useRef();
+  const smallCube1Ref = useRef();
+  const smallCube2Ref = useRef();
+  const smallCube3Ref = useRef();
   
   useFrame(({ clock }) => {
-    if (cubeRef.current) {
-      if (!visible) return;
-      
-      const time = clock.getElapsedTime() * speed;
-      const x = Math.sin(time + positionOffset) * radius * 0.7;
-      const y = Math.sin(time + positionOffset) * radius * 0.7;
-      const z = Math.cos(time + positionOffset) * radius * 0.5;
-      
-      cubeRef.current.position.set(x, y, z);
-      cubeRef.current.rotation.x = time * rotationSpeed;
-      cubeRef.current.rotation.y = time * rotationSpeed * 0.5;
-      
-      // Also update light position
-      if (lightRef.current) {
-        lightRef.current.position.set(x, y, z);
-      }
+    if (!cubeRef.current || !visible) return;
+    
+    const time = clock.getElapsedTime() * speed;
+    const x = Math.sin(time + positionOffset) * radius * 0.7;
+    const y = Math.sin(time + positionOffset) * radius * 0.7;
+    const z = Math.cos(time + positionOffset) * radius * 0.5;
+    
+    // Update main cube position and rotation
+    cubeRef.current.position.set(x, y, z);
+    cubeRef.current.rotation.x = time * rotationSpeed;
+    cubeRef.current.rotation.y = time * rotationSpeed * 0.5;
+    
+    // Update light position
+    if (lightRef.current) {
+      lightRef.current.position.set(x, y, z);
+    }
+
+    // Update small orbiting cubes
+    if (smallCube1Ref.current) {
+      const orbitTime = time * 2; // Faster orbit
+      const orbitRadius = 0.15;
+      smallCube1Ref.current.position.x = Math.sin(orbitTime) * orbitRadius;
+      smallCube1Ref.current.position.y = Math.cos(orbitTime) * orbitRadius;
+      smallCube1Ref.current.rotation.x = time * 2;
+      smallCube1Ref.current.rotation.y = time * 1.5;
+    }
+
+    if (smallCube2Ref.current) {
+      const orbitTime = time * 1.5 + Math.PI; // Offset by 180 degrees
+      const orbitRadius = 0.1;
+      smallCube2Ref.current.position.x = Math.cos(orbitTime) * orbitRadius;
+      smallCube2Ref.current.position.z = Math.sin(orbitTime) * orbitRadius;
+      smallCube2Ref.current.rotation.x = time * 1.5;
+      smallCube2Ref.current.rotation.z = time * 2;
+    }
+
+    if (smallCube3Ref.current) {
+      const orbitTime = time * 2.8 + Math.PI; // Offset by 180 degrees
+      const orbitRadius = 0.19;
+      smallCube3Ref.current.position.x = Math.cos(orbitTime) * orbitRadius;
+      smallCube3Ref.current.position.z = Math.sin(orbitTime) * orbitRadius;
+      smallCube3Ref.current.rotation.x = time * 2.5;
+      smallCube3Ref.current.rotation.z = time * 2.5;
     }
   });
 
   return (
-    <>
-      <mesh ref={cubeRef} visible={visible}>
-        <boxGeometry args={[0.05, 0.05, 0.05]} />
-        <meshPhysicalMaterial 
-          color="#63b3ed"
-          emissive="#4b0082"
-          emissiveIntensity={2}
-          toneMapped={false}
-        />
-      </mesh>
+    <group>
+      <group ref={cubeRef} visible={visible}>
+        <mesh>
+          <boxGeometry args={[0.05, 0.05, 0.05]} />
+          <meshPhysicalMaterial 
+            color="#63b3ed"
+            emissive="#4b0082"
+            emissiveIntensity={2}
+            toneMapped={false}
+          />
+        </mesh>
+        
+        {/* First small orbiting cube */}
+        <mesh ref={smallCube1Ref}>
+          <boxGeometry args={[0.02, 0.02, 0.02]} />
+          <meshPhysicalMaterial 
+            color="#ff6b6b"
+            emissive="#ff0000"
+            emissiveIntensity={1.5}
+            toneMapped={false}
+          />
+        </mesh>
+        
+        {/* Second small orbiting cube */}
+        <mesh ref={smallCube2Ref}>
+          <boxGeometry args={[0.015, 0.015, 0.015]} />
+          <meshPhysicalMaterial 
+            color="#4dffb8"
+            emissive="#00ff88"
+            emissiveIntensity={1.5}
+            toneMapped={false}
+          />
+        </mesh>
+
+        {/* Third small orbiting cube */}
+        <mesh ref={smallCube3Ref}>
+          <boxGeometry args={[0.019, 0.019, 0.019]} />
+          <meshPhysicalMaterial 
+            color="#63b3ed"
+            emissive="#4b0082"
+            emissiveIntensity={1.5}
+            toneMapped={false}
+          />
+        </mesh>
+      </group>
+      
       <pointLight 
         ref={lightRef}
         color="#63b3ed" 
@@ -438,10 +504,9 @@ function OrbitingCube({ radius = 1.5, speed = 0.5, positionOffset = 0, rotationS
         distance={3} 
         decay={2} 
       />
-    </>
+    </group>
   );
 }
-
 
 
 function Scene({ modelUrl }) {
@@ -467,7 +532,7 @@ function Scene({ modelUrl }) {
       
       {/* Second cube with offset position and different speed */}
       <OrbitingCube speed={0.4} positionOffset={Math.PI} rotationSpeed={-0.8} visible={!isHolographic}/>
-
+  {/* Second cube with offset position and different speed 
       {!isMobile && !isHolographic && (
         <SoftParticlesComponent 
           particleCount={6} 
@@ -479,7 +544,7 @@ function Scene({ modelUrl }) {
           particleOrbitSpeed={1.0}
           position={[0, 0, 0]}     
         />
-      )}
+      )} */}
     </>
   );
 }
@@ -593,22 +658,11 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
       >
         <color attach="background" args={[0x000000, 0]} />
         <Suspense fallback={null}>
-          {!isMobile && (
+     {/*       {!isMobile && (
             <>
             {console.log('isMobile:', isMobile)}
             {console.log('Should render EffectComposer:', !isMobile)}
-            <SMAA />
-            </>
-          )}
-            <EffectComposer>
-              <Bloom 
-                luminanceThreshold={0.5} 
-                mipmapBlur 
-                luminanceSmoothing={0.3} 
-                intensity={2} 
-                kernelSize={1}
-              />
-       {/*        <DepthOfField
+            <DepthOfField
                   focusDistance={0.1}
                   focalLength={0.0005}
                   blur={0}    
@@ -620,7 +674,19 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
                   height={height}
                   resolutionY={height / 2}
                   resolutionX={width / 2} 
-                /> */}   
+                /> 
+            </>
+          )} */}
+            <EffectComposer>
+            <SMAA />
+              <Bloom 
+                luminanceThreshold={0.5} 
+                mipmapBlur 
+                luminanceSmoothing={0.3} 
+                intensity={2} 
+                kernelSize={1}
+              />
+         
             </EffectComposer>
            
        
