@@ -85,28 +85,28 @@ const holographicFragmentShader = `
   
   // Noise function
   float random(vec2 st) {
-    return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
+    return fract(sin(dot(st.xy, vec2(10.9898, 118.233))) * 23758.9453123);
   }
   
   void main() {
     // Base color with fresnel effect
     vec3 normal = normalize(vNormal);
-    vec3 viewDir = normalize(cameraPosition - vPosition);
-    float fresnel = pow(1.0 - abs(dot(normal, viewDir)), 2.0);
+    vec3 viewDir = normalize(cameraPosition + vPosition);
+    float fresnel = pow(1.1 - abs(dot(normal, viewDir)), 1.5);
     
     // Thin scan lines with high frequency
-    float scanLine = sin(vPosition.y * 1.0 + uTime * 1.0) * 0.8 + 0.3;
-    scanLine = smoothstep(0.85, 1.55, scanLine);  // Very sharp transition for thin lines
+    float scanLine = sin(vPosition.y * 0.2 + uTime * 1.0) * 0.8 + 0.3;
+    scanLine = smoothstep(2.9, 12.9, scanLine);  // Wider transition for taller dark line
     
     // Add subtle secondary pattern
-    float scanLine2 = sin(vPosition.y * 1.0 - uTime * 1.4) * 1.22 + 0.85;
+    float scanLine2 = sin(vPosition.y * 0.8 - uTime * 1.0) * 1.22 + 0.75;
     scanLine = min(scanLine, scanLine2);  // Combine patterns for more detail
     
     // High contrast for visibility
-    scanLine = mix(0.2, 0.5, scanLine);
+    scanLine = mix(0.2, 0.6, scanLine);
     
     // Base color - using a slightly darker base to make lines pop
-    vec3 finalColor = uColor * (0.7 + fresnel * 1.9);
+    vec3 finalColor = uColor * (0.9 + fresnel * 2.9);
     
     // Apply scan lines
     finalColor *= scanLine;
@@ -238,8 +238,85 @@ function HologramCorners({ size = 0.1, distance = 1.2, intensity = 2.0 }) {
   );
 }
 
+function LogoCorners({ size = 0.1, distance = 1.0, intensity = 2.0 }) {
+  console.log('LogoCorners is rendering');
+  const lines = useMemo(() => [
+    { position: [1.1, 0.02, 0.25] },  
+    { position: [1.1, 0.54, 0.25] },
 
+    { position: [1.1, 0.02, -0.65] },  
+    { position: [1.1, 0.54, -0.65] },
 
+    { position: [0.5, 0.54, 0.25] },
+    { position: [0.5, 0.02, -0.65] },  
+
+    { position: [-0.85, -0.5, 0.25] },
+    { position: [-0.85, -0.5, -0.65] },
+    
+    { position: [0.1, 0.54, -0.65] },
+    { position: [-0.4, 0.54, -0.65] },
+
+    { position: [0.1, 0.54, 0.25] },
+    { position: [-0.4, 0.54, 0.25] },
+
+    { position: [0.36, -1.4, -0.65] },
+    { position: [0.36, -1.4, 0.25] },
+
+    { position: [0.36, -0.9, -0.65] },
+    { position: [0.36, -0.9, 0.25] },
+  ], []);
+  
+  return (
+    <group>
+      {lines.map((line, index) => (
+        <mesh key={index} position={line.position}>
+       <boxGeometry args={[0.01, 0.01, 0.25]} />
+          <meshBasicMaterial 
+            color="#87ceeb"
+            wireframe={false}
+            transparent={false}
+            opacity={0.01}
+          />
+        </mesh>
+      ))}
+    </group>
+  );
+}
+
+function LogoLongs({ size = 0.1, distance = 1.0, intensity = 2.0 }) {
+  const lines2 = useMemo(() => [
+    { position: [ 1.25, 0.02, 0.05 ] },  
+    { position: [ 1.25, 0.54, 0.05 ] },
+
+    { position: [ 1.25, 0.02, -0.45 ] },  
+    { position: [ 1.25, 0.54, -0.45 ] },
+
+    { position: [-1.05, -0.5, 0.05 ] },
+    { position: [-1.05, -0.5, -0.48 ] },
+
+    { position: [0.2, -1.4, -0.45 ] },
+    { position: [0.2, -1.4, 0.05 ] },
+
+    { position: [0.2, -0.9, -0.45 ] },
+    { position: [0.2, -0.9, 0.05 ] },
+  ], []);
+  
+  return (
+    <group>
+      {lines2.map((line, index) => (
+        <mesh key={index} position={line.position}>
+       <boxGeometry args={[0.25, 0.01, 0.01]} />
+          <meshBasicMaterial 
+            color="#87ceeb"
+            wireframe={false}
+            transparent={false}
+            opacity={0.01}
+          />
+        </mesh>
+      ))}
+    </group>
+  );
+}
 
 
 // Model component with holographic toggle
@@ -306,6 +383,8 @@ function Model({ url, position = [0, -0.05, 0], isHolographic, onHolographicChan
       {isHolographic && (
         <>
           <HologramCorners />
+          <LogoCorners />
+          <LogoLongs />
           {[...Array(152)].map((_, i) => (
         <DelayedOscillatingBox 
           key={i} 
@@ -697,7 +776,7 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
                 luminanceThreshold={0.5} 
                 mipmapBlur 
                 luminanceSmoothing={0.3} 
-                intensity={1} 
+                intensity={3} 
                 kernelSize={1}
               />
          
