@@ -776,7 +776,7 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
                 luminanceThreshold={0.5} 
                 mipmapBlur 
                 luminanceSmoothing={0.3} 
-                intensity={1} 
+                intensity={0.2} 
                 kernelSize={1}
               />
          
@@ -789,6 +789,10 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
           enableZoom={false}
           autoRotate
           autoRotateSpeed={0.1}
+          minPolarAngle={Math.PI / 2}  // Limit vertical rotation
+          maxPolarAngle={Math.PI / 1.5}
+          minAzimuthAngle={-Math.PI / 4} // Limit left rotation (in radians)
+          maxAzimuthAngle={Math.PI / 4}  
           enablePan={false}
           enableDamping={true}
           dampingFactor={0.1}
