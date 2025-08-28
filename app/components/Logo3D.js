@@ -92,7 +92,7 @@ const holographicFragmentShader = `
     // Base color with fresnel effect
     vec3 normal = normalize(vNormal);
     vec3 viewDir = normalize(cameraPosition + vPosition);
-    float fresnel = pow(1.1 - abs(dot(normal, viewDir)), 1.5);
+    float fresnel = pow(1.0 - abs(dot(normal, viewDir)), 1.5);
     
     // Thin scan lines with high frequency
     float scanLine = sin(vPosition.y * 0.2 + uTime * 1.0) * 0.8 + 0.3;
@@ -776,7 +776,7 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
                 luminanceThreshold={0.5} 
                 mipmapBlur 
                 luminanceSmoothing={0.3} 
-                intensity={3} 
+                intensity={1} 
                 kernelSize={1}
               />
          
