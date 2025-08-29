@@ -320,8 +320,19 @@ function LogoLongs({ size = 0.1, distance = 1.0, intensity = 2.0 }) {
 
 
 // Model component with holographic toggle
-function Model({ url, position = [0, -0.05, 0], isHolographic, onHolographicChange }) {
+function Model({ url, position = [0, -0.05, 0], isHolographic, onHolographicChange, isHovered }) {
   const { scene } = useGLTF(url);
+  const groupRef = useRef();
+
+  // Update cursor style based on hover state
+  useEffect(() => {
+    if (groupRef.current) {
+      document.body.style.cursor = isHovered ? 'pointer' : 'auto';
+      return () => {
+        document.body.style.cursor = 'auto';
+      };
+    }
+  }, [isHovered]);
   
   // Create holographic material
   const hologramMaterial = useMemo(() => new THREE.ShaderMaterial({
@@ -376,6 +387,7 @@ function Model({ url, position = [0, -0.05, 0], isHolographic, onHolographicChan
 
   return (
     <group 
+      ref={groupRef}
       position={position} 
       onClick={() => onHolographicChange(!isHolographic)}
     >
@@ -595,6 +607,7 @@ function OrbitingCube({ radius = 1.5, speed = 0.5, positionOffset = 1.3, rotatio
 function Scene({ modelUrl }) {
   const isMobile = useMobileDetect();
   const [isHolographic, setIsHolographic] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <>
@@ -604,10 +617,15 @@ function Scene({ modelUrl }) {
         intensity={0.5}
       />
       <pointLight position={[2, 2, -2]} intensity={0.1} color="#87cacf" />
+      <group
+        onPointerOver={() => setIsHovered(true)}
+        onPointerOut={() => setIsHovered(false)}
+      >
       <Model 
         url={modelUrl} 
         isHolographic={isHolographic}
         onHolographicChange={setIsHolographic}
+        isHovered={isHovered}
       />
       <NameText />
       {/* First cube */}
@@ -617,6 +635,7 @@ function Scene({ modelUrl }) {
       <OrbitingCube  speed={1.4} positionOffset={Math.PI} rotationSpeed={-0.8} visible={!isHolographic}/>
 
       <OrbitingCube  speed={1.2} positionOffset={Math.PI / 2} rotationSpeed={0.9} visible={!isHolographic}/>
+      </group>
   {/* Second cube with offset position and different speed 
       {!isMobile && !isHolographic && (
         <SoftParticlesComponent 
@@ -779,7 +798,6 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
                 intensity={0.2} 
                 kernelSize={1}
               />
-         
             </EffectComposer>
            
        
