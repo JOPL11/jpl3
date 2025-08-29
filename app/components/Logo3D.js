@@ -792,11 +792,11 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
             <EffectComposer>
             <SMAA />
               <Bloom 
-                luminanceThreshold={0.5} 
+                luminanceThreshold={0.4} 
                 mipmapBlur 
                 luminanceSmoothing={0.3} 
-                intensity={0.2} 
-                kernelSize={1}
+                intensity={0.5} 
+                kernelSize={4}
               />
             </EffectComposer>
            
