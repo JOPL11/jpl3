@@ -260,7 +260,7 @@
   position: relative;
   color: inherit;
   padding: 0.5rem 0;
-  transition: color 0.3s ease 0.1s;
+  transition: color 0.3s ease 0.5s;
 }
 
 .navLink:hover {
@@ -275,7 +275,7 @@
   width: 0;
   height: 3px;
   background-color: #87cacf; /* Match the point light color */
-  transition: width 0.3s ease 0.25s;
+  transition: width 0.3s ease 0.3s;
 }
 
 .navLink.active::after {
