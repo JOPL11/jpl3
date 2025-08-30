@@ -83,7 +83,7 @@ const Logo3D = dynamic(
     // Only add delay for non-iOS devices
     const loadLogo = () => import('./components/Logo3D');
     return isIOS() ? loadLogo() : new Promise(resolve => 
-      setTimeout(() => resolve(loadLogo()), 1000)
+      setTimeout(() => resolve(loadLogo()), 10)
     );
   },
   { ssr: false, loading: () => <div style={{ width: '250px', height: '250px' }} /> }

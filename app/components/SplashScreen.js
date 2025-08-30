@@ -106,8 +106,8 @@ export default function SplashScreen({ onComplete }) {
   useEffect(() => {
     if (!assetsLoaded || isIOS) return;
     
-    const fadeOutDuration = 2000; 
-    const minDisplayTime = 3000; 
+    const fadeOutDuration = 20; 
+    const minDisplayTime = 10; 
     
     const fadeOutTimer = setTimeout(() => {
       // Start fade out
