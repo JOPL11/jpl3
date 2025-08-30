@@ -28,7 +28,7 @@ const isIOS = () => {
 
 const Logo3D = dynamic(
   () => new Promise(resolve => 
-    setTimeout(() => resolve(import('./Logo3D')), 2800)
+    setTimeout(() => resolve(import('./Logo3D')), 200)
   ),
   { ssr: false, loading: () => <div style={{ width: '250px', height: '250px' }} /> }
 );

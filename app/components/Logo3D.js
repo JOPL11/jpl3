@@ -411,7 +411,7 @@ function Model({ url, position = [0, -0.05, 0], isHolographic, onHolographicChan
 }
 
 
-function DelayedOscillatingBox({ delay = 2000, color = 0x87CEEB }) {
+function DelayedOscillatingBox({ delay = 20, color = 0x87CEEB }) {
   const boxRef = useRef();
   const [visible, setVisible] = useState(false);
   const randomX = useRef((Math.random() * 0.5 - 0.5) * 1.9); 
@@ -733,7 +733,7 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
         height: `${height + 25}px`,
         position: 'relative',
         opacity: isLoaded ? 1 : 0,
-        transition: 'opacity 3000ms ease-in-out'
+        transition: 'opacity 2000ms ease-in-out'
       }}
     >
       <Canvas 
