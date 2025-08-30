@@ -582,7 +582,7 @@ export default function Home() {
                   <p><strong>Tools:</strong><AnimatedText ref={citylink1TextRef} type="project"> Next.js, react</AnimatedText></p>
                 </ProjectCard>
 
-            {/*    */}  <ProjectCard 
+            {/*     <ProjectCard 
                  onMoreClick={() => {
                   console.log('bumpi More button clicked, triggering animation');
                   bumpiTextRef.current?.animate();
@@ -616,7 +616,7 @@ export default function Home() {
                   <p><strong>Tools:</strong><AnimatedText ref={bumpiTextRef} type="project"> Next.js, Supabase, Openstreetmap, dompurify</AnimatedText></p>
                   <p><strong>Features:</strong> Game Mode, Leaderboard, Score Distribution, manual or automatic Geolocation, Rate Limiting, CSRF Prevention, XSS Prevention, RLS, Optional Analytics, Optional Auth, Hashed IP Geofencing, Comprehensive Crash Guarding, i18n multilanguage support</p>
                   <p><strong>Goal:</strong> Make something fun, easy to use and secure in compliance with GDPR. At the same time making for a more streamlined and efficient process for municipal officials to manage environmental reports.</p>
-                </ProjectCard>
+                </ProjectCard>  */}
          {/*           <ProjectCard 
                  onMoreClick={() => {
                   console.log('citylink2 More button clicked, triggering animation');
