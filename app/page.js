@@ -122,6 +122,7 @@ export default function Home() {
   const isProgrammaticScroll = useRef(false);
   const scrollTimeout = useRef(null);
   const viewportWidth = useViewportWidth();
+  const throwableSectionRef = useRef(null);
 
 
 
@@ -1175,7 +1176,7 @@ export default function Home() {
                   <p><strong>Target Audience:</strong> Showroom visitors</p>
                   <p><strong>Project Type:</strong> After Effects / Cinema4D</p>
                   <p><strong>Role:</strong> Lead Designer / animator</p>
-                  <p><strong>Duration:</strong> 2 weeks</p>
+                  <p><strong>Duration:</strong> 2 weeks</p> Daimler Benz prototype interactive dealership award. 
                 </ProjectCard>
                 */}
           
@@ -1186,19 +1187,25 @@ export default function Home() {
             <section id="product-heading" className={`${styles.section} ${styles.scrollTarget}`}>
               <h2><AnimatedText ref={productHeadingRef}>Prototype</AnimatedText></h2>
               <div className={styles.introText}>
-                <p>Daimler Benz prototype interactive dealership award. Click and drag the images to look through the pile of photos.</p>
+
+                <p>Click and drag the images to look through the pile of photos.</p>
+                <div style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'white' }}>
+                  Project: <span style={{ fontSize: '0.85rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Daimler Benz dealership award.</span>
+                </div>
                 <div style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'white' }}>
                   Client: <a href="https://sieberundwolf.de/" target="_blank" rel="noopener" ><span style={{ fontSize: '0.85rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Sieber & Wolf&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
                   
                   <Image src="/images/agencies/sw_neu_white.png" alt="Sieber & Wolf"  width={33} height={16} /></a>
                 </div>
                 <div style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'white' }}>
-                  My Task: <span style={{ fontSize: '0.85rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Invent a new type of dealership award for Mercedes Benz. I created the concept designed the whole piece including UI and put together a working tech-stack for a fully functional prototype.</span>
+                  My Task: <span style={{ fontSize: '0.85rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Invent a new type of dealership award for Mercedes Benz. I thought up the concept, designed the whole piece including UI and put together a working tech-stack for a fully functional prototype.</span>
                 </div>
               </div>
-              <ThrowableImages />
+              <ThrowableImages isActive={activeSection === 'product-heading'} />
             </section>
+
             {/*   MOTION ENDS HERE             <hr className={styles.divider2} /> */}  
+
             <SectionTracker onSectionChange={setActiveSection} />
             <div data-section="contact"></div>
             <section id="contact" className={`${styles.section} ${styles.scrollTarget}`}>
