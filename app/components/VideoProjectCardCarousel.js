@@ -90,6 +90,37 @@ export default function VideoProjectCardCarousel({
           <h3>{currentProject.title}</h3>
           {projectList.length > 1 && (
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
+              {/* Navigation Bullets - Moved to the top */}
+              <div style={{
+                display: 'flex',
+                gap: '6px',
+                justifyContent: 'center',
+                width: '100%',
+                height: '2px',
+                alignItems: 'center',
+                marginBottom: '4px'  // Add some space between bullets and arrows
+              }}>
+                {projectList.map((_, index) => (
+                  <div 
+                    key={index}
+                    style={{
+                      width: index === currentIndex ? '20px' : '10px',
+                      height: '2px',
+                      backgroundColor: index === currentIndex ? 'currentColor' : 'rgba(255,255,255,0.5)',
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease',
+                      borderRadius: '1px'
+                    }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setCurrentIndex(index);
+                    }}
+                    aria-label={`Go to project ${index + 1}`}
+                  />
+                ))}
+              </div>
+              
+              {/* Navigation Arrows */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
                 <button 
                   onClick={handlePrev}
@@ -148,34 +179,6 @@ export default function VideoProjectCardCarousel({
                     margin: '2px 0 0 4px'
                   }} />
                 </button>
-              </div>
-              
-              <div style={{
-                display: 'flex',
-                gap: '6px',
-                justifyContent: 'center',
-                width: '100%',
-                height: '2px',
-                alignItems: 'center'
-              }}>
-                {projectList.map((_, index) => (
-                  <div 
-                    key={index}
-                    style={{
-                      width: index === currentIndex ? '20px' : '10px',
-                      height: '2px',
-                      backgroundColor: index === currentIndex ? 'currentColor' : 'rgba(255,255,255,0.5)',
-                      cursor: 'pointer',
-                      transition: 'all 0.3s ease',
-                      borderRadius: '1px'
-                    }}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setCurrentIndex(index);
-                    }}
-                    aria-label={`Go to project ${index + 1}`}
-                  />
-                ))}
               </div>
             </div>
           )}
