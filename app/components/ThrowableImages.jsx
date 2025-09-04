@@ -3,11 +3,11 @@ import { useState, useCallback } from 'react';
 import styles from '../css/ThrowableImages.module.css';
 
 const IMAGES = [
-  '/images/throwable/merc1.jpg',
-  '/images/throwable/merc4.jpg',
-  '/images/throwable/merc66.jpg',
   '/images/throwable/merc77.jpg',
   '/images/throwable/merc99.jpg',
+  '/images/throwable/merc66.jpg',
+  '/images/throwable/merc4.jpg',
+  '/images/throwable/merc1.jpg',
 ].map((src, index) => ({
   id: index,
   src,

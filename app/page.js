@@ -1211,6 +1211,13 @@ export default function Home() {
             </button>
             <p>&copy; <CopyrightYear /> Jan Peiro. All rights reserved.</p>
             <button 
+              onClick={() => window.open('https://github.com/JOPL11/jpl3', '_blank', 'noopener,noreferrer')} 
+              className={styles.footerLink} 
+              aria-label="View on GitHub"
+            >
+              GitHub
+            </button>
+            <button 
               onClick={() => openModal('privacy')} 
               className={styles.footerLink} 
               aria-label="Privacy Policy"
