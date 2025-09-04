@@ -1086,56 +1086,6 @@
   opacity: 1;
 }
 
-/* Prototype Section Styles */
-.prototypeHeader {
-  max-width: 800px;
-  text-align: center;
-  padding: 0 1rem;
-}
-
-.prototypeHeader p {
-  color: #666;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-.clientInfo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  font-size: 1rem;
-  color: #444;
-  margin-top: 1rem;
-}
-
-.clientLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #0070f3;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
-}
-
-.clientLink:hover {
-  color: #005bb5;
-  text-decoration: underline;
-}
-
-.clientLogo {
-  height: 20px;
-  width: auto;
-  vertical-align: middle;
-  opacity: 0.8;
-  transition: opacity 0.2s ease;
-}
-
-.clientLink:hover .clientLogo {
-  opacity: 1;
-}
-
 /* iPad Pro (portrait & landscape) */
 @media only screen 
   and (min-device-width: 1024px) 
