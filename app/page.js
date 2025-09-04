@@ -290,6 +290,7 @@ export default function Home() {
     'skills-heading': skillsHeadingRef,
     'webgl-heading': webglHeadingRef,
     'motion-heading': motionHeadingRef,
+    'product-heading': productHeadingRef,
     'contact': contactHeadingRef
   }), [aboutHeadingRef, workHeadingRef, webglHeadingRef, skillsHeadingRef, contactHeadingRef, motionHeadingRef, productHeadingRef]);
   
@@ -1177,11 +1178,16 @@ export default function Home() {
             <SectionTracker onSectionChange={setActiveSection} />
             <div data-section="product-heading"></div>
             <section id="product-heading" className={`${styles.section} ${styles.scrollTarget}`}>
-            <h2><AnimatedText ref={productHeadingRef}>Protoype</AnimatedText></h2>
-            <div className={styles.introText}>
-        <p>Daimler Benz prototype interactive dealership award. Click and drag the images to look through the pile of photos. </p>
-      </div> 
-            <ThrowableImages />
+              <h2><AnimatedText ref={productHeadingRef}>Prototype</AnimatedText></h2>
+              <div className={styles.introText}>
+                <p>Daimler Benz prototype interactive dealership award. Click and drag the images to look through the pile of photos.</p>
+                <div style={{ fontWeight: 'bold', color: 'white' }}>
+                  Client: <a href="https://sieberundwolf.de/" target="_blank" rel="noopener" ><span style={{ fontWeight: 'normal', color: '#acfeff' }}>&nbsp;&nbsp;Sieber & Wolf&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;   </span>
+                  
+                  <Image src="/images/agencies/sw_neu_white.png" alt="Sieber & Wolf" width={40} height={20} leftmargin={10}/></a>
+                </div>
+              </div>
+              <ThrowableImages />
             </section>
             {/*   MOTION ENDS HERE             <hr className={styles.divider2} /> */}  
             <SectionTracker onSectionChange={setActiveSection} />
