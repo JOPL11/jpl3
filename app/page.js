@@ -539,6 +539,115 @@ export default function Home() {
               <h2 id="projects-heading" className={styles.scrollTarget}><AnimatedText ref={workHeadingRef}>Code</AnimatedText></h2>
           
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
+
+              <ProjectCard 
+                onMoreClick={() => {
+                    console.log('airbus2 More button clicked, triggering animation');
+                    airbus2TextRef.current?.animate();
+                  }}
+                  title="Airbus Berlin Showroom Interface"
+                 // image="/images/corp/airbus.jpg"
+                 image="/images/JPL3Poster_AB.jpg"
+                  alt="Berlin Showroom Expo piece"
+                  client={{
+                    name: "SMMD Team  |",
+                    logo: "/images/agencies/SMMD_wide.png",
+                    website: "https://www.smmd.team"
+                  }}
+                  logoWidth={300}
+                  logoHeight={50}
+                  logoStyle={{
+                    height: '20px', 
+                    width: 'auto', 
+                    maxWidth: '100%'
+                  }}
+                  text={"An interactive catalogue of Airbus technology and the company&apos;s history made for visiting foreign state officials and clients. Situated at Airbus Group's company headquarters."}
+                  modalContent={{
+                    description: `I had never designed things for big screens. 7680 x 1080. The content had to appear dynamically according to where the user was situated along its width. The UI consisted of a touchable fullscreen main menu which revealed 4 chapters of interactive content.
+                    <br />
+                    <br />
+                    The first chapter was a history timeline of all of aviation history and how Airbus fit into it. 
+                    <br />
+                    <br />
+                    The second chapter was a showcase featuring the corporations humanitarian projects and capacities. 
+                    <br />
+                    <br />
+                    The third chapter was an interactive look at the future of the aerospace company and aviation in general.
+                    <br />
+                    <br />
+                    The fourth chapter was an interactive showcase of the wide range of aircraft, satellites and spacecraft vehicles they build, interactively outlineing their capabilities using video, images and text. 
+                    <br />
+                    <br /> 
+                    `,
+                    images: [
+                      { src: "/images/airbus_berlin/table2.jpg", alt: "Project Screenshot 1" },
+                      { src: "/images/airbus_berlin/table1.jpg", alt: "Project Screenshot 2" },
+                      { src: "/images/airbus_berlin/table3.jpg", alt: "Project Screenshot 3" },
+                      { src: "/images/airbus_berlin/table4.jpg", alt: "Project Screenshot 4" },
+                      { src: "/images/airbus_berlin/table6.jpg", alt: "Project Screenshot 6" },
+                      { src: "/images/airbus_berlin/table7.jpg", alt: "Project Screenshot 7" },
+                      { src: "/images/airbus_berlin/table8.jpg", alt: "Project Screenshot 8" },
+                      { src: "/images/airbus_berlin/table9.jpg", alt: "Project Screenshot 9" },
+                      { src: "/images/airbus_berlin/table10.jpg", alt: "Project Screenshot 10" }
+                    ]
+                  }}>
+                  <p>An interactive catalogue of Airbus technology and the company&apos;s history made for visiting foreign state officials and clients.</p>
+                  <p><strong>Target Audience:</strong> Guests at Airbus Headquarters, Berlin</p>
+                  <p><strong>Project Type:</strong><AnimatedText ref={airbus2TextRef} type="project"> Touchtable Interface</AnimatedText></p>
+                  <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
+                  <p><strong>Duration:</strong> 3 months and years of updates</p>
+                </ProjectCard>
+              <ProjectCard 
+                  onMoreClick={() => {
+                    console.log('Airbus1 More button clicked, triggering animation');
+                    airbusTextRef.current?.animate();
+                  }}
+                  title="Airbus Munich Interface"
+                  image="/images/JPL3Poster_AB2.jpg"
+                  alt="Ottobrunn Showroom Expo piece"
+                  client={{
+                    name: "SMMD Team |",
+                    logo: "/images/agencies/SMMD_wide.png",
+                    website: "https://www.smmd.team"
+                  }}
+                  logoWidth={300}
+                  logoHeight={50}
+                  logoStyle={{
+                    height: '20px', 
+                    width: 'auto',   
+                    maxWidth: '100%'
+                  }}
+                  text={"An interactive catalogue of Airbus technology made for the Ottobrunn showroom. Situated at Airbus Group's Munich offices."}
+                  modalContent={{
+                    description: `15 Chapters 
+                    <br/><br/>RFID Powered Touchscreen Interface 
+                    <br/><br/>Animated interactive 3D Models & 2D UI menu system & content.
+                    <br/><br/>A visitor would walk over to a wall mounted collection of plexiglass cubes which each contained a piece of Airbus tech, 
+                     take one cube and place it on a recepticle, which read an RFID chip and opened a touchscreen interface on a 75" monitor explaining the
+                     tech inside the cube.
+                    <br/><br/>
+                     Each tech was symbolized by a 3D model modeled after it, in the form of a symbolic kernel of the tech - a technocule , not a molecule -
+                     and explained using text, images & video.`,
+                    images: [
+                      { src: "/images/airbus_ottobrunn/bgbg.jpg", alt: "Project Screenshot 1" },
+                      { src: "/images/airbus_ottobrunn/posterC.jpg", alt: "Project Screenshot 2" },
+                      { src: "/images/airbus_ottobrunn/airbus_14B.jpg", alt: "Project Screenshot 3" },
+                      { src: "/images/airbus_ottobrunn/airbus_18B.jpg", alt: "Project Screenshot 4" },
+                      { src: "/images/airbus_ottobrunn/airbus_21B.jpg", alt: "Project Screenshot 5" },
+                    ]
+                  }}
+                >
+                  <p>A physically interactive showcase of Airbus technology explained on interactive touchscreens</p>
+                  <p><strong>Target Audience:</strong> Visitors at Airbus Group Ottobrunn Showroom</p>
+                  <p><strong>Project Type:</strong><AnimatedText ref={airbusTextRef} type="project"> RFID Driven Interactive Experience</AnimatedText></p>
+                  <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
+                  <p><strong>Duration:</strong> 3 months and years of updates</p>
+                </ProjectCard>
+                    
+
+
+
+
               <ProjectCard 
                  onMoreClick={() => {
                   console.log('RoadRich More button clicked, triggering animation');
@@ -665,111 +774,7 @@ export default function Home() {
                   <p><strong>Tools:</strong><AnimatedText ref={citylink2TextRef} type="project">Next.js, Supabase, Geoman-io, leaflet, Openstreetmap, REST</AnimatedText></p>
                 </ProjectCard>
               */}
-              <ProjectCard 
-                  onMoreClick={() => {
-                    console.log('Airbus1 More button clicked, triggering animation');
-                    airbusTextRef.current?.animate();
-                  }}
-                  title="Airbus Munich Interface"
-                  image="/images/JPL3Poster_AB2.jpg"
-                  alt="Ottobrunn Showroom Expo piece"
-                  client={{
-                    name: "SMMD Team |",
-                    logo: "/images/agencies/SMMD_wide.png",
-                    website: "https://www.smmd.team"
-                  }}
-                  logoWidth={300}
-                  logoHeight={50}
-                  logoStyle={{
-                    height: '20px', 
-                    width: 'auto',   
-                    maxWidth: '100%'
-                  }}
-                  text={"An interactive catalogue of Airbus technology made for the Ottobrunn showroom. Situated at Airbus Group's Munich offices."}
-                  modalContent={{
-                    description: `15 Chapters 
-                    <br/><br/>RFID Powered Touchscreen Interface 
-                    <br/><br/>Animated interactive 3D Models & 2D UI menu system & content.
-                    <br/><br/>A visitor would walk over to a wall mounted collection of plexiglass cubes which each contained a piece of Airbus tech, 
-                     take one cube and place it on a recepticle, which read an RFID chip and opened a touchscreen interface on a 75" monitor explaining the
-                     tech inside the cube.
-                    <br/><br/>
-                     Each tech was symbolized by a 3D model modeled after it, in the form of a symbolic kernel of the tech - a technocule , not a molecule -
-                     and explained using text, images & video.`,
-                    images: [
-                      { src: "/images/airbus_ottobrunn/bgbg.jpg", alt: "Project Screenshot 1" },
-                      { src: "/images/airbus_ottobrunn/posterC.jpg", alt: "Project Screenshot 2" },
-                      { src: "/images/airbus_ottobrunn/airbus_14B.jpg", alt: "Project Screenshot 3" },
-                      { src: "/images/airbus_ottobrunn/airbus_18B.jpg", alt: "Project Screenshot 4" },
-                      { src: "/images/airbus_ottobrunn/airbus_21B.jpg", alt: "Project Screenshot 5" },
-                    ]
-                  }}
-                >
-                  <p>A physically interactive showcase of Airbus technology explained on interactive touchscreens</p>
-                  <p><strong>Target Audience:</strong> Visitors at Airbus Group Ottobrunn Showroom</p>
-                  <p><strong>Project Type:</strong><AnimatedText ref={airbusTextRef} type="project"> RFID Driven Interactive Experience</AnimatedText></p>
-                  <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
-                  <p><strong>Duration:</strong> 3 months and years of updates</p>
-                </ProjectCard>
-                    
-                <ProjectCard 
-                onMoreClick={() => {
-                    console.log('airbus2 More button clicked, triggering animation');
-                    airbus2TextRef.current?.animate();
-                  }}
-                  title="Airbus Berlin Showroom Interface"
-                 // image="/images/corp/airbus.jpg"
-                 image="/images/JPL3Poster_AB.jpg"
-                  alt="Berlin Showroom Expo piece"
-                  client={{
-                    name: "SMMD Team  |",
-                    logo: "/images/agencies/SMMD_wide.png",
-                    website: "https://www.smmd.team"
-                  }}
-                  logoWidth={300}
-                  logoHeight={50}
-                  logoStyle={{
-                    height: '20px', 
-                    width: 'auto', 
-                    maxWidth: '100%'
-                  }}
-                  text={"An interactive catalogue of Airbus technology and the company&apos;s history made for visiting foreign state officials and clients. Situated at Airbus Group's company headquarters."}
-                  modalContent={{
-                    description: `I had never designed things for big screens. 7680 x 1080. The content had to appear dynamically according to where the user was situated along its width. The UI consisted of a touchable fullscreen main menu which revealed 4 chapters of interactive content.
-                    <br />
-                    <br />
-                    The first chapter was a history timeline of all of aviation history and how Airbus fit into it. 
-                    <br />
-                    <br />
-                    The second chapter was a showcase featuring the corporations humanitarian projects and capacities. 
-                    <br />
-                    <br />
-                    The third chapter was an interactive look at the future of the aerospace company and aviation in general.
-                    <br />
-                    <br />
-                    The fourth chapter was an interactive showcase of the wide range of aircraft, satellites and spacecraft vehicles they build, interactively outlineing their capabilities using video, images and text. 
-                    <br />
-                    <br /> 
-                    `,
-                    images: [
-                      { src: "/images/airbus_berlin/table2.jpg", alt: "Project Screenshot 1" },
-                      { src: "/images/airbus_berlin/table1.jpg", alt: "Project Screenshot 2" },
-                      { src: "/images/airbus_berlin/table3.jpg", alt: "Project Screenshot 3" },
-                      { src: "/images/airbus_berlin/table4.jpg", alt: "Project Screenshot 4" },
-                      { src: "/images/airbus_berlin/table6.jpg", alt: "Project Screenshot 6" },
-                      { src: "/images/airbus_berlin/table7.jpg", alt: "Project Screenshot 7" },
-                      { src: "/images/airbus_berlin/table8.jpg", alt: "Project Screenshot 8" },
-                      { src: "/images/airbus_berlin/table9.jpg", alt: "Project Screenshot 9" },
-                      { src: "/images/airbus_berlin/table10.jpg", alt: "Project Screenshot 10" }
-                    ]
-                  }}>
-                  <p>An interactive catalogue of Airbus technology and the company&apos;s history made for visiting foreign state officials and clients.</p>
-                  <p><strong>Target Audience:</strong> Guests at Airbus Headquarters, Berlin</p>
-                  <p><strong>Project Type:</strong><AnimatedText ref={airbus2TextRef} type="project"> Touchtable Interface</AnimatedText></p>
-                  <p><strong>Role:</strong> Lead Designer, Lead Developer</p>
-                  <p><strong>Duration:</strong> 3 months and years of updates</p>
-                </ProjectCard>
-
+              
                 <ProjectCard 
                   title="Spiegel Geschichte TV Website"
                  image="/images/corp/spg.jpg"
