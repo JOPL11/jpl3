@@ -1190,6 +1190,9 @@ export default function Home() {
                   Client: <a href="https://sieberundwolf.de/" target="_blank" rel="noopener" ><span style={{ fontSize: '0.85rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Sieber & Wolf&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;   </span>
                   <Image src="/images/agencies/sw_neu_white.png" alt="Sieber & Wolf" width={40} height={20} leftmargin={10}/></a>
                 </div>
+                <div style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'white' }}>
+                  My Task: <span style={{ fontSize: '0.85rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Invent a new type of dealership award for Mercedes Benz. I created the concept designed the whole piece including UI and put together a working tech-stack for a fully functional prototype.</span>
+                </div>
               </div>
               <ThrowableImages />
             </section>
