@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState, useRef, useCallback } from 'react';
+import Image from 'next/image';
 import styles from '../app/css/VideoModal.module.css';
 
 // Helper function to check if cookies are enabled
@@ -15,50 +16,38 @@ const areCookiesEnabled = () => {
   }
 };
 
-export default function VideoModal({ isOpen, onClose, videoUrl }) {
+export default function VideoModal({ isOpen, onClose, videoUrl, images = [], currentImageIndex = 0, onNextImage, onPrevImage }) {
   const [hasConsent, setHasConsent] = useState(false);
   const [showConsentBanner, setShowConsentBanner] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [needsConsent, setNeedsConsent] = useState(true);
+  const [activeImageIndex, setActiveImageIndex] = useState(currentImageIndex);
   const iframeRef = useRef(null);
   const isMounted = useRef(true);
+  const hasImages = images && images.length > 0;
+  const hasVideo = !!videoUrl;
 
-  // Check for existing consent
-  const checkConsent = useCallback(() => {
-    if (typeof window === 'undefined') return false;
-    
-    // First check if we can access localStorage
-    const canAccessStorage = areCookiesEnabled();
-    
-    // If we can't access storage, we need to show the banner
-    if (!canAccessStorage) {
-      return { hasConsent: false, showBanner: true };
-    }
-    
-    // Try to get the consent from localStorage
-    try {
-      const savedConsent = localStorage.getItem('cookieConsent');
-      return {
-        hasConsent: savedConsent === 'true',
-        showBanner: savedConsent === null
-      };
-    } catch (e) {
-      // If we can't access localStorage, show the banner
-      return { hasConsent: false, showBanner: true };
-    }
-  }, []);
+  // Sync activeImageIndex with prop changes
+  useEffect(() => {
+    setActiveImageIndex(currentImageIndex);
+  }, [currentImageIndex]);
 
   // Check for existing consent when modal opens
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
-      const consentState = checkConsent();
-      setHasConsent(consentState.hasConsent);
-      setShowConsentBanner(consentState.showBanner);
+      // Only check consent for videos
+      if (hasVideo) {
+        const consentState = checkConsent();
+        setHasConsent(consentState.hasConsent);
+        setShowConsentBanner(consentState.showBanner);
+        setNeedsConsent(consentState.showBanner);
+      } else {
+        setHasConsent(true);
+        setShowConsentBanner(false);
+        setNeedsConsent(false);
+      }
       setIsLoading(false);
-      
-      // Set a flag if we need to show consent banner
-      setNeedsConsent(consentState.showBanner);
     } else {
       document.body.style.overflow = 'unset';
     }
@@ -66,27 +55,40 @@ export default function VideoModal({ isOpen, onClose, videoUrl }) {
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [isOpen, checkConsent]);
+  }, [isOpen, hasVideo]);
+
+  const checkConsent = useCallback(() => {
+    if (typeof window === 'undefined') return { hasConsent: false, showBanner: false };
+    
+    const canAccessStorage = areCookiesEnabled();
+    if (!canAccessStorage) {
+      return { hasConsent: false, showBanner: true };
+    }
+    
+    try {
+      const savedConsent = localStorage.getItem('cookieConsent');
+      return {
+        hasConsent: savedConsent === 'true',
+        showBanner: savedConsent === null
+      };
+    } catch (e) {
+      return { hasConsent: false, showBanner: true };
+    }
+  }, []);
 
   const handleConsent = useCallback((consent) => {
     if (!isMounted.current) return;
     
     try {
-      // Try to save consent to localStorage
       localStorage.setItem('cookieConsent', String(consent));
-      
-      // Update state
       setHasConsent(consent);
       setShowConsentBanner(false);
       setNeedsConsent(false);
-      
-      // Dispatch event for other components
       window.dispatchEvent(new Event('cookieConsent'));
       
       if (!consent) {
         onClose();
       } else if (iframeRef.current) {
-        // Force reload the iframe after consent
         const src = iframeRef.current.src;
         if (src) {
           iframeRef.current.src = '';
@@ -99,7 +101,6 @@ export default function VideoModal({ isOpen, onClose, videoUrl }) {
       }
     } catch (e) {
       console.error('Failed to save consent:', e);
-      // If we can't save consent, still try to show the video
       setHasConsent(true);
       setShowConsentBanner(false);
       setNeedsConsent(false);
@@ -112,26 +113,37 @@ export default function VideoModal({ isOpen, onClose, videoUrl }) {
     }
   };
 
-  // Extract video ID from Vimeo URL
   const getVideoId = useCallback((url) => {
     if (!url) return '';
     const match = url.match(/(?:vimeo\.com\/(\d+))|(?:vimeo\.com\/video\/(\d+))/);
     return match && (match[1] || match[2] || '');
   }, []);
 
-  // Get the embed URL with privacy-enhanced mode for better Chrome compatibility
   const getEmbedUrl = useCallback((url) => {
     const videoId = getVideoId(url);
     if (!videoId) return '';
-    
-    // Use dnt=1 for privacy and no tracking
     return `https://player.vimeo.com/video/${videoId}?autoplay=1&controls=1&title=0&byline=0&portrait=0&badge=0&transparent=0&dnt=1`;
   }, [getVideoId]);
+
+  const handleNextImage = (e) => {
+    e.stopPropagation();
+    const nextIndex = (activeImageIndex + 1) % images.length;
+    setActiveImageIndex(nextIndex);
+    if (onNextImage) onNextImage(nextIndex);
+  };
+
+  const handlePrevImage = (e) => {
+    e.stopPropagation();
+    const prevIndex = (activeImageIndex - 1 + images.length) % images.length;
+    setActiveImageIndex(prevIndex);
+    if (onPrevImage) onPrevImage(prevIndex);
+  };
 
   if (!isOpen) return null;
 
   const embedUrl = getEmbedUrl(videoUrl);
-  const showVideo = hasConsent && !showConsentBanner && !isLoading && embedUrl;
+  const showVideo = hasVideo && hasConsent && !showConsentBanner && !isLoading && embedUrl;
+  const currentImage = images[activeImageIndex];
 
   return (
     <div className={styles.modalOverlay} onClick={handleBackdropClick}>
@@ -139,36 +151,28 @@ export default function VideoModal({ isOpen, onClose, videoUrl }) {
         <button 
           className={styles.closeButton} 
           onClick={onClose} 
-          aria-label="Close video"
+          aria-label="Close modal"
         >
           &times;
         </button>
         
-        {showConsentBanner && (
+        {hasVideo && showConsentBanner && (
           <div className={styles.consentBanner}>
             <p style={{ marginBottom: '1rem' }}>
-              This video is hosted on Vimeo and may use cookies for analytics and personalization. 
-              By clicking &quot;Accept&quot;, you agree to Vimeo&apos;s use of cookies as described in their{' '}
-              <a href="https://vimeo.com/privacy" target="_blank" rel="noopener noreferrer" style={{ color: '#4a90e2', textDecoration: 'underline' }}>
-                Privacy Policy
-              </a>{' '}
-              and{' '}
-              <a href="https://vimeo.com/cookie_policy" target="_blank" rel="noopener noreferrer" style={{ color: '#4a90e2', textDecoration: 'underline' }}>
-                Cookie Policy
-              </a>.
+              This video is hosted on Vimeo and may use cookies for analytics and personalization.
             </p>
-            <div className={styles.consentButtons}>
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
               <button 
-                className={styles.rejectButton}
                 onClick={() => handleConsent(false)}
+                className={styles.consentButton}
               >
                 Reject
               </button>
               <button 
-                className={styles.acceptButton}
                 onClick={() => handleConsent(true)}
+                className={`${styles.consentButton} ${styles.primaryButton}`}
               >
-                Accept & Watch Video
+                Accept & Watch
               </button>
             </div>
           </div>
@@ -178,43 +182,61 @@ export default function VideoModal({ isOpen, onClose, videoUrl }) {
           <div className={styles.videoContainer}>
             <iframe
               ref={iframeRef}
-              key={`video-${getVideoId(videoUrl)}`}
               src={embedUrl}
-              width="100%"
-              height="100%"
+              className={styles.videoIframe}
               frameBorder="0"
               allow="autoplay; fullscreen; picture-in-picture"
               allowFullScreen
-              title="Video Player"
-              style={{ 
-                opacity: 1,
-                backgroundColor: '#000',
-                border: 'none',
-                display: 'block'
-              }}
-              loading="eager"
-              onLoad={() => {
-                if (iframeRef.current) {
-                  iframeRef.current.style.opacity = '1';
-                }
-              }}
-              onError={() => {
-                if (iframeRef.current) {
-                  // Try reloading with a small delay
-                  setTimeout(() => {
-                    if (iframeRef.current) {
-                      const src = iframeRef.current.src;
-                      iframeRef.current.src = '';
-                      setTimeout(() => {
-                        if (iframeRef.current) {
-                          iframeRef.current.src = src;
-                        }
-                      }, 100);
-                    }
-                  }, 500);
-                }
-              }}
+              title="Video player"
             />
+          </div>
+        )}
+
+        {hasImages && (
+          <div className={styles.imageContainer}>
+            <div className={styles.imageWrapper}>
+              <Image
+                src={currentImage.src}
+                alt={currentImage.alt || 'Gallery image'}
+                fill
+                style={{ objectFit: 'contain' }}
+                priority
+              />
+            </div>
+            
+            {images.length > 1 && (
+              <>
+                <button 
+                  className={styles.navButton} 
+                  style={{ left: '10px' }}
+                  onClick={handlePrevImage}
+                  aria-label="Previous image"
+                >
+                  ❮
+                </button>
+                <button 
+                  className={styles.navButton} 
+                  style={{ right: '10px' }}
+                  onClick={handleNextImage}
+                  aria-label="Next image"
+                >
+                  ❯
+                </button>
+                <div className={styles.pagination}>
+                  {images.map((_, index) => (
+                    <button
+                      key={index}
+                      className={`${styles.paginationDot} ${index === activeImageIndex ? styles.activeDot : ''}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setActiveImageIndex(index);
+                      }}
+                      aria-label={`Go to image ${index + 1}`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         )}
       </div>

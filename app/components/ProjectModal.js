@@ -7,6 +7,7 @@ import styles from '../css/Modal.module.css';
 export default function ProjectModal({ title, description, images = [], videos = [], clientLogo }) {
   const [hasConsent, setHasConsent] = useState(false);
   const [showConsentBanner, setShowConsentBanner] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const headingRef = useRef(null);
 
   useEffect(() => {
@@ -32,6 +33,48 @@ export default function ProjectModal({ title, description, images = [], videos =
     }
   }, [videos, images]);
 
+  // Handle image cycling
+  const handleImageClick = () => {
+    if (images.length <= 1) return;
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  // Render the current image
+  const renderCurrentImage = () => {
+    const img = images[currentImageIndex];
+    if (!img?.src) return null;
+
+    if (!hasConsent && (
+      img.src.includes('artstation.com') || 
+      img.src.includes('cdn.artstation.com') ||
+      img.src.includes('cdna.artstation.com') ||
+      img.src.includes('cdnb.artstation.com')
+    )) return null;
+
+    return (
+      <div 
+        className={styles.modalImageContainer}
+        onClick={handleImageClick}
+        style={{ cursor: images.length > 1 ? 'pointer' : 'default' }}
+      >
+        <Image
+          src={img.src}
+          alt={img.alt || `Project image ${currentImageIndex + 1}`}
+          width={800}
+          height={600}
+          className={styles.modalImage}
+          priority={currentImageIndex === 0 && (!videos || videos.length === 0)}
+          loading={currentImageIndex === 0 && (!videos || videos.length === 0) ? 'eager' : 'lazy'}
+        />
+        {images.length > 1 && (
+          <div className={styles.imageCounter}>
+            {currentImageIndex + 1} / {images.length}
+          </div>
+        )}
+      </div>
+    );
+  };
+
   const handleAccept = () => {
     localStorage.setItem('cookieConsent', 'true');
     setHasConsent(true);
@@ -44,7 +87,7 @@ export default function ProjectModal({ title, description, images = [], videos =
   };
 
   const renderVideo = (video, index) => {
-    if (!hasConsent) return null;
+    if (!hasConsent || !video) return null;
     
     return video.embedUrl ? (
       <div key={`video-${index}`} className={styles.videoContainer}>
@@ -63,29 +106,6 @@ export default function ProjectModal({ title, description, images = [], videos =
           controls
           src={video.src}
           title={video.title || `Video ${index + 1}`}
-        />
-      </div>
-    );
-  };
-
-  const renderImage = (img, index) => {
-    if (!hasConsent && (
-      img.src?.includes('artstation.com') || 
-      img.src?.includes('cdn.artstation.com') ||
-      img.src?.includes('cdna.artstation.com') ||
-      img.src?.includes('cdnb.artstation.com')
-    )) return null;
-
-    return (
-      <div key={`img-${index}`} className={styles.modalImageContainer}>
-        <Image
-          src={img.src}
-          alt={img.alt}
-          width={800}
-          height={600}
-          className={styles.modalImage}
-          priority={index === 0 && videos.length === 0}
-          loading={index === 0 && videos.length === 0 ? 'eager' : 'lazy'}
         />
       </div>
     );
@@ -130,7 +150,7 @@ export default function ProjectModal({ title, description, images = [], videos =
           </div>
         )}
         {videos.map(renderVideo)}
-        {images.map(renderImage)}
+        {renderCurrentImage()}
       </div>
     </div>
   );

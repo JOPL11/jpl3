@@ -40,6 +40,7 @@ const ImpressumModal = dynamic(() => import('../components/ImpressumModal'), {
 });
 import ProjectCard from './components/ProjectCard';
 import VideoProjectCard from './components/VideoProjectCard';
+import VideoProjectCardCarousel from './components/VideoProjectCardCarousel';
 import ContactForm from './components/ContactForm';
 
 // Check if we're on iOS (client-side only)
@@ -938,23 +939,116 @@ export default function Home() {
        <SectionTracker onSectionChange={setActiveSection} />
        <div data-section="motion-heading"></div>
 
-        {/* Motion Section Detector Here */}
+        {/* Motion Section Detector Here   https://vimeo.com/1115660872 */}
             <section id="motion-heading" className={`${styles.section} ${styles.scrollTarget}`}>
               <h2><AnimatedText ref={motionHeadingRef}>Motion</AnimatedText></h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
                 
-              <VideoProjectCard 
-                  title="Showreel 2025"
-                  image="/images/JPL3Poster_Reel.jpg"
-                  alt="Showreel 2025"
-                  videoUrl="https://vimeo.com/1103891139"
-                  text="2D / 3D Motion Reel featuring Commercial and Personal Work "
-                >
-                  <p><strong>Description:</strong> Concept, 3D Modeling, Motion, VFX, Design, Post-Production</p>
-                  <p><strong>Tools:</strong> Cinema4D, After Effects, Duik, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
-                  <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
-                  <p><strong>More:</strong><br /> Be advised this hasn&apos;t been rebranded with my new logo. Still uses the JPL logo instead, hope that doesn&apos;t cause any confusion.</p>
-                </VideoProjectCard>
+
+                <VideoProjectCardCarousel 
+                projects={[
+                  {
+                    title: "Showreel 2025"  ,
+                    image: "/images/JPL3Poster_Reel.jpg",
+                    alt: "Showreel 2025",
+                    videoUrl: "https://vimeo.com/1103891139",
+                    text: "2D / 3D Motion Reel featuring Commercial and Personal Work ",
+                    children: (
+                  <>
+                    <p><strong>Description:</strong> Concept, 3D Modeling, Motion, VFX, Design, Post-Production</p>
+                    <p><strong>Tools:</strong> Cinema4D, After Effects, Duik, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
+                    <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
+                    <p><strong>More:</strong><br /> Be advised this hasn&apos;t been rebranded with my new logo. Still uses the JPL logo instead, hope that doesn&apos;t cause any confusion.</p>
+                  </>
+                    )
+                  },
+                  {
+                    title: "Take Flight",
+                    image: "/images/idrone.jpg",
+                    alt: "Ad Mockup",
+                    videoUrl: "https://player.vimeo.com/video/1115662087",
+                    text: "Ad for a fictional civilian mini-drone",
+                    children: (
+                      <>
+                        <p><strong>Description:</strong> Concept, Motion, VFX, Design, Post-Production</p>
+                        <p><strong>Tools:</strong> Cinema4D, Octane, After Effects</p>
+                        <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
+                        <p><strong>More:</strong><br /> A bored weekend turned into a fun weekend</p>
+                      </>
+                    )
+                  },
+                  {
+                    title: "Spacedock",
+                    image: "/images/space.jpg",
+                    alt: "Sci-fi",
+                    videoUrl: "https://player.vimeo.com/video/1115660872",
+                    text: "Sci-fi concept",
+                    children: (
+                      <>
+                        <p><strong>Description:</strong> Concept, Motion, VFX, Design, Post-Production</p>
+                        <p><strong>Tools:</strong> Cinema4D, Octane, After Effects</p>
+                        <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
+                        <p><strong>More:</strong><br /> A bored weekend turned into a fun weekend</p>
+                      </>
+                    )
+                  },
+                ]} 
+                />
+               {/*    {
+                    title: "Audi",
+                    image: "/images/corp/audi.jpg",
+                    alt: "Showreel 2025",
+                    //videoUrl: "https://player.vimeo.com/video/123456789",
+                    images: [
+                       { src: "/images/corp/audi.jpg", alt: "Project Screenshot 0" },
+                       { src: "/images/audi_1.jpg", alt: "Project Screenshot 1" },
+                       { src: "/images/audi_2.jpg", alt: "Project Screenshot 2" },
+                       { src: "/images/audi_3.jpg", alt: "Project Screenshot 3" },
+                       { src: "/images/audi_4.jpg", alt: "Project Screenshot 4" },
+                       { src: "/images/audi_5.jpg", alt: "Project Screenshot 6" },
+                       { src: "/images/audi_6.jpg", alt: "Project Screenshot 8" },
+                      ],
+                    text: "Stage Sized Video Backdrop ",
+                    children: (
+                      <>
+                        <p><strong>Description:</strong> Concept, Motion, VFX, Design, Post-Production</p>
+                        <p><strong>Tools:</strong> Cinema4D, After Effects, Element3D, Media Encoder</p>
+                        <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
+                        <p><strong>More:</strong><br /> Additional details about this project...</p>
+                      </>
+                    )
+                  },
+                  {
+                    title: "Daimler",
+                    image: "/images/corp/mercedes.jpg",
+                    alt: "Showreel 2025",
+                    videoUrl: "https://player.vimeo.com/video/123456789",
+                    text: "3D Award Trophy for Mercedes-Benz",
+                    children: (
+                      <>
+                        <p><strong>Description:</strong> Concept, 3D Modeling, Motion, VFX, Design, Post-Production</p>
+                        <p><strong>Tools:</strong> Cinema4D, After Effects, Duik, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
+                        <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
+                        <p><strong>More:</strong><br /> Additional details about this project...</p>
+                      </>
+                    )
+                  },
+                  {
+                    title: "TÜV",
+                    image: "/images/corp/tuv.jpg",
+                    alt: "Showreel 2025",
+                    videoUrl: "https://player.vimeo.com/video/123456789",
+                    text: "A collection of my best motion work from 2025",
+                    children: (
+                      <>
+                        <p><strong>Description:</strong> Concept, 3D Modeling, Motion, VFX, Design, Post-Production</p>
+                        <p><strong>Tools:</strong> Cinema4D, After Effects, Duik, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
+                        <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
+                        <p><strong>More:</strong><br /> Additional details about this project...</p>
+                      </>
+                    )
+                  },  */}
+
                  {/*   Motion Section 
                 <ProjectCard 
                   title="Audi Nüremberg"
