@@ -1,6 +1,7 @@
 'use client';
 import { useState, useCallback } from 'react';
 import styles from '../css/ThrowableImages.module.css';
+import Image from 'next/image';
 
 const IMAGES = [
   '/images/throwable/merc77.jpg',
@@ -88,24 +89,29 @@ const ThrowableImages = () => {
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        {IMAGES.map((img, index) => (
-          <div
-            key={img.id}
-            className={`${styles.throwable} ${index < activeIndex ? styles.thrown : ''}`}
-            style={{
-              zIndex: img.zIndex,
-              opacity: index === activeIndex ? 1 : index < activeIndex ? 0 : 0.8,
-              transform: `translate(${index === activeIndex ? currentPos.x : 0}px, ${index === activeIndex ? currentPos.y : 0}px) rotate(${index === activeIndex ? currentRotation : img.rotation}deg)`,
-              transition: isDragging ? 'none' : 'transform 0.2s ease-out, opacity 0.1s ease'
-            }}
-          >
-            <img
-              src={img.src}
-              alt={`Image ${index + 1}`}
-              draggable="false"
-            />
-          </div>
-        ))}
+   {IMAGES.map((img, index) => (
+  <div
+    key={img.id}
+    className={`${styles.throwable} ${index < activeIndex ? styles.thrown : ''}`}
+    style={{
+      zIndex: img.zIndex,
+      opacity: index === activeIndex ? 1 : index < activeIndex ? 0 : 0.8,
+      transform: `translate(${index === activeIndex ? currentPos.x : 0}px, ${index === activeIndex ? currentPos.y : 0}px) rotate(${index === activeIndex ? currentRotation : img.rotation}deg)`,
+      transition: isDragging ? 'none' : 'transform 0.2s ease-out, opacity 0.1s ease'
+    }}
+  >
+    <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+      <Image
+        src={img.src}
+        alt={`Image ${index + 1}`}
+        fill
+        sizes="(max-width: 768px) 100vw, 800px"
+        priority={index === 0} // Only preload the first image
+        style={{ objectFit: 'cover' }}
+      />
+    </div>
+  </div>
+))}
       </div>
       
       {activeIndex > 0 && (
