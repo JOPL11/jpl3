@@ -109,13 +109,14 @@ const ThrowableImages = () => {
       </div>
       
       {activeIndex > 0 && (
+        <div className={styles.buttonContainer}>
         <button 
           onClick={resetStack}
           className={styles.resetButton}
           style={{
-            marginTop: '2rem',
+            margin: '2rem 0 0 -1rem',
             padding: '0.75rem 1.5rem',
-            fontSize: '1rem',
+            fontSize: '0.9rem',
             backgroundColor: '#0070f3',
             color: 'white',
             border: 'none',
@@ -126,6 +127,7 @@ const ThrowableImages = () => {
         >
           Reset Stack
         </button>
+        </div>
       )}
     </div>
   );
