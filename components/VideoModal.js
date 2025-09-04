@@ -17,6 +17,7 @@ const areCookiesEnabled = () => {
 };
 
 export default function VideoModal({ isOpen, onClose, videoUrl, images = [], currentImageIndex = 0, onNextImage, onPrevImage }) {
+  ///const [isOpen, setIsOpen] = useState({});
   const [hasConsent, setHasConsent] = useState(false);
   const [showConsentBanner, setShowConsentBanner] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -162,18 +163,28 @@ export default function VideoModal({ isOpen, onClose, videoUrl, images = [], cur
               This video is hosted on Vimeo and may use cookies for analytics and personalization.
             </p>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+            <div className={styles.consentButtons}>
               <button 
+                style={{
+                  padding: '0.6rem 1.5rem',  background: 'linear-gradient(180deg, #548da0 0%, #345f6d 100%)',
+                  color: 'white'
+                }}
                 onClick={() => handleConsent(false)}
                 className={styles.consentButton}
               >
                 Reject
               </button>
               <button 
+                style={{
+                  padding: '0.6rem 1.5rem',  background: 'linear-gradient(180deg, #548da0 0%, #345f6d 100%)',
+                  color: 'white'
+                }}
                 onClick={() => handleConsent(true)}
                 className={`${styles.consentButton} ${styles.primaryButton}`}
               >
                 Accept & Watch
               </button>
+            </div>
             </div>
           </div>
         )}
