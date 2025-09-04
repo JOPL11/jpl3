@@ -1183,7 +1183,6 @@ export default function Home() {
                 <p>Daimler Benz prototype interactive dealership award. Click and drag the images to look through the pile of photos.</p>
                 <div style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'white' }}>
                   Client: <a href="https://sieberundwolf.de/" target="_blank" rel="noopener" ><span style={{ fontSize: '0.85rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Sieber & Wolf&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;   </span>
-                  
                   <Image src="/images/agencies/sw_neu_white.png" alt="Sieber & Wolf" width={40} height={20} leftmargin={10}/></a>
                 </div>
               </div>
