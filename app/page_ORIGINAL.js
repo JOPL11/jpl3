@@ -242,7 +242,7 @@ export default function Home() {
     window.addEventListener('openPrivacyModal', handleOpenPrivacyModal);
     
     // Intersection Observer for section detection
-    const sections = ['welcome-heading', 'projects-heading', 'webgl-heading', 'motion-heading'];
+    const sections = ['welcome-heading', 'projects-heading', 'webgl-heading', 'motion-heading', 'product-heading', 'contact'];
     const observers = [];
 
     const options = {
@@ -290,6 +290,7 @@ export default function Home() {
     'skills-heading': skillsHeadingRef,
     'webgl-heading': webglHeadingRef,
     'motion-heading': motionHeadingRef,
+    'product-heading': productHeadingRef,
     'contact': contactHeadingRef
   }), [aboutHeadingRef, workHeadingRef, webglHeadingRef, skillsHeadingRef, contactHeadingRef, motionHeadingRef, productHeadingRef]);
   
@@ -418,7 +419,7 @@ export default function Home() {
                   className={`${styles.navLink} ${activeSection === 'product-heading' ? styles.active : ''}`}
                   onClick={(e) => scrollToSection(e, 'product-heading')}
                 >
-                  Proto
+                  Product
                 </a>
                 <a 
                   href="#contact" 
@@ -442,22 +443,17 @@ export default function Home() {
                 >
                   Artstation
                 </a>
-
+                <a
+                  href="https://github.com/JOPL11/jpl3" 
+                  className={styles.navLink}
+                  target="_blank">
+                    Github
+                </a>
                 <Link href="/blog" className={styles.navLink}>
                   devBlog
                 </Link>
               </nav>
-              {/*
-              
-                              <a
-                  href="https://github.com/JOPL11/jpl3" 
-                  className={styles.navLink}
-                  target="_blank">
-                    Git
-                </a>
-              
-              
-              <div className={styles.profileImageContainer}>
+              {/*<div className={styles.profileImageContainer}>
                 <Image 
                src="/images/me3.jpg"
                   alt="Jan Peiro" 
@@ -1177,12 +1173,10 @@ export default function Home() {
             <SectionTracker onSectionChange={setActiveSection} />
             <div data-section="product-heading"></div>
             <section id="product-heading" className={`${styles.section} ${styles.scrollTarget}`}>
-            <h2><AnimatedText ref={productHeadingRef}>Protoype</AnimatedText></h2>
-            <div className={styles.introText}>
-        <p>Daimler Benz prototype interactive dealership award. Click and drag the images to look through the pile of photos. </p>
-      </div> 
+            <h2><AnimatedText ref={productHeadingRef}>Product Design</AnimatedText></h2>
             <ThrowableImages />
             </section>
+
             {/*   MOTION ENDS HERE             <hr className={styles.divider2} /> */}  
             <SectionTracker onSectionChange={setActiveSection} />
             <div data-section="contact"></div>
