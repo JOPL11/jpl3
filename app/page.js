@@ -428,14 +428,14 @@ export default function Home() {
                 >
                   Contact
                 </a>
-                <a
+            {/*     <a
                   href="/assets/CV_JanPeiro_2025_Intnl.pdf"
                   className={styles.navLink}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   CV
-                </a>
+                </a>  */}
                 <a 
                   href="https://jopl.artstation.com/" 
                   className={styles.navLink}
