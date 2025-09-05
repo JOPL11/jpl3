@@ -1,4 +1,3 @@
-
 export const metadata = {
   title: {
     default: 'Jan Peiro - Creative Developer',
@@ -13,10 +12,15 @@ export const metadata = {
   alternates: {
     canonical: '/',
   },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
   openGraph: {
     title: 'Jan Peiro - Creative Developer',
     description: 'Creative Developer and Designer',
-    url: 'https://www.janpeiro.com',
+    url: 'https://janpeiro.vercel.app',
     siteName: 'Jan Peiro Portfolio',
     images: [
       {
@@ -47,12 +51,7 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
-  icons: {
-    icon: '/images/favicon.ico',
-    apple: '/images/apple-touch-icon.png',
-  },
   verification: {
     google: 'google-site-verification=iGLpuC-ydCLPjzPlxwOi7JVmXibniROkt6LEreUROtE',
-    yandex: 'YOUR_YANDEX_VERIFICATION_CODE',
   },
 };
