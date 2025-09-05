@@ -1199,7 +1199,7 @@ export default function Home() {
               <h2><AnimatedText ref={productHeadingRef}>Prototype</AnimatedText></h2>
               <div className={styles.introText}>
 
-                <p>Click and drag the images to look through the pile of photos.</p>
+                <p>Swipe the images to look through the pile of photos.</p>
                 <div style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'white' }}>
                   Project: <span style={{ fontSize: '0.85rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Daimler Benz dealership award.</span>
                 </div>

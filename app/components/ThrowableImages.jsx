@@ -161,7 +161,7 @@ const ThrowableImages = ({ isActive = false }) => {
                   position: 'absolute',
                   top: '10px',
                   right: '10px',
-                  backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                  backgroundColor: 'rgba(0, 0, 0, 0.1)',
                   color: 'white',
                   width: '20px',
                   height: '20px',
