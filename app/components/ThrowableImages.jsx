@@ -4,11 +4,13 @@ import styles from '../css/ThrowableImages.module.css';
 import Image from 'next/image';
 
 const IMAGES = [
+  '/images/throwable/merc1.jpg',
   '/images/throwable/merc77.jpg',
+  '/images/throwable/merc4.jpg',
   '/images/throwable/merc99.jpg',
   '/images/throwable/merc66.jpg',
- '/images/throwable/merc55.jpg',
-// '/images/throwable/merc1.jpg',
+ '/images/throwable/merc55b.jpg',
+ 
 ].map((src, index) => ({
   id: index,
   src,
