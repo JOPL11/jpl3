@@ -1,68 +1,14 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
-import { Canvas, useThree, extend, useFrame } from '@react-three/fiber';
-import { PerspectiveCamera, useTexture } from '@react-three/drei';
+import { Canvas, useThree, useFrame } from '@react-three/fiber';
+import { PerspectiveCamera } from '@react-three/drei';
 import * as THREE from 'three';
-import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
-import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
-import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
+
 import { useLoading } from '../contexts/LoadingContext';
-import GlowingCubes from './GlowingCubes';
 
 // Extend Three.js with post-processing components
-extend({ EffectComposer, RenderPass, UnrealBloomPass });
 
-function Scene() {
-  const { scene, camera, gl } = useThree();
-  const composer = useRef();
-  
-  // Set the background color #0f172a
-  useEffect(() => {
-    scene.background = new THREE.Color(0x0f172a); // Dark blue color
-  }, [scene]);
-  
-  // Set up the bloom effect
-  useEffect(() => {
-    if (!composer.current) return;
-    
-    const currentComposer = composer.current;
-    const bloomPass = new UnrealBloomPass(
-      new THREE.Vector2(window.innerWidth, window.innerHeight),
-      0.15, // strength
-      0.2, // radius
-      0.05  // threshold
-    );
-    
-    currentComposer.addPass(new RenderPass(scene, camera));
-    currentComposer.addPass(bloomPass);
-    
-    return () => {
-      if (currentComposer) {
-        currentComposer.passes = [];
-      }
-    };
-  }, [scene, camera]);
-  
-  // Use the effect composer for rendering
-  useFrame(() => {
-    if (composer.current) {
-      composer.current.render();
-    }
-  }, 1); // Render after the default render pass
-  
-  return (
-    <>
-      <ambientLight intensity={0.2} />
-      <pointLight position={[10, 10, 10]} intensity={2} />
-      <SplashScreenScene />
-      <GlowingCubes />
-      <effectComposer ref={composer} args={[gl]}>
-        <renderPass attachArray="passes" scene={scene} camera={camera} />
-      </effectComposer>
-    </>
-  );
-}
 
 export default function SplashScreen({ onComplete }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -84,18 +30,18 @@ export default function SplashScreen({ onComplete }) {
         setShouldRender(false);
         setIsLoading(false);
         onComplete?.();
-      }, 100);
+      }, 10);
       return () => clearTimeout(timer);
     }
     
     // Start fade in after a small delay to ensure the component is mounted
     const fadeInTimer = setTimeout(() => {
       setIsVisible(true);
-    }, 100);
+    }, 10);
     
     const loadTimer = setTimeout(() => {
       setAssetsLoaded(true);
-    }, 100);
+    }, 10);
     
     return () => {
       clearTimeout(fadeInTimer);
@@ -152,74 +98,15 @@ export default function SplashScreen({ onComplete }) {
         }}
         camera={{ position: [0, 0, 5], fov: 45 }}
       >
-        <Scene />
+
       </Canvas>
     </div>
   );
 }
 
 function SplashScreenScene() {
-  const meshRef = useRef();
-  const cameraRef = useRef();
-  const animationStarted = useRef(false);
-  const startTime = useRef(0);
-  
-  const cubes = useRef([]);
-  const isMobile = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
-  
-  if (cubes.current.length === 0) {
-    // Reduced grid for mobile, full for desktop
-    const columns = isMobile ? 10 : 15;
-    const rows = isMobile ? 12 : 21;
-    const layers = isMobile ? 2 : 5;
-    const zSpacing = 11.0;
-    
-    for (let col = 0; col < columns; col++) {
-      for (let row = 0; row < rows; row++) {
-        for (let layer = 0; layer < layers; layer++) {
-          if (Math.random() > 0.1) {  // Keep the 90% spawn rate
-            const size = 0.01 + Math.random() * 0.9;
-            
-            cubes.current.push({
-              position: [
-                (col / columns - 0.5) * 33, 
-                (row / rows - 0.5) * 22,    
-                -2 - layer * zSpacing - Math.random() * 6.3, 
-              ],
-              size: size,
-            });
-          }
-        }
-      }
-    }
-  }
 
-  useFrame(({ clock, camera }) => {
-    if (meshRef.current) {
-      meshRef.current.position.y = Math.sin(clock.getElapsedTime() * 0.5) * 0.1;
-    }
-    
-    if (!animationStarted.current) {
-      animationStarted.current = true;
-      startTime.current = clock.getElapsedTime();
-      return;
-    }
-    
-    const elapsedTime = clock.getElapsedTime() - startTime.current;
-    
-    if (elapsedTime < 4) {
-      const progress = elapsedTime / 4; 
-      const startX = 0;
-      const endX = -0.25;
-      const startY = 0;
-      const endY = -2.5;
-      const startZ = 20;
-      const endZ = -60;
-      camera.position.x = startX + (endX - startX) * progress;
-      camera.position.y = startY + (endY - startY) * progress;
-      camera.position.z = startZ + (endZ - startZ) * progress;
-    }
-  });
+
 
   return (
     <>
@@ -230,36 +117,6 @@ function SplashScreenScene() {
         fov={75}
         zoom={1} 
       />
-      
-      <ambientLight intensity={0.3} />
-      
-      <directionalLight
-        position={[10, 10, 5]}
-        intensity={1}
-        castShadow
-      />
-      
-      {cubes.current.map((cube, index) => (
-        <mesh
-          key={index}
-          position={cube.position}
-          scale={cube.size}
-        >
-          <boxGeometry />
-          <meshStandardMaterial 
-            color="#63b3ed" 
-            metalness={0.9}  
-            roughness={0.2}
-          />
-        </mesh>
-      ))}
-      <ambientLight intensity={1.1} color={0xffffff}/>
-      <directionalLight 
-        position={[0, 0, 5]} 
-        intensity={1.1}
-        castShadow
-      />
-      <pointLight position={[0, 10, 10]} intensity={4} />
     </>
   );
 }

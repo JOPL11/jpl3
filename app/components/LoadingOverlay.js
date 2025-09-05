@@ -13,7 +13,7 @@ export default function LoadingOverlay() {
     const timer = setTimeout(() => {
       setIsVisible(false);
       setIsLoading(false);
-    }, 500);
+    }, 10);
 
     return () => clearTimeout(timer);
   }, [setIsLoading]);
@@ -23,7 +23,7 @@ export default function LoadingOverlay() {
   return (
     <div className={`${styles.loadingOverlay} ${!isVisible ? styles.hidden : ''}`}>
       <div className={styles.loadingContent}>
-        <div className={styles.welcomeMessage}>v1.1</div>
+        <div className={styles.welcomeMessage}>Zing!</div>
       </div>
     </div>
   );

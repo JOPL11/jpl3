@@ -88,6 +88,13 @@ const ThrowableImages = ({ isActive = false }) => {
     setCurrentRotation(IMAGES[0].rotation);
   }, []);
 
+  const handleClick = useCallback((e, index) => {
+    if (index === activeIndex - 1) {
+      e.stopPropagation();
+      resetStack();
+    }
+  }, [activeIndex, resetStack]);
+
   const eventHandlers = isActive ? {
     onMouseDown: handleTouchStart,
     onMouseMove: handleTouchMove,
@@ -105,52 +112,55 @@ const ThrowableImages = ({ isActive = false }) => {
         style={{ pointerEvents: isActive ? 'auto' : 'none' }}
         {...eventHandlers}
       >
-        {IMAGES.map((img, index) => (
-          <div
-            key={img.id}
-            className={`${styles.throwable} ${index < activeIndex ? styles.thrown : ''}`}
-            style={{
-              zIndex: img.zIndex,
-              opacity: index === activeIndex ? 1 : index < activeIndex ? 0 : 0.8,
-              transform: `translate(${index === activeIndex ? currentPos.x : 0}px, ${index === activeIndex ? currentPos.y : 0}px) rotate(${index === activeIndex ? currentRotation : img.rotation}deg)`,
-              transition: isDragging ? 'none' : 'transform 0.2s ease-out, opacity 0.1s ease'
-            }}
-          >
-            <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-              <Image
-                src={img.src}
-                alt={`Image ${index + 1}`}
-                fill
-                sizes="(max-width: 768px) 100vw, 800px"
-                priority={index === 0}
-                style={{ objectFit: 'cover' }}
-              />
+        {IMAGES.map((img, index) => {
+          const isLastVisible = index === activeIndex - 1;
+          const isActiveCard = index === activeIndex;
+          
+          return (
+            <div
+              key={img.id}
+              className={`${styles.throwable} ${index < activeIndex ? styles.thrown : ''} ${isLastVisible ? styles.lastVisible : ''}`}
+              style={{
+                zIndex: img.zIndex,
+                opacity: isActiveCard ? 1 : index < activeIndex ? 0 : 0.8,
+                transform: `translate(${isActiveCard ? currentPos.x : 0}px, ${isActiveCard ? currentPos.y : 0}px) rotate(${isActiveCard ? currentRotation : img.rotation}deg)`,
+                transition: isDragging ? 'none' : 'transform 0.2s ease-out, opacity 0.1s ease',
+                cursor: isLastVisible ? 'pointer' : 'grab',
+                pointerEvents: isLastVisible ? 'auto' : 'none',
+              }}
+              onClick={(e) => isLastVisible && handleClick(e, index)}
+            >
+              <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                <Image
+                  src={img.src}
+                  alt={`Image ${index + 1}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 800px"
+                  priority={index === 0}
+                  style={{ objectFit: 'cover' }}
+                />
+                {isLastVisible && (
+                  <div style={{
+                    position: 'absolute',
+                    bottom: '10px',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                    color: 'white',
+                    padding: '4px 12px',
+                    borderRadius: '12px',
+                    fontSize: '12px',
+                    pointerEvents: 'none',
+                    whiteSpace: 'nowrap',
+                  }}>
+                    Click to reset stack
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
-      
-      {activeIndex > 0 && (
-        <div className={styles.buttonContainer}>
-          <button 
-            onClick={resetStack}
-            className={styles.resetButton}
-            style={{
-              margin: '2rem 0 0 -1rem',
-              padding: '0.75rem 1.5rem',
-              fontSize: '0.9rem',
-              backgroundColor: '#0070f3',
-              color: 'white',
-              border: 'none',
-              borderRadius: '4px',
-              cursor: 'pointer',
-              transition: 'background-color 0.2s',
-            }}
-          >
-            Reset Pile
-          </button>
-        </div>
-      )}
     </div>
   );
 };

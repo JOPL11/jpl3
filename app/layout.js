@@ -5,7 +5,7 @@ import "./globals.css";
 import { ModalProvider } from './components/ModalContext';
 import dynamic from 'next/dynamic';
 //import CookieBanner from './components/CookieBanner';           <CookieBanner /> 
-import SplashScreen from './components/SplashScreen';
+//import SplashScreen from './components/SplashScreen';
 import ScriptLoader from './components/ScriptLoader';
 import { LoadingProvider } from './contexts/LoadingContext';
 import LoadingOverlay from './components/LoadingOverlay';
@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
         <LoadingProvider>
           <ModalProvider>
             <LoadingOverlay />
-            <SplashScreen />
+  
             {children}
           </ModalProvider>
         </LoadingProvider>
