@@ -18,6 +18,9 @@ const IMAGES = [
   zIndex: 5 - index,
 }));
 
+const MIN_SWIPE_DISTANCE = 1; // Minimum distance in pixels to trigger throw
+const THROW_VELOCITY_MULTIPLIER = 50; // How much faster the throw is than the swipe
+
 const ThrowableImages = ({ isActive = false }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [positions, setPositions] = useState({});
@@ -25,6 +28,20 @@ const ThrowableImages = ({ isActive = false }) => {
   const [startPos, setStartPos] = useState({ x: 0, y: 0 });
   const [currentPos, setCurrentPos] = useState({ x: 0, y: 0 });
   const [currentRotation, setCurrentRotation] = useState(0);
+
+  const resetStack = useCallback(() => {
+    setActiveIndex(0);
+    setCurrentPos({ x: 0, y: 0 });
+    setCurrentRotation(IMAGES[0].rotation);
+  }, []);
+
+  const handleClick = useCallback((e, index) => {
+    // Only reset if clicking on the last visible card
+    if (index === activeIndex - 1 && activeIndex > 0) {
+      e.stopPropagation();
+      resetStack();
+    }
+  }, [activeIndex, resetStack]);
 
   useEffect(() => {
     console.log(`ThrowableImages is now ${isActive ? 'ACTIVE' : 'INACTIVE'}`);
@@ -60,40 +77,35 @@ const ThrowableImages = ({ isActive = false }) => {
   const handleTouchEnd = useCallback((e) => {
     if (!isActive || !isDragging) return;
     
-    // Always throw the card offscreen in the direction it was being moved
-    const directionX = Math.sign(currentPos.x) || 1; // Default to right if x is 0
-    const directionY = Math.sign(currentPos.y) || 0;
+    const distance = Math.sqrt(currentPos.x * currentPos.x + currentPos.y * currentPos.y);
     
-    // Throw the card offscreen with consistent speed
-    const throwDistance = window.innerWidth * 1.5;
-    const throwX = directionX * throwDistance;
-    const throwY = directionY * throwDistance * 0.5;
+    if (distance < MIN_SWIPE_DISTANCE) {
+      // If swipe distance is too small, just snap back to original position
+      setCurrentPos({ x: 0, y: 0 });
+      setCurrentRotation(IMAGES[activeIndex].rotation);
+      setIsDragging(false);
+      return;
+    }
+    
+    // Calculate throw velocity based on swipe speed
+    const throwX = currentPos.x * THROW_VELOCITY_MULTIPLIER;
+    const throwY = currentPos.y * THROW_VELOCITY_MULTIPLIER;
     
     // Apply throw animation
     setCurrentPos({ x: throwX, y: throwY });
     
-    // Move to next image after a short delay for the throw animation
-    setTimeout(() => {
-      setActiveIndex(prev => Math.min(prev + 1, IMAGES.length - 1));
-      setCurrentPos({ x: 0, y: 0 });
-      setCurrentRotation(IMAGES[activeIndex + 1]?.rotation || 0);
-    }, 200);
+    // Only proceed to next card if the throw distance is significant
+    if (distance >= MIN_SWIPE_DISTANCE) {
+      // Move to next image after a short delay for the throw animation
+      setTimeout(() => {
+        setActiveIndex(prev => Math.min(prev + 1, IMAGES.length - 1));
+        setCurrentPos({ x: 0, y: 0 });
+        setCurrentRotation(IMAGES[activeIndex + 1]?.rotation || 0);
+      }, 200);
+    }
     
     setIsDragging(false);
   }, [isActive, isDragging, currentPos, activeIndex]);
-
-  const resetStack = useCallback(() => {
-    setActiveIndex(0);
-    setCurrentPos({ x: 0, y: 0 });
-    setCurrentRotation(IMAGES[0].rotation);
-  }, []);
-
-  const handleClick = useCallback((e, index) => {
-    if (index === activeIndex - 1) {
-      e.stopPropagation();
-      resetStack();
-    }
-  }, [activeIndex, resetStack]);
 
   const eventHandlers = isActive ? {
     onMouseDown: handleTouchStart,
@@ -125,10 +137,16 @@ const ThrowableImages = ({ isActive = false }) => {
                 opacity: isActiveCard ? 1 : index < activeIndex ? 0 : 0.8,
                 transform: `translate(${isActiveCard ? currentPos.x : 0}px, ${isActiveCard ? currentPos.y : 0}px) rotate(${isActiveCard ? currentRotation : img.rotation}deg)`,
                 transition: isDragging ? 'none' : 'transform 0.2s ease-out, opacity 0.1s ease',
-                cursor: isLastVisible ? 'pointer' : 'grab',
-                pointerEvents: isLastVisible ? 'auto' : 'none',
+                cursor: isActiveCard ? (isDragging ? 'grabbing' : 'grab') : 'default',
+                pointerEvents: isActiveCard ? 'auto' : 'none',
+                touchAction: isActiveCard ? 'none' : 'auto',
               }}
-              onClick={(e) => isLastVisible && handleClick(e, index)}
+              onClick={(e) => {
+                if (isLastVisible) {
+                  e.stopPropagation();
+                  resetStack();
+                }
+              }}
             >
               <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                 <Image
@@ -139,6 +157,24 @@ const ThrowableImages = ({ isActive = false }) => {
                   priority={index === 0}
                   style={{ objectFit: 'cover' }}
                 />
+                <div style={{
+                  position: 'absolute',
+                  top: '10px',
+                  right: '10px',
+                  backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                  color: 'white',
+                  width: '20px',
+                  height: '20px',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '9px',
+                  fontWeight: 'bold',
+                  pointerEvents: 'none'
+                }}>
+                  {index + 1}
+                </div>
                 {isLastVisible && (
                   <div style={{
                     position: 'absolute',
