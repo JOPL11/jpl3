@@ -145,7 +145,7 @@ const ThrowableImages = ({ isActive = false }) => {
               transition: 'background-color 0.2s',
             }}
           >
-            Reset Stack
+            Reset Pile
           </button>
         </div>
       )}
