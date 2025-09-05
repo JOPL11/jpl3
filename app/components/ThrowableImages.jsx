@@ -9,7 +9,7 @@ const IMAGES = [
   '/images/throwable/merc4.jpg',
   '/images/throwable/merc99.jpg',
   '/images/throwable/merc66.jpg',
- '/images/throwable/merc55b.jpg',
+  '/images/throwable/merc55b.jpg',
  
 ].map((src, index) => ({
   id: index,

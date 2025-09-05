@@ -13,11 +13,14 @@ const DesktopCarousel = dynamic(
   { ssr: false }
 );
 
-const ModalWrapper = ({ children, isDesktop }) => (
-  <div className={isDesktop ? "desktop-only" : "mobile-only"}>
-    {children}
-  </div>
-);
+const ModalWrapper = ({ children, isDesktop }) => {
+  const content = typeof children === 'function' ? children() : children;
+  return (
+    <div className={isDesktop ? "desktop-only" : "mobile-only"}>
+      {content}
+    </div>
+  );
+};
 
 export default function ProjectCard({ 
   title, 
@@ -48,7 +51,7 @@ export default function ProjectCard({
     }
     if (modalContent) {
       openModal(
-        <div className="modal-content-wrapper">
+        <div className="modal-content-wrapper" key={title}>
           <ModalWrapper isDesktop={true}>
             <DesktopCarousel 
               title={title}
