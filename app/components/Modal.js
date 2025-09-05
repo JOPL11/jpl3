@@ -7,79 +7,35 @@ import styles from '../css/Modal.module.css';
 export default function Modal({ isOpen, onClose, children, fullBleed = false }) {
   const modalRef = useRef(null);
   const scrollY = useRef(0);
-  const htmlRef = useRef(null);
-  const bodyRef = useRef(null);
 
-  // Close modal on ESC key and handle scroll locking
+  // Handle ESC key and scroll locking
   useEffect(() => {
     const handleEsc = (e) => e.key === 'Escape' && onClose();
     
     if (isOpen) {
-      // Pause Locomotive Scroll if it exists
-      if (window.lenis) {
-        window.lenis.stop();
-      }
-      
-      // Store the current scroll position
+      // Store current scroll position
       scrollY.current = window.scrollY;
       
-      // Store the current styles
-      const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth;
-      const htmlStyle = window.getComputedStyle(document.documentElement);
-      const bodyStyle = window.getComputedStyle(document.body);
-      
-      // Store the current styles for restoration
-      const stylesToRestore = {
-        html: {
-          overflow: htmlStyle.overflow,
-          position: htmlStyle.position,
-          height: htmlStyle.height,
-          width: htmlStyle.width,
-          paddingRight: htmlStyle.paddingRight
-        },
-        body: {
-          overflow: bodyStyle.overflow,
-          position: bodyStyle.position,
-          top: bodyStyle.top,
-          left: bodyStyle.left,
-          right: bodyStyle.right,
-          paddingRight: bodyStyle.paddingRight
-        }
-      };
-      
-      // Lock the scroll
-      document.documentElement.style.overflow = 'hidden';
-      document.documentElement.style.paddingRight = `${scrollBarWidth}px`;
-      document.body.style.overflow = 'hidden';
-      document.body.style.paddingRight = `${scrollBarWidth}px`;
-      
       // Add event listener for ESC key
-      document.addEventListener('keydown', handleEsc);
+      window.addEventListener('keydown', handleEsc);
+      
+      // Lock body scroll while maintaining layout
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY.current}px`;
+      document.body.style.width = '100%';
       
       return () => {
-        // Remove event listener
-        document.removeEventListener('keydown', handleEsc);
+        // Cleanup
+        window.removeEventListener('keydown', handleEsc);
         
-        // Restore styles
-        Object.entries(stylesToRestore.html).forEach(([prop, value]) => {
-          document.documentElement.style[prop] = value;
-        });
+        // Restore body scroll and position
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
         
-        Object.entries(stylesToRestore.body).forEach(([prop, value]) => {
-          document.body.style[prop] = value;
-        });
-        
-        // Restore scroll position
+        // Restore scroll position after a small delay to allow DOM to update
         requestAnimationFrame(() => {
           window.scrollTo(0, scrollY.current);
-          
-          // Resume Locomotive Scroll if it exists
-          if (window.lenis) {
-            setTimeout(() => {
-              window.lenis.start();
-              window.lenis.scrollTo(0, { immediate: true });
-            }, 0);
-          }
         });
       };
     }
@@ -88,30 +44,21 @@ export default function Modal({ isOpen, onClose, children, fullBleed = false }) 
   if (!isOpen) return null;
 
   return (
-    isOpen && (
-      <div className={`${styles.modalOverlay} ${fullBleed ? styles.fullBleed : ''}`}>
-        <div 
-          className={styles.modalBackdrop} 
+    <div className={styles.modalOverlay} onClick={onClose}>
+      <div 
+        ref={modalRef}
+        className={`${styles.modalContent} ${fullBleed ? styles.fullBleed : ''}`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button 
+          className={styles.closeButton} 
           onClick={onClose}
-          role="presentation"
-        />
-        <div 
-          ref={modalRef}
-          className={`${styles.modalContent} ${fullBleed ? styles.fullBleedContent : ''}`}
-          role="dialog"
-          aria-modal="true"
-          onClick={(e) => e.stopPropagation()}
+          aria-label="Close modal"
         >
-          <button 
-            className={styles.closeButton} 
-            onClick={onClose} 
-            aria-label="Close modal"
-          >
-            &times;
-          </button>
-          {children}
-        </div>
+          &times;
+        </button>
+        {children}
       </div>
-    )
+    </div>
   );
 }

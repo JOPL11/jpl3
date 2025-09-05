@@ -421,6 +421,8 @@
 /* Desktop styles */
 .logoSidebar {
   position: sticky;
+  position: -webkit-sticky;
+  position: sticky;
   flex: 0 0 400px;
   top: 5px;
   display: flex;
