@@ -964,17 +964,18 @@ export default function Home() {
             <section id="motion-heading" className={`${styles.section} ${styles.scrollTarget}`}>
               <h2><AnimatedText ref={motionHeadingRef}>Motion</AnimatedText></h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
-              <ProjectCard 
+              <VideoProjectCard 
                   title="Showreel 2025"
                   image="/images/JPL3Poster_Reel.jpg"
                   alt="Showreel 2025"
                   text="2D / 3D Motion Reel featuring Commercial and Personal Work "
+                  videoUrl= "https://vimeo.com/1115973919"
                 >
                     <p><strong>Description:</strong> Concept, 3D Modeling, Motion, VFX, Design, Post-Production</p>
                     <p><strong>Tools:</strong> Cinema4D, After Effects, Duik, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
                     <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
                     <p><strong>More:</strong><br /> Be advised this hasn&apos;t been rebranded with my new logo. Still uses the JPL logo instead, hope that doesn&apos;t cause any confusion.</p>
-                </ProjectCard>
+                </VideoProjectCard>
 
                {/*  <VideoProjectCardCarousel 
                 projects={[
