@@ -1187,7 +1187,7 @@ export default function Home() {
                   <p><strong>Target Audience:</strong> Showroom visitors</p>
                   <p><strong>Project Type:</strong> After Effects / Cinema4D</p>
                   <p><strong>Role:</strong> Lead Designer / animator</p>
-                  <p><strong>Duration:</strong> 2 weeks</p> Daimler Benz prototype interactive dealership award. 
+                  <p><strong>Duration:</strong> 2 weeks</p>  
                 </ProjectCard>
                
           
