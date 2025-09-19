@@ -488,7 +488,7 @@ export default function Home() {
 
             <p>Studied Communications Design in Munich, Germany.</p>
            
-            <p>I build immersive interfaces merging design, animation, and code.</p>
+            <p>I build 3D animations and immersive interfaces merging design, animation, and code.</p>
 
             <p>Based in Germany.</p>
 
@@ -498,6 +498,9 @@ export default function Home() {
               <h2 id="skills-heading"><AnimatedText ref={skillsHeadingRef}>Core Skills</AnimatedText></h2>
               <ul className={styles.skillsList} role="list">
                 <li role="listitem">Design, Animation, Development, Rapid Prototyping</li>
+                <li role="listitem">Cinema4D, Blender, Adobe Suite</li>
+                <li role="listitem">3D Modeling, Animation, Rendering</li>
+                <li role="listitem">Octane, Corona, RenderFarms, After Effects</li>
                 <li role="listitem">React, Next.js, Vue.js, html, css, .js</li>
                 <li role="listitem">Typescript</li>
                 <li role="listitem">Bootstrap, Tailwind, MaterialUI</li>
@@ -506,10 +509,6 @@ export default function Home() {
                 <li role="listitem">SQL / Supabase Experience</li>
                 <li role="listitem">GSAP, Framer Motion, CSS Animations, Spring</li>
                 <li role="listitem">SEO</li>
-                <li role="listitem">Cinema4D, Blender, Adobe Suite</li>
-                <li role="listitem">3D Modeling, Animation, Rendering</li>
-                <li role="listitem">Octane, Corona, RenderFarms, After Effects</li>
-
                  {/*  
                 <li role="listitem">Octane, Redshift, Corona Render Engines</li>
                 <li role="listitem">After Effects, Video Edit, Video Post-Production</li>*/}
