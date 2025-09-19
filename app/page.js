@@ -1115,7 +1115,6 @@ export default function Home() {
                   <p><strong>Target Audience:</strong> Showroom visitors</p>
                   <p><strong>Project Type:</strong> After Effects / Cinema4D</p>
                   <p><strong>Role:</strong> Lead Designer / animator</p>
-                  <p><strong>Duration:</strong> 2 Months</p>
                 </ProjectCard>
                 <ProjectCard 
                   title="Mercedes Benz Animation"
@@ -1148,7 +1147,6 @@ export default function Home() {
                   <p>Logo Animation</p>
                   <p><strong>Project Type:</strong> After Effects / Cinema4D</p>
                   <p><strong>Role:</strong> Lead Designer / animator</p>
-                  <p><strong>Duration:</strong> 2 weeks</p>
                 </ProjectCard>
                 <ProjectCard 
                   title="Airbus Group"
@@ -1185,7 +1183,6 @@ export default function Home() {
                   <p><strong>Target Audience:</strong> Showroom visitors</p>
                   <p><strong>Project Type:</strong> After Effects / Cinema4D</p>
                   <p><strong>Role:</strong> Lead Designer / animator</p>
-                  <p><strong>Duration:</strong> 2 weeks</p>  
                 </ProjectCard>
                
           
