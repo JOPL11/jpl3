@@ -1082,7 +1082,7 @@ export default function Home() {
                     )
                   },  */}
 
-                 {/*   Motion Section 
+                    Motion Section 
                 <ProjectCard 
                   title="Audi Nüremberg"
                   image="/images/corp/audi.jpg"
@@ -1189,7 +1189,7 @@ export default function Home() {
                   <p><strong>Role:</strong> Lead Designer / animator</p>
                   <p><strong>Duration:</strong> 2 weeks</p> Daimler Benz prototype interactive dealership award. 
                 </ProjectCard>
-                */}
+               
           
               </div> 
             </section> 
