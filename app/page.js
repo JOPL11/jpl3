@@ -1081,8 +1081,6 @@ export default function Home() {
                       </>
                     )
                   },  */}
-
-                    Motion Section 
                 <ProjectCard 
                   title="Audi Nüremberg"
                   image="/images/corp/audi.jpg"
