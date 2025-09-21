@@ -488,7 +488,7 @@ export default function Home() {
 
             <p>Studied Communications Design in Munich, Germany.</p>
            
-            <p>I build 3D animations and immersive interfaces merging design, animation, and code.</p>
+            <p>I merge design, animation, and code.</p>
 
             <p>Based in Germany.</p>
 
