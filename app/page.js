@@ -492,8 +492,6 @@ export default function Home() {
 
             <p>Based in Germany. </p>
 
-            
-           
             <section className={styles.section} aria-labelledby="skills-heading">
               <h2 id="skills-heading"><AnimatedText ref={skillsHeadingRef}>Core Skills</AnimatedText></h2>
               <ul className={styles.skillsList} role="list">
