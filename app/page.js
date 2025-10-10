@@ -771,7 +771,7 @@ export default function Home() {
                   <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Tools:</strong><AnimatedText ref={citylink2TextRef} type="project">Next.js, Supabase, Geoman-io, leaflet, Openstreetmap, REST</AnimatedText></p>
                 </ProjectCard>
-              */}
+              
               
                 <ProjectCard 
                   title="Spiegel Geschichte TV Website"
@@ -814,7 +814,7 @@ export default function Home() {
                   <p><strong>Role:</strong> Lead Designer / Coder</p>
                   <p><strong>Duration:</strong> 3 months / 6 years of updates</p>
                 </ProjectCard> 
-              
+              */}
             {/*   <ProjectCard 
                   title="Middle Caicos Festival"
                   image="/images/JPL3Poster_BB.jpg"
