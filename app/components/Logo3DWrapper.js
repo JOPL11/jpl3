@@ -117,18 +117,17 @@ export default function Logo3DWrapper() {
     console.log('Logo3DWrapper state:', { isIOSDevice, hasInteracted, hasWebGL });
   }, [isIOSDevice, hasInteracted, hasWebGL]);
 
-  // Determine which logo to show
-  const show3DLogo = !isIOSDevice || (isIOSDevice && hasInteracted && hasWebGL);
-  
+  // Always show 2D logo on iOS, 3D on other platforms if WebGL is available
   console.log('Logo3DWrapper: Rendering decision', {
     isIOSDevice,
-    hasInteracted,
-    hasWebGL,
-    show3DLogo
+    show2DOnIOS: isIOSDevice ? 'Yes' : 'N/A',
+    hasWebGL: isIOSDevice ? 'Not checked on iOS' : hasWebGL
   });
 
-  // Handle WebGL detection
+  // Only check WebGL on non-iOS devices
   useEffect(() => {
+    if (isIOSDevice) return; // Skip WebGL check on iOS
+    
     console.log('Logo3DWrapper: Setting up WebGL detection');
     if (typeof window === 'undefined') {
       console.log('Logo3DWrapper: Skipping WebGL detection (server-side)');
@@ -148,12 +147,13 @@ export default function Logo3DWrapper() {
     checkWebGL();
   }, [isIOSDevice]);
 
-  // Show loading state while checking conditions
-  if (isIOSDevice && !hasInteracted) {
-    console.log('Rendering 2D logo - waiting for interaction');
+  // Always show 2D logo on iOS
+  if (isIOSDevice) {
+    console.log('Rendering 2D logo on iOS');
     return <Logo2D />;
   }
 
+  // For non-iOS devices, check WebGL support
   if (!hasWebGL) {
     console.log('WebGL not available, falling back to 2D logo');
     return <Logo2D />;

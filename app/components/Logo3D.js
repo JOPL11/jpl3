@@ -608,6 +608,18 @@ function Scene({ modelUrl }) {
   const isMobile = useMobileDetect();
   const [isHolographic, setIsHolographic] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  
+  // Toggle holographic effect on hover
+  useEffect(() => {
+    if (isHovered) {
+      setIsHolographic(true);
+    } else {
+      const timer = setTimeout(() => {
+        setIsHolographic(false);
+      }, 500); // Small delay before turning off the effect
+      return () => clearTimeout(timer);
+    }
+  }, [isHovered]);
 
   return (
     <>
@@ -623,7 +635,7 @@ function Scene({ modelUrl }) {
       >
       <Model 
         url={modelUrl} 
-        isHolographic={isHolographic}
+        isHolographic={isHovered || isHolographic}
         onHolographicChange={setIsHolographic}
         isHovered={isHovered}
       />
