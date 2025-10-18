@@ -1267,6 +1267,13 @@ export default function Home() {
             >
               Impressum
             </button>
+                        <button 
+              onClick={() => window.open('/assets/CV_JanPeiro_2025.pdf', '_blank', 'noopener,noreferrer')} 
+              className={styles.footerLink} 
+              aria-label="Curriculum Vitae"
+            >
+              CV
+            </button>
           </nav>
         </div>
         <PrivacyModal 
