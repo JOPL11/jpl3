@@ -23,7 +23,7 @@ export default function LoadingOverlay() {
   return (
     <div className={`${styles.loadingOverlay} ${!isVisible ? styles.hidden : ''}`}>
       <div className={styles.loadingContent}>
-        <div className={styles.welcomeMessage}>Zing!</div>
+        <div className={styles.welcomeMessage}>Deploying</div>
       </div>
     </div>
   );
