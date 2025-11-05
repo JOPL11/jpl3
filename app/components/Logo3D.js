@@ -665,6 +665,49 @@ function Scene({ modelUrl }) {
   );
 }
 
+// Loading bar component
+const LoadingBar = ({ width = 80 }) => {
+  const [progress, setProgress] = useState(0);
+  const animationRef = useRef();
+
+  useEffect(() => {
+    const animate = () => {
+      setProgress(prev => {
+        // Bounce between 20% and 80% for a smooth loading effect
+        const newProgress = prev + 0.02;
+        return newProgress > 0.8 ? 0.2 : newProgress;
+      });
+      animationRef.current = requestAnimationFrame(animate);
+    };
+    
+    animationRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationRef.current);
+  }, []);
+
+  return (
+    <div style={{
+      position: 'absolute',
+      bottom: '50%',
+      left: '50%',
+      transform: 'translateX(-50%)',
+      width: `${width * 0.5}px`,
+      height: '4px',
+      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+      borderRadius: '2px',
+      overflow: 'hidden',
+      zIndex: 10
+    }}>
+      <div style={{
+        width: `${progress * 100}%`,
+        height: '100%',
+        backgroundColor: '#fff',
+        transition: 'width 300ms ease-out',
+        borderRadius: '2px'
+      }} />
+    </div>
+  );
+};
+
 export default function Logo3D({ width = 250, height = 250, className = '' }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const canvasRef = useRef();
@@ -744,10 +787,12 @@ export default function Logo3D({ width = 250, height = 250, className = '' }) {
         width: `${width}px`, 
         height: `${height + 25}px`,
         position: 'relative',
-        opacity: isLoaded ? 1 : 0,
-        transition: 'opacity 2000ms ease-in-out'
+        opacity: isLoaded ? 1 : 1, // Keep opacity at 1 to prevent layout shifts
+        transition: 'opacity 500ms ease-in-out',
+        visibility: isLoaded ? 'visible' : 'visible' // Always maintain layout
       }}
     >
+      {!isLoaded && <LoadingBar width={width} />}
       <Canvas 
         ref={canvasRef}
         className={styles.canvasContainer}

@@ -615,7 +615,7 @@ export default function Home() {
                     width: 'auto',   
                     maxWidth: '100%'
                   }}
-                  text={"An interactive catalogue of Airbus technology made for the Ottobrunn showroom. Situated at Airbus Group's Munich offices."}
+                  text={"A physically interactive catalogue of Airbus technology made for the Ottobrunn showroom. Situated at Airbus Group's Munich offices."}
                   modalContent={{
                     description: `15 Chapters 
                     <br/><br/>RFID Powered Touchscreen Interface 

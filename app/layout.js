@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={inter.variable}>
       <head>
         <ScriptLoader />
-        <link rel="icon" href="/images/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
       </head>
 
       <body className={inter.className} suppressHydrationWarning={true}>
