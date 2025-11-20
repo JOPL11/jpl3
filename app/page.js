@@ -490,7 +490,7 @@ export default function Home() {
            
             <p>I merge design, animation, and code. </p>
 
-            <p>Based in Germany. </p>
+            <p>Global Remote | EST / CET / EET </p>
 
             <section className={styles.section} aria-labelledby="skills-heading">
               <h2 id="skills-heading"><AnimatedText ref={skillsHeadingRef}>Core Skills</AnimatedText></h2>
