@@ -356,7 +356,7 @@ export default function Home() {
             className={styles.legalLink}
             aria-label="View Impressum"
           >
-            Impressum
+           
           </button>
           <span className={styles.legalSeparator}>|</span>
           <button 
@@ -491,6 +491,8 @@ export default function Home() {
             <p>I merge design, animation, and code. </p>
 
             <p>Global Remote | EST / CET / EET </p>
+
+            <p>Eligible to work in the EU, UK, and Canada without visa sponsorship.</p>
 
             <section className={styles.section} aria-labelledby="skills-heading">
               <h2 id="skills-heading"><AnimatedText ref={skillsHeadingRef}>Core Skills</AnimatedText></h2>
@@ -1267,13 +1269,13 @@ export default function Home() {
             >
               Impressum
             </button>
-                        <button 
+                    {/*      <button 
               onClick={() => window.open('/assets/CV_JanPeiro_2025.pdf', '_blank', 'noopener,noreferrer')} 
               className={styles.footerLink} 
               aria-label="Curriculum Vitae"
             >
               CV
-            </button>
+            </button>*/}
           </nav>
         </div>
         <PrivacyModal 
