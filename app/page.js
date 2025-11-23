@@ -486,16 +486,19 @@ export default function Home() {
             <h2 style={{paddingTop: "1rem"}}><AnimatedText ref={aboutHeadingRef}>About</AnimatedText></h2>
             <p>Hi! I&apos;m Jan Peiro.</p>
 
-            <p>Studied Communications Design in Munich, Germany.</p>
-           
-            <p>I merge design, animation, and code. </p>
+            <p>A multidisciplinary designer and creative who bridges the gap between stunning visuals and robust technology. I studied Communications Design in Munich and have spent my career transforming ideas into engaging experiences for a global clientele.</p>
 
-            <p>Global Remote | EST / CET / EET </p>
+            <p>My core principle is <strong>merging design, animation, and code</strong> to create work that is not only beautiful but also functional and scalable.</p>
+
+            <p>To increase my professional acumen I spent more than a few years becoming an expert in motion design, art direction, and creative strategy, while also building a strong foundation in web development and interactive design for companies such as Audi, Daimler Benz, Airbus Group, BMW Group, Spiegel TV, Pro7Sat1, Warner Bros., 20th Century Fox and many more.</p>
+
+            <p>Global Remote | EST / CET / EET</p>
 
             <p>Eligible to work in the EU, UK, and Canada without visa sponsorship.</p>
 
             <section className={styles.section} aria-labelledby="skills-heading">
               <h2 id="skills-heading"><AnimatedText ref={skillsHeadingRef}>Core Skills</AnimatedText></h2>
+              <p>My toolkit is extensive and constantly evolving, allowing me to own a project from concept to deployment:</p>
               <ul className={styles.skillsList} role="list">
                 <li role="listitem">Design, Animation, Development, Rapid Prototyping</li>
                 <li role="listitem">Cinema4D, Blender, Adobe Suite</li>
@@ -739,7 +742,7 @@ export default function Home() {
                   logoHeight={40}
                   logoStyle={{
                     height: '20px',
-                    width: 'auto',   
+                    width: 'auto',   +
                     maxWidth: '100%'
                   }}
                 >
@@ -1203,7 +1206,7 @@ export default function Home() {
                   <Image src="/images/agencies/sw_neu_white.png" alt="Sieber & Wolf"  width={33} height={16} /></a>
                 </div>
                 <div style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'white' }}>
-                  My Task: <span style={{ fontSize: '0.85rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Invent a new type of dealership award for Mercedes Benz. I thought up the concept, designed the whole piece including UI and put together a working tech-stack for a fully functional prototype.</span>
+                  My Task: <span style={{ fontSize: '0.85rem', fontWeight: 'normal', color: '#acfeff', marginBottom:'3rem', display: 'block', lineHeight: '1.4' }}>Invent a new type of dealership award for Mercedes Benz. I thought up the concept, designed the whole piece including UI and put together a working tech-stack for a fully functional prototype.</span>
                 </div>
               </div>
               <ThrowableImages isActive={activeSection === 'product-heading'} />
@@ -1215,6 +1218,7 @@ export default function Home() {
             <div data-section="contact"></div>
             <section id="contact" className={`${styles.section} ${styles.scrollTarget}`}>
               <h2><AnimatedText ref={contactHeadingRef}>Contact</AnimatedText></h2>
+              <p>I'm available for local projects as well as potential employment opportunities. Use the form to inquire about rates and availability, or just to say hi.</p>
               <ContactForm />
             </section>
           </section>
