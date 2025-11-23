@@ -1218,7 +1218,7 @@ export default function Home() {
             <div data-section="contact"></div>
             <section id="contact" className={`${styles.section} ${styles.scrollTarget}`}>
               <h2><AnimatedText ref={contactHeadingRef}>Contact</AnimatedText></h2>
-              <p>I'm available for local projects as well as potential employment opportunities. Use the form to inquire about rates and availability, or just to say hi.</p>
+              <p>I&apos;m available for local projects as well as potential employment opportunities. Use the form to inquire about rates and availability, or just to say hi.</p>
               <ContactForm />
             </section>
           </section>
