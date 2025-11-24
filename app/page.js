@@ -490,7 +490,7 @@ export default function Home() {
 
             <p>My core principle is <strong>merging design, animation, and code</strong> to create work that is not only beautiful but also functional and scalable.</p>
 
-            <p>To increase my professional acumen I spent more than a few years becoming an expert in motion design, art direction, and creative strategy, while also building a strong foundation in web development and interactive design for companies such as Audi, Daimler Benz, Airbus Group, BMW Group, Spiegel TV, Pro7Sat1, Warner Bros., 20th Century Fox and many more.</p>
+            <p>To increase my professional acumen I spent more than a few years becoming an expert in art direction, motion design, 3D visualization and creative development, while also building a strong foundation in web development and interactive design, for companies such as Audi, Daimler Benz, Airbus Group, BMW Group, Spiegel TV, Pro7Sat1, Warner Bros., 20th Century Fox and many more.</p>
 
             <p>Global Remote | EST / CET / EET</p>
 
@@ -502,15 +502,16 @@ export default function Home() {
               <ul className={styles.skillsList} role="list">
                 <li role="listitem">Design, Animation, Development, Rapid Prototyping</li>
                 <li role="listitem">Cinema4D, Blender, Adobe Suite</li>
-                <li role="listitem">3D Modeling, Animation, Rendering</li>
-                <li role="listitem">Octane, Corona, RenderFarms, After Effects</li>
-                <li role="listitem">React, Next.js, Vue.js, html, css, .js</li>
-                <li role="listitem">Typescript</li>
-                <li role="listitem">Bootstrap, Tailwind, MaterialUI</li>
+                <li role="listitem">3D Modeling, 3D Animation, 3D Rendering</li>
+                <li role="listitem">Octane Render, Corona Render</li>
+                <li role="listitem">After Effects, Video Edit, Video Post-Production</li>
+                <li role="listitem">React, Next.js, Vue.js, html, css, javascript</li>
                 <li role="listitem">Three.js, React 3 Fiber, WebXR</li>
+                <li role="listitem">Typescript</li>
+                <li role="listitem">GSAP, Framer Motion, CSS Animations, Spring</li>
+                <li role="listitem">Bootstrap, Tailwind, MaterialUI</li>
                 <li role="listitem">vite, git, gitlab, npm, yarn</li>
                 <li role="listitem">SQL / Supabase Experience</li>
-                <li role="listitem">GSAP, Framer Motion, CSS Animations, Spring</li>
                 <li role="listitem">SEO</li>
                  {/*  
                 <li role="listitem">Octane, Redshift, Corona Render Engines</li>
