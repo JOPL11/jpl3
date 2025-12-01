@@ -43,6 +43,18 @@ const posts = [
     date: '2025-08-14',
     excerpt: '6th.',
   },
+    {
+    id: 'seven',
+    title: 'Backend redesign',
+    date: '2025-10-10',
+    excerpt: '7th.',
+  },
+    {
+    id: 'eight',
+    title: 'Geofencer update / game mode auth implemented',
+    date: '2025-11-11',
+    excerpt: '8th.',
+  },
 
 ];
 

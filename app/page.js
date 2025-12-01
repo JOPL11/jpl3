@@ -444,13 +444,13 @@ export default function Home() {
                 >
                   Artstation
                 </a>
-                </nav>
-             {/*    <Link href="/blog" className={styles.navLink}>
+               
+             <Link href="/blog" className={styles.navLink}>
                   devBlog
                 </Link>
-            
+             </nav>
              
-              
+                {/*  
                               <a
                   href="https://github.com/JOPL11/jpl3" 
                   className={styles.navLink}

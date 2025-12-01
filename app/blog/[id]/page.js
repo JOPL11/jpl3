@@ -132,6 +132,35 @@ const posts = {
       </>
     ),
   },
+  'seven': {
+    title: 'CityLink Backend',
+    date: '2025-10-10',
+    content: (
+      <>
+        <p>Heres updates to CityLink app</p>
+          <ul>
+            <li>Added sorting by month</li>
+            <li>Better data organization</li>
+            <li>Geofencer now uses hashed identifiers for privacy</li>
+            <li>Improved data security practices</li>
+          </ul>
+      </>
+    ),
+  },
+  'eight': {
+    title: 'Geofencer update & Game mode auth implemented',
+    date: '2025-11-11',
+    content: (
+      <>
+        <p>Heres updates to CityLink app</p>
+          <ul>
+            <li>Hashed Login implemented with secure token handling.</li>
+            <li>Geofencer works but now I have to figure out a way to make it work with the demo version, tricky because the one sort of invalidates the other. Need to find a way to maintain security while allowing demo access. Maybe it should be turned off for the demo. Kind of a drag.</li>
+            <li>Working on a better way to handle user sessions and authentication for the demo version.</li>
+          </ul>
+      </>
+    ),
+  },
 };
 
 // This is a workaround component to handle the async params
