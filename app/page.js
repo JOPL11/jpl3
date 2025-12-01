@@ -444,12 +444,12 @@ export default function Home() {
                 >
                   Artstation
                 </a>
-
-                <Link href="/blog" className={styles.navLink}>
+                </nav>
+             {/*    <Link href="/blog" className={styles.navLink}>
                   devBlog
                 </Link>
-              </nav>
-              {/*
+            
+             
               
                               <a
                   href="https://github.com/JOPL11/jpl3" 
@@ -515,7 +515,7 @@ export default function Home() {
                 <li role="listitem">SEO</li>
                  {/*  
                 <li role="listitem">Octane, Redshift, Corona Render Engines</li>
-                <li role="listitem">After Effects, Video Edit, Video Post-Production</li>*/}
+                <li role="listitem">After Effects, Video Edit, Video Post-Production</li>    */}
               </ul>
             </section>
        
