@@ -155,7 +155,8 @@ const posts = {
         <p>Heres updates to CityLink app</p>
           <ul>
             <li>Hashed Login implemented with secure token handling.</li>
-            <li>Geofencer works but now I have to figure out a way to make it work with the demo version, tricky because the one sort of invalidates the other. Need to find a way to maintain security while allowing demo access. Maybe it should be turned off for the demo. Kind of a drag.</li>
+            <li>Geofencer works but now I have to figure out a way to make it work with the demo version, tricky because the one sort of invalidates the other. Need to find a way to maintain security while allowing demo access. Maybe it should be turned off for the demo. Kind of a drag because its a core feature that sort of needs to be explained to users in the demo context so they understand the security implications and why it&apos;s important for the overall security model - it&apos;s a key part of the app&apos;s security architecture.</li>
+            <li>See, the final version is meant to work in a geofenced sandbox, the demo version needs to work from anywhere. Maybe if I let the demo user create his own geofence. But that might be asking too much of a user, Im on the fence about it. </li>
             <li>Working on a better way to handle user sessions and authentication for the demo version.</li>
           </ul>
       </>
