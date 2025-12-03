@@ -512,7 +512,9 @@ export default function Home() {
                 <li role="listitem">Bootstrap, Tailwind, MaterialUI</li>
                 <li role="listitem">vite, git, gitlab, npm, yarn</li>
                 <li role="listitem">SQL / Supabase Experience</li>
-                <li role="listitem">SEO</li>
+                <li role="listitem">Unity, C#</li>
+                <li role="listitem">GLSL, HLSL</li>
+                <li role="listitem">SEO, Analytics</li>
                  {/*  
                 <li role="listitem">Octane, Redshift, Corona Render Engines</li>
                 <li role="listitem">After Effects, Video Edit, Video Post-Production</li>    */}
