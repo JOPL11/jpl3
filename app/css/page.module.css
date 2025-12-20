@@ -1564,7 +1564,7 @@ a.secondary {
   pointer-events: none;
   position: relative;
   z-index: 1002; /* Ensure it's above other elements */
-  transform: translateY(-14px); /* Move up further to align with arrow */
+  transform: translateY(-10px); /* Move up further to align with arrow */
 }
 
 /* Show hamburger only on mobile */
@@ -1639,7 +1639,21 @@ a.secondary {
 .hamburger:hover .hamburgerInner::after {
   background-color: #a2feff;
 }
-
+.logoLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+.logoLink:hover {
+  opacity: 1;
+}
+.logo {
+  height: 1.5rem;
+  width: auto;
+  object-fit: contain;
+}
 
 /* Mobile Menu Overlay */
 .mobileMenuOverlay {
@@ -1648,7 +1662,7 @@ a.secondary {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.9);
   z-index: 999;
   opacity: 0;
   visibility: hidden;
@@ -1661,11 +1675,11 @@ a.secondary {
 /* Mobile Menu */
 .mobileMenu {
   position: fixed;
-  top: 0;
+  top: 56px;
   right: -300px; /* Start off-screen */
   width: 280px;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.95);
+  background: #0e0e0e;
   z-index: 1000;
   transition: right 0.5s ease-in-out;
   padding: 1rem 0;
@@ -1680,7 +1694,7 @@ a.secondary {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.95);
   z-index: 999;
   opacity: 0;
   visibility: hidden;

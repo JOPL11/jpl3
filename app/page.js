@@ -382,6 +382,33 @@ export default function Home() {
         >
           ↑
         </button>
+   <Link 
+  href="/" 
+  className={`${styles.logoLink} ${showHamburger ? styles.logoVisible : ''}`} 
+  aria-label="Home"
+  style={{
+    opacity: showHamburger ? 1 : 0,
+    pointerEvents: showHamburger ? 'auto' : 'none',
+    transition: 'opacity 0.3s ease-in-out, transform 0.3s ease-in-out',
+    marginLeft: '50px',
+    transform: 'translateY(0px)'
+  }}
+>
+      <Image 
+        src="/images/jp.svg" 
+        alt="JP Logo" 
+        width={20} 
+        height={20} 
+        className={styles.logo}
+        style={{
+           marginLeft: '0px',  // Add some space between the arrow and logo
+           transform: 'translateY(1px)',  // Fine-tune vertical alignment
+           filter: 'invert(0)',
+           display: 'block'
+           
+  }}
+      />
+    </Link>
         <div className={styles.legalLinks}>
             <button 
               className={`${styles.hamburger} ${isMenuOpen ? styles.hamburgerActive : ''} ${showHamburger ? styles.hamburgerVisible : ''}`} 
