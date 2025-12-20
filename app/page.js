@@ -469,7 +469,7 @@ export default function Home() {
                 <a 
                   href="#about" 
                   className={`${styles.navLink} ${activeSection === 'about' ? styles.active : ''}`}
-                  onClick={(e) => scrollToSection(e, 'about', 3000)}
+                  onClick={(e) => scrollToSection(e, 'about')}
                 >
                   About
                 </a>
@@ -610,15 +610,17 @@ export default function Home() {
                   <li role="listitem">French (fluent)</li>
                 </ul>
               </section>
+            
             </div>
-
+              <div style={{height: '5rem'}}></div>
              {/* About section End */}
 
-      
+               
             <SectionTracker onSectionChange={setActiveSection} />
             <div data-section="code"></div>      
             <section id="code" className={styles.section} aria-labelledby="code">
-              <h2 id="projects-header" className={styles.scrollTarget}><AnimatedText ref={workHeadingRef}>Code</AnimatedText></h2>
+              <div style={{height: '5rem'}}></div>
+              <h2 id="code" className={styles.scrollTarget}><AnimatedText ref={workHeadingRef}>Code Projects</AnimatedText></h2>
           
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
 
@@ -1044,7 +1046,7 @@ export default function Home() {
 
         {/* Motion Section Detector Here   https://vimeo.com/1115660872 */}
             <section id="motion" className={`${styles.section} ${styles.scrollTarget}`}>
-              <h2><AnimatedText ref={motionHeadingRef}>Motion</AnimatedText></h2>
+              <h2><AnimatedText ref={motionHeadingRef}>Motion Projects</AnimatedText></h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
               <VideoProjectCard 
                   title="Showreel 2025"
