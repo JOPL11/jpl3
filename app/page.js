@@ -130,6 +130,12 @@ export default function Home() {
 
 
   const isMobile = viewportWidth < 768;
+
+  useEffect(() => {
+  console.log('isMenuOpen state changed to:', isMenuOpen);
+}, [isMenuOpen]);
+
+
   // Setup section detection using IntersectionObserver
   useEffect(() => {
     const handleScroll = () => {
@@ -312,12 +318,12 @@ export default function Home() {
 
   // Map section IDs to their refs
   const sectionRefs = useMemo(() => ({
-    'welcome-heading': aboutHeadingRef,
-    'projects-heading': workHeadingRef,
+    'about': aboutHeadingRef,
+    'code': workHeadingRef,
     'skills-heading': skillsHeadingRef,
-    'webgl-heading': webglHeadingRef,
-    'motion-heading': motionHeadingRef,
-    'product-heading': productHeadingRef,
+    'webgl': webglHeadingRef,
+    'motion': motionHeadingRef,
+    'proto': productHeadingRef,
     'contact': contactHeadingRef
   }), [aboutHeadingRef, workHeadingRef, webglHeadingRef, skillsHeadingRef, contactHeadingRef, motionHeadingRef, productHeadingRef]);
   
@@ -377,25 +383,72 @@ export default function Home() {
           ↑
         </button>
         <div className={styles.legalLinks}>
-          <button 
-            className={`${styles.hamburger} ${isMenuOpen ? styles.hamburgerActive : ''} ${showHamburger ? styles.hamburgerVisible : ''}`} 
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-            aria-expanded={isMenuOpen}
-            style={{
-              opacity: showHamburger ? 1 : 0,
-              pointerEvents: showHamburger ? 'auto' : 'none',
-              transition: 'opacity 0.3s ease-in-out'
-            }}
-          >
+            <button 
+              className={`${styles.hamburger} ${isMenuOpen ? styles.hamburgerActive : ''} ${showHamburger ? styles.hamburgerVisible : ''}`} 
+              onClick={() => {
+                console.log('Hamburger clicked. Current isMenuOpen:', isMenuOpen);
+                setIsMenuOpen(!isMenuOpen);
+              }}
+              aria-label="Toggle menu"
+              aria-expanded={isMenuOpen}
+              style={{
+                opacity: showHamburger ? 1 : 0,
+                pointerEvents: showHamburger ? 'auto' : 'none',
+                transition: 'opacity 0.3s ease-in-out'
+              }}
+            >
             <span className={styles.hamburgerBox}>
               <span className={styles.hamburgerInner}></span>
             </span>
           </button>
+
+          
         </div>
         {/* Header content would go here   |  Privacy */}
+
+        
       </header>
-     
+
+    <>
+        {/* Mobile Menu Overlay */}
+        <div 
+          className={`${styles.mobileMenuOverlay} ${isMenuOpen ? styles.mobileMenuOpen : ''}`}
+          onClick={() => {
+            console.log('Overlay clicked, closing menu');
+            setIsMenuOpen(false);
+          }}
+        />
+        {/* Mobile Menu */}
+        <nav 
+          className={`${styles.mobileMenu} ${isMenuOpen ? styles.mobileMenuActive : ''}`}
+          aria-hidden={!isMenuOpen}
+        >
+          <ul className={styles.mobileMenuList}>
+            {['About', 'Code', 'WebGL', 'Motion', 'Proto', 'Contact'].map((item) => (
+              <li key={item} className={styles.mobileMenuItem}>
+                <a 
+                  href={`#${item.toLowerCase()}`} 
+                  className={styles.mobileMenuLink}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const element = document.getElementById(item.toLowerCase());
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                      setIsMenuOpen(false);
+                    }
+                  }}
+                >
+                  {item}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </>
+
+
+            
+      
       <main className={styles.main} role="main" id="main-content">
         <div className={styles.contentWrapper}>
           <div className={styles.logoSidebar} role="complementary" aria-label="Logo and Navigation">
@@ -414,37 +467,37 @@ export default function Home() {
          
                 <nav className={styles.navLinks} aria-label="Main navigation">
                 <a 
-                  href="#welcome-heading" 
-                  className={`${styles.navLink} ${activeSection === 'welcome-heading' ? styles.active : ''}`}
-                  onClick={(e) => scrollToSection(e, 'welcome-heading', 3000)}
+                  href="#about" 
+                  className={`${styles.navLink} ${activeSection === 'about' ? styles.active : ''}`}
+                  onClick={(e) => scrollToSection(e, 'about', 3000)}
                 >
                   About
                 </a>
                 <a 
-                  href="#projects-heading" 
-                  className={`${styles.navLink} ${activeSection === 'projects-heading' ? styles.active : ''}`}
-                  onClick={(e) => scrollToSection(e, 'projects-heading')}
+                  href="#code" 
+                  className={`${styles.navLink} ${activeSection === 'code' ? styles.active : ''}`}
+                  onClick={(e) => scrollToSection(e, 'code')}
                 >
                   Code
                 </a>
                 <a 
-                  href="#webgl-heading" 
-                  className={`${styles.navLink} ${activeSection === 'webgl-heading' ? styles.active : ''}`}
-                  onClick={(e) => scrollToSection(e, 'webgl-heading')}
+                  href="#webgl" 
+                  className={`${styles.navLink} ${activeSection === 'webgl' ? styles.active : ''}`}
+                  onClick={(e) => scrollToSection(e, 'webgl')}
                 >
                   WebGL
                 </a>
                 <a 
-                  href="#motion-heading" 
-                  className={`${styles.navLink} ${activeSection === 'motion-heading' ? styles.active : ''}`}
-                  onClick={(e) => scrollToSection(e, 'motion-heading')}
+                  href="#motion" 
+                  className={`${styles.navLink} ${activeSection === 'motion' ? styles.active : ''}`}
+                  onClick={(e) => scrollToSection(e, 'motion')}
                 >
                   Motion
                 </a>
                 <a 
-                  href="#product" 
-                  className={`${styles.navLink} ${activeSection === 'product-heading' ? styles.active : ''}`}
-                  onClick={(e) => scrollToSection(e, 'product-heading')}
+                  href="#proto" 
+                  className={`${styles.navLink} ${activeSection === 'proto' ? styles.active : ''}`}
+                  onClick={(e) => scrollToSection(e, 'proto')}
                 >
                   Proto
                 </a>
@@ -500,8 +553,8 @@ export default function Home() {
             </div>
           </div>
           
-          <section id="welcome-heading" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="welcome-heading">
-            <div data-section="welcome-heading"></div>
+          <section id="about" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="about">
+            <div data-section="about"></div>
               {/*     
            <div className={styles.heroContainer}>
               <Hero3D />
@@ -563,12 +616,9 @@ export default function Home() {
 
       
             <SectionTracker onSectionChange={setActiveSection} />
-            <div data-section="projects-heading"></div>      
-
-
-            <section id="work" className={styles.section} aria-labelledby="projects-heading">
-
-              <h2 id="projects-heading" className={styles.scrollTarget}><AnimatedText ref={workHeadingRef}>Code</AnimatedText></h2>
+            <div data-section="code"></div>      
+            <section id="code" className={styles.section} aria-labelledby="code">
+              <h2 id="projects-header" className={styles.scrollTarget}><AnimatedText ref={workHeadingRef}>Code</AnimatedText></h2>
           
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
 
@@ -899,8 +949,8 @@ export default function Home() {
 
          
             <SectionTracker onSectionChange={setActiveSection} />
-            <div data-section="webgl-heading"></div>
-            <section id="webgl-heading" className={`${styles.section} ${styles.scrollTarget}`}>
+            <div data-section="webgl"></div>
+            <section id="webgl" className={`${styles.section} ${styles.scrollTarget}`}>
               <h2><AnimatedText ref={webglHeadingRef}>WebGL</AnimatedText></h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
               <ProjectCard 
@@ -990,10 +1040,10 @@ export default function Home() {
 
        <hr className={styles.divider2} />*/}
        <SectionTracker onSectionChange={setActiveSection} />
-       <div data-section="motion-heading"></div>
+       <div data-section="motion"></div>
 
         {/* Motion Section Detector Here   https://vimeo.com/1115660872 */}
-            <section id="motion-heading" className={`${styles.section} ${styles.scrollTarget}`}>
+            <section id="motion" className={`${styles.section} ${styles.scrollTarget}`}>
               <h2><AnimatedText ref={motionHeadingRef}>Motion</AnimatedText></h2>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
               <VideoProjectCard 
@@ -1221,8 +1271,8 @@ export default function Home() {
               </div> 
             </section> 
             <SectionTracker onSectionChange={setActiveSection} />
-            <div data-section="product-heading"></div>
-            <section id="product-heading" className={`${styles.section} ${styles.scrollTarget}`}>
+            <div data-section="proto"></div>
+            <section id="proto" className={`${styles.section} ${styles.scrollTarget}`}>
               <h2><AnimatedText ref={productHeadingRef}>Prototype</AnimatedText></h2>
               <div className={styles.introText}>
 

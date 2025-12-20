@@ -1640,6 +1640,78 @@ a.secondary {
   background-color: #a2feff;
 }
 
+
+/* Mobile Menu Overlay */
+.mobileMenuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+.mobileMenuOverlay.mobileMenuOpen {
+  opacity: 1;
+  visibility: visible;
+}
+/* Mobile Menu */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: -300px; /* Start off-screen */
+  width: 280px;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 1000;
+  transition: right 0.3s ease-in-out;
+  padding: 1rem 0;
+  overflow-y: auto;
+}
+.mobileMenu.mobileMenuActive {
+  right: 0; /* Slide in */
+}
+.mobileMenuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+.mobileMenuOverlay.mobileMenuOpen {
+  opacity: 1;
+  visibility: visible;
+}
+/* Menu items */
+.mobileMenuList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.mobileMenuItem {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.mobileMenuLink {
+  display: block;
+  padding: 1rem 2rem;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: background-color 0.2s ease;
+}
+.mobileMenuLink:hover {
+  background-color: rgba(162, 254, 255, 0.1);
+  color: #a2feff;
+}
+
 /* Legal Links and Hamburger */
 .legalLinks {
   position: absolute;
