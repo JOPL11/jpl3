@@ -1551,15 +1551,105 @@ a.secondary {
   }
 }
 
-/* Legal Links */
+/* Hamburger Menu - Hidden by default */
+.hamburger {
+  display: none; /* Hide by default */
+  padding: 10px;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+  position: relative;
+  z-index: 1002; /* Ensure it's above other elements */
+  transform: translateY(-14px); /* Move up further to align with arrow */
+}
+
+/* Show hamburger only on mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: inline-block;
+  }
+  
+  /* When hamburger is visible */
+  .hamburger.hamburgerVisible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  /* Smooth transition for hamburger visibility */
+  .hamburger {
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+}
+
+.hamburgerBox {
+  width: 30px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburgerInner {
+  width: 100%;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.hamburgerInner::before,
+.hamburgerInner::after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  left: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.hamburgerInner::before {
+  top: -8px;
+}
+
+.hamburgerInner::after {
+  top: 8px;
+}
+
+.hamburgerActive .hamburgerInner {
+  background-color: transparent;
+}
+
+.hamburgerActive .hamburgerInner::before {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburgerActive .hamburgerInner::after {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.hamburger:hover .hamburgerInner,
+.hamburger:hover .hamburgerInner::before,
+.hamburger:hover .hamburgerInner::after {
+  background-color: #a2feff;
+}
+
+/* Legal Links and Hamburger */
 .legalLinks {
   position: absolute;
   top: 10px;
-  right: 33px;
+  right: 15px; /* Reduced right padding for better edge alignment */
   display: flex;
   align-items: center;
   gap: 12px;
   z-index: 1001;
+  padding: 5px 0; /* Add some vertical padding */
 }
 
 .legalLink {

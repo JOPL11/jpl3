@@ -117,23 +117,49 @@ function CopyrightYear() {
 export default function Home() {
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
   const [showImpressumModal, setShowImpressumModal] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showHamburger, setShowHamburger] = useState(false);
   const [modalContent, setModalContent] = useState('privacy');
   const [activeSection, setActiveSection] = useState('welcome-heading');
   const isProgrammaticScroll = useRef(false);
   const scrollTimeout = useRef(null);
   const viewportWidth = useViewportWidth();
   const throwableSectionRef = useRef(null);
+  const navMenuRef = useRef(null);
 
 
 
   const isMobile = viewportWidth < 768;
   // Setup section detection using IntersectionObserver
   useEffect(() => {
+    const handleScroll = () => {
+      if (typeof window === 'undefined') return;
+      
+      // Get the navigation menu element
+      const navMenu = document.querySelector(`.${styles.navLinks}`);
+      if (!navMenu) return;
+      
+      // Get the position of the navigation menu
+      const navRect = navMenu.getBoundingClientRect();
+      
+      // Show hamburger when nav menu is scrolled out of view (top < 0)
+      setShowHamburger(navRect.bottom < 0);
+    };
+    
     const handleScrollEnd = () => {
       isProgrammaticScroll.current = false;
     };
 
+    window.addEventListener('scroll', handleScroll);
     window.addEventListener('scrollend', handleScrollEnd);
+    
+    // Initial check
+    handleScroll();
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scrollend', handleScrollEnd);
+    };
     
     // Track which section is currently most visible
     const updateActiveSection = (entries) => {
@@ -352,22 +378,22 @@ export default function Home() {
         </button>
         <div className={styles.legalLinks}>
           <button 
-            onClick={() => setShowImpressumModal(true)}
-            className={styles.legalLink}
-            aria-label="View Impressum"
+            className={`${styles.hamburger} ${isMenuOpen ? styles.hamburgerActive : ''} ${showHamburger ? styles.hamburgerVisible : ''}`} 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+            style={{
+              opacity: showHamburger ? 1 : 0,
+              pointerEvents: showHamburger ? 'auto' : 'none',
+              transition: 'opacity 0.3s ease-in-out'
+            }}
           >
-           
-          </button>
-          <span className={styles.legalSeparator}>|</span>
-          <button 
-            onClick={() => setShowPrivacyModal(true)}
-            className={styles.legalLink}
-            aria-label="View Privacy Policy"
-          >
-            Privacy
+            <span className={styles.hamburgerBox}>
+              <span className={styles.hamburgerInner}></span>
+            </span>
           </button>
         </div>
-        {/* Header content would go here */}
+        {/* Header content would go here   |  Privacy */}
       </header>
      
       <main className={styles.main} role="main" id="main-content">
