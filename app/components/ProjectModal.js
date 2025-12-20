@@ -33,7 +33,20 @@ export default function ProjectModal({ title, description, images = [], videos =
     }
   }, [videos, images]);
 
-  // Handle image cycling
+  // Handle image navigation
+  const goToNextImage = (e) => {
+    e.stopPropagation();
+    if (images.length <= 1) return;
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const goToPrevImage = (e) => {
+    e.stopPropagation();
+    if (images.length <= 1) return;
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
+
+  // Handle image click for cycling through images
   const handleImageClick = () => {
     if (images.length <= 1) return;
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -52,23 +65,43 @@ export default function ProjectModal({ title, description, images = [], videos =
     )) return null;
 
     return (
-      <div 
-        className={styles.modalImageContainer}
-        onClick={handleImageClick}
-        style={{ cursor: images.length > 1 ? 'pointer' : 'default' }}
-      >
-        <Image
-          src={img.src}
-          alt={img.alt || `Project image ${currentImageIndex + 1}`}
-          width={800}
-          height={600}
-          className={styles.modalImage}
-          priority={currentImageIndex === 0 && (!videos || videos.length === 0)}
-          loading={currentImageIndex === 0 && (!videos || videos.length === 0) ? 'eager' : 'lazy'}
-        />
+      <div className={styles.imageCarouselContainer}>
+        <div 
+          className={styles.modalImageContainer}
+          onClick={handleImageClick}
+          style={{ cursor: images.length > 1 ? 'pointer' : 'default' }}
+        >
+          <Image
+            src={img.src}
+            alt={img.alt || `Project image ${currentImageIndex + 1}`}
+            width={800}
+            height={600}
+            className={styles.modalImage}
+            priority={currentImageIndex === 0 && (!videos || videos.length === 0)}
+            loading={currentImageIndex === 0 && (!videos || videos.length === 0) ? 'eager' : 'lazy'}
+          />
+          {images.length > 1 && (
+            <div className={styles.imageCounter}>
+              {currentImageIndex + 1} / {images.length}
+            </div>
+          )}
+        </div>
         {images.length > 1 && (
-          <div className={styles.imageCounter}>
-            {currentImageIndex + 1} / {images.length}
+          <div className={styles.carouselControls}>
+            <button 
+              onClick={goToPrevImage} 
+              className={styles.carouselButton}
+              aria-label="Previous image"
+            >
+              &larr;
+            </button>
+            <button 
+              onClick={goToNextImage} 
+              className={styles.carouselButton}
+              aria-label="Next image"
+            >
+              &rarr;
+            </button>
           </div>
         )}
       </div>
