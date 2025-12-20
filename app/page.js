@@ -320,7 +320,7 @@ export default function Home() {
   const sectionRefs = useMemo(() => ({
     'about': aboutHeadingRef,
     'code': workHeadingRef,
-    'skills-heading': skillsHeadingRef,
+    'skills': skillsHeadingRef,
     'webgl': webglHeadingRef,
     'motion': motionHeadingRef,
     'proto': productHeadingRef,
@@ -451,7 +451,7 @@ export default function Home() {
           aria-hidden={!isMenuOpen}
         >
           <ul className={styles.mobileMenuList}>
-            {['About', 'Code', 'WebGL', 'Motion', 'Proto', 'Contact'].map((item) => (
+            {['About', 'Skills', 'Code', 'WebGL', 'Motion', 'Proto', 'Contact'].map((item) => (
               <li key={item} className={styles.mobileMenuItem}>
                 <a 
                   href={`#${item.toLowerCase()}`} 
@@ -589,10 +589,12 @@ export default function Home() {
             */} 
              {/*About Section Detector Here*/} 
              <SectionTracker onSectionChange={setActiveSection} />
-            <h2 style={{paddingTop: "1rem"}}><AnimatedText ref={aboutHeadingRef}>About</AnimatedText></h2>
+            <h2 style={{paddingTop: "5rem"}}><AnimatedText ref={aboutHeadingRef}>About</AnimatedText></h2>
             <p>Hi! I&apos;m Jan Peiro.</p>
 
             <p>A multidisciplinary designer and creative who bridges the gap between stunning visuals and robust technology. I studied Communications Design in Munich and have spent my career transforming ideas into engaging experiences for a global clientele.</p>
+
+           <p>I am specialized in <strong>2D / 3D design, animation and interactive content.</strong></p>
 
             <p>My core principle is <strong>merging design, animation, and code</strong> to create work that is not only beautiful but also functional and scalable.</p>
 
@@ -602,8 +604,8 @@ export default function Home() {
 
             <p>Eligible to work in the EU, UK, and Canada without visa sponsorship.</p>
 
-            <section className={styles.section} aria-labelledby="skills-heading">
-              <h2 id="skills-heading"><AnimatedText ref={skillsHeadingRef}>Core Skills</AnimatedText></h2>
+            <section className={styles.section} aria-labelledby="skills">
+              <h2 style={{paddingTop: "7rem"}}id="skills"><AnimatedText ref={skillsHeadingRef}>Core Skills</AnimatedText></h2>
               <p>My toolkit is extensive and constantly evolving, allowing me to own a project from concept to deployment:</p>
               <ul className={styles.skillsList} role="list">
                 <li role="listitem">Design, Animation, Development, Rapid Prototyping</li>
