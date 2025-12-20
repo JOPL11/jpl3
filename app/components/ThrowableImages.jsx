@@ -35,13 +35,39 @@ const ThrowableImages = ({ isActive = false }) => {
     setCurrentRotation(IMAGES[0].rotation);
   }, []);
 
-  const handleClick = useCallback((e, index) => {
-    // Only reset if clicking on the last visible card
-    if (index === activeIndex - 1 && activeIndex > 0) {
-      e.stopPropagation();
-      resetStack();
-    }
-  }, [activeIndex, resetStack]);
+const handleClick = useCallback((e, index) => {
+  // Only handle clicks on the top card
+  if (index === activeIndex && index < IMAGES.length - 1) {
+    e.stopPropagation();
+    
+    // Set up the throw animation
+    const direction = Math.random() > 0.5 ? 1 : -1;
+    const throwDistance = 1000;
+    const rotation = (Math.random() * 30 + 10) * direction;
+    
+    // Apply the throw animation
+    setCurrentPos({ 
+      x: throwDistance * direction, 
+      y: -Math.abs(throwDistance * 0.5) 
+    });
+    setCurrentRotation(rotation);
+    
+    // Move to the next image after a short delay
+    setTimeout(() => {
+      setActiveIndex(prev => {
+        const newIndex = prev + 1;
+        setCurrentRotation(IMAGES[newIndex]?.rotation || 0);
+        return newIndex;
+      });
+      setCurrentPos({ x: 0, y: 0 });
+    }, 300);
+  } 
+  // Handle reset click (when clicking on the last card)
+  else if (index === activeIndex - 1 && activeIndex > 0) {
+    e.stopPropagation();
+    resetStack();
+  }
+}, [activeIndex, resetStack]);
 
   useEffect(() => {
     console.log(`ThrowableImages is now ${isActive ? 'ACTIVE' : 'INACTIVE'}`);
@@ -137,16 +163,12 @@ const ThrowableImages = ({ isActive = false }) => {
                 opacity: isActiveCard ? 1 : index < activeIndex ? 0 : 0.8,
                 transform: `translate(${isActiveCard ? currentPos.x : 0}px, ${isActiveCard ? currentPos.y : 0}px) rotate(${isActiveCard ? currentRotation : img.rotation}deg)`,
                 transition: isDragging ? 'none' : 'transform 0.2s ease-out, opacity 0.1s ease',
-                cursor: isActiveCard ? (isDragging ? 'grabbing' : 'grab') : 'default',
-                pointerEvents: isActiveCard ? 'auto' : 'none',
-                touchAction: isActiveCard ? 'none' : 'auto',
+                 cursor: isActiveCard ? 'pointer' : 'default',
+                pointerEvents: index <= activeIndex ? 'auto' : 'none',
+                touchAction: index <= activeIndex ? 'none' : 'auto',
               }}
-              onClick={(e) => {
-                if (isLastVisible) {
-                  e.stopPropagation();
-                  resetStack();
-                }
-              }}
+
+            onClick={(e) => handleClick(e, index)}
             >
               <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                 <Image
