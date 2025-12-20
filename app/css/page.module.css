@@ -1667,7 +1667,7 @@ a.secondary {
   height: 100vh;
   background: rgba(0, 0, 0, 0.95);
   z-index: 1000;
-  transition: right 0.3s ease-in-out;
+  transition: right 0.5s ease-in-out;
   padding: 1rem 0;
   overflow-y: auto;
 }
@@ -1684,7 +1684,7 @@ a.secondary {
   z-index: 999;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  transition: opacity 0.5s ease-in-out, visibility 0.3s ease-in-out;
 }
 .mobileMenuOverlay.mobileMenuOpen {
   opacity: 1;
@@ -1697,7 +1697,7 @@ a.secondary {
   margin: 0;
 }
 .mobileMenuItem {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.0);
 }
 .mobileMenuLink {
   display: block;
