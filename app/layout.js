@@ -11,6 +11,7 @@ import { LoadingProvider } from './contexts/LoadingContext';
 import LoadingOverlay from './components/LoadingOverlay';
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -44,6 +45,7 @@ export default function RootLayout({ children }) {
             <LoadingOverlay />
   
             {children}
+            <Analytics />
           </ModalProvider>
         </LoadingProvider>
       </body>
