@@ -1,0 +1,169 @@
+.logoGrid {
+  
+  left:0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Always show 2 columns */
+  gap: 2rem; /* Increase gap for better spacing */
+  padding: 0rem;
+  width: 100%;
+  max-width: 1400px; /* Optional: limit max width */
+  margin: -20px; /* Center the grid */
+}
+.logoItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  background: transparent;
+  transform: scale(1.1);
+  transition: transform 0.5s ease;
+  width: 100%; /* Ensure full width of grid cell */
+}
+.logoItem:hover {
+  background: rgba(255, 255, 255, 0.0);
+}
+.logo {
+  width: 150%;
+  height: auto;
+  border-radius: 8px;
+  max-width: 180px;
+  object-fit: contain;
+  filter: grayscale(0%) contrast(1) brightness(1);
+  transition: filter 0.3s ease;
+  cursor: pointer;
+}
+.logo:hover {
+  filter: grayscale(10%) contrast(1) brightness(1.5);
+  transform: scale(1.05);
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .logoGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .logoItem {
+    width: scale(0.5);
+  }
+}
+@media (max-width: 480px) {
+  .logoGrid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.0rem;
+    padding: 0.0rem;
+  }
+  
+  .logoItem {
+    padding: 0.8rem;
+    transform: scale(1.1);
+  }
+}
+/* Base tooltip styles */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+/* Tooltip text container */
+.tooltipText {
+  visibility: hidden;
+  width: 350px;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  text-align: left;
+  border-radius: 6px;
+  padding: 12px;
+  position: absolute;
+  z-index: 10;
+  bottom: 105%;
+  left: -150%;
+  transform: translateX(-10%) scale(1);
+  opacity: 0;
+  transition: all 0.5s ease;
+  font-size: 14px;
+  line-height: 1.4;
+  pointer-events: none;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transform-origin: bottom center;
+}
+/* Show tooltip on hover (desktop) */
+.tooltip:hover .tooltipText,
+/* Show tooltip when active (mobile) */
+.tooltipText.visible {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0%) scale(1);
+  pointer-events: auto;
+}
+/* Tooltip arrow */
+.tooltipText::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: 0px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.9) transparent transparent transparent;
+}
+/* Close button for mobile */
+.closeButton {
+  display: none; /* Hidden on desktop */
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .tooltipText {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    width: auto;
+    max-width: 80%;
+    margin: 0 auto;
+    transform: translateY(20px) scale(0.98);
+    z-index: 1000;
+  }
+  .tooltipText.visible {
+    transform: translateY(0) scale(1);
+  }
+  .tooltipText::after {
+    display: none;
+  }
+  .closeButton {
+    display: block;
+  }
+  /* Add overlay when tooltip is active */
+  .tooltipText.visible::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+  }
+}
+/* Accessibility focus styles */
+.tooltip:focus-visible {
+  outline: 0px solid #4a90e2;
+  outline-offset: 2px;
+}
+/* Prevent scrolling when tooltip is open on mobile */
+body.tooltip-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}

@@ -8,6 +8,7 @@ import SectionTracker from './components/SectionTracker';
 import MouseGradient from './components/MouseGradient';
 import AnimatedText from './components/AnimatedText';
 import ThrowableImages from './components/ThrowableImages';
+import LogoGrid from './components/LogoGrid';
 import { useMemo } from 'react';
 import LocomotiveScroll from 'locomotive-scroll';
 
@@ -393,7 +394,7 @@ export default function Home() {
     marginLeft: '50px',
     transform: 'translateY(0px)'
   }}
->
+    >
       <Image 
         src="/images/jp.svg" 
         alt="JP Logo" 
@@ -404,9 +405,8 @@ export default function Home() {
            marginLeft: '0px',  // Add some space between the arrow and logo
            transform: 'translateY(1px)',  // Fine-tune vertical alignment
            filter: 'invert(0)',
-           display: 'block'
-           
-  }}
+           display: 'block'      
+   }}
       />
     </Link>
         <div className={styles.legalLinks}>
@@ -428,14 +428,9 @@ export default function Home() {
               <span className={styles.hamburgerInner}></span>
             </span>
           </button>
-
-          
         </div>
         {/* Header content would go here   |  Privacy */}
-
-        
       </header>
-
     <>
         {/* Mobile Menu Overlay */}
         <div 
@@ -1323,12 +1318,18 @@ export default function Home() {
               <ThrowableImages isActive={activeSection === 'product-heading'} />
             </section>
 
+            <div className={styles.section}>
+             <h2 style={{textAlign: "left", paddingTop: "5rem"}}>Past Projects </h2>
+            <p style={{textAlign: "left", paddingBottom: "5rem"}}>Rollover Quickview</p>
+            <LogoGrid />
+          </div>
+
             {/*   MOTION ENDS HERE             <hr className={styles.divider2} /> */}  
 
             <SectionTracker onSectionChange={setActiveSection} />
             <div data-section="contact"></div>
             <section id="contact" className={`${styles.section} ${styles.scrollTarget}`}>
-              <h2><AnimatedText ref={contactHeadingRef}>Contact</AnimatedText></h2>
+              <h2 style={{textAlign: "left", paddingTop: "5rem"}}><AnimatedText ref={contactHeadingRef}>Contact</AnimatedText></h2>
               <p>I&apos;m available for local projects as well as potential employment opportunities. Use the form to inquire about rates and availability, or just to say hi.</p>
               <ContactForm />
             </section>
