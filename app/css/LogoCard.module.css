@@ -34,7 +34,7 @@
   max-width: 150px; /* Adjust logo size */
   height: auto;
   object-fit: contain;
-  filter: grayscale(10%) brightness(0.8);
+  filter: grayscale(10%) brightness(1.1);
   transition: all 0.3s ease;
   cursor: pointer;
 }
@@ -271,16 +271,54 @@ body.modalOpen {
   }
 }
 @media (max-width: 480px) {
-  .modalContent {
-    padding: 1rem;
+ .modalHeader {
+    padding: 0 !important;
   }
-  
+  .modalContent {
+    padding: 0;
+  }
+  .logoCard {
+    background: transparent;
+    padding: 0;
+  }
+  .modalTitle {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding-right: 0;
+  min-height: 2.5rem; /* Match close button height */
+  display: flex;
+  align-items: center;
+  }
   .closeButton {
      position: absolute;
     font-size: 1.5rem;
-    top: 0.5rem;
-    right: 0.5rem;
+    top: -0.5rem;
+    right: -0.8rem;
   }
+.scrollableContent {
+    padding: 0 !important;
+    padding-right: 30px  !important;
+  }
+  .clientInfo {
+padding: 0 !important;
+}
+.clientLogo {
+  height: var(--logo-height);
+  position: absolute;
+  margin-top: 80px;
+  padding: 0.1rem 0.1rem;
+  display: flex;
+  align-items: center;
+}
+.clientLogoImage {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
 }
 
 .modalTextContent {

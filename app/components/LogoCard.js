@@ -27,7 +27,7 @@ const LogoModal = ({ logo, onClose }) => {
     </div>
     {/* Client Info Section */}
         <div className={styles.clientInfo}>
-          <span className={styles.clientText}>{logo.clientText || 'Client'}</span>
+          <span className={styles.clientText}>{logo.clientText || ''}</span>
           {logo.clientLogo && (
             <div className={styles.clientLogo}
             style={logo.clientLogoHeight ? { '--logo-height': `${logo.clientLogoHeight}px` } : {}}
@@ -142,12 +142,23 @@ const LogoCard = () => {
     description2: ``
   },
     { id: 3, src: '/images/mini/atonato.jpg', alt: 'Logo 3', 
-      title: 'NATO Interactive Quiz',
+      title: 'Interactive Tactical Training Module for NATO ISAF Personnel',
       description: `
-      <p><strong>Project:</strong> Personell Tactical Training Quiz</p>
-      <p><strong>Role:</strong> Coder</p>
-      <p><strong>Technologies:</strong> javascript</p>
-      <p>Created multiple-choice quiz for NATO ISAF Personell.</p>
+      <p><strong>The Mandate:</strong> The North Atlantic Treaty Organization (NATO) required a digital training tool for its International Security Assistance Force (ISAF) personnel. The mandate was clear: create a reliable, engaging, and instructionally sound system to reinforce critical tactical knowledge and decision-making protocols in high-stakes environments.</p>
+      <p><strong>Role:</strong> Lead Developer & Systems Architect.<br>
+      I was entrusted with the complete technical architecture and development of this interactive training module. My role was to translate complex military procedures into a flawless, user-driven digital experience.</p>
+      <p><strong>Solution:</strong> A Decision-Force-Multiplication Tool<br>
+      This was not a simple quiz. It was a scenario-based training application built with vanilla JavaScript. It featured:
+      <ul>
+        <li><p>A dynamic multiple-choice system presenting realistic, branching tactical scenarios.</p></li>
+        <li><p>Instant, detailed feedback mechanisms to reinforce correct NATO procedures.</p></li>
+        <li><p>A robust results-tracking framework to measure comprehension.</p></li>
+        </ul>
+    </p>
+    <p><strong>Outcome:</strong> The module was deployed as part of NATO ISAF's training curriculum, directly contributing to the operational readiness of personnel in the field. It demonstrated my ability to execute with precision on projects where there is zero margin for error.</p>
+    
+      <p><strong>Technologies:</strong> JavaScript (ES6+), HTML5, CSS3</p>
+
     `,
     description2: ``
   },
@@ -195,17 +206,34 @@ const LogoCard = () => {
       <p><strong>Project 1:</strong> Immersive 3D Campaign for BMW Global HQ<br>
       <strong>Role:</strong> Animation Concept, Motion Design, Rendering<br>
       <strong>Tech:</strong> Cinema4D, Corona Render Engine, Adobe After-Effects, High-resolution render pipeline.<br>
-      Translated a 2D typographic campaign into an immersive 3D animation experience for the multi-monitor video wall at BMW Group's global headquarters in Munich. Conceptualized, designed, and rendered in Cinema4D to create a dynamic, large-scale brand statement for their most important audience.</p>
+      <strong>Outcome: </strong>Translated a 2D typographic campaign into an immersive 3D animation experience for the multi-monitor video wall at BMW Group's global headquarters in Munich. Conceptualized, designed, and rendered in Cinema4D to create a dynamic, large-scale brand statement for their most important audience.</p><br><br>
 
-      <p><strong>Project 2:</strong> Global Website Animation Style Guide<br>
+      <p><strong>Project 2:</strong> Global Web Animation Style Guide for BMW.com"<br>
       <strong>Role:</strong> Animation Designer and Developer<br>
-      <strong>Tech:</strong> GSAP<br>
-       Developed and prototyped the core animation library and interactive prototypes (using GSAP) for BMW's global web presence. My solutions were formally adopted into the brand's official style guide, setting the standard for interactive motion design across BMW's international web properties. </p>
+      <strong>Tech:</strong> GSAP (The Acclaimed, Crossbrowser 'GreenSock Animation Platform') <br>
+      <strong>Outcome: </strong> Developed and prototyped the core animation library and interactive prototypes for BMW's global web presence. My solutions were formally adopted into the brand's official style guide, which sets the standard for premium, performant motion, establishing the technical benchmark across BMW's international web properties. </p><br>
+
+      <p><strong>Project 3:</strong> Narrative Films for BMW's Global Rebranding<br>
+      <strong>Role:</strong> Video Editor, Author, Voice Recording & Voice Narration<br>
+      
+      <strong>Situation: </strong> The BMW Group and its creative agency (BECC) were undertaking a momentous project: redesigning the iconic global logo. This involved a highly skilled & dedicated team of strategists, designers, and executives working through an intense iterative process.<br>
+      I contributed to BMW's global rebranding initiative by producing internal narrative "mood videos." Tasked with editing archival footage, writing scripts, and providing voiceover, I created assets used by the core BECC/BMW team to aid the brand evolution narrative during their extensive, multi-year design process.</p>
+      <p>These videos served as strategic communication aids, designed to:</p>
+        <ul>
+        <li><p>Give visual and narrative form to brand concepts being debated.</p></li>
+
+        <li><p>Build consensus among key decision-makers by framing the change within a compelling brand journey.</p></li>
+
+         <li><p>Demonstrate the new logo's application and acceptance in various brand contexts.</p></li>
+        </ul>
+
+        <p><strong>Tech:</strong> Adobe Premiere, Adobe After Effects, Garageband<br>
+        <strong>Outcome: </strong>The videos were well-received by the team (especially the voiceover!) and were integrated into their workflow as part of the vast ecosystem of materials supporting the historic redesign. </p>
     `,
     description2: ``
   },
     { id: 7, src: '/images/mini/autotoyota.jpg', alt: 'Logo 7', 
-      title: 'Toyota at the International Motor Show, Frankfurt',
+      title: 'Toyota at the International Motor Show, Frankfurt (IAA)',
       clientText: `BECC Agentur`,
       clientLogo: '/images/agencies/Becc_wht.png',
       clientLogoHeight: 45,
@@ -217,24 +245,29 @@ const LogoCard = () => {
 
       <p><strong>Outcome: </strong> The animation earned BECC Agency their first ever mention in an industry news publication and blew the heads off of audiences attending from around the globe.<br>
       <strong>Role:</strong> Animation Concept Designer and Motion Developer<br>
-      <strong>Tech:</strong> After Effects, Red Giant<br>
-       </p>
+      <strong>Tech:</strong> After Effects, Red Giant</p>
     `,
     description2: ``
   },
     { id: 8, src: '/images/mini/autoTuv.jpg', alt: 'Logo 8', 
-      title: 'TUV Sued',
-      clientText: `Sieber & Wolff`,
+      title: 'Visualizing Safety & Strategy for a Global Certification Leader',
+      clientText: `TÜV SÜD (via Sieber & Wolff Agency)`,
       clientLogo: '/images/agencies/sw_neu_white.png',
       clientLogoHeight: 25,
       description: `
-      <p><strong>Project:</strong> Automobile Safety Rating Institution Presentation<br>
-      <strong>Role:</strong> Design, 3D Animation, Concept<br>
+      <p><strong>Project:</strong> Animation Library for National Safety & Strategy Presentation<br>
+      TÜV SÜD is one of the world's leading technical service providers, specializing in testing, certification, auditing, and advisory services with a core focus on safety and security. Their reputation is built on uncompromising accuracy and trust.
 
-      <p><strong>Project 2:</strong> Internal B2B Strategy Presentation<br>
-      <strong>Role:</strong> Concept, Animation, Render<br>
+        3D Animation Specialist. I was brought in to execute the core visual storytelling. My task was to translate complex safety testing concepts—such as crash dynamics and component integrity—into abstract, clear, and engaging 3D motion sequences using Cinema4D, Corona Render Engine, After Effects and Superluminal Stardust.
+<ul>
+  <li><p><strong>The Ask:</strong> Produce a comprehensive library of 3D and motion graphic animations to serve as the visual core for a high-stakes, global presentation on automobile safety ratings and corporate strategy.</p></li>
+  <li><p><strong>My Role:</strong> Lead Animator & Motion Designer – responsible for concept, creation, and final render of all motion assets.</p></li>
+  <li><p><strong>The Work:</strong> I brainstormed, storyboarded, and executed approximately <strong>40 distinct animation sequences</strong>. These ranged from photorealistic 3D visualizations of crash-test scenarios and component integrity (Cinema4D, Corona) to abstract, data-driven motion graphics explaining complex business concepts (After Effects, Stardust).</p></li>
+  <li><p><strong>The Delivery:</strong> The client integrated a curated selection of <strong>18 final animations</strong> into their presentation framework, using the assets as dynamic modules to build their narrative.</p></li>
+  <li><p><strong>Tech:</strong> Cinema4D, Corona Render Engine, Adobe After Effects, Superluminal Stardust.</p></li>
+</ul>
 
-      <p><strong>Tech:</strong> After Effects, Stardust, Cinema4D, Corona Render Engine</p>
+<p><strong>Outcome:</strong> Provided a robust, flexible animation toolkit that elevated TÜV SÜD's communication, allowing them to explain intricate technical and strategic topics with clarity, authority, and visual impact.</p>
 
     `,
     description2: ``
