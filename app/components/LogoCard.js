@@ -113,27 +113,27 @@ const LogoCard = () => {
       clientLogo: '/images/agencies/SMMD.png',
       clientLogoHeight: 35,
       description: `
-      <p><strong>The Mission:</strong> Airbus Group required a next-generation digital identity for its most important physical spaces: its International Headquarters in Berlin and its premier Showroom in Munich. The mandate was to replace static displays with interactive, multi-sensory experiences that could communicate the complexity and ambition of aerospace innovation to VIPs, partners, and policymakers.<br><br>
+      <p><strong>The Mission:</strong> Airbus Group required a next-generation digital interface for its most important physical spaces: its International Headquarters in Berlin and its premier Showroom in Munich. The mandate was to create an interactive, multi-sensory experiences that could communicate the complexity and ambition of aerospace innovation to VIPs, partners, and policymakers.<br><br>
 
       <strong>My Role:</strong> Lead Digital Experience Designer & Developer.<br>
-      I was entrusted with the complete digital vision for these spaces, acting as the sole creator across four distinct installations—responsible for User Experience (UIX) strategy, visual and motion design, 3D animation, and full-stack interactive development.<br><br>
+      I was entrusted with the complete digital vision for these spaces, acting as the sole creator across four distinct installations—responsible for User Experience (UIX) strategy, visual and motion design, animation, and full-stack interactive development.<br><br>
       <strong>The Portfolio of Installations:</strong></p>
 
       <p><strong>1.</strong> HQ Command Center: Berlin Touchtable Interface<br>
       <strong>Challenge: </strong> Create a collaborative, data-driven tool for the heart of Airbus operations.<br>
-      <strong>Solution: </strong> Designed and coded a custom multi-monitor touchtable interface (JavaScript) that allowed executives to interactively explore fleet data, global operations, and company history. This was mission-critical UIX for daily use.</p>
+      <strong>Solution: </strong> Designed and coded a custom multi-monitor touchtable interface (JavaScript) that allowed executives to interactively explore fleet data, global operations, and company history. This is mission-critical UIX for daily use.</p>
 
-      <p><strong>2.</strong> Showroom Centerpiece: Munich Interactive 3D Expo<br>
-      <strong>Challenge: </strong> Concept, Design, Animation, Render<br>
-      <strong>Solution: </strong> Airbus Munich Showroom</p>
+      <p><strong>2.</strong> Showroom Centerpiece: Munich Interactive 3D Expo Piece.<br>
+      <strong>Challenge: </strong> Concept, Design, Animation, UIX Concept & Development.<br>
+      <strong>Solution: </strong> Airbus Munich Showroom (Ottobrunn, Germany)</p>
 
       <p><strong>3. </strong> Visual Spectacles: Munich Large-Format Video Features.<br>
       <strong>Challenge:</strong> Provide awe-inspiring ambient narrative and brand moments.<br>
-      <strong>Solution:</strong> Produced a suite of large-scale, multi-monitor video features. This included a complex 3D animated sequence visualizing flight dynamics and a stylized 2D motion graphics piece celebrating engineering milestones, both rendered in ultra-high resolution for close viewing.</p>
+      <strong>Solution:</strong> Produced a suite of large-scale, multi-monitor video features. This included a complex 3D animated sequence visualizing flight dynamics across a range of products, and a stylized 2D motion graphics piece celebrating engineering milestones, both rendered in ultra-high resolution for close viewing.</p>
       <p><strong>The Outcome & Impact:</strong></p>
       <ul>
-        <li><p>Transformed two key Airbus facilities from static spaces into dynamic, technology-forward brand experiences.</p></li>
-        <li><p>Established a new standard for corporate engagement, merging tactile interaction with cinematic narrative.</p></li>
+        <li><p>Helped transform two key Airbus facilities from static spaces into dynamic, technology-forward brand experiences.</p></li>
+        <li><p>Helped establish a new standard for corporate engagement, merging tactile interaction with cinematic narrative.</p></li>
         <li><p>Demonstrated end-to-end mastery across the digital spectrum: from functional enterprise UIX to emotive brand spectacle.</p></li>
       </ul>
       <p><strong>Tech:</strong> JavaScript (for complex interactivity), Cinema4D, Redshift/Octane, Adobe After Effects, UI/UX Design Principles.</p>
@@ -144,11 +144,11 @@ const LogoCard = () => {
     { id: 3, src: '/images/mini/atonato.jpg', alt: 'Logo 3', 
       title: 'Interactive Tactical Training Module for NATO ISAF Personnel',
       description: `
-      <p><strong>The Mandate:</strong> The North Atlantic Treaty Organization (NATO) required a digital training tool for its International Security Assistance Force (ISAF) personnel. The mandate was clear: create a reliable, engaging, and instructionally sound system to reinforce critical tactical knowledge and decision-making protocols in high-stakes environments.</p>
+      <p><strong>The Mandate:</strong> The North Atlantic Treaty Organization (NATO) required a digital training tool for its International Security Assistance Force (ISAF) personnel. The mandate was clear: create a reliable, engaging, and instructionally sound system which reinforced critical tactical knowledge and decision-making protocols in high-stakes environments.</p>
       <p><strong>Role:</strong> Developer & Systems Architect.<br>
-      My role was to translate complex military procedures into a flawless, user-driven digital experience.</p>
+      My role was to translate a large complex set of military procedures into a flawless, user-driven digital experience and to ensure the system was properly evaluating the user&apos;s responses.</p>
       <p><strong>Solution:</strong> A Decision-Force-Multiplication Tool<br>
-      This was not a simple quiz. It was a scenario-based training application built with vanilla JavaScript. It featured:
+      This was not a simple quiz. It was a scenario-based training application built with vanilla JavaScript and drawing on a huge dataset of questions and answers, then it spit out a final score. It featured:
       <ul>
         <li><p>A dynamic multiple-choice system presenting realistic, branching tactical scenarios.</p></li>
         <li><p>Detailed feedback mechanisms to reinforce correct NATO procedures.</p></li>
@@ -157,7 +157,7 @@ const LogoCard = () => {
     </p>
     <p><strong>Outcome:</strong> The module was deployed as part of NATO ISAF training curriculum, directly contributing to the operational readiness of personnel in the field. It demonstrated my ability to execute with precision on projects where there is zero margin for error.</p>
     
-      <p><strong>Technologies:</strong> JavaScript (ES6+), HTML5, CSS3</p>
+      <p><strong>Technologies:</strong> JavaScript (ES6+), XML, HTML5, CSS3</p>
 
     `,
     description2: ``
@@ -212,7 +212,7 @@ const LogoCard = () => {
       clientLogo: '/images/agencies/Becc_wht.png',
       clientLogoHeight: 45,
       description: `
-      <p><strong>Project 1:</strong> Immersive 3D Campaign for BMW Global HQ<br>
+      <p><strong>Project 1:</strong> Immersive 3D Campaign for BMW Global Headquarters<br>
       <strong>Role:</strong> Animation Concept, Motion Design, Rendering<br>
       <strong>Tech:</strong> Cinema4D, Corona Render Engine, Adobe After-Effects, High-resolution render pipeline.<br>
       <strong>Outcome: </strong>Translated a 2D typographic campaign into an immersive 3D animation experience for the multi-monitor video wall at BMW Group global headquarters in Munich. Conceptualized, designed, and rendered in Cinema4D to create a dynamic, large-scale brand statement for their most important audience.</p><br><br>
@@ -247,7 +247,7 @@ const LogoCard = () => {
       clientLogo: '/images/agencies/Becc_wht.png',
       clientLogoHeight: 45,
       description: `
-      <p><strong>Project :</strong> Immersive 3D Animation Concept for Gigantic Screen<br>
+      <p><strong>Project 1:</strong> Immersive 3D Animation Concept for Gigantic Screen<br>
       <strong>Role:</strong> Animation Concept, Motion Design<br>
       <strong>Tech:</strong> Cinema4D, Corona Render Engine, Adobe After-Effects, High-resolution render pipeline.<br>
       Translated a 2D campaign illustration into an immersive 2D / 3D animation experience for the enormous video wall at the International Automobile Trade Fair in Frankfurt. Conceptualized, designed, and rendered in Cinema4D to create a dynamic, large-scale brand statement for their most important show of the year.</p>
@@ -289,16 +289,20 @@ const LogoCard = () => {
       clientLogoHeight: 25,
       description: `
       <p><strong>The Client & Era:</strong> In the mid-2000s, Red Bull was transitioning from an energy drink company into a global media powerhouse and culture brand. Their digital presence needed to match their high-octane, experiential identity.</p>
-      <p><strong>My Role: </strong> Lead Digital Designer & Developer<br>
+      <p><strong>My Role: </strong> Lead Interactive Designer & Developer<br>
       I was entrusted with creating two flagship interactive experiences that embodied Red Bull&apos;s pioneering spirit.
      
-      <p><strong>Project 2:</strong> Interactive Video Carousel, www.redbull.tv<br>
+      <p><strong>Project 1:</strong> Interactive Video Carousel, www.redbull.tv<br>
       <strong>The Brief: </strong>Develop the Interactive Video Carousel for the launch of the www.redbull.tv platform—a key piece of their strategy to become a leading action sports and lifestyle broadcaster.<br>
 
       <strong>Tech: </strong> Macromedia Flash, ActionScript 3<br>
       <p><strong>The Outcome & Legacy:</strong> These projects were built at the inception of Red Bull&apos;s digital media empire. They demonstrated an early mastery of interactive storytelling and platform design for a brand that would become synonymous with cutting-edge content.<br>
       <strong>Role:</strong> Sole Developer<br>
 
+      <p><strong>Project 2:</strong> Strategic Internal Hub for Red Bull’s Digital Media Launch<br>
+      n 2007, Red Bull was aggressively expanding from a beverage brand into a global media powerhouse. To align its internal teams at its Fuschl am See headquarters, they needed a central platform to communicate this new strategic direction.<br>
+      <strong>My Role: </strong>Sole Designer & Developer<br>
+        I was entrusted with creating the digital centerpiece for this internal shift—an interactive intranet experience that would define and showcase Red Bull’s emerging digital media strategy.
       <p><strong>Tech:</strong> Macromedia Flash, Adobe Suite</p>
 
     `,
