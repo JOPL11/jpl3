@@ -316,10 +316,10 @@ const LogoCard = () => {
       <p><strong>Project 2:</strong> <br>
       <strong>Role:</strong> <br>
 
-      <p><strong>Project 1:</strong> <br>
+      <p><strong>Project 3:</strong> <br>
       <strong>Role:</strong> <br>
 
-      <p><strong>Project 2:</strong> <br>
+      <p><strong>Project 4:</strong> <br>
       <strong>Role:</strong> <br>
 
       <p><strong>Tech:</strong> </p>
@@ -332,11 +332,17 @@ const LogoCard = () => {
       clientText: `Empty`,
       clientLogo: '/images/agencies/sw_neu_white.png',
       clientLogoHeight: 25,
-      description: `
+        description: `
       <p><strong>Project 1:</strong> <br>
       <strong>Role:</strong> <br>
 
       <p><strong>Project 2:</strong> <br>
+      <strong>Role:</strong> <br>
+
+      <p><strong>Project 3:</strong> <br>
+      <strong>Role:</strong> <br>
+
+      <p><strong>Project 4:</strong> <br>
       <strong>Role:</strong> <br>
 
       <p><strong>Tech:</strong> </p>
@@ -349,11 +355,17 @@ const LogoCard = () => {
       clientText: `Empty`,
       clientLogo: '/images/agencies/sw_neu_white.png',
       clientLogoHeight: 25,
-      description: `
+ description: `
       <p><strong>Project 1:</strong> <br>
       <strong>Role:</strong> <br>
 
       <p><strong>Project 2:</strong> <br>
+      <strong>Role:</strong> <br>
+
+      <p><strong>Project 3:</strong> <br>
+      <strong>Role:</strong> <br>
+
+      <p><strong>Project 4:</strong> <br>
       <strong>Role:</strong> <br>
 
       <p><strong>Tech:</strong> </p>
@@ -366,11 +378,17 @@ const LogoCard = () => {
       clientText: `Empty`,
       clientLogo: '/images/agencies/sw_neu_white.png',
       clientLogoHeight: 25,
-      description: `
+ description: `
       <p><strong>Project 1:</strong> <br>
       <strong>Role:</strong> <br>
 
       <p><strong>Project 2:</strong> <br>
+      <strong>Role:</strong> <br>
+
+      <p><strong>Project 3:</strong> <br>
+      <strong>Role:</strong> <br>
+
+      <p><strong>Project 4:</strong> <br>
       <strong>Role:</strong> <br>
 
       <p><strong>Tech:</strong> </p>
@@ -383,11 +401,17 @@ const LogoCard = () => {
       clientText: `Empty`,
       clientLogo: '/images/agencies/sw_neu_white.png',
       clientLogoHeight: 25,
-      description: `
+ description: `
       <p><strong>Project 1:</strong> <br>
       <strong>Role:</strong> <br>
 
       <p><strong>Project 2:</strong> <br>
+      <strong>Role:</strong> <br>
+
+      <p><strong>Project 3:</strong> <br>
+      <strong>Role:</strong> <br>
+
+      <p><strong>Project 4:</strong> <br>
       <strong>Role:</strong> <br>
 
       <p><strong>Tech:</strong> </p>
