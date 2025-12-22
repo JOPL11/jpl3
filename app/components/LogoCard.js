@@ -145,13 +145,13 @@ const LogoCard = () => {
       title: 'Interactive Tactical Training Module for NATO ISAF Personnel',
       description: `
       <p><strong>The Mandate:</strong> The North Atlantic Treaty Organization (NATO) required a digital training tool for its International Security Assistance Force (ISAF) personnel. The mandate was clear: create a reliable, engaging, and instructionally sound system to reinforce critical tactical knowledge and decision-making protocols in high-stakes environments.</p>
-      <p><strong>Role:</strong> Lead Developer & Systems Architect.<br>
-      I was entrusted with the complete technical architecture and development of this interactive training module. My role was to translate complex military procedures into a flawless, user-driven digital experience.</p>
+      <p><strong>Role:</strong> Developer & Systems Architect.<br>
+      My role was to translate complex military procedures into a flawless, user-driven digital experience.</p>
       <p><strong>Solution:</strong> A Decision-Force-Multiplication Tool<br>
       This was not a simple quiz. It was a scenario-based training application built with vanilla JavaScript. It featured:
       <ul>
         <li><p>A dynamic multiple-choice system presenting realistic, branching tactical scenarios.</p></li>
-        <li><p>Instant, detailed feedback mechanisms to reinforce correct NATO procedures.</p></li>
+        <li><p>Detailed feedback mechanisms to reinforce correct NATO procedures.</p></li>
         <li><p>A robust results-tracking framework to measure comprehension.</p></li>
         </ul>
     </p>
@@ -310,6 +310,12 @@ const LogoCard = () => {
       clientLogo: '/images/agencies/sw_neu_white.png',
       clientLogoHeight: 25,
       description: `
+      <p><strong>Project 1:</strong> <br>
+      <strong>Role:</strong> <br>
+
+      <p><strong>Project 2:</strong> <br>
+      <strong>Role:</strong> <br>
+
       <p><strong>Project 1:</strong> <br>
       <strong>Role:</strong> <br>
 
