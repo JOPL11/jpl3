@@ -23,7 +23,7 @@
     "isomorphic-dompurify": "^2.26.0",
     "loco-scroll": "^3.2.8",
     "locomotive-scroll": "^5.0.0-beta.21",
-    "next": "^15.5.7",
+    "next": "15.5.9",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "resend": "^4.7.0",
@@ -35,6 +35,6 @@
     "@eslint/eslintrc": "^3",
     "@types/node": "25.0.3",
     "eslint": "^9",
-    "eslint-config-next": "15.4.2"
+    "eslint-config-next": "15.5.9"
   }
 }

@@ -181,7 +181,7 @@ const LogoCard = () => {
     description2: ``
   },
     { id: 5, src: '/images/mini/automerc.jpg', alt: 'Logo 5', 
-      title: 'Product Design & Visual Development for Mercedes-Benz',
+      title: 'Mercedes-Benz Product Design & Visual Development',
       clientText: `Sieber & Wolff`,
       clientLogo: '/images/agencies/sw_neu_white.png',
       clientLogoHeight: 25,
@@ -282,24 +282,29 @@ const LogoCard = () => {
     `,
     description2: ``
   },
-    { id: 9, src: '/images/mini/rb.jpg', alt: 'Logo 9', 
-       title: 'Daimler Benz',
-      clientText: `Sieber & Wolff`,
-      clientLogo: '/images/agencies/sw_neu_white.png',
+    { id: 9, src: '/images/mini/rb.jpg', alt: 'Red Bull TV', 
+       title: 'Red Bull Austria: Early Digital Experiences for a Media Pioneer',
+      clientText: `Red Bull Austria`,
+      clientLogo: '/images/agencies/redBull.png',
       clientLogoHeight: 25,
       description: `
-      <p><strong>Project 1:</strong> Dealership Award Concept<br>
-      <strong>Role:</strong> Product Design, Animation, Concept<br>
+      <p><strong>The Client & Era:</strong> In the mid-2000s, Red Bull was transitioning from an energy drink company into a global media powerhouse and culture brand. Their digital presence needed to match their high-octane, experiential identity.</p>
+      <p><strong>My Role: </strong> Lead Digital Designer & Developer<br>
+      I was entrusted with creating two flagship interactive experiences that embodied Red Bull's pioneering spirit.
+     
+      <p><strong>Project 2:</strong> Interactive Video Carousel, www.redbull.tv<br>
+      <strong>The Brief: </strong>Develop the Interactive Video Carousel for the launch of the www.redbull.tv platform—a key piece of their strategy to become a leading action sports and lifestyle broadcaster.<br>
 
-      <p><strong>Project 2:</strong> Internal Training Program Intro Animation<br>
-      <strong>Role:</strong> Concept, Animation, Render<br>
+      <strong>Tech: </strong> Macromedia Flash, ActionScript 3<br>
+      <p><strong>The Outcome & Legacy:</strong> These projects were built at the inception of Red Bull's digital media empire. They demonstrated an early mastery of interactive storytelling and platform design for a brand that would become synonymous with cutting-edge content.<br>
+      <strong>Role:</strong> Sole Developer<br>
 
-      <p><strong>Tech:</strong> After Effects, Cinema4D, Corona Render Engine</p>
+      <p><strong>Tech:</strong> Macromedia Flash, Adobe Suite</p>
 
     `,
     description2: `` 
    },
-    { id: 10, src: '/images/mini/spiegel.jpg', alt: 'Logo 10', 
+    { id: 10, src: '/images/mini/spiegel.jpg', alt: 'Spiegel TV', 
        title: 'Empty',
       clientText: `Empty`,
       clientLogo: '/images/agencies/sw_neu_white.png',
