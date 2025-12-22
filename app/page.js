@@ -630,8 +630,8 @@ export default function Home() {
                 <div data-section="overview"></div>
                 <SectionTracker onSectionChange={setActiveSection} />
                 <h2 style={{paddingTop: "5rem"}}><AnimatedText ref={aboutHeadingRef}>Overview</AnimatedText></h2>
-                <p>An overview of the many projects I've had the honor to be chosen for. Tapping on the company logo reveals infortmation about the projects.</p>
-                <p>It'll be under develpoment for a few days. </p>
+                <p>An overview of the many projects I&apos;ve had the honor to be chosen for. Tapping on the company logo reveals infortmation about the projects.</p>
+                <p>It&apos;ll be under develpoment for a few days. </p>
                   <LogoCard />
             </section>
 
@@ -768,7 +768,7 @@ export default function Home() {
                     width: 'auto',   
                     maxWidth: '100%'
                   }}
-                  text={"A physically interactive catalogue of Airbus technology made for the Ottobrunn showroom. Situated at Airbus Group's Munich offices."}
+                  text={"A physically interactive catalogue of Airbus technology made for the Ottobrunn showroom. Situated at Airbus Group&apos;s Munich offices."}
                   modalContent={{
                     description: `15 Chapters 
                     <br/><br/>RFID Powered Touchscreen Interface 
