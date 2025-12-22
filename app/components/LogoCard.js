@@ -120,7 +120,7 @@ const LogoCard = () => {
       <strong>The Portfolio of Installations:</strong></p>
 
       <p><strong>1.</strong> HQ Command Center: Berlin Touchtable Interface<br>
-      <strong>Challenge: </strong> Create a collaborative, data-driven tool for the heart of Airbus's operations.<br>
+      <strong>Challenge: </strong> Create a collaborative, data-driven tool for the heart of Airbus operations.<br>
       <strong>Solution: </strong> Designed and coded a custom multi-monitor touchtable interface (JavaScript) that allowed executives to interactively explore fleet data, global operations, and company history. This was mission-critical UIX for daily use.</p>
 
       <p><strong>2.</strong> Showroom Centerpiece: Munich Interactive 3D Expo<br>
@@ -155,7 +155,7 @@ const LogoCard = () => {
         <li><p>A robust results-tracking framework to measure comprehension.</p></li>
         </ul>
     </p>
-    <p><strong>Outcome:</strong> The module was deployed as part of NATO ISAF's training curriculum, directly contributing to the operational readiness of personnel in the field. It demonstrated my ability to execute with precision on projects where there is zero margin for error.</p>
+    <p><strong>Outcome:</strong> The module was deployed as part of NATO ISAF training curriculum, directly contributing to the operational readiness of personnel in the field. It demonstrated my ability to execute with precision on projects where there is zero margin for error.</p>
     
       <p><strong>Technologies:</strong> JavaScript (ES6+), HTML5, CSS3</p>
 
@@ -187,7 +187,7 @@ const LogoCard = () => {
       clientLogoHeight: 25,
       description: `
       <p><strong>1) Product Design: </strong> A Next-Generation Brand Award for Mercedes-Benz Dealerships</</p>
-      <p><strong>Context:</strong> Mercedes-Benz (Daimler AG) sought to reinvent its prestigious annual dealership award—a symbolic object representing the pinnacle of brand partnership and excellence. The mandate was to evolve a traditional award trophy into a modern brand statement that reflected Mercedes-Benz's core identity and forward-looking vision.<br>
+      <p><strong>Context:</strong> Mercedes-Benz (Daimler AG) sought to reinvent its prestigious annual dealership award—a symbolic object representing the pinnacle of brand partnership and excellence. The mandate was to evolve a traditional award trophy into a modern brand statement that reflected Mercedes-Benz core identity and forward-looking vision.<br>
       <strong>My Role:</strong> Concept Designer & Creative Lead<br>
       I was tasked with leading the creative reinvention of this key brand artifact, responsible for the overarching concept, product design, and visual animation of the proposal.<br>
 
@@ -215,25 +215,25 @@ const LogoCard = () => {
       <p><strong>Project 1:</strong> Immersive 3D Campaign for BMW Global HQ<br>
       <strong>Role:</strong> Animation Concept, Motion Design, Rendering<br>
       <strong>Tech:</strong> Cinema4D, Corona Render Engine, Adobe After-Effects, High-resolution render pipeline.<br>
-      <strong>Outcome: </strong>Translated a 2D typographic campaign into an immersive 3D animation experience for the multi-monitor video wall at BMW Group's global headquarters in Munich. Conceptualized, designed, and rendered in Cinema4D to create a dynamic, large-scale brand statement for their most important audience.</p><br><br>
+      <strong>Outcome: </strong>Translated a 2D typographic campaign into an immersive 3D animation experience for the multi-monitor video wall at BMW Group global headquarters in Munich. Conceptualized, designed, and rendered in Cinema4D to create a dynamic, large-scale brand statement for their most important audience.</p><br><br>
 
       <p><strong>Project 2:</strong> Global Web Animation Style Guide for BMW.com"<br>
       <strong>Role:</strong> Animation Designer and Developer<br>
       <strong>Tech:</strong> GSAP (The Acclaimed, Crossbrowser 'GreenSock Animation Platform') <br>
-      <strong>Outcome: </strong> Developed and prototyped the core animation library and interactive prototypes for BMW's global web presence. My solutions were formally adopted into the brand's official style guide, which sets the standard for premium, performant motion, establishing the technical benchmark across BMW's international web properties. </p><br>
+      <strong>Outcome: </strong> Developed and prototyped the core animation library and interactive prototypes for BMW global web presence. My solutions were formally adopted into the brand official style guide, which sets the standard for premium, performant motion, establishing the technical benchmark across BMW international web properties. </p><br>
 
-      <p><strong>Project 3:</strong> Narrative Films for BMW's Global Rebranding<br>
+      <p><strong>Project 3:</strong> Narrative Films for the BMW Global Rebranding<br>
       <strong>Role:</strong> Video Editor, Author, Voice Recording & Voice Narration<br>
       
       <strong>Situation: </strong> The BMW Group and its creative agency (BECC) were undertaking a momentous project: redesigning the iconic global logo. This involved a highly skilled & dedicated team of strategists, designers, and executives working through an intense iterative process.<br>
-      I contributed to BMW's global rebranding initiative by producing internal narrative "mood videos." Tasked with editing archival footage, writing scripts, and providing voiceover, I created assets used by the core BECC/BMW team to aid the brand evolution narrative during their extensive, multi-year design process.</p>
+      I contributed to BMW global rebranding initiative by producing internal narrative "mood videos." Tasked with editing archival footage, writing scripts, and providing voiceover, I created assets used by the core BECC/BMW team to aid the brand evolution narrative during their extensive, multi-year design process.</p>
       <p>These videos served as strategic communication aids, designed to:</p>
         <ul>
         <li><p>Give visual and narrative form to brand concepts being debated.</p></li>
 
         <li><p>Build consensus among key decision-makers by framing the change within a compelling brand journey.</p></li>
 
-         <li><p>Demonstrate the new logo's application and acceptance in various brand contexts.</p></li>
+         <li><p>Demonstrate the new logo application and acceptance in various brand contexts.</p></li>
         </ul>
 
         <p><strong>Tech:</strong> Adobe Premiere, Adobe After Effects, Garageband<br>
@@ -265,7 +265,7 @@ const LogoCard = () => {
       clientLogoHeight: 25,
       description: `
       <p><strong>Project:</strong> Animation Library for National Safety & Strategy Presentation<br>
-      TÜV SÜD is one of the world's leading technical service providers, specializing in testing, certification, auditing, and advisory services with a core focus on safety and security. Their reputation is built on uncompromising accuracy and trust.<br>
+      TÜV SÜD is a world leading technical service provider, specializing in testing, certification, auditing, and advisory services with a core focus on safety and security. Their reputation is built on uncompromising accuracy and trust.<br>
 
        <strong>My Role:</strong> 3D Animation Specialist & Motion Designer.<br>
        <strong>Action:</strong>3D Animation Specialist. I was brought in to execute the core visual storytelling. My task was to translate complex safety testing concepts—such as crash dynamics and component integrity—into abstract, clear, and engaging 3D motion sequences using Cinema4D, Corona Render Engine, After Effects and Superluminal Stardust.
@@ -277,7 +277,7 @@ const LogoCard = () => {
         <li><p><strong>Tech:</strong> Cinema4D, Corona Render Engine, Adobe After Effects, Superluminal Stardust.</p></li>
         </ul>
 
-<p><strong>Outcome:</strong> Provided a robust, flexible animation toolkit that elevated TÜV SÜD's communication, allowing them to explain intricate technical and strategic topics with clarity, authority, and visual impact.</p>
+<p><strong>Outcome:</strong> Provided a robust, flexible animation toolkit that elevated TÜV SÜD&apos;s communication, allowing them to explain intricate technical and strategic topics with clarity, authority, and visual impact.</p>
 
     `,
     description2: ``
@@ -290,13 +290,13 @@ const LogoCard = () => {
       description: `
       <p><strong>The Client & Era:</strong> In the mid-2000s, Red Bull was transitioning from an energy drink company into a global media powerhouse and culture brand. Their digital presence needed to match their high-octane, experiential identity.</p>
       <p><strong>My Role: </strong> Lead Digital Designer & Developer<br>
-      I was entrusted with creating two flagship interactive experiences that embodied Red Bull's pioneering spirit.
+      I was entrusted with creating two flagship interactive experiences that embodied Red Bull&apos;s pioneering spirit.
      
       <p><strong>Project 2:</strong> Interactive Video Carousel, www.redbull.tv<br>
       <strong>The Brief: </strong>Develop the Interactive Video Carousel for the launch of the www.redbull.tv platform—a key piece of their strategy to become a leading action sports and lifestyle broadcaster.<br>
 
       <strong>Tech: </strong> Macromedia Flash, ActionScript 3<br>
-      <p><strong>The Outcome & Legacy:</strong> These projects were built at the inception of Red Bull's digital media empire. They demonstrated an early mastery of interactive storytelling and platform design for a brand that would become synonymous with cutting-edge content.<br>
+      <p><strong>The Outcome & Legacy:</strong> These projects were built at the inception of Red Bull&apos;s digital media empire. They demonstrated an early mastery of interactive storytelling and platform design for a brand that would become synonymous with cutting-edge content.<br>
       <strong>Role:</strong> Sole Developer<br>
 
       <p><strong>Tech:</strong> Macromedia Flash, Adobe Suite</p>
