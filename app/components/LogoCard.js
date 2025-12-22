@@ -181,18 +181,27 @@ const LogoCard = () => {
     description2: ``
   },
     { id: 5, src: '/images/mini/automerc.jpg', alt: 'Logo 5', 
-      title: 'Daimler Benz',
+      title: 'Product Design & Visual Development for Mercedes-Benz',
       clientText: `Sieber & Wolff`,
       clientLogo: '/images/agencies/sw_neu_white.png',
       clientLogoHeight: 25,
       description: `
-      <p><strong>Project 1:</strong> Dealership Award Concept<br>
-      <strong>Role:</strong> Product Design, Animation, Concept<br>
+      <p><strong>1) Product Design: </strong> A Next-Generation Brand Award for Mercedes-Benz Dealerships</</p>
+      <p><strong>Context:</strong> Mercedes-Benz (Daimler AG) sought to reinvent its prestigious annual dealership award—a symbolic object representing the pinnacle of brand partnership and excellence. The mandate was to evolve a traditional award trophy into a modern brand statement that reflected Mercedes-Benz's core identity and forward-looking vision.<br>
+      <strong>My Role:</strong> Concept Designer & Creative Lead<br>
+      I was tasked with leading the creative reinvention of this key brand artifact, responsible for the overarching concept, product design, and visual animation of the proposal.<br>
 
-      <p><strong>Project 2:</strong> Internal Training Program Intro Animation<br>
-      <strong>Role:</strong> Concept, Animation, Render<br>
+      <strong>Tech:</strong> Cinema4D, AutoCAD, After Effects, Corona Render Engine</p><br><br>
 
-      <p><strong>Tech:</strong> After Effects, Cinema4D, Corona Render Engine</p>
+      <p><strong>2) Logo Animation: </strong> Logo Animation for Mercedes-Benz: Procat</p>
+       <p><strong>Context:</strong> To maintain its global premium standard, Mercedes-Benz (Daimler AG) requires consistently high-quality visual assets for internal communications, from product documentation to employee training.<br>
+      <strong>The Project:</strong> 3D Animation for their Internal Product Catalog<br>
+      <strong>The Brief:</strong> Create clear, engaging 3D animations as an opening title sequence featuring the logo of an internal, global product catalog used by engineering, sales, and marketing teams.<br>
+
+      <strong>Role:</strong> Technical Concept, 3D Animator, Renderer<br>
+
+      <strong>The Work:</strong> Developed a series of visual concepts and refined the chosen variation.<br>
+      <p><strong>Tech:</strong> After Effects, Superluminal Stardust, Adobe Illustrator</p>
 
     `,
     description2: ``
@@ -256,28 +265,125 @@ const LogoCard = () => {
       clientLogoHeight: 25,
       description: `
       <p><strong>Project:</strong> Animation Library for National Safety & Strategy Presentation<br>
-      TÜV SÜD is one of the world's leading technical service providers, specializing in testing, certification, auditing, and advisory services with a core focus on safety and security. Their reputation is built on uncompromising accuracy and trust.
+      TÜV SÜD is one of the world's leading technical service providers, specializing in testing, certification, auditing, and advisory services with a core focus on safety and security. Their reputation is built on uncompromising accuracy and trust.<br>
 
-        3D Animation Specialist. I was brought in to execute the core visual storytelling. My task was to translate complex safety testing concepts—such as crash dynamics and component integrity—into abstract, clear, and engaging 3D motion sequences using Cinema4D, Corona Render Engine, After Effects and Superluminal Stardust.
-<ul>
-  <li><p><strong>The Ask:</strong> Produce a comprehensive library of 3D and motion graphic animations to serve as the visual core for a high-stakes, global presentation on automobile safety ratings and corporate strategy.</p></li>
-  <li><p><strong>My Role:</strong> Lead Animator & Motion Designer – responsible for concept, creation, and final render of all motion assets.</p></li>
-  <li><p><strong>The Work:</strong> I brainstormed, storyboarded, and executed approximately <strong>40 distinct animation sequences</strong>. These ranged from photorealistic 3D visualizations of crash-test scenarios and component integrity (Cinema4D, Corona) to abstract, data-driven motion graphics explaining complex business concepts (After Effects, Stardust).</p></li>
-  <li><p><strong>The Delivery:</strong> The client integrated a curated selection of <strong>18 final animations</strong> into their presentation framework, using the assets as dynamic modules to build their narrative.</p></li>
-  <li><p><strong>Tech:</strong> Cinema4D, Corona Render Engine, Adobe After Effects, Superluminal Stardust.</p></li>
-</ul>
+       <strong>My Role:</strong> 3D Animation Specialist & Motion Designer.<br>
+       <strong>Action:</strong>3D Animation Specialist. I was brought in to execute the core visual storytelling. My task was to translate complex safety testing concepts—such as crash dynamics and component integrity—into abstract, clear, and engaging 3D motion sequences using Cinema4D, Corona Render Engine, After Effects and Superluminal Stardust.
+        <ul>
+        <li><p><strong>The Ask:</strong> Produce a comprehensive library of 3D and motion graphic animations to serve as the visual core for a high-stakes, global presentation on automobile safety ratings and corporate strategy.</p></li>
+        <li><p><strong>My Role:</strong> Lead Animator & Motion Designer – responsible for concept, creation, and final render of all motion assets.</p></li>
+        <li><p><strong>The Work:</strong> I brainstormed, storyboarded, and executed approximately <strong>40 distinct animation sequences</strong>. These ranged from photorealistic 3D visualizations of crash-test scenarios and component integrity (Cinema4D, Corona) to abstract, data-driven motion graphics explaining complex business concepts (After Effects, Stardust).</p></li>
+        <li><p><strong>The Delivery:</strong> The client integrated a curated selection of <strong>18 final animations</strong> into their presentation framework, using the assets as dynamic modules to build their narrative.</p></li>
+        <li><p><strong>Tech:</strong> Cinema4D, Corona Render Engine, Adobe After Effects, Superluminal Stardust.</p></li>
+        </ul>
 
 <p><strong>Outcome:</strong> Provided a robust, flexible animation toolkit that elevated TÜV SÜD's communication, allowing them to explain intricate technical and strategic topics with clarity, authority, and visual impact.</p>
 
     `,
     description2: ``
   },
-    { id: 9, src: '/images/mini/rb.jpg', alt: 'Logo 9' },
-    { id: 10, src: '/images/mini/spiegel.jpg', alt: 'Logo 10' },
-    { id: 11, src: '/images/mini/pro7.jpg', alt: 'Logo 11' },
-    { id: 12, src: '/images/mini/sburda.jpg', alt: 'Logo 12' },
-    { id: 13, src: '/images/mini/fsecure.jpg', alt: 'Logo 13' },
-    { id: 14, src: '/images/mini/swisscom.jpg', alt: 'Logo 14' },
+    { id: 9, src: '/images/mini/rb.jpg', alt: 'Logo 9', 
+       title: 'Daimler Benz',
+      clientText: `Sieber & Wolff`,
+      clientLogo: '/images/agencies/sw_neu_white.png',
+      clientLogoHeight: 25,
+      description: `
+      <p><strong>Project 1:</strong> Dealership Award Concept<br>
+      <strong>Role:</strong> Product Design, Animation, Concept<br>
+
+      <p><strong>Project 2:</strong> Internal Training Program Intro Animation<br>
+      <strong>Role:</strong> Concept, Animation, Render<br>
+
+      <p><strong>Tech:</strong> After Effects, Cinema4D, Corona Render Engine</p>
+
+    `,
+    description2: `` 
+   },
+    { id: 10, src: '/images/mini/spiegel.jpg', alt: 'Logo 10', 
+       title: 'Empty',
+      clientText: `Empty`,
+      clientLogo: '/images/agencies/sw_neu_white.png',
+      clientLogoHeight: 25,
+      description: `
+      <p><strong>Project 1:</strong> <br>
+      <strong>Role:</strong> <br>
+
+      <p><strong>Project 2:</strong> <br>
+      <strong>Role:</strong> <br>
+
+      <p><strong>Tech:</strong> </p>
+
+    `,
+    description2: `` 
+   },
+    { id: 11, src: '/images/mini/pro7.jpg', alt: 'Logo 11', 
+       title: 'Empty',
+      clientText: `Empty`,
+      clientLogo: '/images/agencies/sw_neu_white.png',
+      clientLogoHeight: 25,
+      description: `
+      <p><strong>Project 1:</strong> <br>
+      <strong>Role:</strong> <br>
+
+      <p><strong>Project 2:</strong> <br>
+      <strong>Role:</strong> <br>
+
+      <p><strong>Tech:</strong> </p>
+
+    `,
+    description2: `` 
+   },
+    { id: 12, src: '/images/mini/sburda.jpg', alt: 'Logo 12', 
+       title: 'Empty',
+      clientText: `Empty`,
+      clientLogo: '/images/agencies/sw_neu_white.png',
+      clientLogoHeight: 25,
+      description: `
+      <p><strong>Project 1:</strong> <br>
+      <strong>Role:</strong> <br>
+
+      <p><strong>Project 2:</strong> <br>
+      <strong>Role:</strong> <br>
+
+      <p><strong>Tech:</strong> </p>
+
+    `,
+    description2: `` 
+   },
+    { id: 13, src: '/images/mini/fsecure.jpg', alt: 'Logo 13' , 
+       title: 'Empty',
+      clientText: `Empty`,
+      clientLogo: '/images/agencies/sw_neu_white.png',
+      clientLogoHeight: 25,
+      description: `
+      <p><strong>Project 1:</strong> <br>
+      <strong>Role:</strong> <br>
+
+      <p><strong>Project 2:</strong> <br>
+      <strong>Role:</strong> <br>
+
+      <p><strong>Tech:</strong> </p>
+
+    `,
+    description2: `` 
+   },
+    { id: 14, src: '/images/mini/swisscom.jpg', alt: 'Logo 14' , 
+       title: 'Empty',
+      clientText: `Empty`,
+      clientLogo: '/images/agencies/sw_neu_white.png',
+      clientLogoHeight: 25,
+      description: `
+      <p><strong>Project 1:</strong> <br>
+      <strong>Role:</strong> <br>
+
+      <p><strong>Project 2:</strong> <br>
+      <strong>Role:</strong> <br>
+
+      <p><strong>Tech:</strong> </p>
+
+    `,
+    description2: `` 
+   },
     { id: 15, src: '/images/mini/ds.jpg', alt: 'Logo 15' },
     { id: 16, src: '/images/mini/siemens.jpg', alt: 'Logo 16' },
     { id: 17, src: '/images/mini/hp.jpg', alt: 'Logo 17' },

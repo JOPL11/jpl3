@@ -238,9 +238,9 @@ export default function Home() {
     console.log('Found element for section:', sectionId, element);
     
     if (element) {
-      console.log('Scrolling to section:', sectionId, 'at position:', element.offsetTop - 50);
+      console.log('Scrolling to section:', sectionId, 'at position:', element.offsetTop - 5);
       window.scrollTo({
-        top: element.offsetTop - 110,
+        top: element.offsetTop - 5,
         behavior: 'smooth'
       });
       
@@ -296,6 +296,7 @@ export default function Home() {
   }, []);
 
   // Refs for animated headings
+  const overviewHeadingRef = useRef(null)
   const aboutHeadingRef = useRef(null);
   const webglHeadingRef = useRef(null);
   const skillsHeadingRef = useRef(null);
@@ -319,6 +320,7 @@ export default function Home() {
 
   // Map section IDs to their refs
   const sectionRefs = useMemo(() => ({
+    'overview': overviewHeadingRef,
     'about': aboutHeadingRef,
     'code': workHeadingRef,
     'skills': skillsHeadingRef,
@@ -326,7 +328,7 @@ export default function Home() {
     'motion': motionHeadingRef,
     'proto': productHeadingRef,
     'contact': contactHeadingRef
-  }), [aboutHeadingRef, workHeadingRef, webglHeadingRef, skillsHeadingRef, contactHeadingRef, motionHeadingRef, productHeadingRef]);
+  }), [overviewHeadingRef, aboutHeadingRef, workHeadingRef, webglHeadingRef, skillsHeadingRef, contactHeadingRef, motionHeadingRef, productHeadingRef]);
   
   // Trigger animation when section changes
   useEffect(() => {
@@ -452,16 +454,23 @@ export default function Home() {
           aria-hidden={!isMenuOpen}
         >
           <ul className={styles.mobileMenuList}>
-            {['About', 'Skills', 'Code', 'WebGL', 'Motion', 'Proto', 'Contact'].map((item) => (
+            {['About', 'Overview', 'Skills', 'Code', 'WebGL', 'Motion', 'Proto', 'Contact'].map((item) => (
               <li key={item} className={styles.mobileMenuItem}>
                 <a 
                   href={`#${item.toLowerCase()}`} 
                   className={styles.mobileMenuLink}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    const element = document.getElementById(item.toLowerCase());
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth' });
+                  onClick={async (e) => {
+                      e.preventDefault();
+                      setIsMenuOpen(false); // Close the menu first
+                      
+                      // Wait for the next tick to ensure the menu is closed
+                      await new Promise(resolve => setTimeout(resolve, 0));
+                      
+                      const element = document.getElementById(item.toLowerCase());
+                      if (element) {
+                        const yOffset = 50; // Match this with your scroll-margin-top or header height
+                        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                        window.scrollTo({ top: y, behavior: 'smooth' });
                       setIsMenuOpen(false);
                     }
                   }}
@@ -491,7 +500,7 @@ export default function Home() {
           {/* <InteractiveMenu activeSection={activeSection} onSectionChange={setActiveSection} /> */}
           
        
-          </div>
+          
          
                 <nav className={styles.navLinks} aria-label="Main navigation">
                 <a 
@@ -500,6 +509,13 @@ export default function Home() {
                   onClick={(e) => scrollToSection(e, 'about')}
                 >
                   About
+                </a>
+                 <a 
+                  href="#overview" 
+                  className={`${styles.navLink} ${activeSection === 'overview' ? styles.active : ''}`}
+                  onClick={(e) => scrollToSection(e, 'overview')}
+                >
+                  Overview
                 </a>
                 <a 
                   href="#code" 
@@ -577,21 +593,22 @@ export default function Home() {
                 />
               </div>              </div>
               </div> */}  
-
+              </div>
             </div>
           </div>
         
-          
-          <section id="about" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="about">
-            <div data-section="about"></div>
-              {/*     
+                        {/*     
            <div className={styles.heroContainer}>
               <Hero3D />
             </div>
             */} 
              {/*About Section Detector Here*/} 
+          <section id="about" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="about">
+            <div data-section="about"></div>
              <SectionTracker onSectionChange={setActiveSection} />
-            <h2 style={{paddingTop: "5rem"}}><AnimatedText ref={aboutHeadingRef}>About</AnimatedText></h2>
+            <h2 style={{paddingTop: "5rem"}}>
+              <AnimatedText ref={aboutHeadingRef}>About</AnimatedText>
+            </h2>
             <p>Hi! I&apos;m Jan Peiro.</p>
 
             <p>A multidisciplinary designer and creative who bridges the gap between stunning visuals and robust technology. I studied Communications Design in Munich and have spent my career transforming ideas into engaging experiences for a global clientele.</p>
@@ -606,12 +623,24 @@ export default function Home() {
 
             <p>Eligible to work in the EU, UK, and Canada without visa sponsorship.</p>
 
-              <div style={{height: '5rem'}}></div>
-              <LogoCard />
-    
+              <div style={{height: '0.1rem'}}></div>
+            </section>
 
-            <section className={styles.section} aria-labelledby="skills">
-              <h2 style={{paddingTop: "7rem"}}id="skills"><AnimatedText ref={skillsHeadingRef}>Core Skills</AnimatedText></h2>
+            <section id="overview" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="overview">
+                <div data-section="overview"></div>
+                <SectionTracker onSectionChange={setActiveSection} />
+                <h2 style={{paddingTop: "5rem"}}><AnimatedText ref={aboutHeadingRef}>Overview</AnimatedText></h2>
+                  <LogoCard />
+            </section>
+
+             <section id="skills" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="skills">
+            <div data-section="skills"></div>
+             <SectionTracker onSectionChange={setActiveSection} />
+            <h2 style={{paddingTop: "5rem"}}>
+              <AnimatedText ref={skillsHeadingRef}>Core Skills</AnimatedText>
+            </h2>
+
+
               <p>My toolkit is extensive and constantly evolving, allowing me to own a project from concept to deployment:</p>
               <ul className={styles.skillsList} role="list">
                 <li role="listitem">Design, Animation, Development, Rapid Prototyping</li>
@@ -633,9 +662,9 @@ export default function Home() {
                 <li role="listitem">Octane, Redshift, Corona Render Engines</li>
                 <li role="listitem">After Effects, Video Edit, Video Post-Production</li>    */}
               </ul>
-            </section>
+         </section>
        
-            <div className={styles.languagesContainer}>
+            <div className={styles.content}>
               <section className={styles.section} aria-labelledby="languages-heading">
                 <h2 id="languages-heading">Languages</h2>
                 <ul className={styles.skillsList} role="list">
@@ -653,7 +682,7 @@ export default function Home() {
                
             <SectionTracker onSectionChange={setActiveSection} />
             <div data-section="code"></div>      
-            <section id="code" className={styles.section} aria-labelledby="code">
+            <section id="code" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="code">
               <div style={{height: '5rem'}}></div>
               <h2 id="code" className={styles.scrollTarget}><AnimatedText ref={workHeadingRef}>Code Projects</AnimatedText></h2>
           
@@ -983,12 +1012,15 @@ export default function Home() {
             </section>
 
             {/*   WebGL Section */}
-
-         
-            <SectionTracker onSectionChange={setActiveSection} />
             <div data-section="webgl"></div>
-            <section id="webgl" className={`${styles.section} ${styles.scrollTarget}`}>
-              <h2><AnimatedText ref={webglHeadingRef}>WebGL</AnimatedText></h2>
+            <section id="webgl" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="webgl">
+            
+             <SectionTracker onSectionChange={setActiveSection} />
+            <h2 style={{paddingTop: "5rem"}}>
+              <AnimatedText ref={webglHeadingRef}>WebGL</AnimatedText>
+            </h2>
+         
+           
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
               <ProjectCard 
                   onMoreClick={() => {
@@ -1076,12 +1108,15 @@ export default function Home() {
        {/*   Motion Section 
 
        <hr className={styles.divider2} />*/}
-       <SectionTracker onSectionChange={setActiveSection} />
-       <div data-section="motion"></div>
 
-        {/* Motion Section Detector Here   https://vimeo.com/1115660872 */}
-            <section id="motion" className={`${styles.section} ${styles.scrollTarget}`}>
-              <h2><AnimatedText ref={motionHeadingRef}>Motion Projects</AnimatedText></h2>
+        <div data-section="motion"></div>
+            <section id="motion" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="motion">
+            
+             <SectionTracker onSectionChange={setActiveSection} />
+            <h2 style={{paddingTop: "5rem"}}>
+              <AnimatedText ref={motionHeadingRef}>Motion</AnimatedText>
+            </h2>
+       
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
               <VideoProjectCard 
                   title="Showreel 2025"
@@ -1307,10 +1342,17 @@ export default function Home() {
           
               </div> 
             </section> 
-            <SectionTracker onSectionChange={setActiveSection} />
+
+
             <div data-section="proto"></div>
-            <section id="proto" className={`${styles.section} ${styles.scrollTarget}`}>
-              <h2><AnimatedText ref={productHeadingRef}>Prototype</AnimatedText></h2>
+            <section id="proto" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="proto">
+            
+             <SectionTracker onSectionChange={setActiveSection} />
+            <h2 style={{paddingTop: "5rem"}}>
+              <AnimatedText ref={productHeadingRef}>Prototype</AnimatedText>
+            </h2>
+            
+
               <div className={styles.introText}>
 
                 <p>Swipe the images to look through the pile of photos.</p>
@@ -1331,14 +1373,20 @@ export default function Home() {
 
             {/*   MOTION ENDS HERE             <hr className={styles.divider2} /> */}  
 
-            <SectionTracker onSectionChange={setActiveSection} />
             <div data-section="contact"></div>
-            <section id="contact" className={`${styles.section} ${styles.scrollTarget}`}>
-              <h2><AnimatedText ref={contactHeadingRef}>Contact</AnimatedText></h2>
+            <section id="contact" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="contact">
+            
+             <SectionTracker onSectionChange={setActiveSection} />
+            <h2 style={{paddingTop: "5rem"}}>
+              <AnimatedText ref={contactHeadingRef}>Contact</AnimatedText>
+            </h2>
+
+
+ 
               <p>I&apos;m available for local projects as well as potential employment opportunities. Use the form to inquire about rates and availability, or just to say hi.</p>
               <ContactForm />
             </section>
-          </section>
+ 
         </div>
       </main>
       <footer className={styles.footer} role="contentinfo">
