@@ -708,7 +708,7 @@ const LoadingBar = ({ width = 80 }) => {
   );
 };
 
-export default function Logo3D({ width = 250, height = 250, className = '' }) {
+export default function Logo3D({ width = 350, height = 250, className = '' }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const canvasRef = useRef();
   const isMobile = useMobileDetect();

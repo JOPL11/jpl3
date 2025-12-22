@@ -8,6 +8,7 @@ import SectionTracker from './components/SectionTracker';
 import MouseGradient from './components/MouseGradient';
 import AnimatedText from './components/AnimatedText';
 import ThrowableImages from './components/ThrowableImages';
+import LogoCard from './components/LogoCard';
 import { useMemo } from 'react';
 import LocomotiveScroll from 'locomotive-scroll';
 
@@ -88,7 +89,7 @@ const Logo3D = dynamic(
       setTimeout(() => resolve(loadLogo()), 10)
     );
   },
-  { ssr: false, loading: () => <div style={{ width: '250px', height: '250px' }} /> }
+  { ssr: false, loading: () => <div style={{ width: '350px', height: '250px' }} /> }
 );
 
 // Wrapper component to handle WebGL and iOS interaction
@@ -96,7 +97,7 @@ const Logo3DWrapper = dynamic(
   () => import('./components/Logo3DWrapper').then(mod => mod.default),
   { 
     ssr: false,
-    loading: () => <div style={{ width: 250, height: 250 }} />
+    loading: () => <div style={{ width: 350, height: 250 }} />
   }
 );
 
@@ -105,7 +106,7 @@ const Logo2D = dynamic(
   () => import('./components/Logo2D').then(mod => mod.default),
   { 
     ssr: false,
-    loading: () => <div style={{ width: 250, height: 250 }} />
+    loading: () => <div style={{ width: 350, height: 250 }} />
   }
 );
 
@@ -481,7 +482,7 @@ export default function Home() {
           <div className={styles.logoSidebar} role="complementary" aria-label="Logo and Navigation">
             <div>
               <div className={styles.contentLogo}>
-                <Suspense fallback={<div style={{ width: '250px', height: '300px' }} />}>
+                <Suspense fallback={<div style={{ width: '350px', height: '250px' }} />}>
                   <Logo3DWrapper />
                 </Suspense>
               </div>
@@ -579,6 +580,7 @@ export default function Home() {
 
             </div>
           </div>
+        
           
           <section id="about" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="about">
             <div data-section="about"></div>
@@ -603,6 +605,10 @@ export default function Home() {
             <p>Global Remote | EST / CET / EET</p>
 
             <p>Eligible to work in the EU, UK, and Canada without visa sponsorship.</p>
+
+              <div style={{height: '5rem'}}></div>
+              <LogoCard />
+    
 
             <section className={styles.section} aria-labelledby="skills">
               <h2 style={{paddingTop: "7rem"}}id="skills"><AnimatedText ref={skillsHeadingRef}>Core Skills</AnimatedText></h2>
@@ -641,7 +647,7 @@ export default function Home() {
               </section>
             
             </div>
-              <div style={{height: '5rem'}}></div>
+    
              {/* About section End */}
 
                
