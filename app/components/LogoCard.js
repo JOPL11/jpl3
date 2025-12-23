@@ -157,7 +157,7 @@ const LogoCard = () => {
     </p>
     <p><strong>Outcome:</strong> The module was deployed as part of NATO ISAF training curriculum, directly contributing to the operational readiness of personnel in the field. It demonstrated my ability to execute with precision on projects where there is zero margin for error.</p>
     
-      <p><strong>Technologies:</strong> JavaScript (ES6+), XML, HTML5, CSS3</p>
+      <p><strong>Technologies:</strong> JavaScript, XML, HTML5, CSS3</p>
 
     `,
     description2: ``
@@ -310,23 +310,25 @@ const LogoCard = () => {
    },
     { id: 10, src: '/images/mini/spiegel.jpg', alt: 'Spiegel TV', 
        title: 'Empty',
-      clientText: `Empty`,
-      clientLogo: '/images/agencies/sw_neu_white.png',
+      clientText: `Spiegel TV `,
+      clientLogo: '/images/agencies/spiegeltvlogo.png',
       clientLogoHeight: 25,
       description: `
-      <p><strong>Project 1:</strong> <br>
-      <strong>Role:</strong> <br>
+      <p><strong>Project 1:</strong> Spiegel TV Wissen Official Website (A German Pay TV Channel focused on scientific content, now called The Curiosity Channel)<br>
+      <strong>Role:</strong> Design Consultant <br>
+      Together with the Channel Manager, I reviewed On-Air designs made by the best competing design Agencies in Germany. This was about enabling him to choose the best possible visual identity & language the channel would display during its operation.<br>
 
-      <p><strong>Project 2:</strong> <br>
-      <strong>Role:</strong> <br>
+      <p><strong>Project 3:</strong> Spiegel Wissen TV Official Website<br>
+      <strong>Role:</strong> Here I took the design that had been approved and translated it to an interactive online format, which was then the official website. <br>
+      <strong>Role:</strong> Sole Programmer, Animator <br>
+            
+      <p><strong>Project 2:</strong> Spiegel TV Geschichte Website (SPG TV is a German Pay TV Channel that focuses on History) <br>
+      <strong>Role:</strong> Lead Designer, Lead Programmer, UIX Architect<br>
+      Here I designed the complete online presence of the Pay TV Channel. 
 
-      <p><strong>Project 3:</strong> <br>
-      <strong>Role:</strong> <br>
-
-      <p><strong>Project 4:</strong> <br>
-      <strong>Role:</strong> <br>
-
-      <p><strong>Tech:</strong> </p>
+      <p><strong>Project 4:</strong>Spiegel Geschichte TV interactive B2B Presentation <br>
+      An interactive presentation for a giant cinemascreen at a movie theater which the company rented to deliver information to its shareholders and partners. 
+      <strong>Role:</strong> Sole Designer, Programmer, Animator <br>
 
     `,
     description2: `` 

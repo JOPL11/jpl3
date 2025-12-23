@@ -630,8 +630,9 @@ export default function Home() {
                 <div data-section="overview"></div>
                 <SectionTracker onSectionChange={setActiveSection} />
                 <h2 style={{paddingTop: "5rem"}}><AnimatedText ref={aboutHeadingRef}>Overview</AnimatedText></h2>
+                <div style={{paddingBottom:"2rem"}}>
                 <p>An overview of the many projects I&apos;ve had the honor to be chosen for. Tapping on the company logo reveals infortmation about the projects.</p>
-                <p>It&apos;ll be under develpoment for a few days. </p>
+                <p>It&apos;ll be under develpoment for a few days. </p></div>
                   <LogoCard />
             </section>
 

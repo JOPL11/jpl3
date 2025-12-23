@@ -42,6 +42,107 @@
   filter: grayscale(0%) brightness(2);
    /* Slight scale on hover transform: scale(1.1); */
 }
+
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  z-index: 1000;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+.modalOverlay:not(:has(.modalContent:hover)) {
+  cursor: pointer;
+}
+body.modalOpen {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+.modalContent {
+  position: relative;
+  background: var(--background);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  max-height: calc(100vh - 4rem);
+  display: flex;
+  flex-direction: column;
+}
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--foreground);
+  cursor: pointer;
+  padding: 0.5rem;
+  line-height: 1;
+  pointer-events: all;
+}
+.modalImageWrapper {
+  max-width: 100%;
+  max-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modalImage {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+
+
+/* iPad (portrait and landscape) */
+@media only screen 
+  and (min-device-width: 810px) 
+  and (max-device-width: 810px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .logoContainer {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      padding: 0 20px;
+    }
+    
+    .logoImage {
+      max-width: 150px;
+    }
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .modalTitle {
+    font-size: 1.25rem;
+  }
+  
+  .modalDescription {
+    font-size: 0.95rem;
+  }
+  
+  .modalContent {
+    padding: 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
     
     .logoContainer {
@@ -177,71 +278,6 @@
   .logoImage {
     max-width: 80px;  /* Even smaller logos if needed */
   }
-}
-
-/* Modal Styles */
-.modalOverlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 2rem;
-  z-index: 1000;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior: contain;
-}
-.modalOverlay:not(:has(.modalContent:hover)) {
-  cursor: pointer;
-}
-body.modalOpen {
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-}
-.modalContent {
-  position: relative;
-  background: var(--background);
-  border-radius: 12px;
-  width: 100%;
-  max-width: 800px;
-  margin: 2rem auto;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-  max-height: calc(100vh - 4rem);
-  display: flex;
-  flex-direction: column;
-}
-.closeButton {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: var(--foreground);
-  cursor: pointer;
-  padding: 0.5rem;
-  line-height: 1;
-  pointer-events: all;
-}
-.modalImageWrapper {
-  max-width: 100%;
-  max-height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.modalImage {
-  max-width: 100%;
-  max-height: 80vh;
-  object-fit: contain;
-  border-radius: 8px;
 }
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -414,20 +450,7 @@ padding: 0 !important;
   scrollbar-width: thin;
   scrollbar-color: var(--foreground-muted) var(--background);
 }
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .modalTitle {
-    font-size: 1.25rem;
-  }
-  
-  .modalDescription {
-    font-size: 0.95rem;
-  }
-  
-  .modalContent {
-    padding: 1.5rem;
-  }
-}
+
 
 .clientInfo {
   display: flex;
@@ -455,7 +478,6 @@ padding: 0 !important;
   height: 100%;
   width: auto;
   object-fit: contain;
-  filter: grayscale(100%);
   opacity: 0.8;
   transition: opacity 0.2s ease;
 }

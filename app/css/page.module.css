@@ -328,15 +328,8 @@ padding: 1rem;
   }
 }
 
-@media (max-width: 810px) {
-  .main {
-    flex: 1;
-    padding: 0.1rem;
-    width: 800px;
-    margin: 0 auto;
-    width: 100%;
-    box-sizing: border-box;
-  }
+
+
   .content {
     color: #acfeff;
     border-radius: 8px;
@@ -376,7 +369,7 @@ padding: 1rem;
     transition: all 0.3s ease;
 
   }
-}
+
 
 @media (max-width: 768px) {
   .contentWrapper {
@@ -1222,19 +1215,48 @@ right:50%;
   and (min-device-width: 810px) 
   and (max-device-width: 810px) 
   and (-webkit-min-device-pixel-ratio: 2) {
-  .logoSidebar {
+.logoSidebar {
     top: 15px;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center; /* Center align the logo and nav */
     padding: 1rem;
     background-color: transparent;
     height: auto;
-    overflow-y: none;
+    overflow-y: visible;
+    width: 100%; /* Ensure full width */
   }
+  
   .content {
     scroll-padding-top: 1500px;
   }
+  
+  .main {
+    flex: 1;
+    padding: 0.1rem;
+    width: 100%; /* Removed duplicate width property */
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  
+  /* Navigation Links */
+  .navLinks {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    margin: 0.1rem 0 0 0; /* Simplified margin */
+    width: 100%; /* Take full width */
+  }
+  
+  .menuContainer {
+    margin-left: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  /* If you have a logo container, add this */
+
 }
 
 /* SurfacePro 7 (portrait & landscape) */
