@@ -276,7 +276,7 @@
     -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
   }
    .contentWrapper {
-    padding: 0.5rem;
+    padding: 0;
   }
   .navLinks {
     gap: 0.3rem;
@@ -433,7 +433,7 @@ padding: 1rem;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -1625,13 +1625,13 @@ a.secondary {
 
 @media (min-width: 280px) and (max-width: 406px) {
   .contentWrapper {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 0;
+    padding-right: 0;
   }
   
   .mainContent {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 0;
+    padding-right: 0;
   }
   
   /* Ensure content doesn't touch screen edges */
