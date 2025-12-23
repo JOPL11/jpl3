@@ -1341,6 +1341,42 @@ export default function Home() {
                   <p><strong>Project Type:</strong> After Effects / Cinema4D</p>
                   <p><strong>Role:</strong> Lead Designer / animator</p>
                 </ProjectCard>
+                <ProjectCard 
+                  title="MTU Aero-Engines"
+                  image="/images/corp/mtu.jpg"
+                  alt="Audi Nüremberg"
+                  text="Multimonitor animation for the MTU Tradefair Booth at the Paris Intnl. Airshow"
+                  client={{
+                    name: "SMMD Team |",
+                    logo: "/images/agencies/vrpe_logoNew.png",
+                    website: "",
+                  }}
+                  logoWidth={306}
+                  logoHeight={25}
+                  logoStyle={{
+                    height: '10px',  // Directly set the height
+                    width: 'auto',   // Let width adjust to maintain aspect ratio
+                    maxWidth: '100%' // Ensure it doesn't overflow
+                  }}
+                  modalContent={{
+                    description: `Multimonitor animation for the <strong>Paris International Airshow</strong> Exhibition Booth.
+  
+                   <p>Animated excerpts can be seen in the motion reel</p>`,
+                    images: [
+                      { src: "/images/mtu1.jpg", alt: "Project Screenshot 1" },
+                      { src: "/images/mtu4.jpg", alt: "Project Screenshot 2" },
+                      { src: "/images/mtu5.jpg", alt: "Project Screenshot 3" },
+                      { src: "/images/mtu6.jpg", alt: "Project Screenshot 4" },
+                      { src: "/images/mtu2.jpg", alt: "Project Screenshot 6" },
+                      { src: "/images/mtu7.jpg", alt: "Project Screenshot 8" },
+                    ]
+                  }}
+                >
+                  <p>Multi Monitor Animation</p>
+                  <p><strong>Target Audience:</strong> Showroom visitors</p>
+                  <p><strong>Project Type:</strong> After Effects / Cinema4D</p>
+                  <p><strong>Role:</strong> Solo Visual Concept, Designer & Animator</p>
+                </ProjectCard>
                
           
               </div> 

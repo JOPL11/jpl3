@@ -94,16 +94,16 @@ const LogoCard = () => {
     {   id: 1, src: '/images/mini/aeromtu.jpg', 
         alt: 'Logo 1', 
         title: 'Digital Experiences for MTU Aero Engines',
-      clientText: `SMMD Team`,
-      clientLogo: '/images/agencies/SMMD.png',
-      clientLogoHeight: 35,
+      clientText: `VRPE`,
+      clientLogo: '/images/agencies/vrpe_logoNew.png',
+      clientLogoHeight: 15,
       description: `
       <p>Delivered two flagship digital experiences for a global aerospace leader:<br> <br> 
       <strong>1)</strong> An immersive multi-monitor 3D visualization for their Paris Airshow exhibition.<br>
       <strong>2)</strong> A dynamic, interactive corporate presentation tool deployed for global stakeholder meetings. Owned concept, design, animation, and development.</p>
 
       <p><strong>Role:</strong> As the lead designer and developer, I was entrusted with creating both experiences from concept to delivery—handling visual design, 3D animation, motion graphics, and interactive coding.</p>
-      <p><strong>Tech:</strong> Cinema4D, Corona Render Engine, Adobe After-Effects, High-resolution render pipeline.</p>
+      <p><strong>Tech:</strong> Cinema4D, Corona Render Engine, Adobe After-Effects, High-resolution render pipeline, javascript</p>
     `,
     description2: ``
   },
@@ -309,34 +309,45 @@ const LogoCard = () => {
     description2: `` 
    },
     { id: 10, src: '/images/mini/spiegel.jpg', alt: 'Spiegel TV', 
-       title: 'Empty',
-      clientText: `Spiegel TV `,
+       title: ' Digital Brand Architect for Spiegel TV Channels',
+      clientText: `Spiegel TV (Der Spiegel Media Group / Autentic GmbH)`,
       clientLogo: '/images/agencies/spiegeltvlogo.png',
       clientLogoHeight: 25,
       description: `
-      <p><strong>Project 1:</strong> Spiegel TV Wissen Official Website (A German Pay TV Channel focused on scientific content, now called The Curiosity Channel)<br>
-      <strong>Role:</strong> Design Consultant <br>
-      Together with the Channel Manager, I reviewed On-Air designs made by the best competing design Agencies in Germany. This was about enabling him to choose the best possible visual identity & language the channel would display during its operation.<br>
+      <p><strong>Overview:</strong> Led the complete digital design and development for two flagship pay-TV channels: Spiegel Wissen (science) and Spiegel Geschichte (history), from strategic consultation to interactive execution.</p>
 
-      <p><strong>Project 3:</strong> Spiegel Wissen TV Official Website<br>
-      <strong>Role:</strong> Here I took the design that had been approved and translated it to an interactive online format, which was then the official website. <br>
-      <strong>Role:</strong> Sole Programmer, Animator <br>
-            
-      <p><strong>Project 2:</strong> Spiegel TV Geschichte Website (SPG TV is a German Pay TV Channel that focuses on History) <br>
-      <strong>Role:</strong> Lead Designer, Lead Programmer, UIX Architect<br>
-      Here I designed the complete online presence of the Pay TV Channel. 
+      <p><strong>Project 1: Spiegel Wissen / The Curiosity Channel</strong></p>
+      <ul>
+      <li><p><strong>Phase 1 – Strategic Design Consultation:</strong>  Partnered directly with the Channel Manager to audit and evaluate on-air visual identities from Germany's top design agencies, advising on the strategic selection of the channel's core visual identity.</p></li>
 
-      <p><strong>Project 4:</strong>Spiegel Geschichte TV interactive B2B Presentation <br>
-      An interactive presentation for a giant cinemascreen at a movie theater which the company rented to deliver information to its shareholders and partners. 
-      <strong>Role:</strong> Sole Designer, Programmer, Animator <br>
+      <li><p><strong>Phase 2 – Website Build:</strong> As the <strong>Sole Developer & Animator</strong>, I translated the approved broadcast design into a fully interactive, official website, ensuring a seamless brand experience from TV to web. </p></li>
+      
+      </ul>
+
+      <p><strong>Project 2: Spiegel Geschichte (History Channel)</strong></p>
+
+        <ul>
+      <li><p><strong>Full-Spectrum Ownership:</strong>  As the Lead Designer, Programmer & UX Architect, I was responsible for the channel's complete online presence—designing and building its official website from concept to launch.</p></li>
+
+      <li><p><strong>B2B Interactive Presentation:</strong> Additionally, I created a large-format, interactive presentation for a cinema-screen shareholder event, serving as the Sole Designer, Programmer, and Animator. </p></li>
+      
+      </ul>
+
+      <p><strong>Impact:</strong> Delivered the definitive digital homes for two major Spiegel TV brands, blending strategic media insight with hands-on design and technical execution.</p>
+
+
+
+
+
+
 
     `,
     description2: `` 
    },
     { id: 11, src: '/images/mini/pro7.jpg', alt: 'Logo 11', 
        title: 'Empty',
-      clientText: `Empty`,
-      clientLogo: '/images/agencies/sw_neu_white.png',
+      clientText: `Pro7Sat1`,
+      clientLogo: '/images/agencies/pro7.png',
       clientLogoHeight: 25,
         description: `
       <p><strong>Project 1:</strong> <br>
