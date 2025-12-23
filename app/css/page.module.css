@@ -1633,12 +1633,7 @@ a.secondary {
     padding-left: 0;
     padding-right: 0;
   }
-  
-  /* Ensure content doesn't touch screen edges */
-  .content {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
+
   
   /* Adjust navigation links if needed */
   .navLinks {
@@ -1658,14 +1653,14 @@ a.secondary {
   }
 
     .mainContent {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 0;
+    padding-right: 0;
   }
   
   /* Ensure content doesn't touch screen edges */
   .content {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
   
   /* Adjust navigation links if needed */
