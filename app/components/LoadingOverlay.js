@@ -49,7 +49,7 @@ export default function LoadingOverlay() {
         <div className={styles.welcomeMessage}>
           Down For Maintenance
           {showPressSpace && (
-            <div>...come back later</div>
+            <div style={{ cursor: 'default' , fontSize: '0.8rem'}}>...come back later</div>
           )}
         </div>
       </div>
