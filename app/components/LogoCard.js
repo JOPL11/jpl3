@@ -16,16 +16,16 @@ const LogoCard = () => {
   
   const handleLogoClick = (logo) => {
     openModal(
-      <div className="modalContent">
-        <div className="modalHeader">
-          <h3 className="modalTitle">{logo.title || logo.alt}</h3>
+      <div className={styles.modalContent}>
+        <div className={styles.modalHeader}>
+          <h3 className={styles.modalTitle}>{logo.title || logo.alt}</h3>
         </div>
         {/* Client Info Section */}
         <div className={styles.clientInfo}>
-          <span className="clientText">{logo.clientText || ''}</span>
+          <span  className={styles.clientText}>{logo.clientText || ''}</span>
           {logo.clientLogo && (
             <div 
-              className="clientLogo"
+              className={styles.clientLogo}
               style={logo.clientLogoHeight ? { '--logo-height': `${logo.clientLogoHeight}px` } : {}}
             >
               <Image
@@ -33,22 +33,22 @@ const LogoCard = () => {
                 alt="Client Logo"
                 width={100}
                 height={40}
-                className="clientLogoImage"
+                className={styles.clientLogoImage}
               />
             </div>
           )}
         </div>
-        <div className="scrollableContent">
+        <div className={styles.scrollableContent}>
           {logo.description && (
             <div 
-              className="modalDescription"
+              className={styles.modalDescription}
               dangerouslySetInnerHTML={createMarkup(logo.description)}
             />
           )}
           {logo.description2 && (
             <div 
-              className="modalDescription secondaryDescription"
-              dangerouslySetInnerHTML={createMarkup(logo.description2)}
+    className={`${styles.modalDescription} ${styles.secondaryDescription}`}
+        dangerouslySetInnerHTML={createMarkup(logo.description2)}
             />
           )}
         </div>
@@ -108,24 +108,28 @@ const LogoCard = () => {
     description2: ``
   },
     { id: 3, src: '/images/mini/atonato.jpg', alt: 'Logo 3', 
-      title: 'Interactive Tactical Training Module for NATO ISAF Personnel',
-      description: `
-      <p><strong>Overview:</strong> The North Atlantic Treaty Organization (NATO) required a digital training tool for its International Security Assistance Force (ISAF) personnel. The mandate was clear: create a reliable, engaging, and instructionally sound system which reinforced critical tactical knowledge and decision-making protocols in high-stakes environments.</p>
-      <p><strong>Role:</strong> Developer & Systems Architect.<br>
-      My role was to translate a large complex set of military procedures into a flawless, user-driven digital experience and to ensure the system was properly evaluating the user&apos;s responses.</p>
-      <p><strong>Solution:</strong> A Decision-Force-Multiplication Tool<br>
-      This was not a simple quiz. It was a scenario-based training application built with vanilla JavaScript and drawing on a huge dataset of questions and answers, then it spit out a final score. It featured:
-      <ul>
-        <li><p>A dynamic multiple-choice system presenting realistic, branching tactical scenarios.</p></li>
-        <li><p>Detailed feedback mechanisms to reinforce correct NATO procedures.</p></li>
-        <li><p>A robust results-tracking framework to measure comprehension.</p></li>
-        </ul>
-    </p>
-    <p><strong>Outcome:</strong> The module was deployed as part of NATO ISAF training curriculum, directly contributing to the operational readiness of personnel in the field. It demonstrated my ability to execute with precision on projects where there is zero margin for error.</p>
-    
-      <p><strong>Technologies:</strong> JavaScript, XML, HTML5, CSS3</p>
+      title: 'High-Stakes Decision Support System',
+description: `
+<p><strong>Overview:</strong> Developed a mission-critical digital training and assessment platform for a major international security institution. The project required translating complex operational protocols into a flawless, scenario-based application with zero tolerance for error in logic or execution.</p>
 
-    `,
+<p><strong>Role:</strong> Lead Developer & Systems Architect.<br>
+Tasked with designing the core application logic, user-flow architecture, and evaluation engine to ensure absolute reliability and instructional integrity.</p>
+
+<p><strong>Solution & Technical Execution:</strong><br>
+Built a robust, custom JavaScript application that:
+<ul>
+  <li>Managed large, dynamic datasets of scenarios and decision pathways.</li>
+  <li>Implemented a branching-logic engine to drive complex, scenario-based user interactions.</li>
+  <li>Featured a precise scoring and feedback framework to measure and reinforce protocol adherence.</li>
+</ul>
+</p>
+
+<p><strong>Outcome:</strong> The system was successfully deployed to end-users, meeting strict requirements for accuracy, reliability, and user comprehension. This project exemplifies my capability to deliver complex, critical systems where performance is non-negotiable.</p>
+
+<p><strong>Technologies:</strong> Vanilla JavaScript, XML, HTML5, CSS3</p>
+
+<p><em>Note: Work conducted under strict confidentiality agreements. Specific client details and sensitive operational content are omitted.</em></p>
+`,
     description2: ``
   },
     { id: 4, src: '/images/mini/audi.jpg', alt: 'Logo 4', 

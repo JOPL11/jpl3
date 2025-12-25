@@ -33,11 +33,12 @@
 }
 
 .welcomeMessage {
-  font-size: 2.5rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 200;
   color: #ffffff;
   text-align: center;
   line-height: 1.4;
+  cursor: default;
 }
 
 .pressSpace {

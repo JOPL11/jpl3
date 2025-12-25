@@ -49,9 +49,7 @@ export default function LoadingOverlay() {
         <div className={styles.welcomeMessage}>
           Down For Maintenance
           {showPressSpace && (
-            <div className={styles.pressSpace}>
-              Press SPACE to continue
-            </div>
+            <div>...come back later</div>
           )}
         </div>
       </div>
