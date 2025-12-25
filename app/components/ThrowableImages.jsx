@@ -72,11 +72,7 @@ const ThrowableImages = ({ isActive = false }) => {
 }, [activeIndex, isAnimating]);
   return (
     <div className={styles.container}>
-      <div 
-        className={`${styles.stackContainer} ${!isActive ? styles.disabled : ''}`}
-        style={{ pointerEvents: isActive ? 'auto' : 'none' }}
-        onClick={isActive ? handleClick : undefined}
-      >
+      <div className={styles.stackContainer} onClick={handleClick}>
         {IMAGES.map((img, index) => {
           const isActiveCard = index === activeIndex;
           const isLastCard = index === IMAGES.length - 1;

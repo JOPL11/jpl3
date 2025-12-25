@@ -1,3 +1,5 @@
+'use client';
+
 // app/components/LogoCard.js
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
@@ -11,23 +13,39 @@ useEffect(() => {
   const handleWheel = (e) => {
     const scrollableContent = scrollableRef.current;
     if (!scrollableContent) return;
-    // Stop the event from reaching parent elements
-    e.stopPropagation();
-    e.preventDefault();
-    // Calculate scroll direction and amount
-    const delta = e.deltaY || e.detail || (-e.wheelDelta / 40);
-    scrollableContent.scrollTop += delta * 0.5; // Adjust multiplier for scroll speed
     
-    return false;
+    // Only prevent default if we're at the top or bottom of the scroll
+    const { scrollTop, scrollHeight, clientHeight } = scrollableContent;
+    const isAtTop = scrollTop === 0 && e.deltaY < 0;
+    const isAtBottom = scrollTop + clientHeight >= scrollHeight - 1 && e.deltaY > 0;
+    
+    if (!isAtTop && !isAtBottom) {
+      // Only prevent default if we're not at the boundaries
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    
+    // Always scroll the content
+    scrollableContent.scrollTop += e.deltaY * 0.8; // Reduced multiplier for smoother scroll
   };
+
+  // Add to both the modal and the scrollable content
+  const modal = modalRef.current;
   const content = scrollableRef.current;
+  
   if (content) {
-    // Use capture phase to ensure we get the event first
-    content.addEventListener('wheel', handleWheel, { passive: false, capture: true });
+    content.addEventListener('wheel', handleWheel, { passive: false });
   }
+  if (modal) {
+    modal.addEventListener('wheel', handleWheel, { passive: false });
+  }
+
   return () => {
     if (content) {
-      content.removeEventListener('wheel', handleWheel, { passive: false, capture: true });
+      content.removeEventListener('wheel', handleWheel);
+    }
+    if (modal) {
+      modal.removeEventListener('wheel', handleWheel);
     }
   };
 }, []);

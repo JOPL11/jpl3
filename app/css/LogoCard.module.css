@@ -428,7 +428,7 @@ html.no-scroll {
     padding: 0 !important;
   }
   .modalContent {
-    padding: 0;
+    padding: 1.2;
   }
   .logoCard {
     background: transparent;

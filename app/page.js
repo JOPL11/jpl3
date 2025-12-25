@@ -139,7 +139,6 @@ export default function Home() {
   const isProgrammaticScroll = useRef(false);
   const scrollTimeout = useRef(null);
   const viewportWidth = useViewportWidth();
-  const throwableSectionRef = useRef(null);
   const navMenuRef = useRef(null);
 
 
@@ -233,7 +232,7 @@ export default function Home() {
     window.addEventListener('openPrivacyModal', handleOpenPrivacyModal);
     
     // Intersection Observer for section detection
-    const sections = ['welcome-heading', 'projects-heading', 'webgl-heading', 'motion-heading'];
+    const sections = ['about-heading', 'overview-heading', 'code-heading', 'motion-heading',  'webgl-heading', 'Proto'];
     const observers = [];
 
     const options = {
@@ -277,15 +276,15 @@ export default function Home() {
 
   // Map section IDs to their refs
   const sectionRefs = useMemo(() => ({
-    'overview': overviewHeadingRef,
     'about': aboutHeadingRef,
+    'overview': overviewHeadingRef,
     'code': workHeadingRef,
     'skills': skillsHeadingRef,
     'webgl': webglHeadingRef,
     'motion': motionHeadingRef,
     'proto': productHeadingRef,
     'contact': contactHeadingRef
-  }), [overviewHeadingRef, aboutHeadingRef, workHeadingRef, webglHeadingRef, skillsHeadingRef, contactHeadingRef, motionHeadingRef, productHeadingRef]);
+  }), [aboutHeadingRef, overviewHeadingRef, workHeadingRef, webglHeadingRef, skillsHeadingRef, contactHeadingRef, motionHeadingRef, productHeadingRef]);
   
   // Trigger animation when section changes
 const scrollRef = useRef(null);
@@ -599,7 +598,7 @@ useEffect(() => {
             </div>
             */} 
              {/*About Section Detector Here*/} 
-                <div data-section="about-heading"></div>
+          <div data-section="about"></div>
           <section id="about" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="about">
              <SectionTracker onSectionChange={setActiveSection} />
             <h2 style={{paddingTop: "5rem"}}>
@@ -621,10 +620,10 @@ useEffect(() => {
 
               <div style={{height: '0.1rem'}}></div>
             </section>
-   <div data-section="overview-heading"></div>
+   <div data-section="overview"></div>
             <section id="overview" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="overview">
                 <SectionTracker onSectionChange={setActiveSection} />
-                <h2 style={{paddingTop: "5rem"}}><AnimatedText ref={aboutHeadingRef}>Overview</AnimatedText></h2>
+                <h2 style={{paddingTop: "5rem"}}><AnimatedText ref={overviewHeadingRef}>Overview</AnimatedText></h2>
                 <div style={{paddingBottom:"2rem"}}>
                 <p>An overview of the many projects I&apos;ve had the honor to be chosen for. Tapping on the company logo reveals infortmation about the projects.</p>
                 <p>It&apos;ll be under develpoment for a few days. </p></div>
@@ -1397,14 +1396,14 @@ useEffect(() => {
                   <Image src="/images/agencies/sw_neu_white.png" alt="Sieber & Wolf"  width={33} height={16} /></a>
                 </div>
                 <div style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'white' }}>
-                  My Task: <span style={{ fontSize: '0.85rem', fontWeight: 'normal', color: '#acfeff', marginBottom:'3rem', display: 'block', lineHeight: '1.4' }}>Invent a new type of dealership award for Mercedes Benz. I thought up the concept, designed the whole piece including UI and put together a working tech-stack for a fully functional prototype. Currently being recoded.</span>
+                  My Task: <span style={{ fontSize: '0.85rem', fontWeight: 'normal', color: '#acfeff', marginBottom:'3rem', display: 'block', lineHeight: '1.4' }}>Invent a new type of dealership award for Mercedes Benz. I thought up the concept, designed the whole piece including UI and put together a working tech-stack for a fully functional prototype.</span>
                 </div>
               </div>
-              <ThrowableImages isActive={activeSection === 'proto'} />
+              <ThrowableImages />
             </section>
 
             {/*   MOTION ENDS HERE             <hr className={styles.divider2} /> */}  
-<div data-section="contact"></div>
+            <div data-section="contact"></div>
             <section id="contact" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="contact">
             
              <SectionTracker onSectionChange={setActiveSection} />
