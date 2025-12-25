@@ -420,70 +420,56 @@ const LogoCard = () => {
       clientLogo: '/images/agencies/sw_neu_white.png',
       clientLogoHeight: 25,
  description: `
-      <p><strong>Project 1:</strong> Interactive Presentations<br>
-      <strong>Role:</strong> <br>
+      <p><strong>Project 1:</strong> 3 Interactive Presentations<br>
+      Burda New Media presentations by the Marketing Manager to promote his ideas and strategies internally.
+      <strong>Role:</strong> Visual Concept (CI adapted), Design, Animation, Programming<br>
 
-      <p><strong>Project 2:</strong> <br>
-      <strong>Role:</strong> <br>
-
-      <p><strong>Project 3:</strong> <br>
-      <strong>Role:</strong> <br>
-
-      <p><strong>Project 4:</strong> <br>
-      <strong>Role:</strong> <br>
-
-      <p><strong>Tech:</strong> </p>
 
     `,
     description2: `` 
    },
     { id: 13, src: '/images/mini/fsecure.jpg', alt: 'Logo 13' , 
-       title: 'Empty',
-      clientText: `Empty`,
-      clientLogo: '/images/agencies/sw_neu_white.png',
+       title: 'F-Secure Interactive Presentations / Video Animations',
+      clientText: `Public Orange`,
+      clientLogo: '/images/agencies/publicorange.png',
       clientLogoHeight: 25,
  description: `
-      <p><strong>Project 1:</strong> <br>
-      <strong>Role:</strong> <br>
+      <p><strong>Project 1: </strong> Security Suite Interactive Presentations  <br>
+      <strong>Role:</strong> Interactivity<br>
 
-      <p><strong>Project 2:</strong> <br>
-      <strong>Role:</strong> <br>
+      <p><strong>Project 2: </strong>  Security Suite Videos <br>
+      <strong>Role:</strong> Animation<br>
 
-      <p><strong>Project 3:</strong> <br>
-      <strong>Role:</strong> <br>
-
-      <p><strong>Project 4:</strong> <br>
-      <strong>Role:</strong> <br>
-
-      <p><strong>Tech:</strong> </p>
 
     `,
     description2: `` 
    },
     { id: 14, src: '/images/mini/swisscom.jpg', alt: 'Logo 14' , 
-       title: 'Empty',
-      clientText: `Empty`,
-      clientLogo: '/images/agencies/sw_neu_white.png',
+       title: 'Swisscom Installer Package',
+      clientText: `Publicorange`,
+      clientLogo: '/images/agencies/publicorange.png',
       clientLogoHeight: 25,
  description: `
-      <p><strong>Project 1:</strong> <br>
-      <strong>Role:</strong> <br>
+      <p><strong>Project 1:</strong> An installer package that opened up a setup-wizard for Swisscoms Online Access<br>
+      <strong>Role:</strong>  Design, Programming<br>
 
-      <p><strong>Project 2:</strong> <br>
-      <strong>Role:</strong> <br>
-
-      <p><strong>Project 3:</strong> <br>
-      <strong>Role:</strong> <br>
-
-      <p><strong>Project 4:</strong> <br>
-      <strong>Role:</strong> <br>
-
-      <p><strong>Tech:</strong> </p>
 
     `,
     description2: `` 
    },
-    { id: 15, src: '/images/mini/ds.jpg', alt: 'Logo 15' },
+    { id: 15, src: '/images/mini/ds.jpg', alt: 'Logo 15',
+      title: 'Swisscom Installer Package',
+      clientText: `Deepsilver`,
+      clientLogo: '/images/agencies/publicorange.png',
+      clientLogoHeight: 25,
+ description: `
+      <p><strong>Project 1:</strong> A videogame paralax scroller<br>
+      <strong>Role:</strong>  Design, Programming<br>
+
+
+    `,
+    description2: `` 
+   },
     { id: 16, src: '/images/mini/siemens.jpg', alt: 'Logo 16' },
     { id: 17, src: '/images/mini/hp.jpg', alt: 'Logo 17' },
     { id: 18, src: '/images/mini/strellson.jpg', alt: 'Logo 18' },
