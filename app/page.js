@@ -1387,7 +1387,7 @@ useEffect(() => {
 
               <div className={styles.introText}>
 
-                <p>Swipe the images to look through the pile of photos.</p>
+                <p>Tap or click the images to look through the pile of photos.</p>
                 <div style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'white' }}>
                   Project: <span style={{ fontSize: '0.85rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Daimler Benz dealership award.</span>
                 </div>
