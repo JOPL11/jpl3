@@ -403,7 +403,7 @@ const LogoCard = () => {
     description2: `` 
    },
     { id: 11, src: '/images/mini/pro7.jpg', alt: 'Logo 11', 
-       title: 'Empty',
+       title: 'Online Ad Campaigns',
       clientText: `Pro7Sat1`,
       clientLogo: '/images/agencies/pro7.png',
       clientLogoHeight: 25,
@@ -415,8 +415,8 @@ const LogoCard = () => {
     description2: `` 
    },
     { id: 12, src: '/images/mini/sburda.jpg', alt: 'Logo 12', 
-       title: 'Empty',
-      clientText: `Empty`,
+       title: 'Burda Presentations',
+      clientText: `Hubert Burda New Media`,
       clientLogo: '/images/agencies/sw_neu_white.png',
       clientLogoHeight: 25,
  description: `
@@ -458,28 +458,103 @@ const LogoCard = () => {
     description2: `` 
    },
     { id: 15, src: '/images/mini/ds.jpg', alt: 'Logo 15',
-      title: 'Swisscom Installer Package',
+      title: 'Teaser Website For a Videogame',
       clientText: `Deepsilver`,
       clientLogo: '/images/agencies/publicorange.png',
       clientLogoHeight: 25,
  description: `
-      <p><strong>Project 1:</strong> A videogame paralax scroller<br>
-      <strong>Role:</strong>  Design, Programming<br>
+      <p><strong>Project 1:</strong> A parallax scroller made with graphical assets of the real game.<br>
+      <strong>Role:</strong> Concept, Design, Programming<br>
 
 
     `,
     description2: `` 
    },
-    { id: 16, src: '/images/mini/siemens.jpg', alt: 'Logo 16' },
-    { id: 17, src: '/images/mini/hp.jpg', alt: 'Logo 17' },
-    { id: 18, src: '/images/mini/strellson.jpg', alt: 'Logo 18' },
-     { id: 19, src: '/images/mini/twenty.jpg', alt: 'Logo 19' },
-    { id: 20, src: '/images/mini/universal.jpg', alt: 'Logo 20' },
-    { id: 21, src: '/images/mini/wb.jpg', alt: 'Logo 21' },
+    { id: 16, src: '/images/mini/siemens.jpg', alt: 'Logo 16', 
+      title: 'Teaser Website For a Videogame',
+      clientText: `Deepsilver`,
+      clientLogo: '/images/agencies/publicorange.png',
+      clientLogoHeight: 25,
+ description: `
+      <p><strong>Project 1:</strong> A parallax scroller made with graphical assets of the real game.<br>
+      <strong>Role:</strong> Concept, Design, Programming<br>
+
+
+    `,
+    description2: `` 
+   },
+    { id: 17, src: '/images/mini/hp.jpg', alt: 'Logo 17' , 
+      title: 'HP Digital Global Campaign Solutions',
+      clientText: ` `,
+      clientLogo: '/images/agencies/publicorange.png',
+      clientLogoHeight: 25,
+ description: `
+      <p><strong>Project 1:</strong> Interactive Animation<br>
+      <strong>Role:</strong> Concept, Design, Programming<br>
+
+
+    `,
+    description2: `` 
+   },
+    { id: 18, src: '/images/mini/strellson.jpg', alt: 'Logo 18' , 
+      title: 'Strellson Image-Film',
+      clientText: ` `,
+      clientLogo: '/images/agencies/coma2_logo.png',
+      clientLogoHeight: 25,
+ description: `
+      <p><strong>Project 1:</strong> Interactive Animation<br>
+      <strong>Role:</strong> Concept, Design, Programming<br>
+
+
+    `,
+    description2: `` 
+   },
+     { id: 19, src: '/images/mini/twenty.jpg', alt: 'Logo 19' , 
+      title: 'Strellson Image-Film',
+      clientText: ` `,
+      clientLogo: '/images/agencies/coma2_logo.png',
+      clientLogoHeight: 25,
+ description: `
+      <p><strong>Project 1:</strong> Interactive Animation<br>
+      <strong>Role:</strong> Concept, Design, Programming<br>
+
+
+    `,
+    description2: `` 
+   },
+    { id: 20, src: '/images/mini/universal.jpg', alt: 'Logo 20' , 
+      title: 'Strellson Image-Film',
+      clientText: ` `,
+      clientLogo: '/images/agencies/coma2_logo.png',
+      clientLogoHeight: 25,
+ description: `
+      <p><strong>Project 1:</strong> Interactive Animation<br>
+      <strong>Role:</strong> Concept, Design, Programming<br>
+
+
+    `,
+    description2: `` 
+   },
+    { id: 21, src: '/images/mini/wb.jpg', alt: 'Logo 21' , 
+      title: 'Strellson Image-Film',
+      clientText: ` `,
+      clientLogo: '/images/agencies/coma2_logo.png',
+      clientLogoHeight: 25,
+ description: `
+      <p><strong>Project 1:</strong> Interactive Animation<br>
+      <strong>Role:</strong> Concept, Design, Programming<br>
+
+
+    `,
+    description2: `` 
+   },
   ];
 
   return (
     <div className={styles.logoContainer}>
+                         {/*     
+
+        
       {logos.map((logo) => (
         <div 
           key={logo.id} 
@@ -500,7 +575,7 @@ const LogoCard = () => {
       <LogoModal 
         logo={selectedLogo} 
         onClose={() => setSelectedLogo(null)} 
-      />
+      />    */} 
     </div>
     
   );
