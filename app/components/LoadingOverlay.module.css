@@ -11,7 +11,8 @@
   align-items: center;
   opacity: 1;
   transition: opacity 0.5s ease-out;
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 .loadingOverlay.hidden {
@@ -23,6 +24,35 @@
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 2rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+.welcomeMessage {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.pressSpace {
+  margin-top: 2rem;
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.8);
+  animation: pulse 2s infinite;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }

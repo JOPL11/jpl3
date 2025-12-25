@@ -1,150 +1,60 @@
 'use client';
 
 // app/components/LogoCard.js
-import { useState, useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import Image from 'next/image';
+import { useModal } from './ModalContext';
 import styles from '../css/LogoCard.module.css';
 
-const LogoModal = ({ logo, onClose }) => {
-  const modalRef = useRef(null);
-  const scrollableRef = useRef(null);
-  // Handle wheel event for smooth scrolling
-useEffect(() => {
-  const handleWheel = (e) => {
-    const scrollableContent = scrollableRef.current;
-    if (!scrollableContent) return;
-    
-    // Only prevent default if we're at the top or bottom of the scroll
-    const { scrollTop, scrollHeight, clientHeight } = scrollableContent;
-    const isAtTop = scrollTop === 0 && e.deltaY < 0;
-    const isAtBottom = scrollTop + clientHeight >= scrollHeight - 1 && e.deltaY > 0;
-    
-    if (!isAtTop && !isAtBottom) {
-      // Only prevent default if we're not at the boundaries
-      e.preventDefault();
-      e.stopPropagation();
-    }
-    
-    // Always scroll the content
-    scrollableContent.scrollTop += e.deltaY * 0.8; // Reduced multiplier for smoother scroll
-  };
-
-  // Add to both the modal and the scrollable content
-  const modal = modalRef.current;
-  const content = scrollableRef.current;
-  
-  if (content) {
-    content.addEventListener('wheel', handleWheel, { passive: false });
-  }
-  if (modal) {
-    modal.addEventListener('wheel', handleWheel, { passive: false });
-  }
-
-  return () => {
-    if (content) {
-      content.removeEventListener('wheel', handleWheel);
-    }
-    if (modal) {
-      modal.removeEventListener('wheel', handleWheel);
-    }
-  };
-}, []);
-
-  if (!logo) return null;
+const LogoCard = () => {
+  const { openModal } = useModal();
   
   // Helper function to render HTML
   const createMarkup = (html) => {
     return { __html: html };
   };
-return (
-  <div className={styles.modalOverlay} onClick={onClose}>
-    <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
-      <div className={styles.modalHeader}>
-        <h3 className={styles.modalTitle}>{logo.title || logo.alt}</h3>
-        <button 
-          className={styles.closeButton} 
-          onClick={(e) => {
-            e.stopPropagation();
-            onClose();
-          }}
-        >
-          ×
-        </button>
-      </div>
-      {/* Client Info Section */}
-      <div className={styles.clientInfo}>
-        <span className={styles.clientText}>{logo.clientText || ''}</span>
-        {logo.clientLogo && (
-          <div 
-            className={styles.clientLogo}
-            style={logo.clientLogoHeight ? { '--logo-height': `${logo.clientLogoHeight}px` } : {}}
-          >
-            <Image
-              src={logo.clientLogo}
-              alt="Client Logo"
-              width={100}
-              height={40}
-              className={styles.clientLogoImage}
+  
+  const handleLogoClick = (logo) => {
+    openModal(
+      <div className="modalContent">
+        <div className="modalHeader">
+          <h3 className="modalTitle">{logo.title || logo.alt}</h3>
+        </div>
+        {/* Client Info Section */}
+        <div className={styles.clientInfo}>
+          <span className="clientText">{logo.clientText || ''}</span>
+          {logo.clientLogo && (
+            <div 
+              className="clientLogo"
+              style={logo.clientLogoHeight ? { '--logo-height': `${logo.clientLogoHeight}px` } : {}}
+            >
+              <Image
+                src={logo.clientLogo}
+                alt="Client Logo"
+                width={100}
+                height={40}
+                className="clientLogoImage"
+              />
+            </div>
+          )}
+        </div>
+        <div className="scrollableContent">
+          {logo.description && (
+            <div 
+              className="modalDescription"
+              dangerouslySetInnerHTML={createMarkup(logo.description)}
             />
-          </div>
-        )}
+          )}
+          {logo.description2 && (
+            <div 
+              className="modalDescription secondaryDescription"
+              dangerouslySetInnerHTML={createMarkup(logo.description2)}
+            />
+          )}
+        </div>
       </div>
-      <div 
-        ref={scrollableRef}
-        className={styles.scrollableContent}
-      >
-        {logo.description && (
-          <div 
-            className={styles.modalDescription}
-            dangerouslySetInnerHTML={createMarkup(logo.description)}
-          />
-        )}
-        {logo.description2 && (
-          <div 
-            className={`${styles.modalDescription} ${styles.secondaryDescription}`}
-            dangerouslySetInnerHTML={createMarkup(logo.description2)}
-          />
-        )}
-      </div>
-    </div>
-  </div>
-);
-};
-
-const LogoCard = () => {
-  const [selectedLogo, setSelectedLogo] = useState(null);
-  const scrollY = useRef(0);
-  const isScrolling = useRef(false);
-  useEffect(() => {
-    if (selectedLogo) {
-      // Save current scroll position
-      scrollY.current = window.scrollY || document.documentElement.scrollTop;
-      
-      // Add no-scroll class to body
-      document.body.style.overflow = 'hidden';
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY.current}px`;
-      document.body.style.width = '100%';
-    } else {
-      // Remove styles and restore scroll
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      
-      // Restore scroll position
-      window.scrollTo(0, scrollY.current);
-    }
-    return () => {
-      if (selectedLogo) {
-        document.body.style.overflow = '';
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.width = '';
-        window.scrollTo(0, scrollY.current);
-      }
-    };
-  }, [selectedLogo]);
+    );
+  };
 
   const logos = [
     {   id: 1, src: '/images/mini/aeromtu.jpg', 
@@ -552,14 +462,11 @@ const LogoCard = () => {
 
   return (
     <div className={styles.logoContainer}>
-                         {/*     
-
-        
       {logos.map((logo) => (
         <div 
           key={logo.id} 
           className={styles.logoCard}
-          onClick={() => setSelectedLogo(logo)}
+          onClick={() => handleLogoClick(logo)}
         >
           <div className={styles.logoWrapper}>
             <Image
@@ -568,16 +475,13 @@ const LogoCard = () => {
               width={150}
               height={150}
               className={styles.logoImage}
+              priority={logo.id <= 6} // Only preload first 6 images
             />
           </div>
         </div>
       ))}
-      <LogoModal 
-        logo={selectedLogo} 
-        onClose={() => setSelectedLogo(null)} 
-      />    */} 
     </div>
-    
   );
 };
+
 export default LogoCard;
