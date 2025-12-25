@@ -4,85 +4,122 @@ import Image from 'next/image';
 import styles from '../css/LogoCard.module.css';
 
 const LogoModal = ({ logo, onClose }) => {
+  const modalRef = useRef(null);
+  const scrollableRef = useRef(null);
+  // Handle wheel event for smooth scrolling
+useEffect(() => {
+  const handleWheel = (e) => {
+    const scrollableContent = scrollableRef.current;
+    if (!scrollableContent) return;
+    // Stop the event from reaching parent elements
+    e.stopPropagation();
+    e.preventDefault();
+    // Calculate scroll direction and amount
+    const delta = e.deltaY || e.detail || (-e.wheelDelta / 40);
+    scrollableContent.scrollTop += delta * 0.5; // Adjust multiplier for scroll speed
+    
+    return false;
+  };
+  const content = scrollableRef.current;
+  if (content) {
+    // Use capture phase to ensure we get the event first
+    content.addEventListener('wheel', handleWheel, { passive: false, capture: true });
+  }
+  return () => {
+    if (content) {
+      content.removeEventListener('wheel', handleWheel, { passive: false, capture: true });
+    }
+  };
+}, []);
+
   if (!logo) return null;
   
   // Helper function to render HTML
   const createMarkup = (html) => {
     return { __html: html };
   };
-  return (
-<div className={styles.modalOverlay} onClick={onClose}>
-  <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
-    <div className={styles.modalHeader}>
-      <h3 className={styles.modalTitle}>{logo.title || logo.alt}</h3>
-      <button 
-        className={styles.closeButton} 
-        onClick={(e) => {
-          e.stopPropagation();
-          onClose();
-        }}
-      >
-        ×
-      </button>
-    </div>
-    {/* Client Info Section */}
-        <div className={styles.clientInfo}>
-          <span className={styles.clientText}>{logo.clientText || ''}</span>
-          {logo.clientLogo && (
-            <div className={styles.clientLogo}
+return (
+  <div className={styles.modalOverlay} onClick={onClose}>
+    <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
+      <div className={styles.modalHeader}>
+        <h3 className={styles.modalTitle}>{logo.title || logo.alt}</h3>
+        <button 
+          className={styles.closeButton} 
+          onClick={(e) => {
+            e.stopPropagation();
+            onClose();
+          }}
+        >
+          ×
+        </button>
+      </div>
+      {/* Client Info Section */}
+      <div className={styles.clientInfo}>
+        <span className={styles.clientText}>{logo.clientText || ''}</span>
+        {logo.clientLogo && (
+          <div 
+            className={styles.clientLogo}
             style={logo.clientLogoHeight ? { '--logo-height': `${logo.clientLogoHeight}px` } : {}}
-            >
-              <Image
-                src={logo.clientLogo}
-                alt="Client Logo"
-                width={100}
-                height={40}
-                className={styles.clientLogoImage}
-              />
-            </div>
-          )}
-        </div>
-    <div className={styles.scrollableContent}>
-      {logo.description && (
-        <div 
-          className={styles.modalDescription}
-          dangerouslySetInnerHTML={createMarkup(logo.description)}
-        />
-      )}
-      
-      {logo.description2 && (
-        <div 
-          className={`${styles.modalDescription} ${styles.secondaryDescription}`}
-          dangerouslySetInnerHTML={createMarkup(logo.description2)}
-        />
-      )}
+          >
+            <Image
+              src={logo.clientLogo}
+              alt="Client Logo"
+              width={100}
+              height={40}
+              className={styles.clientLogoImage}
+            />
+          </div>
+        )}
+      </div>
+      <div 
+        ref={scrollableRef}
+        className={styles.scrollableContent}
+      >
+        {logo.description && (
+          <div 
+            className={styles.modalDescription}
+            dangerouslySetInnerHTML={createMarkup(logo.description)}
+          />
+        )}
+        {logo.description2 && (
+          <div 
+            className={`${styles.modalDescription} ${styles.secondaryDescription}`}
+            dangerouslySetInnerHTML={createMarkup(logo.description2)}
+          />
+        )}
+      </div>
     </div>
   </div>
-</div>
-  );
+);
 };
 
 const LogoCard = () => {
-    const [selectedLogo, setSelectedLogo] = useState(null);
-    const scrollY = useRef(0);
-    useEffect(() => {
+  const [selectedLogo, setSelectedLogo] = useState(null);
+  const scrollY = useRef(0);
+  const isScrolling = useRef(false);
+  useEffect(() => {
     if (selectedLogo) {
-      // Save the current scroll position
-      scrollY.current = window.scrollY;
-      // Prevent scrolling
+      // Save current scroll position
+      scrollY.current = window.scrollY || document.documentElement.scrollTop;
+      
+      // Add no-scroll class to body
+      document.body.style.overflow = 'hidden';
       document.body.style.position = 'fixed';
       document.body.style.top = `-${scrollY.current}px`;
       document.body.style.width = '100%';
     } else {
-      // Restore the scroll position
+      // Remove styles and restore scroll
+      document.body.style.overflow = '';
       document.body.style.position = '';
       document.body.style.top = '';
       document.body.style.width = '';
+      
+      // Restore scroll position
       window.scrollTo(0, scrollY.current);
     }
-    // Cleanup function
     return () => {
       if (selectedLogo) {
+        document.body.style.overflow = '';
         document.body.style.position = '';
         document.body.style.top = '';
         document.body.style.width = '';
@@ -90,6 +127,7 @@ const LogoCard = () => {
       }
     };
   }, [selectedLogo]);
+
   const logos = [
     {   id: 1, src: '/images/mini/aeromtu.jpg', 
         alt: 'Logo 1', 
@@ -108,7 +146,7 @@ const LogoCard = () => {
     description2: ``
   },
     { id: 2, src: '/images/mini/airbus.jpg', alt: 'Logo 2', 
-      title: 'Defining the Digital Frontier for Airbus Group',
+      title: 'Airbus Group Digital Interfaces',
       clientText: `SMMD Team`,
       clientLogo: '/images/agencies/SMMD.png',
       clientLogoHeight: 35,
@@ -144,7 +182,7 @@ const LogoCard = () => {
     { id: 3, src: '/images/mini/atonato.jpg', alt: 'Logo 3', 
       title: 'Interactive Tactical Training Module for NATO ISAF Personnel',
       description: `
-      <p><strong>The Mandate:</strong> The North Atlantic Treaty Organization (NATO) required a digital training tool for its International Security Assistance Force (ISAF) personnel. The mandate was clear: create a reliable, engaging, and instructionally sound system which reinforced critical tactical knowledge and decision-making protocols in high-stakes environments.</p>
+      <p><strong>Overview:</strong> The North Atlantic Treaty Organization (NATO) required a digital training tool for its International Security Assistance Force (ISAF) personnel. The mandate was clear: create a reliable, engaging, and instructionally sound system which reinforced critical tactical knowledge and decision-making protocols in high-stakes environments.</p>
       <p><strong>Role:</strong> Developer & Systems Architect.<br>
       My role was to translate a large complex set of military procedures into a flawless, user-driven digital experience and to ensure the system was properly evaluating the user&apos;s responses.</p>
       <p><strong>Solution:</strong> A Decision-Force-Multiplication Tool<br>
@@ -282,41 +320,16 @@ const LogoCard = () => {
     `,
     description2: ``
   },
-    { id: 9, src: '/images/mini/rb.jpg', alt: 'Red Bull TV', 
-       title: 'Red Bull Austria: Early Digital Experiences for a Media Pioneer',
-      clientText: `Red Bull Austria`,
-      clientLogo: '/images/agencies/redBull.png',
-      clientLogoHeight: 25,
-      description: `
-      <p><strong>The Client & Era:</strong> In the mid-2000s, Red Bull was transitioning from an energy drink company into a global media powerhouse and culture brand. Their digital presence needed to match their high-octane, experiential identity.</p>
-      <p><strong>My Role: </strong> Lead Interactive Designer & Developer<br>
-      I was entrusted with creating two flagship interactive experiences that embodied Red Bull&apos;s pioneering spirit.
-     
-      <p><strong>Project 1:</strong> Interactive Video Carousel, www.redbull.tv<br>
-      <strong>The Brief: </strong>Develop the Interactive Video Carousel for the launch of the www.redbull.tv platform—a key piece of their strategy to become a leading action sports and lifestyle broadcaster.<br>
 
-      <strong>Tech: </strong> Macromedia Flash, ActionScript 3<br>
-      <p><strong>The Outcome & Legacy:</strong> These projects were built at the inception of Red Bull&apos;s digital media empire. They demonstrated an early mastery of interactive storytelling and platform design for a brand that would become synonymous with cutting-edge content.<br>
-      <strong>Role:</strong> Sole Developer<br>
-
-      <p><strong>Project 2:</strong> Strategic Internal Hub for Red Bull’s Digital Media Launch<br>
-      n 2007, Red Bull was aggressively expanding from a beverage brand into a global media powerhouse. To align its internal teams at its Fuschl am See headquarters, they needed a central platform to communicate this new strategic direction.<br>
-      <strong>My Role: </strong>Sole Designer & Developer<br>
-        I was entrusted with creating the digital centerpiece for this internal shift—an interactive intranet experience that would define and showcase Red Bull’s emerging digital media strategy.
-      <p><strong>Tech:</strong> Macromedia Flash, Adobe Suite</p>
-
-    `,
-    description2: `` 
-   },
-    { id: 10, src: '/images/mini/spiegel.jpg', alt: 'Spiegel TV', 
+    { id: 9, src: '/images/mini/spiegel.jpg', alt: 'Spiegel TV', 
        title: ' Digital Brand Architect for Spiegel TV Channels',
       clientText: `Spiegel TV (Der Spiegel Media Group / Autentic GmbH)`,
       clientLogo: '/images/agencies/spiegeltvlogo.png',
       clientLogoHeight: 25,
       description: `
-      <p><strong>Overview:</strong> Led the complete digital design and development for two flagship pay-TV channels: Spiegel Wissen (science) and Spiegel Geschichte (history), from strategic consultation to interactive execution.</p>
+      <p><strong>Overview:</strong> Led the complete digital design and development for two flagship pay-TV channels 2010 - 2017: Spiegel Wissen (science) and Spiegel Geschichte (history), from strategic consultation to interactive execution.</p>
 
-      <p><strong>Project 1: Spiegel Wissen / The Curiosity Channel</strong></p>
+      <p><strong>Project 1: Spiegel Wissen</strong></p>
       <ul>
       <li><p><strong>Phase 1 – Strategic Design Consultation:</strong>  Partnered directly with the Channel Manager to audit and evaluate on-air visual identities from Germany's top design agencies, advising on the strategic selection of the channel's core visual identity.</p></li>
 
@@ -344,26 +357,42 @@ const LogoCard = () => {
     `,
     description2: `` 
    },
+
+       { id: 10, src: '/images/mini/rb.jpg', alt: 'Red Bull TV', 
+       title: 'Red Bull Austria: Early Digital Experiences for a Media Pioneer',
+      clientText: `Red Bull Austria`,
+      clientLogo: '/images/agencies/redBull.png',
+      clientLogoHeight: 25,
+      description: `
+      <p><strong>The Client & Era:</strong> In the mid-2000s, Red Bull was transitioning from an energy drink company into a global media powerhouse and culture brand. Their digital presence needed to match their high-octane, experiential identity.</p>
+      <p><strong>My Role: </strong> Lead Interactive Designer & Developer<br>
+      I was entrusted with creating two flagship interactive experiences that embodied Red Bull&apos;s pioneering spirit.
+     
+      <p><strong>Project 1:</strong> Interactive Video Carousel, www.redbull.tv<br>
+      <strong>The Brief: </strong>Develop the Interactive Video Carousel for the launch of the www.redbull.tv platform—a key piece of their strategy to become a leading action sports and lifestyle broadcaster.<br>
+
+      <strong>Tech: </strong> Macromedia Flash, ActionScript 3<br>
+      <p><strong>The Outcome & Legacy:</strong> These projects were built at the inception of Red Bull&apos;s digital media empire. They demonstrated an early mastery of interactive storytelling and platform design for a brand that would become synonymous with cutting-edge content.<br>
+      <strong>Role:</strong> Sole Developer<br>
+
+      <p><strong>Project 2:</strong> Strategic Internal Hub for Red Bull’s Digital Media Launch<br>
+      n 2007, Red Bull was aggressively expanding from a beverage brand into a global media powerhouse. To align its internal teams at its Fuschl am See headquarters, they needed a central platform to communicate this new strategic direction.<br>
+      <strong>My Role: </strong>Sole Designer & Developer<br>
+        I was entrusted with creating the digital centerpiece for this internal shift—an interactive intranet experience that would define and showcase Red Bull’s emerging digital media strategy.
+      <p><strong>Tech:</strong> Macromedia Flash, Adobe Suite</p>
+
+    `,
+    description2: `` 
+   },
     { id: 11, src: '/images/mini/pro7.jpg', alt: 'Logo 11', 
        title: 'Empty',
       clientText: `Pro7Sat1`,
       clientLogo: '/images/agencies/pro7.png',
       clientLogoHeight: 25,
         description: `
-      <p><strong>Project 1:</strong> <br>
-      <strong>Role:</strong> <br>
-
-      <p><strong>Project 2:</strong> <br>
-      <strong>Role:</strong> <br>
-
-      <p><strong>Project 3:</strong> <br>
-      <strong>Role:</strong> <br>
-
-      <p><strong>Project 4:</strong> <br>
-      <strong>Role:</strong> <br>
-
-      <p><strong>Tech:</strong> </p>
-
+      <p><strong>Project 1:</strong> Banner Campaigns for Pro7 Television Content<br>
+      <strong>Role:</strong> Design, Motion, Programming<br>
+      <strong>Tech:</strong> After Effects, JavaScript, HTML5, CSS3<br>
     `,
     description2: `` 
    },
@@ -373,7 +402,7 @@ const LogoCard = () => {
       clientLogo: '/images/agencies/sw_neu_white.png',
       clientLogoHeight: 25,
  description: `
-      <p><strong>Project 1:</strong> <br>
+      <p><strong>Project 1:</strong> Interactive Presentations<br>
       <strong>Role:</strong> <br>
 
       <p><strong>Project 2:</strong> <br>
@@ -469,6 +498,7 @@ const LogoCard = () => {
         onClose={() => setSelectedLogo(null)} 
       />
     </div>
+    
   );
 };
 export default LogoCard;

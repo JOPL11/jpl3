@@ -253,9 +253,22 @@
   transition: width 0.3s ease 0.3s;
 }
 
+/* Hide underline by default on mobile */
 .navLink.active::after {
-  width: 100%;
+  width: 0;
+  display: none;
+}
 
+/* Show underline on mobile only when menu is open */
+body.menu-open .navLink.active::after {
+  display: block;
+}
+
+/* Always show underline on desktop */
+@media (min-width: 769px) {
+  .navLink.active::after {
+    display: block;
+  }
 }
 
 /* Main Content Styles */
@@ -851,10 +864,10 @@ right:50%;
 }
 
 .clientInfo {
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: #e5e7eb;
   margin: 0.rem 0 0.05rem 0;
-  line-height: 1.4;
+  line-height: 1.6;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -862,7 +875,7 @@ right:50%;
 }
 
 .clientInfo span {
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .clientInfo strong {
@@ -872,9 +885,9 @@ right:50%;
 
 .additionalText {
   color: #e5e7eb;
-  font-size: 0.9rem;
+  font-size: 1rem;
   margin: 0.3rem 0 0 0;
-  line-height: 1.4;
+  line-height: 1.6;
 }
 
 .additionalText strong,

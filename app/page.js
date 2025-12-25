@@ -120,6 +120,20 @@ export default function Home() {
   const [showImpressumModal, setShowImpressumModal] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showHamburger, setShowHamburger] = useState(false);
+
+  // Toggle menu-open class on body when menu state changes
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+    
+    // Cleanup function to remove the class when component unmounts
+    return () => {
+      document.body.classList.remove('menu-open');
+    };
+  }, [isMenuOpen]);
   const [modalContent, setModalContent] = useState('privacy');
   const [activeSection, setActiveSection] = useState('welcome-heading');
   const isProgrammaticScroll = useRef(false);
@@ -168,64 +182,7 @@ export default function Home() {
       window.removeEventListener('scrollend', handleScrollEnd);
     };
     
-    // Track which section is currently most visible
-    const updateActiveSection = (entries) => {
-      if (isProgrammaticScroll.current) return;
-      
-      // Find the most visible section
-      let mostVisible = { ratio: 0, id: null };
-      
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const intersectionRatio = entry.intersectionRatio;
-          console.log('Intersection observed:', entry.target.dataset.section, 'ratio:', intersectionRatio);
-          
-          if (intersectionRatio > mostVisible.ratio) {
-            mostVisible = {
-              ratio: intersectionRatio,
-              id: entry.target.dataset.section
-            };
-          }
-        }
-      });
-      
-      // Update active section if we found a visible section
-      if (mostVisible.id) {
-        console.log('Most visible section:', mostVisible.id, 'with ratio:', mostVisible.ratio);
-        setActiveSection(mostVisible.id);
-      }
-    };
-    
-    // Create observer with multiple thresholds for better detection
-    const observer = new IntersectionObserver(updateActiveSection, {
-      threshold: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
-      rootMargin: '0px 0px -50% 0px'  // Consider an element "in view" when it's within the top 50% of the viewport
-    });
-    
-    // Add observer to all section detectors with a small delay to ensure DOM is ready
-    const setupObserver = () => {
-      const detectors = document.querySelectorAll('[data-section]');
-      console.log('Found section detectors:', detectors.length);
-      
-      if (detectors.length === 0) {
-        console.warn('No section detectors found! Looking for elements with data-section attribute');
-        return;
-      }
-      
-      detectors.forEach(detector => {
-        console.log('Observing section:', detector.dataset.section);
-        observer.observe(detector);
-      });
-    };
-    
-    // Small delay to ensure all elements are rendered
-    const timer = setTimeout(setupObserver, 500);
-    
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener('scrollend', handleScrollEnd);
-      observer.disconnect();
-    };
+
   }, []);
 
   const scrollToSection = (e, sectionId) => {
@@ -331,47 +288,86 @@ export default function Home() {
   }), [overviewHeadingRef, aboutHeadingRef, workHeadingRef, webglHeadingRef, skillsHeadingRef, contactHeadingRef, motionHeadingRef, productHeadingRef]);
   
   // Trigger animation when section changes
-  useEffect(() => {
-    console.log('Active section changed to:', activeSection);
-    console.log('Section refs:', sectionRefs);
-    //const locomotiveScroll = new LocomotiveScroll();
-
-    const locomotiveScroll = new LocomotiveScroll({
+const scrollRef = useRef(null);
+useEffect(() => {
+  console.log('Active section changed to:', activeSection);
+  console.log('Section refs:', sectionRefs);
+  // Initialize LocomotiveScroll if it doesn't exist
+  if (!scrollRef.current) {
+    scrollRef.current = new LocomotiveScroll({
       lenisOptions: {
-          wrapper: window,
-          content: document.documentElement,
-          lerp: 0.1,
-          duration: 1.2,
-          orientation: 'vertical',
-          gestureOrientation: 'vertical',
-          smoothWheel: true,
-          smoothTouch: false,
-          wheelMultiplier: 1,
-          touchMultiplier: 2,
-          normalizeWheel: true,
-          wrapper: (element) => {
-            // If the modal is open, return the modal's scrollable element
-            const modalContent = document.querySelector(`.${styles.modalContent}`);
-            if (modalContent && modalContent.offsetParent !== null) {
-              return modalContent;
-            }
-            // Otherwise use default window scrolling
-            return window;
-          },
-          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -15 * t)), // https://www.desmos.com/calculator/brs54l4xou
+        wrapper: window,
+        content: document.documentElement,
+        lerp: 0.1,
+        duration: 1.2,
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        smoothTouch: false,
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+        normalizeWheel: true,
+        wrapper: (element) => {
+          // Check for modal overlay visibility
+          const modalOverlay = document.querySelector(`.${styles.modalOverlay}`);
+          if (modalOverlay && window.getComputedStyle(modalOverlay).display === 'flex') {
+            return null; // Return null when modal is open
+          }
+          return window; // Default to window when no modal is open
+        },
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -15 * t)),
       },
-  });
-    if (activeSection && sectionRefs[activeSection]?.current) {
-      console.log('Calling animate() on section ref:', activeSection, sectionRefs[activeSection].current);
-      try {
-        sectionRefs[activeSection].current.animate();
-      } catch (error) {
-        console.error('Error calling animate():', error);
-      }
-    } else {
-      console.log('No animation triggered - section ref not found or not ready:', activeSection);
+    });
+  }
+  // Trigger animation if section ref is available
+  if (activeSection && sectionRefs[activeSection]?.current) {
+    console.log('Calling animate() on section ref:', activeSection, sectionRefs[activeSection].current);
+    try {
+      sectionRefs[activeSection].current.animate();
+    } catch (error) {
+      console.error('Error calling animate():', error);
     }
-  }, [activeSection, sectionRefs]);
+  } else {
+    console.log('No animation triggered - section ref not found or not ready:', activeSection);
+  }
+  // Cleanup function
+  return () => {
+    if (scrollRef.current) {
+      scrollRef.current.destroy();
+      scrollRef.current = null;
+    }
+  };
+}, [activeSection, sectionRefs, styles.modalOverlay, styles.scrollableContent]);
+
+
+  useEffect(() => {
+  const handleWheel = (e) => {
+    const modalContent = document.querySelector(`.${styles.modalOverlay} .${styles.scrollableContent}`);
+    if (modalContent && modalContent.offsetParent !== null) {
+      // Check if the wheel event is over the modal content
+      const isOverModal = modalContent.contains(e.target) || e.target === modalContent;
+      if (isOverModal) {
+        // Prevent the default behavior to stop page scrolling
+        e.stopPropagation();
+        e.preventDefault();
+        
+        // Manually handle the scroll
+        const delta = e.deltaY || e.detail || -e.wheelDelta;
+        modalContent.scrollTop += delta * 0.5; // Adjust the multiplier for scroll speed
+        
+        return false;
+      }
+    }
+    return true;
+  };
+  // Use capture phase to catch the event before LocomotiveScroll
+  window.addEventListener('wheel', handleWheel, { passive: false, capture: true });
+  
+  return () => {
+    window.removeEventListener('wheel', handleWheel, { passive: false, capture: true });
+  };
+}, [styles.modalOverlay, styles.scrollableContent]);
+
 
   return (
     <div className={styles.container} role="document">
@@ -524,19 +520,19 @@ export default function Home() {
                 >
                   Code
                 </a>
+                                <a 
+                  href="#motion" 
+                  className={`${styles.navLink} ${activeSection === 'motion' ? styles.active : ''}`}
+                  onClick={(e) => scrollToSection(e, 'motion')}
+                >
+                  Motion
+                </a>
                 <a 
                   href="#webgl" 
                   className={`${styles.navLink} ${activeSection === 'webgl' ? styles.active : ''}`}
                   onClick={(e) => scrollToSection(e, 'webgl')}
                 >
                   WebGL
-                </a>
-                <a 
-                  href="#motion" 
-                  className={`${styles.navLink} ${activeSection === 'motion' ? styles.active : ''}`}
-                  onClick={(e) => scrollToSection(e, 'motion')}
-                >
-                  Motion
                 </a>
                 <a 
                   href="#proto" 
@@ -604,7 +600,6 @@ export default function Home() {
             */} 
              {/*About Section Detector Here*/} 
           <section id="about" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="about">
-            <div data-section="about"></div>
              <SectionTracker onSectionChange={setActiveSection} />
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={aboutHeadingRef}>About</AnimatedText>
@@ -627,7 +622,6 @@ export default function Home() {
             </section>
 
             <section id="overview" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="overview">
-                <div data-section="overview"></div>
                 <SectionTracker onSectionChange={setActiveSection} />
                 <h2 style={{paddingTop: "5rem"}}><AnimatedText ref={aboutHeadingRef}>Overview</AnimatedText></h2>
                 <div style={{paddingBottom:"2rem"}}>
@@ -637,7 +631,6 @@ export default function Home() {
             </section>
 
              <section id="skills" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="skills">
-            <div data-section="skills"></div>
              <SectionTracker onSectionChange={setActiveSection} />
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={skillsHeadingRef}>Core Skills</AnimatedText>
@@ -683,12 +676,11 @@ export default function Home() {
              {/* About section End */}
 
                
-            <SectionTracker onSectionChange={setActiveSection} />
-            <div data-section="code"></div>      
+            <SectionTracker onSectionChange={setActiveSection} /> 
             <section id="code" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="code">
-              <div style={{height: '5rem'}}></div>
+       
               <h2 id="code" className={styles.scrollTarget}><AnimatedText ref={workHeadingRef}>Code Projects</AnimatedText></h2>
-          
+                 <div style={{height: '5rem'}}>Selected Case Studies</div>
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
 
               <ProjectCard 
@@ -1014,112 +1006,13 @@ export default function Home() {
               </div>
             </section>
 
-            {/*   WebGL Section */}
-            <div data-section="webgl"></div>
-            <section id="webgl" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="webgl">
-            
-             <SectionTracker onSectionChange={setActiveSection} />
-            <h2 style={{paddingTop: "5rem"}}>
-              <AnimatedText ref={webglHeadingRef}>WebGL</AnimatedText>
-            </h2>
-         
-           
-              <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
-              <ProjectCard 
-                  onMoreClick={() => {
-                    console.log('Bytes101 More button clicked, triggering animation');
-                    bytes101TextRef.current?.animate();
-                  }}
-                  title="Bytes101"
-                  image="/images/bytes101.jpg"
-                  alt="Bytes101"
-                  link="https://bytes101.vercel.app"
-                  text="Featuring custom 3D models and animations."
-                  className="webglProject"
-                >
-                  <p>Concept Demo</p>
-                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> Three.js / React Three Fiber</AnimatedText></p>
-                  <p><strong>Role:</strong> Concept / Animation / Dev</p>
-                  <p><strong>Duration:</strong> 1 week</p>
-                  <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
-                </ProjectCard>
-                {!isMobile && (
-                  <>
-               
-                    <ProjectCard 
-                      onMoreClick={() => {
-                        console.log('streetlamp More button clicked, triggering animation');
-                        streetlampTextRef.current?.animate();
-                      }}
-                      title="Streetlamp 2044"
-                      image="/images/JPL3Poster_R3F.jpg"
-                      alt="Streetlamp 2044"
-                      text="Featuring custom audiotracks, 3D models and animations."
-                      link="https://jpl3d2.vercel.app/"
-                      className="webglProject"
-                    >
-                      <p>R3F Concept Demo</p>
-                      <p><strong>Tools:</strong><AnimatedText ref={streetlampTextRef} type="project">Three.js / React 3 Fiber / GSAP</AnimatedText></p>
-                      <p><strong>Role:</strong> Concept / Animation / Dev</p>
-                      <p><strong>Duration:</strong> 3 weeks</p>
-                      <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
-                    </ProjectCard>
-                    <ProjectCard 
-                      onMoreClick={() => {
-                        console.log('Facility More button clicked, triggering animation');
-                        facilityTextRef.current?.animate();
-                      }}
-                      title="The Facility"
-                      image="https://cdna.artstation.com/p/assets/images/images/077/341/642/large/jan-peiro-box1.jpg?1719257986"
-                      alt="The Facility"
-                      text="Featuring custom audiotracks, 3D models and animations."
-                      link="https://facility3.vercel.app/"
-                      className="webglProject"
-                    >
-                      <p>Visual Concept Demo</p>
-                      <p><strong>Tools:</strong><AnimatedText ref={facilityTextRef} type="project">Three.js / React 3 Fiber / GLSL / GSAP</AnimatedText></p>
-                      <p><strong>Role:</strong> Concept / Animation / Dev</p>
-                      <p><strong>Duration:</strong> 3 weeks</p>
-                      <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
-                    </ProjectCard>
-
-
-                    <ProjectCard 
-                    onMoreClick={() => {
-                      console.log('Bytes101 More button clicked, triggering animation');
-                      qcTextRef.current?.animate();
-                    }}
-                      title="Schrödinger & Bohr Quantum Pocketwatches "
-                      image="/images/JPL3Poster_QC.jpg"
-                      alt="Quantum Pocketwatch Company"
-                      link="https://quantum-pocketwatch.vercel.app/"
-                      text="<strong>Desktop Only</strong>. Featuring custom 3D models and interactions." 
-                      className="webglProject"
-                    >
-                      <p>Visual Concept Experiment</p>
-                      <p><strong>Tools:</strong><AnimatedText ref={qcTextRef} type="project">Three.js / React 3 Fiber / GSAP / Router / Next.js</AnimatedText></p>
-                      <p><strong>Role:</strong> Concept / Animation / Dev</p>
-                      <p><strong>Duration:</strong> 2 weeks</p>
-                      <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
-                    </ProjectCard>
-                  </>
-                )}
-              </div>
-
-            </section>
-            
-       {/*   Motion Section 
-
-       <hr className={styles.divider2} />*/}
-
-        <div data-section="motion"></div>
-            <section id="motion" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="motion">
+              <section id="motion" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="motion">
             
              <SectionTracker onSectionChange={setActiveSection} />
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={motionHeadingRef}>Motion</AnimatedText>
             </h2>
-       
+                        <div style={{height: '5rem'}}>Selected Case Studies</div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
               <VideoProjectCard 
                   title="Showreel 2025"
@@ -1382,8 +1275,106 @@ export default function Home() {
               </div> 
             </section> 
 
+            {/*   WebGL Section */}
+            <section id="webgl" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="webgl">
+            
+             <SectionTracker onSectionChange={setActiveSection} />
+            <h2 style={{paddingTop: "5rem"}}>
+              <AnimatedText ref={webglHeadingRef}>WebGL</AnimatedText>
+            </h2>
+                          <div style={{height: '5rem'}}>Selected Case Studies</div>
+           
+              <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
+              <ProjectCard 
+                  onMoreClick={() => {
+                    console.log('Bytes101 More button clicked, triggering animation');
+                    bytes101TextRef.current?.animate();
+                  }}
+                  title="Bytes101"
+                  image="/images/bytes101.jpg"
+                  alt="Bytes101"
+                  link="https://bytes101.vercel.app"
+                  text="Featuring custom 3D models and animations."
+                  className="webglProject"
+                >
+                  <p>Concept Demo</p>
+                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> Three.js / React Three Fiber</AnimatedText></p>
+                  <p><strong>Role:</strong> Concept / Animation / Dev</p>
+                </ProjectCard>
+                </div>
+            </section>
+            {/*       {!isMobile && (
+                  <>
+               
+                    <ProjectCard 
+                      onMoreClick={() => {
+                        console.log('streetlamp More button clicked, triggering animation');
+                        streetlampTextRef.current?.animate();
+                      }}
+                      title="Streetlamp 2044"
+                      image="/images/JPL3Poster_R3F.jpg"
+                      alt="Streetlamp 2044"
+                      text="Featuring custom audiotracks, 3D models and animations."
+                      link="https://jpl3d2.vercel.app/"
+                      className="webglProject"
+                    >
+                      <p>R3F Concept Demo</p>
+                      <p><strong>Tools:</strong><AnimatedText ref={streetlampTextRef} type="project">Three.js / React 3 Fiber / GSAP</AnimatedText></p>
+                      <p><strong>Role:</strong> Concept / Animation / Dev</p>
+                      <p><strong>Duration:</strong> 3 weeks</p>
+                      <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
+                    </ProjectCard>
+                    <ProjectCard 
+                      onMoreClick={() => {
+                        console.log('Facility More button clicked, triggering animation');
+                        facilityTextRef.current?.animate();
+                      }}
+                      title="The Facility"
+                      image="https://cdna.artstation.com/p/assets/images/images/077/341/642/large/jan-peiro-box1.jpg?1719257986"
+                      alt="The Facility"
+                      text="Featuring custom audiotracks, 3D models and animations."
+                      link="https://facility3.vercel.app/"
+                      className="webglProject"
+                    >
+                      <p>Visual Concept Demo</p>
+                      <p><strong>Tools:</strong><AnimatedText ref={facilityTextRef} type="project">Three.js / React 3 Fiber / GLSL / GSAP</AnimatedText></p>
+                      <p><strong>Role:</strong> Concept / Animation / Dev</p>
+                      <p><strong>Duration:</strong> 3 weeks</p>
+                      <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
+                    </ProjectCard>
 
-            <div data-section="proto"></div>
+
+                    <ProjectCard 
+                    onMoreClick={() => {
+                      console.log('Bytes101 More button clicked, triggering animation');
+                      qcTextRef.current?.animate();
+                    }}
+                      title="Schrödinger & Bohr Quantum Pocketwatches "
+                      image="/images/JPL3Poster_QC.jpg"
+                      alt="Quantum Pocketwatch Company"
+                      link="https://quantum-pocketwatch.vercel.app/"
+                      text="<strong>Desktop Only</strong>. Featuring custom 3D models and interactions." 
+                      className="webglProject"
+                    >
+                      <p>Visual Concept Experiment</p>
+                      <p><strong>Tools:</strong><AnimatedText ref={qcTextRef} type="project">Three.js / React 3 Fiber / GSAP / Router / Next.js</AnimatedText></p>
+                      <p><strong>Role:</strong> Concept / Animation / Dev</p>
+                      <p><strong>Duration:</strong> 2 weeks</p>
+                      <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
+                    </ProjectCard>
+                  </>
+                )}
+              </div>
+
+            </section>
+            
+       Motion Section 
+
+       <hr className={styles.divider2} />*/}
+
+          
+
+
             <section id="proto" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="proto">
             
              <SectionTracker onSectionChange={setActiveSection} />
@@ -1412,7 +1403,6 @@ export default function Home() {
 
             {/*   MOTION ENDS HERE             <hr className={styles.divider2} /> */}  
 
-            <div data-section="contact"></div>
             <section id="contact" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="contact">
             
              <SectionTracker onSectionChange={setActiveSection} />
