@@ -599,6 +599,7 @@ useEffect(() => {
             </div>
             */} 
              {/*About Section Detector Here*/} 
+                <div data-section="about-heading"></div>
           <section id="about" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="about">
              <SectionTracker onSectionChange={setActiveSection} />
             <h2 style={{paddingTop: "5rem"}}>
@@ -620,7 +621,7 @@ useEffect(() => {
 
               <div style={{height: '0.1rem'}}></div>
             </section>
-
+   <div data-section="overview-heading"></div>
             <section id="overview" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="overview">
                 <SectionTracker onSectionChange={setActiveSection} />
                 <h2 style={{paddingTop: "5rem"}}><AnimatedText ref={aboutHeadingRef}>Overview</AnimatedText></h2>
@@ -675,7 +676,7 @@ useEffect(() => {
     
              {/* About section End */}
 
-               
+                  <div data-section="code-heading"></div>
             <SectionTracker onSectionChange={setActiveSection} /> 
             <section id="code" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="code">
        
@@ -1005,7 +1006,7 @@ useEffect(() => {
                 </ProjectCard> */}
               </div>
             </section>
-
+   <div data-section="motion-heading"></div>
               <section id="motion" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="motion">
             
              <SectionTracker onSectionChange={setActiveSection} />
@@ -1276,6 +1277,7 @@ useEffect(() => {
             </section> 
 
             {/*   WebGL Section */}
+               <div data-section="webgl-heading"></div>
             <section id="webgl" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="webgl">
             
              <SectionTracker onSectionChange={setActiveSection} />
@@ -1374,9 +1376,9 @@ useEffect(() => {
 
           
 
-
+   <div data-section="product-heading"></div>
             <section id="proto" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="proto">
-            
+          
              <SectionTracker onSectionChange={setActiveSection} />
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={productHeadingRef}>Prototype</AnimatedText>
@@ -1398,11 +1400,11 @@ useEffect(() => {
                   My Task: <span style={{ fontSize: '0.85rem', fontWeight: 'normal', color: '#acfeff', marginBottom:'3rem', display: 'block', lineHeight: '1.4' }}>Invent a new type of dealership award for Mercedes Benz. I thought up the concept, designed the whole piece including UI and put together a working tech-stack for a fully functional prototype. Currently being recoded.</span>
                 </div>
               </div>
-              <ThrowableImages isActive={activeSection === 'product-heading'} />
+              <ThrowableImages isActive={activeSection === 'proto'} />
             </section>
 
             {/*   MOTION ENDS HERE             <hr className={styles.divider2} /> */}  
-
+<div data-section="contact"></div>
             <section id="contact" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="contact">
             
              <SectionTracker onSectionChange={setActiveSection} />
