@@ -1302,9 +1302,8 @@ useEffect(() => {
                   <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> Three.js / React Three Fiber</AnimatedText></p>
                   <p><strong>Role:</strong> Concept / Animation / Dev</p>
                 </ProjectCard>
-                </div>
-            </section>
-            {/*       {!isMobile && (
+
+                {!isMobile && (
                   <>
                
                     <ProjectCard 
@@ -1323,7 +1322,7 @@ useEffect(() => {
                       <p><strong>Tools:</strong><AnimatedText ref={streetlampTextRef} type="project">Three.js / React 3 Fiber / GSAP</AnimatedText></p>
                       <p><strong>Role:</strong> Concept / Animation / Dev</p>
                       <p><strong>Duration:</strong> 3 weeks</p>
-                      <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
+                      <p><strong>Info:</strong></p>
                     </ProjectCard>
                     <ProjectCard 
                       onMoreClick={() => {
@@ -1341,7 +1340,7 @@ useEffect(() => {
                       <p><strong>Tools:</strong><AnimatedText ref={facilityTextRef} type="project">Three.js / React 3 Fiber / GLSL / GSAP</AnimatedText></p>
                       <p><strong>Role:</strong> Concept / Animation / Dev</p>
                       <p><strong>Duration:</strong> 3 weeks</p>
-                      <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
+                      <p><strong>Info:</strong></p>
                     </ProjectCard>
 
 
@@ -1361,17 +1360,20 @@ useEffect(() => {
                       <p><strong>Tools:</strong><AnimatedText ref={qcTextRef} type="project">Three.js / React 3 Fiber / GSAP / Router / Next.js</AnimatedText></p>
                       <p><strong>Role:</strong> Concept / Animation / Dev</p>
                       <p><strong>Duration:</strong> 2 weeks</p>
-                      <p><strong>Info:</strong>This was a learning project, I would do things differently today.</p>
+                      <p><strong>Info:</strong></p>
                     </ProjectCard>
                   </>
                 )}
               </div>
 
             </section>
-            
+                {/*   
        Motion Section 
 
-       <hr className={styles.divider2} />*/}
+   <hr className={styles.divider2} /> 
+
+                       </div>
+            </section> */}
 
           
 

@@ -360,6 +360,12 @@ width:150px;
   .modalContent {
     padding: 1.5rem;
   }
+  .logoImage {
+
+  filter: grayscale(10%) brightness(1.1);
+  transition: all 0.3s ease;
+}
+
 }
 
 @media (max-width: 768px) {

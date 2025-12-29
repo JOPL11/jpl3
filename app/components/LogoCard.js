@@ -108,31 +108,7 @@ const LogoCard = () => {
 
     `,
     description2: ``
-  },
-    { id: 3, src: '/images/mini/atonato.jpg', alt: 'Logo 3', 
-      title: 'High-Stakes Decision Support System',
-      description: `
-      <p><strong>Overview:</strong> Developed a mission-critical digital training and assessment platform for a major international security institution. The project required translating complex operational protocols into a flawless, scenario-based application with zero tolerance for error in logic or execution.</p><br>
-
-      <p><strong>Role:</strong> Developer<br>
-
-
-      <p><strong>Solution & Technical Execution:</strong><br>
-      Built a robust, custom JavaScript application that:
-      <ul>
-        <li>Managed large, dynamic datasets of scenarios and decision pathways.</li>
-        <li>Implemented a branching-logic engine to drive complex, scenario-based user interactions.</li>
-        <li>Featured a precise scoring and feedback framework to measure and reinforce protocol adherence.</li>
-      </ul>
-      </p>
-<br>
-      <p><strong>Outcome:</strong> The system was successfully deployed to end-users, meeting strict requirements for accuracy, reliability, and user comprehension. This project exemplifies my capability to deliver complex, critical systems where performance is non-negotiable.</p><br>
-
-      <p><strong>Technologies:</strong> Vanilla JavaScript, XML, HTML5, CSS3</p>
-
-      `,
-    description2: ``
-  },
+  },                 
     { id: 4, src: '/images/mini/audi.jpg', alt: 'Logo 4', 
       title: 'Audi Nuremberg & Audi Middle East',
       clientText: `Planstand`,
@@ -425,7 +401,7 @@ const LogoCard = () => {
    },
     { id: 18, src: '/images/mini/strellson.jpg', alt: 'Logo 18' , 
       title: 'Strellson Image-Films',
-      clientText: ` `,
+      clientText: `coma2`,
       clientLogo: '/images/agencies/coma2_logo.png',
       clientLogoHeight: 25,
       agencyName: 'coma2',
@@ -439,9 +415,9 @@ const LogoCard = () => {
    },
      { id: 19, src: '/images/mini/twenty.jpg', alt: 'Logo 19' , 
       title: 'Strellson Image-Film',
-      clientText: ` `,
-      clientLogo: '/images/agencies/coma2_logo.png',
-      clientLogoHeight: 25,
+      clientText: `NakedToast`,
+      clientLogo: '/images/agencies/nt2.png',
+      clientLogoHeight: 65,
       agencyName: 'NakedToast',
  description: `
       <p><strong>Projects:</strong> Landingpages / campaign deliverables for motion pictures.<br>
@@ -453,10 +429,10 @@ const LogoCard = () => {
    },
     { id: 20, src: '/images/mini/universal.jpg', alt: 'Logo 20' , 
       title: 'Strellson Image-Film',
-      clientText: ` `,
-      clientLogo: '/images/agencies/coma2_logo.png',
-      clientLogoHeight: 25,
-       agencyName: 'NakedToast',
+      clientText: `NakedToast`,
+      clientLogo: '/images/agencies/nt2.png',
+      clientLogoHeight: 65,
+      agencyName: 'NakedToast',
  description: `
       <p><strong>Projects:</strong> Landingpages / campaign deliverables for motion pictures.<br>
       <strong>Role:</strong> Concept, Design, Programming<br>
@@ -467,9 +443,9 @@ const LogoCard = () => {
    },
     { id: 21, src: '/images/mini/wb.jpg', alt: 'Logo 21' , 
       title: 'Warner Brothers Campaign Deliverables (Various)',
-      clientText: ` `,
-      clientLogo: '/images/agencies/coma2_logo.png',
-      clientLogoHeight: 25,
+      clientText: `NakedToast`,
+      clientLogo: '/images/agencies/nt2.png',
+      clientLogoHeight: 65,
        agencyName: 'NakedToast',
  description: `
       <p><strong>Projects:</strong> Landingpages / campaign deliverables for motion pictures.<br>
@@ -480,7 +456,30 @@ const LogoCard = () => {
     description2: `` 
    },
   ];
+    {/*    { id: 3, src: '/images/mini/atonato.jpg', alt: 'Logo 3', 
+      title: 'High-Stakes Decision Support System',
+      description: `
+      <p><strong>Overview:</strong> Developed a mission-critical digital training and assessment platform for a major international security institution. The project required translating complex operational protocols into a flawless, scenario-based application with zero tolerance for error in logic or execution.</p><br>
 
+      <p><strong>Role:</strong> Developer<br>
+
+
+      <p><strong>Solution & Technical Execution:</strong><br>
+      Built a robust, custom JavaScript application that:
+      <ul>
+        <li>Managed large, dynamic datasets of scenarios and decision pathways.</li>
+        <li>Implemented a branching-logic engine to drive complex, scenario-based user interactions.</li>
+        <li>Featured a precise scoring and feedback framework to measure and reinforce protocol adherence.</li>
+      </ul>
+      </p>
+<br>
+      <p><strong>Outcome:</strong> The system was successfully deployed to end-users, meeting strict requirements for accuracy, reliability, and user comprehension. This project exemplifies my capability to deliver complex, critical systems where performance is non-negotiable.</p><br>
+
+      <p><strong>Technologies:</strong> Vanilla JavaScript, XML, HTML5, CSS3</p>
+
+      `,
+    description2: ``
+  }, */}
   return (
     <div className={styles.logoContainer}>
       {logos.map((logo) => (
