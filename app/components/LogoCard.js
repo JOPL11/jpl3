@@ -241,7 +241,7 @@ const LogoCard = () => {
       clientText: `Spiegel TV (Der Spiegel Media Group / Autentic GmbH)`,
       clientLogo: '/images/agencies/spiegeltvlogo.png',
       clientLogoHeight: 25,
-      agencyName: 'Autentic GmbH',
+      agencyName: 'Direct Client',
       description: `
       <p><strong>Overview:</strong> Led the complete digital design and development for two flagship pay-TV channels 2010 - 2017: Spiegel Wissen (science) and Spiegel Geschichte (history), from strategic consultation to interactive execution.</p>
 
@@ -279,7 +279,7 @@ const LogoCard = () => {
       clientText: `Red Bull Austria`,
       clientLogo: '/images/agencies/redBull.png',
       clientLogoHeight: 25,
-      agencyName: 'Red Bull Austria',
+      agencyName: 'Direct Client',
       description: `
       <p><strong>The Client & Era:</strong> In the mid-2000s, Red Bull was transitioning from an energy drink company into a global media powerhouse and culture brand. Their digital presence needed to match their high-octane, experiential identity.</p><br>
       <p><strong>My Role: </strong> Lead Interactive Designer & Developer<br>
@@ -304,13 +304,14 @@ const LogoCard = () => {
     { id: 11, src: '/images/mini/pro7.jpg', alt: 'Logo 11', 
        title: 'Online Ad Campaigns',
       clientText: `Pro7Sat1`,
-      clientLogo: '/images/agencies/pro7.png',
+      clientLogo: '/images/agencies/pro7_small.png',
       clientLogoHeight: 25,
-      agencyName: 'Pro7Sat1',
+      agencyName: 'Direct Client',
         description: `
-      <p><strong>Project 1:</strong> Banner Campaigns for Pro7 Television Content<br>
-      <strong>Role:</strong> Design, Motion, Programming<br>
-      <strong>Tech:</strong> After Effects, JavaScript, HTML5, CSS3<br>
+      <p><strong>Projects:</strong> Broadcast Promotional Assets for Major Motion Pictures / local tv shows</p><br>
+    <p>Developed digital advertising campaigns for theatrical releases as part of integrated on-air promotions for the Pro7Sat1 Media Group.<br></p>
+     <p> <strong>Role:</strong> Design, Motion, Programming<br></p>
+
     `,
     description2: `` 
    },
@@ -319,11 +320,11 @@ const LogoCard = () => {
       clientText: `Hubert Burda New Media`,
       clientLogo: '/images/agencies/HBM.png',
       clientLogoHeight: 45,
-      agencyName: 'In house',
+      agencyName: 'Direct Client',
  description: `
-      <p><strong>Project 1:</strong> Interactive Presentations<br>
-      Burda New Media presentations by the Marketing Manager to promote his ideas and strategies internally.
-      <strong>Role:</strong> Visual Concept (CI adapted), Design, Animation, Programming<br>
+      <p><strong>Project 1:</strong> Interactive Presentations<br></p>
+      <p>Burda New Media presentations by the Marketing Manager to promote his ideas and strategies internally.</p><br>
+     <p><strong>Role:</strong> Visual Concept (CI adapted), Design, Animation, Programming<br></p>
     `,
     description2: `` 
    },
@@ -414,27 +415,28 @@ const LogoCard = () => {
     description2: `` 
    },
      { id: 19, src: '/images/mini/twenty.jpg', alt: 'Logo 19' , 
-      title: 'Strellson Image-Film',
+      title: 'Motion Picture Digital Delivarables',
       clientText: `NakedToast`,
       clientLogo: '/images/agencies/nt2.png',
       clientLogoHeight: 65,
       agencyName: 'NakedToast',
  description: `
-      <p><strong>Projects:</strong> Landingpages / campaign deliverables for motion pictures.<br>
-      <strong>Role:</strong> Concept, Design, Programming<br>
+      <p><strong>Projects:</strong> Landingpages / Digital Campaign Deliverables for Motion Pictures.<br></p>
+      <p><strong>Role:</strong> Concept, Design, Programming<br></p>
+      <p>Developed high-impact digital marketing components for global theatrical releases from leading studios. Work included promotional microsites, interactive landing pages, and animated banner ad suites—all designed under strict NDA for unreleased film properties.</p>
 
 
     `,
     description2: `` 
    },
     { id: 20, src: '/images/mini/universal.jpg', alt: 'Logo 20' , 
-      title: 'Strellson Image-Film',
+      title: 'Marketing Assets for Motion Pictures',
       clientText: `NakedToast`,
       clientLogo: '/images/agencies/nt2.png',
       clientLogoHeight: 65,
       agencyName: 'NakedToast',
  description: `
-      <p><strong>Projects:</strong> Landingpages / campaign deliverables for motion pictures.<br>
+      <p><strong>Projects:</strong> Landingpages / Digital Campaign Deliverables for Motion Pictures.</p><br>
       <strong>Role:</strong> Concept, Design, Programming<br>
 
 
@@ -442,13 +444,13 @@ const LogoCard = () => {
     description2: `` 
    },
     { id: 21, src: '/images/mini/wb.jpg', alt: 'Logo 21' , 
-      title: 'Warner Brothers Campaign Deliverables (Various)',
+      title: 'Advertising Assets / Campaign Deliverables for Motion Pictures',
       clientText: `NakedToast`,
       clientLogo: '/images/agencies/nt2.png',
       clientLogoHeight: 65,
        agencyName: 'NakedToast',
  description: `
-      <p><strong>Projects:</strong> Landingpages / campaign deliverables for motion pictures.<br>
+      <p><strong>Projects:</strong> Landingpages / Digital Campaign Deliverables for Motion Pictures.<br>
       <strong>Role:</strong> Concept, Design, Programming<br>
 
 

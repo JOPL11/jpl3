@@ -5,53 +5,36 @@ import { useLoading } from '../contexts/LoadingContext';
 import styles from './LoadingOverlay.module.css';
 
 export default function LoadingOverlay() {
-  const [isVisible, setIsVisible] = useState(true);
   const { isLoading, setIsLoading } = useLoading();
-  const [showPressSpace, setShowPressSpace] = useState(false);
-
-  const handleKeyDown = useCallback((e) => {
-    if (e.code === 'Space') {
-      e.preventDefault();
-      setIsVisible(false);
-      setIsLoading(false);
-      // Remove the event listener after first space press
-      window.removeEventListener('keydown', handleKeyDown);
-    }
-  }, [setIsLoading]);
+  const [isVisible, setIsVisible] = useState(true);
+  const [shouldRender, setShouldRender] = useState(true);
 
   useEffect(() => {
-    // Show "Press Space" message after a short delay
-    const showSpaceTimer = setTimeout(() => {
-      setShowPressSpace(true);
+    // Start fade out after 1 second
+    const fadeOutTimer = setTimeout(() => {
+      setIsVisible(false);
+      
+      // After fade out completes, update loading state and unmount
+      const removeTimer = setTimeout(() => {
+        if (setIsLoading) setIsLoading(false);
+        setShouldRender(false);
+      }, 500); // Match this with your CSS transition duration
+
+      return () => clearTimeout(removeTimer);
     }, 1000);
 
-    // Add keydown event listener
-    window.addEventListener('keydown', handleKeyDown, { passive: false });
-
     return () => {
-      clearTimeout(showSpaceTimer);
-      window.removeEventListener('keydown', handleKeyDown);
+      clearTimeout(fadeOutTimer);
     };
-  }, [handleKeyDown]);
+  }, [setIsLoading]);
 
-  if (!isLoading) return null;
+  if (!shouldRender) return null;
 
   return (
-    <div 
-      className={`${styles.loadingOverlay} ${!isVisible ? styles.hidden : ''}`}
-      onClick={() => {
-        // Also allow click to dismiss as a fallback
-        setIsVisible(false);
-        setIsLoading(false);
-      }}
-    >
+    <div className={`${styles.loadingOverlay} ${!isVisible ? styles.hidden : ''}`}>
       <div className={styles.loadingContent}>
         <div className={styles.welcomeMessage}>
-          Down For Maintenance
-          {showPressSpace && (
-            <div style={{ cursor: 'default' , fontSize: '0.8rem'}}>temporarily shuttered</div>
-
-         )}
+          Deploying...
         </div>
       </div>
     </div>
