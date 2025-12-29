@@ -26,7 +26,7 @@
 
 .agencyName {
   background-color: #141917;
-  color: white;
+  color: rgb(158, 158, 158);
   text-align: center;
    border-radius: 0 0 8px 8px;
   padding: 0.5rem;
@@ -345,6 +345,10 @@ html.no-scroll {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+
+  .logoWrapper {
+width:150px;
+  }
   .modalTitle {
     font-size: 1.25rem;
   }
@@ -362,7 +366,7 @@ html.no-scroll {
     
     .logoContainer {
      display: grid;
-     grid-template-columns: repeat(3, 0.2fr);
+     grid-template-columns: repeat(2, 0.2fr);
       
     justify-content: center; /* Center logos horizontally */
     align-items: center;     /* Center logos vertically */
@@ -392,7 +396,7 @@ html.no-scroll {
 @media (max-width: 480px) {
     .logoContainer {
     display: grid;
-    grid-template-columns: repeat(3, 0.32fr);
+    grid-template-columns: repeat(2, 0.32fr);
     justify-content: center; /* Center logos horizontally */
     align-items: center;/* Center logos vertically */
     width: auto;
@@ -430,7 +434,7 @@ html.no-scroll {
 @media (max-width: 412px) {
     .logoContainer {
     display: grid;
-    grid-template-columns: repeat(3, 0.32fr);
+    grid-template-columns: repeat(2, 0.32fr);
     justify-content: center; /* Center logos horizontally */
     align-items: center;/* Center logos vertically */
     width: auto;

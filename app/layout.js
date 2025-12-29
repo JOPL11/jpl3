@@ -12,6 +12,10 @@ import LoadingOverlay from './components/LoadingOverlay';
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
+
+const version = process.env.NEXT_PUBLIC_APP_VERSION || new Date().getTime();
+
+
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
@@ -34,12 +38,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.variable}>
       <head>
-        <ScriptLoader />
+        <ScriptLoader version={version}/>
         <meta 
   name="viewport" 
   content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" 
 />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href={`/favicon.ico?v=${version}`}  />
       </head>
 
       <body className={inter.className} suppressHydrationWarning={true}>

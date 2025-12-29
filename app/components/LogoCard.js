@@ -343,7 +343,7 @@ const LogoCard = () => {
       clientText: `Hubert Burda New Media`,
       clientLogo: '/images/agencies/HBM.png',
       clientLogoHeight: 45,
-      agencyName: 'Hubert Burda Media',
+      agencyName: 'In house',
  description: `
       <p><strong>Project 1:</strong> Interactive Presentations<br>
       Burda New Media presentations by the Marketing Manager to promote his ideas and strategies internally.
