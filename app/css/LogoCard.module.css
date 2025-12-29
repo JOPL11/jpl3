@@ -17,19 +17,38 @@
   background: transparent;
   border-radius: 8px;
   padding: 0.1rem;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   flex-shrink: 0;
   width: auto;
   cursor: pointer;
+
+}
+
+.agencyName {
+  background-color: #141917;
+  color: white;
+  text-align: center;
+   border-radius: 0 0 8px 8px;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.3s ease;
 }
 
 /* Logo Wrapper */
 .logoWrapper {
+  border-radius: 8px 8px 0 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: 120%;
   padding: 0.5rem;
+  background-color: #141917;
+  transition: all 0.3s ease;
 }
 
 /* Logo Image */
@@ -45,6 +64,15 @@
 /* Hover Effects */
 .logoCard:hover .logoImage {
   filter: grayscale(0%) brightness(2);
+  transform: scale(1.05);
+}
+.logoCard:hover .logoWrapper{
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.logoCard:hover .agencyName{
+  filter: grayscale(0%);
   transform: scale(1.05);
 }
 
@@ -130,6 +158,7 @@
   margin: 0.75em 0;  /* Increased from 0.25em for better paragraph spacing */
   line-height: 1.6;  /* Ensure consistent line height */
   margin-bottom: 0.5em;
+  color: #acfeff;
 }
 
 .modalDescription p:last-child {
@@ -157,7 +186,7 @@
 .scrollableContent {
   flex: 1;
   overflow-y: auto;
-  padding: 0 1.5rem 1.5rem;
+  padding: 0;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
   scrollbar-width: thin;
@@ -182,12 +211,13 @@
   scrollbar-width: thin;  /* Firefox */
 }
 .modalHeader {
-  padding: 1.5rem 1.5rem 1rem;
+  padding: 0 0 1.5rem;
   border-bottom: 1px solid var(--border-color);
   flex-shrink: 0; /* Prevent header from shrinking */
   position: relative;
   background: transparent;
   z-index: 1;
+  color: #acfeff;
 }
 .closeButton {
   position: absolute;
@@ -231,8 +261,7 @@ html.no-scroll {
   margin: 0;
   font-size: 1.5rem;
   font-weight: 600;
-  padding-right: 2rem;
-  min-height: 2.5rem; /* Match close button height */
+  padding-right: 0;/* Match close button height */
   display: flex;
   align-items: center;
 }
@@ -268,7 +297,7 @@ html.no-scroll {
 .clientInfo {
   display: flex;
   align-items: center;
-  padding: 0 1.5rem;
+  padding: 0;
   margin-bottom: 3rem;
   gap: 1rem;
   border-bottom: 1px solid var(--border-color);

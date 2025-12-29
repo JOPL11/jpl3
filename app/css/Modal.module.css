@@ -43,7 +43,7 @@
   overscroll-behavior: contain;
   display: flex;
   flex-direction: column;
-  margin: auto;
+    margin: 20px 0;
 }
 
 /* Scrollable content area within modal */
@@ -57,11 +57,12 @@
   scrollbar-color: var(--foreground-muted) var(--background);
   max-height: 100%;
   pointer-events: auto;
+
 }
 
 /* Scrollbar styling */
 .scrollableContent::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 .scrollableContent::-webkit-scrollbar-track {
@@ -71,6 +72,10 @@
 .scrollableContent::-webkit-scrollbar-thumb {
   background-color: var(--foreground-muted);
   border-radius: 3px;
+    background-color: var(--foreground-muted);
+  border-radius: 3px;
+  margin: 10px 0;  /* Adds space at top and bottom of the scrollbar */
+  min-height: 40px; 
 }
 
 .scrollableContent {
@@ -89,9 +94,9 @@
 
 .closeButton {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: rgba(255, 255, 255, 0.1);
+  top: 0.5rem;
+  right: 0.5rem;
+  background: transparent;
   border: none;
   border-radius: 50%;
   width: 32px;
@@ -108,7 +113,7 @@
 }
 
 .closeButton:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: transparent;
   transform: rotate(90deg);
 }
 
@@ -305,7 +310,7 @@
 
 /* Custom scrollbar for modal content */
 .modalContent::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
 }
 
 .modalContent::-webkit-scrollbar-track {

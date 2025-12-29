@@ -63,12 +63,13 @@ const LogoCard = () => {
       clientText: `VRPE`,
       clientLogo: '/images/agencies/vrpe_logoNew.png',
       clientLogoHeight: 15,
+      agencyName: 'VRPE',
       description: `
       <p>Delivered two flagship digital experiences for a global aerospace leader:<br> <br> 
       <strong>1)</strong> An immersive multi-monitor 3D visualization for their Paris Airshow exhibition.<br>
-      <strong>2)</strong> A dynamic, interactive corporate presentation tool deployed for global stakeholder meetings. Owned concept, design, animation, and development.</p>
+      <strong>2)</strong> A dynamic, interactive corporate presentation tool deployed for global stakeholder meetings. Owned concept, design, animation, and development.</p><br>
 
-      <p><strong>Role:</strong> As the lead designer and developer, I was entrusted with creating both experiences from concept to delivery—handling visual design, 3D animation, motion graphics, and interactive coding.</p>
+      <p><strong>Role:</strong> As the lead designer and developer, I was entrusted with creating both experiences from concept to delivery—handling visual design, 3D animation, motion graphics, and interactive coding.</p><br>
       <p><strong>Tech:</strong> Cinema4D, Corona Render Engine, Adobe After-Effects, High-resolution render pipeline, javascript</p>
     `,
     description2: ``
@@ -78,58 +79,58 @@ const LogoCard = () => {
       clientText: `SMMD Team`,
       clientLogo: '/images/agencies/SMMD.png',
       clientLogoHeight: 35,
+      agencyName: 'SMMD',
       description: `
       <p><strong>The Mission:</strong> Airbus Group required a next-generation digital interface for its most important physical spaces: its International Headquarters in Berlin and its premier Showroom in Munich. The mandate was to create an interactive, multi-sensory experiences that could communicate the complexity and ambition of aerospace innovation to VIPs, partners, and policymakers.<br><br>
 
       <strong>My Role:</strong> Lead Digital Experience Designer & Developer.<br>
       I was entrusted with the complete digital vision for these spaces, acting as the sole creator across four distinct installations—responsible for User Experience (UIX) strategy, visual and motion design, animation, and full-stack interactive development.<br><br>
-      <strong>The Portfolio of Installations:</strong></p>
+      <strong>The Portfolio of Installations:</strong></p><br>
 
       <p><strong>1.</strong> HQ Command Center: Berlin Touchtable Interface<br>
       <strong>Challenge: </strong> Create a collaborative, data-driven tool for the heart of Airbus operations.<br>
-      <strong>Solution: </strong> Designed and coded a custom multi-monitor touchtable interface (JavaScript) that allowed executives to interactively explore fleet data, global operations, and company history. This is mission-critical UIX for daily use.</p>
+      <strong>Solution: </strong> Designed and coded a custom multi-monitor touchtable interface (JavaScript) that allowed executives to interactively explore fleet data, global operations, and company history. This is mission-critical UIX for daily use.</p><br>
 
       <p><strong>2.</strong> Showroom Centerpiece: Munich Interactive 3D Expo Piece.<br>
       <strong>Challenge: </strong> Concept, Design, Animation, UIX Concept & Development.<br>
-      <strong>Solution: </strong> Airbus Munich Showroom (Ottobrunn, Germany)</p>
+      <strong>Solution: </strong> Airbus Munich Showroom (Ottobrunn, Germany)</p><br>
 
       <p><strong>3. </strong> Visual Spectacles: Munich Large-Format Video Features.<br>
       <strong>Challenge:</strong> Provide awe-inspiring ambient narrative and brand moments.<br>
-      <strong>Solution:</strong> Produced a suite of large-scale, multi-monitor video features. This included a complex 3D animated sequence visualizing flight dynamics across a range of products, and a stylized 2D motion graphics piece celebrating engineering milestones, both rendered in ultra-high resolution for close viewing.</p>
+      <strong>Solution:</strong> Produced a suite of large-scale, multi-monitor video features. This included a complex 3D animated sequence visualizing flight dynamics across a range of products, and a stylized 2D motion graphics piece celebrating engineering milestones, both rendered in ultra-high resolution for close viewing.</p><br>
       <p><strong>The Outcome & Impact:</strong></p>
       <ul>
         <li><p>Helped transform two key Airbus facilities from static spaces into dynamic, technology-forward brand experiences.</p></li>
         <li><p>Helped establish a new standard for corporate engagement, merging tactile interaction with cinematic narrative.</p></li>
         <li><p>Demonstrated end-to-end mastery across the digital spectrum: from functional enterprise UIX to emotive brand spectacle.</p></li>
       </ul>
-      <p><strong>Tech:</strong> JavaScript (for complex interactivity), Cinema4D, Redshift/Octane, Adobe After Effects, UI/UX Design Principles.</p>
+      <p><strong>Tech:</strong> GSAP, JavaScript, Cinema4D, Octane, Adobe After Effects, UI/UX Design Principles.</p>
 
     `,
     description2: ``
   },
     { id: 3, src: '/images/mini/atonato.jpg', alt: 'Logo 3', 
       title: 'High-Stakes Decision Support System',
-description: `
-<p><strong>Overview:</strong> Developed a mission-critical digital training and assessment platform for a major international security institution. The project required translating complex operational protocols into a flawless, scenario-based application with zero tolerance for error in logic or execution.</p>
+      description: `
+      <p><strong>Overview:</strong> Developed a mission-critical digital training and assessment platform for a major international security institution. The project required translating complex operational protocols into a flawless, scenario-based application with zero tolerance for error in logic or execution.</p><br>
 
-<p><strong>Role:</strong> Lead Developer & Systems Architect.<br>
-Tasked with designing the core application logic, user-flow architecture, and evaluation engine to ensure absolute reliability and instructional integrity.</p>
+      <p><strong>Role:</strong> Developer<br>
 
-<p><strong>Solution & Technical Execution:</strong><br>
-Built a robust, custom JavaScript application that:
-<ul>
-  <li>Managed large, dynamic datasets of scenarios and decision pathways.</li>
-  <li>Implemented a branching-logic engine to drive complex, scenario-based user interactions.</li>
-  <li>Featured a precise scoring and feedback framework to measure and reinforce protocol adherence.</li>
-</ul>
-</p>
 
-<p><strong>Outcome:</strong> The system was successfully deployed to end-users, meeting strict requirements for accuracy, reliability, and user comprehension. This project exemplifies my capability to deliver complex, critical systems where performance is non-negotiable.</p>
+      <p><strong>Solution & Technical Execution:</strong><br>
+      Built a robust, custom JavaScript application that:
+      <ul>
+        <li>Managed large, dynamic datasets of scenarios and decision pathways.</li>
+        <li>Implemented a branching-logic engine to drive complex, scenario-based user interactions.</li>
+        <li>Featured a precise scoring and feedback framework to measure and reinforce protocol adherence.</li>
+      </ul>
+      </p>
+<br>
+      <p><strong>Outcome:</strong> The system was successfully deployed to end-users, meeting strict requirements for accuracy, reliability, and user comprehension. This project exemplifies my capability to deliver complex, critical systems where performance is non-negotiable.</p><br>
 
-<p><strong>Technologies:</strong> Vanilla JavaScript, XML, HTML5, CSS3</p>
+      <p><strong>Technologies:</strong> Vanilla JavaScript, XML, HTML5, CSS3</p>
 
-<p><em>Note: Work conducted under strict confidentiality agreements. Specific client details and sensitive operational content are omitted.</em></p>
-`,
+      `,
     description2: ``
   },
     { id: 4, src: '/images/mini/audi.jpg', alt: 'Logo 4', 
@@ -137,11 +138,12 @@ Built a robust, custom JavaScript application that:
       clientText: `Planstand`,
       clientLogo: '/images/agencies/planstand_logo.png',
       clientLogoHeight: 25,
+      agencyName: 'Planstand',
       description: `
       <p><strong>Project:</strong> Cinema Screen Motion Design<br>
       <strong>Role:</strong> Visual Concept, Solo Motion Design, Rendering<br>
       <strong>Tech:</strong> After Effects, Photoshop<br>
-      Created 11 minute Backdrop film for a stage presentation at VIP Event Q5 Unveiling Ceremony in Nuremburg Germany</p>
+      Created 11 minute Backdrop film for a stage presentation at VIP Event Q5 Unveiling Ceremony in Nuremburg Germany. Needed to be choreographed in time with professional dancers and a large electronically actuated on-stage water sprinkler system. I had three weeks to animate it, make it fit choreographicallly. It worked beautifully. </p><br>
 
       <p><strong>Project:</strong> Online Animation<br>
       <strong>Role:</strong> Visual Concept, Solo Motion Design<br>
@@ -155,6 +157,7 @@ Built a robust, custom JavaScript application that:
       clientText: `Sieber & Wolff`,
       clientLogo: '/images/agencies/sw_neu_white.png',
       clientLogoHeight: 25,
+      agencyName: 'Sieber & Wolff',
       description: `
       <p><strong>1) Product Design: </strong> A Next-Generation Brand Award for Mercedes-Benz Dealerships</</p>
       <p><strong>Context:</strong> Mercedes-Benz (Daimler AG) sought to reinvent its prestigious annual dealership award—a symbolic object representing the pinnacle of brand partnership and excellence. The mandate was to evolve a traditional award trophy into a modern brand statement that reflected Mercedes-Benz core identity and forward-looking vision.<br>
@@ -180,6 +183,7 @@ Built a robust, custom JavaScript application that:
       title: 'BMW Group',
       clientText: `BECC Agentur`,
       clientLogo: '/images/agencies/Becc_wht.png',
+      agencyName: 'BECC Agency',
       clientLogoHeight: 45,
       description: `
       <p><strong>Project 1:</strong> Immersive 3D Campaign for BMW Global Headquarters<br>
@@ -216,11 +220,13 @@ Built a robust, custom JavaScript application that:
       clientText: `BECC Agentur`,
       clientLogo: '/images/agencies/Becc_wht.png',
       clientLogoHeight: 45,
+      agencyName: 'BECC Agency',
       description: `
-      <p><strong>Project 1:</strong> Immersive 3D Animation Concept for Gigantic Screen<br>
+      <p><strong>Project:</strong> Immersive 3D Animation Concept for Gigantic Screen<br><br>
       <strong>Role:</strong> Animation Concept, Motion Design<br>
-      <strong>Tech:</strong> Cinema4D, Corona Render Engine, Adobe After-Effects, High-resolution render pipeline.<br>
-      Translated a 2D campaign illustration into an immersive 2D / 3D animation experience for the enormous video wall at the International Automobile Trade Fair in Frankfurt. Conceptualized, designed, and rendered in Cinema4D to create a dynamic, large-scale brand statement for their most important show of the year.</p>
+       Translated a 2D campaign illustration into an immersive 2D / 3D animation experience for the enormous video wall at the International Automobile Trade Fair in Frankfurt. Conceptualized, designed, and rendered in Cinema4D to create a dynamic, large-scale brand statement for their most important show of the year.</p><br>
+     <p><strong>Tech:</strong> Cinema4D, Corona Render Engine, Adobe After-Effects, High-resolution render pipeline.</p><br>
+     
 
       <p><strong>Outcome: </strong> The animation earned BECC Agency their first ever mention in an industry news publication and blew the heads off of audiences attending from around the globe.<br>
       <strong>Role:</strong> Animation Concept Designer and Motion Developer<br>
@@ -233,12 +239,13 @@ Built a robust, custom JavaScript application that:
       clientText: `TÜV SÜD (via Sieber & Wolff Agency)`,
       clientLogo: '/images/agencies/sw_neu_white.png',
       clientLogoHeight: 25,
+      agencyName: 'Sieber & Wolff',
       description: `
       <p><strong>Project:</strong> Animation Library for National Safety & Strategy Presentation<br>
-      TÜV SÜD is a world leading technical service provider, specializing in testing, certification, auditing, and advisory services with a core focus on safety and security. Their reputation is built on uncompromising accuracy and trust.<br>
+      TÜV SÜD is a world leading technical service provider, specializing in testing, certification, auditing, and advisory services with a core focus on safety and security. Their reputation is built on uncompromising accuracy and trust.<br><br>
 
-       <strong>My Role:</strong> 3D Animation Specialist & Motion Designer.<br>
-       <strong>Action:</strong>3D Animation Specialist. I was brought in to execute the core visual storytelling. My task was to translate complex safety testing concepts—such as crash dynamics and component integrity—into abstract, clear, and engaging 3D motion sequences using Cinema4D, Corona Render Engine, After Effects and Superluminal Stardust.
+       <strong>My Role:</strong> 3D Animation Specialist & Motion Designer.<br><br>
+       <strong>Action:</strong>3D Animation Specialist. I was brought in to execute the core visual storytelling. My task was to translate complex safety testing concepts—such as crash dynamics and component integrity—into abstract, clear, and engaging 3D motion sequences using Cinema4D, Corona Render Engine, After Effects and Superluminal Stardust.<br><br>
         <ul>
         <li><p><strong>The Ask:</strong> Produce a comprehensive library of 3D and motion graphic animations to serve as the visual core for a high-stakes, global presentation on automobile safety ratings and corporate strategy.</p></li>
         <li><p><strong>My Role:</strong> Lead Animator & Motion Designer – responsible for concept, creation, and final render of all motion assets.</p></li>
@@ -258,6 +265,7 @@ Built a robust, custom JavaScript application that:
       clientText: `Spiegel TV (Der Spiegel Media Group / Autentic GmbH)`,
       clientLogo: '/images/agencies/spiegeltvlogo.png',
       clientLogoHeight: 25,
+      agencyName: 'Autentic GmbH',
       description: `
       <p><strong>Overview:</strong> Led the complete digital design and development for two flagship pay-TV channels 2010 - 2017: Spiegel Wissen (science) and Spiegel Geschichte (history), from strategic consultation to interactive execution.</p>
 
@@ -295,17 +303,18 @@ Built a robust, custom JavaScript application that:
       clientText: `Red Bull Austria`,
       clientLogo: '/images/agencies/redBull.png',
       clientLogoHeight: 25,
+      agencyName: 'Red Bull Austria',
       description: `
-      <p><strong>The Client & Era:</strong> In the mid-2000s, Red Bull was transitioning from an energy drink company into a global media powerhouse and culture brand. Their digital presence needed to match their high-octane, experiential identity.</p>
+      <p><strong>The Client & Era:</strong> In the mid-2000s, Red Bull was transitioning from an energy drink company into a global media powerhouse and culture brand. Their digital presence needed to match their high-octane, experiential identity.</p><br>
       <p><strong>My Role: </strong> Lead Interactive Designer & Developer<br>
-      I was entrusted with creating two flagship interactive experiences that embodied Red Bull&apos;s pioneering spirit.
+      I was entrusted with creating two flagship interactive experiences that embodied Red Bull&apos;s pioneering spirit.</p><br>
      
       <p><strong>Project 1:</strong> Interactive Video Carousel, www.redbull.tv<br>
       <strong>The Brief: </strong>Develop the Interactive Video Carousel for the launch of the www.redbull.tv platform—a key piece of their strategy to become a leading action sports and lifestyle broadcaster.<br>
 
       <strong>Tech: </strong> Macromedia Flash, ActionScript 3<br>
       <p><strong>The Outcome & Legacy:</strong> These projects were built at the inception of Red Bull&apos;s digital media empire. They demonstrated an early mastery of interactive storytelling and platform design for a brand that would become synonymous with cutting-edge content.<br>
-      <strong>Role:</strong> Sole Developer<br>
+      <strong>Role:</strong> Sole Developer<br><br>
 
       <p><strong>Project 2:</strong> Strategic Internal Hub for Red Bull’s Digital Media Launch<br>
       n 2007, Red Bull was aggressively expanding from a beverage brand into a global media powerhouse. To align its internal teams at its Fuschl am See headquarters, they needed a central platform to communicate this new strategic direction.<br>
@@ -321,6 +330,7 @@ Built a robust, custom JavaScript application that:
       clientText: `Pro7Sat1`,
       clientLogo: '/images/agencies/pro7.png',
       clientLogoHeight: 25,
+      agencyName: 'Pro7Sat1',
         description: `
       <p><strong>Project 1:</strong> Banner Campaigns for Pro7 Television Content<br>
       <strong>Role:</strong> Design, Motion, Programming<br>
@@ -331,14 +341,13 @@ Built a robust, custom JavaScript application that:
     { id: 12, src: '/images/mini/sburda.jpg', alt: 'Logo 12', 
        title: 'Burda Presentations',
       clientText: `Hubert Burda New Media`,
-      clientLogo: '/images/agencies/sw_neu_white.png',
-      clientLogoHeight: 25,
+      clientLogo: '/images/agencies/HBM.png',
+      clientLogoHeight: 45,
+      agencyName: 'Hubert Burda Media',
  description: `
-      <p><strong>Project 1:</strong> 3 Interactive Presentations<br>
+      <p><strong>Project 1:</strong> Interactive Presentations<br>
       Burda New Media presentations by the Marketing Manager to promote his ideas and strategies internally.
       <strong>Role:</strong> Visual Concept (CI adapted), Design, Animation, Programming<br>
-
-
     `,
     description2: `` 
    },
@@ -347,6 +356,7 @@ Built a robust, custom JavaScript application that:
       clientText: `Public Orange`,
       clientLogo: '/images/agencies/publicorange.png',
       clientLogoHeight: 25,
+      agencyName: 'Publicorange',
  description: `
       <p><strong>Project 1: </strong> Security Suite Interactive Presentations  <br>
       <strong>Role:</strong> Interactivity<br>
@@ -363,6 +373,7 @@ Built a robust, custom JavaScript application that:
       clientText: `Publicorange`,
       clientLogo: '/images/agencies/publicorange.png',
       clientLogoHeight: 25,
+      agencyName: 'Publicorange',
  description: `
       <p><strong>Project 1:</strong> An installer package that opened up a setup-wizard for Swisscoms Online Access<br>
       <strong>Role:</strong>  Design, Programming<br>
@@ -373,9 +384,10 @@ Built a robust, custom JavaScript application that:
    },
     { id: 15, src: '/images/mini/ds.jpg', alt: 'Logo 15',
       title: 'Teaser Website For a Videogame',
-      clientText: `Deepsilver`,
+      clientText: `Publicorange`,
       clientLogo: '/images/agencies/publicorange.png',
       clientLogoHeight: 25,
+      agencyName: 'Publicorange',
  description: `
       <p><strong>Project 1:</strong> A parallax scroller made with graphical assets of the real game.<br>
       <strong>Role:</strong> Concept, Design, Programming<br>
@@ -386,12 +398,12 @@ Built a robust, custom JavaScript application that:
    },
     { id: 16, src: '/images/mini/siemens.jpg', alt: 'Logo 16', 
       title: 'Teaser Website For a Videogame',
-      clientText: `Deepsilver`,
-      clientLogo: '/images/agencies/publicorange.png',
+      clientText: `Fiction Films`,
+      clientLogo: '/images/agencies/fiction-films.png',
       clientLogoHeight: 25,
+      agencyName: 'FictionFilms',
  description: `
-      <p><strong>Project 1:</strong> A parallax scroller made with graphical assets of the real game.<br>
-      <strong>Role:</strong> Concept, Design, Programming<br>
+      <p><strong>Project 1:</strong> Interactive infopage about washing machine technology for the global siemens website <br>
 
 
     `,
@@ -400,10 +412,11 @@ Built a robust, custom JavaScript application that:
     { id: 17, src: '/images/mini/hp.jpg', alt: 'Logo 17' , 
       title: 'HP Digital Global Campaign Solutions',
       clientText: ` `,
-      clientLogo: '/images/agencies/publicorange.png',
+      clientLogo: '/images/agencies/pepper_logo.png',
       clientLogoHeight: 25,
+      agencyName: 'Pepper Global',
  description: `
-      <p><strong>Project 1:</strong> Interactive Animation<br>
+      <p><strong>Project 1:</strong> Interactive Animations, campaign deliverables<br>
       <strong>Role:</strong> Concept, Design, Programming<br>
 
 
@@ -411,13 +424,14 @@ Built a robust, custom JavaScript application that:
     description2: `` 
    },
     { id: 18, src: '/images/mini/strellson.jpg', alt: 'Logo 18' , 
-      title: 'Strellson Image-Film',
+      title: 'Strellson Image-Films',
       clientText: ` `,
       clientLogo: '/images/agencies/coma2_logo.png',
       clientLogoHeight: 25,
+      agencyName: 'coma2',
  description: `
-      <p><strong>Project 1:</strong> Interactive Animation<br>
-      <strong>Role:</strong> Concept, Design, Programming<br>
+      <p><strong>Project 1:</strong> Image films for strellson.com<br>
+      <strong>Role:</strong> Concept, Design, Video Editing<br>
 
 
     `,
@@ -428,8 +442,9 @@ Built a robust, custom JavaScript application that:
       clientText: ` `,
       clientLogo: '/images/agencies/coma2_logo.png',
       clientLogoHeight: 25,
+      agencyName: 'NakedToast',
  description: `
-      <p><strong>Project 1:</strong> Interactive Animation<br>
+      <p><strong>Projects:</strong> Landingpages / campaign deliverables for motion pictures.<br>
       <strong>Role:</strong> Concept, Design, Programming<br>
 
 
@@ -441,8 +456,9 @@ Built a robust, custom JavaScript application that:
       clientText: ` `,
       clientLogo: '/images/agencies/coma2_logo.png',
       clientLogoHeight: 25,
+       agencyName: 'NakedToast',
  description: `
-      <p><strong>Project 1:</strong> Interactive Animation<br>
+      <p><strong>Projects:</strong> Landingpages / campaign deliverables for motion pictures.<br>
       <strong>Role:</strong> Concept, Design, Programming<br>
 
 
@@ -450,12 +466,13 @@ Built a robust, custom JavaScript application that:
     description2: `` 
    },
     { id: 21, src: '/images/mini/wb.jpg', alt: 'Logo 21' , 
-      title: 'Strellson Image-Film',
+      title: 'Warner Brothers Campaign Deliverables (Various)',
       clientText: ` `,
       clientLogo: '/images/agencies/coma2_logo.png',
       clientLogoHeight: 25,
+       agencyName: 'NakedToast',
  description: `
-      <p><strong>Project 1:</strong> Interactive Animation<br>
+      <p><strong>Projects:</strong> Landingpages / campaign deliverables for motion pictures.<br>
       <strong>Role:</strong> Concept, Design, Programming<br>
 
 
@@ -482,6 +499,9 @@ Built a robust, custom JavaScript application that:
               priority={logo.id <= 6} // Only preload first 6 images
             />
           </div>
+           <div className={styles.agencyName}>
+    {logo.agencyName || 'Agency Name'}
+  </div>
         </div>
       ))}
     </div>
