@@ -34,6 +34,14 @@ export default function ScriptLoader() {
     setError(`Failed to load ${scriptName}. Please check the console for details.`);
   };
 
+  // Use a fixed version in development, or the build version in production
+  const [version, setVersion] = useState('1.0.0');
+  
+  // Only set the timestamp version on the client side
+  useEffect(() => {
+    setVersion(process.env.NEXT_PUBLIC_APP_VERSION || new Date().getTime());
+  }, []);
+  
   return (
     <>
       {error && (
@@ -42,7 +50,7 @@ export default function ScriptLoader() {
         </div>
       )}
       <Script
-        src="/js/gsap.min.js"
+        src={`/js/gsap.min.js?v=${version}`}
         strategy="beforeInteractive"
         onLoad={() => {
           console.log('GSAP loaded successfully');
@@ -52,7 +60,7 @@ export default function ScriptLoader() {
         onError={(e) => handleScriptError('GSAP', e)}
       />
       <Script
-        src="/js/split-type.min.js"
+        src={`/js/split-type.min.js?v=${version}`}
         strategy="beforeInteractive"
         onLoad={() => {
           console.log('SplitType loaded successfully');
