@@ -637,13 +637,15 @@ useEffect(() => {
             </h2>
 
 
-              <p>My toolkit is extensive and constantly evolving, allowing me to own a project from concept to deployment:</p>
+              <p>My toolkit is extensive and constantly evolving, allowing me to own a project from concept to deployment. I've split the skills into separate categories for clarity:</p>
               <ul className={styles.skillsList} role="list">
+                <h3 style={{fontSize: '1.3rem', fontWeight: '400', marginTop: '1rem', color: 'white'}}>Design, Motion & Creative</h3>
                 <li role="listitem">Design, Animation, Development, Rapid Prototyping</li>
                 <li role="listitem">Cinema4D, Blender, Adobe Suite</li>
                 <li role="listitem">3D Modeling, 3D Animation, 3D Rendering</li>
                 <li role="listitem">Octane Render, Corona Render</li>
                 <li role="listitem">After Effects, Video Edit, Video Post-Production</li>
+                <h3 style={{fontSize: '1.3rem', fontWeight: '400', marginTop: '1rem', color: 'white'}}>Code</h3>
                 <li role="listitem">React, Next.js, Vue.js, html, css, javascript</li>
                 <li role="listitem">Three.js, React 3 Fiber, WebXR</li>
                 <li role="listitem">Typescript</li>
