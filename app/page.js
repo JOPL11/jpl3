@@ -626,7 +626,7 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={aboutHeadingRef}>About</AnimatedText>
             </h2>
-            <p>Hi! I&apos;m Jan Peiro.</p>
+            <p>Hi! I&apos;m Jan Peiro.</p><br></br>
 
             <p>A multidisciplinary designer and creative who bridges the gap between stunning visuals and robust technology. I studied Communications Design in Munich and have spent my career transforming ideas into engaging experiences for a global clientele.</p>
 
@@ -876,6 +876,7 @@ useEffect(() => {
                   <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Duration:</strong> 4 days</p>
                   <p><strong>Tools:</strong><AnimatedText ref={citylink1TextRef} type="project"> Next.js, react</AnimatedText></p>
+                  <p><strong>Info:</strong> I designed and built the whole actual app this infopage describes (and the backend interface for it already too), but I&apos;m on the fence about showing it without making people sign an NDA &apos;cuz it is going ahead. Dunno what to do about that right now.</p>
                 </ProjectCard>
 
           {/*      <ProjectCard 
@@ -1396,7 +1397,7 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={productHeadingRef}>Prototype</AnimatedText>
             </h2>
-            <div style={{height: '0.1rem', marginBottom: '8rem'}}>Tap or click the images to look through the pile of photos.</div>
+            <div style={{height: '0.1rem', marginBottom: '7rem'}}>Tap or click the images to look through the pile of photos.</div>
 
               <div className={styles.introText}>
 

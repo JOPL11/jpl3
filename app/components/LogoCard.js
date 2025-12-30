@@ -124,7 +124,7 @@ const LogoCard = () => {
       <p><strong>Project:</strong> Online Animation<br>
       <strong>Role:</strong> Visual Concept, Solo Motion Design<br>
       <strong>Tech:</strong> javascript<br>
-      Created an intro film for Audi Middle East Official Website</p>
+      Created an intro film for Audi Middle East Official Website. This one wasn't for Planstand, it was for Mario Klingemann, but I'll just add it to this Audi section.</p>
     `,
     description2: ``
   },
