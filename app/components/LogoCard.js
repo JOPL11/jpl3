@@ -37,6 +37,17 @@ const LogoCard = () => {
               />
             </div>
           )}
+          {logo.agencyLink && (
+            <a 
+              href={logo.agencyLink} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className={styles.agencyLink}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {logo.agencyName}
+            </a>
+          )}
         </div>
         <div className={styles.scrollableContent}>
           {logo.description && (
@@ -60,7 +71,7 @@ const LogoCard = () => {
     {   id: 1, src: '/images/mini/aeromtu.jpg', 
         alt: 'Logo 1', 
         title: 'Digital Experiences for MTU Aero Engines',
-      clientText: `VRPE`,
+      clientText: `Agency:   VRPE`,
       clientLogo: '/images/agencies/vrpe_logoNew.png',
       clientLogoHeight: 15,
       agencyName: 'VRPE',
@@ -76,10 +87,11 @@ const LogoCard = () => {
   },
     { id: 2, src: '/images/mini/airbus.jpg', alt: 'Logo 2', 
       title: 'Airbus Group Digital Interfaces',
-      clientText: `SMMD Team`,
+      clientText: `Agency:`,
       clientLogo: '/images/agencies/SMMD.png',
       clientLogoHeight: 35,
-      agencyName: 'SMMD',
+      agencyName: 'SMMD Team',
+      agencyLink: 'https://www.smmd.team',
       description: `
       <p><strong>The Mission:</strong> Airbus Group required a next-generation digital interface for its most important physical spaces: its International Headquarters in Berlin and its premier Showroom in Munich. The mandate was to create an interactive, multi-sensory experiences that could communicate the complexity and ambition of aerospace innovation to VIPs, partners, and policymakers.<br><br>
 
@@ -105,16 +117,16 @@ const LogoCard = () => {
         <li><p>Demonstrated end-to-end mastery across the digital spectrum: from functional enterprise UIX to emotive brand spectacle.</p></li>
       </ul>
       <p><strong>Tech:</strong> GSAP, JavaScript, Cinema4D, Octane, Adobe After Effects, UI/UX Design Principles.</p>
-
     `,
     description2: ``
   },                 
     { id: 4, src: '/images/mini/audi.jpg', alt: 'Logo 4', 
       title: 'Audi Nuremberg & Audi Middle East',
-      clientText: `Planstand`,
+      clientText: `Agency:`,
       clientLogo: '/images/agencies/planstand_logo.png',
       clientLogoHeight: 25,
-      agencyName: 'Planstand',
+      agencyName: 'Planstand Gmbh',
+      agencyLink: 'https://www.planstand.com',
       description: `
       <p><strong>Project:</strong> Cinema Screen Motion Design<br>
       <strong>Role:</strong> Visual Concept, Solo Motion Design, Rendering<br>
@@ -130,10 +142,11 @@ const LogoCard = () => {
   },
     { id: 5, src: '/images/mini/automerc.jpg', alt: 'Logo 5', 
       title: 'Mercedes-Benz Product Design & Visual Development',
-      clientText: `Sieber & Wolff`,
+      clientText: `Agency: `,
       clientLogo: '/images/agencies/sw_neu_white.png',
       clientLogoHeight: 25,
       agencyName: 'Sieber & Wolff',
+      agencyLink: 'https://www.sieberundwolf.de/',
       description: `
       <p><strong>1) Product Design: </strong> A Next-Generation Brand Award for Mercedes-Benz Dealerships</</p>
       <p><strong>Context:</strong> Mercedes-Benz (Daimler AG) sought to reinvent its prestigious annual dealership award—a symbolic object representing the pinnacle of brand partnership and excellence. The mandate was to evolve a traditional award trophy into a modern brand statement that reflected Mercedes-Benz core identity and forward-looking vision.<br>
@@ -151,16 +164,16 @@ const LogoCard = () => {
 
       <strong>The Work:</strong> Developed a series of visual concepts and refined the chosen variation.<br>
       <p><strong>Tech:</strong> After Effects, Superluminal Stardust, Adobe Illustrator</p>
-
     `,
     description2: ``
   },
     { id: 6, src: '/images/mini/bmw.jpg', alt: 'Logo 6', 
       title: 'BMW Group',
-      clientText: `BECC Agentur`,
+      clientText: `Agency: `,
       clientLogo: '/images/agencies/Becc_wht.png',
-      agencyName: 'BECC Agency',
       clientLogoHeight: 45,
+      agencyName: 'BECC Agency',
+      agencyLink: 'https://www.becc-agency.com',
       description: `
       <p><strong>Project 1:</strong> Immersive 3D Campaign for BMW Global Headquarters<br>
       <strong>Role:</strong> Animation Concept, Motion Design, Rendering<br>
@@ -193,10 +206,11 @@ const LogoCard = () => {
   },
     { id: 7, src: '/images/mini/autotoyota.jpg', alt: 'Logo 7', 
       title: 'Toyota at the International Motor Show, Frankfurt (IAA)',
-      clientText: `BECC Agentur`,
+      clientText: `Agency: `,
       clientLogo: '/images/agencies/Becc_wht.png',
       clientLogoHeight: 45,
       agencyName: 'BECC Agency',
+      agencyLink: 'https://www.becc-agency.com',
       description: `
       <p><strong>Project:</strong> Immersive 3D Animation Concept for Gigantic Screen<br><br>
       <strong>Role:</strong> Animation Concept, Motion Design<br>
@@ -211,11 +225,12 @@ const LogoCard = () => {
     description2: ``
   },
     { id: 8, src: '/images/mini/autoTuv.jpg', alt: 'Logo 8', 
-      title: 'Visualizing Safety & Strategy for a Global Certification Leader',
-      clientText: `TÜV SÜD (via Sieber & Wolff Agency)`,
+      title: 'TÜV SÜD - Visualizing Safety & Strategy for a Global Certification Leader',
+      clientText: `Agency: `,
       clientLogo: '/images/agencies/sw_neu_white.png',
       clientLogoHeight: 25,
       agencyName: 'Sieber & Wolff',
+      agencyLink: 'https://www.sieberundwolf.de/',
       description: `
       <p><strong>Project:</strong> Animation Library for National Safety & Strategy Presentation<br>
       TÜV SÜD is a world leading technical service provider, specializing in testing, certification, auditing, and advisory services with a core focus on safety and security. Their reputation is built on uncompromising accuracy and trust.<br><br>
@@ -230,18 +245,18 @@ const LogoCard = () => {
         <li><p><strong>Tech:</strong> Cinema4D, Corona Render Engine, Adobe After Effects, Superluminal Stardust.</p></li>
         </ul>
 
-<p><strong>Outcome:</strong> Provided a robust, flexible animation toolkit that elevated TÜV SÜD&apos;s communication, allowing them to explain intricate technical and strategic topics with clarity, authority, and visual impact.</p>
-
+          <p><strong>Outcome:</strong> Provided a robust, flexible animation toolkit that elevated TÜV SÜD&apos;s communication, allowing them to explain intricate technical and strategic topics with clarity, authority, and visual impact.</p>
     `,
     description2: ``
   },
 
     { id: 9, src: '/images/mini/spiegel.jpg', alt: 'Spiegel TV', 
        title: ' Digital Brand Architect for Spiegel TV Channels',
-      clientText: `Spiegel TV (Der Spiegel Media Group / Autentic GmbH)`,
+      clientText: `Distributor: `,
       clientLogo: '/images/agencies/spiegeltvlogo.png',
       clientLogoHeight: 25,
-      agencyName: 'Direct Client',
+      agencyName: 'Autentic GmbH',
+      agencyLink: 'https://www.autentic.com/117/Channels.htm',
       description: `
       <p><strong>Overview:</strong> Led the complete digital design and development for two flagship pay-TV channels 2010 - 2017: Spiegel Wissen (science) and Spiegel Geschichte (history), from strategic consultation to interactive execution.</p>
 
@@ -263,23 +278,17 @@ const LogoCard = () => {
       </ul>
 
       <p><strong>Impact:</strong> Delivered the definitive digital homes for two major Spiegel TV brands, blending strategic media insight with hands-on design and technical execution.</p>
-
-
-
-
-
-
-
     `,
     description2: `` 
    },
 
        { id: 10, src: '/images/mini/rb.jpg', alt: 'Red Bull TV', 
        title: 'Red Bull Austria: Early Digital Experiences for a Media Pioneer',
-      clientText: `Red Bull Austria`,
+      clientText: `Client: `,
       clientLogo: '/images/agencies/redBull.png',
       clientLogoHeight: 25,
-      agencyName: 'Direct Client',
+      agencyName: 'Red Bull Austria',
+      agencyLink: 'https://www.redbull.com/',
       description: `
       <p><strong>The Client & Era:</strong> In the mid-2000s, Red Bull was transitioning from an energy drink company into a global media powerhouse and culture brand. Their digital presence needed to match their high-octane, experiential identity.</p><br>
       <p><strong>My Role: </strong> Lead Interactive Designer & Developer<br>
@@ -297,30 +306,30 @@ const LogoCard = () => {
       <strong>My Role: </strong>Sole Designer & Developer<br>
         I was entrusted with creating the digital centerpiece for this internal shift—an interactive intranet experience that would define and showcase Red Bull’s emerging digital media strategy.
       <p><strong>Tech:</strong> Macromedia Flash, Adobe Suite</p>
-
     `,
     description2: `` 
    },
     { id: 11, src: '/images/mini/pro7.jpg', alt: 'Logo 11', 
        title: 'Online Ad Campaigns',
-      clientText: `Pro7Sat1`,
+      clientText: `Direct Client: `,
       clientLogo: '/images/agencies/pro7_small.png',
       clientLogoHeight: 25,
-      agencyName: 'Direct Client',
+      agencyName: 'Pro7Sat1',
+      agencyLink: 'https://www.prosiebensat1.com/en',
         description: `
       <p><strong>Projects:</strong> Promotional Assets for Major Motion Pictures / Local TV Shows / Video Games</p><br>
-    <p>Developed digital advertising campaigns for theatrical releases as part of integrated on-air promotions for the Pro7Sat1 Media Group.<br></p>
+    <p>Developed digital assets for advertising campaigns for theatrical releases as part of integrated on-air promotions for the Pro7Sat1 Media Group.<br></p>
      <p><strong>Role:</strong> Design, Motion, Programming<br></p>
-
     `,
     description2: `` 
    },
     { id: 12, src: '/images/mini/sburda.jpg', alt: 'Logo 12', 
        title: 'Burda Presentations',
-      clientText: `Hubert Burda New Media`,
+      clientText: `Direct Client:`,
       clientLogo: '/images/agencies/HBM.png',
       clientLogoHeight: 45,
-      agencyName: 'Direct Client',
+      agencyName: 'Burda',
+      agencyLink: 'https://www.burda.com/en/',
  description: `
       <p><strong>Projects:</strong> Interactive Presentations and Internal Strategy Showcases<br></p>
       <p>Burda New Media presentations by the Marketing Manager to promote his ideas and strategies internally for various digital media initiatives.</p><br>
@@ -330,10 +339,11 @@ const LogoCard = () => {
    },
     { id: 13, src: '/images/mini/fsecure.jpg', alt: 'Logo 13' , 
        title: 'F-Secure Interactive Presentations / Video Animations',
-      clientText: `Public Orange`,
+      clientText: `Agency: `,
       clientLogo: '/images/agencies/publicorange.png',
       clientLogoHeight: 25,
       agencyName: 'Publicorange',
+      agencyLink: 'https://www.publicorange.com',
  description: `
       <p><strong>Project 1: </strong> Security Suite Interactive Presentations  <br>
       <strong>Role:</strong> Interactivity<br></p>
@@ -345,11 +355,12 @@ const LogoCard = () => {
    },
     { id: 14, src: '/images/mini/swisscom.jpg', alt: 'Logo 14' , 
        title: 'Swisscom Installer Package',
-      clientText: `Publicorange`,
+      clientText: `Agency: `,
       clientLogo: '/images/agencies/publicorange.png',
       clientLogoHeight: 25,
       agencyName: 'Publicorange',
- description: `
+      agencyLink: 'https://www.publicorange.com',
+      description: `
       <p><strong>Project 1:</strong> An installer package that opened up a setup-wizard for Swisscoms Online Access<br>
       <strong>Role:</strong>  Design, Programming<br>
     `,
@@ -357,10 +368,11 @@ const LogoCard = () => {
    },
     { id: 15, src: '/images/mini/ds.jpg', alt: 'Logo 15',
       title: 'Teaser Website For a Videogame',
-      clientText: `Publicorange`,
+      clientText: `Agency: `,
       clientLogo: '/images/agencies/publicorange.png',
       clientLogoHeight: 25,
       agencyName: 'Publicorange',
+      agencyLink: 'https://www.publicorange.com',
  description: `
       <p><strong>Project 1:</strong> Risen 2 Teaser Website. A parallax scroller made with graphical assets from the game.<br></p>
       <p><strong>Role:</strong> Concept, Design, Programming<br></p>
@@ -372,85 +384,78 @@ const LogoCard = () => {
    },
     { id: 16, src: '/images/mini/siemens.jpg', alt: 'Logo 16', 
       title: 'Teaser Website For a Videogame',
-      clientText: `Fiction Films`,
+      clientText: `Agency: `,
       clientLogo: '/images/agencies/fiction-films.png',
       clientLogoHeight: 25,
       agencyName: 'FictionFilms',
+      agencyLink: 'https://www.fiction-films.com',
  description: `
       <p><strong>Project 1:</strong> Interactive infopage about washing machine technology for the global siemens website <br>
-
-
     `,
     description2: `` 
    },
     { id: 17, src: '/images/mini/hp.jpg', alt: 'Logo 17' , 
       title: 'HP Digital Global Campaign Solutions',
-      clientText: ` `,
+      clientText: `Agency: PepperGlobal`,
       clientLogo: '/images/agencies/pepper_logo.png',
       clientLogoHeight: 25,
       agencyName: 'Pepper Global',
  description: `
-      <p><strong>Project 1:</strong> Interactive Animations, campaign deliverables<br>
+      <p><strong>Project 1:</strong> HP Interactive Presentations, Animations, Digital Campaign Deliverables<br>
       <strong>Role:</strong> Concept, Design, Programming<br>
-
-
     `,
     description2: `` 
    },
     { id: 18, src: '/images/mini/strellson.jpg', alt: 'Logo 18' , 
       title: 'Strellson Image-Films',
-      clientText: `coma2`,
+      clientText: `Agency: `,
       clientLogo: '/images/agencies/coma2_logo.png',
       clientLogoHeight: 25,
       agencyName: 'coma2',
+      agencyLink: 'https://www.coma2.com',
  description: `
       <p><strong>Project 1:</strong> Image films for strellson.com<br>
       <strong>Role:</strong> Concept, Design, Video Editing<br>
-
-
     `,
     description2: `` 
    },
      { id: 19, src: '/images/mini/twenty.jpg', alt: 'Logo 19' , 
       title: 'Motion Picture Digital Delivarables',
-      clientText: `NakedToast`,
+      clientText: `Agency: `,
       clientLogo: '/images/agencies/nt2.png',
       clientLogoHeight: 65,
       agencyName: 'NakedToast',
+       agencyLink: 'https://www.nakedtoast.com',
  description: `
       <p><strong>Projects:</strong> Landingpages / Digital Campaign Deliverables for Motion Pictures.<br></p>
       <p><strong>Role:</strong> Concept, Design, Programming<br></p>
       <p>Developed high-impact digital marketing components for global theatrical releases from leading studios. Work included promotional microsites, interactive landing pages, and animated banner ad suites—all designed under strict NDA for unreleased film properties.</p>
-
-
     `,
     description2: `` 
    },
     { id: 20, src: '/images/mini/universal.jpg', alt: 'Logo 20' , 
       title: 'Marketing Assets for Motion Pictures',
-      clientText: `NakedToast`,
+      clientText: `Agency: `,
       clientLogo: '/images/agencies/nt2.png',
       clientLogoHeight: 65,
       agencyName: 'NakedToast',
+       agencyLink: 'https://www.nakedtoast.com',
  description: `
       <p><strong>Projects:</strong> Landingpages / Digital Campaign Deliverables for Motion Pictures.</p><br>
       <strong>Role:</strong> Concept, Design, Programming<br>
-
-
     `,
     description2: `` 
    },
     { id: 21, src: '/images/mini/wb.jpg', alt: 'Logo 21' , 
       title: 'Advertising Assets / Campaign Deliverables for Motion Pictures',
-      clientText: `NakedToast`,
+      clientText: `Agency: `,
       clientLogo: '/images/agencies/nt2.png',
       clientLogoHeight: 65,
-       agencyName: 'NakedToast',
+      agencyName: 'NakedToast',
+       agencyLink: 'https://www.nakedtoast.com',
  description: `
       <p><strong>Projects:</strong> Landingpages / Digital Campaign Deliverables for Motion Pictures.<br>
       <strong>Role:</strong> Concept, Design, Programming<br>
-
-
     `,
     description2: `` 
    },

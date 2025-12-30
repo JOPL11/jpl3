@@ -668,13 +668,14 @@ useEffect(() => {
                   <li role="listitem">French (fluent)</li>
                 </ul>
                 <h3 style={{fontSize: '1.3rem', fontWeight: '400', marginTop: '1rem', color: 'white'}}>Design, Motion & Creative</h3>
-                <li role="listitem">Design, Animation, Development, Rapid Prototyping</li>
-                <li role="listitem">Illustration, Typography, Logo Design, Layout</li>
+                <li role="listitem">Design, Animation, Concept Development</li>
+                <li role="listitem">Illustration, Typography, Logo Design, Layout, Branding</li>
                 <li role="listitem">Cinema4D, Blender, Adobe Suite</li>
                 <li role="listitem">3D Modeling, 3D Animation, 3D Rendering</li>
                 <li role="listitem">Octane Render, Corona Render</li>
                 <li role="listitem">After Effects, Video Edit, Video Post-Production</li>
                 <h3 style={{fontSize: '1.3rem', fontWeight: '400', marginTop: '1rem', color: 'white'}}>Code</h3>
+                <li role="listitem">Development, Rapid Prototyping</li>
                 <li role="listitem">React, Next.js, Vue.js, html, css, javascript</li>
                 <li role="listitem">Three.js, React 3 Fiber, WebXR</li>
                 <li role="listitem">Typescript</li>
