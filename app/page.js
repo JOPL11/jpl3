@@ -336,7 +336,7 @@ useEffect(() => {
       scrollRef.current = null;
     }
   };
-}, [activeSection, sectionRefs, styles.modalOverlay, styles.scrollableContent]);
+}, [activeSection, sectionRefs]);
 
 
   useEffect(() => {
@@ -625,8 +625,8 @@ useEffect(() => {
                 <SectionTracker onSectionChange={setActiveSection} />
                 <h2 style={{paddingTop: "5rem"}}><AnimatedText ref={overviewHeadingRef}>Overview</AnimatedText></h2>
                 <div style={{paddingBottom:"2rem"}}>
-                <p>An overview of the many projects I&apos;ve had the honor to be chosen for. Tapping on the company logo reveals infortmation about the projects.</p>
-                <p>It&apos;ll be under develpoment for a few days. </p></div>
+                <p>An overview of the many projects I&apos;ve had the honor to be chosen for. Tapping on the company logo reveals information about the projects.</p>
+                <p>It&apos;ll be under development for a few days. </p></div>
                   <LogoCard />
             </section>
 
@@ -637,6 +637,13 @@ useEffect(() => {
             </h2>
               <p>My toolkit is extensive and constantly evolving, allowing me to own a project from concept to deployment. I&apos;ve split the skills into separate categories for clarity:</p>
               <ul className={styles.skillsList} role="list">
+                <h3 style={{fontSize: '1.3rem', fontWeight: '400', marginTop: '1rem', color: 'white'}}>Languages</h3>
+               <ul className={styles.skillsList} role="list">
+                  <li role="listitem">English (native)</li>
+                  <li role="listitem">German (fluent)</li>
+                  <li role="listitem">Spanish (fluent)</li>
+                  <li role="listitem">French (fluent)</li>
+                </ul>
                 <h3 style={{fontSize: '1.3rem', fontWeight: '400', marginTop: '1rem', color: 'white'}}>Design, Motion & Creative</h3>
                 <li role="listitem">Design, Animation, Development, Rapid Prototyping</li>
                 <li role="listitem">Cinema4D, Blender, Adobe Suite</li>
@@ -660,18 +667,6 @@ useEffect(() => {
               </ul>
          </section>
        
-            <div className={styles.content}>
-              <section className={styles.section} aria-labelledby="languages-heading">
-                <h2 id="languages-heading">Languages</h2>
-                <ul className={styles.skillsList} role="list">
-                  <li role="listitem">English (native)</li>
-                  <li role="listitem">German (fluent)</li>
-                  <li role="listitem">Spanish (fluent)</li>
-                  <li role="listitem">French (fluent)</li>
-                </ul>
-              </section>
-            
-            </div>
     
              {/* About section End */}
 
@@ -1283,8 +1278,7 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={webglHeadingRef}>WebGL</AnimatedText>
             </h2>
-                          <div style={{height: '5rem'}}>Selected Case Studies</div>
-           
+            <div style={{height: '5rem'}}>Selected Case Studies.</div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
               <ProjectCard 
                   onMoreClick={() => {
@@ -1322,7 +1316,7 @@ useEffect(() => {
                       <p><strong>Tools:</strong><AnimatedText ref={streetlampTextRef} type="project">Three.js / React 3 Fiber / GSAP</AnimatedText></p>
                       <p><strong>Role:</strong> Concept / Animation / Dev</p>
                       <p><strong>Duration:</strong> 3 weeks</p>
-                      <p><strong>Info:</strong></p>
+                      <p><strong>Info:</strong> An immersive 3D experience exploring a scifi landscape through motion and interaction.</p>
                     </ProjectCard>
                     <ProjectCard 
                       onMoreClick={() => {
@@ -1340,12 +1334,12 @@ useEffect(() => {
                       <p><strong>Tools:</strong><AnimatedText ref={facilityTextRef} type="project">Three.js / React 3 Fiber / GLSL / GSAP</AnimatedText></p>
                       <p><strong>Role:</strong> Concept / Animation / Dev</p>
                       <p><strong>Duration:</strong> 3 weeks</p>
-                      <p><strong>Info:</strong></p>
+                      <p><strong>Info:</strong> A mysterious facility exploring the intersection of architecture and digital art.</p>
                     </ProjectCard>
 
                        <ProjectCard 
                     onMoreClick={() => {
-                      console.log('Bytes101 More button clicked, triggering animation');
+                      console.log('S&B More button clicked, triggering animation');
                       qcTextRef.current?.animate();
                     }}
                       title="Schrödinger & Bohr Quantum Pocketwatches "
@@ -1359,7 +1353,7 @@ useEffect(() => {
                       <p><strong>Tools:</strong><AnimatedText ref={qcTextRef} type="project">Three.js / React 3 Fiber / GSAP / Router / Next.js</AnimatedText></p>
                       <p><strong>Role:</strong> Concept / Animation / Dev</p>
                       <p><strong>Duration:</strong> 2 weeks</p>
-                      <p><strong>Info:</strong></p>
+                      <p><strong>Info:</strong> nerdRage! A playful take on quantum physics concepts.</p>
                     </ProjectCard>
                   </>
                 )} {/*  */}

@@ -176,7 +176,7 @@ const LogoCard = () => {
       <strong>Role:</strong> Video Editor, Author, Voice Recording & Voice Narration<br>
       
       <strong>Situation: </strong> The BMW Group and its creative agency (BECC) were undertaking a momentous project: redesigning the iconic global logo. This involved a highly skilled & dedicated team of strategists, designers, and executives working through an intense iterative process.<br>
-      I contributed to BMW global rebranding initiative by producing internal narrative "mood videos." Tasked with editing archival footage, writing scripts, and providing voiceover, I created assets used by the core BECC/BMW team to aid the brand evolution narrative during their extensive, multi-year design process.</p>
+      I contributed to the BMW global rebranding initiative by producing internal narrative "mood videos." Tasked with editing archival footage, writing scripts, and providing voiceover, I created assets used by the core BECC/BMW team to aid the brand evolution narrative during their extensive, multi-year design process.</p>
       <p>These videos served as strategic communication aids, designed to:</p>
         <ul>
         <li><p>Give visual and narrative form to brand concepts being debated.</p></li>
