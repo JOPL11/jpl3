@@ -635,9 +635,7 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={skillsHeadingRef}>Core Skills</AnimatedText>
             </h2>
-
-
-              <p>My toolkit is extensive and constantly evolving, allowing me to own a project from concept to deployment. I've split the skills into separate categories for clarity:</p>
+              <p>My toolkit is extensive and constantly evolving, allowing me to own a project from concept to deployment. I&apos;ve split the skills into separate categories for clarity:</p>
               <ul className={styles.skillsList} role="list">
                 <h3 style={{fontSize: '1.3rem', fontWeight: '400', marginTop: '1rem', color: 'white'}}>Design, Motion & Creative</h3>
                 <li role="listitem">Design, Animation, Development, Rapid Prototyping</li>
