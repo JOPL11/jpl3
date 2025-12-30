@@ -1342,9 +1342,12 @@ useEffect(() => {
                       <p><strong>Duration:</strong> 3 weeks</p>
                       <p><strong>Info:</strong></p>
                     </ProjectCard>
+                     </>
+                      )} 
+                  </div>
+            </section>
 
-
-                    <ProjectCard 
+                {/*        <ProjectCard 
                     onMoreClick={() => {
                       console.log('Bytes101 More button clicked, triggering animation');
                       qcTextRef.current?.animate();
@@ -1363,17 +1366,10 @@ useEffect(() => {
                       <p><strong>Info:</strong></p>
                     </ProjectCard>
                   </>
-                )}
-              </div>
+                )}  */}
+      
+               
 
-            </section>
-                {/*   
-       Motion Section 
-
-   <hr className={styles.divider2} /> 
-
-                       </div>
-            </section> */}
 
           
 

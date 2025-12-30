@@ -308,9 +308,9 @@ const LogoCard = () => {
       clientLogoHeight: 25,
       agencyName: 'Direct Client',
         description: `
-      <p><strong>Projects:</strong> Broadcast Promotional Assets for Major Motion Pictures / local tv shows</p><br>
+      <p><strong>Projects:</strong> Promotional Assets for Major Motion Pictures / Local TV Shows / Video Games</p><br>
     <p>Developed digital advertising campaigns for theatrical releases as part of integrated on-air promotions for the Pro7Sat1 Media Group.<br></p>
-     <p> <strong>Role:</strong> Design, Motion, Programming<br></p>
+     <p><strong>Role:</strong> Design, Motion, Programming<br></p>
 
     `,
     description2: `` 
@@ -322,8 +322,8 @@ const LogoCard = () => {
       clientLogoHeight: 45,
       agencyName: 'Direct Client',
  description: `
-      <p><strong>Project 1:</strong> Interactive Presentations<br></p>
-      <p>Burda New Media presentations by the Marketing Manager to promote his ideas and strategies internally.</p><br>
+      <p><strong>Projects:</strong> Interactive Presentations and Internal Strategy Showcases<br></p>
+      <p>Burda New Media presentations by the Marketing Manager to promote his ideas and strategies internally for various digital media initiatives.</p><br>
      <p><strong>Role:</strong> Visual Concept (CI adapted), Design, Animation, Programming<br></p>
     `,
     description2: `` 
@@ -336,12 +336,10 @@ const LogoCard = () => {
       agencyName: 'Publicorange',
  description: `
       <p><strong>Project 1: </strong> Security Suite Interactive Presentations  <br>
-      <strong>Role:</strong> Interactivity<br>
+      <strong>Role:</strong> Interactivity<br></p>
 
       <p><strong>Project 2: </strong>  Security Suite Videos <br>
-      <strong>Role:</strong> Animation<br>
-
-
+      <strong>Role:</strong> Animation<br></p>
     `,
     description2: `` 
    },
@@ -354,8 +352,6 @@ const LogoCard = () => {
  description: `
       <p><strong>Project 1:</strong> An installer package that opened up a setup-wizard for Swisscoms Online Access<br>
       <strong>Role:</strong>  Design, Programming<br>
-
-
     `,
     description2: `` 
    },
@@ -366,10 +362,11 @@ const LogoCard = () => {
       clientLogoHeight: 25,
       agencyName: 'Publicorange',
  description: `
-      <p><strong>Project 1:</strong> A parallax scroller made with graphical assets of the real game.<br>
-      <strong>Role:</strong> Concept, Design, Programming<br>
+      <p><strong>Project 1:</strong> Risen 2 Teaser Website. A parallax scroller made with graphical assets from the game.<br></p>
+      <p><strong>Role:</strong> Concept, Design, Programming<br></p>
 
-
+     <p><strong>Project 2:</strong> A website for Horse Life 2.<br></p>
+     <p><strong>Role:</strong> Concept, Design, Programming<br></p>
     `,
     description2: `` 
    },
