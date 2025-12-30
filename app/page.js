@@ -681,7 +681,7 @@ useEffect(() => {
             <SectionTracker onSectionChange={setActiveSection} /> 
             <section id="code" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="code">
        
-              <h2 id="code" className={styles.scrollTarget}><AnimatedText ref={workHeadingRef}>Code Projects</AnimatedText></h2>
+              <h2 id="code" style={{marginTop: '100px'}} className={styles.scrollTarget}><AnimatedText ref={workHeadingRef}>Code Projects</AnimatedText></h2>
                  <div style={{height: '5rem'}}>Selected Case Studies</div>
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
 
