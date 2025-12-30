@@ -134,6 +134,8 @@ export default function Home() {
       document.body.classList.remove('menu-open');
     };
   }, [isMenuOpen]);
+
+
   const [modalContent, setModalContent] = useState('privacy');
   const [activeSection, setActiveSection] = useState('welcome-heading');
   const isProgrammaticScroll = useRef(false);
@@ -271,6 +273,7 @@ export default function Home() {
   const qcTextRef = useRef(null);
   const facilityTextRef = useRef(null);
   const roadrichTextRef = useRef(null);
+  const artstationHeadingRef = useRef(null);
 
 
 
@@ -474,6 +477,17 @@ useEffect(() => {
                 </a>
               </li>
             ))}
+            <li className={styles.mobileMenuItem}>
+              <a 
+                href="https://jopl.artstation.com/" 
+                className={styles.mobileMenuLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Artstation
+              </a>
+            </li>
           </ul>
         </nav>
       </>
@@ -512,6 +526,13 @@ useEffect(() => {
                 >
                   Overview
                 </a>
+                                 <a 
+                  href="#skills" 
+                  className={`${styles.navLink} ${activeSection === 'skills' ? styles.active : ''}`}
+                  onClick={(e) => scrollToSection(e, 'skills')}
+                >
+                  Skills
+                </a>
                 <a 
                   href="#code" 
                   className={`${styles.navLink} ${activeSection === 'code' ? styles.active : ''}`}
@@ -519,7 +540,7 @@ useEffect(() => {
                 >
                   Code
                 </a>
-                                <a 
+                  <a 
                   href="#motion" 
                   className={`${styles.navLink} ${activeSection === 'motion' ? styles.active : ''}`}
                   onClick={(e) => scrollToSection(e, 'motion')}
@@ -559,6 +580,7 @@ useEffect(() => {
                   href="https://jopl.artstation.com/" 
                   className={styles.navLink}
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Artstation
                 </a>
@@ -646,6 +668,7 @@ useEffect(() => {
                 </ul>
                 <h3 style={{fontSize: '1.3rem', fontWeight: '400', marginTop: '1rem', color: 'white'}}>Design, Motion & Creative</h3>
                 <li role="listitem">Design, Animation, Development, Rapid Prototyping</li>
+                <li role="listitem">Illustration, Typography, Logo Design, Layout</li>
                 <li role="listitem">Cinema4D, Blender, Adobe Suite</li>
                 <li role="listitem">3D Modeling, 3D Animation, 3D Rendering</li>
                 <li role="listitem">Octane Render, Corona Render</li>
@@ -1377,16 +1400,16 @@ useEffect(() => {
               <div className={styles.introText}>
 
                 <p>Tap or click the images to look through the pile of photos.</p>
-                <div style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'white' }}>
-                  Project: <span style={{ fontSize: '0.85rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Daimler Benz dealership award.</span>
+                <div style={{ fontSize: '1rem', fontWeight: 'bold', color: 'white' }}>
+                  Project: <span style={{ fontSize: '1rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Daimler Benz dealership award.</span>
                 </div>
-                <div style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'white' }}>
-                  Client: <a href="https://sieberundwolf.de/" target="_blank" rel="noopener" ><span style={{ fontSize: '0.85rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Sieber & Wolf&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+                <div style={{ fontSize: '1rem', fontWeight: 'bold', color: 'white' }}>
+                  Client: <a href="https://sieberundwolf.de/" target="_blank" rel="noopener" ><span style={{ fontSize: '1rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Sieber & Wolf&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
                   
                   <Image src="/images/agencies/sw_neu_white.png" alt="Sieber & Wolf"  width={33} height={16} /></a>
                 </div>
-                <div style={{ fontSize: '0.85rem', fontWeight: 'bold', color: 'white' }}>
-                  My Task: <span style={{ fontSize: '0.85rem', fontWeight: 'normal', color: '#acfeff', marginBottom:'3rem', display: 'block', lineHeight: '1.4' }}>Invent a new type of dealership award for Mercedes Benz. I thought up the concept, designed the whole piece including UI and put together a working tech-stack for a fully functional prototype.</span>
+                <div style={{ fontSize: '1rem', fontWeight: 'bold', color: 'white' }}>
+                  My Task: <span style={{ fontSize: '1rem', fontWeight: 'normal', color: '#acfeff', marginBottom:'3rem', display: 'block', lineHeight: '1.4' }}>Invent a new type of dealership award for Mercedes Benz. I thought up the concept, designed the whole piece including UI and put together a working tech-stack for a fully functional prototype.</span>
                 </div>
               </div>
               <ThrowableImages />
