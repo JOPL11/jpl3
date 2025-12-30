@@ -657,6 +657,7 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={skillsHeadingRef}>Core Skills</AnimatedText>
             </h2>
+            <div style={{height: '0.1rem', marginBottom: '5rem'}}>Minus the creative writing and guitar stuff</div>
               <p>My toolkit is extensive and constantly evolving, allowing me to own a project from concept to deployment. I&apos;ve split the skills into separate categories for clarity:</p>
               <ul className={styles.skillsList} role="list">
                 <h3 style={{fontSize: '1.3rem', fontWeight: '400', marginTop: '1rem', color: 'white'}}>Languages</h3>
@@ -698,7 +699,7 @@ useEffect(() => {
             <section id="code" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="code">
        
               <h2 id="code" style={{marginTop: '100px'}} className={styles.scrollTarget}><AnimatedText ref={workHeadingRef}>Code Projects</AnimatedText></h2>
-                 <div style={{height: '5rem'}}>Selected Case Studies</div>
+                 <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies</div>
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
 
               <ProjectCard 
@@ -1030,7 +1031,7 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={motionHeadingRef}>Motion</AnimatedText>
             </h2>
-                        <div style={{height: '5rem'}}>Selected Case Studies</div>
+                <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies</div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
               <VideoProjectCard 
                   title="Showreel 2025"
@@ -1301,7 +1302,7 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={webglHeadingRef}>WebGL</AnimatedText>
             </h2>
-            <div style={{height: '5rem'}}>Selected Case Studies.</div>
+                <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies</div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
               <ProjectCard 
                   onMoreClick={() => {
@@ -1395,11 +1396,11 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={productHeadingRef}>Prototype</AnimatedText>
             </h2>
-            
+            <div style={{height: '0.1rem', marginBottom: '8rem'}}>Tap or click the images to look through the pile of photos.</div>
 
               <div className={styles.introText}>
 
-                <p>Tap or click the images to look through the pile of photos.</p>
+
                 <div style={{ fontSize: '1rem', fontWeight: 'bold', color: 'white' }}>
                   Project: <span style={{ fontSize: '1rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Daimler Benz dealership award.</span>
                 </div>
@@ -1423,10 +1424,10 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={contactHeadingRef}>Contact</AnimatedText>
             </h2>
-
+            <div style={{height: '0.1rem', marginBottom: '11rem'}}>I&apos;m available for local projects as well as potential employment opportunities. Use the form to inquire about rates and availability, or just to say hi.</div>
 
  
-              <p>I&apos;m available for local projects as well as potential employment opportunities. Use the form to inquire about rates and availability, or just to say hi.</p>
+
               <ContactForm />
             </section>
  
