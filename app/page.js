@@ -13,6 +13,13 @@ import { useMemo } from 'react';
 import LocomotiveScroll from 'locomotive-scroll';
 
 
+// Dynamically import the component with SSR disabled
+const BelowFooterWorld = dynamic(
+  () => import('./components/BelowFooterWorld'),
+  { ssr: false }
+);
+
+
 
 function useViewportWidth() {
   const [width, setWidth] = useState(0);
@@ -648,7 +655,8 @@ useEffect(() => {
                 <h2 style={{paddingTop: "5rem"}}><AnimatedText ref={overviewHeadingRef}>Overview</AnimatedText></h2>
                 <div style={{paddingBottom:"2rem"}}>
                 <p>An overview of the many projects I&apos;ve had the honor to be chosen for. Tapping on the company logo reveals information about the projects.</p>
-                <p>Developing mission-critical digital experiences for global leaders. Trusted by BMW, Airbus, Mercedes-Benz, HP, and Red Bull to translate brand vision into immersive interactive, motion, and installation design. </p></div>
+                <p>Developing mission-critical digital experiences for global leaders. Trusted by major brands to translate brand vision into immersive interactive, motion, and installation design.</p>
+                 <p>It&apos;ll be in development for a few days.</p></div>
                   <LogoCard />
             </section>
 
@@ -1261,9 +1269,8 @@ useEffect(() => {
                   alt="Audi Nüremberg"
                   text="Multimonitor animation for the MTU Tradefair Booth at the Paris Intnl. Airshow"
                   client={{
-                    name: "SMMD Team |",
+                    name: "VRPE |",
                     logo: "/images/agencies/vrpe_logoNew.png",
-                    website: "",
                   }}
                   logoWidth={306}
                   logoHeight={25}
@@ -1489,7 +1496,7 @@ useEffect(() => {
               className={styles.footerLink} 
               aria-label="Curriculum Vitae"
             >
-              CV
+              CV  <BelowFooterWorld />
             </button>*/}
           </nav>
         </div>
@@ -1504,6 +1511,7 @@ useEffect(() => {
         />
        
       </footer>
+      
       </div>
     </div>
   );

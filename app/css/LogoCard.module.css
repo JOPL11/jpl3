@@ -377,7 +377,9 @@ width:150px;
   filter: grayscale(10%) brightness(1.1);
   transition: all 0.3s ease;
 }
-
+.clientInfo{
+  padding: 1rem 1rem;
+}
 }
 
 @media (max-width: 768px) {
