@@ -648,7 +648,7 @@ useEffect(() => {
                 <h2 style={{paddingTop: "5rem"}}><AnimatedText ref={overviewHeadingRef}>Overview</AnimatedText></h2>
                 <div style={{paddingBottom:"2rem"}}>
                 <p>An overview of the many projects I&apos;ve had the honor to be chosen for. Tapping on the company logo reveals information about the projects.</p>
-                <p>It&apos;ll be under development for a few days. </p></div>
+                <p>Developing mission-critical digital experiences for global leaders. Trusted by BMW, Airbus, Mercedes-Benz, HP, and Red Bull to translate brand vision into immersive interactive, motion, and installation design. </p></div>
                   <LogoCard />
             </section>
 

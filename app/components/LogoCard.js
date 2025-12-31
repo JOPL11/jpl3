@@ -81,6 +81,7 @@ const LogoCard = () => {
       <strong>2)</strong> A dynamic, interactive corporate presentation tool deployed for global stakeholder meetings. Owned concept, design, animation, and development.</p><br>
 
       <p><strong>Role:</strong> As the lead designer and developer, I was entrusted with creating both experiences from concept to delivery—handling visual design, 3D animation, motion graphics, and interactive coding.</p><br>
+      <p><strong>Outcome:</strong> The Airshow visualization became a central talking point for their booth, driving executive engagement. The presentation tool was adopted for global roadshows.</p>
       <p><strong>Tech:</strong> Cinema4D, Corona Render Engine, Adobe After-Effects, High-resolution render pipeline, javascript</p>
     `,
     description2: ``
@@ -312,7 +313,7 @@ const LogoCard = () => {
     { id: 11, src: '/images/mini/pro7.jpg', alt: 'Logo 11', 
        title: 'Online Ad Campaigns',
       clientText: `Direct Client: `,
-      clientLogo: '/images/agencies/pro7_small.png',
+      clientLogo: '/images/agencies/pro7_small2.png',
       clientLogoHeight: 25,
       agencyName: 'Pro7Sat1',
       agencyLink: 'https://www.prosiebensat1.com/en',
@@ -361,8 +362,10 @@ const LogoCard = () => {
       agencyName: 'Publicorange',
       agencyLink: 'https://www.publicorange.com',
       description: `
-      <p><strong>Project 1:</strong> An installer package that opened up a setup-wizard for Swisscoms Online Access<br>
-      <strong>Role:</strong>  Design, Programming<br>
+      <p><strong>Project 1:</strong> An installer package that opened up a setup-wizard for Swisscoms Online Access<br></p>
+      <p><strong>Initiative:</strong> Customer onboarding software suite.</p>
+      <p><strong>Value:</strong> Reduced customer setup friction and provided a branded, guided first touchpoint with the service.</p>
+      <p><strong>Role:</strong>  Design, Programming<br></p>
     `,
     description2: `` 
    },
@@ -374,7 +377,7 @@ const LogoCard = () => {
       agencyName: 'Publicorange',
       agencyLink: 'https://www.publicorange.com',
  description: `
-      <p><strong>Project 1:</strong> Risen 2 Teaser Website. A parallax scroller made with graphical assets from the game.<br></p>
+      <p><strong>Project 1:</strong> Risen 2 Teaser Website. A huge parallax scroller made with graphical assets from the game.<br></p>
       <p><strong>Role:</strong> Concept, Design, Programming<br></p>
 
      <p><strong>Project 2:</strong> A website for Horse Life 2.<br></p>
@@ -383,14 +386,16 @@ const LogoCard = () => {
     description2: `` 
    },
     { id: 16, src: '/images/mini/siemens.jpg', alt: 'Logo 16', 
-      title: 'Teaser Website For a Videogame',
+      title: 'Siemens Global: Interactive Technology Explainer',
       clientText: `Agency: `,
       clientLogo: '/images/agencies/fiction-films.png',
       clientLogoHeight: 25,
       agencyName: 'FictionFilms',
       agencyLink: 'https://www.fiction-films.com',
  description: `
-      <p><strong>Project 1:</strong> Interactive infopage about washing machine technology for the global siemens website <br>
+      <p><strong>Project 1:</strong> Interactive infopage about washing machine technology for the global siemens website.<br></p>
+      <p><strong>My Role:</strong> Interactive Developer – programmed the animated interface and interactive diagrams.</p>
+      <p><strong>Outcome:</strong> The interactive elements helped users better understand complex washing technology through visual exploration.</p>
     `,
     description2: `` 
    },
@@ -399,10 +404,12 @@ const LogoCard = () => {
       clientText: `Agency: PepperGlobal`,
       clientLogo: '/images/agencies/pepper_logo.png',
       clientLogoHeight: 25,
-      agencyName: 'Pepper Global',
+      agencyName: 'Pepper Global', 
  description: `
-      <p><strong>Project 1:</strong> HP Interactive Presentations, Animations, Digital Campaign Deliverables<br>
-      <strong>Role:</strong> Concept, Design, Programming<br>
+      <p><strong>Scope:</strong> Global digital campaign deliverables for Hewlett Packard (HP), including interactive presentations, animated explainers, and motion graphics. Additionally, created flagship brand animations for Pepper Global's own agency promotion.</p>
+      <p><strong>Role:</strong> Lead Concept, Design, and Development. Translated HP's core campaign look & feel into sophisticated, audio-driven animated films and interactive experiences used in global sales and marketing initiatives.</p><br>
+      <p><strong>Outcome:</strong> These assets became the standard digital presentation format for HP's global sales teams for the duration of the campaign.</p><br>
+      <p><strong>Tech:</strong> Cinema4D, After Effects, Web technologies</p>
     `,
     description2: `` 
    },
@@ -441,8 +448,11 @@ const LogoCard = () => {
       agencyName: 'NakedToast',
        agencyLink: 'https://www.nakedtoast.com',
  description: `
-      <p><strong>Projects:</strong> Landingpages / Digital Campaign Deliverables for Motion Pictures.</p><br>
-      <strong>Role:</strong> Concept, Design, Programming<br>
+      <p><strong>Campaigns:</strong> Digital launch assets for major theatrical releases.</p>
+        <p><strong>Challenge:</strong> Create captivating, campaign-specific digital experiences under strict NDA and brand guidelines to build anticipation pre-release.</p>
+        <p><strong>My Role:</strong> Lead Interactive Designer & Developer – conceptualized and built promotional microsites, interactive landing pages, and animated ad suites.</p>
+        <p><strong>Key Deliverables:</strong> One-page scroll experiences, interactive video teasers, rich media banners.</p>
+        <p><strong>Tech:</strong> HTML5, CSS3, JavaScript (GSAP), Adobe Creative Suite.</p>
     `,
     description2: `` 
    },
@@ -454,8 +464,11 @@ const LogoCard = () => {
       agencyName: 'NakedToast',
        agencyLink: 'https://www.nakedtoast.com',
  description: `
-      <p><strong>Projects:</strong> Landingpages / Digital Campaign Deliverables for Motion Pictures.<br>
-      <strong>Role:</strong> Concept, Design, Programming<br>
+      <p><strong>Campaigns:</strong> Digital launch assets for major theatrical releases.</p>
+        <p><strong>Challenge:</strong> Create captivating, campaign-specific digital experiences under strict NDA and brand guidelines to build anticipation pre-release.</p>
+        <p><strong>My Role:</strong> Lead Interactive Designer & Developer – conceptualized and built promotional microsites, interactive landing pages, and animated ad suites.</p>
+        <p><strong>Key Deliverables:</strong> One-page scroll experiences, interactive video teasers, rich media banners.</p>
+        <p><strong>Tech:</strong> HTML5, CSS3, JavaScript (GSAP), Adobe Creative Suite.</p>
     `,
     description2: `` 
    },
