@@ -1,7 +1,12 @@
 'use client';
 
-import { useEffect, useState, Suspense } from 'react';
+import { useEffect, useState, Suspense, memo } from 'react';
 import dynamic from 'next/dynamic';
+
+
+
+
+
 
 // Enhanced iOS detection with more device patterns and debug logging
 const isIOS = () => {

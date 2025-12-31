@@ -101,7 +101,7 @@ const Logo3D = dynamic(
 
 // Wrapper component to handle WebGL and iOS interaction
 const Logo3DWrapper = dynamic(
-  () => import('./components/Logo3DWrapper').then(mod => mod.default),
+  () => import('./components/Logo3DWrapperB').then(mod => mod.default),
   { 
     ssr: false,
     loading: () => <div style={{ width: 350, height: 250 }} />
