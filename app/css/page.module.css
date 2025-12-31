@@ -1748,7 +1748,7 @@ a.secondary {
   
   /* Smooth transition for hamburger visibility */
   .hamburger {
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
   }
 }
 
@@ -1761,7 +1761,7 @@ a.secondary {
 
 .hamburgerInner {
   width: 100%;
-  height: 2px;
+  height: 4px;
   background-color: rgba(255, 255, 255, 0.7);
   position: absolute;
   left: 0;
@@ -1774,7 +1774,7 @@ a.secondary {
 .hamburgerInner::after {
   content: '';
   width: 100%;
-  height: 2px;
+  height: 4px;
   background-color: rgba(255, 255, 255, 0.7);
   position: absolute;
   left: 0;

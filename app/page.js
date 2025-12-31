@@ -397,7 +397,7 @@ useEffect(() => {
   style={{
     opacity: showHamburger ? 1 : 0,
     pointerEvents: showHamburger ? 'auto' : 'none',
-    transition: 'opacity 0.3s ease-in-out, transform 0.3s ease-in-out',
+    transition: 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out',
     marginLeft: '50px',
     transform: 'translateY(0px)'
   }}
@@ -405,8 +405,8 @@ useEffect(() => {
       <Image 
         src="/images/jp.svg" 
         alt="JP Logo" 
-        width={20} 
-        height={20} 
+        width={25} 
+        height={25} 
         className={styles.logo}
         style={{
            marginLeft: '0px',  // Add some space between the arrow and logo
@@ -429,7 +429,7 @@ useEffect(() => {
               style={{
                 opacity: showHamburger ? 1 : 0,
                 pointerEvents: showHamburger ? 'auto' : 'none',
-                transition: 'opacity 0.3s ease-in-out'
+                transition: 'opacity 0.5s ease-in-out'
               }}
             >
             <span className={styles.hamburgerBox}>
