@@ -654,7 +654,7 @@ useEffect(() => {
                 <SectionTracker onSectionChange={setActiveSection} />
                 <h2 style={{paddingTop: "5rem"}}><AnimatedText ref={overviewHeadingRef}>Overview</AnimatedText></h2>
                 <div style={{paddingBottom:"2rem"}}>
-                <p>An overview of the many projects I&apos;ve had the honor to be chosen for. Tapping on the company logo reveals information about the projects.</p>
+                <p>An overview of some of the many projects I&apos;ve had the honor to be chosen for. Tapping on the company logo reveals information about the projects.</p>
                 <p>Developing mission-critical digital experiences for global leaders. Trusted by major brands to translate brand vision into immersive interactive, motion, and installation design.</p>
                  <p>It&apos;ll be in development for a few days.</p></div>
                   <LogoCard />
@@ -681,7 +681,7 @@ useEffect(() => {
                 <li role="listitem">Cinema4D, Blender, Adobe Suite</li>
                 <li role="listitem">3D Modeling, 3D Animation, 3D Rendering</li>
                 <li role="listitem">Octane Render, Corona Render</li>
-                <li role="listitem">After Effects, Video Edit, Video Post-Production</li>
+                <li role="listitem">After Effects, Cavalry, Lottie, Video Edit, Video Post-Production</li>
                 <h3 style={{fontSize: '1.3rem', fontWeight: '400', marginTop: '1rem', color: 'white'}}>Code</h3>
                 <li role="listitem">Development, Rapid Prototyping</li>
                 <li role="listitem">React, Next.js, Vue.js, html, css, javascript</li>
