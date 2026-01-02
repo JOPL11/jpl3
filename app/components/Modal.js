@@ -1,13 +1,14 @@
 // components/Modal.js
 'use client';
 
-import React, { useEffect, useRef, useCallback } from 'react';
+import React, { useEffect, useRef, useCallback, useState } from 'react';
 import styles from '../css/Modal.module.css';
 
 export default function Modal({ isOpen, onClose, children, fullBleed = false }) {
   const modalRef = useRef(null);
   const scrollY = useRef(0);
   const contentRef = useRef(null);
+  const [isClosing, setIsClosing] = useState(false);
 
   // Handle smooth scrolling for mouse wheel
   const handleWheel = useCallback((e) => {
@@ -24,6 +25,15 @@ export default function Modal({ isOpen, onClose, children, fullBleed = false }) 
       contentRef.current.scrollTop += e.deltaY * 0.8;
     }
   }, []);
+
+  // Handle modal close with animation
+  const handleClose = useCallback(() => {
+    setIsClosing(true);
+    setTimeout(() => {
+      onClose();
+      setIsClosing(false);
+    }, 600); // Match the longest animation duration
+  }, [onClose]);
   
   // Set up the content ref with the modal content element
   const setContentRef = (node) => {
@@ -40,11 +50,14 @@ export default function Modal({ isOpen, onClose, children, fullBleed = false }) 
 
   // Handle ESC key and scroll locking
   useEffect(() => {
-    const handleEsc = (e) => e.key === 'Escape' && onClose();
+    const handleEsc = (e) => e.key === 'Escape' && handleClose();
     
     if (isOpen) {
       // Store current scroll position
       scrollY.current = window.scrollY;
+      
+      // Calculate scrollbar width to prevent layout shift
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
       
       // Add event listeners
       window.addEventListener('keydown', handleEsc);
@@ -53,6 +66,7 @@ export default function Modal({ isOpen, onClose, children, fullBleed = false }) 
       document.body.style.position = 'fixed';
       document.body.style.top = `-${scrollY.current}px`;
       document.body.style.width = '100%';
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
       
       // Add wheel event listener for smooth scrolling
       const contentElement = contentRef.current;
@@ -72,6 +86,7 @@ export default function Modal({ isOpen, onClose, children, fullBleed = false }) 
         document.body.style.position = '';
         document.body.style.top = '';
         document.body.style.width = '';
+        document.body.style.paddingRight = '';
         
         // Restore scroll position after a small delay to allow DOM to update
         requestAnimationFrame(() => {
@@ -79,7 +94,7 @@ export default function Modal({ isOpen, onClose, children, fullBleed = false }) 
         });
       };
     }
-  }, [isOpen, onClose, handleWheel]);
+  }, [isOpen, handleClose, handleWheel]);
 
   // Simple children renderer that wraps content in a scrollable container
   const renderChildren = () => {
@@ -102,18 +117,18 @@ export default function Modal({ isOpen, onClose, children, fullBleed = false }) 
     );
   };
 
-  if (!isOpen) return null;
+  if (!isOpen && !isClosing) return null;
 
   return (
-    <div className={styles.modalOverlay} onClick={onClose}>
+    <div className={`${styles.modalOverlay} ${isClosing ? styles.closing : ''}`} onClick={handleClose}>
       <div 
         ref={modalRef}
-        className={`${styles.modalContent} ${fullBleed ? styles.fullBleed : ''}`}
+        className={`${styles.modalContent} ${fullBleed ? styles.fullBleed : ''} ${isClosing ? styles.closing : ''}`}
         onClick={(e) => e.stopPropagation()}
       >
         <button 
           className={styles.closeButton} 
-          onClick={onClose}
+          onClick={handleClose}
           aria-label="Close modal"
         >
           &times;
