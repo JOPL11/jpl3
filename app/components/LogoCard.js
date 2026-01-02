@@ -68,25 +68,7 @@ const LogoCard = () => {
   };
 
   const logos = [
-    {   id: 1, src: '/images/mini/aeromtu.jpg', 
-        alt: 'Logo 1', 
-        title: 'Digital Experiences for MTU Aero Engines',
-      clientText: `Agency:   VRPE`,
-      clientLogo: '/images/agencies/vrpe_logoNew.png',
-      clientLogoHeight: 15,
-      agencyName: 'VRPE',
-      description: `
-      <p>Delivered two flagship digital experiences for a global aerospace leader:<br> <br> 
-      <strong>1)</strong> An immersive multi-monitor 3D visualization for their Paris Airshow exhibition.<br>
-      <strong>2)</strong> A dynamic, interactive corporate presentation tool deployed for global stakeholder meetings. Owned concept, design, animation, and development.</p><br>
-
-      <p><strong>Role:</strong> As the lead designer and developer, I was entrusted with creating both experiences from concept to delivery—handling visual design, 3D animation, motion graphics, and interactive coding.</p><br>
-      <p><strong>Outcome:</strong> The Airshow visualization became a central talking point for their booth, driving executive engagement. The presentation tool was adopted for global roadshows.</p>
-      <p><strong>Tech:</strong> Cinema4D, Corona Render Engine, Adobe After-Effects, High-resolution render pipeline, javascript</p>
-    `,
-    description2: ``
-  },
-    { id: 2, src: '/images/mini/airbus.jpg', alt: 'Logo 2', 
+    { id: 1, src: '/images/mini/airbus.jpg', alt: 'Logo 2', 
       title: 'Airbus Group Digital Interfaces',
       clientText: `Agency:`,
       clientLogo: '/images/agencies/SMMD.png',
@@ -121,7 +103,25 @@ const LogoCard = () => {
       <p><strong>Tech:</strong> GSAP, JavaScript, Cinema4D, Octane, Adobe After Effects, UI/UX Design Principles.</p>
     `,
     description2: ``
-  },                 
+  },   
+      {   id: 2, src: '/images/mini/aeromtu.jpg', 
+        alt: 'Logo 1', 
+        title: 'Digital Experiences for MTU Aero Engines',
+      clientText: `Agency:   VRPE`,
+      clientLogo: '/images/agencies/vrpe_logoNew.png',
+      clientLogoHeight: 15,
+      agencyName: 'VRPE',
+      description: `
+      <p>Delivered two flagship digital experiences for a global aerospace leader:<br> <br> 
+      <strong>1)</strong> An immersive multi-monitor 3D visualization for their Paris Airshow exhibition.<br>
+      <strong>2)</strong> A dynamic, interactive corporate presentation tool deployed for global stakeholder meetings. Owned concept, design, animation, and development.</p><br>
+
+      <p><strong>Role:</strong> As the Lead Experience Designer and Developer, I was entrusted with creating both experiences from concept to delivery—handling visual design, 3D animation, motion graphics, and interactive coding.</p><br>
+      <p><strong>Outcome:</strong> The Airshow visualization delivered a competitive show-floor advantage that commanded attention, driving executive engagement. The presentation tool was adopted as a strategic asset that traveled the world, consistently elevating their brand for business development across the globe.</p><br>
+      <p><strong>Tech:</strong> Cinema4D, Corona Render Engine, Adobe After-Effects, High-resolution render pipeline, javascript</p>
+    `,
+    description2: ``
+  },              
     { id: 4, src: '/images/mini/audi.jpg', alt: 'Logo 4', 
       title: 'Audi Nuremberg & Audi Middle East',
       clientText: `Agency:`,
@@ -134,7 +134,7 @@ const LogoCard = () => {
       <strong>Role:</strong> Visual Narrative Strategy, Solo Motion Design, Rendering<br>
       <strong>Tech:</strong> After Effects, Photoshop<br>
       Created 11 minute Backdrop film for a stage presentation at the Q5 Unveiling Ceremony in Nuremburg Germany, a VIP Event. Needed to be choreographed in time with professional dancers and a large electronically actuated on-stage water sprinkler system. I had three weeks to animate it, make it fit choreographicallly. It worked beautifully. </p><br>
-      <p><strong>strategicImpact:</strong> Transformed VIP brand engagement, elevating corporate storytelling from passive to participatory. Boris Becker was fist pumping and whooping at my animation. The crowd went wild as lightning and thunder rolled to a crescendo on-screen.</p><br>
+      <p><strong>strategic Impact:</strong> Transformed VIP brand engagement, elevating corporate storytelling from passive to participatory. Boris Becker was fist pumping and whooping at my animation. The entire elite crowd went wild as lightning and thunder rolled to a visceral on-screen culmination.</p><br>
 
       <p><strong>Project:</strong> Online Animation<br>
       <strong>Role:</strong> Lead Visual Concept Engineer, Solo Motion Design<br>
@@ -151,21 +151,17 @@ const LogoCard = () => {
       agencyName: 'Sieber & Wolff',
       agencyLink: 'https://www.sieberundwolf.de/',
       description: `
-      <p><strong>1) Product Design: </strong> A Next-Generation Brand Award for Mercedes-Benz Dealerships</</p>
-      <p><strong>Context:</strong> Mercedes-Benz (Daimler AG) sought to reinvent its prestigious annual dealership award—a symbolic object representing the pinnacle of brand partnership and excellence. The mandate was to evolve a traditional award trophy into a modern brand statement that reflected Mercedes-Benz core identity and forward-looking vision.<br>
-      <strong>My Role:</strong> Creative Concept Designer, Product Designer, Visual Animation Technician<br>
-      I was tasked with leading the creative reinvention of this key brand artifact, responsible for the overarching concept, product design, and visual animation of the proposal.<br>
+      <p><strong>1) Product Design: </strong> A Next-Generation Brand Award for Mercedes-Benz Dealerships</</p><br><br>
+      <p><strong>Context:</strong> Mercedes-Benz (Daimler AG) sought to reinvent its prestigious annual dealership award—a symbolic object representing the pinnacle of brand partnership and excellence. The mandate was to evolve a traditional award trophy into a modern brand statement that reflected Mercedes-Benz core identity and forward-looking vision.</p>
+      <p><strong>My Role:</strong> Creative Director & Design Lead</p>
+      <p><strong>The Work:</strong>I was entrusted with the complete creative reinvention of this key brand artifact, responsible for the overarching strategy, product design, detailed technical architecture, and cinematic presentation of the proposal.</p>
+      <p><strong>Tech:</strong> Cinema4D, AutoCAD, After Effects, Corona Render Engine</p><br><br><br>
 
-      <strong>Tech:</strong> Cinema4D, AutoCAD, After Effects, Corona Render Engine</p><br><br>
-
-      <p><strong>2) Logo Animation: </strong> Logo Animation for Mercedes-Benz: Procat</p>
-       <p><strong>Context:</strong> To maintain its global premium standard, Mercedes-Benz (Daimler AG) requires consistently high-quality visual assets for internal communications, from product documentation to employee training.<br>
-      <strong>The Project:</strong> 3D Animation for their Internal Product Catalog<br>
-      <strong>The Brief:</strong> Create clear, engaging 3D animations as an opening title sequence featuring the logo of an internal, global product catalog used by engineering, sales, and marketing teams.<br>
-
-      <strong>Role:</strong> Technical Concept, 3D Animator, Renderer<br>
-
-      <strong>The Work:</strong> Developed a series of visual concepts and refined the chosen variation.<br>
+      <p><strong>2) Logo Animation: </strong> Logo Animation for Mercedes-Benz: Procat, an internal Product Catalog</p><br><br>
+       <p><strong>Context:</strong> To maintain its global premium standard, Mercedes-Benz (Daimler AG) requires consistently high-quality visual assets for internal communications, from product documentation to employee training.</p>
+      <p><strong>The Brief:</strong> Create clear, engaging 3D animations as an opening title sequence featuring the logo of an internal, global product catalog used by engineering, sales, and marketing teams.</p>
+      <p><strong>My Role:</strong> Solo Technical Concept, Solo 3D Animator, Solo Renderer</p>
+      <p><strong>The Work:</strong> Developed a series of visual concepts and refined the chosen variation.</p>
       <p><strong>Tech:</strong> After Effects, Superluminal Stardust, Adobe Illustrator</p>
     `,
     description2: ``
@@ -179,26 +175,24 @@ const LogoCard = () => {
       agencyLink: 'https://www.becc-agency.com',
       description: `
       <p><strong>Project 1:</strong> Immersive 3D Campaign for BMW Global Headquarters<br>
-      <strong>Role:</strong> Animation Concept, Motion Design, Rendering<br>
-      <strong>Tech:</strong> Cinema4D, Corona Render Engine, Adobe After-Effects, High-resolution render pipeline.<br>
-      <strong>Outcome: </strong>Translated a 2D typographic campaign into an immersive 3D animation experience for the multi-monitor video wall at BMW Group global headquarters in Munich. Conceptualized, designed, and rendered in Cinema4D to create a dynamic, large-scale brand statement for their most important audience.</p><br><br>
+      <p><strong>Role:</strong> 3D Experience Director / Animation Concept / Motion Design /Rendering</p>
+      <p><strong>Outcome: </strong>Translated an existing 2D typographic campaign into a commanding environmental experience for the multi-monitor video wall at for BMW's nerve center, the global headquarters in Munich. Conceptualized, designed, and rendered in Cinema4D to create a dynamic, large-scale brand statement a dynamic brand monument visible to every executive and visitor.</p>
+      <p><strong>Tech:</strong> Cinema4D, Corona Render, After Effects, High-res pipeline.</p><br><br>
 
-      <p><strong>Project 2:</strong> Global Web Animation Style Guide for BMW.com"<br>
-      <strong>Role:</strong> Animation Designer and Developer<br>
-      <strong>Tech:</strong> GSAP (The Acclaimed, Crossbrowser 'GreenSock Animation Platform') <br>
-      <strong>Outcome: </strong> Developed and prototyped the core animation library and interactive prototypes for BMW global web presence. My solutions were formally adopted into the brand official style guide, which sets the standard for premium, performant motion, establishing the technical benchmark across BMW international web properties. </p><br>
+      <p><strong>Project 2:</strong> Global Web Animation Language for BMW.com's Style Guide<br>
+      <strong>Role:</strong> Motion Systems Architect<br>
+      <strong>Tech:</strong> GSAP (The Acclaimed, Crossbrowser 'GreenSock Animation Platform'), rapid prototyping, systems thinking.<br>
+      <strong>Outcome: </strong> Developed and prototyped the core animation library and interactive prototypes for the BMW global web presence. My solutions were formally adopted into the brand official style guide, which sets the standard for premium, performant motion, establishing the technical benchmark across BMW international web properties. Proving that decisive creative vision (and 15 years experience with the right tools) delivers scalable systems, not just one-off animations.</p><br>
 
       <p><strong>Project 3:</strong> Narrative Films for the BMW Global Rebranding<br>
       <strong>Role:</strong> Video Editor, Author, Voice Recording & Voice Narration<br>
       
-      <strong>Situation: </strong> The BMW Group and its creative agency (BECC) were undertaking a momentous project: redesigning the iconic global logo. This involved a highly skilled & dedicated team of strategists, designers, and executives working through an intense iterative process.<br>
-      I contributed to the BMW global rebranding initiative by producing internal narrative "mood videos." Tasked with editing archival footage, writing scripts, and providing voiceover, I created assets used by the core BECC/BMW team to aid the brand evolution narrative during their extensive, multi-year design process.</p>
-      <p>These videos served as strategic communication aids, designed to:</p>
+      <p><strong>Situation: </strong> The BMW Group and its creative agency (BECC) were undertaking a momentous project: redesigning the iconic global logo. This involved a highly skilled & dedicated team of strategists, designers, and executives working through an intense iterative process.</p>
+      <p><strong>The Work:</strong> I contributed to the BMW global rebranding initiative by producing internal narrative "mood videos." Tasked with editing archival footage, writing scripts, and providing voiceover, I created assets used by the core BECC/BMW team to aid the brand evolution narrative during their extensive, multi-year design process.</p><br>
+      <p>These videos served as strategic communication aids, designed to:</p><br>
         <ul>
         <li><p>Give visual and narrative form to brand concepts being debated.</p></li>
-
         <li><p>Build consensus among key decision-makers by framing the change within a compelling brand journey.</p></li>
-
          <li><p>Demonstrate the new logo application and acceptance in various brand contexts.</p></li>
         </ul>
 
