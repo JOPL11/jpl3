@@ -94,7 +94,7 @@ const LogoCard = () => {
       agencyName: 'SMMD Team',
       agencyLink: 'https://www.smmd.team',
       description: `
-      <p><strong>The Mission:</strong> Airbus Group required a next-generation digital interface for its most important physical spaces: its International Headquarters in Berlin and its premier Showroom in Munich. The mandate was to create an interactive, multi-sensory experiences that could communicate the complexity and ambition of aerospace innovation to VIPs, partners, and policymakers.<br><br>
+      <p><strong>The Mission:</strong> Airbus Group required a next-generation digital interface for its most important spaces: its International Headquarters in Berlin and its premier Showroom in Munich. The mandate was to create interactive, multi-sensory experiences that could communicate the complexity and ambition of aerospace innovation to VIPs, partners, and policymakers.<br><br>
 
       <strong>My Role:</strong> Lead Digital Experience Designer & Developer.<br>
       I was entrusted with the complete digital vision for these experiences, acting as the sole creator across four distinct installations—responsible for User Experience (UIX) strategy, visual and motion design, animation, and full-stack interactive development.<br><br>
@@ -113,9 +113,10 @@ const LogoCard = () => {
       <strong>Solution:</strong> Produced a suite of large-scale, multi-monitor video features. This included a complex 3D animated sequence visualizing flight dynamics across a range of products, and a stylized 2D motion graphics piece celebrating engineering milestones, both rendered in ultra-high resolution for close viewing.</p><br>
       <p><strong>The Outcome & Impact:</strong></p>
       <ul>
-        <li><p>Helped transform two key Airbus facilities from static spaces into dynamic, technology-forward brand experiences.</p></li>
+        <li><p>Instrumental in transforming two key Airbus facilities from static spaces into dynamic, technology-forward brand experiences that enabled distinguished visitors to feel the Full Bandwidth of Big-League Aerospace Corporations.</p></li>
         <li><p>Helped establish a new standard for corporate engagement, merging tactile interaction with cinematic narrative.</p></li>
         <li><p>Demonstrated end-to-end mastery across the digital spectrum: from functional enterprise UIX to emotive brand spectacle.</p></li>
+        <li><p>Translated Airbus's engineering marvel into visceral, interactive experiences that made corporate vision tangible for VIPs and decision-makers.</p></li>
       </ul>
       <p><strong>Tech:</strong> GSAP, JavaScript, Cinema4D, Octane, Adobe After Effects, UI/UX Design Principles.</p>
     `,
@@ -130,12 +131,13 @@ const LogoCard = () => {
       agencyLink: 'https://www.planstand.com',
       description: `
       <p><strong>Project:</strong> Cinema Screen Motion Design<br>
-      <strong>Role:</strong> Visual Concept, Solo Motion Design, Rendering<br>
+      <strong>Role:</strong> Visual Narrative Strategy, Solo Motion Design, Rendering<br>
       <strong>Tech:</strong> After Effects, Photoshop<br>
-      Created 11 minute Backdrop film for a stage presentation at VIP Event Q5 Unveiling Ceremony in Nuremburg Germany. Needed to be choreographed in time with professional dancers and a large electronically actuated on-stage water sprinkler system. I had three weeks to animate it, make it fit choreographicallly. It worked beautifully. </p><br>
+      Created 11 minute Backdrop film for a stage presentation at the Q5 Unveiling Ceremony in Nuremburg Germany, a VIP Event. Needed to be choreographed in time with professional dancers and a large electronically actuated on-stage water sprinkler system. I had three weeks to animate it, make it fit choreographicallly. It worked beautifully. </p><br>
+      <p><strong>strategicImpact:</strong> Transformed VIP brand engagement, elevating corporate storytelling from passive to participatory. Boris Becker was fist pumping and whooping at my animation. The crowd went wild as lightning and thunder rolled to a crescendo on-screen.</p><br>
 
       <p><strong>Project:</strong> Online Animation<br>
-      <strong>Role:</strong> Visual Concept, Solo Motion Design<br>
+      <strong>Role:</strong> Lead Visual Concept Engineer, Solo Motion Design<br>
       <strong>Tech:</strong> javascript<br>
       Created an intro film for Audi Middle East Official Website. This one wasn't for Planstand, it was for Mario Klingemann, but I'll just add it to this Audi section.</p>
     `,
@@ -151,7 +153,7 @@ const LogoCard = () => {
       description: `
       <p><strong>1) Product Design: </strong> A Next-Generation Brand Award for Mercedes-Benz Dealerships</</p>
       <p><strong>Context:</strong> Mercedes-Benz (Daimler AG) sought to reinvent its prestigious annual dealership award—a symbolic object representing the pinnacle of brand partnership and excellence. The mandate was to evolve a traditional award trophy into a modern brand statement that reflected Mercedes-Benz core identity and forward-looking vision.<br>
-      <strong>My Role:</strong> Concept Designer & Creative Lead<br>
+      <strong>My Role:</strong> Creative Concept Designer, Product Designer, Visual Animation Technician<br>
       I was tasked with leading the creative reinvention of this key brand artifact, responsible for the overarching concept, product design, and visual animation of the proposal.<br>
 
       <strong>Tech:</strong> Cinema4D, AutoCAD, After Effects, Corona Render Engine</p><br><br>
