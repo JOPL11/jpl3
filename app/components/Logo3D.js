@@ -656,8 +656,8 @@ function Scene({ modelUrl }) {
       <OrbitingCube  speed={1.2} positionOffset={Math.PI / 2} rotationSpeed={0.9} visible={!isHolographic}/>
        <pointLight position={[2, -4, 11]} intensity={33.3} color="#87cacf" />
       <pointLight position={[2, 0, 8]} intensity={33.3} color="#87cacf" />
-      <pointLight position={[-1.5, -0.7, -0.5]} intensity={22.2} color="#87cacf" />
-      <pointLight position={[1.8, -0.3, -0.5]} intensity={22.2} color="#87cacf" />
+      <pointLight position={[-3.5, -0.7, 5.5]} intensity={44} color="#87cacf" />
+      <pointLight position={[7, 0.5, 4.8]} intensity={33.2} color="#87cacf" />
       </group>
   {/* Second cube with offset position and different speed 
       {!isMobile && !isHolographic && (

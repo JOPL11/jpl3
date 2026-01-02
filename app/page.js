@@ -20,7 +20,9 @@ const BelowFooterWorld = dynamic(
   { ssr: false }
 );
 */}
-
+const checkIfIOS = () => {
+  return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+};
 
 function useViewportWidth() {
   const [width, setWidth] = useState(0);
@@ -222,6 +224,7 @@ const animationFrameId = useRef(null);
   }), [aboutHeadingRef, overviewHeadingRef, workHeadingRef, webglHeadingRef, skillsHeadingRef, contactHeadingRef, motionHeadingRef, productHeadingRef]);
   
   // Trigger animation when section changes
+  const isIOS = checkIfIOS();
 const scrollRef = useRef(null);
 useEffect(() => {
   console.log('Active section changed to:', activeSection);
@@ -232,14 +235,14 @@ useEffect(() => {
       lenisOptions: {
         wrapper: window,
         content: document.documentElement,
-        lerp: 0.1,
-        duration: 1.2,
+        lerp: isIOS ? 0.07 : 0.1,
+        duration: isIOS ? 1.0 : 1.2,
         orientation: 'vertical',
         gestureOrientation: 'vertical',
         smoothWheel: true,
         smoothTouch: false,
-        wheelMultiplier: 1,
-        touchMultiplier: 2,
+        wheelMultiplier: isIOS ? 0.8 : 1,
+        touchMultiplier: isIOS ? 1.5 : 2,
         normalizeWheel: true,
         wrapper: (element) => {
           // Check for modal overlay visibility
