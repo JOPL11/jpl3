@@ -648,6 +648,14 @@ useEffect(() => {
                 <li role="listitem">Unity, C#</li>
                 <li role="listitem">GLSL, HLSL experience</li>
                 <li role="listitem">SEO, Analytics</li>
+                <h3 style={{fontSize: '1.3rem', fontWeight: '400', marginTop: '1rem', color: 'white'}}>Strategy & Creative Direction</h3>
+                <li role="listitem">Brand Identity Systems</li>
+                <li role="listitem">Customer Experience / Design Psychology</li>
+                <li role="listitem">Creative Direction</li>
+                <li role="listitem">Stakeholder Communication & Alignment</li>
+                <li role="listitem">Strategic Writing & Presentations</li>
+                <li role="listitem">Project Ideation & Pitching</li>
+                <li role="listitem">Project Management</li>
                  {/*  
                 <li role="listitem">Octane, Redshift, Corona Render Engines</li>
                 <li role="listitem">After Effects, Video Edit, Video Post-Production</li>    */}
