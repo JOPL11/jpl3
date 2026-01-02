@@ -551,11 +551,11 @@ function OrbitingCube({ radius = 1.5, speed = 0.5, positionOffset = 1.3, rotatio
     <group>
       <group ref={cubeRef} visible={visible}>
         <mesh>
-          <boxGeometry args={[0.05, 0.05, 0.05]} />
+          <sphereGeometry args={[0.03, 8, 16]} />
           <meshPhysicalMaterial 
             color="#FFFFFF"
-            emissive="#FFFFFF"
-            emissiveIntensity={3}
+            emissive="#2a6f85ff"
+            emissiveIntensity={22}
             toneMapped={false}
           />
         </mesh>
@@ -631,7 +631,7 @@ function Scene({ modelUrl }) {
         intensity={1.3}
         color="#87cacf"
       />
-      <pointLight position={[2, -4, 11]} intensity={33.3} color="#87cacf" />
+     
       <group
         onPointerOver={() => setIsHovered(true)}
         onPointerOut={() => setIsHovered(false)}
@@ -650,6 +650,8 @@ function Scene({ modelUrl }) {
       <OrbitingCube  speed={1.4} positionOffset={Math.PI} rotationSpeed={-0.8} visible={!isHolographic}/>
 
       <OrbitingCube  speed={1.2} positionOffset={Math.PI / 2} rotationSpeed={0.9} visible={!isHolographic}/>
+       <pointLight position={[2, -4, 11]} intensity={33.3} color="#87cacf" />
+      <pointLight position={[2, 0, 8]} intensity={33.3} color="#87cacf" />
       </group>
   {/* Second cube with offset position and different speed 
       {!isMobile && !isHolographic && (
