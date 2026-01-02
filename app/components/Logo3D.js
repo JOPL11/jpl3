@@ -166,6 +166,8 @@ function useMobileDetect() {
   return isMobile;
 }
 
+
+
 // Component for hologram corner points
 function HologramCorners({ size = 0.1, distance = 1.2, intensity = 2.0 }) {
   const points = useMemo(() => [
@@ -721,6 +723,15 @@ export default function Logo3D({ width = '100vw', height = 350, className = '' }
   const rendererRef = useRef();
   const resizeTimeout = useRef();
 
+  useEffect(() => {
+  const container = canvasRef.current?.parentElement;
+  if (container) {
+    console.log('Container width:', container.getBoundingClientRect().width);
+    console.log('Window width:', window.innerWidth);
+    console.log('Container style:', container.style.width);
+  }
+}, []);
+
   // Handle resize with debounce
 const handleResize = useCallback(() => {
   if (!rendererRef.current || !canvasRef.current) return;
@@ -790,13 +801,15 @@ const handleResize = useCallback(() => {
     <div 
       className={`${styles.logoContainer} ${className}`} 
       style={{ 
-          width: width, 
+          width:  '100vw', 
           height: `${height + 25}px`,
           position: 'relative',
           overflow: 'visible', // Allow overflow
           opacity: isLoaded ? 1 : 1,
           transition: 'opacity 500ms ease-in-out',
-          visibility: isLoaded ? 'visible' : 'visible'
+          visibility: isLoaded ? 'visible' : 'visible',
+          maxWidth: 'none', // Add this
+          minWidth: '100vw' // Add this
       }}
     >
       {!isLoaded && <LoadingBar width={width} />}
@@ -831,7 +844,9 @@ const handleResize = useCallback(() => {
           WebkitTransform: 'translate3d(0,0,0)',
           transform: 'translate3d(0,0,0)',
           overflow: 'visible', // Allow canvas content to overflow
-          width: '100vw' // Make canvas full viewport width
+          width: '100vw', // Make canvas full viewport width
+          maxWidth: 'none', // Add this
+          minWidth: '100vw' // Add this
         }}
       >
         <color attach="background" args={[0x000000, 0]} />
