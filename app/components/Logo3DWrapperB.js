@@ -24,7 +24,7 @@ const Logo2D = memo(() => (
     />
   </div>
 ));
-
+Logo2D.displayName = 'Logo2D';
 // Lazy load 3D component with fallback
 const Logo3D = dynamic(
   () => import('./Logo3D'),
