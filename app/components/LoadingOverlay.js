@@ -21,7 +21,7 @@ export default function LoadingOverlay() {
       }, 500); // Match this with your CSS transition duration
 
       return () => clearTimeout(removeTimer);
-    }, 1000);
+    }, 2000);
 
     return () => {
       clearTimeout(fadeOutTimer);
@@ -31,10 +31,53 @@ export default function LoadingOverlay() {
   if (!shouldRender) return null;
 
   return (
-    <div className={`${styles.loadingOverlay} ${!isVisible ? styles.hidden : ''}`}>
-      <div className={styles.loadingContent}>
-        <div className={styles.welcomeMessage}>
-          Deploying...
+    <div style={{ 
+      position: 'fixed', 
+      top: 0, 
+      left: 0, 
+      width: '100%', 
+      height: '100%', 
+      backgroundColor: '#0f172a', 
+      zIndex: 9999, 
+      display: 'flex', 
+      justifyContent: 'center', 
+      alignItems: 'center', 
+      opacity: isVisible ? 1 : 0, 
+      transition: 'opacity 0.5s ease-out',
+      pointerEvents: isVisible ? 'auto' : 'none'
+    }}>
+      <div style={{ 
+     
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: '2rem',
+        textAlign: 'center',
+        padding: '2rem'
+      }}>
+        <div style={{   top: '2rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <img 
+            src="/images/logoAnima/J.svg" 
+            alt="J" 
+            className={styles.letterJ}
+          />
+          <img 
+            src="/images/logoAnima/P.svg" 
+            alt="P" 
+            className={styles.letterP}
+          />
+        </div>
+        <div style={{ 
+          fontSize: '1rem',
+          fontWeight: '200',
+          color: '#ffffff',
+          textAlign: 'center',
+          lineHeight: '1.4'
+        }}>
+          
         </div>
       </div>
     </div>
