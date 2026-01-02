@@ -1,0 +1,250 @@
+               {/*  <VideoProjectCardCarousel 
+                projects={[
+                  {
+                    title: "Showreel 2025"  ,
+                    image: "/images/JPL3Poster_Reel.jpg",
+                    alt: "Showreel 2025",
+                    //1115973919       old-->1103891139
+                    videoUrl: "https://vimeo.com/1115973919",
+                    text: "2D / 3D Motion Reel featuring Commercial and Personal Work ",
+                    children: (
+                  <>
+                    <p><strong>Description:</strong> Concept, 3D Modeling, Motion, VFX, Design, Post-Production</p>
+                    <p><strong>Tools:</strong> Cinema4D, After Effects, Duik, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
+                    <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
+                    <p><strong>More:</strong><br /> Be advised this hasn&apos;t been rebranded with my new logo. Still uses the JPL logo instead, hope that doesn&apos;t cause any confusion.</p>
+                  </>
+                    )
+                  },
+                  {
+                    title: "Take Flight",
+                    image: "/images/idrone.jpg",
+                    alt: "Ad Mockup",
+                    videoUrl: "https://player.vimeo.com/video/1115662087",
+                    text: "Ad for a fictional civilian mini-drone",
+                    children: (
+                      <>
+                        <p><strong>Description:</strong> Concept, Motion, VFX, Design, Post-Production</p>
+                        <p><strong>Tools:</strong> Cinema4D, Octane, After Effects</p>
+                        <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
+                        <p><strong>More:</strong><br /> A bored weekend turned into a fun weekend</p>
+                      </>
+                    )
+                  },
+                  {
+                    title: "Spacedock",
+                    image: "/images/space.jpg",
+                    alt: "Sci-fi",
+                    videoUrl: "https://player.vimeo.com/video/1115660872",
+                    text: "Sci-fi concept",
+                    children: (
+                      <>
+                        <p><strong>Description:</strong> Concept, Motion, VFX, Design, Post-Production</p>
+                        <p><strong>Tools:</strong> Cinema4D, Octane, After Effects</p>
+                        <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
+                        <p><strong>More:</strong><br /> A bored weekend turned into a fun weekend</p>
+                      </>
+                    )
+                  },
+                ]} 
+                />
+               {/*    {
+                    title: "Audi",
+                    image: "/images/corp/audi.jpg",
+                    alt: "Showreel 2025",
+                    //videoUrl: "https://player.vimeo.com/video/123456789",
+                    images: [
+                       { src: "/images/corp/audi.jpg", alt: "Project Screenshot 0" },
+                       { src: "/images/audi_1.jpg", alt: "Project Screenshot 1" },
+                       { src: "/images/audi_2.jpg", alt: "Project Screenshot 2" },
+                       { src: "/images/audi_3.jpg", alt: "Project Screenshot 3" },
+                       { src: "/images/audi_4.jpg", alt: "Project Screenshot 4" },
+                       { src: "/images/audi_5.jpg", alt: "Project Screenshot 6" },
+                       { src: "/images/audi_6.jpg", alt: "Project Screenshot 8" },
+                      ],
+                    text: "Stage Sized Video Backdrop ",
+                    children: (
+                      <>
+                        <p><strong>Description:</strong> Concept, Motion, VFX, Design, Post-Production</p>
+                        <p><strong>Tools:</strong> Cinema4D, After Effects, Element3D, Media Encoder</p>
+                        <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
+                        <p><strong>More:</strong><br /> Additional details about this project...</p>
+                      </>
+                    )
+                  },
+                  {
+                    title: "Daimler",
+                    image: "/images/corp/mercedes.jpg",
+                    alt: "Showreel 2025",
+                    videoUrl: "https://player.vimeo.com/video/123456789",
+                    text: "3D Award Trophy for Mercedes-Benz",
+                    children: (
+                      <>
+                        <p><strong>Description:</strong> Concept, 3D Modeling, Motion, VFX, Design, Post-Production</p>
+                        <p><strong>Tools:</strong> Cinema4D, After Effects, Duik, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
+                        <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
+                        <p><strong>More:</strong><br /> Additional details about this project...</p>
+                      </>
+                    )
+                  },
+                  {
+                    title: "TÜV",
+                    image: "/images/corp/tuv.jpg",
+                    alt: "Showreel 2025",
+                    videoUrl: "https://player.vimeo.com/video/123456789",
+                    text: "A collection of my best motion work from 2025",
+                    children: (
+                      <>
+                        <p><strong>Description:</strong> Concept, 3D Modeling, Motion, VFX, Design, Post-Production</p>
+                        <p><strong>Tools:</strong> Cinema4D, After Effects, Duik, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
+                        <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
+                        <p><strong>More:</strong><br /> Additional details about this project...</p>
+                      </>
+                    )
+                  },  */}
+
+                  
+          {/*      <ProjectCard 
+                 onMoreClick={() => {
+                  console.log('bumpi More button clicked, triggering animation');
+                  bumpiTextRef.current?.animate();
+                }}
+                  title="Bumpi App"
+                  image="/images/corp/sb3.jpg"
+                  alt="Bumpi App"
+                  link="https://sb202.vercel.app"
+                  textPosition="bottom"
+                  text={`<b>Current Project Pre-Alpha Demo.</b>
+                  <br />
+                  <br />
+                  A GDPR-compliant civics-oriented app designed to help keep local neighborhoods clean. Some features get enabled and disabled based on current development stage.  
+                   <br /> <br />The app uses geofencing, optional geolocation, text-input, voice-to-text. Hash3 deviceID, -ip address and user-agent scrambling and other security features feeding into a near real-time municipal dashboard.`}
+                  client={{
+                    name: "Bumpi App |",
+                    logo: "/images/bumpilongwhite.svg",
+                    website: "https://sbinfo1.vercel.app"
+                  }}
+                  logoWidth={250}
+                  logoHeight={40}
+                  logoStyle={{
+                    height: '20px',
+                    width: 'auto',   
+                    maxWidth: '100%'
+                  }}
+                >
+                  <p><strong>Target Audience:</strong> Municipal Citizens</p>
+                  <p><strong>Project Type:</strong> Neighborhood clean-up App</p>
+                  <p><strong>Role:</strong> Design & Development</p>
+                  <p><strong>Tools:</strong><AnimatedText ref={bumpiTextRef} type="project"> Next.js, Supabase, Openstreetmap, dompurify</AnimatedText></p>
+                  <p><strong>Features:</strong> Game Mode, Leaderboard, Score Distribution, manual or automatic Geolocation, Rate Limiting, CSRF Prevention, XSS Prevention, RLS, Optional Analytics, Optional Auth, Hashed IP Geofencing, Comprehensive Crash Guarding, i18n multilanguage support</p>
+                  <p><strong>Goal:</strong> Make something fun, easy to use and secure in compliance with GDPR. At the same time making for a more streamlined and efficient process for municipal officials to manage environmental reports.</p>
+                </ProjectCard>    
+                 <ProjectCard 
+                 onMoreClick={() => {
+                  console.log('citylink2 More button clicked, triggering animation');
+                  citylink2TextRef.current?.animate();
+                }}
+                  title="Bumpi Citylink Dashboard"
+                  image="/images/corp/sb2.jpg"
+                  alt="Bumpi Citylink - Municipal Backend"
+                  text="<b>Currently in development.</b> A dashboard that lets a municipal authority manage citizen's reports, set participant scores if game-mode is activated, set up geofencing, and view data transmitted by the Bumpi app. 
+                  <br /><br />Thus enabling the city to streamline its coordination of cleaning crews and manage city-wide cleaning events with pinpoint accuracy.
+                  <br /><br />The dashboard is currently in development but available for live-testing. Login not yet functional."
+                  link="https://glassmapperwip.vercel.app/"
+                  client={{
+                    name: "Bumpi |",
+                    logo: "/images/citylinklongwhite.svg",
+                    website: "https://sbinfo1.vercel.app"
+                  }}    
+                > 
+                  <p><strong>Target Audience:</strong> Municipal officials</p>
+                  <p><strong>Project Type:</strong> Municipal Dashboard</p>
+                  <p><strong>Role:</strong> Design & Development</p>
+                  <p><strong>Tools:</strong><AnimatedText ref={citylink2TextRef} type="project">Next.js, Supabase, Geoman-io, leaflet, Openstreetmap, REST</AnimatedText></p>
+                </ProjectCard>
+              
+              
+                <ProjectCard 
+                  title="Spiegel Geschichte TV Website"
+                 image="/images/corp/spg.jpg"
+                  alt="Spiegel Geschichte TV Website"
+                  text="<b>Legacy Project:</b> Official Website for the Pay TV channel."
+                  client={{
+                    name: "Autentic GmbH |",
+                    website: "https://www.autentic.com/"
+                  }}
+                  modalContent={{
+                    description: `Official Website for the Pay TV channel Spiegel Geschichte TV. 
+                    <br /><br />Legacy project, not the current Spiegel Geschichte TV website.
+                    <br /><br />It was more like generative art. Historical thoughtprovoker. 
+                    <br /><br />Famous historical photographs were used in a slideshow that was the backdrop for the UI, which in turn had videoclip thumbnails of the station's documentaries.
+                    <br /><br />If left alone, the UI would continue to cycle through its various sections of images and videos and interactive content automatically, creating a never-ending slideshow of historical content acyclicly.
+                    <br /><br />Sometimes creating bizarre and unexpected semantic impressions.
+                    <br /><br />All branded behind and inside the Spiegel's iconic bright orange Visual Identity stripe as its main UI element.
+                    <br /><br />It was the official site for over 6 years.`,     
+                    images: [
+                      { src: "/images/SGA_1.jpg", alt: "Project Screenshot 1" },
+                      { src: "/images/SGA_2.jpg", alt: "Project Screenshot 2" },
+                      { src: "/images/SGA_3.jpg", alt: "Project Screenshot 3" },
+                      { src: "/images/SG1.jpg", alt: "Project Screenshot 4" },
+                      { src: "/images/SG2.jpg", alt: "Project Screenshot 5" },
+                      { src: "/images/SG3.jpg", alt: "Project Screenshot 6" },
+                      { src: "/images/SG4.jpg", alt: "Project Screenshot 7" },
+                      { src: "/images/wsg3.jpg", alt: "Project Screenshot 8" },
+                      { src: "/images/wsg5.jpg", alt: "Project Screenshot 9" },
+                      { src: "/images/wsg6.jpg", alt: "Project Screenshot 10" },
+                      { src: "/images/wsg7.jpg", alt: "Project Screenshot 11" },
+                      { src: "/images/wsg8.jpg", alt: "Project Screenshot 12" },
+                      { src: "/images/wsg9.jpg", alt: "Project Screenshot 13" },
+                      { src: "/images/wsg10.jpg", alt: "Project Screenshot 14" },
+                    ]
+                  }}
+                >
+                  <p>Conceptual UI/UX</p>
+                  <p><strong>Target Audience:</strong> Spiegel Geschichte TV Viewers</p>
+                  <p><strong>Role:</strong> Lead Designer / Coder</p>
+                  <p><strong>Duration:</strong> 3 months / 6 years of updates</p>
+                </ProjectCard> 
+              */}
+            {/*   <ProjectCard 
+                  title="Middle Caicos Festival"
+                  image="/images/JPL3Poster_BB.jpg"
+                  alt="Middle Caicos Festival"
+                  link="https://newest-ulf.vercel.app/"
+                  text="A mobile app for the PFP Caribbean Festival"
+                >
+                  <p>Conceptual UI/UX</p>
+                  <p><strong>Target Audience:</strong> Caribbean Festival Attendees</p>
+                  <p><strong>Project Type:</strong> Simple Next.js/React/R3F website</p>
+                  <p><strong>Role:</strong> Quick work for a friend, he paid me in fried chicken.</p>
+                  <p><strong>Duration:</strong> 4 Days</p>
+                  <p><strong>Tools:</strong> Next.js, React Three Fiber, Three.js</p>
+                </ProjectCard>
+                 <ProjectCard 
+                  title="Homeopathy Health App Design"
+                  image="/images/JPL3Poster_HA2.jpg"
+                  alt="Homeopathy Health App Design"
+                  text="Logo, CI/CD, UI/UX of a health app for homeopathy."
+                  client={{
+                    name: "Uniqued",
+                    website: "https://www.uniqued.de/"
+                  }}
+                  modalContent={{
+                    description: `Logo, CI/CD, UI/UX of a health app for homeopathy.`,
+                    images: [
+                      { src: "/images/JPL3Poster_HA0.jpg", alt: "Project Screenshot 1" },
+                      { src: "/images/JPL3Poster_HA3.jpg", alt: "Project Screenshot 2" },
+                      { src: "/images/JPL3Poster_HA6.jpg", alt: "Project Screenshot 4" },
+                      { src: "/images/JPL3Poster_HA9.jpg", alt: "Project Screenshot 8" },
+                      { src: "/images/JPL3Poster_HA5B.jpg", alt: "Project Screenshot 5" },
+                      { src: "/images/JPL3Poster_HA10.jpg", alt: "Project Screenshot 9" },
+                      { src: "/images/JPL3Poster_HA13.jpg", alt: "Project Screenshot 12" },
+                    ]
+                  }}
+                >
+                  <p>Conceptual UI/UX Design</p>
+                  <p><strong>Target Audience:</strong> Health App Users</p>
+                  <p><strong>Project Type:</strong> Next.js / React Interface Design</p>
+                  <p><strong>Role:</strong> Lead Designer</p>
+                  <p><strong>Duration:</strong> 1.5 weeks</p>
+                </ProjectCard> */}

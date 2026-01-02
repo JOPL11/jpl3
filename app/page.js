@@ -11,14 +11,15 @@ import ThrowableImages from './components/ThrowableImages';
 import LogoCard from './components/LogoCard';
 import { useMemo } from 'react';
 import LocomotiveScroll from 'locomotive-scroll';
+import { gsap } from 'gsap';
 
-
+  {/*
 // Dynamically import the component with SSR disabled
 const BelowFooterWorld = dynamic(
   () => import('./components/BelowFooterWorld'),
   { ssr: false }
 );
-
+*/}
 
 
 function useViewportWidth() {
@@ -52,53 +53,6 @@ import VideoProjectCard from './components/VideoProjectCard';
 import VideoProjectCardCarousel from './components/VideoProjectCardCarousel';
 import ContactForm from './components/ContactForm';
 
-// Check if we're on iOS (client-side only)
-const isIOS = () => {
-  if (typeof window === 'undefined' || !window.navigator) return false;
-  const userAgent = window.navigator.userAgent;
-  return /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
-};
-
-// Hook to detect iOS interaction
-const useIOSInteraction = () => {
-  const [hasInteracted, setHasInteracted] = useState(false);
-  const isIOSDevice = isIOS();
-
-  useEffect(() => {
-    if (!isIOSDevice) return;
-
-    const handleInteraction = () => {
-      setHasInteracted(true);
-      // Clean up
-      document.removeEventListener('click', handleInteraction);
-      document.removeEventListener('touchstart', handleInteraction);
-    };
-
-    // Add event listeners
-    document.addEventListener('click', handleInteraction, { once: true, passive: true });
-    document.addEventListener('touchstart', handleInteraction, { once: true, passive: true });
-
-    return () => {
-      document.removeEventListener('click', handleInteraction);
-      document.removeEventListener('touchstart', handleInteraction);
-    };
-  }, [isIOSDevice]);
-
-  return { hasInteracted, isIOSDevice };
-};
-
-// Only load Logo3D component on non-iOS devices
-const Logo3D = dynamic(
-  () => {
-    // Only add delay for non-iOS devices
-    const loadLogo = () => import('./components/Logo3D');
-    return isIOS() ? loadLogo() : new Promise(resolve => 
-      setTimeout(() => resolve(loadLogo()), 10)
-    );
-  },
-  { ssr: false, loading: () => <div style={{ width: '350px', height: '250px' }} /> }
-);
-
 // Wrapper component to handle WebGL and iOS interaction
 const Logo3DWrapper = dynamic(
   () => import('./components/Logo3DWrapperB').then(mod => mod.default),
@@ -108,14 +62,6 @@ const Logo3DWrapper = dynamic(
   }
 );
 
-// 2D logo component
-const Logo2D = dynamic(
-  () => import('./components/Logo2D').then(mod => mod.default),
-  { 
-    ssr: false,
-    loading: () => <div style={{ width: 350, height: 250 }} />
-  }
-);
 
 function CopyrightYear() {
   const [year] = useState(new Date().getFullYear());
@@ -170,27 +116,20 @@ export default function Home() {
       
       // Get the position of the navigation menu
       const navRect = navMenu.getBoundingClientRect();
-      
       // Show hamburger when nav menu is scrolled out of view (top < 0)
       setShowHamburger(navRect.bottom < 0);
-    };
-    
+    }; 
     const handleScrollEnd = () => {
       isProgrammaticScroll.current = false;
     };
-
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('scrollend', handleScrollEnd);
-    
     // Initial check
     handleScroll();
-    
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('scrollend', handleScrollEnd);
     };
-    
-
   }, []);
 
   const scrollToSection = (e, sectionId) => {
@@ -240,23 +179,8 @@ export default function Home() {
 
     window.addEventListener('openPrivacyModal', handleOpenPrivacyModal);
     
-    // Intersection Observer for section detection
-    const sections = ['about-heading', 'overview-heading', 'code-heading', 'motion-heading',  'webgl-heading', 'Proto'];
-    const observers = [];
-
-    const options = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.5
-    };
-
-    // Cleanup any existing detectors
-    document.querySelectorAll('.section-detector').forEach(el => el.remove());
-    
     return () => {
       window.removeEventListener('openPrivacyModal', handleOpenPrivacyModal);
-      // Cleanup observers
-      observers.forEach(observer => observer.disconnect());
     };
   }, []);
 
@@ -281,7 +205,8 @@ export default function Home() {
   const facilityTextRef = useRef(null);
   const roadrichTextRef = useRef(null);
   const artstationHeadingRef = useRef(null);
-
+const scrollVelocity = useRef(0);
+const animationFrameId = useRef(null);
 
 
   // Map section IDs to their refs
@@ -348,34 +273,47 @@ useEffect(() => {
   };
 }, [activeSection, sectionRefs]);
 
+// Add these refs before the useEffect (inside the Home component)
 
-  useEffect(() => {
+useEffect(() => {
   const handleWheel = (e) => {
     const modalContent = document.querySelector(`.${styles.modalOverlay} .${styles.scrollableContent}`);
     if (modalContent && modalContent.offsetParent !== null) {
-      // Check if the wheel event is over the modal content
       const isOverModal = modalContent.contains(e.target) || e.target === modalContent;
-      if (isOverModal) {
-        // Prevent the default behavior to stop page scrolling
-        e.stopPropagation();
-        e.preventDefault();
-        
-        // Manually handle the scroll
-        const delta = e.deltaY || e.detail || -e.wheelDelta;
-        modalContent.scrollTop += delta * 0.5; // Adjust the multiplier for scroll speed
-        
+        if (isOverModal) {
+          e.stopPropagation();
+          e.preventDefault();
+          
+          const delta = e.deltaY || e.detail || -e.wheelDelta;
+          const currentScroll = modalContent.scrollTop;
+          
+          // Accumulate velocity
+          scrollVelocity.current += delta * 0.5;
+          
+          gsap.to(modalContent, {
+            scrollTop: currentScroll + scrollVelocity.current * 10,
+            duration: 1.2, // Reduced from 2.2 for responsiveness
+            ease: "power3.out",
+            overwrite: true,
+            onComplete: () => {
+              // Reset velocity when animation completes
+              scrollVelocity.current = 0;
+            }
+          });
+  
         return false;
       }
     }
     return true;
   };
-  // Use capture phase to catch the event before LocomotiveScroll
+  
   window.addEventListener('wheel', handleWheel, { passive: false, capture: true });
   
   return () => {
     window.removeEventListener('wheel', handleWheel, { passive: false, capture: true });
   };
 }, [styles.modalOverlay, styles.scrollableContent]);
+
 
 
   return (
@@ -620,7 +558,23 @@ useEffect(() => {
               </div>
             </div>
           </div>
-        
+         <div className="fixed top-0 left-0 w-full h-full pointer-events-none">
+            {/* Random decorative infrastructure lines */}
+            <svg className="absolute inset-0">
+              <path
+                d="M 100 100 C 200 50, 300 150, 400 100"
+                fill="none"
+                stroke="rgba(120,180,255,0.03)"
+                strokeWidth="0.3"
+              />
+              <path
+                d="M 80% 200 C 70% 250, 60% 300, 40% 400"
+                fill="none"
+                stroke="rgba(120,180,255,0.02)"
+                strokeWidth="0.3"
+              />
+            </svg>
+          </div>
                         {/*     
            <div className={styles.heroContainer}>
               <Hero3D />
@@ -815,10 +769,6 @@ useEffect(() => {
                   <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
                   <p><strong>Duration:</strong> 3 months and years of updates</p>
                 </ProjectCard>
-                    
-
-
-
 
               <ProjectCard 
                  onMoreClick={() => {
@@ -887,154 +837,9 @@ useEffect(() => {
                   <p><strong>Tools:</strong><AnimatedText ref={citylink1TextRef} type="project"> Next.js, react</AnimatedText></p>
                   <p><strong>Info:</strong> I designed and built the whole actual app this infopage describes (and the backend interface for it already too), but I&apos;m on the fence about showing it without making people sign an NDA &apos;cuz it is going ahead. Dunno what to do about that right now.</p>
                 </ProjectCard>
-
-          {/*      <ProjectCard 
-                 onMoreClick={() => {
-                  console.log('bumpi More button clicked, triggering animation');
-                  bumpiTextRef.current?.animate();
-                }}
-                  title="Bumpi App"
-                  image="/images/corp/sb3.jpg"
-                  alt="Bumpi App"
-                  link="https://sb202.vercel.app"
-                  textPosition="bottom"
-                  text={`<b>Current Project Pre-Alpha Demo.</b>
-                  <br />
-                  <br />
-                  A GDPR-compliant civics-oriented app designed to help keep local neighborhoods clean. Some features get enabled and disabled based on current development stage.  
-                   <br /> <br />The app uses geofencing, optional geolocation, text-input, voice-to-text. Hash3 deviceID, -ip address and user-agent scrambling and other security features feeding into a near real-time municipal dashboard.`}
-                  client={{
-                    name: "Bumpi App |",
-                    logo: "/images/bumpilongwhite.svg",
-                    website: "https://sbinfo1.vercel.app"
-                  }}
-                  logoWidth={250}
-                  logoHeight={40}
-                  logoStyle={{
-                    height: '20px',
-                    width: 'auto',   
-                    maxWidth: '100%'
-                  }}
-                >
-                  <p><strong>Target Audience:</strong> Municipal Citizens</p>
-                  <p><strong>Project Type:</strong> Neighborhood clean-up App</p>
-                  <p><strong>Role:</strong> Design & Development</p>
-                  <p><strong>Tools:</strong><AnimatedText ref={bumpiTextRef} type="project"> Next.js, Supabase, Openstreetmap, dompurify</AnimatedText></p>
-                  <p><strong>Features:</strong> Game Mode, Leaderboard, Score Distribution, manual or automatic Geolocation, Rate Limiting, CSRF Prevention, XSS Prevention, RLS, Optional Analytics, Optional Auth, Hashed IP Geofencing, Comprehensive Crash Guarding, i18n multilanguage support</p>
-                  <p><strong>Goal:</strong> Make something fun, easy to use and secure in compliance with GDPR. At the same time making for a more streamlined and efficient process for municipal officials to manage environmental reports.</p>
-                </ProjectCard>    
-                 <ProjectCard 
-                 onMoreClick={() => {
-                  console.log('citylink2 More button clicked, triggering animation');
-                  citylink2TextRef.current?.animate();
-                }}
-                  title="Bumpi Citylink Dashboard"
-                  image="/images/corp/sb2.jpg"
-                  alt="Bumpi Citylink - Municipal Backend"
-                  text="<b>Currently in development.</b> A dashboard that lets a municipal authority manage citizen's reports, set participant scores if game-mode is activated, set up geofencing, and view data transmitted by the Bumpi app. 
-                  <br /><br />Thus enabling the city to streamline its coordination of cleaning crews and manage city-wide cleaning events with pinpoint accuracy.
-                  <br /><br />The dashboard is currently in development but available for live-testing. Login not yet functional."
-                  link="https://glassmapperwip.vercel.app/"
-                  client={{
-                    name: "Bumpi |",
-                    logo: "/images/citylinklongwhite.svg",
-                    website: "https://sbinfo1.vercel.app"
-                  }}    
-                > 
-                  <p><strong>Target Audience:</strong> Municipal officials</p>
-                  <p><strong>Project Type:</strong> Municipal Dashboard</p>
-                  <p><strong>Role:</strong> Design & Development</p>
-                  <p><strong>Tools:</strong><AnimatedText ref={citylink2TextRef} type="project">Next.js, Supabase, Geoman-io, leaflet, Openstreetmap, REST</AnimatedText></p>
-                </ProjectCard>
-              
-              
-                <ProjectCard 
-                  title="Spiegel Geschichte TV Website"
-                 image="/images/corp/spg.jpg"
-                  alt="Spiegel Geschichte TV Website"
-                  text="<b>Legacy Project:</b> Official Website for the Pay TV channel."
-                  client={{
-                    name: "Autentic GmbH |",
-                    website: "https://www.autentic.com/"
-                  }}
-                  modalContent={{
-                    description: `Official Website for the Pay TV channel Spiegel Geschichte TV. 
-                    <br /><br />Legacy project, not the current Spiegel Geschichte TV website.
-                    <br /><br />It was more like generative art. Historical thoughtprovoker. 
-                    <br /><br />Famous historical photographs were used in a slideshow that was the backdrop for the UI, which in turn had videoclip thumbnails of the station's documentaries.
-                    <br /><br />If left alone, the UI would continue to cycle through its various sections of images and videos and interactive content automatically, creating a never-ending slideshow of historical content acyclicly.
-                    <br /><br />Sometimes creating bizarre and unexpected semantic impressions.
-                    <br /><br />All branded behind and inside the Spiegel's iconic bright orange Visual Identity stripe as its main UI element.
-                    <br /><br />It was the official site for over 6 years.`,     
-                    images: [
-                      { src: "/images/SGA_1.jpg", alt: "Project Screenshot 1" },
-                      { src: "/images/SGA_2.jpg", alt: "Project Screenshot 2" },
-                      { src: "/images/SGA_3.jpg", alt: "Project Screenshot 3" },
-                      { src: "/images/SG1.jpg", alt: "Project Screenshot 4" },
-                      { src: "/images/SG2.jpg", alt: "Project Screenshot 5" },
-                      { src: "/images/SG3.jpg", alt: "Project Screenshot 6" },
-                      { src: "/images/SG4.jpg", alt: "Project Screenshot 7" },
-                      { src: "/images/wsg3.jpg", alt: "Project Screenshot 8" },
-                      { src: "/images/wsg5.jpg", alt: "Project Screenshot 9" },
-                      { src: "/images/wsg6.jpg", alt: "Project Screenshot 10" },
-                      { src: "/images/wsg7.jpg", alt: "Project Screenshot 11" },
-                      { src: "/images/wsg8.jpg", alt: "Project Screenshot 12" },
-                      { src: "/images/wsg9.jpg", alt: "Project Screenshot 13" },
-                      { src: "/images/wsg10.jpg", alt: "Project Screenshot 14" },
-                    ]
-                  }}
-                >
-                  <p>Conceptual UI/UX</p>
-                  <p><strong>Target Audience:</strong> Spiegel Geschichte TV Viewers</p>
-                  <p><strong>Role:</strong> Lead Designer / Coder</p>
-                  <p><strong>Duration:</strong> 3 months / 6 years of updates</p>
-                </ProjectCard> 
-              */}
-            {/*   <ProjectCard 
-                  title="Middle Caicos Festival"
-                  image="/images/JPL3Poster_BB.jpg"
-                  alt="Middle Caicos Festival"
-                  link="https://newest-ulf.vercel.app/"
-                  text="A mobile app for the PFP Caribbean Festival"
-                >
-                  <p>Conceptual UI/UX</p>
-                  <p><strong>Target Audience:</strong> Caribbean Festival Attendees</p>
-                  <p><strong>Project Type:</strong> Simple Next.js/React/R3F website</p>
-                  <p><strong>Role:</strong> Quick work for a friend, he paid me in fried chicken.</p>
-                  <p><strong>Duration:</strong> 4 Days</p>
-                  <p><strong>Tools:</strong> Next.js, React Three Fiber, Three.js</p>
-                </ProjectCard>
-                 <ProjectCard 
-                  title="Homeopathy Health App Design"
-                  image="/images/JPL3Poster_HA2.jpg"
-                  alt="Homeopathy Health App Design"
-                  text="Logo, CI/CD, UI/UX of a health app for homeopathy."
-                  client={{
-                    name: "Uniqued",
-                    website: "https://www.uniqued.de/"
-                  }}
-                  modalContent={{
-                    description: `Logo, CI/CD, UI/UX of a health app for homeopathy.`,
-                    images: [
-                      { src: "/images/JPL3Poster_HA0.jpg", alt: "Project Screenshot 1" },
-                      { src: "/images/JPL3Poster_HA3.jpg", alt: "Project Screenshot 2" },
-                      { src: "/images/JPL3Poster_HA6.jpg", alt: "Project Screenshot 4" },
-                      { src: "/images/JPL3Poster_HA9.jpg", alt: "Project Screenshot 8" },
-                      { src: "/images/JPL3Poster_HA5B.jpg", alt: "Project Screenshot 5" },
-                      { src: "/images/JPL3Poster_HA10.jpg", alt: "Project Screenshot 9" },
-                      { src: "/images/JPL3Poster_HA13.jpg", alt: "Project Screenshot 12" },
-                    ]
-                  }}
-                >
-                  <p>Conceptual UI/UX Design</p>
-                  <p><strong>Target Audience:</strong> Health App Users</p>
-                  <p><strong>Project Type:</strong> Next.js / React Interface Design</p>
-                  <p><strong>Role:</strong> Lead Designer</p>
-                  <p><strong>Duration:</strong> 1.5 weeks</p>
-                </ProjectCard> */}
               </div>
             </section>
-   <div data-section="motion-heading"></div>
+            <div data-section="motion-heading"></div>
               <section id="motion" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="motion">
             
              <SectionTracker onSectionChange={setActiveSection} />
@@ -1055,111 +860,6 @@ useEffect(() => {
                     <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
                     <p><strong>More:</strong><br /> Be advised this hasn&apos;t been rebranded with my new logo. Still uses the JPL logo instead, hope that doesn&apos;t cause any confusion.</p>
                 </VideoProjectCard>
-
-               {/*  <VideoProjectCardCarousel 
-                projects={[
-                  {
-                    title: "Showreel 2025"  ,
-                    image: "/images/JPL3Poster_Reel.jpg",
-                    alt: "Showreel 2025",
-                    //1115973919       old-->1103891139
-                    videoUrl: "https://vimeo.com/1115973919",
-                    text: "2D / 3D Motion Reel featuring Commercial and Personal Work ",
-                    children: (
-                  <>
-                    <p><strong>Description:</strong> Concept, 3D Modeling, Motion, VFX, Design, Post-Production</p>
-                    <p><strong>Tools:</strong> Cinema4D, After Effects, Duik, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
-                    <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
-                    <p><strong>More:</strong><br /> Be advised this hasn&apos;t been rebranded with my new logo. Still uses the JPL logo instead, hope that doesn&apos;t cause any confusion.</p>
-                  </>
-                    )
-                  },
-                  {
-                    title: "Take Flight",
-                    image: "/images/idrone.jpg",
-                    alt: "Ad Mockup",
-                    videoUrl: "https://player.vimeo.com/video/1115662087",
-                    text: "Ad for a fictional civilian mini-drone",
-                    children: (
-                      <>
-                        <p><strong>Description:</strong> Concept, Motion, VFX, Design, Post-Production</p>
-                        <p><strong>Tools:</strong> Cinema4D, Octane, After Effects</p>
-                        <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
-                        <p><strong>More:</strong><br /> A bored weekend turned into a fun weekend</p>
-                      </>
-                    )
-                  },
-                  {
-                    title: "Spacedock",
-                    image: "/images/space.jpg",
-                    alt: "Sci-fi",
-                    videoUrl: "https://player.vimeo.com/video/1115660872",
-                    text: "Sci-fi concept",
-                    children: (
-                      <>
-                        <p><strong>Description:</strong> Concept, Motion, VFX, Design, Post-Production</p>
-                        <p><strong>Tools:</strong> Cinema4D, Octane, After Effects</p>
-                        <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
-                        <p><strong>More:</strong><br /> A bored weekend turned into a fun weekend</p>
-                      </>
-                    )
-                  },
-                ]} 
-                />
-               {/*    {
-                    title: "Audi",
-                    image: "/images/corp/audi.jpg",
-                    alt: "Showreel 2025",
-                    //videoUrl: "https://player.vimeo.com/video/123456789",
-                    images: [
-                       { src: "/images/corp/audi.jpg", alt: "Project Screenshot 0" },
-                       { src: "/images/audi_1.jpg", alt: "Project Screenshot 1" },
-                       { src: "/images/audi_2.jpg", alt: "Project Screenshot 2" },
-                       { src: "/images/audi_3.jpg", alt: "Project Screenshot 3" },
-                       { src: "/images/audi_4.jpg", alt: "Project Screenshot 4" },
-                       { src: "/images/audi_5.jpg", alt: "Project Screenshot 6" },
-                       { src: "/images/audi_6.jpg", alt: "Project Screenshot 8" },
-                      ],
-                    text: "Stage Sized Video Backdrop ",
-                    children: (
-                      <>
-                        <p><strong>Description:</strong> Concept, Motion, VFX, Design, Post-Production</p>
-                        <p><strong>Tools:</strong> Cinema4D, After Effects, Element3D, Media Encoder</p>
-                        <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
-                        <p><strong>More:</strong><br /> Additional details about this project...</p>
-                      </>
-                    )
-                  },
-                  {
-                    title: "Daimler",
-                    image: "/images/corp/mercedes.jpg",
-                    alt: "Showreel 2025",
-                    videoUrl: "https://player.vimeo.com/video/123456789",
-                    text: "3D Award Trophy for Mercedes-Benz",
-                    children: (
-                      <>
-                        <p><strong>Description:</strong> Concept, 3D Modeling, Motion, VFX, Design, Post-Production</p>
-                        <p><strong>Tools:</strong> Cinema4D, After Effects, Duik, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
-                        <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
-                        <p><strong>More:</strong><br /> Additional details about this project...</p>
-                      </>
-                    )
-                  },
-                  {
-                    title: "TÜV",
-                    image: "/images/corp/tuv.jpg",
-                    alt: "Showreel 2025",
-                    videoUrl: "https://player.vimeo.com/video/123456789",
-                    text: "A collection of my best motion work from 2025",
-                    children: (
-                      <>
-                        <p><strong>Description:</strong> Concept, 3D Modeling, Motion, VFX, Design, Post-Production</p>
-                        <p><strong>Tools:</strong> Cinema4D, After Effects, Duik, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
-                        <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
-                        <p><strong>More:</strong><br /> Additional details about this project...</p>
-                      </>
-                    )
-                  },  */}
                 <ProjectCard 
                   title="Audi Nüremberg"
                   image="/images/corp/audi.jpg"
@@ -1390,15 +1090,10 @@ useEffect(() => {
                     </ProjectCard>
                   </>
                 )} {/*  */}
-      
-                                    
+        
                   </div>
             </section>
-
-
-          
-
-   <div data-section="product-heading"></div>
+          <div data-section="product-heading"></div>
             <section id="proto" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="proto">
           
              <SectionTracker onSectionChange={setActiveSection} />
@@ -1406,10 +1101,7 @@ useEffect(() => {
               <AnimatedText ref={productHeadingRef}>Prototype</AnimatedText>
             </h2>
             <div style={{height: '0.1rem', marginBottom: '7rem'}}>Tap or click the images to look through the pile of photos.</div>
-
               <div className={styles.introText}>
-
-
                 <div style={{ fontSize: '1rem', fontWeight: 'bold', color: 'white' }}>
                   Project: <span style={{ fontSize: '1rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Daimler Benz dealership award.</span>
                 </div>
@@ -1434,12 +1126,8 @@ useEffect(() => {
               <AnimatedText ref={contactHeadingRef}>Contact</AnimatedText>
             </h2>
             <div style={{height: '0.1rem', marginBottom: '11rem'}}>I&apos;m available for local projects as well as potential employment opportunities. Use the form to inquire about rates and availability, or just to say hi.</div>
-
- 
-
               <ContactForm />
             </section>
- 
         </div>
       </main>
       <footer className={styles.footer} role="contentinfo">
@@ -1509,7 +1197,7 @@ useEffect(() => {
           isOpen={showImpressumModal} 
           onClose={() => setShowImpressumModal(false)}
         />
-       
+        
       </footer>
       
       </div>

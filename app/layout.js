@@ -12,6 +12,7 @@ import LoadingOverlay from './components/LoadingOverlay';
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
+//import DecorativeFlow from './components/DecorativeFlow';
 
 const version = process.env.NEXT_PUBLIC_APP_VERSION || new Date().getTime();
 
@@ -53,6 +54,9 @@ export default function RootLayout({ children }) {
   
             {children}
           </ModalProvider>
+         {/*  <div style={{ width: '100vw', height: '100vh', position: 'fixed', top: 0, left: 0, pointerEvents: 'none' }}>
+            <DecorativeFlow />
+          </div>*/}
         </LoadingProvider>
       </body>
     </html>
