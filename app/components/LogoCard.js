@@ -97,7 +97,7 @@ const LogoCard = () => {
       <p><strong>The Mission:</strong> Airbus Group required a next-generation digital interface for its most important physical spaces: its International Headquarters in Berlin and its premier Showroom in Munich. The mandate was to create an interactive, multi-sensory experiences that could communicate the complexity and ambition of aerospace innovation to VIPs, partners, and policymakers.<br><br>
 
       <strong>My Role:</strong> Lead Digital Experience Designer & Developer.<br>
-      I was entrusted with the complete digital vision for these spaces, acting as the sole creator across four distinct installations—responsible for User Experience (UIX) strategy, visual and motion design, animation, and full-stack interactive development.<br><br>
+      I was entrusted with the complete digital vision for these experiences, acting as the sole creator across four distinct installations—responsible for User Experience (UIX) strategy, visual and motion design, animation, and full-stack interactive development.<br><br>
       <strong>The Portfolio of Installations:</strong></p><br>
 
       <p><strong>1.</strong> HQ Command Center: Berlin Touchtable Interface<br>

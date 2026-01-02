@@ -30,7 +30,7 @@ const Logo3D = dynamic(
   () => import('./Logo3D'),
   { 
     ssr: false,
-    loading: () => <div style={{ width: 250, height: 250, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Loading 3D...</div>
+    loading: () => <div style={{ width: '100vw', height: '350px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Loading 3D...</div>
   }
 );
 
@@ -80,7 +80,7 @@ const Logo3DWrapper = memo(function Logo3DWrapper() {
 
   return (
     <Suspense fallback={<Logo2D />}>
-      <Logo3D />
+      <Logo3D width="100vw" height={350} />
     </Suspense>
   );
 });

@@ -364,20 +364,22 @@ function Model({ url, position = [0, -0.05, 0], isHolographic, onHolographicChan
         child.receiveShadow = true;
         
         // Store original material if not already stored
-        if (!child.userData.originalMaterial) {
-          child.userData.originalMaterial = child.material || new THREE.MeshPhongMaterial({
-            color: 0x0f81bd,
-            shininess: 5,
-            specular: 0x87cacf,
-            emissive: 0xFFFFFF,
-            flatShading: false
-          });
-        }
-
-        // Apply appropriate material
-        child.material = isHolographic 
-          ? hologramMaterial 
-          : child.userData.originalMaterial;
+// Store original material if not already stored
+if (!child.userData.originalMaterial) {
+  child.userData.originalMaterial = child.material; // Store GLB's original
+  // Create your custom material and store it
+ child.userData.customMaterial = new THREE.MeshStandardMaterial({
+  color: 0x141917,
+  metalness: 0.3,        // Metallic property
+  roughness: 0.2,        // Roughness property
+  emissive: 0x141917,
+  flatShading: true
+});
+}
+// Apply appropriate material
+child.material = isHolographic 
+  ? hologramMaterial 
+  : child.userData.customMaterial; // Use your custom material, not origina
       }
     });
   }, [scene, isHolographic, hologramMaterial]);
@@ -476,7 +478,7 @@ function NameText() {
 
   return (
     <mesh position={[-0.15, -0.001, 0.5]}>
-      <planeGeometry args={[1.05, 0.19]} />
+      <planeGeometry args={[0.88, 0.15]} />
       <meshBasicMaterial 
         map={texture}
         transparent={true}
@@ -551,9 +553,9 @@ function OrbitingCube({ radius = 1.5, speed = 0.5, positionOffset = 1.3, rotatio
         <mesh>
           <boxGeometry args={[0.05, 0.05, 0.05]} />
           <meshPhysicalMaterial 
-            color="#63b3ed"
-            emissive="#4b0082"
-            emissiveIntensity={2}
+            color="#FFFFFF"
+            emissive="#FFFFFF"
+            emissiveIntensity={3}
             toneMapped={false}
           />
         </mesh>
@@ -562,8 +564,8 @@ function OrbitingCube({ radius = 1.5, speed = 0.5, positionOffset = 1.3, rotatio
         <mesh ref={smallCube1Ref}>
           <boxGeometry args={[0.02, 0.02, 0.02]} />
           <meshPhysicalMaterial 
-            color="#ff6b6b"
-            emissive="#ff0000"
+            color="#FFFFFF"
+            emissive="#FFFFFF"
             emissiveIntensity={1.5}
             toneMapped={false}
           />
@@ -573,8 +575,8 @@ function OrbitingCube({ radius = 1.5, speed = 0.5, positionOffset = 1.3, rotatio
         <mesh ref={smallCube2Ref}>
           <boxGeometry args={[0.015, 0.015, 0.015]} />
           <meshPhysicalMaterial 
-            color="#4dffb8"
-            emissive="#00ff88"
+            color="#FFFFFF"
+            emissive="#FFFFFF"
             emissiveIntensity={1.5}
             toneMapped={false}
           />
@@ -584,9 +586,9 @@ function OrbitingCube({ radius = 1.5, speed = 0.5, positionOffset = 1.3, rotatio
         <mesh ref={smallCube3Ref}>
           <boxGeometry args={[0.019, 0.019, 0.019]} />
           <meshPhysicalMaterial 
-            color="#63b3ed"
-            emissive="#4b0082"
-            emissiveIntensity={1.5}
+            color="#FFFFFF"
+            emissive="#FFFFFF"
+            emissiveIntensity={2.5}
             toneMapped={false}
           />
         </mesh>
@@ -594,7 +596,7 @@ function OrbitingCube({ radius = 1.5, speed = 0.5, positionOffset = 1.3, rotatio
       
       <pointLight 
         ref={lightRef}
-        color="#63b3ed" 
+        color="#FFFFFF" 
         intensity={visible ? 1 : 0} 
         distance={3} 
         decay={2} 
@@ -623,12 +625,13 @@ function Scene({ modelUrl }) {
 
   return (
     <>
-      <ambientLight intensity={1.5} color={0x87CEEB} />
+      <ambientLight intensity={3.0} color={0xFFFFFF} />
       <directionalLight 
-        position={[1, 2, 3]} 
-        intensity={0.5}
+        position={[0, 44, 200]} 
+        intensity={1.3}
+        color="#87cacf"
       />
-      <pointLight position={[2, 2, -2]} intensity={0.1} color="#87cacf" />
+      <pointLight position={[2, -4, 11]} intensity={33.3} color="#87cacf" />
       <group
         onPointerOver={() => setIsHovered(true)}
         onPointerOut={() => setIsHovered(false)}
@@ -708,7 +711,7 @@ const LoadingBar = ({ width = 80 }) => {
   );
 };
 
-export default function Logo3D({ width = 350, height = 250, className = '' }) {
+export default function Logo3D({ width = '100vw', height = 350, className = '' }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const canvasRef = useRef();
   const isMobile = useMobileDetect();
@@ -716,41 +719,41 @@ export default function Logo3D({ width = 350, height = 250, className = '' }) {
   const resizeTimeout = useRef();
 
   // Handle resize with debounce
-  const handleResize = useCallback(() => {
-    if (!rendererRef.current || !canvasRef.current) return;
+const handleResize = useCallback(() => {
+  if (!rendererRef.current || !canvasRef.current) return;
+  
+  // Clear any pending resize
+  if (resizeTimeout.current) {
+    clearTimeout(resizeTimeout.current);
+  }
+  
+  // Force clear canvas immediately
+  const gl = rendererRef.current.getContext();
+  gl.clearColor(0, 0, 0, 0);
+  gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+  
+  resizeTimeout.current = setTimeout(() => {
+    if (!canvasRef.current || !rendererRef.current) return;
     
-    // Clear any pending resize
-    if (resizeTimeout.current) {
-      clearTimeout(resizeTimeout.current);
+    // If width is '100vw', use window width directly
+    const canvasWidth = width === '100vw' ? window.innerWidth : 
+      canvasRef.current.parentElement.getBoundingClientRect().width;
+    
+    const pixelRatio = Math.min(window.devicePixelRatio, isMobile ? 1 : 2);
+    
+    // Update renderer size and pixel ratio
+    rendererRef.current.setPixelRatio(pixelRatio);
+    rendererRef.current.setSize(canvasWidth, height, false);
+    
+    // Force a re-render to clear any artifacts
+    if (rendererRef.current.getScene && rendererRef.current.getCamera) {
+      rendererRef.current.render(
+        rendererRef.current.getScene(), 
+        rendererRef.current.getCamera()
+      );
     }
-    
-    // Force clear the canvas immediately
-    const gl = rendererRef.current.getContext();
-    gl.clearColor(0, 0, 0, 0);
-    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-    
-    resizeTimeout.current = setTimeout(() => {
-      if (!canvasRef.current || !rendererRef.current) return;
-      
-      const parent = canvasRef.current.parentElement;
-      if (!parent) return;
-      
-          const { width, height } = parent.getBoundingClientRect();
-      const pixelRatio = Math.min(window.devicePixelRatio, isMobile ? 1 : 2);
-      
-      // Update renderer size and pixel ratio
-      rendererRef.current.setPixelRatio(pixelRatio);
-      rendererRef.current.setSize(width, height, false);
-      
-      // Force a re-render to clear any artifacts
-      if (rendererRef.current.getScene && rendererRef.current.getCamera) {
-        rendererRef.current.render(
-          rendererRef.current.getScene(), 
-          rendererRef.current.getCamera()
-        );
-      }
-    }, 50); // Small delay to handle rapid resizing
-  }, [isMobile]);
+  }, 50);
+}, [isMobile, width]);
 
   // Set up resize listener
   useEffect(() => {
@@ -784,12 +787,13 @@ export default function Logo3D({ width = 350, height = 250, className = '' }) {
     <div 
       className={`${styles.logoContainer} ${className}`} 
       style={{ 
-        width: `${width}px`, 
-        height: `${height + 25}px`,
-        position: 'relative',
-        opacity: isLoaded ? 1 : 1, // Keep opacity at 1 to prevent layout shifts
-        transition: 'opacity 500ms ease-in-out',
-        visibility: isLoaded ? 'visible' : 'visible' // Always maintain layout
+          width: width, 
+          height: `${height + 25}px`,
+          position: 'relative',
+          overflow: 'visible', // Allow overflow
+          opacity: isLoaded ? 1 : 1,
+          transition: 'opacity 500ms ease-in-out',
+          visibility: isLoaded ? 'visible' : 'visible'
       }}
     >
       {!isLoaded && <LoadingBar width={width} />}
@@ -822,7 +826,9 @@ export default function Logo3D({ width = 350, height = 250, className = '' }) {
           background: 'transparent',
           WebkitBackfaceVisibility: 'hidden',
           WebkitTransform: 'translate3d(0,0,0)',
-          transform: 'translate3d(0,0,0)'
+          transform: 'translate3d(0,0,0)',
+          overflow: 'visible', // Allow canvas content to overflow
+          width: '100vw' // Make canvas full viewport width
         }}
       >
         <color attach="background" args={[0x000000, 0]} />
