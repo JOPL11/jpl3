@@ -46,10 +46,10 @@ export default function LoadingOverlay() {
       transition: 'opacity 0.5s ease-out',
       pointerEvents: isVisible ? 'auto' : 'none'
     }}>
-      <div style={{ 
+      <div className={styles.animaContent} style={{ 
      
         width: '100%',
-        height: '100%',
+        height: '50%',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -58,7 +58,7 @@ export default function LoadingOverlay() {
         textAlign: 'center',
         padding: '2rem'
       }}>
-        <div style={{   top: '2rem', display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <div className={styles.logoAnimationContainer}>
           <img 
             src="/images/logoAnima/J.svg" 
             alt="J" 
@@ -70,14 +70,16 @@ export default function LoadingOverlay() {
             className={styles.letterP}
           />
         </div>
+    
         <div style={{ 
           fontSize: '1rem',
           fontWeight: '200',
           color: '#ffffff',
           textAlign: 'center',
-          lineHeight: '1.4'
+          lineHeight: '1.4',
+ 
         }}>
-          
+          STARTING...
         </div>
       </div>
     </div>

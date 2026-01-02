@@ -33,6 +33,40 @@
   cursor: default;
 }
 
+.logoAnimationContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  top: 1rem;
+  transform: translateY(-220px) translateX(5px);
+  filter: drop-shadow(0 4px 6px rgba(240, 242, 248, 0.5));
+}
+.logoUnderline {
+  width: 1150px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 1rem 0;
+   transform: translateY(-270px) translateX(-10px);
+}
+
+@media (max-width: 800px) {
+  .logoAnimationContainer {
+    top: 1rem;
+    transform: translateY(-250px);
+  }
+}
+@media (max-width: 768px) {
+  .logoAnimationContainer {
+    top: 1rem;
+    transform: translateX(-20px);
+  }
+}
+@media (max-width: 480px) {
+  .logoAnimationContainer {
+    top: 0.5rem;
+    transform: translateX(-10px);
+  }
+}
 .welcomeMessage {
   font-size: 1rem;
   font-weight: 200;

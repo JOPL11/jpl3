@@ -86,9 +86,15 @@ const LogoCard = () => {
       <strong>Challenge: </strong> Create a collaborative, data-driven tool for the heart of Airbus operations.<br>
       <strong>Solution: </strong> Designed and coded a custom multi-monitor touchtable interface (JavaScript) that allowed executives to interactively explore fleet data, global operations, and company history. This is mission-critical UIX for daily use.</p><br>
 
+      <img src="/images/airbus_berlin/table6.jpg" alt="Airbus Munich Showroom" style="width: 100%; max-width: 500px; margin: 1rem 0; border-radius: 8px;" />
+
       <p><strong>2.</strong> Showroom Centerpiece: Munich Interactive 3D Expo Piece.<br>
       <strong>Challenge: </strong> Concept, Design, Animation, UIX Concept & Development.<br>
       <strong>Solution: </strong> Airbus Munich Showroom (Ottobrunn, Germany)</p><br>
+
+
+     <img src="/images/airbus_ottobrunn/airbus_18B.jpg" alt="Airbus Munich Showroom" style="width: 100%; max-width: 500px; margin: 1rem 0; border-radius: 8px;" />
+
 
       <p><strong>3. </strong> Visual Spectacles: Munich Large-Format Video Features.<br>
       <strong>Challenge:</strong> Provide awe-inspiring ambient narrative and brand moments.<br>
@@ -99,7 +105,13 @@ const LogoCard = () => {
         <li><p>Helped establish a new standard for corporate engagement, merging tactile interaction with cinematic narrative.</p></li>
         <li><p>Demonstrated end-to-end mastery across the digital spectrum: from functional enterprise UIX to emotive brand spectacle.</p></li>
         <li><p>Translated Airbus's engineering marvel into visceral, interactive experiences that made corporate vision tangible for VIPs and decision-makers.</p></li>
+        
+      <img src="/images/airbus_ottobrunn/video/1C.jpg" alt="Airbus Munich Showroom" style="width: 100%; max-width: 500px; margin: 1rem 0; border-radius: 8px;" />
       </ul>
+
+
+
+
       <p><strong>Tech:</strong> GSAP, JavaScript, Cinema4D, Octane, Adobe After Effects, UI/UX Design Principles.</p>
     `,
     description2: ``
