@@ -170,6 +170,7 @@ function useMobileDetect() {
 function HologramCorners({ size = 0.1, distance = 1.2, intensity = 2.0 }) {
   const points = useMemo(() => [
     // Top points (two corners)
+   {/*
     { position: [-distance, distance, -1.5] },    // Top-left
     { position: [-distance, distance, -2.0] },  
     { position: [-distance, distance, -2.5] }, 
@@ -193,7 +194,7 @@ function HologramCorners({ size = 0.1, distance = 1.2, intensity = 2.0 }) {
     { position: [distance, distance, 1.0] },      
     { position: [distance, distance, 1.5] },   
     { position: [distance, distance, 2.0] },  
-    { position: [distance, distance, 2.5] }, 
+    { position: [distance, distance, 2.5] }, */} ,
     
     // Middle points
     { position: [-distance, 0, -0.5] },          // Middle-left
