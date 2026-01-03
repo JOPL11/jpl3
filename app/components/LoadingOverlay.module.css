@@ -34,12 +34,14 @@
 }
 
 .logoAnimationContainer {
+position: relative; 
   display: flex;
   align-items: center;
   gap: 10px;
-  top: 1rem;
-  transform: translateY(-220px) translateX(5px);
-  filter: drop-shadow(0 4px 6px rgba(240, 242, 248, 0.5));
+  bottom: 11rem; /* Use bottom instead of top */
+  left: 50%;     /* Center horizontally */
+  transform: translateX(-50%); /* Center horizontally */
+ 
 }
 .logoUnderline {
   width: 1150px;
@@ -51,20 +53,20 @@
 
 @media (max-width: 800px) {
   .logoAnimationContainer {
-    top: 1rem;
-    transform: translateY(-250px);
+   bottom: 3.5rem; /* Use bottom, not top */
+    transform: translateX(-50%); 
   }
 }
 @media (max-width: 768px) {
   .logoAnimationContainer {
-    top: 1rem;
+    bottom: 3rem;
     transform: translateX(-20px);
   }
 }
 @media (max-width: 480px) {
   .logoAnimationContainer {
-    top: 0.5rem;
-    transform: translateX(-10px);
+ bottom: 3rem; /* Use bottom, not top */
+    transform: translateX(-50%); /* Keep centered */
   }
 }
 .welcomeMessage {
@@ -86,6 +88,18 @@
   border-radius: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
+.logoWrapperContainer {
+  position: absolute;
+  bottom: 11rem;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: slideRight 1s ease-in-out forwards;
+  animation-delay: 0.25s; /* Time when rotation completes */
+}
+@keyframes slideRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(-30%) translateY(30%); } /* Move right */
+}
 
 .logoContainer {
   display: flex;
@@ -99,11 +113,11 @@
 }
 
 .letterJ {
-  animation: moveJ 2s ease-in-out forwards;
+  animation: moveJ 1s ease-in-out forwards;
 }
 
 .letterP {
-  animation: moveP 2s ease-in-out forwards;
+  animation: moveP 1s ease-in-out forwards;
 }
 
 @keyframes moveJ {

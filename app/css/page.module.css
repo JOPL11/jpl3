@@ -201,7 +201,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.5rem;
-  margin: 0.1rem 0rem 0 3.5rem;
+  margin: 0;
   padding: 0 0.1rem;
   width: 100%;
   box-sizing: border-box;
@@ -222,14 +222,7 @@
 
 }
 
-/* Navigation Links */
-.navLinks {
-  display: flex;
-  gap: 0.8rem;
-  justify-content: center;
-  margin: 1rem 0;
-  margin: 0.1rem 0rem 0 3.5rem;
-}
+
 
 .navLink {
   position: relative;
@@ -504,14 +497,13 @@ padding: 1rem;
 
 .navLinks {
   display: flex;
-left:50%;
-right:50%;
+
   justify-content: center;
   gap: 1.1rem;
-  margin: 0.1rem 0rem 0 3.5rem;
+  margin: 0;
   font-size: 1.5rem;
   padding: 0 0.5rem;
-  width: 80%;
+
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -1140,9 +1132,9 @@ right:50%;
     display: flex;
     justify-content: center;
     gap: 1.1rem;
-    margin: 0.1rem 0rem 0 3.5rem;
+    margin: 0;
     font-size: 2rem;
-    padding: 0 0.5rem;
+    padding: 0;
     width: 80%;
     user-select: none;
     -webkit-user-select: none;
@@ -1306,7 +1298,7 @@ right:50%;
     display: flex;
     justify-content: center;
     gap: 1.1rem;
-    margin: 0.1rem 0rem 0 4.5rem;
+    margin: 0.1rem 0rem 0 0.5rem;
     font-size: 2rem;
     padding: 0;
     width: 70%;
@@ -1335,7 +1327,7 @@ right:50%;
     display: flex;
     justify-content: center;
     gap: 1.1rem;
-    margin: 0.1rem 0rem 0 4.5rem;
+    margin: 0.1rem 0rem 0 0.5rem;
     font-size: 2rem;
     padding: 0;
     width: 90%;

@@ -205,15 +205,17 @@ function HologramCorners({ size = 0.1, distance = 1.2, intensity = 2.0 }) {
     // Bottom point (single, centered)
     { position: [0, -distance, -2.0] },  
     { position: [0, -distance, -2.5] }, 
-    { position: [0, -distance, -1.5] }, 
+   
+  /*  { position: [0, -distance, -1.5] }, 
     { position: [0, -distance, -1.0] }, 
-    { position: [0, -distance, -0.5] }, 
-    { position: [0, -distance, 0] }, 
-    { position: [0, -distance, 0.5] },                   
-    { position: [0, -distance, 1.0] },      
+    { position: [0, -distance, -0.5] }, */   
+    { position: [1, -distance, 0] }, 
+    { position: [-0.5, -distance, 0.8] },             
+   /*  { position: [0, -distance, 1.0] },   
     { position: [0, -distance, 1.5] },   
-    { position: [0, -distance, 2.0] },  
-    { position: [0, -distance, 2.5] }, 
+    { position: [0, -distance, 2.0] },   */ 
+     { position: [-1, -distance, -0.5] },       
+       
          
     
     // Additional points for visual effect

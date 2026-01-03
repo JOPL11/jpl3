@@ -398,6 +398,7 @@
   .carouselControls {
     display: none;
   }
+  
 }
 
 /* Mobile Responsive Styles */
@@ -428,7 +429,7 @@
 
   .modalDescription {
     max-width: 100%;
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .projectModal h2 {

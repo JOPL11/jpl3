@@ -16,27 +16,16 @@ const LogoCard = () => {
   
   const handleLogoClick = (logo) => {
     openModal(
-      <div className={styles.modalContent}>
+      
+        <div className={styles.scrollableContent}>
+          <div className={styles.modalContent}>
         <div className={styles.modalHeader}>
           <h3 className={styles.modalTitle}>{logo.title || logo.alt}</h3>
         </div>
         {/* Client Info Section */}
         <div className={styles.clientInfo}>
           <span  className={styles.clientText}>{logo.clientText || ''}</span>
-          {logo.clientLogo && (
-            <div 
-              className={styles.clientLogo}
-              style={logo.clientLogoHeight ? { '--logo-height': `${logo.clientLogoHeight}px` } : {}}
-            >
-              <Image
-                src={logo.clientLogo}
-                alt="Client Logo"
-                width={100}
-                height={40}
-                className={styles.clientLogoImage}
-              />
-            </div>
-          )}
+         
           {logo.agencyLink && (
             <a 
               href={logo.agencyLink} 
@@ -48,8 +37,21 @@ const LogoCard = () => {
               {logo.agencyName}
             </a>
           )}
+           {logo.clientLogo && (
+            <div 
+              className={styles.clientLogo}
+              style={logo.clientLogoHeight ? { '--logo-height': `${logo.clientLogoHeight}px` } : {}}
+            >  |  &nbsp;  &nbsp; &nbsp; 
+              <Image
+                src={logo.clientLogo}
+                alt="Client Logo"
+                width={100}
+                height={40}
+                className={styles.clientLogoImage}
+              />
+            </div>
+          )}
         </div>
-        <div className={styles.scrollableContent}>
           {logo.description && (
             <div 
               className={styles.modalDescription}
@@ -76,27 +78,22 @@ const LogoCard = () => {
       agencyName: 'SMMD Team',
       agencyLink: 'https://www.smmd.team',
       description: `
-      <p><strong>The Mission:</strong> Airbus Group required a next-generation digital interface for its most important spaces: its International Headquarters in Berlin and its premier Showroom in Munich. The mandate was to create interactive, multi-sensory experiences that could communicate the complexity and ambition of aerospace innovation to VIPs, partners, and policymakers.<br><br>
+      <p><strong>The Mission:</strong> Airbus Group required a next-generation digital interface for its most important spaces: its International Headquarters in Berlin and its premier Showroom in Munich. The mandate was to create interactive, multi-sensory experiences that could communicate the complexity and ambition of aerospace innovation to VIPs, partners, and policymakers.</p>
 
-      <strong>My Role:</strong> Lead Digital Experience Designer & Developer.<br>
-      I was entrusted with the complete digital vision for these experiences, acting as the sole creator across four distinct installations—responsible for User Experience (UIX) strategy, visual and motion design, animation, and full-stack interactive development.<br><br>
-      <strong>The Portfolio of Installations:</strong></p><br>
+      <p><strong>My Role:</strong> Lead Digital Experience Designer & Developer.</p>
+      <p>I was entrusted with the complete digital vision for these experiences, acting as the sole creator across four distinct installations—responsible for User Experience (UIX) strategy, visual and motion design, animation, and full-stack interactive development.</p>
+        <p><strong>Tech:</strong> GSAP, JavaScript, Cinema4D, Octane, Adobe After Effects, UI/UX Gestalt Design Principles.</p><br><br>
 
-      <p><strong>1.</strong> HQ Command Center: Berlin Touchtable Interface<br>
-      <strong>Challenge: </strong> Create a collaborative, data-driven tool for the heart of Airbus operations.<br>
-      <strong>Solution: </strong> Designed and coded a custom multi-monitor touchtable interface (JavaScript) that allowed executives to interactively explore fleet data, global operations, and company history. This is mission-critical UIX for daily use.</p><br>
+      <p style="margin-top: 3rem;"><strong>1.</strong> HQ Command Center: Berlin Touchtable Interface<br>
+      <p><strong>Challenge: </strong> Create a collaborative, data-driven tool for the heart of Airbus operations.</p><br>
+      <p><strong>Solution: </strong> Designed and coded a custom multi-monitor touchtable interface that allowed executives to interactively explore fleet data, global operations, and company history. This is mission-critical UIX for daily use.</p><br>
 
-      <img src="/images/airbus_berlin/table6.jpg" alt="Airbus Munich Showroom" style="width: 100%; max-width: 500px; margin: 1rem 0; border-radius: 8px;" />
+      <img src="/images/airbus_berlin/table6.jpg" alt="Airbus Munich Showroom" style="width: 100%; margin: 1rem 0; border-radius: 8px;" />
 
-      <p><strong>2.</strong> Showroom Centerpiece: Munich Interactive 3D Expo Piece.<br>
-      <strong>Challenge: </strong> Concept, Design, Animation, UIX Concept & Development.<br>
-      <strong>Solution: </strong> Airbus Munich Showroom (Ottobrunn, Germany)</p><br>
+    
 
 
-     <img src="/images/airbus_ottobrunn/airbus_18B.jpg" alt="Airbus Munich Showroom" style="width: 100%; max-width: 500px; margin: 1rem 0; border-radius: 8px;" />
-
-
-      <p><strong>3. </strong> Visual Spectacles: Munich Large-Format Video Features.<br>
+      <p style="margin-top: 3rem;"><strong>2. </strong> Visual Spectacles: Munich Large-Format Video Features.<br>
       <strong>Challenge:</strong> Provide awe-inspiring ambient narrative and brand moments.<br>
       <strong>Solution:</strong> Produced a suite of large-scale, multi-monitor video features. This included a complex 3D animated sequence visualizing flight dynamics across a range of products, and a stylized 2D motion graphics piece celebrating engineering milestones, both rendered in ultra-high resolution for close viewing.</p><br>
       <p><strong>The Outcome & Impact:</strong></p>
@@ -106,19 +103,39 @@ const LogoCard = () => {
         <li><p>Demonstrated end-to-end mastery across the digital spectrum: from functional enterprise UIX to emotive brand spectacle.</p></li>
         <li><p>Translated Airbus's engineering marvel into visceral, interactive experiences that made corporate vision tangible for VIPs and decision-makers.</p></li>
         
-      <img src="/images/airbus_ottobrunn/video/1C.jpg" alt="Airbus Munich Showroom" style="width: 100%; max-width: 500px; margin: 1rem 0; border-radius: 8px;" />
+      <img src="/images/airbus_ottobrunn/video/1C.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
       </ul>
 
 
 
 
-      <p><strong>Tech:</strong> GSAP, JavaScript, Cinema4D, Octane, Adobe After Effects, UI/UX Design Principles.</p>
+    
     `,
     description2: ``
   },   
-      {   id: 2, src: '/images/mini/aeromtu.jpg', 
+ 
+        {   id: 2,
+           src: '/images/mini/airbus.jpg', alt: 'Logo 2', 
+      title: 'Airbus Group Digital Interfaces',
+      clientText: `Agency:   VRPE`,
+      clientText: `Agency:   VRPE`,
+      clientLogo: '/images/agencies/vrpe_logoNew.png',
+      clientLogoHeight: 15,
+      agencyName: 'VRPE',
+      description: `
+  <p style="margin-top: 3rem;"><strong>2.</strong> Showroom Centerpiece: Munich Interactive 3D Expo Piece.</p><br>
+      <p><strong>Challenge: </strong> Create the interface for a dynamic installation that showcases selected Airbus technology for visitors to the Munich based Airbus Showroom, a 650 square meter space featuring many installation pieces.<br>
+      <strong>Solution: </strong> Airbus Munich Showroom (Ottobrunn, Germany)</p><br>
+      <P><strong>Challenge: </strong> Concept, Design, Animation, UIX Concept & Development.</p><br>
+
+     <img src="/images/airbus_ottobrunn/airbus_18B.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+    `,
+    description2: ``
+  },   
+        {   id: 3, src: '/images/mini/aeromtu.jpg', 
         alt: 'Logo 1', 
         title: 'Digital Experiences for MTU Aero Engines',
+        
       clientText: `Agency:   VRPE`,
       clientLogo: '/images/agencies/vrpe_logoNew.png',
       clientLogoHeight: 15,
@@ -131,9 +148,11 @@ const LogoCard = () => {
       <p><strong>Role:</strong> As the Lead Experience Designer and Developer, I was entrusted with creating both experiences from concept to delivery—handling visual design, 3D animation, motion graphics, and interactive coding.</p><br>
       <p><strong>Outcome:</strong> The Airshow visualization delivered a competitive show-floor advantage that commanded attention, driving executive engagement. The presentation tool was adopted as a strategic asset that traveled the world, consistently elevating their brand for business development across the globe.</p><br>
       <p><strong>Tech:</strong> Cinema4D, Corona Render Engine, Adobe After-Effects, High-resolution render pipeline, javascript</p>
+
+           <img src="/images/mtu1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
     `,
     description2: ``
-  },              
+  },            
     { id: 4, src: '/images/mini/audi.jpg', alt: 'Logo 4', 
       title: 'Audi Nuremberg & Audi Middle East',
       clientText: `Agency:`,
@@ -146,12 +165,15 @@ const LogoCard = () => {
       <strong>Role:</strong> Visual Narrative Strategy, Solo Motion Design, Rendering<br>
       <strong>Tech:</strong> After Effects, Photoshop<br>
       Created 11 minute Backdrop film for a stage presentation at the Q5 Unveiling Ceremony in Nuremburg Germany, a VIP Event. Needed to be choreographed in time with professional dancers and a large electronically actuated on-stage water sprinkler system. I had three weeks to animate it, make it fit choreographicallly. It worked beautifully. </p><br>
-      <p><strong>strategic Impact:</strong> Transformed VIP brand engagement, elevating corporate storytelling from passive to participatory. Boris Becker was fist pumping and whooping at my animation. The entire elite crowd went wild as lightning and thunder rolled to a visceral on-screen culmination.</p><br>
+      <p><strong>Strategic Impact:</strong> Transformed VIP brand engagement, elevating corporate storytelling from passive to participatory. Boris Becker was fist pumping and whooping at my animation. The entire elite crowd went wild as lightning and thunder rolled to a visceral on-screen culmination.</p><br>
+       <img src="/images/audi_1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
 
-      <p><strong>Project:</strong> Online Animation<br>
+      <p style="margin-top: 3rem;"><strong>Project:</strong> Online Animation<br>
       <strong>Role:</strong> Lead Visual Concept Engineer, Solo Motion Design<br>
       <strong>Tech:</strong> javascript<br>
       Created an intro film for Audi Middle East Official Website. This one wasn't for Planstand, it was for Mario Klingemann, but I'll just add it to this Audi section.</p>
+
+            
     `,
     description2: ``
   },
@@ -163,18 +185,23 @@ const LogoCard = () => {
       agencyName: 'Sieber & Wolff',
       agencyLink: 'https://www.sieberundwolf.de/',
       description: `
-      <p><strong>1) Product Design: </strong> A Next-Generation Brand Award for Mercedes-Benz Dealerships</</p><br><br>
+      <p style="margin-top: 3rem;"><strong>1) Product Design: </strong> A Next-Generation Brand Award for Mercedes-Benz Dealerships</</p><br><br>
       <p><strong>Context:</strong> Mercedes-Benz (Daimler AG) sought to reinvent its prestigious annual dealership award—a symbolic object representing the pinnacle of brand partnership and excellence. The mandate was to evolve a traditional award trophy into a modern brand statement that reflected Mercedes-Benz core identity and forward-looking vision.</p>
       <p><strong>My Role:</strong> Creative Director & Design Lead</p>
       <p><strong>The Work:</strong>I was entrusted with the complete creative reinvention of this key brand artifact, responsible for the overarching strategy, product design, detailed technical architecture, and cinematic presentation of the proposal.</p>
       <p><strong>Tech:</strong> Cinema4D, AutoCAD, After Effects, Corona Render Engine</p><br><br><br>
 
-      <p><strong>2) Logo Animation: </strong> Logo Animation for Mercedes-Benz: Procat, an internal Product Catalog</p><br><br>
+      
+             <img src="/images/throwable/merc55.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+                <img src="/images/throwable/merc66.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+
+      <p style="margin-top: 5rem;"><strong>2) Logo Animation: </strong> Logo Animation for Mercedes-Benz: Procat, an internal Product Catalog</p><br>
        <p><strong>Context:</strong> To maintain its global premium standard, Mercedes-Benz (Daimler AG) requires consistently high-quality visual assets for internal communications, from product documentation to employee training.</p>
       <p><strong>The Brief:</strong> Create clear, engaging 3D animations as an opening title sequence featuring the logo of an internal, global product catalog used by engineering, sales, and marketing teams.</p>
       <p><strong>My Role:</strong> Solo Technical Concept, Solo 3D Animator, Solo Renderer</p>
       <p><strong>The Work:</strong> Developed a series of visual concepts and refined the chosen variation.</p>
       <p><strong>Tech:</strong> After Effects, Superluminal Stardust, Adobe Illustrator</p>
+           <img src="/images/mercedes1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
     `,
     description2: ``
   },
@@ -273,11 +300,11 @@ const LogoCard = () => {
       <ul>
       <li><p><strong>Phase 1 – Strategic Design Consultation:</strong>  Partnered directly with the Channel Manager to audit and evaluate on-air visual identities from Germany's top design agencies, advising on the strategic selection of the channel's core visual identity.</p></li>
 
-      <li><p><strong>Phase 2 – Website Build:</strong> As the <strong>Sole Developer & Animator</strong>, I translated the approved broadcast design into a fully interactive, official website, ensuring a seamless brand experience from TV to web. </p></li>
+      <li><p><strong>Phase 2 – Website Build:</strong> As the <strong>Sole Developer & Animator</strong>, I translated the approved broadcast design into a fully interactive, responsive, official website, ensuring a seamless brand experience from TV to web. </p></li>
       
       </ul>
-
-      <p><strong>Project 2: Spiegel Geschichte (History Channel)</strong></p>
+      <img src="/images/JPL3Poster_SW.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+      <p  style="margin-top: 5rem;"><strong>Project 2: Spiegel Geschichte (History Channel)</strong></p>
 
         <ul>
       <li><p><strong>Full-Spectrum Ownership:</strong>  As the Lead Designer, Programmer & UX Architect, I was responsible for the channel's complete online presence—designing and building its official website from concept to launch.</p></li>
@@ -286,7 +313,13 @@ const LogoCard = () => {
       
       </ul>
 
+
+
       <p><strong>Impact:</strong> Delivered the definitive digital homes for two major Spiegel TV brands, blending strategic media insight with hands-on design and technical execution.</p>
+
+        <img src="/images/SGA_1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+        <img src="/images/SGA_2.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+        <img src="/images/SGA_3.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
     `,
     description2: `` 
    },

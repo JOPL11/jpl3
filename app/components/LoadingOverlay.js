@@ -8,25 +8,29 @@ export default function LoadingOverlay() {
   const { isLoading, setIsLoading } = useLoading();
   const [isVisible, setIsVisible] = useState(true);
   const [shouldRender, setShouldRender] = useState(true);
-
-  useEffect(() => {
-    // Start fade out after 1 second
-    const fadeOutTimer = setTimeout(() => {
-      setIsVisible(false);
-      
-      // After fade out completes, update loading state and unmount
-      const removeTimer = setTimeout(() => {
-        if (setIsLoading) setIsLoading(false);
-        setShouldRender(false);
-      }, 500); // Match this with your CSS transition duration
-
-      return () => clearTimeout(removeTimer);
-    }, 2000);
-
-    return () => {
-      clearTimeout(fadeOutTimer);
-    };
-  }, [setIsLoading]);
+  const [logoVisible, setLogoVisible] = useState(true)
+useEffect(() => {
+  // Start logo fade out after 1.5 seconds
+  const logoFadeTimer = setTimeout(() => {
+    // Logo fade out logic here (we'll add this)
+    setLogoVisible(false);
+  }, 1000);
+  // Start background fade out after 2 seconds (after logo starts fading)
+  const fadeOutTimer = setTimeout(() => {
+    setIsVisible(false);
+    
+    // After fade out completes, update loading state and unmount
+    const removeTimer = setTimeout(() => {
+      if (setIsLoading) setIsLoading(false);
+      setShouldRender(false);
+    }, 500);
+    return () => clearTimeout(removeTimer);
+  }, 2000); // Give logo 0.5s head start
+  return () => {
+    clearTimeout(logoFadeTimer);
+    clearTimeout(fadeOutTimer);
+  };
+}, [setIsLoading]);
 
   if (!shouldRender) return null;
 
@@ -46,8 +50,7 @@ export default function LoadingOverlay() {
       transition: 'opacity 0.5s ease-out',
       pointerEvents: isVisible ? 'auto' : 'none'
     }}>
-      <div className={styles.animaContent} style={{ 
-     
+      <div className={styles.animaContent} style={{     
         width: '100%',
         height: '50%',
         display: 'flex',
@@ -58,7 +61,11 @@ export default function LoadingOverlay() {
         textAlign: 'center',
         padding: '2rem'
       }}>
-        <div className={styles.logoAnimationContainer}>
+        <div className={styles.logoWrapperContainer}>
+        <div className={styles.logoAnimationContainer} style={{ 
+          opacity: logoVisible ? 1 : 0,
+          transition: 'opacity 0.5s ease-out'
+        }}>
           <img 
             src="/images/logoAnima/J.svg" 
             alt="J" 
@@ -69,19 +76,16 @@ export default function LoadingOverlay() {
             alt="P" 
             className={styles.letterP}
           />
+          <div>
+        </div>
+        </div>
+   
         </div>
     
-        <div style={{ 
-          fontSize: '1rem',
-          fontWeight: '200',
-          color: '#ffffff',
-          textAlign: 'center',
-          lineHeight: '1.4',
- 
-        }}>
-          STARTING...
-        </div>
+  
       </div>
+
     </div>
+    
   );
 }

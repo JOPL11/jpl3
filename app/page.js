@@ -400,7 +400,7 @@ useEffect(() => {
           aria-hidden={!isMenuOpen}
         >
           <ul className={styles.mobileMenuList}>
-            {['About', 'Overview', 'Skills', 'Code', 'WebGL', 'Motion', 'Proto', 'Contact'].map((item) => (
+            {['Overview', 'About', 'Services', 'Code', 'WebGL', 'Motion', 'Proto', 'Contact'].map((item) => (
               <li key={item} className={styles.mobileMenuItem}>
                 <a 
                   href={`#${item.toLowerCase()}`} 
@@ -460,6 +460,13 @@ useEffect(() => {
           
          
                 <nav className={styles.navLinks} aria-label="Main navigation">
+                                   <a 
+                  href="#overview" 
+                  className={`${styles.navLink} ${activeSection === 'overview' ? styles.active : ''}`}
+                  onClick={(e) => scrollToSection(e, 'overview')}
+                >
+                  Overview
+                </a>
                 <a 
                   href="#about" 
                   className={`${styles.navLink} ${activeSection === 'about' ? styles.active : ''}`}
@@ -467,14 +474,7 @@ useEffect(() => {
                 >
                   About
                 </a>
-                 <a 
-                  href="#overview" 
-                  className={`${styles.navLink} ${activeSection === 'overview' ? styles.active : ''}`}
-                  onClick={(e) => scrollToSection(e, 'overview')}
-                >
-                  Overview
-                </a>
-                                 <a 
+                <a 
                   href="#skills" 
                   className={`${styles.navLink} ${activeSection === 'skills' ? styles.active : ''}`}
                   onClick={(e) => scrollToSection(e, 'skills')}
@@ -584,6 +584,17 @@ useEffect(() => {
             </div>
             */} 
              {/*About Section Detector Here*/} 
+
+
+                <div data-section="overview"></div>
+            <section id="overview" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="overview">
+                <SectionTracker onSectionChange={setActiveSection} />
+                <h2 style={{paddingTop: "5rem"}}><AnimatedText ref={overviewHeadingRef}>Overview</AnimatedText></h2>
+                <div style={{paddingBottom:"2rem"}}>
+                <p>Developing mission-critical digital experiences for global leaders. Trusted by major brands to translate brand vision into immersive interactive, motion, and installation design. </p>
+                 <p>It&apos;ll be in development for a few days. Tapping on the company logo reveals information about the projects.</p></div>
+                  <LogoCard />
+            </section>
           <div data-section="about"></div>
           <section id="about" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="about">
              <SectionTracker onSectionChange={setActiveSection} />
@@ -598,7 +609,7 @@ useEffect(() => {
 
             <p>My core principle is <strong>merging design, animation, and code</strong> to create work that is not only beautiful but also functional and scalable.</p>
 
-            <p>To increase my professional acumen I spent more than a few years becoming an expert in art direction, motion design, 3D visualization and creative development, while also building a strong foundation in web development and interactive design, for companies such as Audi, Daimler Benz, Airbus Group, BMW Group, Spiegel TV, Pro7Sat1, Warner Bros., 20th Century Fox and many more.</p>
+            <p>I started my career as jr. art director and gained proficiency in motion design, 3D visualization and creative development, while also building a strong foundation in web development and interactive design, for companies such as Audi, Daimler Benz, Airbus Group, BMW Group, Spiegel TV, Pro7Sat1, Warner Bros., 20th Century Fox and many more.</p>
 
             <p>Global Remote | EST / CET / EET</p>
 
@@ -606,23 +617,14 @@ useEffect(() => {
 
               <div style={{height: '0.1rem'}}></div>
             </section>
-   <div data-section="overview"></div>
-            <section id="overview" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="overview">
-                <SectionTracker onSectionChange={setActiveSection} />
-                <h2 style={{paddingTop: "5rem"}}><AnimatedText ref={overviewHeadingRef}>Overview</AnimatedText></h2>
-                <div style={{paddingBottom:"2rem"}}>
-                <p>An overview of some of the many projects I&apos;ve had the honor to be chosen for. Tapping on the company logo reveals information about the projects.</p>
-                <p>Developing mission-critical digital experiences for global leaders. Trusted by major brands to translate brand vision into immersive interactive, motion, and installation design.</p>
-                 <p>It&apos;ll be in development for a few days.</p></div>
-                  <LogoCard />
-            </section>
+
 
              <section id="skills" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="skills">
              <SectionTracker onSectionChange={setActiveSection} />
             <h2 style={{paddingTop: "5rem"}}>
-              <AnimatedText ref={skillsHeadingRef}>Core Skills</AnimatedText>
+              <AnimatedText ref={skillsHeadingRef}>Core Services</AnimatedText>
             </h2>
-            <div style={{height: '0.1rem', marginBottom: '5rem'}}>Minus the creative writing and guitar stuff</div>
+            <div style={{height: '0.1rem', marginBottom: '5rem'}}>Toolkit</div>
               <p>My toolkit is extensive and constantly evolving, allowing me to own a project from concept to deployment. I&apos;ve split the skills into separate categories for clarity:</p>
               <ul className={styles.skillsList} role="list">
                 <h3 style={{fontSize: '1.3rem', fontWeight: '400', marginTop: '1rem', color: 'white'}}>Languages</h3>
