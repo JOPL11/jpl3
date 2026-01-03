@@ -411,14 +411,14 @@ useEffect(() => {
                       
                       // Wait for the next tick to ensure the menu is closed
                       await new Promise(resolve => setTimeout(resolve, 0));
-                      
-                      const element = document.getElementById(item.toLowerCase());
-                      if (element) {
-                        const yOffset = 50; // Match this with your scroll-margin-top or header height
-                        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                        window.scrollTo({ top: y, behavior: 'smooth' });
-                      setIsMenuOpen(false);
-                    }
+                      scrollToSection(e, item.toLowerCase());
+                    //  const element = document.getElementById(item.toLowerCase());
+                     // if (element) {
+                     //   const yOffset = 50; // Match this with your scroll-margin-top or header height
+                     //   const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                     //   window.scrollTo({ top: y, behavior: 'smooth' });
+                     // setIsMenuOpen(false);
+                   // }
                   }}
                 >
                   {item}
@@ -658,7 +658,7 @@ useEffect(() => {
             <SectionTracker onSectionChange={setActiveSection} /> 
             <section id="code" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="code">
        
-              <h2 id="code" style={{marginTop: '100px'}} className={styles.scrollTarget}><AnimatedText ref={workHeadingRef}>Code Projects</AnimatedText></h2>
+              <h2 id="code" style={{marginTop: '100px'}} className={styles.scrollTarget}><AnimatedText ref={workHeadingRef}>Code Case Studies</AnimatedText></h2>
                  <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies</div>
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
 
@@ -841,7 +841,7 @@ useEffect(() => {
             
              <SectionTracker onSectionChange={setActiveSection} />
             <h2 style={{paddingTop: "5rem"}}>
-              <AnimatedText ref={motionHeadingRef}>Motion</AnimatedText>
+              <AnimatedText ref={motionHeadingRef}>Motion Case Studies</AnimatedText>
             </h2>
                 <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies</div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
@@ -1006,7 +1006,7 @@ useEffect(() => {
             
              <SectionTracker onSectionChange={setActiveSection} />
             <h2 style={{paddingTop: "5rem"}}>
-              <AnimatedText ref={webglHeadingRef}>WebGL</AnimatedText>
+              <AnimatedText ref={webglHeadingRef}>WebGL Case Studies</AnimatedText>
             </h2>
                 <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies</div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
@@ -1095,7 +1095,7 @@ useEffect(() => {
           
              <SectionTracker onSectionChange={setActiveSection} />
             <h2 style={{paddingTop: "5rem"}}>
-              <AnimatedText ref={productHeadingRef}>Prototype</AnimatedText>
+              <AnimatedText ref={productHeadingRef}>Prototype Case Study</AnimatedText>
             </h2>
             <div style={{height: '0.1rem', marginBottom: '7rem'}}>Tap or click the images to look through the pile of photos.</div>
               <div className={styles.introText}>
