@@ -74,7 +74,7 @@ export default function Home() {
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
   const [showImpressumModal, setShowImpressumModal] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showHamburger, setShowHamburger] = useState(false);
+  const [showHamburger, setShowHamburger] = useState(true);
 
   // Toggle menu-open class on body when menu state changes
   useEffect(() => {
@@ -108,7 +108,7 @@ export default function Home() {
 
 
   // Setup section detection using IntersectionObserver
-  useEffect(() => {
+ {/*   useEffect(() => {
     const handleScroll = () => {
       if (typeof window === 'undefined') return;
       
@@ -133,7 +133,7 @@ export default function Home() {
       window.removeEventListener('scrollend', handleScrollEnd);
     };
   }, []);
-
+*/} 
   const scrollToSection = (e, sectionId) => {
     console.log('scrollToSection called with sectionId:', sectionId);
     e.preventDefault();
@@ -452,14 +452,14 @@ useEffect(() => {
                   <Logo3DWrapper />
                 </Suspense>
               </div>
-              <div className={styles.menuContainer}>
+              <div className={styles.menuContainer} >
           {/* <InteractiveMenu activeSection={activeSection} onSectionChange={setActiveSection} /> 
           {/* <InteractiveMenu activeSection={activeSection} onSectionChange={setActiveSection} /> */}
           
        
           
-         
-                <nav className={styles.navLinks} aria-label="Main navigation">
+         {/* 
+                <nav className={styles.navLinks} aria-label="Main navigation" >
                                    <a 
                   href="#overview" 
                   className={`${styles.navLink} ${activeSection === 'overview' ? styles.active : ''}`}
@@ -523,7 +523,7 @@ useEffect(() => {
                   rel="noopener noreferrer"
                 >
                   CV
-                </a>  */}
+                </a>  
                 <a 
                   href="https://jopl.artstation.com/" 
                   className={styles.navLink}
@@ -537,7 +537,7 @@ useEffect(() => {
                   devBlog
                 </Link>
              </nav>
-             
+             */}
                 {/*  
                               <a
                   href="https://github.com/JOPL11/jpl3" 
@@ -561,36 +561,20 @@ useEffect(() => {
               </div>
             </div>
           </div>
-         <div className="fixed top-0 left-0 w-full h-full pointer-events-none">
-            {/* Random decorative infrastructure lines */}
-            <svg className="absolute inset-0">
-              <path
-                d="M 100 100 C 200 50, 300 150, 400 100"
-                fill="none"
-                stroke="rgba(120,180,255,0.03)"
-                strokeWidth="0.3"
-              />
-              <path
-                d="M 80% 200 C 70% 250, 60% 300, 40% 400"
-                fill="none"
-                stroke="rgba(120,180,255,0.02)"
-                strokeWidth="0.3"
-              />
-            </svg>
-          </div>
-                        {/*     
+                                 {/*     
            <div className={styles.heroContainer}>
               <Hero3D />
             </div>
             */} 
              {/*About Section Detector Here*/} 
 
-
+              
                 <div data-section="overview"></div>
             <section id="overview" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="overview">
                 <SectionTracker onSectionChange={setActiveSection} />
-                <h2 style={{paddingTop: "5rem"}}><AnimatedText ref={overviewHeadingRef}>Overview</AnimatedText></h2>
+                <h2 style={{paddingTop: "13px"}}><AnimatedText ref={overviewHeadingRef}>Overview</AnimatedText></h2>
                 <div style={{paddingBottom:"2rem"}}>
+                  <div style={{height: "33px"}}></div>
                 <p>Developing mission-critical digital experiences for global leaders. Trusted by major brands to translate brand vision into immersive interactive, motion, and installation design. </p>
                  <p>It&apos;ll be in development for a few days. Tapping on the company logo reveals information about the projects.</p></div>
                   <LogoCard />
@@ -624,7 +608,7 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={servicesHeadingRef}>Core Services</AnimatedText>
             </h2>
-            <div style={{height: '0.1rem', marginBottom: '5rem'}}>Toolkit</div>
+            <div style={{height: '0.1rem', marginBottom: '5rem'}}>Tools</div>
               <p>My toolkit is extensive and constantly evolving, allowing me to own a project from concept to deployment. I&apos;ve split the skills into separate categories for clarity:</p>
               <ul className={styles.skillsList} role="list">
                 <h3 style={{fontSize: '1.3rem', fontWeight: '400', marginTop: '1rem', color: 'white'}}>Languages</h3>
@@ -789,7 +773,7 @@ useEffect(() => {
                   roadrichTextRef.current?.animate();
                 }}
                   title="RoadRich App"
-                  image="/images/corp/rr1.jpg"
+                  image="/images/corp/rr2.jpg"
                   alt="RoadRich App"
                   link="https://roadrich.vercel.app/"
                   textPosition="bottom"

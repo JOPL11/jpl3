@@ -192,7 +192,7 @@ const LogoCard = () => {
       <p><strong>Tech:</strong> Cinema4D, AutoCAD, After Effects, Corona Render Engine</p><br><br><br>
 
       
-             <img src="/images/throwable/merc55.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+             <img src="/images/throwable/merc4.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
                 <img src="/images/throwable/merc66.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
 
       <p style="margin-top: 5rem;"><strong>2) Logo Animation: </strong> Logo Animation for Mercedes-Benz: Procat, an internal Product Catalog</p><br>
