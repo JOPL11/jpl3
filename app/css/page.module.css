@@ -1821,7 +1821,7 @@ a.secondary {
   opacity: 0;
   pointer-events: none;
   position: relative;
-  z-index: 1002; /* Ensure it's above other elements */
+  z-index: 2050; /* Ensure it's above other elements */
   transform: translateY(-10px); /* Move up further to align with arrow */
 }
 
@@ -1831,6 +1831,7 @@ a.secondary {
   height: 40px;
   display: inline-block;
   position: relative;
+  z-index: 2060;
 }
 
 .hamburgerInner {
@@ -1903,7 +1904,7 @@ a.secondary {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.7);
   z-index: 999;
   opacity: 0;
   visibility: hidden;
@@ -1912,16 +1913,17 @@ a.secondary {
 .mobileMenuOverlay.mobileMenuOpen {
   opacity: 1;
   visibility: visible;
+  backdrop-filter: blur(5px);
 }
 /* Mobile Menu */
 .mobileMenu {
   position: fixed;
-  top: 56px;
+  top: 0;
   right: -300px; /* Start off-screen */
   width: 280px;
   height: 100vh;
   background: #0e0e0e;
-  z-index: 1000;
+  z-index: 999;
   transition: right 0.5s ease-in-out;
   padding: 1rem 0;
   overflow-y: auto;
@@ -1931,9 +1933,10 @@ a.secondary {
 }
 /* Menu items */
 .mobileMenuList {
+  
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 2rem 0 0;
 }
 .mobileMenuItem {
   border-bottom: 1px solid rgba(255, 255, 255, 0.0);
