@@ -190,7 +190,7 @@ export default function Home() {
   const overviewHeadingRef = useRef(null)
   const aboutHeadingRef = useRef(null);
   const webglHeadingRef = useRef(null);
-  const skillsHeadingRef = useRef(null);
+  const servicesHeadingRef = useRef(null);
   const workHeadingRef = useRef(null);
   const contactHeadingRef = useRef(null);
   const motionHeadingRef = useRef(null);
@@ -216,12 +216,12 @@ const animationFrameId = useRef(null);
     'about': aboutHeadingRef,
     'overview': overviewHeadingRef,
     'code': workHeadingRef,
-    'skills': skillsHeadingRef,
+    'services': servicesHeadingRef,
     'webgl': webglHeadingRef,
     'motion': motionHeadingRef,
     'proto': productHeadingRef,
     'contact': contactHeadingRef
-  }), [aboutHeadingRef, overviewHeadingRef, workHeadingRef, webglHeadingRef, skillsHeadingRef, contactHeadingRef, motionHeadingRef, productHeadingRef]);
+  }), [aboutHeadingRef, overviewHeadingRef, workHeadingRef, webglHeadingRef, servicesHeadingRef, contactHeadingRef, motionHeadingRef, productHeadingRef]);
   
   // Trigger animation when section changes
   const isIOS = checkIfIOS();
@@ -475,11 +475,11 @@ useEffect(() => {
                   About
                 </a>
                 <a 
-                  href="#skills" 
-                  className={`${styles.navLink} ${activeSection === 'skills' ? styles.active : ''}`}
-                  onClick={(e) => scrollToSection(e, 'skills')}
+                  href="#services" 
+                  className={`${styles.navLink} ${activeSection === 'services' ? styles.active : ''}`}
+                  onClick={(e) => scrollToSection(e, 'services')}
                 >
-                  Skills
+                  Services
                 </a>
                 <a 
                   href="#code" 
@@ -619,10 +619,10 @@ useEffect(() => {
             </section>
 
 
-             <section id="skills" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="skills">
+             <section id="services" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="services">
              <SectionTracker onSectionChange={setActiveSection} />
             <h2 style={{paddingTop: "5rem"}}>
-              <AnimatedText ref={skillsHeadingRef}>Core Services</AnimatedText>
+              <AnimatedText ref={servicesHeadingRef}>Core Services</AnimatedText>
             </h2>
             <div style={{height: '0.1rem', marginBottom: '5rem'}}>Toolkit</div>
               <p>My toolkit is extensive and constantly evolving, allowing me to own a project from concept to deployment. I&apos;ve split the skills into separate categories for clarity:</p>

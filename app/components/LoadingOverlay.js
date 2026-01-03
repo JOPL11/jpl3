@@ -8,13 +8,18 @@ export default function LoadingOverlay() {
   const { isLoading, setIsLoading } = useLoading();
   const [isVisible, setIsVisible] = useState(true);
   const [shouldRender, setShouldRender] = useState(true);
-  const [logoVisible, setLogoVisible] = useState(true)
+  const [logoVisible, setLogoVisible] = useState(true);
+  const [lineVisible, setLineVisible] = useState(false);
 useEffect(() => {
   // Start logo fade out after 1.5 seconds
   const logoFadeTimer = setTimeout(() => {
     // Logo fade out logic here (we'll add this)
     setLogoVisible(false);
+    setLineVisible(false);
   }, 1000);
+  const lineFadeTimer = setTimeout(() => {
+    setLineVisible(true);
+  }, 300);
   // Start background fade out after 2 seconds (after logo starts fading)
   const fadeOutTimer = setTimeout(() => {
     setIsVisible(false);
@@ -28,6 +33,7 @@ useEffect(() => {
   }, 2000); // Give logo 0.5s head start
   return () => {
     clearTimeout(logoFadeTimer);
+    clearTimeout(lineFadeTimer);
     clearTimeout(fadeOutTimer);
   };
 }, [setIsLoading]);
@@ -76,15 +82,18 @@ useEffect(() => {
             alt="P" 
             className={styles.letterP}
           />
-          <div>
-        </div>
+          <div></div>
         </div>
    
         </div>
-    
-  
+            <div className={styles.staticLine} style={{ 
+              opacity: lineVisible ? 1 : 0,
+              width: lineVisible ? '40px' : '0',
+              transition: 'opacity 0.3s ease-out 0.3s, width 0.3s ease-out 0.5s', // Add 0.3s delay
+              transitionDelay: lineVisible ? '0.2s' : '0.1s' // Fade in after 0.3s, fade out immediately
+            }}></div>
       </div>
-
+     
     </div>
     
   );

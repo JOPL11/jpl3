@@ -886,13 +886,14 @@ const handleResize = useCallback(() => {
               />
             </EffectComposer>
            
-       
+   
           <Scene modelUrl="/assets/logo2.glb" />
+   
         </Suspense>
         <OrbitControls 
           enableZoom={false}
           autoRotate
-          autoRotateSpeed={0.1}
+          autoRotateSpeed={0.01}
           minPolarAngle={Math.PI / 2}  // Limit vertical rotation
           maxPolarAngle={Math.PI / 1.5}
           minAzimuthAngle={-Math.PI / 4} // Limit left rotation (in radians)

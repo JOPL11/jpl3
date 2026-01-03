@@ -88,6 +88,19 @@ position: relative;
   border-radius: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
+.staticLine {
+  position: absolute;
+  bottom: 13rem; /* Position it where you want */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0.5px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 1.5px;
+  opacity: 0;
+  transition: width 0.5s ease-out 22.2s;
+}
+
 .logoWrapperContainer {
   position: absolute;
   bottom: 11rem;
@@ -121,7 +134,7 @@ position: relative;
 }
 
 @keyframes moveJ {
-  0% { opacity: 0; transform: translateX(-10px); }
+  0% { opacity: 0; transform: translateX(-40px); }
   40% { opacity: 1; transform: translateX(10px) 1s; }
   50% { opacity: 1; transform: translateX(0px); }
   50% { opacity: 1; transform: translateX(10px); }
@@ -129,7 +142,7 @@ position: relative;
 }
 
 @keyframes moveP {
-  0% { opacity: 0; transform: translateX(10px); transform-origin: -10px center; }
+  0% { opacity: 0; transform: translateX(40px); transform-origin: -10px center; }
   40% { opacity: 1; transform: translateX(-10px) 1s; transform-origin: -10px center; }
   50% { opacity: 1; transform: translateX(0px); }
   50% { opacity: 1; transform: translateX(-10px); transform-origin: -10px center; }
