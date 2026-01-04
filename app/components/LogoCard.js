@@ -25,7 +25,7 @@ const createMarkup = (html) => {
     openModal(
       
         <div className={styles.scrollableContent}>
-          <div className={styles.modalContent}>
+        <div className={styles.modalContent}>
         <div className={styles.modalHeader}>
           <h3 className={styles.modalTitle}>{logo.title || logo.alt}</h3>
         </div>
@@ -68,22 +68,27 @@ const createMarkup = (html) => {
             {logo.video && (
               <div style={{ 
                 width: '100%', 
-                maxWidth: logo.id === 18 ? '600px' : '600px',
+                height: '100%',
+                maxWidth: logo.id === 18 ? '600px' : '100%',
                 maxHeight: logo.id === 18 ? '500px' : '100%',
-                aspectRatio: logo.id === 18 ? '5/4' : '16/9', 
-                
+                aspectRatio: logo.id === 18 ? '5/4' : '16/9',
+                maxWidth: logo.id === 1 ? '100%' : '100%', 
+                maxHeight: logo.id === 1 ? '240px' : '100%',
                 overflow: 'hidden',
                 borderRadius: '8px',
                 position: 'relative'
               }}>
                 <mux-player
                   playback-id={logo.video.playbackId}
+                  poster={logo.video.thumbnail}
                   metadata-video-title={logo.video.title}
                   metadata-viewer-user-id={logo.video.userId}
                   accent-color={logo.video.accentColor}
                   primary-color={logo.video.primaryColor}
                   secondary-color={logo.video.secondaryColor}
                   no-analytics={true}
+                  autoplay={false}
+                  controls-list={logo.id === 18 ? 'nodownload' : 'nodownload'}
                   style={{ 
                     width: '100%', 
                     height: '100%',
@@ -91,7 +96,6 @@ const createMarkup = (html) => {
                     objectFit: 'cover'
                   }}
                   controls={logo.id === 18 ? false : true}
-                  autoplay={logo.id === 18 ? true : false}
                   muted={logo.id === 18 ? true : false}
                   loop={logo.id === 18 ? true : false}
                 />
@@ -116,6 +120,15 @@ const createMarkup = (html) => {
       clientLogoHeight: 35,
       agencyName: 'SMMD Team',
       agencyLink: 'https://www.smmd.team',
+       video: {
+        playbackId: '8UuN9JNltg9BwDO1SAAbvKn6vyq2u7vdgwScfVXLUk8',
+        title: 'MTU Aero Engines',
+        userId: 'user-id-007',
+        accentColor: 'transparent',
+        primaryColor: '#82a7b3',
+        secondaryColor: 'transparent',
+        thumbnail: 'https://image.mux.com/8UuN9JNltg9BwDO1SAAbvKn6vyq2u7vdgwScfVXLUk8/thumbnail.png?width=214&height=121&time=10'
+      },
       description: `
       <p><strong>The Mission:</strong> Airbus Group required a next-generation digital interface for its most important spaces: its International Headquarters in Berlin and its premier Showroom in Munich. The mandate was to create interactive, multi-sensory experiences that could communicate the complexity and ambition of aerospace innovation to VIPs, partners, and policymakers.</p>
 
@@ -124,7 +137,7 @@ const createMarkup = (html) => {
         <p><strong>Tech:</strong> GSAP, JavaScript, Cinema4D, Octane, Adobe After Effects, UI/UX Gestalt Design Principles.</p><br><br>
 
       <p style="margin-top: 3rem;"><strong>1.</strong> HQ Command Center: Berlin Touchtable Interface<br>
-      <p><strong>Challenge: </strong> Create a collaborative, data-driven tool for the heart of Airbus operations.</p><br>
+      <p><strong>Challenge: </strong> Create a collaborative, data-driven tool for the heart of Airbus operations.</p>
       <p><strong>Solution: </strong> Designed and coded a custom multi-monitor touchtable interface that allowed executives to interactively explore fleet data, global operations, and company history. This is mission-critical UIX for daily use.</p><br>
 
       <img src="/images/airbus_berlin/table6.jpg" alt="Airbus Munich Showroom" style="width: 100%; margin: 1rem 0; border-radius: 8px;" />
@@ -132,9 +145,13 @@ const createMarkup = (html) => {
     
 
 
-      <p style="margin-top: 3rem;"><strong>2. </strong> Visual Spectacles: Munich Large-Format Video Features.<br>
+      
+    `,
+    description2: `
+    <p style="margin-top: 3rem;"><strong>2. </strong> Visual Spectacles: Munich Large-Format Video Features.<br>
       <strong>Challenge:</strong> Provide awe-inspiring ambient narrative and brand moments.<br>
       <strong>Solution:</strong> Produced a suite of large-scale, multi-monitor video features. This included a complex 3D animated sequence visualizing flight dynamics across a range of products, and a stylized 2D motion graphics piece celebrating engineering milestones, both rendered in ultra-high resolution for close viewing.</p><br>
+        <img src="/images/airbus_ottobrunn/video/1C.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
       <p><strong>The Outcome & Impact:</strong></p>
       <ul>
         <li><p>Instrumental in transforming two key Airbus facilities from static spaces into dynamic, technology-forward brand experiences that enabled distinguished visitors to feel the Full Bandwidth of Big-League Aerospace Corporations.</p></li>
@@ -142,11 +159,9 @@ const createMarkup = (html) => {
         <li><p>Demonstrated end-to-end mastery across the digital spectrum: from functional enterprise UIX to emotive brand spectacle.</p></li>
         <li><p>Translated Airbus's engineering marvel into visceral, interactive experiences that made corporate vision tangible for VIPs and decision-makers.</p></li>
         
-      <img src="/images/airbus_ottobrunn/video/1C.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+    
       </ul>
-
-    `,
-    description2: ``
+`
   },   
  
         {   id: 2,
@@ -184,11 +199,22 @@ const createMarkup = (html) => {
       <p><strong>Outcome:</strong> The Airshow visualization delivered a competitive show-floor advantage that commanded attention, driving executive engagement. The presentation tool was adopted as a strategic asset that traveled the world, consistently elevating their brand for business development across the globe.</p><br>
       <p><strong>Tech:</strong> Cinema4D, Corona Render Engine, Adobe After-Effects, High-resolution render pipeline, javascript</p>
 
-           <img src="/images/mtu1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+      <img src="/images/mtu1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+      <img src="/images/mtu6.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
 
-              <img src="/images/mtu0.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
     `,
-    description2: ``
+     video: {
+        playbackId: 'SnN00m01uyBae8LPAZuNlKXY5nzn01ELE600rh1lA98lKf8',
+        title: 'MTU Aero Engines',
+        userId: 'user-id-007',
+        accentColor: 'transparent',
+        primaryColor: '#82a7b3',
+        secondaryColor: 'transparent',
+        thumbnail: 'https://image.mux.com/SnN00m01uyBae8LPAZuNlKXY5nzn01ELE600rh1lA98lKf8/thumbnail.png?width=214&height=121&time=4'
+      },
+    description2: `      
+    <img src="/images/mtu2.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+`
   },            
     { id: 4, src: '/images/mini/audi.jpg', alt: 'Logo 4', 
       title: 'Audi Nuremberg & Audi Middle East',
@@ -322,7 +348,30 @@ const createMarkup = (html) => {
     `,
     description2: ``
   },
+{ id: 18, src: '/images/mini/strellson.jpg', alt: 'Logo 18' , 
+      title: 'Strellson Image-Films',
+      clientText: `Agency: `,
+      clientLogo: '/images/agencies/coma2_logo.png',
+      clientLogoHeight: 25,
+      agencyName: 'coma2',
+      agencyLink: 'https://www.coma2.com',
+      description: `
+      <p><strong>Project 1:</strong> Image films for strellson.com<br>
+      <strong>Role:</strong> Concept, Design, Video Editing<br>
 
+ 
+    `,
+     video: {
+        playbackId: 'KprssZj01q3fxYtOoimOn4VgnkvzYN802lB4W1rejQ4NM',
+        title: 'Strellson1',
+        userId: 'user-id-007',
+        accentColor: 'transparent',
+        primaryColor: '#82a7b3',
+        secondaryColor: 'transparent',
+        thumbnail: 'https://image.mux.com/KprssZj01q3fxYtOoimOn4VgnkvzYN802lB4W1rejQ4NM/thumbnail.png?width=214&height=121&time=0'
+      },
+    description2: ``
+   },
     { id: 9, src: '/images/mini/spiegel.jpg', alt: 'Spiegel TV', 
        title: ' Digital Brand Architect for Spiegel TV Channels',
       clientText: `Distributor: `,
@@ -490,39 +539,18 @@ const createMarkup = (html) => {
       clientLogoHeight: 25,
       agencyName: 'Pepper Global', 
  description: `
-      <p><strong>Scope:</strong> Global digital campaign deliverables for Hewlett Packard (HP), including interactive presentations, animated explainers, and motion graphics. Additionally, created flagship brand animations for Pepper Global's own agency promotion.</p>
+      <p><strong>Scope:</strong> Global digital campaign deliverables for Hewlett Packard (HP), including interactive presentations & motion graphics tailored to fit seamlessly into a given campaign's visual identity, animated explainers, and motion graphics. Additionally, created flagship brand animations for Pepper Global's own agency promotion.</p>
       <p><strong>Role:</strong> Lead Concept, Design, and Development. Translated HP's core campaign look & feel into sophisticated, audio-driven animated films and interactive experiences used in global sales and marketing initiatives.</p><br>
       <p><strong>Outcome:</strong> These assets became the standard digital presentation format for HP's global sales teams for the duration of the campaign.</p><br>
       <p><strong>Tech:</strong> Cinema4D, After Effects, Web technologies</p>
+
+        <img src="/images/hp3.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+                <img src="/images/hp5.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+                        <img src="/images/hp1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
     `,
     description2: `` 
    },
-    { id: 18, src: '/images/mini/strellson.jpg', alt: 'Logo 18' , 
-      title: 'Strellson Image-Films',
-      clientText: `Agency: `,
-      clientLogo: '/images/agencies/coma2_logo.png',
-      clientLogoHeight: 25,
-      agencyName: 'coma2',
-      agencyLink: 'https://www.coma2.com',
-      description: `
-      <p><strong>Project 1:</strong> Image films for strellson.com<br>
-      <strong>Role:</strong> Concept, Design, Video Editing<br>
-
- 
-    `,
-      video: {
-      playbackId:'KprssZj01q3fxYtOoimOn4VgnkvzYN802lB4W1rejQ4NM',
-      title: 'Strellson1',
-      userId: 'user-id-007',
-      accentColor: 'transparent',
-      primaryColor: '#82a7b3',
-      secondaryColor: 'transparent',
-      title: 'Strellson1',
-      userId: 'user-id-007'
-    },
-    description2: ``
-   
-   },
+    
      { id: 19, src: '/images/mini/twenty.jpg', alt: 'Logo 19' , 
       title: 'Motion Picture Digital Delivarables',
       clientText: `Agency: `,

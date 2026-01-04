@@ -629,7 +629,7 @@ useEffect(() => {
                       <li role="listitem">English (native)</li>
                       <li role="listitem">German (fluent)</li>
                   </ul>
-                  <ul className={styles.skillsList} role="list" style={{margin: '0 0 0 -11rem', flex: 1}}>
+                  <ul className={styles.skillsList} role="list" style={{margin: '0 0 0 -1rem', flex: 1}}>
                       <li role="listitem">Spanish (fluent)</li>
                       <li role="listitem">French (fluent)</li>
                   </ul>
@@ -649,12 +649,14 @@ useEffect(() => {
                 <li role="listitem">Cinema4D, Blender, Adobe Suite</li>
                 <li role="listitem">3D Modeling, 3D Animation, 3D Rendering</li>
                 <li role="listitem">Octane Render, Corona Render</li>
-                <li role="listitem">After Effects, Cavalry, Lottie, Video Edit, Video Post-Production</li>
+                <li role="listitem">After Effects, Cavalry, Lottie, Natron</li>
+                <li role="listitem">DaVinci Resolve, Premiere Pro</li>
+                <li role="listitem">Video Edit, Video Post-Production, Compositing, Motion Graphics</li>
                 <h3 style={{fontSize: '1.3rem', fontWeight: '400', marginTop: '1rem', color: 'white'}}>Code</h3>
                 <li role="listitem">Development, Rapid Prototyping</li>
                 <li role="listitem">React, Next.js, Vue.js, html, css, javascript</li>
                 <li role="listitem">Three.js, React 3 Fiber, WebXR</li>
-                <li role="listitem">Typescript</li>
+                <li role="listitem">Typescript, JSX</li>
                 <li role="listitem">GSAP, Framer Motion, CSS Animations, Spring</li>
                 <li role="listitem">Bootstrap, Tailwind, MaterialUI</li>
                 <li role="listitem">vite, git, gitlab, npm, yarn</li>
