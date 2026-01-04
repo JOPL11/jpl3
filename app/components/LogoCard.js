@@ -4,15 +4,16 @@
 import { useRef } from 'react';
 import Image from 'next/image';
 import { useModal } from './ModalContext';
+import DOMPurify from 'dompurify';
 import styles from '../css/LogoCard.module.css';
 
 const LogoCard = () => {
   const { openModal } = useModal();
   
   // Helper function to render HTML
-  const createMarkup = (html) => {
-    return { __html: html };
-  };
+    const createMarkup = (html) => {
+      return { __html: DOMPurify.sanitize(html) };
+    };
   
   const handleLogoClick = (logo) => {
     openModal(
@@ -106,10 +107,6 @@ const LogoCard = () => {
       <img src="/images/airbus_ottobrunn/video/1C.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
       </ul>
 
-
-
-
-    
     `,
     description2: ``
   },   

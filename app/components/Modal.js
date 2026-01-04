@@ -26,14 +26,15 @@ export default function Modal({ isOpen, onClose, children, fullBleed = false }) 
     }
   }, []);
 
-  // Handle modal close with animation
-  const handleClose = useCallback(() => {
-    setIsClosing(true);
-    setTimeout(() => {
-      onClose();
-      setIsClosing(false);
-    }, 600); // Match the longest animation duration
-  }, [onClose]);
+      // Handle modal close with animation
+        const handleClose = useCallback(() => {
+        // Just trigger the closing animation, let browser handle scroll restoration
+        setIsClosing(true);
+        setTimeout(() => {
+          onClose();
+          setIsClosing(false);
+        }, 600); // Match the longest animation duration
+      }, [onClose]);
   
   // Set up the content ref with the modal content element
   const setContentRef = (node) => {
@@ -52,47 +53,51 @@ export default function Modal({ isOpen, onClose, children, fullBleed = false }) 
   useEffect(() => {
     const handleEsc = (e) => e.key === 'Escape' && handleClose();
     
-    if (isOpen) {
-      // Store current scroll position
-      scrollY.current = window.scrollY;
+          if (isOpen) {
+            // Store current scroll position BEFORE any modifications
+            scrollY.current = window.scrollY;
+            
+            // Calculate scrollbar width to prevent layout shift
+            const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+            
+            // Add event listeners
+            window.addEventListener('keydown', handleEsc);
+            
+            // Lock body scroll but allow natural scroll restoration
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${scrollY.current}px`;
+            document.body.style.width = '100%';
+            document.body.style.paddingRight = `${scrollbarWidth}px`;
+            document.body.style.scrollBehavior = 'auto';
+            
+            // Add wheel event listener for smooth scrolling
+            const contentElement = contentRef.current;
+            if (contentElement) {
+              contentElement.addEventListener('wheel', handleWheel, { passive: false });
+            }
       
-      // Calculate scrollbar width to prevent layout shift
-      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-      
-      // Add event listeners
-      window.addEventListener('keydown', handleEsc);
-      
-      // Lock body scroll while maintaining layout
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY.current}px`;
-      document.body.style.width = '100%';
-      document.body.style.paddingRight = `${scrollbarWidth}px`;
-      
-      // Add wheel event listener for smooth scrolling
-      const contentElement = contentRef.current;
-      if (contentElement) {
-        contentElement.addEventListener('wheel', handleWheel, { passive: false });
-      }
-      
-      return () => {
-        // Cleanup
-        window.removeEventListener('keydown', handleEsc);
-        
-        if (contentElement) {
-          contentElement.removeEventListener('wheel', handleWheel);
-        }
-        
-        // Restore body scroll and position
-        document.body.style.position = '';
-        document.body.style.top = '';
-        document.body.style.width = '';
-        document.body.style.paddingRight = '';
-        
-        // Restore scroll position after a small delay to allow DOM to update
-        requestAnimationFrame(() => {
-          window.scrollTo(0, scrollY.current);
-        });
-      };
+            return () => {
+              // Cleanup
+              window.removeEventListener('keydown', handleEsc);
+              if (contentElement) {
+                contentElement.removeEventListener('wheel', handleWheel);
+              }
+              
+              // Restore body styles
+              document.body.style.position = '';
+              document.body.style.top = '';
+              document.body.style.width = '';
+              document.body.style.paddingRight = '';
+              document.body.style.scrollBehavior = '';
+              
+              // Restore scroll position using the stored value
+              window.scrollTo(0, scrollY.current);
+              
+              // Remove any focus from modal elements
+              if (document.activeElement && document.activeElement.blur) {
+                document.activeElement.blur();
+              }
+            };
     }
   }, [isOpen, handleClose, handleWheel]);
 
