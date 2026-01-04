@@ -150,6 +150,8 @@ const LogoCard = () => {
       <p><strong>Tech:</strong> Cinema4D, Corona Render Engine, Adobe After-Effects, High-resolution render pipeline, javascript</p>
 
            <img src="/images/mtu1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+
+              <img src="/images/mtu0.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
     `,
     description2: ``
   },            
@@ -403,7 +405,7 @@ const LogoCard = () => {
       agencyName: 'Publicorange',
       agencyLink: 'https://www.publicorange.com',
       description: `
-      <p><strong>Project 1:</strong> An installer package that opened up a setup-wizard for Swisscoms Online Access<br></p>
+      <p><strong>Project:</strong> An installer package that opened up a setup-wizard for Swisscoms Online Access<br></p>
       <p><strong>Initiative:</strong> Customer onboarding software suite.</p>
       <p><strong>Value:</strong> Reduced customer setup friction and provided a branded, guided first touchpoint with the service.</p>
       <p><strong>Role:</strong>  Design, Programming<br></p>
@@ -418,11 +420,17 @@ const LogoCard = () => {
       agencyName: 'Publicorange',
       agencyLink: 'https://www.publicorange.com',
  description: `
-      <p><strong>Project 1:</strong> Risen 2 Teaser Website. A huge parallax scroller made with graphical assets from the game.<br></p>
+      <p><strong>Project 1:</strong> Risen 2 Teaser Website. A roughly 23K pixel wide parallax scroller made with animated graphical assets from the game. It was cut up into various segments and had to be finely controlled for memory mitigation.<br></p>
       <p><strong>Role:</strong> Concept, Design, Programming<br></p>
 
-     <p><strong>Project 2:</strong> A website for Horse Life 2.<br></p>
-     <p><strong>Role:</strong> Concept, Design, Programming<br></p>
+           
+        <img src="/images/ds1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+                <img src="/images/ds2.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+
+     <p><strong>Project 2:</strong> The official website for Horse Life 2, featuring interactive elements and game previews with interactive graphical elements recreated & animated from the game.<br></p>
+     <p><strong>Role:</strong> Solo Concept, Sole Designer, Sole Coder<br></p>
+
+
     `,
     description2: `` 
    },

@@ -317,7 +317,20 @@ useEffect(() => {
   };
 }, [styles.modalOverlay, styles.scrollableContent]);
 
-
+useEffect(() => {
+  console.log(`
+***************************************************************
+***************************************************************
+***                                                         *** ***                                                         ***
+***                                                         *** ***                                                         ***
+***                 Website Analysis Mode                   ***         
+***                                                         *** ***                                                         ***
+***                 Welcome to my console                   ***
+***                                                         *** ***                                                         *** ***                                                         *** ***                                                         *** ***                                                         ***
+***************************************************************
+***************************************************************
+  `);
+}, []); 
 
   return (
     <div className={styles.container} role="document">
@@ -611,13 +624,26 @@ useEffect(() => {
             <div style={{height: '0.1rem', marginBottom: '5rem'}}>Tools</div>
               <p>My toolkit is extensive and constantly evolving, allowing me to own a project from concept to deployment. I&apos;ve split the skills into separate categories for clarity:</p>
               <ul className={styles.skillsList} role="list">
-                <h3 style={{fontSize: '1.3rem', fontWeight: '400', marginTop: '1rem', color: 'white'}}>Languages</h3>
-               <ul className={styles.skillsList} role="list">
-                  <li role="listitem">English (native)</li>
-                  <li role="listitem">German (fluent)</li>
-                  <li role="listitem">Spanish (fluent)</li>
-                  <li role="listitem">French (fluent)</li>
-                </ul>
+              <h3 style={{fontSize: '1.3rem', fontWeight: '400', marginTop: '1rem', color: 'white'}}>Languages</h3>
+              <div style={{display: 'flex', gap: '0', justifyContent: 'flex-start'}}>
+                  <ul className={styles.skillsList} role="list" style={{margin: 0, flex: 1}}>
+                      <li role="listitem">English (native)</li>
+                      <li role="listitem">German (fluent)</li>
+                  </ul>
+                  <ul className={styles.skillsList} role="list" style={{margin: '0 0 0 -11rem', flex: 1}}>
+                      <li role="listitem">Spanish (fluent)</li>
+                      <li role="listitem">French (fluent)</li>
+                  </ul>
+              </div>
+                <h3 style={{fontSize: '1.3rem', fontWeight: '400', marginTop: '1rem', color: 'white'}}>Strategy & Creative Direction</h3>
+                <li role="listitem">Brand Identity Systems</li>
+                <li role="listitem">Customer Experience / Design Psychology</li>
+                <li role="listitem">Creative Direction</li>
+                <li role="listitem">Stakeholder Communication & Alignment</li>
+                <li role="listitem">Strategic Writing & Presentations</li>
+                <li role="listitem">Project Ideation & Pitching</li>
+                <li role="listitem">Project Management</li>
+                <li role="listitem">UI / UIX Architecture</li>
                 <h3 style={{fontSize: '1.3rem', fontWeight: '400', marginTop: '1rem', color: 'white'}}>Design, Motion & Creative</h3>
                 <li role="listitem">Design, Animation, Concept Development</li>
                 <li role="listitem">Illustration, Typography, Logo Design, Layout, Branding</li>
@@ -637,14 +663,7 @@ useEffect(() => {
                 <li role="listitem">Unity, C#</li>
                 <li role="listitem">GLSL, HLSL experience</li>
                 <li role="listitem">SEO, Analytics</li>
-                <h3 style={{fontSize: '1.3rem', fontWeight: '400', marginTop: '1rem', color: 'white'}}>Strategy & Creative Direction</h3>
-                <li role="listitem">Brand Identity Systems</li>
-                <li role="listitem">Customer Experience / Design Psychology</li>
-                <li role="listitem">Creative Direction</li>
-                <li role="listitem">Stakeholder Communication & Alignment</li>
-                <li role="listitem">Strategic Writing & Presentations</li>
-                <li role="listitem">Project Ideation & Pitching</li>
-                <li role="listitem">Project Management</li>
+
                  {/*  
                 <li role="listitem">Octane, Redshift, Corona Render Engines</li>
                 <li role="listitem">After Effects, Video Edit, Video Post-Production</li>    */}
@@ -1038,7 +1057,7 @@ useEffect(() => {
                       title="Streetlamp 2044"
                       image="/images/JPL3Poster_R3F.jpg"
                       alt="Streetlamp 2044"
-                      text="Featuring custom audiotracks, 3D models and animations."
+                      text="<strong>Experimental</strong>. Featuring custom audiotracks, 3D models and animations."
                       link="https://jpl3d2.vercel.app/"
                       className="webglProject"
                     >
@@ -1056,7 +1075,7 @@ useEffect(() => {
                       title="The Facility"
                       image="https://cdna.artstation.com/p/assets/images/images/077/341/642/large/jan-peiro-box1.jpg?1719257986"
                       alt="The Facility"
-                      text="Featuring custom audiotracks, 3D models and animations."
+                      text="<strong>Experimental / Desktop Only</strong>. Featuring custom audiotracks, 3D models and animations."
                       link="https://facility3.vercel.app/"
                       className="webglProject"
                     >
@@ -1076,7 +1095,7 @@ useEffect(() => {
                       image="/images/JPL3Poster_QC.jpg"
                       alt="Quantum Pocketwatch Company"
                       link="https://quantum-pocketwatch.vercel.app/"
-                      text="<strong>Desktop Only</strong>. Featuring custom 3D models and interactions." 
+                      text="<strong>Experimental / Desktop Only</strong>. Featuring custom 3D models and interactions." 
                       className="webglProject"
                     >
                       <p>Visual Concept Experiment</p>
@@ -1145,11 +1164,17 @@ useEffect(() => {
             >
               GitHub
             </button>
+                        <div  >
+            <Link href="/blog" className={styles.footerLink}>
+                  DevBlog
+                </Link>
+                </div>
             <button 
               onClick={() => openModal('privacy')} 
               className={styles.footerLink} 
               aria-label="Privacy Policy"
             >
+              
               Privacy Policy
             </button>
             <button 
