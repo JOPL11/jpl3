@@ -349,15 +349,18 @@ const createMarkup = (html) => {
     description2: ``
   },
 { id: 18, src: '/images/mini/strellson.jpg', alt: 'Logo 18' , 
-      title: 'Strellson Image-Films',
+      title: 'Strellson Digital Brand Atmosphere',
       clientText: `Agency: `,
       clientLogo: '/images/agencies/coma2_logo.png',
       clientLogoHeight: 25,
       agencyName: 'coma2',
       agencyLink: 'https://www.coma2.com',
       description: `
-      <p><strong>Project 1:</strong> Image films for strellson.com<br>
-      <strong>Role:</strong> Concept, Design, Video Editing<br>
+      <p><strong>Project:</strong> Digital Brand Atmosphere for Strellson.com</p><br>
+      <p><strong>Role:</strong> <strong>Motion Editor & Visual Rhythm Designer</strong></p><br>
+      <p><strong>Creative Challenge:</strong> Transform raw brand footage, seasonal campaign content and a selected soundtrack into a seamless, elevated brand moment for the luxury fashion label's digital flagship.</p><br>
+      <p><strong>Execution:</strong> Crafted a precise visual edit that married Strellson's aesthetic with the track's emotional cadence, creating a cinematic brand experience that felt both intentional and effortless.</p><br>
+      <p><strong>Outcome:</strong> Delivered a signature motion piece that became a key visual anchor for their online presence—proving that even with limited assets, strong editorial intuition creates premium results.</p>
 
  
     `,
