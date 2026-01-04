@@ -5,15 +5,21 @@ import { useRef } from 'react';
 import Image from 'next/image';
 import { useModal } from './ModalContext';
 import DOMPurify from 'dompurify';
+import '@mux/mux-player';
 import styles from '../css/LogoCard.module.css';
 
 const LogoCard = () => {
   const { openModal } = useModal();
   
   // Helper function to render HTML
-    const createMarkup = (html) => {
-      return { __html: DOMPurify.sanitize(html) };
-    };
+const createMarkup = (html) => {
+  return { 
+    __html: DOMPurify.sanitize(html, {
+      ADD_TAGS: ['mux-player'],
+      ADD_ATTR: ['playback-id', 'metadata-video-title', 'metadata-viewer-user-id']
+    }) 
+  };
+};
   
   const handleLogoClick = (logo) => {
     openModal(
@@ -59,6 +65,38 @@ const LogoCard = () => {
               dangerouslySetInnerHTML={createMarkup(logo.description)}
             />
           )}
+            {logo.video && (
+              <div style={{ 
+                width: '100%', 
+                maxWidth: logo.id === 18 ? '600px' : '600px',
+                maxHeight: logo.id === 18 ? '500px' : '100%',
+                aspectRatio: logo.id === 18 ? '5/4' : '16/9', 
+                
+                overflow: 'hidden',
+                borderRadius: '8px',
+                position: 'relative'
+              }}>
+                <mux-player
+                  playback-id={logo.video.playbackId}
+                  metadata-video-title={logo.video.title}
+                  metadata-viewer-user-id={logo.video.userId}
+                  accent-color={logo.video.accentColor}
+                  primary-color={logo.video.primaryColor}
+                  secondary-color={logo.video.secondaryColor}
+                  no-analytics={true}
+                  style={{ 
+                    width: '100%', 
+                    height: '100%',
+                    transform: logo.id === 18 ? 'scale(1.0)' : 'none',
+                    objectFit: 'cover'
+                  }}
+                  controls={logo.id === 18 ? false : true}
+                  autoplay={logo.id === 18 ? true : false}
+                  muted={logo.id === 18 ? true : false}
+                  loop={logo.id === 18 ? true : false}
+                />
+              </div>
+            )}
           {logo.description2 && (
             <div 
     className={`${styles.modalDescription} ${styles.secondaryDescription}`}
@@ -466,11 +504,24 @@ const LogoCard = () => {
       clientLogoHeight: 25,
       agencyName: 'coma2',
       agencyLink: 'https://www.coma2.com',
- description: `
+      description: `
       <p><strong>Project 1:</strong> Image films for strellson.com<br>
       <strong>Role:</strong> Concept, Design, Video Editing<br>
+
+ 
     `,
-    description2: `` 
+      video: {
+      playbackId:'KprssZj01q3fxYtOoimOn4VgnkvzYN802lB4W1rejQ4NM',
+      title: 'Strellson1',
+      userId: 'user-id-007',
+      accentColor: 'transparent',
+      primaryColor: '#82a7b3',
+      secondaryColor: 'transparent',
+      title: 'Strellson1',
+      userId: 'user-id-007'
+    },
+    description2: ``
+   
    },
      { id: 19, src: '/images/mini/twenty.jpg', alt: 'Logo 19' , 
       title: 'Motion Picture Digital Delivarables',
