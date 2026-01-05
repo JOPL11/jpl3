@@ -1336,25 +1336,21 @@ body.menu-open .navLink.active::after {
     padding: 1.5rem 0 0;
     top: 4.5rem;
     height: auto;
-    overflow: hidden;
+    overflow: visible;
+    min-height: 400px;
+    visibility: visible !important;
   }
 
-    .navLinks {
-    display: flex;
-    justify-content: center;
-    gap: 1.1rem;
-    margin: 0.1rem 0rem 0 0.5rem;
-    font-size: 2rem;
-    padding: 0;
-    width: 70%;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
+  .contentLogo {
+    display: block !important;  /* Ensure it's visible */
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .logoContainer {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 }
 
@@ -2046,7 +2042,7 @@ a.secondary {
   .hamburgerInner,
   .hamburgerInner::before,
   .hamburgerInner::after {
-    background-color: rgba(255, 255, 255, 0.8) !important;
+    background-color: white !important;
     transition: none !important;
     -webkit-transition: none !important;
     transform: none !important;
@@ -2057,7 +2053,7 @@ a.secondary {
   .hamburger:hover .hamburgerInner,
   .hamburger:hover .hamburgerInner::before,
   .hamburger:hover .hamburgerInner::after {
-    background-color: rgba(255, 255, 255, 1) !important;
+     background-color: white !important;
   }
   
   .hamburgerActive .hamburgerInner::before {

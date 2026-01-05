@@ -33,6 +33,26 @@ export default function VideoModal({ isOpen, onClose, videoUrl, images = [], cur
     setActiveImageIndex(currentImageIndex);
   }, [currentImageIndex]);
 
+  
+  const checkConsent = useCallback(() => {
+    if (typeof window === 'undefined') return { hasConsent: false, showBanner: false };
+    
+    const canAccessStorage = areCookiesEnabled();
+    if (!canAccessStorage) {
+      return { hasConsent: false, showBanner: true };
+    }
+    
+    try {
+      const savedConsent = localStorage.getItem('cookieConsent');
+      return {
+        hasConsent: savedConsent === 'true',
+        showBanner: savedConsent === null
+      };
+    } catch (e) {
+      return { hasConsent: false, showBanner: true };
+    }
+  }, []);
+
   // Check for existing consent when modal opens
   useEffect(() => {
     if (isOpen) {
@@ -56,26 +76,8 @@ export default function VideoModal({ isOpen, onClose, videoUrl, images = [], cur
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [isOpen, hasVideo]);
+  }, [isOpen, hasVideo, checkConsent]);
 
-  const checkConsent = useCallback(() => {
-    if (typeof window === 'undefined') return { hasConsent: false, showBanner: false };
-    
-    const canAccessStorage = areCookiesEnabled();
-    if (!canAccessStorage) {
-      return { hasConsent: false, showBanner: true };
-    }
-    
-    try {
-      const savedConsent = localStorage.getItem('cookieConsent');
-      return {
-        hasConsent: savedConsent === 'true',
-        showBanner: savedConsent === null
-      };
-    } catch (e) {
-      return { hasConsent: false, showBanner: true };
-    }
-  }, []);
 
   const handleConsent = useCallback((consent) => {
     if (!isMounted.current) return;

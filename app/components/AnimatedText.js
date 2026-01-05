@@ -126,15 +126,16 @@ const AnimatedText = forwardRef(({ children, triggerOnMount = false, type = 'def
   }, [isReady, triggerOnMount]);
 
   // Cleanup event listeners on unmount
-  useEffect(() => {
-    return () => {
-      if (textRef.current) {
-        // Clone the node to remove all event listeners
-        const newElement = textRef.current.cloneNode(true);
-        textRef.current.parentNode?.replaceChild(newElement, textRef.current);
-      }
-    };
-  }, []);
+      useEffect(() => {
+        return () => {
+          const currentElement = textRef.current; // Capture once
+          if (currentElement) {
+            // Clone the node to remove all event listeners
+            const newElement = currentElement.cloneNode(true);
+            currentElement.parentNode?.replaceChild(newElement, currentElement);
+          }
+        };
+      }, []);
 
   return (
     <span ref={textRef} className={className}>
