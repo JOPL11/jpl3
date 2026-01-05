@@ -13,7 +13,7 @@ const nextConfig = {
     }
     return config;
   },
-  // Configure cache control for static assets
+  // Configure cache control - NO CACHING EVER
   async headers() {
     return [
       {
@@ -21,9 +21,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: process.env.NODE_ENV === 'development' 
-              ? 'no-cache, no-store, must-revalidate'
-              : 'public, max-age=31536000, immutable',
+            value: 'no-cache, no-store, must-revalidate',
           },
         ],
       },
@@ -32,9 +30,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: process.env.NODE_ENV === 'development' 
-              ? 'no-cache, no-store, must-revalidate'
-              : 'public, max-age=86400',
+            value: 'no-cache, no-store, must-revalidate',
           },
         ],
       },
@@ -43,9 +39,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: process.env.NODE_ENV === 'development' 
-              ? 'no-cache, no-store, must-revalidate'
-              : 'public, max-age=0, must-revalidate',
+            value: 'no-cache, no-store, must-revalidate',
           },
         ],
       },
