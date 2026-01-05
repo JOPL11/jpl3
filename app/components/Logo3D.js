@@ -560,7 +560,7 @@ function OrbitingCube({ radius = 1.5, speed = 0.5, positionOffset = 1.3, rotatio
           <sphereGeometry args={[0.03, 8, 16]} />
           <meshPhysicalMaterial 
             color="#FFFFFF"
-            emissive="#2a6f85ff"
+            emissive="#2a6f85"
             emissiveIntensity={22}
             toneMapped={false}
           />

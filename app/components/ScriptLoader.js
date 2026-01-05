@@ -51,7 +51,7 @@ export default function ScriptLoader() {
       )}
       <Script
         src={`/js/gsap.min.js?v=${version}`}
-        strategy="beforeInteractive"
+        strategy="afterInteractive"
         onLoad={() => {
           console.log('GSAP loaded successfully');
           window.gsap = window.gsap || window.GSAP; // Handle different GSAP variable names
@@ -61,7 +61,7 @@ export default function ScriptLoader() {
       />
       <Script
         src={`/js/split-type.min.js?v=${version}`}
-        strategy="beforeInteractive"
+        strategy="afterInteractive"
         onLoad={() => {
           console.log('SplitType loaded successfully');
           window.SplitType = window.SplitType || window.SplitType?.default;
