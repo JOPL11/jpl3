@@ -412,7 +412,7 @@ useEffect(() => {
           aria-hidden={!isMenuOpen}
         >
           <ul className={styles.mobileMenuList}>
-            {['Overview', 'About', 'Services', 'Code', 'Proto', 'Motion', 'WebGL',  'Contact'].map((item) => (
+            {['Overview', 'About', 'Services', 'Code', 'Proto', 'Motion', 'WebGL', 'Contact'].map((item) => (
               <li key={item} className={styles.mobileMenuItem}>
                 <a 
                   href={`#${item.toLowerCase()}`} 

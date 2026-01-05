@@ -1,7 +1,7 @@
 'use client';
 
 // app/components/LogoCard.js
-import { useRef } from 'react';
+import { useState, useRef } from 'react';
 import Image from 'next/image';
 import { useModal } from './ModalContext';
 import DOMPurify from 'dompurify';
@@ -10,27 +10,74 @@ import styles from '../css/LogoCard.module.css';
 
 const LogoCard = () => {
   const { openModal } = useModal();
+  const [currentLogoIndex, setCurrentLogoIndex] = useState(null);
+  const [currentLogos, setCurrentLogos] = useState(null);
   
   // Helper function to render HTML
-const createMarkup = (html) => {
-  return { 
-    __html: DOMPurify.sanitize(html, {
-      ADD_TAGS: ['mux-player'],
-      ADD_ATTR: ['playback-id', 'metadata-video-title', 'metadata-viewer-user-id']
-    }) 
+  const createMarkup = (html) => {
+    return { 
+      __html: DOMPurify.sanitize(html, {
+        ADD_TAGS: ['mux-player'],
+        ADD_ATTR: ['playback-id', 'metadata-video-title', 'metadata-viewer-user-id']
+      }) 
+    };
   };
-};
   
-  const handleLogoClick = (logo) => {
-    openModal(
+  const handleLogoClick = (logo, index) => {
+    setCurrentLogoIndex(index);
+    setCurrentLogos(logos);
+    openModal(createLogoModalContent(logo, index, logos));
+  };
+
+  const navigateToLogo = (direction) => {
+    // This function is no longer needed since navigation is handled inside createLogoModalContent
+  };
+
+  // Helper function to create modal content with navigation
+  const createLogoModalContent = (logo, index, logos) => {
+    const handleNavigate = (direction) => {
+      if (!logos) return;
       
-        <div className={styles.scrollableContent}>
+      const newIndex = direction === 'next' 
+        ? (index + 1) % logos.length
+        : (index - 1 + logos.length) % logos.length;
+      
+      const newLogo = logos[newIndex];
+      setCurrentLogoIndex(newIndex);
+      
+      // Update modal content
+      openModal(createLogoModalContent(newLogo, newIndex, logos));
+    };
+
+    return (
+      <div className={styles.scrollableContent}>
         <div className={styles.modalContent}>
-        <div className={styles.modalHeader}>
-          <h3 className={styles.modalTitle}>{logo.title || logo.alt}</h3>
-        </div>
-        {/* Client Info Section */}
-        <div className={styles.clientInfo}>
+          {/* Navigation arrows */}
+          <div className={styles.modalNavigation}>
+            <button 
+              className={styles.navButton}
+              onClick={() => handleNavigate('prev')}
+              disabled={logos.length <= 1}
+            >
+              ←
+            </button>
+            <span className={styles.navIndicator}>
+              {index + 1} / {logos.length}
+            </span>
+            <button 
+              className={styles.navButton}
+              onClick={() => handleNavigate('next')}
+              disabled={logos.length <= 1}
+            >
+              →
+            </button>
+          </div>
+          <div className={styles.modalHeader}>
+            <h3 className={styles.modalTitle}>{logo.title || logo.alt}</h3>
+          </div>
+          {/* Client Info Section */}
+          <div className={styles.clientInfo}>
+            <span  className={styles.clientText}>{logo.clientText || ''}</span>
           <span  className={styles.clientText}>{logo.clientText || ''}</span>
          
           {logo.agencyLink && (
@@ -134,11 +181,12 @@ const createMarkup = (html) => {
 
       <p><strong>My Role:</strong> Lead Digital Experience Designer & Developer.</p>
       <p>I was entrusted with the complete digital vision for these experiences, acting as the sole creator across four distinct installations—responsible for User Experience (UIX) strategy, visual and motion design, animation, and full-stack interactive development.</p>
-        <p><strong>Tech:</strong> GSAP, JavaScript, Cinema4D, Octane, Adobe After Effects, UI/UX Gestalt Design Principles.</p><br><br>
+      <p><strong>Tech:</strong> GSAP, JavaScript, Cinema4D, Octane, Adobe After Effects, UI/UX Gestalt Design Principles.</p><br><br>
 
       <p style="margin-top: 3rem;"><strong>1.</strong> HQ Command Center: Berlin Touchtable Interface<br>
       <p><strong>Challenge: </strong> Create a collaborative, data-driven tool for the heart of Airbus operations.</p>
       <p><strong>Solution: </strong> Designed and coded a custom multi-monitor touchtable interface that allowed executives to interactively explore fleet data, global operations, and company history. This is mission-critical UIX for daily use.</p><br>
+      <p><strong>Longevity: </strong> This has been consistantly updated and in use for ten years. A completely new version is in the works for deployment next year.</p>
 
       <img src="/images/airbus_berlin/table6.jpg" alt="Airbus Munich Showroom" style="width: 100%; margin: 1rem 0; border-radius: 8px;" />
 
@@ -613,37 +661,14 @@ const createMarkup = (html) => {
     description2: `` 
    },
   ];
-    {/*    { id: 3, src: '/images/mini/atonato.jpg', alt: 'Logo 3', 
-      title: 'High-Stakes Decision Support System',
-      description: `
-      <p><strong>Overview:</strong> Developed a mission-critical digital training and assessment platform for a major international security institution. The project required translating complex operational protocols into a flawless, scenario-based application with zero tolerance for error in logic or execution.</p><br>
 
-      <p><strong>Role:</strong> Developer<br>
-
-
-      <p><strong>Solution & Technical Execution:</strong><br>
-      Built a robust, custom JavaScript application that:
-      <ul>
-        <li>Managed large, dynamic datasets of scenarios and decision pathways.</li>
-        <li>Implemented a branching-logic engine to drive complex, scenario-based user interactions.</li>
-        <li>Featured a precise scoring and feedback framework to measure and reinforce protocol adherence.</li>
-      </ul>
-      </p>
-<br>
-      <p><strong>Outcome:</strong> The system was successfully deployed to end-users, meeting strict requirements for accuracy, reliability, and user comprehension. This project exemplifies my capability to deliver complex, critical systems where performance is non-negotiable.</p><br>
-
-      <p><strong>Technologies:</strong> Vanilla JavaScript, XML, HTML5, CSS3</p>
-
-      `,
-    description2: ``
-  }, */}
   return (
     <div className={styles.logoContainer}>
-      {logos.map((logo) => (
+      {logos.map((logo, index) => (
         <div 
           key={logo.id} 
           className={styles.logoCard}
-          onClick={() => handleLogoClick(logo)}
+          onClick={() => handleLogoClick(logo, index)}
         >
           <div className={styles.logoWrapper}>
             <Image

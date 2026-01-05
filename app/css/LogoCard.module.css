@@ -679,6 +679,50 @@ padding: 0 !important;
   transition: all 0.3s ease;
   }
 }
+.navButton{
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #333;
+  background: #fff;
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.navButton:hover:not(:disabled) {
+  background: #333;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.navButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.modalNavigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+  width: fit-content; /* Compact width based on content */
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.navIndicator {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
 
 
 
