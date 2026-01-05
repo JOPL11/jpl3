@@ -2066,3 +2066,22 @@ a.secondary {
     -webkit-transform: translateY(-8px) rotate(-45deg) !important;
   }
 }
+/* Firefox-specific fixes to disable blur effects */
+@-moz-document url-prefix() {
+  [class*="modalOverlay"] {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-color: rgba(0, 0, 0, 0.8) !important;
+  }
+  
+  [class*="consentBanner"] {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-color: rgba(0, 0, 0, 0.9) !important;
+  }
+  
+  [class*="modalContent"] {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
