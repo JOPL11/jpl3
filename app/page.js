@@ -794,11 +794,11 @@ useEffect(() => {
                   roadrichTextRef.current?.animate();
                 }}
                   title="RoadRich App"
-                  image="/images/corp/rr2.jpg"
+                  image="/images/corp/rr4.jpg"
                   alt="RoadRich App"
                   link="https://roadrich.vercel.app/"
                   textPosition="bottom"
-                  text={`<b>Proof of concept Demo</b>
+                  text={`<b>Proof of Concept Demo</b>
                   <br />
                   <br />
                   Share locations of cool Sperrmüll you encounter on the streets of Berlin. Maybe you don't want it. Maybe someone else will.`}
