@@ -177,8 +177,13 @@ const createMarkup = (html) => {
       <p><strong>Challenge: </strong> Create the interface for a dynamic installation that showcases selected Airbus technology for visitors to the Munich based Airbus Showroom, a 650 square meter space featuring many installation pieces.<br>
       <strong>Solution: </strong> Airbus Munich Showroom (Ottobrunn, Germany)</p><br>
       <P><strong>Challenge: </strong> Concept, Design, Animation, UIX Concept & Development.</p><br>
-
+    <img src="/images/airbus_ottobrunn/airbus_33B.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+         <img src="/images/airbus_ottobrunn/airbus_14B.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
      <img src="/images/airbus_ottobrunn/airbus_18B.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+         <img src="/images/airbus_ottobrunn/airbus_44B.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+     <img src="/images/airbus_ottobrunn/airbus_21B.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+         <img src="/images/airbus_ottobrunn/airbus_66B.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+
     `,
     description2: ``
   },   
@@ -277,7 +282,7 @@ const createMarkup = (html) => {
       agencyLink: 'https://www.becc-agency.com',
       description: `
 
-            <p><strong>Project 1:</strong> Narrative Films for the BMW Global Rebranding<br>
+      <p><strong>Project 1:</strong> Narrative Films for the BMW Global Rebranding<br>
       <strong>Role:</strong> Internal Storyteller & Consensus Architect, Narration Author, Voice Recording & Voice Narration<br>
 
       <p><strong>Situation: </strong> The BMW Group and its creative agency (BECC) were undertaking a momentous project: redesigning the iconic global logo. This involved a highly skilled & dedicated team of strategists, designers, and executives working through an intense iterative process.</p>
@@ -293,7 +298,7 @@ const createMarkup = (html) => {
         <strong>Outcome: </strong>The videos were well-received by the team (especially the voiceover!) and were integrated into their workflow as part of the vast ecosystem of materials supporting the historic redesign.</p><br>
 
       
-              <img src="/images/BMW1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+      <img src="/images/BMW1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
       <p><strong>Project 2:</strong> Global Web Animation Language for BMW.com's Style Guide<br>
       <strong>Role:</strong> Motion Systems Architect<br>
       <strong>Tech:</strong> GSAP (The Acclaimed, Crossbrowser 'GreenSock Animation Platform'), rapid prototyping, systems thinking.<br>
