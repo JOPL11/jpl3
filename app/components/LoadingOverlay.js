@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useLoading } from '../contexts/LoadingContext';
 import styles from './LoadingOverlay.module.css';
+import Image from 'next/image';
 
 export default function LoadingOverlay() {
   const { isLoading, setIsLoading } = useLoading();
@@ -72,16 +73,20 @@ useEffect(() => {
           opacity: logoVisible ? 1 : 0,
           transition: 'opacity 0.5s ease-out'
         }}>
-          <img 
-            src="/images/logoAnima/J.svg" 
-            alt="J" 
-            className={styles.letterJ}
-          />
-          <img 
-            src="/images/logoAnima/P.svg" 
-            alt="P" 
-            className={styles.letterP}
-          />
+                  <Image 
+              src="/images/logoAnima/J.svg" 
+              alt="J" 
+              className={styles.letterJ}
+              width={50}  // Add appropriate width
+              height={50} // Add appropriate height
+            />
+            <Image 
+              src="/images/logoAnima/P.svg" 
+              alt="P" 
+              className={styles.letterP}
+              width={50}  // Add appropriate width
+              height={50} // Add appropriate height
+            />
           <div></div>
         </div>
    

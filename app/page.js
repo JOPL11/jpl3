@@ -679,7 +679,7 @@ useEffect(() => {
             <SectionTracker onSectionChange={setActiveSection} /> 
             <section id="code" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="code">
        
-              <h2 id="code" style={{marginTop: '100px'}} className={styles.scrollTarget}><AnimatedText ref={workHeadingRef}>Code Case Studies</AnimatedText></h2>
+              <h2 id="code" style={{marginTop: '100px'}} className={styles.scrollTarget}><AnimatedText ref={workHeadingRef}>Code Cases</AnimatedText></h2>
                  <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies</div>
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
 
@@ -862,7 +862,7 @@ useEffect(() => {
             
              <SectionTracker onSectionChange={setActiveSection} />
             <h2 style={{paddingTop: "5rem"}}>
-              <AnimatedText ref={motionHeadingRef}>Motion Case Studies</AnimatedText>
+              <AnimatedText ref={motionHeadingRef}>Motion Cases</AnimatedText>
             </h2>
                 <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies</div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
@@ -1027,9 +1027,9 @@ useEffect(() => {
             
              <SectionTracker onSectionChange={setActiveSection} />
             <h2 style={{paddingTop: "5rem"}}>
-              <AnimatedText ref={webglHeadingRef}>WebGL Case Studies</AnimatedText>
+              <AnimatedText ref={webglHeadingRef}>WebGL Cases</AnimatedText>
             </h2>
-                <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies</div>
+                <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies. Limited selection on Mobile Devices</div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
               <ProjectCard 
                   onMoreClick={() => {
@@ -1116,7 +1116,7 @@ useEffect(() => {
           
              <SectionTracker onSectionChange={setActiveSection} />
             <h2 style={{paddingTop: "5rem"}}>
-              <AnimatedText ref={productHeadingRef}>Prototype Case Study</AnimatedText>
+              <AnimatedText ref={productHeadingRef}>Prototype Case</AnimatedText>
             </h2>
             <div style={{height: '0.1rem', marginBottom: '7rem'}}>Tap or click the images to look through the pile of photos.</div>
               <div className={styles.introText}>
