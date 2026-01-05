@@ -2027,3 +2027,46 @@ a.secondary {
     backdrop-filter: none;
   }
 }
+/* Additional Firefox fixes */
+@-moz-document url-prefix() {
+  .mobileMenu {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  
+  /* Aggressive hamburger fixes for Firefox */
+  .hamburger {
+    transform: none !important;
+    -webkit-transform: none !important;
+    will-change: auto !important;
+    backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important;
+  }
+  
+  .hamburgerInner,
+  .hamburgerInner::before,
+  .hamburgerInner::after {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    transition: none !important;
+    -webkit-transition: none !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    will-change: auto !important;
+  }
+  
+  .hamburger:hover .hamburgerInner,
+  .hamburger:hover .hamburgerInner::before,
+  .hamburger:hover .hamburgerInner::after {
+    background-color: rgba(255, 255, 255, 1) !important;
+  }
+  
+  .hamburgerActive .hamburgerInner::before {
+    transform: translateY(8px) rotate(45deg) !important;
+    -webkit-transform: translateY(8px) rotate(45deg) !important;
+  }
+  
+  .hamburgerActive .hamburgerInner::after {
+    transform: translateY(-8px) rotate(-45deg) !important;
+    -webkit-transform: translateY(-8px) rotate(-45deg) !important;
+  }
+}
