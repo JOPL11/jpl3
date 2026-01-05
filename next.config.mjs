@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  productionBrowserSourceMaps: false,
   // Enable file hashing for better caching
   generateBuildId: async () => {
     return process.env.GIT_COMMIT_SHA || 'dev';

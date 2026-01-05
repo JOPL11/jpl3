@@ -1064,7 +1064,7 @@ useEffect(() => {
                       className="webglProject"
                     >
                       <p>R3F Concept Demo</p>
-                      <p><strong>Tools:</strong><AnimatedText ref={streetlampTextRef} type="project">Three.js / React 3 Fiber / GSAP</AnimatedText></p>
+                      <p><strong>Tools:</strong><AnimatedText ref={streetlampTextRef} type="project">Three.js / React 3 Fiber / GSAP / Blender</AnimatedText></p>
                       <p><strong>Role:</strong> Concept / Animation / Dev</p>
                       <p><strong>Duration:</strong> 3 weeks</p>
                       <p><strong>Info:</strong> An immersive 3D experience exploring a scifi landscape through motion and interaction.</p>
@@ -1082,7 +1082,7 @@ useEffect(() => {
                       className="webglProject"
                     >
                       <p>Visual Concept Demo</p>
-                      <p><strong>Tools:</strong><AnimatedText ref={facilityTextRef} type="project">Three.js / React 3 Fiber / GLSL / GSAP</AnimatedText></p>
+                      <p><strong>Tools:</strong><AnimatedText ref={facilityTextRef} type="project">Three.js / React 3 Fiber / GLSL / GSAP / Blender / Adobe Suite</AnimatedText></p>
                       <p><strong>Role:</strong> Concept / Animation / Dev</p>
                       <p><strong>Duration:</strong> 3 weeks</p>
                       <p><strong>Info:</strong> A mysterious facility exploring the intersection of architecture and digital art.</p>
@@ -1101,7 +1101,7 @@ useEffect(() => {
                       className="webglProject"
                     >
                       <p>Visual Concept Experiment</p>
-                      <p><strong>Tools:</strong><AnimatedText ref={qcTextRef} type="project">Three.js / React 3 Fiber / GSAP / Router / Next.js</AnimatedText></p>
+                      <p><strong>Tools:</strong><AnimatedText ref={qcTextRef} type="project">Three.js / React 3 Fiber / GSAP / Router / Next.js / Blender</AnimatedText></p>
                       <p><strong>Role:</strong> Concept / Animation / Dev</p>
                       <p><strong>Duration:</strong> 2 weeks</p>
                       <p><strong>Info:</strong> nerdRage! A playful take on quantum physics concepts.</p>
