@@ -587,7 +587,7 @@ useEffect(() => {
                 <h2 style={{paddingTop: "13px"}}><AnimatedText ref={overviewHeadingRef}>Overview</AnimatedText></h2>
                 <div style={{paddingBottom:"2rem"}}>
                   <div style={{height: "33px"}}></div>
-                <p>Developing mission-critical digital experiences for global leaders. Trusted by major brands to translate brand vision into immersive interactive, motion, and installation design. </p>
+                <p>Developing mission-critical digital experiences for global leaders. Trusted by major brands to translate brand vision into immersive interactive, motion, and installation design.</p><p> I&nbsp;ll figure it out.</p><br></br>
                  <p>It&apos;ll be in development for a few days. Tapping on the company logo reveals information about the projects.</p></div>
                   <LogoCard />
             </section>

@@ -96,7 +96,7 @@ const createMarkup = (html) => {
                     objectFit: 'cover'
                   }}
                   controls={logo.id === 18 ? false : true}
-                  muted={logo.id === 18 ? true : false}
+                  muted={logo.id === 18 ? false : false}
                   loop={logo.id === 18 ? true : false}
                 />
               </div>
@@ -276,19 +276,10 @@ const createMarkup = (html) => {
       agencyName: 'BECC Agency',
       agencyLink: 'https://www.becc-agency.com',
       description: `
-      <p><strong>Project 1:</strong> Immersive 3D Campaign for BMW Global Headquarters<br>
-      <p><strong>Role:</strong> 3D Experience Director / Animation Concept / Motion Design /&nbsp;Rendering</p>
-      <p><strong>Outcome: </strong>Translated an existing 2D typographic campaign into a commanding environmental experience for the multi-monitor video wall at for BMW's nerve center, their global headquarters in Munich. Conceptualized, designed, and rendered in Cinema4D to create a dynamic, large-scale brand statement a dynamic brand monument visible to every executive and visitor.</p>
-      <p><strong>Tech:</strong> Cinema4D, Corona Render, After Effects, High-res pipeline.</p><br><br>
 
-      <p><strong>Project 2:</strong> Global Web Animation Language for BMW.com's Style Guide<br>
-      <strong>Role:</strong> Motion Systems Architect<br>
-      <strong>Tech:</strong> GSAP (The Acclaimed, Crossbrowser 'GreenSock Animation Platform'), rapid prototyping, systems thinking.<br>
-      <strong>Outcome: </strong> Developed and prototyped the core animation library and interactive prototypes for the BMW global web presence. My solutions were formally adopted into the brand official style guide, which sets the standard for premium, performant motion, establishing the technical benchmark across BMW international web properties. Proving that decisive creative vision (and 15 years experience with the right tools) delivers scalable systems, not just one-off animations.</p><br>
-
-      <p><strong>Project 3:</strong> Narrative Films for the BMW Global Rebranding<br>
+            <p><strong>Project 1:</strong> Narrative Films for the BMW Global Rebranding<br>
       <strong>Role:</strong> Internal Storyteller & Consensus Architect, Narration Author, Voice Recording & Voice Narration<br>
-      
+
       <p><strong>Situation: </strong> The BMW Group and its creative agency (BECC) were undertaking a momentous project: redesigning the iconic global logo. This involved a highly skilled & dedicated team of strategists, designers, and executives working through an intense iterative process.</p>
       <p><strong>The Work:</strong> I contributed to the internationally recognized Red Dot Award winning BMW global rebranding initiative by producing internal narrative "mood videos." Tasked with editing archival footage, writing scripts, and providing voiceover, I created assets used by the core BECC/BMW team to aid the brand evolution narrative during their extensive, multi-year design process.</p><br>
       <p>These videos served as strategic communication aids, designed to:</p><br>
@@ -299,7 +290,23 @@ const createMarkup = (html) => {
         </ul>
 
         <p><strong>Tech:</strong> Adobe Premiere, Adobe After Effects, Garageband<br>
-        <strong>Outcome: </strong>The videos were well-received by the team (especially the voiceover!) and were integrated into their workflow as part of the vast ecosystem of materials supporting the historic redesign.</p>
+        <strong>Outcome: </strong>The videos were well-received by the team (especially the voiceover!) and were integrated into their workflow as part of the vast ecosystem of materials supporting the historic redesign.</p><br>
+
+      
+              <img src="/images/BMW1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+      <p><strong>Project 2:</strong> Global Web Animation Language for BMW.com's Style Guide<br>
+      <strong>Role:</strong> Motion Systems Architect<br>
+      <strong>Tech:</strong> GSAP (The Acclaimed, Crossbrowser 'GreenSock Animation Platform'), rapid prototyping, systems thinking.<br>
+      <strong>Outcome: </strong> Developed and prototyped the core animation library and interactive prototypes for the BMW global web presence. My solutions were formally adopted into the brand official style guide, which sets the standard for premium, performant motion, establishing the technical benchmark across BMW international web properties. Proving that decisive creative vision (and 15 years experience with the right tools) delivers scalable systems, not just one-off animations.</p><br>
+
+      <p><strong>Project 3:</strong> Immersive 3D Campaign for BMW Global Headquarters<br>
+      <p><strong>Role:</strong> 3D Experience Director / Animation Concept / Motion Design /&nbsp;Rendering</p>
+      <p><strong>Outcome: </strong>Translated an existing 2D typographic campaign into a commanding environmental experience for the multi-monitor video wall at for BMW's nerve center, their global headquarters in Munich. Conceptualized, designed, and rendered in Cinema4D to create a dynamic, large-scale brand statement a dynamic brand monument visible to every executive and visitor.</p>
+      <p><strong>Tech:</strong> Cinema4D, Corona Render, After Effects, High-res pipeline.</p><br><br>
+
+
+
+
     `,
     description2: ``
   },
