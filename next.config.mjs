@@ -13,22 +13,44 @@ const nextConfig = {
     }
     return config;
   },
-
   // Configure cache control for static assets
   async headers() {
     return [
+      {
+        source: '/_next/static/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: process.env.NODE_ENV === 'development' 
+              ? 'no-cache, no-store, must-revalidate'
+              : 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/images/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: process.env.NODE_ENV === 'development' 
+              ? 'no-cache, no-store, must-revalidate'
+              : 'public, max-age=86400',
+          },
+        ],
+      },
       {
         source: '/(.*)',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
+            value: process.env.NODE_ENV === 'development' 
+              ? 'no-cache, no-store, must-revalidate'
+              : 'public, max-age=0, must-revalidate',
           },
         ],
       },
     ];
   },
-
   // Keep your existing image configurations
   images: {
     remotePatterns: [
@@ -55,5 +77,4 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
 };
-
 export default nextConfig;
