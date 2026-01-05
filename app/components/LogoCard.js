@@ -240,7 +240,7 @@ const createMarkup = (html) => {
     `,
     description2: ``
   },
-    { id: 5, src: '/images/mini/automerc.jpg', alt: 'Logo 5', 
+    { id: 5, src: '/images/mini/automerc4.jpg', alt: 'Logo 5', 
       title: 'Mercedes-Benz Product Design & Visual Development',
       clientText: `Agency: `,
       clientLogo: '/images/agencies/sw_neu_white.png',
@@ -330,7 +330,7 @@ const createMarkup = (html) => {
     `,
     description2: ``
   },
-    { id: 8, src: '/images/mini/autoTuv.jpg', alt: 'Logo 8', 
+    { id: 8, src: '/images/mini/autoTuv2.jpg', alt: 'Logo 8', 
       title: 'TÜV SÜD - Visualizing Safety & Strategy for a Global Certification Leader',
       clientText: `Agency: `,
       clientLogo: '/images/agencies/sw_neu_white.png',
