@@ -50,24 +50,25 @@ const Logo3DWrapper = memo(function Logo3DWrapper() {
   }, []);
 
   // Initialize component
-  useEffect(() => {
-    // Set iOS device status
-    const iosStatus = checkIfIOS();
-    setIsIOSDevice(iosStatus);
-    
-    // Only check WebGL if not on iOS
-    if (!iosStatus) {
-      setHasWebGL(checkWebGL());
-    }
-
-    // Debug log
-    if (process.env.NODE_ENV === 'development') {
-      console.log('Logo3DWrapper: Mounted', { 
-        isIOS: iosStatus, 
-        hasWebGL: iosStatus ? 'N/A (iOS)' : hasWebGL 
-      });
-    }
-  }, [checkWebGL]);
+      useEffect(() => {
+        // Set iOS device status
+        const iosStatus = checkIfIOS();
+        setIsIOSDevice(iosStatus);
+        
+        // Only check WebGL if not on iOS
+        let webglStatus = 'N/A (iOS)';
+        if (!iosStatus) {
+          webglStatus = checkWebGL();
+          setHasWebGL(webglStatus);
+        }
+        // Debug log
+        if (process.env.NODE_ENV === 'development') {
+          console.log('Logo3DWrapper: Mounted', { 
+            isIOS: iosStatus, 
+            hasWebGL: webglStatus 
+          });
+        }
+      }, [checkWebGL]);
 
   // Render appropriate logo based on device and WebGL support
   if (isIOSDevice) {

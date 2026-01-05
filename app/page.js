@@ -274,7 +274,7 @@ useEffect(() => {
       scrollRef.current = null;
     }
   };
-}, [activeSection, sectionRefs]);
+}, [activeSection, sectionRefs, isIOS]);
 
 // Add these refs before the useEffect (inside the Home component)
 
@@ -315,7 +315,7 @@ useEffect(() => {
   return () => {
     window.removeEventListener('wheel', handleWheel, { passive: false, capture: true });
   };
-}, [styles.modalOverlay, styles.scrollableContent]);
+}, []);
 
 useEffect(() => {
   console.log(`

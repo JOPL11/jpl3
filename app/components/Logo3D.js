@@ -772,7 +772,7 @@ const handleResize = useCallback(() => {
       );
     }
   }, 50);
-}, [isMobile, width]);
+}, [isMobile, width, height]);
 
   // Set up resize listener
   useEffect(() => {
