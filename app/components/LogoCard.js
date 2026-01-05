@@ -78,7 +78,7 @@ const LogoCard = () => {
           {/* Client Info Section */}
           <div className={styles.clientInfo}>
             <span  className={styles.clientText}>{logo.clientText || ''}</span>
-          <span  className={styles.clientText}>{logo.clientText || ''}</span>
+
          
           {logo.agencyLink && (
             <a 
@@ -215,7 +215,6 @@ const LogoCard = () => {
         {   id: 2,
            src: '/images/mini/airbus.jpg', alt: 'Logo 2', 
       title: 'Airbus Group Digital Interfaces',
-      clientText: `Agency:   VRPE`,
       clientText: `Agency:   VRPE`,
       clientLogo: '/images/agencies/vrpe_logoNew.png',
       clientLogoHeight: 15,
