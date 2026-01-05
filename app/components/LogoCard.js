@@ -330,7 +330,7 @@ const createMarkup = (html) => {
     `,
     description2: ``
   },
-    { id: 8, src: '/images/mini/autoTuv2.jpg', alt: 'Logo 8', 
+    { id: 8, src: '/images/mini/autoTuvB.jpg', alt: 'Logo 8', 
       title: 'TÜV SÜD - Visualizing Safety & Strategy for a Global Certification Leader',
       clientText: `Agency: `,
       clientLogo: '/images/agencies/sw_neu_white.png',
