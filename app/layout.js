@@ -11,6 +11,7 @@ import { LoadingProvider } from './contexts/LoadingContext';
 import LoadingOverlay from './components/LoadingOverlay';
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import { Analytics } from "@vercel/analytics/next"
 
 //import DecorativeFlow from './components/DecorativeFlow';
 
@@ -58,6 +59,7 @@ export default function RootLayout({ children }) {
             <DecorativeFlow />
           </div>*/}
         </LoadingProvider>
+        <Analytics />
       </body>
     </html>
   );
