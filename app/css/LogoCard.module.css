@@ -200,34 +200,49 @@
   padding: 0;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
-  scrollbar-width: thin;
-  scrollbar-color: var(--foreground-muted) var(--background);
   max-height: 100%;
   pointer-events: auto;
-  scroll-behavior: smooth; 
+  scroll-behavior: smooth;
   opacity: 1;
   transition: opacity 0.3s ease-in-out;
+  
+  /* Firefox scrollbar - consolidated */
+  scrollbar-width: thin;
+  scrollbar-color: var(--foreground-muted) transparent;
 }
 
 .scrollableContent.fadeOut {
   opacity: 0;
 }
-/* Hide scrollbar for Chrome, Safari and Opera */
+
+/* WebKit scrollbar (Chrome, Safari, Edge) */
 .scrollableContent::-webkit-scrollbar {
   width: 6px;
 }
+
 .scrollableContent::-webkit-scrollbar-track {
   background: transparent;
 }
+
 .scrollableContent::-webkit-scrollbar-thumb {
   background-color: var(--foreground-muted);
   border-radius: 3px;
 }
-/* Hide scrollbar for IE, Edge and Firefox */
-.scrollableContent {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: thin;  /* Firefox */
+
+/* Optional: Hide when not interacting */
+.scrollableContent::-webkit-scrollbar-thumb {
+  transition: background-color 0.3s ease;
 }
+
+.scrollableContent::-webkit-scrollbar-thumb:hover {
+  background-color: var(--foreground); /* Darker on hover */
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+/*.scrollableContent {
+  -ms-overflow-style: none;  
+  scrollbar-width: thin;  
+}
+*/
 .modalHeader {
   padding: 1rem 0 0.1rem;
   border-bottom: 1px solid var(--border-color);
@@ -347,11 +362,11 @@ html.no-scroll {
 
 .navButton{
   border-radius: 50%;
-  width: 40px;
+  width: 20px;
   height: 40px;
   border: 2px solid #0f172a;
-  background: #fff;
-  color: #0f172a;
+  background: #0f172a;
+  color: #fff;
   font-size: 18px;
   font-weight: bold;
   cursor: pointer;
@@ -371,8 +386,8 @@ html.no-scroll {
 
 .navButton:hover:not(:disabled) {
   background: #0f172a;
-  color: #fff;
-  transform: scale(1.1);
+  color: #afafaf;
+  transform: scale(1.5);
 }
 
 .navButton:disabled {
@@ -393,9 +408,10 @@ html.no-scroll {
 }
 
 .navIndicator {
-  font-size: 14px;
-  color: #666;
+  font-size: 0.9rem;
+  color: #ffffff;
   font-weight: 500;
+  padding: 0 11px 0 11px;
 }
 /* iPad (portrait and landscape) */
 @media only screen 
