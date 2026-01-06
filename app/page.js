@@ -831,7 +831,7 @@ useEffect(() => {
                 citylink1TextRef.current?.animate();
               }} 
                   title="CityLink Info Page"
-                  image="/images/corp/sb.jpg"
+                  image="/images/corp/sb4.jpg"
                   alt="CityLink Info Page"
                   text="A GDPR-compliant info page for a civics oriented app."
                   link="https://sbinfo1.vercel.app"
