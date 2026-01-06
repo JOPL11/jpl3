@@ -1,7 +1,7 @@
 'use client';
 
 // app/components/LogoCard.js
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { useModal } from './ModalContext';
 import DOMPurify from 'dompurify';
@@ -12,7 +12,7 @@ const LogoCard = () => {
   const { openModal } = useModal();
   const [currentLogoIndex, setCurrentLogoIndex] = useState(null);
   const [currentLogos, setCurrentLogos] = useState(null);
-  
+
   // Helper function to render HTML
   const createMarkup = (html) => {
     return { 
@@ -26,31 +26,46 @@ const LogoCard = () => {
   const handleLogoClick = (logo, index) => {
     setCurrentLogoIndex(index);
     setCurrentLogos(logos);
-    openModal(createLogoModalContent(logo, index, logos));
+    openModal(<ModalContent logo={logo} index={index} logos={logos} />);
   };
 
   const navigateToLogo = (direction) => {
     // This function is no longer needed since navigation is handled inside createLogoModalContent
   };
 
-  // Helper function to create modal content with navigation
-  const createLogoModalContent = (logo, index, logos) => {
+  // Modal content component
+  const ModalContent = ({ logo, index, logos }) => {
+    const [isFading, setIsFading] = useState(true); // Start with true for initial fade-in
+    
+    // Fade in after component mounts
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setIsFading(false);
+      }, 200); // Slower fade-in for visibility
+      return () => clearTimeout(timer);
+    }, []);
+    
     const handleNavigate = (direction) => {
       if (!logos) return;
       
-      const newIndex = direction === 'next' 
-        ? (index + 1) % logos.length
-        : (index - 1 + logos.length) % logos.length;
+      setIsFading(true);
       
-      const newLogo = logos[newIndex];
-      setCurrentLogoIndex(newIndex);
-      
-      // Update modal content
-      openModal(createLogoModalContent(newLogo, newIndex, logos));
+      // Wait for fade, then update content
+      setTimeout(() => {
+        const newIndex = direction === 'next' 
+          ? (index + 1) % logos.length
+          : (index - 1 + logos.length) % logos.length;
+        
+        const newLogo = logos[newIndex];
+        setCurrentLogoIndex(newIndex);
+        
+        // Update modal content with fade-in
+        openModal(<ModalContent key={newIndex} logo={newLogo} index={newIndex} logos={logos} />);
+      }, 300); // Match CSS transition duration
     };
 
     return (
-      <div className={styles.scrollableContent}>
+      <div className={`${styles.scrollableContent} ${isFading ? styles.fadeOut : ''}`}>
         <div className={styles.modalContent}>
           {/* Navigation arrows */}
           <div className={styles.modalNavigation}>
