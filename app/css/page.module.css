@@ -1827,7 +1827,11 @@ a.secondary {
   height: 40px;
   display: inline-block;
   position: relative;
+  cursor: pointer;
   z-index: 2060;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 8px;
 }
 
 .hamburgerInner {
@@ -1883,6 +1887,10 @@ a.secondary {
   justify-content: center;
   opacity: 0.8;
   transition: opacity 0.3s ease;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 8px;
+  padding: 8px;
 }
 .logoLink:hover {
   opacity: 1;
