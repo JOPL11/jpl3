@@ -74,7 +74,7 @@ const LogoCard = () => {
               onClick={() => handleNavigate('prev')}
               disabled={logos.length <= 1}
             >
-              ←
+              ◀
             </button>
             <span className={styles.navIndicator}>
               {index + 1} / {logos.length}
@@ -84,7 +84,7 @@ const LogoCard = () => {
               onClick={() => handleNavigate('next')}
               disabled={logos.length <= 1}
             >
-              →
+              ▶
             </button>
           </div>
           <div className={styles.modalHeader}>
