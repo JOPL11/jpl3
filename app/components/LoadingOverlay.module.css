@@ -79,7 +79,7 @@ position: relative;
 }
  
 .pressSpace {
-  margin-top: 2rem;
+  margin-top: 1rem;
   font-size: 1.25rem;
   color: rgba(255, 255, 255, 0.8);
   animation: pulse 2s infinite;
