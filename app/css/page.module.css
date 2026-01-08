@@ -1729,7 +1729,7 @@ a.secondary {
 @media (min-width: 280px) and (max-width: 430px) {
 
   .contentLogo {
-    padding: 5rem 0 0;
+    padding: 1rem 1rem 0;
   }
   .contentWrapper {
     padding-left: 0;
