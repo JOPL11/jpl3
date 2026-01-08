@@ -170,6 +170,27 @@ const LogoCard = () => {
             />
           )}
         </div>
+        
+        {/* Bottom Navigation arrows */}
+        <div className={styles.modalNavigation}>
+          <button 
+            className={styles.navButton}
+            onClick={() => handleNavigate('prev')}
+            disabled={logos.length <= 1}
+          >
+            ◀
+          </button>
+          <span className={styles.navIndicator}>
+            {index + 1} / {logos.length}
+          </span>
+          <button 
+            className={styles.navButton}
+            onClick={() => handleNavigate('next')}
+            disabled={logos.length <= 1}
+          >
+            ▶
+          </button>
+        </div>
       </div>
     );
   };

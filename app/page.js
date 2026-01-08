@@ -600,21 +600,32 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={aboutHeadingRef}>About</AnimatedText>
             </h2>
+          
             <p>Hi! I&apos;m Jan Peiro.</p><br></br>
 
             <p>A multidisciplinary designer and creative who bridges the gap between stunning visuals and robust technology. I studied Communications Design in Munich and have spent my career transforming ideas into engaging experiences for a global clientele.</p>
 
-           <p>I am specialized in <strong>2D / 3D design, animation and interactive content.</strong></p>
+           <p>I specialize in <strong>2D / 3D design, animation and interactive content.</strong></p>
 
             <p>My core principle is <strong>merging design, animation, and code</strong> to create work that is not only beautiful but also functional and scalable.</p>
 
-            <p>I started my career as jr. art director and gained proficiency in motion design, 3D visualization and creative development, while also building a strong foundation in web development and interactive design, for companies such as Audi, Daimler Benz, Airbus Group, BMW Group, Spiegel TV, Pro7Sat1, Warner Bros., 20th Century Fox and many more.</p>
+            <p>I started my career as jr. art director and gained proficiency in motion design, 3D visualization and creative development, while also building a strong foundation in web development and interactive design.</p>
 
             <p>Global Remote | EST / CET / EET</p>
 
             <p>Eligible to work in the EU, UK, and Canada without visa sponsorship.</p>
 
-              <div style={{height: '0.1rem'}}></div>
+              <div style={{height: '1rem'}}></div>
+              <div className={styles.profileImageContainer}>
+              <Image
+                src="/images/me3.jpg"
+                alt="Jan Peiro"
+                className={styles.profileImage}
+                width={210}
+                height={210}
+              />
+            </div>
+            <br></br><p style={{color: 'white', fontSize: '0.8rem', width: "200px", marginTop: '-20px'}}>Caught here after warding off an assault by an aberrant seagull.</p>
             </section>
 
 
