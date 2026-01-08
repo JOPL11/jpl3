@@ -1393,6 +1393,9 @@ body.menu-open .navLink.active::after {
   .projectLink,
   .viewProjectButton {
     width: 100%;
+    padding: 2.5rem 2rem 1rem 1rem;
+    line-height: normal;
+ 
   }
 }
 
