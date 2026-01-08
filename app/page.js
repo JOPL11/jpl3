@@ -1049,6 +1049,7 @@ useEffect(() => {
             </section>
 
             {/* Video Plane - unconstrained */}
+                <div style={{height: '0.1rem', marginBottom: '11rem', fontSize: '1.1rem', textAlign: 'center'}}>this section currently under construction</div>
             <VideoPlane videoUrl="https://stream.mux.com/jQpM2jwUgrzmGjMoY8UIG7tUXHSaBK6zvWXIlqxJkMs.m3u8" />
 
             {/*   WebGL Section */}

@@ -176,7 +176,7 @@ export default function VideoPlane({ videoUrl = 'https://stream.mux.com/jQpM2jwU
         width: '100vw',
         left: '50%',
         transform: 'translateX(-50%)',
-        zIndex: 9999,
+        zIndex: 500,
         pointerEvents: 'none'
       }}
     >
