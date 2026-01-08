@@ -36,25 +36,23 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  transition: all 0.3s ease;
+
 }
 
-/* Logo Wrapper */
+
 .logoWrapper {
-  border-radius: 8px 8px 0 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 120%;
-  padding: 0.5rem;
-  background-color: #141917;
-  transition: all 0.3s ease;
+  height: 100%;
+  padding: 0; /* Remove wrapper padding */
+  margin: 0;  /* Remove any margins */
 }
 
 /* Logo Image */
 .logoImage {
-  border-radius: 8px;
-  max-width: 150px;
+  border-radius: 8px 8px 0 0 ;
+  max-width: 160px;
   height: auto;
   object-fit: contain;
   filter: grayscale(10%) brightness(1.5);
@@ -73,7 +71,7 @@
 
 .logoCard:hover .agencyName{
   filter: grayscale(0%);
-  transform: scale(1.05);
+  transform: scale(1.11);
 }
 
 /* Client Info in Modal */
@@ -103,7 +101,7 @@
   width: auto;
   object-fit: contain;
   opacity: 0.8;
-  transition: opacity 0.2s ease;
+  transition: all 0.3s ease;
 }
 .clientLogoImage:hover {
   opacity: 1;
@@ -284,6 +282,16 @@ html.no-scroll {
   width: 100%;
   overflow-y: scroll;
 }
+
+/* Target mux-player to remove black background */
+.mux-player-container {
+  background: transparent !important;
+}
+
+/* White background for Airbus video only */
+.mux-player-container.white-bg {
+  background: white !important;
+}
 .modalTextContent {
   padding: 1.5rem 0 0;
   color: var(--foreground);
@@ -427,6 +435,14 @@ html.no-scroll {
     .logoImage {
       max-width: 150px;
     }
+    .logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0; /* Remove wrapper padding */
+  margin: 0;  /* Remove any margins */
+}
 
       .modalDescription {
     margin: 2rem 0 0 0; /* top right bottom left */
@@ -469,28 +485,58 @@ html.no-scroll {
   overflow: hidden;
   padding: 1rem;
     }
+    .logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0; /* Remove wrapper padding */
+  margin: 0;  /* Remove any margins */
+}
 }
 
 /* Responsive adjustments */
 @media (max-width: 595px) {
 
-      .logoContainer {
-     display: grid;
-     grid-template-columns: repeat(3, 0.2fr);
-      
+    .logoContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 0.32fr);
     justify-content: center; /* Center logos horizontally */
-    align-items: center;     /* Center logos vertically */
-    width: 100%;
-           
-    margin: 0 auto;          /* Center the container */
-    max-width: 80%;       /* Optional: set a max-width */
-    row-gap: 1.5rem; 
-     column-gap: 1.5rem;
+    align-items: center;/* Center logos vertically */
+    width: auto;
+    margin: 0;          /* Center the container */
+    row-gap: 1rem; 
+    column-gap: 1.2rem;
+    max-width: 100%;
 }
 
-  .logoWrapper {
-width:150px;
+.logoCard {
+  background: transparent; /* Remove background for a cleaner look */
+  border-radius: 8px 8px 0px 0px;
+  margin: 0 !important;
+    padding: 10px !important;
+    border: none !important;
+    outline: none !important;
+  transition: transform 0.3s ease;
+  flex-shrink: 0; /* Prevent cards from shrinking */
+  width: auto; /* Let the content determine the width */
+   filter: grayscale(10%) brightness(1.2);
+  transition: all 0.3s ease;
+}
+  .logoImage {
+    max-width: 160px;
+    border-radius: 8px 8px 0px 0px;
   }
+
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0; /* Remove wrapper padding */
+  margin: 0;  /* Remove any margins */
+}
   .modalTitle {
     font-size: 1.25rem;
   }
@@ -545,21 +591,28 @@ width:150px;
 @media (max-width: 548px) {
     
     .logoContainer {
-     display: grid;
-     grid-template-columns: repeat(2, 0.2fr);
-      
+    display: grid;
+    grid-template-columns: repeat(2, 0.32fr);
     justify-content: center; /* Center logos horizontally */
-    align-items: center;     /* Center logos vertically */
-    width: 100%;
-           
-    margin: 0 auto;          /* Center the container */
-    max-width: 80%;       /* Optional: set a max-width */
-    row-gap: 5px; 
-     column-gap: 31px;
+    align-items: center;/* Center logos vertically */
+    width: auto;
+    margin: 0;          /* Center the container */
+    row-gap: 1rem; 
+    column-gap: 1.2rem;
+    max-width: 100%;
 }
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0; /* Remove wrapper padding */
+  margin: 0;  /* Remove any margins */
+}
+
 .logoCard {
   background: transparent; /* Remove background for a cleaner look */
-  border-radius: 8px;
+  border-radius: 8px 8px 0px 0px;
   margin: 0 !important;
     padding: 10px !important;
     border: none !important;
@@ -567,12 +620,13 @@ width:150px;
   transition: transform 0.3s ease;
   flex-shrink: 0; /* Prevent cards from shrinking */
   width: auto; /* Let the content determine the width */
-}
-  .logoImage {
-
-  filter: grayscale(10%) brightness(1.5);
+   filter: grayscale(10%) brightness(1.2);
   transition: all 0.3s ease;
 }
+  .logoImage {
+    max-width: 150px;
+    border-radius: 8px 8px 0px 0px;
+  }
 }
 @media (max-width: 480px) {
 
@@ -605,18 +659,19 @@ width:150px;
    filter: grayscale(10%) brightness(1.2);
   transition: all 0.3s ease;
 }
+  .logoImage {
+    max-width: 150px;
+    border-radius: 8px 8px 0px 0px;
+  }
 .logoWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
- padding: 0; /* Remove wrapper padding */
-    margin: 0;  /* Remove any margins */
+  padding: 0; /* Remove wrapper padding */
+  margin: 0;  /* Remove any margins */
 }
-  .logoImage {
-    max-width: 150px;
-border-radius: 8px 8px 0px 0px;
-  }
+
  .modalHeader {
     padding: 0 !important;
   }

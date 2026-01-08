@@ -128,7 +128,7 @@ const LogoCard = () => {
             />
           )}
             {logo.video && (
-              <div style={{ 
+              <div className={`mux-player-container ${logo.id === 1 ? 'white-bg' : ''}`} style={{ 
                 width: '100%', 
                 height: '100%',
                 maxWidth: logo.id === 18 ? '600px' : '100%',
