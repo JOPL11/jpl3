@@ -106,7 +106,7 @@
 }
 
 .navButton {
-  background: rgba(255, 255, 255, 0.1);
+  background: transparent;
   border: none;
   color: white;
   width: 40px;
@@ -125,7 +125,7 @@
 }
 
 .navButton:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: transparent;
   transform: scale(1.1);
 }
 

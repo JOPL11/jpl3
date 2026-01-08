@@ -93,14 +93,14 @@ export default function ProjectModal({ title, description, images = [], videos =
               className={styles.carouselButton}
               aria-label="Previous image"
             >
-              &larr;
+              ◀
             </button>
             <button 
               onClick={goToNextImage} 
               className={styles.carouselButton}
               aria-label="Next image"
             >
-              &rarr;
+              ▶
             </button>
           </div>
         )}

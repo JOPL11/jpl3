@@ -139,7 +139,7 @@ export default function DesktopCarousel({ title, description, images = [] }) {
           className={styles.navButton}
           aria-label="Previous image"
         >
-          ←
+          ◀
         </button>
         
         <div className={styles.pagination}>
@@ -163,7 +163,7 @@ export default function DesktopCarousel({ title, description, images = [] }) {
           className={styles.navButton}
           aria-label="Next image"
         >
-          →
+          ▶
         </button>
       </div>
     </div>
