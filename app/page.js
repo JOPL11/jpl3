@@ -1151,7 +1151,7 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={contactHeadingRef}>Contact</AnimatedText>
             </h2>
-            <div style={{height: '0.1rem', marginBottom: '11rem', fontSize: '1.1rem'}}>For project inquiries, strategic roles, or to discuss the intersection of immersive design and technical execution, reach out using the form.</div>
+            <div style={{height: '0.1rem', marginBottom: '11rem', fontSize: '1.1rem'}}>Interested in working together? Use the form below to get in touch.</div>
               <ContactForm />
             </section>
         </div>
