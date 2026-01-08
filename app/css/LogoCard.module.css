@@ -713,7 +713,6 @@ padding: 0 !important;
   height: 100%;
   width: auto;
   object-fit: contain;
-  filter: grayscale(100%);
   opacity: 0.8;
   transition: opacity 0.2s ease;
 }

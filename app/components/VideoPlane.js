@@ -92,23 +92,15 @@ function VideoContent({ videoUrl, ...props }) {
           });
           
           const texture = new THREE.VideoTexture(videoRef.current);
-          console.log('Video texture details:', {
-            videoWidth: videoRef.current.videoWidth,
-            videoHeight: videoRef.current.videoHeight,
-            textureWidth: texture.image.width,
-            textureHeight: texture.image.height,
-            planeWidth: 64,
-            planeHeight: 36,
-            aspectRatio: videoRef.current.videoWidth / videoRef.current.videoHeight,
-            planeAspectRatio: 64 / 36,
-            textureNeedsUpdate: texture.needsUpdate,
-            meshExists: !!meshRef.current,
-            meshMaterial: meshRef.current?.material
-          });
-          
+          texture.colorSpace = THREE.SRGBColorSpace;
+          texture.minFilter = THREE.LinearFilter;
+          texture.magFilter = THREE.LinearFilter;
+          texture.encoding = THREE.sRGBEncoding;
           texture.needsUpdate = true;
           meshRef.current.material.map = texture;
           meshRef.current.material.needsUpdate = true;
+          meshRef.current.material.transparent = false;
+          meshRef.current.material.opacity = 1;
           
           console.log('After applying texture:', {
             meshMap: meshRef.current.material.map,
@@ -180,6 +172,8 @@ function VideoContent({ videoUrl, ...props }) {
           opacity={1}
           metalness={0}
           roughness={0}
+          emissive="#ffffff"
+          emissiveIntensity={-0.01}
         />
       </Plane>
     </>

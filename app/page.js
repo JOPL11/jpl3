@@ -1046,11 +1046,15 @@ useEffect(() => {
  
               </div> 
             </section>
-
+              <section>
+                {!isMobile && (
+                  <>
             {/* Video Plane - unconstrained */}
                 <div style={{height: '0.1rem', marginBottom: '11rem', fontSize: '1.1rem', textAlign: 'center'}}>this section currently under construction</div>
             <VideoPlane videoUrl="https://stream.mux.com/jQpM2jwUgrzmGjMoY8UIG7tUXHSaBK6zvWXIlqxJkMs.m3u8" />
-
+                  </>
+                )}
+                </section>
             {/*   WebGL Section */}
                <div data-section="webgl-heading"></div>
             <section id="webgl" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="webgl">
