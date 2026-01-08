@@ -9,7 +9,7 @@ export default function CookieBanner() {
   const [consent, setConsent] = useState(null);
 
   useEffect(() => {
-    const savedConsent = localStorage.getItem('cookieConsent');
+    const savedConsent = localStorage.getItem('analyticsConsent');
     if (savedConsent === null) {
       setShowBanner(true);
     } else {
@@ -18,17 +18,17 @@ export default function CookieBanner() {
   }, []);
 
   const handleAccept = () => {
-    localStorage.setItem('cookieConsent', 'true');
+    localStorage.setItem('analyticsConsent', 'true');
     setConsent(true);
     setShowBanner(false);
-    window.dispatchEvent(new Event('cookieConsent'));
+    window.dispatchEvent(new Event('analyticsConsent'));
   };
 
   const handleReject = () => {
-    localStorage.setItem('cookieConsent', 'false');
+    localStorage.setItem('analyticsConsent', 'false');
     setConsent(false);
     setShowBanner(false);
-    window.dispatchEvent(new Event('cookieConsent'));
+    window.dispatchEvent(new Event('analyticsConsent'));
   };
 
   if (!showBanner) return null;
@@ -37,12 +37,15 @@ export default function CookieBanner() {
     <div className={styles.banner}>
       <div className={styles.content}>
         <p>
-          By viewing this portfolio, you understand that you are accessing content hosted on Vimeo and ArtStation, 
-          and you consent to their respective cookie policies.
+          This website uses cookies for analytics and performance optimization. 
+          Your choice will be respected.
         </p>
         <div className={styles.buttons}>
           <button onClick={handleAccept} className={styles.acceptButton}>
-            I Understand
+            Accept
+          </button>
+          <button onClick={handleReject} className={styles.rejectButton}>
+            Reject
           </button>
         </div>
       </div>
