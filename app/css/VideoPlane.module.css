@@ -82,6 +82,17 @@
   position: relative !important;
 }
 
+.videoPlaneCanvas canvas {
+  overflow: visible !important;
+  clip: none !important;
+  clip-path: none !important;
+  mask: none !important;
+  -webkit-mask: none !important;
+  border-radius: 8px !important;
+  isolation: isolate !important;
+  contain: layout style paint !important;
+}
+
 /* Break through any potential Three.js canvas constraints */
 .videoPlaneCanvas canvas {
   overflow: visible !important;

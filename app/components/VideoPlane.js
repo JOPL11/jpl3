@@ -7,7 +7,7 @@ import * as THREE from 'three';
 import Hls from 'hls.js';
 import styles from '../css/VideoPlane.module.css';
 
-function VideoContent({ videoUrl }) {
+function VideoContent({ videoUrl, ...props }) {
   const meshRef = useRef();
   const videoRef = useRef();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -75,13 +75,20 @@ function VideoContent({ videoUrl }) {
     
     const handleLoadedData = () => {
       console.log('Video loaded data');
-      // Wait a bit for video metadata to be fully available
+    };
+    
+    const handleCanPlay = () => {
+      console.log('Video can play');
+      // Wait a bit for video to actually start playing
       setTimeout(() => {
         if (videoRef.current && meshRef.current) {
-          console.log('Creating texture after delay:', {
+          console.log('Creating texture after canplay:', {
             videoWidth: videoRef.current.videoWidth,
             videoHeight: videoRef.current.videoHeight,
-            readyState: videoRef.current.readyState
+            readyState: videoRef.current.readyState,
+            videoSrc: videoRef.current.src,
+            videoCurrentTime: videoRef.current.currentTime,
+            videoDuration: videoRef.current.duration
           });
           
           const texture = new THREE.VideoTexture(videoRef.current);
@@ -93,19 +100,31 @@ function VideoContent({ videoUrl }) {
             planeWidth: 64,
             planeHeight: 36,
             aspectRatio: videoRef.current.videoWidth / videoRef.current.videoHeight,
-            planeAspectRatio: 64 / 36
+            planeAspectRatio: 64 / 36,
+            textureNeedsUpdate: texture.needsUpdate,
+            meshExists: !!meshRef.current,
+            meshMaterial: meshRef.current?.material
           });
+          
           texture.needsUpdate = true;
           meshRef.current.material.map = texture;
           meshRef.current.material.needsUpdate = true;
+          
+          console.log('After applying texture:', {
+            meshMap: meshRef.current.material.map,
+            meshNeedsUpdate: meshRef.current.material.needsUpdate,
+            materialType: meshRef.current.material.type
+          });
         }
       }, 100);
     };
     
     video.addEventListener('loadeddata', handleLoadedData);
+    video.addEventListener('canplay', handleCanPlay);
     
     return () => {
       video.removeEventListener('loadeddata', handleLoadedData);
+      video.removeEventListener('canplay', handleCanPlay);
       if (videoRef.current && videoRef.current.parentNode) {
         videoRef.current.parentNode.removeChild(videoRef.current);
       }
@@ -146,12 +165,13 @@ function VideoContent({ videoUrl }) {
       <Plane 
         ref={meshRef} 
         args={[64, 36]} 
-        position={[0, 0, -10]} 
+        position={[0, 0, -19]} 
         rotation={[
           mousePosition.y * 0.015,  // Pitch based on mouse Y
           mousePosition.x * 0.015,  // Yaw based on mouse X
           0
         ]}
+        {...props}
         castShadow
       >
         <meshStandardMaterial 
