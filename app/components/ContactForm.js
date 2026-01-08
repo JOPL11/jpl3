@@ -137,7 +137,7 @@ export default function ContactForm() {
         disabled={isLoading || !formData.gdprConsent}
         className={`${styles.submitButton} ${isLoading ? styles.loading : ''}`}
       >
-        {isLoading ? 'Sending...' : 'Send Message'}
+        {isLoading ? 'Sending...' : 'Send'}
       </button>
       
       {status && <p className={styles.status}>{status}</p>}

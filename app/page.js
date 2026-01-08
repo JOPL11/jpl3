@@ -12,6 +12,8 @@ import LogoCard from './components/LogoCard';
 import { useMemo } from 'react';
 import LocomotiveScroll from 'locomotive-scroll';
 import { gsap } from 'gsap';
+import VideoPlane from './components/VideoPlane';
+
 
   {/*
 // Dynamically import the component with SSR disabled
@@ -217,10 +219,11 @@ const animationFrameId = useRef(null);
     'overview': overviewHeadingRef,
     'code': workHeadingRef,
     'services': servicesHeadingRef,
-    'webgl': webglHeadingRef,
-    'motion': motionHeadingRef,
     'proto': productHeadingRef,
-    'contact': contactHeadingRef
+    'motion': motionHeadingRef,
+    'video-plane': null,
+    'webgl': webglHeadingRef,
+    'contact': contactHeadingRef,
   }), [aboutHeadingRef, overviewHeadingRef, workHeadingRef, webglHeadingRef, servicesHeadingRef, contactHeadingRef, motionHeadingRef, productHeadingRef]);
   
   // Trigger animation when section changes
@@ -1041,9 +1044,12 @@ useEffect(() => {
                   <p><strong>Role:</strong> Solo Visual Concept, Designer & Animator</p>
                 </ProjectCard>
                
-          
+ 
               </div> 
-            </section> 
+            </section>
+
+            {/* Video Plane - unconstrained */}
+            <VideoPlane videoUrl="https://stream.mux.com/jQpM2jwUgrzmGjMoY8UIG7tUXHSaBK6zvWXIlqxJkMs.m3u8" />
 
             {/*   WebGL Section */}
                <div data-section="webgl-heading"></div>
@@ -1145,7 +1151,7 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={contactHeadingRef}>Contact</AnimatedText>
             </h2>
-            <div style={{height: '0.1rem', marginBottom: '11rem'}}>I&apos;m available for local projects as well as potential employment opportunities. Use the form to inquire about rates and availability, or just to say hi.</div>
+            <div style={{height: '0.1rem', marginBottom: '11rem', fontSize: '1.1rem'}}>I&apos;m available for local projects as well as potential employment opportunities. Use the form to inquire about rates and availability, or just to say hi.</div>
               <ContactForm />
             </section>
         </div>

@@ -444,6 +444,7 @@ body.menu-open .navLink.active::after {
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
+  font-size: 1.1rem;
 }
 
 /* Desktop styles */
@@ -768,7 +769,7 @@ body.menu-open .navLink.active::after {
 .cardContent p {
   margin:  0.5rem 0 0.5rem 1.5rem;
   padding: 0 8px 5px 8px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1.6;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -849,12 +850,12 @@ body.menu-open .navLink.active::after {
   margin-top: 0;
   margin-bottom: 0rem;
   color: #a2feff;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 500;
 }
 
 .clientInfo {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #e5e7eb;
   margin: 0.rem 0 0.05rem 0;
   line-height: 1.6;
@@ -865,7 +866,7 @@ body.menu-open .navLink.active::after {
 }
 
 .clientInfo span {
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .clientInfo strong {
@@ -875,7 +876,7 @@ body.menu-open .navLink.active::after {
 
 .additionalText {
   color: #e5e7eb;
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin: 0.3rem 0 0 0;
   line-height: 1.6;
 }
@@ -899,7 +900,7 @@ body.menu-open .navLink.active::after {
 
 .cardContent p {
   margin: 0.25rem 0;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .cardContent.showContent {
@@ -951,99 +952,102 @@ body.menu-open .navLink.active::after {
 
 .projectLink {
  /* background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 100%);*/
-  background:  #459bb3;
-  color: #fff;
-  text-decoration: none;
-  padding: 0.6rem 1.5rem;
-  border-radius: 4px;
-  font-size: 1rem;
+  background:  #1e5296;
+  border: none;
+  border-radius: 8px;
+  padding: 0.1rem 1.5rem;
+  font-size: 1.2rem;
   cursor: pointer;
-  height: 45px;
-  font-weight: 400;
-  transition: all 0.2s ease;
-  text-shadow: 0 0 3px rgba(48, 47, 47, 0.8);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  font-weight: 500;
+  transition: all 0.5s ease;
+  color: #fff;
   flex: 1;
   min-width: 120px;
+  height: 75px;
+  text-shadow: 0 0 3px rgba(48, 47, 47, 0.8);
   box-sizing: border-box;
-  text-align: center;
-  line-height: 1.2;
+  line-height: normal;
+  padding: 0.1rem 1.5rem 0.8rem 1.2rem;
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: left;
+  text-align: left;
 }
 
 .projectLink:hover {
  /* background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 70%);
   box-shadow: 0 -2px 8px rgba(97, 218, 251, 0.7);
   transition: all 0.5s ease;*/
-  background:  #459bb3;
+  background:  #245fad;
 }
 
 .projectLink:focus {
  /* outline: 2px solid #0070f3;
   outline-offset: 2px;
   transition: all 0.5s ease;*/
-  background:  #459bb3;
+  background:  #1e5296;
 }
 
 .moreButton {
   /* background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 100%); */
-  background:  #459bb3;
+  background:  #1e5296;
   border: none;
-  border-radius: 4px;
-  padding: 0.6rem 1.5rem;
-  font-size: 0.9rem;
+  border-radius: 8px;
+  padding: 0.1rem 1.5rem;
+  font-size: 1.2rem;
   cursor: pointer;
   font-weight: 500;
   transition: all 0.5s ease;
   color: #fff;
   flex: 1;
   min-width: 120px;
-  height: 45px;
+  height: 75px;
   text-shadow: 0 0 3px rgba(48, 47, 47, 0.8);
   box-sizing: border-box;
-  line-height: 1.2;
+  line-height: normal;
+  padding: 0.1rem 1.5rem 0.8rem 1.2rem;
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  align-items: flex-end;
+  justify-content: left;
+  text-align: left;
 }
 
 .moreButton:hover {
  /*  background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 70%);
   box-shadow: 0 -2px 8px rgba(97, 218, 251, 0.7);
   transition: all 0.5s ease;*/
-  background:  #459bb3;
+  background:  #245fad;
 }
 
 .moreButton:focus {
  /* background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 80%);
   outline-offset: 2px;
   transition: all 0.5s ease; */
-  background:  #459bb3;
+  background:  #1e5296;
 }
 
 .viewProjectButton {
  /* background: linear-gradient(180deg, #0cc6f9 10%, #345f6d 100%); */
-  background:  #459bb3;
-  color: #fff;
-  text-shadow: 0 0 3px rgba(48, 47, 47, 0.8);
+  background:  #1e5296;
   border: none;
-  border-radius: 4px;
-  padding: 0.6rem 1.5rem;
-  font-size: 0.9rem;
+  border-radius: 8px;
+  padding: 0.1rem 1.5rem;
+  font-size: 1.2rem;
   cursor: pointer;
+  font-weight: 500;
   transition: all 0.5s ease;
+  color: #fff;
   flex: 1;
   min-width: 120px;
-  height: 45px;
-  font-weight: 500;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
+  height: 75px;
+  text-shadow: 0 0 3px rgba(48, 47, 47, 0.8);
   box-sizing: border-box;
-  line-height: 1.2;
+  line-height: normal;
+  padding: 0.1rem 1.5rem 0.8rem 1.2rem;
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: left;
+  text-align: left;
 }
 
 .viewProjectButton:hover {
@@ -1051,7 +1055,7 @@ body.menu-open .navLink.active::after {
   transform: translateY(-1px);
   box-shadow: 0 -2px 8px rgba(97, 218, 251, 0.7);
   transition: all 0.5s ease;*/
-  background:  #459bb3;
+  background:  #245fad;
 }
 
 .viewProjectButton:active {
@@ -1063,14 +1067,14 @@ body.menu-open .navLink.active::after {
  /* outline: 2px solid #0070f3;
   outline-offset: 2px;
   transition: all 0.5s ease; */
-  background:  #459bb3;
+  background:  #1e5296;
 }
 
 .projectImage {
   margin-top: 0.2rem;
   margin-bottom: 0.5rem;
   width: 100%;
-  border-radius: 6px;
+  border-radius: 8px;
   overflow: hidden;
   transition: all 0.3s ease;
 }
@@ -1434,7 +1438,7 @@ body.menu-open .navLink.active::after {
   background: none;
   border: none;
   color: rgba(255, 255, 255, 0.8);
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   cursor: pointer;
   padding: 0.5rem 1rem;
   transition: all 0.2s ease;
@@ -1520,7 +1524,7 @@ body.menu-open .navLink.active::after {
 }
 
 .footerLink::before {
-  content: '→';
+  content: '▶';
   position: absolute;
   left: 0;
   opacity: 0.5;
@@ -1982,7 +1986,7 @@ a.secondary {
   background: none;
   border: none;
   color: rgba(255, 255, 255, 0.7);
-  font-size: 0.8rem;
+  font-size: 1.1rem;
   cursor: pointer;
   padding: 4px 8px;
   border-radius: 4px;
@@ -1997,7 +2001,7 @@ a.secondary {
 
 .legalSeparator {
   color: rgba(255, 255, 255, 0.3);
-  font-size: 0.8rem;
+  font-size: 1.1rem;
 }
 /* Firefox specific fixes */
 @-moz-document url-prefix() {
