@@ -7,15 +7,16 @@ import * as THREE from 'three';
 import Hls from 'hls.js';
 import styles from '../css/VideoPlane.module.css';
 
-function VideoContent({ videoUrl, ...props }) {
+function VideoContent({ videoUrl, isPlaying, setIsPlaying, isMuted, setIsMuted, volume, setVolume, ...props }) {
   const meshRef = useRef();
   const videoRef = useRef();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  
+
   useEffect(() => {
     const video = document.createElement('video');
     video.crossOrigin = 'anonymous';
     video.loop = true;
+    video.muted = isMuted;
     video.muted = true;
     video.playsInline = true;
     video.style.display = 'none';
@@ -95,8 +96,8 @@ function VideoContent({ videoUrl, ...props }) {
           texture.colorSpace = THREE.SRGBColorSpace;
           texture.minFilter = THREE.LinearFilter;
           texture.magFilter = THREE.LinearFilter;
-          texture.encoding = THREE.sRGBEncoding;
           texture.needsUpdate = true;
+          texture.colorSpace = THREE.SRGBColorSpace;
           meshRef.current.material.map = texture;
           meshRef.current.material.needsUpdate = true;
           meshRef.current.material.transparent = false;
@@ -130,14 +131,61 @@ function VideoContent({ videoUrl, ...props }) {
       setMousePosition({ x, y });
     };
     
+    const handleKeyPress = (event) => {
+      if (event.code === 'Space') {
+        event.preventDefault();
+        togglePlayPause();
+      } else if (event.code === 'KeyM') {
+        event.preventDefault();
+        toggleMute();
+      } else if (event.code === 'ArrowUp') {
+        event.preventDefault();
+        adjustVolume(0.1);
+      } else if (event.code === 'ArrowDown') {
+        event.preventDefault();
+        adjustVolume(-0.1);
+      }
+    };
+    
+    const togglePlayPause = () => {
+      if (videoRef.current) {
+        if (videoRef.current.paused) {
+          videoRef.current.play();
+          setIsPlaying(true);
+        } else {
+          videoRef.current.pause();
+          setIsPlaying(false);
+        }
+      }
+    };
+    
+    const toggleMute = () => {
+      if (videoRef.current) {
+        videoRef.current.muted = !videoRef.current.muted;
+        setIsMuted(!isMuted);
+      }
+    };
+    
+    const adjustVolume = (delta) => {
+      if (videoRef.current) {
+        const newVolume = Math.max(0, Math.min(1, volume + delta));
+        videoRef.current.volume = newVolume;
+        setVolume(newVolume);
+      }
+    };
+    
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('keydown', handleKeyPress);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('keydown', handleKeyPress);
+    };
   }, []);
   
   return (
     <>
-      <ambientLight intensity={0.3} />
-      <directionalLight position={[5, 5, 5]} intensity={0.8} />
+      <ambientLight intensity={0.8} />
+      <directionalLight position={[5, 5, 5]} intensity={1.5} />
       
       {/* Shadow plane beneath the video 
       <mesh 
@@ -149,10 +197,6 @@ function VideoContent({ videoUrl, ...props }) {
         <meshStandardMaterial 
           color="#000000" 
           transparent 
-          opacity={0.3}
-        />
-      </mesh> */}
-      
       {/* Floating video plane with mouse interaction */}
       <Plane 
         ref={meshRef} 
@@ -173,7 +217,7 @@ function VideoContent({ videoUrl, ...props }) {
           metalness={0}
           roughness={0}
           emissive="#ffffff"
-          emissiveIntensity={-0.01}
+          emissiveIntensity={0.01}
         />
       </Plane>
     </>
@@ -182,7 +226,10 @@ function VideoContent({ videoUrl, ...props }) {
 
 export default function VideoPlane({ videoUrl = 'https://stream.mux.com/jQpM2jwUgrzmGjMoY8UIG7tUXHSaBK6zvWXIlqxJkMs.m3u8' }) {
   console.log('VideoPlane rendering with URL:', videoUrl);
-  
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+  const [volume, setVolume] = useState(0);
+
   return (
     <div 
       style={{
@@ -201,8 +248,33 @@ export default function VideoPlane({ videoUrl = 'https://stream.mux.com/jQpM2jwU
             camera={{ position: [0, 0, 5], fov: 75 }}
             shadows
           >
-            <VideoContent videoUrl={videoUrl} />
+            <VideoContent 
+              videoUrl={videoUrl} 
+              isPlaying={isPlaying}
+              setIsPlaying={setIsPlaying}
+              isMuted={isMuted}
+              setIsMuted={setIsMuted}
+              volume={volume}
+              setVolume={setVolume}
+            />
           </Canvas>
+        </div>
+        <div style={{
+          position: 'absolute',
+          top: '20px',
+          right: '20px',
+          color: 'white',
+          fontSize: '14px',
+          fontFamily: 'monospace',
+          background: 'rgba(0,0,0,0.7)',
+          padding: '8px 12px',
+          borderRadius: '4px',
+          pointerEvents: 'auto',
+          zIndex: 1000
+        }}>
+          <div>SPACE: {isPlaying ? 'Pause' : 'Play'}</div>
+          <div>M: {isMuted ? 'uted' : 'ute'}</div>
+          <div>↑/↓: Volume {Math.round(volume * 100)}%</div>
         </div>
       </div>
     </div>
