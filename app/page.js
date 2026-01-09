@@ -635,7 +635,7 @@ useEffect(() => {
               <AnimatedText ref={servicesHeadingRef}>Core Services</AnimatedText>
             </h2>
             <div style={{height: '0.1rem', marginBottom: '5rem'}}>Tools</div>
-              <p>My toolkit is extensive and constantly evolving, allowing me to own a project from concept to deployment. I&apos;ve split the skills into separate categories for clarity:</p>
+              <p>My toolkit is extensive and constantly evolving, allowing me to own a project from concept to deployment. I&apos;ve split skills into separate categories for clarity:</p>
               <ul className={styles.skillsList} role="list">
               <h3 style={{fontSize: '1.3rem', fontWeight: '400', marginTop: '1rem', color: 'white'}}>Languages</h3>
               <div style={{display: 'flex', gap: '0', justifyContent: 'flex-start'}}>
@@ -900,7 +900,7 @@ useEffect(() => {
                   <p><strong>Target Audience:</strong> Municipal Citizens</p>
                   <p><strong>Project Type:</strong> Neighborhood clean-up App</p>
                   <p><strong>Role:</strong> Design & Development</p>
-                  <p><strong>Tools:</strong><AnimatedText ref={bumpiTextRef} type="project"> Next.js, Supabase, Openstreetmap, dompurify</AnimatedText></p>
+                  <p><strong>Tools:</strong><AnimatedText ref={bumpiTextRef} type="project"> Next.js, Supabase, Openstreetmap,</AnimatedText></p>
                   <p><strong>Features:</strong> Game Mode, Leaderboard, Score Distribution, manual or automatic Geolocation, Rate Limiting, CSRF Prevention, XSS Prevention, RLS, Optional Analytics, Optional Auth, Hashed IP Geofencing, Comprehensive Crash Guarding, i18n multilanguage support</p>
                   <p><strong>Goal:</strong> Make something fun, easy to use and secure in compliance with GDPR. At the same time making for a more streamlined and efficient process for municipal officials to manage environmental reports.</p>
                 </ProjectCard>

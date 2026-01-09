@@ -45,7 +45,39 @@ const LogoCard = () => {
       }, 200); // Slower fade-in for visibility
       return () => clearTimeout(timer);
     }, []);
-    
+
+    // Add smooth mousewheel scrolling
+    useEffect(() => {
+      const scrollableContent = document.querySelector(`.scrollableContent`);
+      if (scrollableContent) {
+        let isScrolling = false;
+        
+        const handleWheel = (e) => {
+          e.preventDefault();
+          const delta = e.deltaY * 6; // Increased multiplier for more scroll distance
+          
+          if (!isScrolling) {
+            isScrolling = true;
+            
+            gsap.to(scrollableContent, {
+              scrollTop: scrollableContent.scrollTop + delta,
+              duration: 0.3,
+              ease: "power2.out",
+              onComplete: () => {
+                isScrolling = false;
+              }
+            });
+          }
+        };
+        
+        scrollableContent.addEventListener('wheel', handleWheel, { passive: false });
+        
+        return () => {
+          scrollableContent.removeEventListener('wheel', handleWheel);
+        };
+      }
+    }, []);
+
     const handleNavigate = (direction) => {
       if (!logos) return;
       
