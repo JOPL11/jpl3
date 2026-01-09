@@ -915,6 +915,8 @@ useEffect(() => {
                     <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
                     <p><strong>More:</strong><br /> Be advised this hasn&apos;t been rebranded with my new logo. Still uses the JPL logo instead, hope that doesn&apos;t cause any confusion.</p>
                 </VideoProjectCard>
+
+                   {/* About section End 
                 <ProjectCard 
                   title="Audi Nüremberg"
                   image="/images/corp/audi.jpg"
@@ -1053,7 +1055,7 @@ useEffect(() => {
                   <p><strong>Project Type:</strong> After Effects / Cinema4D</p>
                   <p><strong>Role:</strong> Solo Visual Concept, Designer & Animator</p>
                 </ProjectCard>
-               
+               */}
  
               </div> 
             </section>
