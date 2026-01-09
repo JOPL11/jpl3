@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useModal } from './ModalContext';
 import DOMPurify from 'dompurify';
 import '@mux/mux-player';
+import { gsap } from 'gsap';
 import styles from '../css/LogoCard.module.css';
 
 const LogoCard = () => {
@@ -61,12 +62,24 @@ const LogoCard = () => {
         
         // Update modal content with fade-in
         openModal(<ModalContent key={newIndex} logo={newLogo} index={newIndex} logos={logos} />);
+        
+        // Scroll modal content to top with GSAP
+        setTimeout(() => {
+          const scrollableContent = document.querySelector(`.scrollableContent`);
+          if (scrollableContent) {
+            gsap.to(scrollableContent, {
+              scrollTop: 0,
+              duration: 0.6,
+              ease: "power2.out"
+            });
+          }
+        }, 100);
       }, 300); // Match CSS transition duration
     };
 
     return (
       <div className={`${styles.scrollableContent} ${isFading ? styles.fadeOut : ''}`}>
-        <div className={styles.modalContent}>
+        <div className={styles.modalContent} data-logo={logo.id}>
           {/* Navigation arrows */}
           <div className={styles.modalNavigation}>
             <button 
