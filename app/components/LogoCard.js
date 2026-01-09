@@ -172,7 +172,7 @@ const LogoCard = () => {
         </div>
         
         {/* Bottom Navigation arrows */}
-        <div className={styles.modalNavigation}>
+        <div className={styles.modalNavigation} style={{left: '0', marginLeft: '0'}}>
           <button 
             className={styles.navButton}
             onClick={() => handleNavigate('prev')}

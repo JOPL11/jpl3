@@ -695,7 +695,7 @@ useEffect(() => {
               <h2 id="code" style={{marginTop: '100px'}} className={styles.scrollTarget}><AnimatedText ref={workHeadingRef}>Code Cases</AnimatedText></h2>
                  <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies</div>
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
-
+ {/* About section End 
               <ProjectCard 
                 onMoreClick={() => {
                     console.log('airbus2 More button clicked, triggering animation');
@@ -800,7 +800,7 @@ useEffect(() => {
                   <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
                   <p><strong>Duration:</strong> 3 months and years of updates</p>
                 </ProjectCard>
-
+*/}
               <ProjectCard 
                  onMoreClick={() => {
                   console.log('RoadRich More button clicked, triggering animation');
