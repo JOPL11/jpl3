@@ -868,7 +868,67 @@ useEffect(() => {
                   <p><strong>Tools:</strong><AnimatedText ref={citylink1TextRef} type="project"> Next.js, react</AnimatedText></p>
                   <p><strong>Info:</strong> I designed and built the whole actual app this infopage describes (and the backend interface for it already too), but I&apos;m on the fence about showing it without making people sign an NDA &apos;cuz it is going ahead. Dunno what to do about that right now.</p>
                 </ProjectCard>
-              </div>
+              
+               <ProjectCard 
+                 onMoreClick={() => {
+                  console.log('bumpi More button clicked, triggering animation');
+                  bumpiTextRef.current?.animate();
+                }}
+                  title="Bumpi App"
+                  image="/images/corp/sb3.jpg"
+                  alt="Bumpi App"
+                  link="https://sb202.vercel.app"
+                  textPosition="bottom"
+                  text={`<b>Current Project Pre-Alpha Demo.</b>
+                  <br />
+                  <br />
+                  A GDPR-compliant civics-oriented app designed to help keep local neighborhoods clean. Some features get enabled and disabled based on current development stage.  
+                   <br /> <br />The app uses geofencing, optional geolocation, text-input, voice-to-text. Hash3 deviceID, -ip address and user-agent scrambling and other security features feeding into a near real-time municipal dashboard.`}
+                  client={{
+                    name: "Bumpi App |",
+                    logo: "/images/bumpilongwhite.svg",
+                    website: "https://sbinfo1.vercel.app"
+                  }}
+                  logoWidth={250}
+                  logoHeight={40}
+                  logoStyle={{
+                    height: '20px',
+                    width: 'auto',   
+                    maxWidth: '100%'
+                  }}
+                >
+                  <p><strong>Target Audience:</strong> Municipal Citizens</p>
+                  <p><strong>Project Type:</strong> Neighborhood clean-up App</p>
+                  <p><strong>Role:</strong> Design & Development</p>
+                  <p><strong>Tools:</strong><AnimatedText ref={bumpiTextRef} type="project"> Next.js, Supabase, Openstreetmap, dompurify</AnimatedText></p>
+                  <p><strong>Features:</strong> Game Mode, Leaderboard, Score Distribution, manual or automatic Geolocation, Rate Limiting, CSRF Prevention, XSS Prevention, RLS, Optional Analytics, Optional Auth, Hashed IP Geofencing, Comprehensive Crash Guarding, i18n multilanguage support</p>
+                  <p><strong>Goal:</strong> Make something fun, easy to use and secure in compliance with GDPR. At the same time making for a more streamlined and efficient process for municipal officials to manage environmental reports.</p>
+                </ProjectCard>
+
+                  <ProjectCard 
+                 onMoreClick={() => {
+                  console.log('citylink2 More button clicked, triggering animation');
+                  citylink2TextRef.current?.animate();
+                }}
+                  title="Bumpi Citylink Dashboard"
+                  image="/images/corp/sb2.jpg"
+                  alt="Bumpi Citylink - Municipal Backend"
+                  text="<b>Currently in development.</b> A dashboard that lets a municipal authority manage citizen's reports, set participant scores if game-mode is activated, set up geofencing, and view data transmitted by the Bumpi app. 
+                  <br /><br />Thus enabling the city to streamline its coordination of cleaning crews and manage city-wide cleaning events with pinpoint accuracy.
+                  <br /><br />The dashboard is currently in development but available for live-testing. Login not yet functional."
+                  link="https://glassmapperwip.vercel.app/"
+                  client={{
+                    name: "Bumpi |",
+                    logo: "/images/citylinklongwhite.svg",
+                    website: "https://sbinfo1.vercel.app"
+                  }}    
+                > 
+                  <p><strong>Target Audience:</strong> Municipal officials</p>
+                  <p><strong>Project Type:</strong> Municipal Dashboard</p>
+                  <p><strong>Role:</strong> Design & Development</p>
+                  <p><strong>Tools:</strong><AnimatedText ref={citylink2TextRef} type="project">Next.js, Supabase, Geoman-io, leaflet, Openstreetmap, REST</AnimatedText></p>
+                </ProjectCard>
+                </div>
             </section>
 
                       <div data-section="product-heading"></div>

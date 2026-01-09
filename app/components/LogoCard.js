@@ -289,7 +289,7 @@ const LogoCard = () => {
 
       <img src="/images/mtu1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
       <img src="/images/mtu6.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
-
+           <img src="/images/mtu7.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
     `,
      video: {
         playbackId: 'SnN00m01uyBae8LPAZuNlKXY5nzn01ELE600rh1lA98lKf8',
