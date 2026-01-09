@@ -131,15 +131,13 @@
   width: 200px;
   height: 200px;
   border-radius: 8px;
-  overflow: hidden;
+  overflow: visible;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
 
 
-.profileImageContainer:hover {
-  transform: translateY(-4px);
-}
+
 
 .profileImage {
   width: 100%;
@@ -784,7 +782,6 @@ body.menu-open .navLink.active::after {
   margin: 1.5rem 0;
   border-radius: 0px;
   overflow: hidden;
-  border: none; /* Remove the solid border */
   background: #2a3540;
   user-select: none;
   -webkit-user-select: none;
@@ -1084,6 +1081,19 @@ body.menu-open .navLink.active::after {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.muxPlayer {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+.muxPlayer::part(video) {
+  border-radius: 8px !important;
+}
+
+.muxPlayer video {
+  border-radius: 8px !important;
 }
 
 .projectCard {
@@ -1830,25 +1840,26 @@ a.secondary {
 
 
 .hamburgerBox {
-  width: 40px;
+  width: 50px;
   height: 40px;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   cursor: pointer;
   z-index: 2060;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border-radius: 8px;
+  padding: 5px;
+  top: -15px;
 }
 
 .hamburgerInner {
-  width: 100%;
+  width: 40px;
   height: 4px;
   background-color: rgba(255, 255, 255, 0.7);
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  position: relative;
   transition: background-color 0.3s ease-in-out;
 }
 
@@ -1922,7 +1933,7 @@ a.secondary {
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 .mobileMenuOverlay.mobileMenuOpen {
- opacity: 1;
+  opacity: 1;
   visibility: visible;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
@@ -2036,6 +2047,12 @@ a.secondary {
   .mobileMenu {
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
+  }
+  
+  /* Remove blur from mobile menu overlay for Firefox */
+  .mobileMenuOverlay.mobileMenuOpen {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 }
 /* Additional Firefox fixes */

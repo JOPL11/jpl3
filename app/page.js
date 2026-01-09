@@ -614,18 +614,16 @@ useEffect(() => {
             <p>Global Remote | EST / CET / EET</p>
 
             <p>Eligible to work in the EU, UK, and Canada without visa sponsorship.</p>
-
-              <div style={{height: '1rem'}}></div>
-              <div className={styles.profileImageContainer}>
+                <div className={styles.profileImageContainer}>
+            
               <Image
                 src="/images/me3.jpg"
                 alt="Jan Peiro"
                 className={styles.profileImage}
-                width={210}
-                height={210}
+                width={250}
+                height={250}
               />
-            </div>
-            <br></br><p style={{color: 'white', fontSize: '0.8rem', width: "200px", marginTop: '-20px'}}>Caught here after warding off an assault by an aberrant seagull.</p>
+            </div>  
             </section>
 
 
@@ -666,6 +664,22 @@ useEffect(() => {
                 <li role="listitem">After Effects, Cavalry, Lottie, Natron</li>
                 <li role="listitem">DaVinci Resolve, Premiere Pro</li>
                 <li role="listitem">Video Edit, Video Post-Production, Compositing, Motion Graphics</li>
+                                {/* Mux Video Player */}
+                <div style={{margin: '2rem 0', textAlign: 'center'}}>
+                  <div style={{maxWidth: '800px', margin: '0 auto', borderRadius: '8px', overflow: 'hidden'}}>
+                    <mux-player
+                      stream-time="false"
+                      playback-id="jQpM2jwUgrzmGjMoY8UIG7tUXHSaBK6zvWXIlqxJkMs"
+                      metadata-video-title="MTU Aero-Engines Animation"
+                      metadata-video-id="mtu-aero-engines"
+                      theme-color="#3045a9"
+                      accent-color="#a2feff"
+                      primary-color="#ffffff"
+                      className={styles.muxPlayer}
+                      style={{aspectRatio: '16/9', width: '100%'}}
+                    />
+                  </div>
+                </div>
                 <h3 style={{fontSize: '1.3rem', fontWeight: '400', marginTop: '1rem', color: 'white'}}>Code</h3>
                 <li role="listitem">Development, Rapid Prototyping</li>
                 <li role="listitem">React, Next.js, Vue.js, html, css, javascript</li>
@@ -695,7 +709,7 @@ useEffect(() => {
               <h2 id="code" style={{marginTop: '100px'}} className={styles.scrollTarget}><AnimatedText ref={workHeadingRef}>Code Cases</AnimatedText></h2>
                  <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies</div>
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
-
+ {/* About section End 
               <ProjectCard 
                 onMoreClick={() => {
                     console.log('airbus2 More button clicked, triggering animation');
@@ -800,7 +814,7 @@ useEffect(() => {
                   <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
                   <p><strong>Duration:</strong> 3 months and years of updates</p>
                 </ProjectCard>
-
+                */}
               <ProjectCard 
                  onMoreClick={() => {
                   console.log('RoadRich More button clicked, triggering animation');
@@ -1054,18 +1068,11 @@ useEffect(() => {
                   <p><strong>Role:</strong> Solo Visual Concept, Designer & Animator</p>
                 </ProjectCard>
                
+
  
               </div> 
             </section>
-              <section>
-                {!isMobile && (
-                  <>
-            {/* Video Plane - unconstrained */}
-                <div style={{height: '0.1rem', marginBottom: '11rem', fontSize: '1.1rem', textAlign: 'center'}}>this section currently under construction</div>
-            <VideoPlane videoUrl="https://stream.mux.com/jQpM2jwUgrzmGjMoY8UIG7tUXHSaBK6zvWXIlqxJkMs.m3u8" />
-                  </>
-                )}
-                </section>
+
             {/*   WebGL Section */}
                <div data-section="webgl-heading"></div>
             <section id="webgl" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="webgl">
