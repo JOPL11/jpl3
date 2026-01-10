@@ -12,7 +12,7 @@ import LogoCard from './components/LogoCard';
 import { useMemo } from 'react';
 import LocomotiveScroll from 'locomotive-scroll';
 import { gsap } from 'gsap';
-import VideoPlane from './components/VideoPlane';
+
 
 
   {/*
@@ -22,6 +22,15 @@ const BelowFooterWorld = dynamic(
   { ssr: false }
 );
 */}
+const MuxPlayer = dynamic(
+  () => import('@mux/mux-player').then(() => {
+    return function MuxPlayerWrapper(props) {
+      return <mux-player {...props} />;
+    };
+  }),
+  { ssr: false }
+);
+
 const checkIfIOS = () => {
   return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 };
@@ -964,9 +973,9 @@ useEffect(() => {
                 <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies</div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
               <VideoProjectCard 
-                  title="Showreel 2025"
+                  title="Long Reel 2025"
                   image="/images/JPL3Poster_Reel.jpg"
-                  alt="Showreel 2025"
+                  alt="Long Reel 2025"
                   text="2D / 3D Motion Reel featuring Commercial and Personal Work "
                   videoUrl= "https://vimeo.com/1115973919"
                 >
@@ -975,7 +984,32 @@ useEffect(() => {
                     <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
                     <p><strong>More:</strong><br /> Be advised this hasn&apos;t been rebranded with my new logo. Still uses the JPL logo instead, hope that doesn&apos;t cause any confusion.</p>
                 </VideoProjectCard>
-
+                
+                  <h2 style={{paddingTop: "1rem", fontSize: '1.40rem', color: "#a2feff"}}>Short Reel 2025</h2>
+            <div style={{height: '0.1rem', marginBottom: '1rem',marginTop: '1.3rem', color: "#fff"}}>For those with little time</div>
+                <div style={{ 
+                  width: '100%', 
+                  maxWidth: '850px',
+                  height: '100%', 
+                  margin: '1rem auto 0',
+                  position: 'relative',
+                  overflow: 'visible',
+                  boxShadow: '0 0 20px rgba(69, 218, 255, 0.7), 0 0 20px rgba(0, 0, 0, 0.2)'
+                }}>
+                  <MuxPlayer
+                    playback-id="jQpM2jwUgrzmGjMoY8UIG7tUXHSaBK6zvWXIlqxJkMs"
+                    poster="https://image.mux.com/jQpM2jwUgrzmGjMoY8UIG7tUXHSaBK6zvWXIlqxJkMs/thumbnail.png?width=960&height=540&time=18"
+                    controls
+                    style={{ 
+                      width: '100%', 
+                      height: '100%'
+                    }}
+                    accent-color="#0a5fcf"
+                    primary-color="#ffffff"
+                    secondary-color="transparent"
+                  />
+                </div>
+            
                    {/* About section End 
                 <ProjectCard 
                   title="Audi Nüremberg"
