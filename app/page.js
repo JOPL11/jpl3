@@ -986,15 +986,15 @@ useEffect(() => {
                 </VideoProjectCard>
                 
                   <h2 style={{paddingTop: "1rem", fontSize: '1.40rem', color: "#a2feff"}}>Short Reel 2025</h2>
-            <div style={{height: '0.1rem', marginBottom: '1rem',marginTop: '1.3rem', color: "#fff"}}>For those with little time</div>
-                <div style={{ 
+            <div style={{height: '0.1rem', marginBottom: '1.5rem',marginTop: '-1.3rem', color: "#fff"}}>For those with little time</div>
+                <div id='holder' style={{ 
                   width: '100%', 
                   maxWidth: '850px',
-                  height: '100%', 
-                  margin: '1rem auto 0',
+                  margin: '0',
                   position: 'relative',
+                  borderRadius: '8px',
                   overflow: 'visible',
-                  boxShadow: '0 0 20px rgba(69, 218, 255, 0.7), 0 0 20px rgba(0, 0, 0, 0.2)'
+                  boxShadow: '0 0 80px rgba(69, 218, 255, 0.7), 0 0 20px rgba(0, 0, 0, 0.2)'
                 }}>
                   <MuxPlayer
                     playback-id="jQpM2jwUgrzmGjMoY8UIG7tUXHSaBK6zvWXIlqxJkMs"
@@ -1002,7 +1002,8 @@ useEffect(() => {
                     controls
                     style={{ 
                       width: '100%', 
-                      height: '100%'
+                      height: '100%',
+                      display: 'block'
                     }}
                     accent-color="#0a5fcf"
                     primary-color="#ffffff"
