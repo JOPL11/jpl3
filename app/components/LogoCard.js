@@ -290,6 +290,7 @@ const LogoCard = () => {
         
     
       </ul>
+      <img src="/images/airbus_ottobrunn/video/8.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
 `
   },   
  
@@ -334,7 +335,7 @@ const LogoCard = () => {
 
       <img src="/images/mtu1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
       <img src="/images/mtu6.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
-           <img src="/images/mtu7.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+   
     `,
      video: {
         playbackId: 'SnN00m01uyBae8LPAZuNlKXY5nzn01ELE600rh1lA98lKf8',
@@ -347,6 +348,7 @@ const LogoCard = () => {
       },
     description2: `      
     <img src="/images/mtu2.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+            <img src="/images/mtu7.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
 `
   },            
     { id: 4, src: '/images/mini/audi.jpg', alt: 'Logo 4', 
@@ -414,7 +416,7 @@ const LogoCard = () => {
       agencyName: 'BECC Agency',
       agencyLink: 'https://www.becc-agency.com',
       description: `
-
+  <img src="/images/BMW1.jpg" alt="BMW Global Rebranding - Image is recreated to evoke. Not an official asset" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
       <p><strong>Project 1:</strong> Narrative Films for the BMW Global Rebranding<br>
       <strong>Role:</strong> Internal Storyteller & Consensus Architect, Narration Author, Voice Recording & Voice Narration<br>
 
@@ -422,7 +424,7 @@ const LogoCard = () => {
       <p><strong>The Work:</strong> I contributed to the internationally recognized Red Dot Award winning BMW global rebranding initiative by producing internal narrative "mood videos." Tasked with editing archival footage, writing scripts, and providing voiceover, I created assets used by the core BECC/BMW team to aid the brand evolution narrative during their extensive, multi-year design process.</p><br>
       
       
-      <img src="/images/BMW1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+    
       <p>These videos served as strategic communication aids, designed to:</p><br>
         <ul>
         <li><p>Give visual and narrative form to brand concepts being debated.</p></li>
@@ -432,7 +434,7 @@ const LogoCard = () => {
 
         <p><strong>Tech:</strong> Adobe Premiere, Adobe After Effects, Garageband<br>
         <strong>Outcome: </strong>The videos were well-received by the team (especially the voiceover!) and were integrated into their workflow as part of the vast ecosystem of materials supporting the historic redesign.</p><br>
-
+<img src="/images/A3.jpg" alt="BMW Style Guide Motion  Image is recreated to evoke. Not an official asset" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
       <p><strong>Project 2:</strong> Global Web Animation Language for BMW.com's Style Guide<br>
       <strong>Role:</strong> Motion Systems Architect<br>
       <strong>Tech:</strong> GSAP (The Acclaimed, Crossbrowser 'GreenSock Animation Platform'), rapid prototyping, systems thinking.<br>

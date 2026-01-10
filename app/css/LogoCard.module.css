@@ -155,6 +155,8 @@
   flex-direction: column;
   overflow: hidden;
   padding: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--foreground-muted) transparent;
 }
 
 .modalDescription {
@@ -215,9 +217,18 @@
 
 /* WebKit scrollbar (Chrome, Safari, Edge) */
 .scrollableContent::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
-
+.modalContent::-webkit-scrollbar {
+  width: 4px;
+}
+.modalContent::-webkit-scrollbar-track {
+  background: transparent;
+}
+.modalContent::-webkit-scrollbar-thumb {
+  background-color: var(--foreground-muted);
+  border-radius: 3px;
+}
 .scrollableContent::-webkit-scrollbar-track {
   background: transparent;
 }
