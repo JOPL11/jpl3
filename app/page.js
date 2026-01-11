@@ -935,6 +935,7 @@ useEffect(() => {
                     description: "A GDPR-compliant info page for a civics oriented app. This is the back end, where the submissions from the Bumpi app are stored,evaluated, and municipal officials can manage the data, direct clean-up crews, set geofences, set user-scores and more. ",
                     images: [
                       { src: "/images/CL0.jpg", alt: "Project Screenshot 1" },
+                        { src: "/images/SB_A7.jpg", alt: "Project Screenshot 6" },
                       { src: "/images/CL1.jpg", alt: "Project Screenshot 2" },
                       { src: "/images/CL2.jpg", alt: "Project Screenshot 3" },
                       { src: "/images/CL4.jpg", alt: "Project Screenshot 4" },
