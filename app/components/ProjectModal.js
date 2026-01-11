@@ -74,8 +74,8 @@ export default function ProjectModal({ title, description, images = [], videos =
           <Image
             src={img.src}
             alt={img.alt || `Project image ${currentImageIndex + 1}`}
-            width={800}
-            height={600}
+            width={1200}
+            height={800}
             className={styles.modalImage}
             priority={currentImageIndex === 0 && (!videos || videos.length === 0)}
             loading={currentImageIndex === 0 && (!videos || videos.length === 0) ? 'eager' : 'lazy'}

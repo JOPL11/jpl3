@@ -96,6 +96,7 @@ const ThrowableImages = ({ isActive = false }) => {
                   fill
                   sizes="(max-width: 768px) 100vw, 800px"
                   priority={index === 0}
+                  quality={100}
                   style={{ objectFit: 'cover' }}
                 />
                 <div style={{

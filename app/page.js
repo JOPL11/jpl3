@@ -704,7 +704,7 @@ useEffect(() => {
               <h2 id="code" style={{marginTop: '100px'}} className={styles.scrollTarget}><AnimatedText ref={workHeadingRef}>Code Cases</AnimatedText></h2>
                  <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies</div>
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
- {/* About section End 
+ {/* About section End
               <ProjectCard 
                 onMoreClick={() => {
                     console.log('airbus2 More button clicked, triggering animation');
@@ -809,7 +809,7 @@ useEffect(() => {
                   <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
                   <p><strong>Duration:</strong> 3 months and years of updates</p>
                 </ProjectCard>
-*/}
+  */}
               <ProjectCard 
                  onMoreClick={() => {
                   console.log('RoadRich More button clicked, triggering animation');
@@ -847,16 +847,17 @@ useEffect(() => {
 
 
 
-              <ProjectCard
-               onMoreClick={() => {
-                console.log('citylink1 More button clicked, triggering animation');
-                citylink1TextRef.current?.animate();
-              }} 
+                <ProjectCard
+                  onMoreClick={() => {
+                    console.log('citylink1 More button clicked, triggering animation');
+                    citylink1TextRef.current?.animate();
+                  }} 
                   title="CityLink Info Page"
                   image="/images/corp/sb4.jpg"
                   alt="CityLink Info Page"
-                  text="A GDPR-compliant info page for a civics oriented app."
                   link="https://sbinfo1.vercel.app"
+                  text="A GDPR-compliant info page for a civics oriented app."
+               
                   client={{
                     name: "CityLink |",
                     logo: "/images/citylinklongwhite.svg",
@@ -869,13 +870,14 @@ useEffect(() => {
                     width: 'auto', 
                     maxWidth: '100%'
                   }}
+
                 >
                   <p><strong>Target Audience:</strong> Municipal officials</p>
                   <p><strong>Project Type:</strong> Infopage about the Neighborhood Clean-up mobile App</p>
                   <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Duration:</strong> 4 days</p>
                   <p><strong>Tools:</strong><AnimatedText ref={citylink1TextRef} type="project"> Next.js, react</AnimatedText></p>
-                  <p><strong>Info:</strong> I designed and built the whole actual app this infopage describes (and the backend interface for it already too), but I&apos;m on the fence about showing it without making people sign an NDA &apos;cuz it is going ahead. Dunno what to do about that right now.</p>
+                  <p><strong>Info:</strong> The app this page describes is currently in development and visible / testable in the projectCards below.</p>
                 </ProjectCard>
               
                <ProjectCard 
@@ -924,18 +926,29 @@ useEffect(() => {
                   alt="Bumpi Citylink - Municipal Backend"
                   text="<b>Currently in development.</b> A dashboard that lets a municipal authority manage citizen's reports, set participant scores if game-mode is activated, set up geofencing, and view data transmitted by the Bumpi app. 
                   <br /><br />Thus enabling the city to streamline its coordination of cleaning crews and manage city-wide cleaning events with pinpoint accuracy.
-                  <br /><br />The dashboard is currently in development but available for live-testing. Login not yet functional."
-                  link="https://glassmapperwip.vercel.app/"
+                  <br /><br />Because the dashboard enables users to delete database entries, it is not available for live-testing."
+                  //link="https://glassmapperwip.vercel.app/"
                   client={{
                     name: "Bumpi |",
                     logo: "/images/citylinklongwhite.svg",
                     website: "https://sbinfo1.vercel.app"
                   }}    
+                  modalContent={{
+                    description: "A GDPR-compliant info page for a civics oriented app. This is the back end, where the submissions from the Bumpi app are stored,evaluated, and municipal officials can manage the data, direct clean-up crews, set geofences, set user-scores and more. ",
+                    images: [
+                      { src: "/images/CL0.jpg", alt: "Project Screenshot 1" },
+                      { src: "/images/CL1.jpg", alt: "Project Screenshot 2" },
+                      { src: "/images/CL2.jpg", alt: "Project Screenshot 3" },
+                      { src: "/images/CL4.jpg", alt: "Project Screenshot 4" },
+                      { src: "/images/CL3.jpg", alt: "Project Screenshot 5" },
+                       { src: "/images/SB_A6.jpg", alt: "Project Screenshot 6" },
+                    ]
+                  }}
                 > 
                   <p><strong>Target Audience:</strong> Municipal officials</p>
                   <p><strong>Project Type:</strong> Municipal Dashboard</p>
                   <p><strong>Role:</strong> Design & Development</p>
-                  <p><strong>Tools:</strong><AnimatedText ref={citylink2TextRef} type="project">Next.js, Supabase, Geoman-io, leaflet, Openstreetmap, REST</AnimatedText></p>
+                  <p><strong>Tools:</strong><AnimatedText ref={citylink2TextRef} type="project"> Next.js, Supabase, Geoman-io, leaflet, Openstreetmap, REST</AnimatedText></p>
                 </ProjectCard>
                 </div>
             </section>

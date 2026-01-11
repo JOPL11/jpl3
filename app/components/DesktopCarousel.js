@@ -97,11 +97,29 @@ export default function DesktopCarousel({ title, description, images = [] }) {
       <div className={styles.carouselContent}>
         {currentIndex === 0 ? (
           <div className={styles.descriptionSlide}>
-            <h3>{title}</h3>
-            <div 
-              className={styles.descriptionText}
-              dangerouslySetInnerHTML={{ __html: description }}
-            />
+            <div className={styles.descriptionContent}>
+              <div className={styles.descriptionTextContent}>
+                <h3>{title}</h3>
+                <div 
+                  className={styles.descriptionText}
+                  dangerouslySetInnerHTML={{ __html: description }}
+                />
+              </div>
+              {images.length > 0 && images[0]?.src && !imageError && (
+                <div className={styles.descriptionImage}>
+                  <Image
+                    src={images[0].src}
+                    alt={images[0]?.alt || 'Project hero image'}
+                    width={600}
+                    height={400}
+                    className={styles.heroImage}
+                    priority={true}
+                    onError={handleImageError}
+                    unoptimized={process.env.NODE_ENV === 'development'}
+                  />
+                </div>
+              )}
+            </div>
           </div>
         ) : (
           <div className={styles.imageSlide}>
@@ -118,7 +136,7 @@ export default function DesktopCarousel({ title, description, images = [] }) {
                   onError={handleImageError}
                   unoptimized={process.env.NODE_ENV === 'development'}
                   style={{
-                    maxWidth: '80%',
+                    maxWidth: '100%',
                     height: 'auto',
                   }}
                 />
