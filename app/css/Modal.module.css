@@ -363,7 +363,7 @@
 }
 
 .carouselButton {
-  background: rgba(255, 255, 255, 0.1);
+  background: transparent;
   border: 0px solid #fff;
   color: #fff;
   width: 50px;
@@ -385,7 +385,7 @@
 }
 
 .carouselButton:hover {
-   background: rgba(255, 255, 255, 0.2);
+   background: transparent;
   transform: scale(1.1);
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
 }
@@ -394,13 +394,7 @@
   transform: scale(0.95);
 }
 
-/* Hide carousel controls on desktop */
-@media (min-width: 811px) {
-  .carouselControls {
-    display: none;
-  }
-  
-}
+
 
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
