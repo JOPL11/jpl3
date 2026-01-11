@@ -926,7 +926,7 @@ useEffect(() => {
                   alt="Bumpi Citylink - Municipal Backend"
                   text="<b>Currently in development.</b> A dashboard that lets a municipal authority manage citizen's reports, set participant scores if game-mode is activated, set up geofencing, and view data transmitted by the Bumpi app. 
                   <br /><br />Thus enabling the city to streamline its coordination of cleaning crews and manage city-wide cleaning events with pinpoint accuracy.
-                  <br /><br />Because the dashboard enables users to delete database entries, it is not available for live-testing."
+                  <br /><br />Because the dashboard enables users to delete database entries, it is only available for live-testing upon demand. Individual presentations are only available upon request."
                   //link="https://glassmapperwip.vercel.app/"
                   client={{
                     name: "Bumpi |",
