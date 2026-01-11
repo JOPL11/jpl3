@@ -122,7 +122,7 @@ function VideoContent({ videoUrl, isPlaying, setIsPlaying, isMuted, setIsMuted, 
         videoRef.current.parentNode.removeChild(videoRef.current);
       }
     };
-  }, [videoUrl]);
+  }, [videoUrl, isMuted]);
   
   useEffect(() => {
     const handleMouseMove = (event) => {
@@ -146,18 +146,7 @@ function VideoContent({ videoUrl, isPlaying, setIsPlaying, isMuted, setIsMuted, 
         adjustVolume(-0.1);
       }
     };
-    
-    const togglePlayPause = () => {
-      if (videoRef.current) {
-        if (videoRef.current.paused) {
-          videoRef.current.play();
-          setIsPlaying(true);
-        } else {
-          videoRef.current.pause();
-          setIsPlaying(false);
-        }
-      }
-    };
+
     
     const toggleMute = () => {
       if (videoRef.current) {
@@ -176,11 +165,12 @@ function VideoContent({ videoUrl, isPlaying, setIsPlaying, isMuted, setIsMuted, 
     
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('keydown', handleKeyPress);
+    
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('keydown', handleKeyPress);
     };
-  }, []);
+  }, [isMuted, setIsMuted, isPlaying, setIsPlaying, setVolume, volume, toggleMute, adjustVolume]);
   
   return (
     <>

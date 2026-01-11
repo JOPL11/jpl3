@@ -37,7 +37,7 @@ export default function CookieBanner() {
     <div className={styles.banner}>
       <div className={styles.content}>
         <p>
-          My site doesn't track you. No cookies, no fingerprinting, no bullshit. 
+          My site doesn&apos;t track you. No cookies, no fingerprinting, no bullshit. 
         </p>
         <div className={styles.buttons}>
           <button onClick={handleReject} className={styles.rejectButton}>
