@@ -807,7 +807,7 @@ useEffect(() => {
                   <p><strong>Role:</strong> Lead Designer, Lead Dev</p>
                   <p><strong>Duration:</strong> 3 months and years of updates</p>
                 </ProjectCard>
-  */}
+
               <ProjectCard 
                  onMoreClick={() => {
                   console.log('RoadRich More button clicked, triggering animation');
@@ -842,7 +842,7 @@ useEffect(() => {
                   <p><strong>Features:</strong> Photo capture / compression. Geolocation. Supabase. Openstreetmap.</p>
                   <p><strong>Goal:</strong> Make something fun, easy to use and secure in compliance with GDPR.</p>
                 </ProjectCard>
-
+  */}
 
 
                 <ProjectCard
