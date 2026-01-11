@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import styles from '../css/Modal.module.css';
 
-export default function ProjectModal({ title, description, images = [], videos = [], clientLogo }) {
+export default function ProjectModal({ title, description, images = [], videos = [], clientLogo, className }) {
   const [hasConsent, setHasConsent] = useState(false);
   const [showConsentBanner, setShowConsentBanner] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -19,7 +19,7 @@ export default function ProjectModal({ title, description, images = [], videos =
 
   useEffect(() => {
     // Check for existing consent
-    const savedConsent = localStorage.getItem('cookieConsent');
+    const savedConsent = localStorage.getItem('analyticsConsent');
     if (savedConsent === 'true') {
       setHasConsent(true);
     } else if (videos.length > 0 || images.some(img => 
@@ -145,7 +145,7 @@ export default function ProjectModal({ title, description, images = [], videos =
   };
 
   return (
-    <div className={styles.projectModal}>
+    <div className={`${styles.projectModal} ${className || ''}`}>
       <div className={styles.modalHeader} >
         <h2 ref={headingRef}
           tabIndex="0" // Make it focusable

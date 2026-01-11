@@ -4,7 +4,7 @@
 import React, { useEffect, useRef, useCallback, useState } from 'react';
 import styles from '../css/Modal.module.css';
 
-export default function Modal({ isOpen, onClose, children, fullBleed = false }) {
+export default function Modal({ isOpen, onClose, children, fullBleed = false, className = '' }) {
   const modalRef = useRef(null);
   const scrollY = useRef(0);
   const contentRef = useRef(null);
@@ -128,7 +128,7 @@ export default function Modal({ isOpen, onClose, children, fullBleed = false }) 
     <div className={`${styles.modalOverlay} ${isClosing ? styles.closing : ''}`} onClick={handleClose}>
       <div 
         ref={modalRef}
-        className={`${styles.modalContent} ${fullBleed ? styles.fullBleed : ''} ${isClosing ? styles.closing : ''}`}
+        className={`${styles.modalContent} ${className} ${fullBleed ? styles.fullBleed : ''} ${isClosing ? styles.closing : ''}`}
         onClick={(e) => e.stopPropagation()}
       >
         <button 

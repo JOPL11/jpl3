@@ -17,34 +17,23 @@ const getImageSource = (src) => {
   return src;
 };
 
-export default function DesktopCarousel({ title, description, images = [] }) {
+export default function DesktopCarousel({ title, description, images = [], className }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isDesktop, setIsDesktop] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(true);
   const [imageError, setImageError] = useState(false);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   // Debug log when images change
   useEffect(() => {
-    console.log('Images in DesktopCarousel:', images);
     if (images.length > 0 && images[0]?.src) {
-      console.log('First image src:', images[0].src);
+      // Debug removed
     }
   }, [images]);
 
   // Check if we're on desktop
   useEffect(() => {
-    const checkIfDesktop = () => {
-      const isDesktopView = window.innerWidth > 1024;
-      console.log('Is desktop view:', isDesktopView);
-      setIsDesktop(isDesktopView);
-    };
-    
-    checkIfDesktop();
-    window.addEventListener('resize', checkIfDesktop);
-    return () => window.removeEventListener('resize', checkIfDesktop);
-
-
-    
+    // Always assume desktop since ModalWrapper controls visibility
+    setIsDesktop(true);
   }, []);  
 
 
@@ -93,7 +82,7 @@ export default function DesktopCarousel({ title, description, images = [] }) {
     'Image src:', imageSrc);
 
   return (
-    <div className={styles.carouselContainer}>
+    <div className={`${styles.carouselContainer} ${className || ''}`}>
       <div className={styles.carouselContent}>
         {currentIndex === 0 ? (
           <div className={styles.descriptionSlide}>

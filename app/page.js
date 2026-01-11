@@ -855,6 +855,7 @@ useEffect(() => {
                   alt="CityLink Info Page"
                   link="https://sbinfo1.vercel.app"
                   text="A GDPR-compliant info page for a civics oriented app."
+                
                
                   client={{
                     name: "CityLink |",
@@ -925,6 +926,7 @@ useEffect(() => {
                   text="<b>Currently in development.</b> A dashboard that lets a municipal authority manage citizen's reports, set participant scores if game-mode is activated, set up geofencing, and view data transmitted by the Bumpi app. 
                   <br /><br />Thus enabling the city to streamline its coordination of cleaning crews and manage city-wide cleaning events with pinpoint accuracy.
                   <br /><br />Because the dashboard enables users to delete database entries, it is only available for live-testing upon demand. Individual presentations are only available upon request."
+                  modalClassName="citylinkModal"
                   //link="https://glassmapperwip.vercel.app/"
                   client={{
                     name: "Bumpi |",

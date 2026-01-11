@@ -36,6 +36,7 @@ export default function ProjectCard({
   logoHeight = 80,
   logoStyle = {},   // Default height
   className = '',    // Add className prop with default empty string
+  modalClassName = '', // Add modalClassName prop for custom modal styling
   onViewProject,
   onMoreClick = () => {} // Add onMoreClick with default empty function
 }) {
@@ -57,6 +58,7 @@ export default function ProjectCard({
               title={title}
               description={modalContent.description}
               images={modalContent.images || []}
+              className={modalClassName}
             />
           </ModalWrapper>
           <ModalWrapper isDesktop={false}>
@@ -66,9 +68,11 @@ export default function ProjectCard({
               images={modalContent.images || []}
               videos={modalContent.videos || []}
               clientLogo={client?.logo}
+              className={modalClassName}
             />
           </ModalWrapper>
-        </div>
+        </div>,
+        modalClassName
       );
     }
   };
