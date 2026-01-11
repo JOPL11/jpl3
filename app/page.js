@@ -57,13 +57,11 @@ const PrivacyModal = dynamic(() => import('../components/PrivacyModal'), {
   ssr: false,
 });
 import styles from "./css/page.module.css";
-import PrivacyStyles from './css/PrivacyModal.module.css';
 const ImpressumModal = dynamic(() => import('../components/ImpressumModal'), {
   ssr: false,
 });
 import ProjectCard from './components/ProjectCard';
 import VideoProjectCard from './components/VideoProjectCard';
-import VideoProjectCardCarousel from './components/VideoProjectCardCarousel';
 import ContactForm from './components/ContactForm';
 
 // Wrapper component to handle WebGL and iOS interaction

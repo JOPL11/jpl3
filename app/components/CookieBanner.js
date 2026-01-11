@@ -37,15 +37,11 @@ export default function CookieBanner() {
     <div className={styles.banner}>
       <div className={styles.content}>
         <p>
-          This website uses cookies for analytics and performance optimization. 
-          Your choice will be respected.
+          My site doesn't track you. No cookies, no fingerprinting, no bullshit. 
         </p>
         <div className={styles.buttons}>
-          <button onClick={handleAccept} className={styles.acceptButton}>
-            Accept
-          </button>
           <button onClick={handleReject} className={styles.rejectButton}>
-            Reject
+            Great!
           </button>
         </div>
       </div>
