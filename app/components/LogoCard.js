@@ -258,6 +258,9 @@ const LogoCard = () => {
         thumbnail: 'https://image.mux.com/8UuN9JNltg9BwDO1SAAbvKn6vyq2u7vdgwScfVXLUk8/thumbnail.png?width=960&height=360&time=10'
       },
       description: `
+      <img src="/images/airbus_berlin/table0.jpg" alt="Airbus Munich Showroom" style="width: 100%; margin: 1rem 0; border-radius: 8px;" />
+
+    
       <p><strong>The Mission:</strong> Airbus Group required a next-generation digital interface for its most important spaces: its International Headquarters in Berlin and its premier Showroom in Munich. The mandate was to create interactive, multi-sensory experiences that could communicate the complexity and ambition of aerospace innovation to VIPs, partners, and policymakers.</p>
 
       <p><strong>My Role:</strong> Lead Digital Experience Designer & Developer.</p>
