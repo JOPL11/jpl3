@@ -42,7 +42,8 @@ const LogoCard = () => {
   const exemptLogos = logosRef.current.filter((logo, i) => 
     logo && logos[i] && logos[i].exemptFromAnimations
   );
-  
+  // Create a custom bounce ease specifically for logos
+
   
     // Create a master timeline for the entire grid
     const masterTL = gsap.timeline({
@@ -77,7 +78,7 @@ const LogoCard = () => {
         scale: 1,
         z: 0,
         duration: 1.5,
-        ease:  "elastic.out(1.1, 0.6)",
+        ease:  "logoBounceEase",
         delay: (row + col) * 0.02 // Diagonal stagger
       });
       
@@ -518,7 +519,7 @@ const LogoCard = () => {
       <p style="margin-top: 3rem;"><strong>1.</strong> HQ Command Center: Berlin Touchtable Interface<br>
       <p><strong>Challenge: </strong> Create a collaborative, data-driven tool for the heart of Airbus operations.</p>
       <p><strong>Solution: </strong> Designed and coded a custom multi-monitor touchtable interface that allowed executives to interactively explore fleet data, global operations, and company history. This is mission-critical UIX for daily use.</p><br>
-      <p><strong>Longevity: </strong> This has been consistantly updated and in use for ten years. A completely new version is in the works for deployment next year.</p>
+      <p><strong>Longevity: </strong> This has been consistantly updated and in use for ten years. </p>
 
       <img src="/images/airbus_berlin/table6.jpg" alt="Airbus Munich Showroom" style="width: 100%; margin: 1rem 0; border-radius: 8px;" />
 
