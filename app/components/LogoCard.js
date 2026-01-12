@@ -11,164 +11,13 @@ import styles from '../css/LogoCard.module.css';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
-
 const LogoCard = () => {
   const { openModal } = useModal();
   const [currentLogoIndex, setCurrentLogoIndex] = useState(null);
   const [currentLogos, setCurrentLogos] = useState(null);
 
-
-
-
-
-
   const containerRef = useRef(null);
   const logosRef = useRef([]);
-  
-
-
-
-
-
-
-  // Initialize GSAP animations
-  useEffect(() => {
-    if (!containerRef.current) return;
-
-    // filter out the party poopers
-    const animatedLogos = logosRef.current.filter((logo, i) => 
-    logo && logos[i] && !logos[i].exemptFromAnimations
-  );
-  const exemptLogos = logosRef.current.filter((logo, i) => 
-    logo && logos[i] && logos[i].exemptFromAnimations
-  );
-  // Create a custom bounce ease specifically for logos
-
-  
-    // Create a master timeline for the entire grid
-    const masterTL = gsap.timeline({
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top 90%", // Starts animating when 60% into view
-        end: "bottom 20%",
-        toggleActions: "play none none none",
-         scroller: document.body,
-        scrub: 1, // Smoothly follows scroll
-        markers: false, // Set to true for debugging
-      }
-    });
-    
-    // Initial entrance: logos fly in from 3D space
-    logosRef.current.forEach((logo, i) => {
-      // Calculate grid position for staggered effect
-      const row = Math.floor(i / 3); // Assuming 4 columns
-      const col = i % 3;
-      
-      // Create individual timelines for each logo
-      const logoTL = gsap.timeline();
-      
-      // Set initial state (off-screen in 3D space)
-      gsap.set(logo, {
-        opacity: 1,
-        scale: 0.9,
-        transformOrigin: "center center"
-      });
-      
-      // Entry animation
-      logoTL.to(logo, {
-        opacity: 1,
-        scale: 1,
-        z: 0,
-        duration: 1.5,
-        ease:  "logoBounceEase",
-        delay: (row + col) * 0.02 // Diagonal stagger
-      });
-      
-      // Add to master timeline
-      masterTL.add(logoTL, i * 0.05);
-    });
-    
-    // Add continuous subtle floating animation
-    logosRef.current.forEach((logo, i) => {
-      const row = Math.floor(i / 3); // Assuming 4 columns
-      const col = i % 3;
-      gsap.to(logo, {
-        y: () => Math.sin(Date.now() * 0.001 + i) * 10, // Unique pattern per logo
-       // rotationX: () => Math.sin(Date.now() * 0.0005 + i) * 0.6,
-        duration: 3,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        overwrite: "auto",
-        delay: (row + col) * 0.02 // Diagonal stagger
-      });
-    });
-    
-    return () => {
-      masterTL.kill();
-    };
-  }, []);
-
-
-
-
-    // Add this effect to make logos attract/repel each other
-    useEffect(() => {
-      const logos = logosRef.current;
-      const mouse = { x: 0, y: 0 };
-      const radius = 400; // Magnetic radius
-      
-      const handleMouseMove = (e) => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-        
-        logos.forEach(logo => {
-          if (!logo) return;
-          
-          const rect = logo.getBoundingClientRect();
-          const logoCenterX = rect.left + rect.width / 2;
-          const logoCenterY = rect.top + rect.height / 2;
-          
-          const dx = mouse.x - logoCenterX;
-          const dy = mouse.y - logoCenterY;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          
-          if (distance > radius) {
-            // Attract when close
-            const strength = (1 - distance / radius) * 20;
-            const angle = Math.atan2(dy, dx);
-            
-            gsap.to(logo, {
-              opacity: 1,
-              x: Math.cos(angle) * strength,
-              y: Math.sin(angle) * strength,
-              scale: 1.1,
-              duration: 1.2,
-              ease: "power2.out",
-              overwrite: "auto"
-            });
-          } else {
-            // Return to normal
-            gsap.to(logo, {
-              x: 0,
-              y: 0,
-              scale: 1,
-              duration: 0.8,
-              ease: "elastic.out(1.1, 0.6)",
-              overwrite: "auto"
-            });
-          }
-        });
-      };
-      
-      window.addEventListener('mousemove', handleMouseMove);
-      
-      return () => {
-        window.removeEventListener('mousemove', handleMouseMove);
-      };
-    }, []);
-
-
 
   // Helper function to render HTML
   const createMarkup = (html) => {
@@ -179,18 +28,90 @@ const LogoCard = () => {
       }) 
     };
   };
-  
-// 3. Enhanced click handler with ripple effect
+
+  // =================== SIMPLE ENTRANCE ANIMATION ===================
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    // Just fade in from current grid positions
+    const animatedLogos = logosRef.current.filter((logo, i) => 
+      logo && logos[i] && !logos[i].exemptFromAnimations
+    );
+
+    gsap.fromTo(animatedLogos,
+      {
+        opacity: 0,
+        scale: 0.9
+      },
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 0.8,
+        stagger: 0.05,
+        ease: "power2.out"
+      }
+    );
+  }, []);
+
+  // =================== MAGNETIC HOVER EFFECT (PUSH VERSION) ===================
+  useEffect(() => {
+    const mouse = { x: 0, y: 0 };
+    const radius = 250;
+    
+    const handleMouseMove = (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+      
+      logosRef.current.forEach((logo, i) => {
+        if (!logo || !logos[i] || logos[i].exemptFromAnimations) return;
+        
+        const rect = logo.getBoundingClientRect();
+        const logoCenterX = rect.left + rect.width / 2;
+        const logoCenterY = rect.top + rect.height / 2;
+        
+        const dx = mouse.x - logoCenterX;
+        const dy = mouse.y - logoCenterY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        if (distance < radius && distance > 10) {
+          const pushStrength = (1 - distance / radius) * 25;
+          const angle = Math.atan2(dy, dx);
+          
+          // Push AWAY from cursor
+          gsap.to(logo, {
+            x: Math.cos(angle) * -pushStrength,
+            y: Math.sin(angle) * -pushStrength,
+            scale: 1.05,
+            duration: 0.4,
+            ease: "power2.out",
+            overwrite: "auto"
+          });
+        } else {
+          // Return to normal
+          gsap.to(logo, {
+            x: 0,
+            y: 0,
+            scale: 1,
+            duration: 0.6,
+            ease: "elastic.out(1.1, 0.6)",
+            overwrite: "auto"
+          });
+        }
+      });
+    };
+    
+    window.addEventListener('mousemove', handleMouseMove);
+    
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
+  // =================== CLICK HANDLER ===================
   const handleLogoClick = async (logo, index) => {
     const clickedLogo = logosRef.current[index];
     if (!clickedLogo) return;
     
-    // Store refs for modal opening
-    const modalLogo = logo;
-    const modalIndex = index;
-    const modalLogos = logos;
-    
-    // ============ RIPPLE EFFECT ============
     // Create ripple element
     const ripple = document.createElement('div');
     ripple.className = styles.ripple;
@@ -199,15 +120,15 @@ const LogoCard = () => {
     // Animate ripple
     gsap.fromTo(ripple, 
       { 
-        scale: 3, 
+        scale: 0, 
         opacity: 1,
         x: '50%',
         y: '50%'
       },
       { 
-        scale: 7, 
+        scale: 4, 
         opacity: 0,
-        duration: 0.2,
+        duration: 0.6,
         ease: "power2.out",
         onComplete: () => {
           ripple.remove();
@@ -215,34 +136,7 @@ const LogoCard = () => {
       }
     );
     
-    // ============ PUSH EFFECT ON OTHER LOGOS ============
-    logosRef.current.forEach((logoEl, i) => {
-      if (i !== index && logoEl) {
-        const clickedRect = clickedLogo.getBoundingClientRect();
-        const logoRect = logoEl.getBoundingClientRect();
-        
-        const dx = clickedRect.left - logoRect.left;
-        const dy = clickedRect.top - logoRect.top;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        
-        if (distance < 400) { // Only affect nearby logos
-          const force = Math.min(80 / distance, 20);
-          const angle = Math.atan2(dy, dx);
-          
-          gsap.to(logoEl, {
-            x: (dx / distance) * force,
-            y: (dy / distance) * force,
-            duration: 0.3,
-            ease: "power2.out",
-            yoyo: true,
-            repeat: 1,
-            overwrite: "auto"
-          });
-        }
-      }
-    });
-    
-    // ============ BOUNCE EFFECT ON CLICKED LOGO ============
+    // Bounce effect on clicked logo
     gsap.to(clickedLogo, {
       scale: 1.2,
       duration: 0.15,
@@ -252,80 +146,23 @@ const LogoCard = () => {
       overwrite: "auto"
     });
     
-    // ============ OPEN MODAL AFTER ANIMATIONS ============
-    // Wait for animations to complete
-    await new Promise(resolve => setTimeout(resolve, 500));
+    // Wait then open modal
+    await new Promise(resolve => setTimeout(resolve, 400));
     
-    // Now open the modal (your original functionality)
-    setCurrentLogoIndex(modalIndex);
-    setCurrentLogos(modalLogos);
-    openModal(<ModalContent logo={modalLogo} index={modalIndex} logos={modalLogos} />);
-    
-    // ============ RESET ALL LOGOS ============
-    // Reset all logos to original position after a delay
-    setTimeout(() => {
-      logosRef.current.forEach(logoEl => {
-        if (logoEl) {
-          gsap.to(logoEl, {
-            x: 0,
-            y: 0,
-            scale: 1,
-            rotationZ: 0,
-            duration: 0.8,
-            ease: "elastic.out(1, 0.5)",
-            overwrite: "auto"
-          });
-        }
-      });
-    }, 1000);
+    setCurrentLogoIndex(index);
+    setCurrentLogos(logos);
+    openModal(<ModalContent logo={logo} index={index} logos={logos} />);
   };
 
-  const navigateToLogo = (direction) => {
-    // This function is no longer needed since navigation is handled inside createLogoModalContent
-  };
-
-  // Modal content component
+  // =================== MODAL CONTENT ===================
   const ModalContent = ({ logo, index, logos }) => {
-    const [isFading, setIsFading] = useState(true); // Start with true for initial fade-in
+    const [isFading, setIsFading] = useState(true);
     
-    // Fade in after component mounts
     useEffect(() => {
       const timer = setTimeout(() => {
         setIsFading(false);
-      }, 200); // Slower fade-in for visibility
+      }, 200);
       return () => clearTimeout(timer);
-    }, []);
-
-    // Add smooth mousewheel scrolling
-    useEffect(() => {
-      const scrollableContent = document.querySelector(`.scrollableContent`);
-      if (scrollableContent) {
-        let isScrolling = false;
-        
-        const handleWheel = (e) => {
-          e.preventDefault();
-          const delta = e.deltaY * 6; // Increased multiplier for more scroll distance
-          
-          if (!isScrolling) {
-            isScrolling = true;
-            
-            gsap.to(scrollableContent, {
-              scrollTop: scrollableContent.scrollTop + delta,
-              duration: 0.3,
-              ease: "power2.out",
-              onComplete: () => {
-                isScrolling = false;
-              }
-            });
-          }
-        };
-        
-        scrollableContent.addEventListener('wheel', handleWheel, { passive: false });
-        
-        return () => {
-          scrollableContent.removeEventListener('wheel', handleWheel);
-        };
-      }
     }, []);
 
     const handleNavigate = (direction) => {
@@ -333,7 +170,6 @@ const LogoCard = () => {
       
       setIsFading(true);
       
-      // Wait for fade, then update content
       setTimeout(() => {
         const newIndex = direction === 'next' 
           ? (index + 1) % logos.length
@@ -341,24 +177,9 @@ const LogoCard = () => {
         
         const newLogo = logos[newIndex];
         setCurrentLogoIndex(newIndex);
-        
-        // Update modal content with fade-in
         openModal(<ModalContent key={newIndex} logo={newLogo} index={newIndex} logos={logos} />);
-        
-        // Scroll modal content to top with GSAP
-        setTimeout(() => {
-          const scrollableContent = document.querySelector(`.scrollableContent`);
-          if (scrollableContent) {
-            gsap.to(scrollableContent, {
-              scrollTop: 0,
-              duration: 0.6,
-              ease: "power2.out"
-            });
-          }
-        }, 100);
-      }, 300); // Match CSS transition duration
+      }, 300);
     };
-
     return (
       <div className={`${styles.scrollableContent} ${isFading ? styles.fadeOut : ''}`}>
         <div className={styles.modalContent} data-logo={logo.id}>
