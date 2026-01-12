@@ -21,7 +21,6 @@
   flex-shrink: 0;
   width: auto;
   cursor: pointer;
-
 }
 
 .agencyName {
@@ -36,7 +35,6 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-
 }
 
 

@@ -8,11 +8,154 @@ import DOMPurify from 'dompurify';
 import '@mux/mux-player';
 import { gsap } from 'gsap';
 import styles from '../css/LogoCard.module.css';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const LogoCard = () => {
   const { openModal } = useModal();
   const [currentLogoIndex, setCurrentLogoIndex] = useState(null);
   const [currentLogos, setCurrentLogos] = useState(null);
+
+
+
+
+
+
+  const containerRef = useRef(null);
+  const logosRef = useRef([]);
+  
+
+
+
+
+
+
+  // Initialize GSAP animations
+  useEffect(() => {
+    if (!containerRef.current) return;
+    
+    // Create a master timeline for the entire grid
+    const masterTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top 90%", // Starts animating when 60% into view
+        end: "bottom 20%",
+        scrub: 1, // Smoothly follows scroll
+        markers: false, // Set to true for debugging
+      }
+    });
+    
+    // Initial entrance: logos fly in from 3D space
+    logosRef.current.forEach((logo, i) => {
+      // Calculate grid position for staggered effect
+      const row = Math.floor(i / 3); // Assuming 4 columns
+      const col = i % 3;
+      
+      // Create individual timelines for each logo
+      const logoTL = gsap.timeline();
+      
+      // Set initial state (off-screen in 3D space)
+      gsap.set(logo, {
+        opacity: 1,
+        scale: 0.9,
+        rotationX: -2,
+        transformOrigin: "center center"
+      });
+      
+      // Entry animation
+      logoTL.to(logo, {
+        opacity: 1,
+        scale: 1,
+        rotationX: 0,
+        rotationY: 0,
+        z: 0,
+        duration: 1.5,
+        ease: "elastic.out(1.2)",
+        delay: (row + col) * 0.02 // Diagonal stagger
+      });
+      
+      // Add to master timeline
+      masterTL.add(logoTL, i * 0.05);
+    });
+    
+    // Add continuous subtle floating animation
+    logosRef.current.forEach((logo, i) => {
+      gsap.to(logo, {
+        y: () => Math.sin(Date.now() * 0.001 + i) * 10, // Unique pattern per logo
+        rotationZ: () => Math.sin(Date.now() * 0.0005 + i) * 0.2,
+        duration: 3,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+    });
+    
+    return () => {
+      masterTL.kill();
+    };
+  }, []);
+
+
+
+
+    // Add this effect to make logos attract/repel each other
+    useEffect(() => {
+      const logos = logosRef.current;
+      const mouse = { x: 0, y: 0 };
+      const radius = 400; // Magnetic radius
+      
+      const handleMouseMove = (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+        
+        logos.forEach(logo => {
+          if (!logo) return;
+          
+          const rect = logo.getBoundingClientRect();
+          const logoCenterX = rect.left + rect.width / 2;
+          const logoCenterY = rect.top + rect.height / 2;
+          
+          const dx = mouse.x - logoCenterX;
+          const dy = mouse.y - logoCenterY;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance < radius) {
+            // Attract when close
+            const strength = (1 - distance / radius) * 20;
+            const angle = Math.atan2(dy, dx);
+            
+            gsap.to(logo, {
+              opacity: 1,
+              x: Math.cos(angle) * strength,
+              y: Math.sin(angle) * strength,
+              scale: 1.1,
+              rotationZ: Math.cos(angle) * 5,
+              duration: 1.2,
+              ease: "power2.out"
+            });
+          } else {
+            // Return to normal
+            gsap.to(logo, {
+              x: 0,
+              y: 0,
+              scale: 1,
+              rotationZ: 0,
+              duration: 0.8,
+              ease: "elastic.out(1, 0.5)"
+            });
+          }
+        });
+      };
+      
+      window.addEventListener('mousemove', handleMouseMove);
+      
+      return () => {
+        window.removeEventListener('mousemove', handleMouseMove);
+      };
+    }, []);
+
+
 
   // Helper function to render HTML
   const createMarkup = (html) => {
@@ -24,10 +167,104 @@ const LogoCard = () => {
     };
   };
   
-  const handleLogoClick = (logo, index) => {
-    setCurrentLogoIndex(index);
-    setCurrentLogos(logos);
-    openModal(<ModalContent logo={logo} index={index} logos={logos} />);
+// 3. Enhanced click handler with ripple effect
+  const handleLogoClick = async (logo, index) => {
+    const clickedLogo = logosRef.current[index];
+    if (!clickedLogo) return;
+    
+    // Store refs for modal opening
+    const modalLogo = logo;
+    const modalIndex = index;
+    const modalLogos = logos;
+    
+    // ============ RIPPLE EFFECT ============
+    // Create ripple element
+    const ripple = document.createElement('div');
+    ripple.className = styles.ripple;
+    clickedLogo.appendChild(ripple);
+    
+    // Animate ripple
+    gsap.fromTo(ripple, 
+      { 
+        scale: 3, 
+        opacity: 1,
+        x: '50%',
+        y: '50%'
+      },
+      { 
+        scale: 7, 
+        opacity: 0,
+        duration: 0.2,
+        ease: "power2.out",
+        onComplete: () => {
+          ripple.remove();
+        }
+      }
+    );
+    
+    // ============ PUSH EFFECT ON OTHER LOGOS ============
+    logosRef.current.forEach((logoEl, i) => {
+      if (i !== index && logoEl) {
+        const clickedRect = clickedLogo.getBoundingClientRect();
+        const logoRect = logoEl.getBoundingClientRect();
+        
+        const dx = clickedRect.left - logoRect.left;
+        const dy = clickedRect.top - logoRect.top;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        if (distance < 400) { // Only affect nearby logos
+          const force = Math.min(80 / distance, 20);
+          const angle = Math.atan2(dy, dx);
+          
+          gsap.to(logoEl, {
+            x: (dx / distance) * force,
+            y: (dy / distance) * force,
+            duration: 0.3,
+            ease: "power2.out",
+            yoyo: true,
+            repeat: 1,
+            overwrite: "auto"
+          });
+        }
+      }
+    });
+    
+    // ============ BOUNCE EFFECT ON CLICKED LOGO ============
+    gsap.to(clickedLogo, {
+      scale: 1.2,
+      duration: 0.15,
+      yoyo: true,
+      repeat: 1,
+      ease: "power2.inOut",
+      overwrite: "auto"
+    });
+    
+    // ============ OPEN MODAL AFTER ANIMATIONS ============
+    // Wait for animations to complete
+    await new Promise(resolve => setTimeout(resolve, 500));
+    
+    // Now open the modal (your original functionality)
+    setCurrentLogoIndex(modalIndex);
+    setCurrentLogos(modalLogos);
+    openModal(<ModalContent logo={modalLogo} index={modalIndex} logos={modalLogos} />);
+    
+    // ============ RESET ALL LOGOS ============
+    // Reset all logos to original position after a delay
+    setTimeout(() => {
+      logosRef.current.forEach(logoEl => {
+        if (logoEl) {
+          gsap.to(logoEl, {
+            x: 0,
+            y: 0,
+            scale: 1,
+            rotationZ: 0,
+            duration: 0.8,
+            ease: "elastic.out(1, 0.5)",
+            overwrite: "auto"
+          });
+        }
+      });
+    }, 1000);
   };
 
   const navigateToLogo = (direction) => {
@@ -768,12 +1005,17 @@ const LogoCard = () => {
   ];
 
   return (
-    <div className={styles.logoContainer}>
+    <div ref={containerRef} className={styles.logoContainer}>
       {logos.map((logo, index) => (
         <div 
           key={logo.id} 
+          ref={(el) => logosRef.current[index] = el}
           className={styles.logoCard}
           onClick={() => handleLogoClick(logo, index)}
+          style={{
+            willChange: 'transform', // Performance hint
+            transformStyle: 'preserve-3d'
+          }}
         >
           <div className={styles.logoWrapper}>
             <Image
