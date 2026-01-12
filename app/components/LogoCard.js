@@ -34,7 +34,16 @@ const LogoCard = () => {
   // Initialize GSAP animations
   useEffect(() => {
     if (!containerRef.current) return;
-    
+
+    // filter out the party poopers
+    const animatedLogos = logosRef.current.filter((logo, i) => 
+    logo && logos[i] && !logos[i].exemptFromAnimations
+  );
+  const exemptLogos = logosRef.current.filter((logo, i) => 
+    logo && logos[i] && logos[i].exemptFromAnimations
+  );
+  
+  
     // Create a master timeline for the entire grid
     const masterTL = gsap.timeline({
       scrollTrigger: {
@@ -59,7 +68,6 @@ const LogoCard = () => {
       gsap.set(logo, {
         opacity: 1,
         scale: 0.9,
-        rotationX: -2,
         transformOrigin: "center center"
       });
       
@@ -67,11 +75,9 @@ const LogoCard = () => {
       logoTL.to(logo, {
         opacity: 1,
         scale: 1,
-        rotationX: 0,
-        rotationY: 0,
         z: 0,
         duration: 1.5,
-        ease: "elastic.out(1.2)",
+        ease:  "elastic.out(1.1, 0.6)",
         delay: (row + col) * 0.02 // Diagonal stagger
       });
       
@@ -81,13 +87,17 @@ const LogoCard = () => {
     
     // Add continuous subtle floating animation
     logosRef.current.forEach((logo, i) => {
+      const row = Math.floor(i / 3); // Assuming 4 columns
+      const col = i % 3;
       gsap.to(logo, {
         y: () => Math.sin(Date.now() * 0.001 + i) * 10, // Unique pattern per logo
-        rotationZ: () => Math.sin(Date.now() * 0.0005 + i) * 0.2,
+       // rotationX: () => Math.sin(Date.now() * 0.0005 + i) * 0.6,
         duration: 3,
         repeat: -1,
         yoyo: true,
-        ease: "sine.inOut"
+        ease: "sine.inOut",
+        overwrite: "auto",
+        delay: (row + col) * 0.02 // Diagonal stagger
       });
     });
     
@@ -120,7 +130,7 @@ const LogoCard = () => {
           const dy = mouse.y - logoCenterY;
           const distance = Math.sqrt(dx * dx + dy * dy);
           
-          if (distance < radius) {
+          if (distance > radius) {
             // Attract when close
             const strength = (1 - distance / radius) * 20;
             const angle = Math.atan2(dy, dx);
@@ -130,9 +140,9 @@ const LogoCard = () => {
               x: Math.cos(angle) * strength,
               y: Math.sin(angle) * strength,
               scale: 1.1,
-              rotationZ: Math.cos(angle) * 5,
               duration: 1.2,
-              ease: "power2.out"
+              ease: "power2.out",
+              overwrite: "auto"
             });
           } else {
             // Return to normal
@@ -140,9 +150,9 @@ const LogoCard = () => {
               x: 0,
               y: 0,
               scale: 1,
-              rotationZ: 0,
               duration: 0.8,
-              ease: "elastic.out(1, 0.5)"
+              ease: "elastic.out(1.1, 0.6)",
+              overwrite: "auto"
             });
           }
         });
@@ -485,6 +495,7 @@ const LogoCard = () => {
       clientLogoHeight: 35,
       agencyName: 'SMMD Team',
       agencyLink: 'https://www.smmd.team',
+      exemptFromAnimations: false,
        video: {
         playbackId: '8UuN9JNltg9BwDO1SAAbvKn6vyq2u7vdgwScfVXLUk8',
         title: 'MTU Aero Engines',
@@ -534,13 +545,14 @@ const LogoCard = () => {
 `
   },   
  
-        {   id: 2,
+  {   id: 2,
            src: '/images/mini/airbus.jpg', alt: 'Logo 2', 
       title: 'Airbus Group Digital Interfaces',
       clientText: `Agency:   VRPE`,
       clientLogo: '/images/agencies/vrpe_logoNew.png',
       clientLogoHeight: 15,
       agencyName: 'VRPE',
+      exemptFromAnimations: false,
       description: `
   <p style="margin-top: 3rem;"><strong>2.</strong> Showroom Centerpiece: Munich Interactive 3D Expo Piece.</p><br>
       <p><strong>Challenge: </strong> Create the interface for a dynamic installation that showcases selected Airbus technology for visitors to the Munich based Airbus Showroom, a 650 square meter space featuring many installation pieces.<br>
@@ -556,7 +568,7 @@ const LogoCard = () => {
     `,
     description2: ``
   },   
-        {   id: 3, src: '/images/mini/aeromtu.jpg', 
+   {   id: 3, src: '/images/mini/aeromtu.jpg', 
         alt: 'Logo 1', 
         title: 'Digital Experiences for MTU Aero Engines',
         
@@ -564,6 +576,7 @@ const LogoCard = () => {
       clientLogo: '/images/agencies/vrpe_logoNew.png',
       clientLogoHeight: 15,
       agencyName: 'VRPE',
+      exemptFromAnimations: false,
       description: `
        <img src="/images/mtu8.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
       <p>Delivered two flagship digital experiences for a global aerospace leader:<br> <br> 
@@ -599,6 +612,7 @@ const LogoCard = () => {
       clientLogoHeight: 25,
       agencyName: 'Planstand Gmbh',
       agencyLink: 'https://www.planstand.com',
+      exemptFromAnimations: false,
       description: `
        <img src="/images/audi_1.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
       <p><strong>Project 1:</strong> Cinema Screen Motion Design<br>
@@ -629,6 +643,7 @@ const LogoCard = () => {
       clientLogoHeight: 25,
       agencyName: 'Sieber & Wolff',
       agencyLink: 'https://www.sieberundwolf.de/',
+      exemptFromAnimations: true,
       description: `
             <img src="/images/throwable/merc77.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
       <p style="margin-top: 3rem;"><strong>1) Product Design: </strong> A Next-Generation Brand Award for Mercedes-Benz Dealerships</</p><br><br>
@@ -669,6 +684,7 @@ const LogoCard = () => {
       clientLogoHeight: 45,
       agencyName: 'BECC Agency',
       agencyLink: 'https://www.becc-agency.com',
+      exemptFromAnimations: true,
       description: `
   <img src="/images/BMW1.jpg" alt="Visual concept recreating the tone of BMW's global rebrand narrative - Image is recreated to evoke. Not an official asset" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
       <p><strong>Project 1:</strong> Narrative Films for the BMW Global Rebranding<br>
@@ -712,6 +728,7 @@ const LogoCard = () => {
       clientLogoHeight: 45,
       agencyName: 'BECC Agency',
       agencyLink: 'https://www.becc-agency.com',
+      exemptFromAnimations: false,
       description: `
       <p><strong>Project:</strong> Immersive 3D Animation Concept for Gigantic Screen<br><br>
       <strong>Role:</strong> Animation Concept, Motion Design<br>
@@ -732,6 +749,7 @@ const LogoCard = () => {
       clientLogoHeight: 25,
       agencyName: 'Sieber & Wolff',
       agencyLink: 'https://www.sieberundwolf.de/',
+      exemptFromAnimations: false,
       description: `
       <p><strong>Project:</strong> Animation Library for National Safety & Strategy Presentation<br>
       TÜV SÜD is a world leading technical service provider, specializing in testing, certification, auditing, and advisory services with a core focus on safety and security. Their reputation is built on uncompromising accuracy and trust.<br><br>
@@ -757,6 +775,7 @@ const LogoCard = () => {
       clientLogoHeight: 25,
       agencyName: 'coma2',
       agencyLink: 'https://www.coma2.com',
+      exemptFromAnimations: false,
       description: `
       <p><strong>Project:</strong> Digital Brand Atmosphere for Strellson.com</p><br>
       <p><strong>Role:</strong> <strong>Motion Editor & Visual Rhythm Designer</strong></p><br>
@@ -784,6 +803,7 @@ const LogoCard = () => {
       clientLogoHeight: 25,
       agencyName: 'Autentic GmbH',
       agencyLink: 'https://www.autentic.com/117/Channels.htm',
+      exemptFromAnimations: false,
       description: `
       <p><strong>Overview:</strong> Led the complete digital design and development for two flagship pay-TV channels 2010 - 2017: Spiegel Wissen (science) and Spiegel Geschichte (history), from strategic consultation to interactive execution.</p>
 
@@ -822,6 +842,7 @@ const LogoCard = () => {
       clientLogoHeight: 25,
       agencyName: 'Red Bull Austria',
       agencyLink: 'https://www.redbull.com/',
+      exemptFromAnimations: false,
       description: `
       <p><strong>The Client & Era:</strong> In the mid-2000s, Red Bull was transitioning from an energy drink company into a global media powerhouse and culture brand. Their digital presence needed to match their high-octane, experiential identity.</p><br>
       <p><strong>My Role: </strong> Lead Interactive Designer & Developer<br>
@@ -849,6 +870,7 @@ const LogoCard = () => {
       clientLogoHeight: 25,
       agencyName: 'Pro7Sat1',
       agencyLink: 'https://www.prosiebensat1.com/en',
+      exemptFromAnimations: false,
         description: `
       <p><strong>Projects:</strong> Promotional Assets for Major Motion Pictures / Local TV Shows / Video Games</p><br>
     <p>Developed digital assets for advertising campaigns for theatrical releases as part of integrated on-air promotions for the Pro7Sat1 Media Group.<br></p>
@@ -863,6 +885,7 @@ const LogoCard = () => {
       clientLogoHeight: 45,
       agencyName: 'Burda',
       agencyLink: 'https://www.burda.com/en/',
+      exemptFromAnimations: false,
  description: `
       <p><strong>Projects:</strong> Interactive Presentations and Internal Strategy Showcases<br></p>
       <p>Burda New Media presentations by the Marketing Manager to promote his ideas and strategies internally for various digital media initiatives.</p><br>
@@ -877,6 +900,7 @@ const LogoCard = () => {
       clientLogoHeight: 25,
       agencyName: 'Publicorange',
       agencyLink: 'https://www.publicorange.com',
+      exemptFromAnimations: false,
  description: `
       <p><strong>Project 1: </strong> Security Suite Interactive Presentations  <br>
       <strong>Role:</strong> Interactivity<br></p>
@@ -893,6 +917,7 @@ const LogoCard = () => {
       clientLogoHeight: 25,
       agencyName: 'Publicorange',
       agencyLink: 'https://www.publicorange.com',
+      exemptFromAnimations: false,
       description: `
       <p><strong>Project:</strong> An installer package that opened up a setup-wizard for Swisscoms Online Access<br></p>
       <p><strong>Initiative:</strong> Customer onboarding software suite.</p>
@@ -908,6 +933,7 @@ const LogoCard = () => {
       clientLogoHeight: 25,
       agencyName: 'Publicorange',
       agencyLink: 'https://www.publicorange.com',
+      exemptFromAnimations: false,
  description: `
       <p><strong>Project 1:</strong> Risen 2 Teaser Website. A roughly 23K pixel wide parallax scroller made with animated graphical assets from the game. It was cut up into various segments and had to be finely controlled for memory mitigation.<br></p>
       <p><strong>Role:</strong> Concept, Design, Programming<br></p>
@@ -930,6 +956,7 @@ const LogoCard = () => {
       clientLogoHeight: 25,
       agencyName: 'FictionFilms',
       agencyLink: 'https://www.fiction-films.com',
+      exemptFromAnimations: false,
  description: `
       <p><strong>Project 1:</strong> Interactive infopage about washing machine technology for the global siemens website.<br></p>
       <p><strong>My Role:</strong> Interactive Developer – programmed the animated interface and interactive diagrams.</p>
@@ -963,6 +990,7 @@ const LogoCard = () => {
       clientLogoHeight: 65,
       agencyName: 'NakedToast',
        agencyLink: 'https://www.nakedtoast.com',
+      exemptFromAnimations: false,
  description: `
       <p><strong>Projects:</strong> Landingpages / Digital Campaign Deliverables for Motion Pictures.<br></p>
       <p><strong>Role:</strong> Concept, Design, Programming<br></p>
@@ -977,6 +1005,7 @@ const LogoCard = () => {
       clientLogoHeight: 65,
       agencyName: 'NakedToast',
        agencyLink: 'https://www.nakedtoast.com',
+      exemptFromAnimations: false,
  description: `
       <p><strong>Campaigns:</strong> Digital launch assets for major theatrical releases.</p>
         <p><strong>Challenge:</strong> Create captivating, campaign-specific digital experiences under strict NDA and brand guidelines to build anticipation pre-release.</p>
@@ -993,6 +1022,7 @@ const LogoCard = () => {
       clientLogoHeight: 65,
       agencyName: 'NakedToast',
        agencyLink: 'https://www.nakedtoast.com',
+      exemptFromAnimations: false,
  description: `
       <p><strong>Campaigns:</strong> Digital launch assets for major theatrical releases.</p>
         <p><strong>Challenge:</strong> Create captivating, campaign-specific digital experiences under strict NDA and brand guidelines to build anticipation pre-release.</p>
