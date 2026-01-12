@@ -19,8 +19,10 @@ export default function PrivacyPage() {
           <li>Information you voluntarily provide when contacting us through our contact form (your email address and message)</li>
         </ul>
         <p className="text-sm text-gray-600 mb-4">
-          Note: Our hosting provider (Vercel) may collect server logs for operational purposes, but we do not access or store these logs. 
-          We do not use any analytics tracking on this website.
+          Note: Our hosting provider (Vercel) may collect server logs for operational purposes, but we do not access or store these logs.
+        </p>
+        <p className="text-sm text-gray-600 mb-4">
+          <strong>Privacy Policy:</strong> We do not use any analytics, tracking, or data collection technologies on this website.
         </p>
       </section>
 

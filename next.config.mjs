@@ -39,8 +39,10 @@ const nextConfig = {
         source: '/(.*)',
         headers: [
           {
-            key: 'Cache-Control',
-            value: 'no-cache, no-store, must-revalidate',
+            //key: 'Cache-Control',
+            //value: 'no-cache, no-store, must-revalidate',
+            key: 'X-Frame-Options',
+            value: 'ALLOW-FROM https://janpeiro.vercel.app'
           },
         ],
       },
