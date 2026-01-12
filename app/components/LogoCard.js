@@ -51,6 +51,8 @@ const LogoCard = () => {
         trigger: containerRef.current,
         start: "top 90%", // Starts animating when 60% into view
         end: "bottom 20%",
+        toggleActions: "play none none none",
+         scroller: document.body,
         scrub: 1, // Smoothly follows scroll
         markers: false, // Set to true for debugging
       }
@@ -465,7 +467,13 @@ const LogoCard = () => {
         </div>
         
         {/* Bottom Navigation arrows */}
-        <div className={styles.modalNavigation} style={{left: '0', marginLeft: '0'}}>
+        <div 
+          className={`${styles.modalNavigation} ${styles.bottomNavigation}`}
+          style={{
+            left: '0', 
+            marginLeft: '0'
+          }}
+        >
           <button 
             className={styles.navButton}
             onClick={() => handleNavigate('prev')}

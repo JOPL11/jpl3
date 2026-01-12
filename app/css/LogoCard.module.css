@@ -596,6 +596,12 @@ html.no-scroll {
 
 }
 
+@media (max-width: 595px) {
+  .modalNavigation.bottomNavigation {
+    margin-left: 25px !important;
+  }
+}
+
 
 @media (max-width: 548px) {
     
