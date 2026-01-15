@@ -682,7 +682,7 @@ useEffect(() => {
                 <li role="listitem">Bootstrap, Tailwind, MaterialUI</li>
                 <li role="listitem">vite, git, gitlab, npm, yarn</li>
                 <li role="listitem">SQL / Supabase Experience</li>
-                <li role="listitem">Unity, C#</li>
+                <li role="listitem">Unity, C#, DOTween</li>
                 <li role="listitem">GLSL, HLSL experience</li>
                 <li role="listitem">SEO, Analytics</li>
 
