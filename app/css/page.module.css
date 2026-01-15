@@ -667,6 +667,10 @@ body.menu-open .navLink.active::after {
 
 /* Desktop widescreen - 1920px and up */
 @media (min-width: 1920px) {
+  .contentWrapper {
+    max-width: 1800px;
+  }
+  
   .projectsGrid {
     grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
     gap: 2rem;

@@ -124,19 +124,19 @@
 }
 @media (min-width: 1024px) {
   .stackContainer {
-    max-width: 900px;
-    height: 600px;
+    max-width: 1600px;
+    height: 500px;
   }
 }
 @media (min-width: 1280px) {
   .stackContainer {
-    max-width: 1000px;
-    height: 650px;
+    max-width: 1600px;
+    height: 550px;
   }
 }
 @media (min-width: 1920px) {
   .stackContainer {
-    max-width: 1400px;
-    height: 650px;
+    max-width: 1700px;
+    height: 550px;
   }
 }
