@@ -124,6 +124,7 @@ export default function ProjectCard({
           alt={alt}
           width={800}
           height={600}
+          className="project-image-responsive"
           style={{
             width: '100%',
             height: '150px',

@@ -546,6 +546,13 @@ body.menu-open .navLink.active::after {
   width: 100%;
   box-sizing: border-box;
 }
+
+/* Desktop widescreen - 1920px and up */
+@media (min-width: 1920px) {
+  .content {
+    max-width: 800px;
+  }
+}
 .mainContent {
   width: 100%;
   max-width: 1000px;
@@ -656,6 +663,26 @@ body.menu-open .navLink.active::after {
   gap: 1.5rem;
   margin-top: 1.5rem;
   width: 100%;
+}
+
+/* Desktop widescreen - 1920px and up */
+@media (min-width: 1920px) {
+  .projectsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+    gap: 2rem;
+  }
+  
+  .projectImage {
+    height: 300px;
+  }
+  
+  .projectImage img[style*="height"] {
+    height: 300px !important;
+  }
+  
+  .projectImage img.project-image-responsive[style*="height"] {
+    height: 300px !important;
+  }
 }
 .projectCard2::before {
   content: '';
@@ -834,7 +861,7 @@ body.menu-open .navLink.active::after {
 .projectImage img {
   display: block;
   width: 100%;
-  height: 150px;
+  height: 300px;
   object-fit: cover;
   object-position: center;
   position: relative;
@@ -1079,6 +1106,7 @@ body.menu-open .navLink.active::after {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .projectCard {

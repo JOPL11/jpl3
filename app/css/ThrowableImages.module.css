@@ -134,3 +134,9 @@
     height: 650px;
   }
 }
+@media (min-width: 1920px) {
+  .stackContainer {
+    max-width: 1400px;
+    height: 650px;
+  }
+}

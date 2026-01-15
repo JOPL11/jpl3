@@ -902,7 +902,8 @@ useEffect(() => {
                   logoWidth={250}
                   logoHeight={40}
                   logoStyle={{
-                    height: '20px',
+                    top: '15px',
+                    height: '25px',
                     width: 'auto',   
                     maxWidth: '100%'
                   }}
@@ -928,11 +929,18 @@ useEffect(() => {
                   <br /><br />Because the dashboard enables users to delete database entries, it is only available for live-testing upon demand. Individual presentations are only available upon request."
                   modalClassName="citylinkModal"
                   //link="https://glassmapperwip.vercel.app/"
-                  client={{
+                   client={{
                     name: "Bumpi |",
                     logo: "/images/citylinklongwhite.svg",
                     website: "https://sbinfo1.vercel.app"
-                  }}    
+                  }}   
+                  logoWidth={350}
+                  logoHeight={90}
+                  logoStyle={{
+                    height: '30px',
+                    width: 'auto',   
+                    maxWidth: '100%'
+                  }}   
                   modalContent={{
                     description: "A GDPR-compliant info page for a civics oriented app. This is the back end, where the submissions from the Bumpi app are stored,evaluated, and municipal officials can manage the data, direct clean-up crews, set geofences, set user-scores and more. ",
                     images: [

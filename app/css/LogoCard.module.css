@@ -12,6 +12,13 @@
   gap: 2rem;
 }
 
+/* Desktop widescreen - 1920px and up */
+@media (min-width: 1920px) {
+  .logoContainer {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 /* Logo Card */
 .logoCard {
   background: transparent;
