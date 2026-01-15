@@ -116,22 +116,28 @@
   height: 100%;
 }
 /* Desktop-specific sizing */
+@media (min-width: 568px) {
+  .stackContainer {
+    max-width: 1200px;
+    height: 350px;
+  }
+}
 @media (min-width: 768px) {
   .stackContainer {
-    max-width: 800px;
-    height: 500px;
+    max-width: 1200px;
+    height: 300px;
   }
 }
 @media (min-width: 1024px) {
   .stackContainer {
-    max-width: 1600px;
-    height: 500px;
+    max-width: 1400px;
+    height: 300px;
   }
 }
 @media (min-width: 1280px) {
   .stackContainer {
     max-width: 1600px;
-    height: 550px;
+    height: 450px;
   }
 }
 @media (min-width: 1920px) {
