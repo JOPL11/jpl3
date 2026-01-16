@@ -1187,6 +1187,24 @@ useEffect(() => {
             </h2>
                 <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies. Limited selection on Mobile Devices</div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
+             
+              <ProjectCard 
+                  onMoreClick={() => {
+                    console.log('CubeSite More button clicked, triggering animation');
+                    bytes101TextRef.current?.animate();
+                  }}
+                  title="Cubes"
+                  image="/images/JPL3Poster_3D.jpg"
+                  alt="CubeSite"
+                  link="https://cubistic.vercel.app"
+                  text="Featuring scripted 3D, interaction and animations."
+                  className="webglProject"
+                >
+                  <p>Site Demo</p>
+                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> Three.js / React Three Fiber</AnimatedText></p>
+                  <p><strong>Role:</strong> R3F concept architect & creator</p>
+                </ProjectCard>
+             
               <ProjectCard 
                   onMoreClick={() => {
                     console.log('Bytes101 More button clicked, triggering animation');
