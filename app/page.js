@@ -598,7 +598,7 @@ useEffect(() => {
                 <div style={{paddingBottom:"2rem"}}>
                   <div style={{height: "33px"}}></div>
              <p>Developing mission-critical digital experiences for global leaders. Trusted by major brands to translate brand vision into immersive interactive, motion, and installation design.</p><br></br>
-              <p>Explore the work by tapping the logos. For partnership inquiries or formal references, reach out directly.</p></div>
+              <p>Explore the work by tapping the logos. </p></div>
                   <LogoCard />
             </section>
           <div data-section="about"></div>
@@ -1277,7 +1277,7 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={contactHeadingRef}>Contact</AnimatedText>
             </h2>
-            <div style={{height: '0.1rem', marginBottom: '11rem', fontSize: '1.1rem'}}>Interested in working together? Use the form below to get in touch. Accepting project and rate inquiries, poetry and hate mail. Except from Johannes. Johannes, go away.</div>
+            <div style={{height: '0.1rem', marginBottom: '11rem', fontSize: '1.1rem'}}>Interested in working together or requesting formal references? Use the form below to get in touch. Accepting project and rate inquiries, poetry and hate mail. Except from Johannes. Johannes, go away.</div>
               <ContactForm />
             </section>
         </div>
