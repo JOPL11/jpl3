@@ -1200,7 +1200,7 @@ useEffect(() => {
                   text="Featuring scripted 3D, interaction and animations."
                   className="webglProject"
                 >
-                  <p>Site Demo</p>
+                  <p>Site Demo In development this weekend</p>
                   <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> Three.js / React Three Fiber</AnimatedText></p>
                   <p><strong>Role:</strong> R3F concept architect & creator</p>
                 </ProjectCard>
