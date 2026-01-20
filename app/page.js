@@ -326,7 +326,7 @@ useEffect(() => {
     window.removeEventListener('wheel', handleWheel, { passive: false, capture: true });
   };
 }, []);
-
+             
 useEffect(() => {
   console.log(`
 ***************************************************************
@@ -463,7 +463,7 @@ useEffect(() => {
       </>
 
 
-            
+
       
       <main className={styles.main} role="main" id="main-content">
         <div className={styles.contentWrapper}>
@@ -1009,13 +1009,16 @@ useEffect(() => {
                 
                   <h2 style={{paddingTop: "1rem", fontSize: '1.40rem', color: "#a2feff"}}>Short Reel 2025</h2>
             <div style={{height: '0.1rem', marginBottom: '1.5rem',marginTop: '-1.3rem', color: "#fff"}}>For those with little time</div>
+              <div id='muxPlayer' style={{ 
+                      borderRadius: '15px',
+                    }}>
                 <div id='holder' style={{ 
                   width: '100%', 
                   maxWidth: '850px',
                   margin: '0',
                   position: 'relative',
-                  borderRadius: '8px',
-                  overflow: 'visible',
+                  borderRadius: '15px',
+                  overflow: 'hidden',
                   boxShadow: '0 0 80px rgba(69, 218, 255, 0.7), 0 0 20px rgba(0, 0, 0, 0.2)'
                 }}>
                   <MuxPlayer
@@ -1025,14 +1028,14 @@ useEffect(() => {
                     style={{ 
                       width: '100%', 
                       height: '100%',
-                      display: 'block'
+                      display: 'block',
                     }}
                     accent-color="#0a5fcf"
                     primary-color="#ffffff"
                     secondary-color="transparent"
                   />
                 </div>
-            
+            </div>
                    {/* About section End 
                 <ProjectCard 
                   title="Audi Nüremberg"
