@@ -610,7 +610,7 @@ useEffect(() => {
           
             <p>Hi! I&apos;m Jan Peiro.</p><br></br>
 
-            <p>A multidisciplinary designer and creative who bridges the gap between stunning visuals and robust technology. I studied Communications Design in Munich and have spent my career transforming ideas into engaging experiences for a global clientele.</p>
+            <p>A multidisciplinary designer and creative who bridges the gap between stunning visuals and robust technology. I hold a state-certified Diploma in Communications Design from Munich and have spent my career transforming ideas into engaging experiences for a global clientele.</p>
 
            <p>I specialize in <strong>2D / 3D design, animation and interactive content.</strong></p>
 
