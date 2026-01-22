@@ -211,16 +211,22 @@ const LogoCard = () => {
             <span  className={styles.clientText}>{logo.clientText || ''}</span>
 
          
-          {logo.agencyLink && (
-            <a 
-              href={logo.agencyLink} 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className={styles.agencyLink}
-              onClick={(e) => e.stopPropagation()}
-            >
-              {logo.agencyName}
-            </a>
+          {logo.agencyName && (
+            logo.agencyLink ? (
+              <a 
+                href={logo.agencyLink} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={styles.agencyLink}
+                onClick={(e) => e.stopPropagation()}
+              >
+                {logo.agencyName}
+              </a>
+            ) : (
+              <span style={{ color: 'white' }}>
+                {logo.agencyName}
+              </span>
+            )
           )}
            {logo.clientLogo && (
             <div 
@@ -441,7 +447,7 @@ const LogoCard = () => {
       clientLogo: '/images/agencies/planstand_logo.png',
       clientLogoHeight: 25,
       agencyName: 'Planstand Gmbh',
-      agencyLink: 'https://www.planstand.com',
+      //agencyLink: 'https://www.planstand.com',
       exemptFromAnimations: false,
       description: `
        <img src="/images/audi_1.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
@@ -472,7 +478,7 @@ const LogoCard = () => {
       clientLogo: '/images/agencies/sw_neu_white.png',
       clientLogoHeight: 25,
       agencyName: 'Sieber & Wolff',
-      agencyLink: 'https://www.sieberundwolf.de/',
+      //agencyLink: 'https://www.sieberundwolf.de/',
       exemptFromAnimations: true,
       description: `
             <img src="/images/throwable/merc77.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
@@ -513,7 +519,7 @@ const LogoCard = () => {
       clientLogo: '/images/agencies/Becc_wht.png',
       clientLogoHeight: 45,
       agencyName: 'BECC Agency',
-      agencyLink: 'https://www.becc-agency.com',
+      //agencyLink: 'https://www.becc-agency.com',
       exemptFromAnimations: true,
       description: `
   <img src="/images/BMW1.jpg" alt="Visual concept recreating the tone of BMW's global rebrand narrative - Image is recreated to evoke. Not an official asset" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
@@ -557,7 +563,7 @@ const LogoCard = () => {
       clientLogo: '/images/agencies/Becc_wht.png',
       clientLogoHeight: 45,
       agencyName: 'BECC Agency',
-      agencyLink: 'https://www.becc-agency.com',
+     // agencyLink: 'https://www.becc-agency.com',
       exemptFromAnimations: false,
       description: `
       <p><strong>Project:</strong> Immersive 3D Animation Concept for Gigantic Screen<br><br>
@@ -578,7 +584,7 @@ const LogoCard = () => {
       clientLogo: '/images/agencies/sw_neu_white.png',
       clientLogoHeight: 25,
       agencyName: 'Sieber & Wolff',
-      agencyLink: 'https://www.sieberundwolf.de/',
+      //agencyLink: 'https://www.sieberundwolf.de/',
       exemptFromAnimations: false,
       description: `
       <p><strong>Project:</strong> Animation Library for National Safety & Strategy Presentation<br>
@@ -604,7 +610,7 @@ const LogoCard = () => {
       clientLogo: '/images/agencies/coma2_logo.png',
       clientLogoHeight: 25,
       agencyName: 'coma2',
-      agencyLink: 'https://www.coma2.com',
+      //agencyLink: 'https://www.coma2.com',
       exemptFromAnimations: false,
       description: `
       <p><strong>Project:</strong> Digital Brand Atmosphere for Strellson.com</p><br>
@@ -632,7 +638,7 @@ const LogoCard = () => {
       clientLogo: '/images/agencies/spiegeltvlogo.png',
       clientLogoHeight: 25,
       agencyName: 'Autentic GmbH',
-      agencyLink: 'https://www.autentic.com/117/Channels.htm',
+      //agencyLink: 'https://www.autentic.com/117/Channels.htm',
       exemptFromAnimations: false,
       description: `
       <p><strong>Overview:</strong> Led the complete digital design and development for two flagship pay-TV channels 2010 - 2017: Spiegel Wissen (science) and Spiegel Geschichte (history), from strategic consultation to interactive execution.</p>
@@ -729,7 +735,7 @@ const LogoCard = () => {
       clientLogo: '/images/agencies/publicorange.png',
       clientLogoHeight: 25,
       agencyName: 'Publicorange',
-      agencyLink: 'https://www.publicorange.com',
+      //agencyLink: 'https://www.publicorange.com',
       exemptFromAnimations: false,
  description: `
       <p><strong>Project 1: </strong> Security Suite Interactive Presentations  <br>
@@ -746,7 +752,7 @@ const LogoCard = () => {
       clientLogo: '/images/agencies/publicorange.png',
       clientLogoHeight: 25,
       agencyName: 'Publicorange',
-      agencyLink: 'https://www.publicorange.com',
+      //agencyLink: 'https://www.publicorange.com',
       exemptFromAnimations: false,
       description: `
       <p><strong>Project:</strong> An installer package that opened up a setup-wizard for Swisscoms Online Access<br></p>
@@ -762,7 +768,7 @@ const LogoCard = () => {
       clientLogo: '/images/agencies/publicorange.png',
       clientLogoHeight: 25,
       agencyName: 'Publicorange',
-      agencyLink: 'https://www.publicorange.com',
+      //agencyLink: 'https://www.publicorange.com',
       exemptFromAnimations: false,
  description: `
       <p><strong>Project 1:</strong> Risen 2 Teaser Website. A roughly 23K pixel wide parallax scroller made with animated graphical assets from the game. It was cut up into various segments and had to be finely controlled for memory mitigation.<br></p>
@@ -785,7 +791,7 @@ const LogoCard = () => {
       clientLogo: '/images/agencies/fiction-films.png',
       clientLogoHeight: 25,
       agencyName: 'FictionFilms',
-      agencyLink: 'https://www.fiction-films.com',
+      //agencyLink: 'https://www.fiction-films.com',
       exemptFromAnimations: false,
  description: `
       <p><strong>Project 1:</strong> Interactive infopage about washing machine technology for the global siemens website.<br></p>
@@ -819,7 +825,7 @@ const LogoCard = () => {
       clientLogo: '/images/agencies/nt2.png',
       clientLogoHeight: 65,
       agencyName: 'NakedToast',
-       agencyLink: 'https://www.nakedtoast.com',
+      // agencyLink: 'https://www.nakedtoast.com',
       exemptFromAnimations: false,
  description: `
       <p><strong>Projects:</strong> Landingpages / Digital Campaign Deliverables for Motion Pictures.<br></p>
@@ -834,7 +840,7 @@ const LogoCard = () => {
       clientLogo: '/images/agencies/nt2.png',
       clientLogoHeight: 65,
       agencyName: 'NakedToast',
-       agencyLink: 'https://www.nakedtoast.com',
+       //agencyLink: 'https://www.nakedtoast.com',
       exemptFromAnimations: false,
  description: `
       <p><strong>Campaigns:</strong> Digital launch assets for major theatrical releases.</p>
@@ -851,7 +857,7 @@ const LogoCard = () => {
       clientLogo: '/images/agencies/nt2.png',
       clientLogoHeight: 65,
       agencyName: 'NakedToast',
-       agencyLink: 'https://www.nakedtoast.com',
+       //agencyLink: 'https://www.nakedtoast.com',
       exemptFromAnimations: false,
  description: `
       <p><strong>Campaigns:</strong> Digital launch assets for major theatrical releases.</p>
