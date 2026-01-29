@@ -1223,7 +1223,7 @@ useEffect(() => {
                   <p><strong>Role:</strong> Concept / Animation / Dev</p>
                 </ProjectCard>
 
-                {!isMobile && (
+             {/*     {!isMobile && (
                   <>
                
                     <ProjectCard 
@@ -1282,7 +1282,7 @@ useEffect(() => {
                       <p><strong>Info:</strong> nerdRage! A playful take on quantum physics concepts.</p>
                     </ProjectCard>
                   </>
-                )} {/*  */}
+                )} */}
         
                   </div>
             </section>
