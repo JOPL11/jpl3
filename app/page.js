@@ -614,7 +614,9 @@ useEffect(() => {
 
             <p>Specialized in <strong>2D / 3D design, animation and interactive content.</strong></p>
 
-            <p>Started as a jr. art director and gained proficiency in motion design, 3D visualization and creative development, while also building a strong foundation in web development and interactive design.</p>
+             <p>Then I realized that <strong>The peopple at the top dont have any fucking technical idea of what they are trying to talk about</strong></p>
+
+             <p>Really, you are a bunch of non-technical people being lead by people who claim to be technical people who have no fucking clue of what they are doing</p>
 
             <p>Global Remote | EST / CET / EET</p>
 
@@ -1188,6 +1190,39 @@ useEffect(() => {
             </h2>
                 <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies. Limited selection on Mobile Devices</div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
+
+              <ProjectCard 
+                  onMoreClick={() => {
+                    console.log('Rehau More button clicked, triggering animation');
+                    bytes101TextRef.current?.animate();
+                  }}
+                  title="Rehau"
+                  image="/images/corp/rehau.jpg"
+                  alt="CubeSite"
+                  //link="https://cubistic.vercel.app"
+                  text="Product showcase for the International Door & Window manufacturer."
+                  className="webglProject"
+                    client={{
+                    name: "SMMD Team |",
+                    logo: "/images/agencies/SMMD.png",
+                    website: "https://www.smmd.team/"
+                  }}   
+                  logoWidth={350}
+                  logoHeight={90}
+                  logoStyle={{
+                    height: '30px',
+                    width: 'auto',   
+                    maxWidth: '100%'
+                  }}   
+                   modalContent={{
+                    description: "An interactive 3D product showcase featuring various models of Rehau products. Users can initiate opening and closing of the doors and windows set in a virtual environment. Information about the products is overlayed in the responsive next.js environment. Images coming soon.",
+                    images: [ ]
+                  }}
+                >
+                  <p>Project In development</p>
+                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber</AnimatedText></p>
+                  <p><strong>Role:</strong> 3D model implementation & animation / WebXR implementation</p>
+                </ProjectCard>
              
               <ProjectCard 
                   onMoreClick={() => {
