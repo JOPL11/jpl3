@@ -1470,7 +1470,7 @@ body.menu-open .navLink.active::after {
   color: rgba(255, 255, 255, 0.8);
   font-size: 1.3rem;
   cursor: pointer;
-  padding: 0.5rem 1rem;
+  padding: 1.5rem 1rem;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
@@ -1478,10 +1478,10 @@ body.menu-open .navLink.active::after {
   width: 100%;
   max-width: 200px;
   height: 40px;
-  border-radius: 20px;
+  border-radius: 10px;
   margin: 0.5rem 0;
   background: rgba(255, 255, 255, 0.1);
-  margin-top: -100px; /* Pulls the button up by 100px */
+  margin-top: 2rem; /* Pulls the button up by 100px */
   margin-bottom: 2rem; /* Adds space below the button */
   position: relative; /* Ensures proper stacking context */
   z-index: 10; /* Keeps it above other footer elements */
