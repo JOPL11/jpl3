@@ -614,9 +614,9 @@ useEffect(() => {
 
             <p>Specialized in <strong>2D / 3D design, animation and interactive content.</strong></p>
 
-             <p>Then I realized that <strong>The peopple at the top dont have any fucking technical idea of what they are trying to talk about</strong></p>
+            <p>My core principle is merging design, animation, and code to create work that is not only beautiful but also functional and scalable.</p>
 
-             <p>Really, you are a bunch of non-technical people being lead by people who claim to be technical people who have no fucking clue of what they are doing</p>
+            <p>I started out as jr. art director and gained proficiency in motion design, 3D visualization and creative development, while also building a strong foundation in web development and interactive design.</p>
 
             <p>Global Remote | EST / CET / EET</p>
 
