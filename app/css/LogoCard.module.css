@@ -168,6 +168,7 @@
   margin: 1rem 0;
   line-height: 1.6;  /* Increased from 1.0 for better readability */
   color: var(--foreground-muted);
+  touch-action: pan-y !important;
 }
 /* Add specific styles for paragraphs within modalDescription */
 .modalDescription p {
@@ -175,11 +176,13 @@
   line-height: 1.6;  /* Ensure consistent line height */
   margin-bottom: 0.5em;
   color: #acfeff;
+   touch-action: pan-y !important;
 }
 
 .modalDescription p:last-child {
   margin-bottom: 0.1rem;
   padding-bottom: 1rem;
+   touch-action: pan-y !important;
 }
 
 .modalDescription br {
