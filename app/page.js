@@ -1205,7 +1205,7 @@ useEffect(() => {
                     client={{
                     name: "SMMD Team |",
                     logo: "/images/agencies/SMMD.png",
-                    website: "https://www.smmd.team/"
+                    //website: "https://www.smmd.team/"
                   }}   
                   logoWidth={350}
                   logoHeight={90}

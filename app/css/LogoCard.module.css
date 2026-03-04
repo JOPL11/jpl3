@@ -143,7 +143,6 @@
 .modalOverlay:not(:has(.modalContent:hover)) {
   cursor: pointer;
 }
-/* Scroll locking is now handled via inline styles */
 
 /* Adjust modal content for text */
 .modalContent {
@@ -160,23 +159,39 @@
   flex-direction: column;
   overflow: hidden;
   padding: 1rem;
-    scrollbar-width: thin;
-    scrollbar-color: var(--foreground-muted) transparent;
+  scrollbar-width: thin;
+  scrollbar-color: var(--foreground-muted) transparent;
+  touch-action: pan-y !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  touch-action: pan-y !important;
+  pointer-events: auto;
+}
+
+.modal-content.scrolling {
+    pointer-events: none;
 }
 
 .modalDescription {
   margin: 1rem 0;
   line-height: 1.6;  /* Increased from 1.0 for better readability */
   color: var(--foreground-muted);
+    touch-action: pan-y !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
   touch-action: pan-y !important;
 }
+
 /* Add specific styles for paragraphs within modalDescription */
 .modalDescription p {
   margin: 0.75em 0;  /* Increased from 0.25em for better paragraph spacing */
   line-height: 1.6;  /* Ensure consistent line height */
   margin-bottom: 0.5em;
   color: #acfeff;
-   touch-action: pan-y !important;
 }
 
 .modalDescription p:last-child {
@@ -213,10 +228,41 @@
   scroll-behavior: smooth;
   opacity: 1;
   transition: opacity 0.3s ease-in-out;
-  
+  touch-action: pan-y !important; /* ADD THIS LINE */
   /* Firefox scrollbar - consolidated */
   scrollbar-width: thin;
   scrollbar-color: var(--foreground-muted) transparent;
+    -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  touch-action: pan-y !important;
+}
+
+/* But allow text selection for inputs and textareas */
+.scrollableContent input,
+.scrollableContent textarea {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+  touch-action: auto !important;
+}
+
+.scrollableContent textarea {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+  touch-action: pan-y !important;
+  /* Brave Android specific fix - force touch scrolling on all content */
+}
+
+.scrollableContent * {
+  touch-action: pan-y !important;
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  pointer-events: auto !important;
 }
 
 .scrollableContent.fadeOut {
