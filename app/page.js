@@ -1206,7 +1206,7 @@ useEffect(() => {
                     name: "SMMD Team |",
                     logo: "/images/agencies/SMMD.png",
                     //website: "https://www.smmd.team/"
-                  }}   
+                 }}   
                   logoWidth={350}
                   logoHeight={90}
                   logoStyle={{
@@ -1243,19 +1243,19 @@ useEffect(() => {
              
               <ProjectCard 
                   onMoreClick={() => {
-                    console.log('Bytes101 More button clicked, triggering animation');
+                    console.log('AI Ching More button clicked, triggering animation');
                     bytes101TextRef.current?.animate();
                   }}
-                  title="Bytes101"
-                  image="/images/bytes101.jpg"
-                  alt="Bytes101"
-                  link="https://bytes101.vercel.app"
-                  text="Featuring custom 3D models and animations."
+                  title="A.I.-Ching"
+                  image="/images/ching.jpg"
+                  alt="AI-Ching"
+                  link="https://ai-ching.vercel.app"
+                  text="An ancient Taoist text that uses AI to generate insights."
                   className="webglProject"
                 >
                   <p>Concept Demo</p>
-                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> Three.js / React Three Fiber</AnimatedText></p>
-                  <p><strong>Role:</strong> Concept / Animation / Dev</p>
+                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber</AnimatedText></p>
+                  <p><strong>Role:</strong> Concept / Animation / Development</p>
                 </ProjectCard>
 
              {/*     {!isMobile && (
