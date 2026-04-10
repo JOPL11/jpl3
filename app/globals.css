@@ -11,6 +11,36 @@
   }
 }
 
+/* Fallback for Avast Browser and security browsers */
+@supports not (mix-blend-mode: overlay) {
+  html, body {
+    background: #0f172a !important;
+    background-color: #0f172a !important;
+  }
+  
+  * {
+    background-color: transparent !important;
+  }
+  
+  .container {
+    background: #0f172a !important;
+    background-color: #0f172a !important;
+  }
+}
+
+/* Avast Browser specific fixes */
+@supports (mix-blend-mode: overlay) {
+  html {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+  }
+}
+
+/* Universal fallback for any browser */
+html, body {
+  background: #0f172a !important;
+  background-color: #0f172a !important;
+}
+
 html,
 body {
   max-width: 100%;

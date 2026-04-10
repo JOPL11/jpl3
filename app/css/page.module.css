@@ -7,6 +7,12 @@
   height:52vh;
 }
 
+/* Additional fallback for any browser that might override */
+.container {
+  background-color: #0f172a !important;
+  background: #0f172a !important;
+}
+
 /* Section scroll margin for fixed header */
 .scrollTarget {
   scroll-margin-top: 100px; /* Adjust this value to match your header height */
@@ -109,6 +115,7 @@
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #0f172a !important; /* Force dark background for Avast Browser */
 }
 
 
