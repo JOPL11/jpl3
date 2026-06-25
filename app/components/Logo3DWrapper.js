@@ -31,6 +31,25 @@ const isIOS = () => {
   return isIOSDevice;
 };
 
+// Aggressive LibreWolf detection
+const isLibreWolf = () => {
+  if (typeof window === 'undefined' || !window.navigator) {
+    return false;
+  }
+  
+  const userAgent = window.navigator.userAgent;
+  const isLibre = userAgent.includes('LibreWolf') || 
+                   userAgent.includes('Libre') || 
+                   userAgent.includes('Firefox') && userAgent.includes('privacy');
+  
+  console.log('LibreWolf detection:', {
+    userAgent,
+    isLibreWolf: isLibre
+  });
+  
+  return isLibre;
+};
+
 const Logo3D = dynamic(
   () => import('./Logo3D').then(mod => mod.default),
   { ssr: false, loading: () => <div style={{ width: '250px', height: '250px' }} /> }
@@ -123,9 +142,22 @@ export default function Logo3DWrapper() {
   // Always show 2D logo on iOS, 3D on other platforms if WebGL is available
   console.log('Logo3DWrapper: Rendering decision', {
     isIOSDevice,
+    isLibreWolf: isLibreWolf(),
     show2DOnIOS: isIOSDevice ? 'Yes' : 'N/A',
     hasWebGL: isIOSDevice ? 'Not checked on iOS' : hasWebGL
   });
+  
+  // Force 2D logo on LibreWolf due to WebGL framebuffer issues
+  if (isLibreWolf()) {
+    console.log('LibreWolf detected, forcing 2D logo fallback');
+    return <Logo2D />;
+  }
+  
+  // Always show 2D logo on iOS
+  if (isIOSDevice) {
+    console.log('Rendering 2D logo on iOS');
+    return <Logo2D />;
+  }
 
   // Only check WebGL on non-iOS devices
   useEffect(() => {

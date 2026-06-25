@@ -1188,8 +1188,38 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={webglHeadingRef}>WebGL Cases</AnimatedText>
             </h2>
-                <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies. Limited selection on Mobile Devices</div>
+                <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies.</div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
+                    {!isMobile && (
+                  <> 
+              <ProjectCard 
+                  onMoreClick={() => {
+                    console.log('Dornbach More button clicked, triggering animation');
+                    bytes101TextRef.current?.animate();
+                  }}
+                  title="Dornbach"
+                  image="/images/corp/dornbach.jpg"
+                  alt="Dornbach"
+                  link="https://clouds2-gamma.vercel.app/"
+                  text="Expo installation for Dornbach at the Milan Design Week '26."
+                  className="webglProject"
+                    client={{
+                    name: "SMMD Team |",
+                    logo: "/images/agencies/SMMD.png",
+                    //website: "https://www.smmd.team/"
+                 }}   
+                  logoWidth={350}
+                  logoHeight={90}
+                  logoStyle={{
+                    height: '30px',
+                    width: 'auto',   
+                    maxWidth: '100%'
+                  }}   
+                >
+                  <p>Expo installation-piece</p>
+                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber, GLSL, Next.js, GSAP </AnimatedText></p>
+                  <p><strong>Role:</strong> Code / Cloud visuals</p>
+                </ProjectCard>
 
               <ProjectCard 
                   onMoreClick={() => {
@@ -1198,7 +1228,7 @@ useEffect(() => {
                   }}
                   title="Rehau"
                   image="/images/corp/rehau.jpg"
-                  alt="CubeSite"
+                  alt="Rehau"
                   //link="https://cubistic.vercel.app"
                   text="Product showcase for the International Door & Window manufacturer."
                   className="webglProject"
@@ -1223,7 +1253,8 @@ useEffect(() => {
                   <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber</AnimatedText></p>
                   <p><strong>Role:</strong> 3D model implementation & animation / WebXR implementation</p>
                 </ProjectCard>
-             
+             </> 
+            )}
               <ProjectCard 
                   onMoreClick={() => {
                     console.log('CubeSite More button clicked, triggering animation');

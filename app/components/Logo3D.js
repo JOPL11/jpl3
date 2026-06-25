@@ -727,6 +727,11 @@ export default function Logo3D({ width = '100vw', height = 350, className = '' }
   const isMobile = useMobileDetect();
   const rendererRef = useRef();
   const resizeTimeout = useRef();
+  
+  // Force explicit desktop dimensions for problematic browsers
+  const isLibreWolf = typeof window !== 'undefined' && window.navigator.userAgent.includes('LibreWolf');
+  const desktopWidth = isLibreWolf ? '100vw' : (width === '100vw' ? window.innerWidth : width);
+  const desktopHeight = isLibreWolf ? 625 : height;
 
   useEffect(() => {
   const container = canvasRef.current?.parentElement;
@@ -754,15 +759,17 @@ const handleResize = useCallback(() => {
   resizeTimeout.current = setTimeout(() => {
     if (!canvasRef.current || !rendererRef.current) return;
     
-    // If width is '100vw', use window width directly
-    const canvasWidth = width === '100vw' ? window.innerWidth : 
-      canvasRef.current.parentElement.getBoundingClientRect().width;
+    // Use explicit desktop dimensions for LibreWolf
+    const canvasWidth = isLibreWolf ? desktopWidth : 
+      (width === '100vw' ? window.innerWidth : canvasRef.current.parentElement.getBoundingClientRect().width);
+    
+    const canvasHeight = isLibreWolf ? desktopHeight : height;
     
     const pixelRatio = Math.min(window.devicePixelRatio, isMobile ? 1 : 2);
     
     // Update renderer size and pixel ratio
     rendererRef.current.setPixelRatio(pixelRatio);
-    rendererRef.current.setSize(canvasWidth, height, false);
+    rendererRef.current.setSize(canvasWidth, canvasHeight, false);
     
     // Force a re-render to clear any artifacts
     if (rendererRef.current.getScene && rendererRef.current.getCamera) {
@@ -806,15 +813,15 @@ const handleResize = useCallback(() => {
     <div 
       className={`${styles.logoContainer} ${className}`} 
       style={{ 
-          width:  '100vw', 
-          height: `${height + 25}px`,
+          width: isLibreWolf ? `${desktopWidth}px` : '100vw', 
+          height: isLibreWolf ? `${desktopHeight + 25}px` : `${height + 25}px`,
           position: 'relative',
           overflow: 'visible', // Allow overflow
           opacity: isLoaded ? 1 : 1,
           transition: 'opacity 500ms ease-in-out',
           visibility: isLoaded ? 'visible' : 'visible',
           maxWidth: 'none', // Add this
-          minWidth: '100vw' // Add this
+          minWidth: isLibreWolf ? `${desktopWidth}px` : '100vw' // Add this
       }}
     >
       {!isLoaded && <LoadingBar width={width} />}
