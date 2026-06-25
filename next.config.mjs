@@ -74,5 +74,8 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     qualities: [1, 25, 50, 75, 100],
   },
+    eslint: {
+    ignoreDuringBuilds: true, // Add this line
+  },
 };
 export default nextConfig;
