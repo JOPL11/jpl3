@@ -5,7 +5,7 @@ const nextConfig = {
   generateBuildId: async () => {
     return process.env.GIT_COMMIT_SHA || 'dev';
   },
-  
+  optimizeFonts: false,
   // Configure webpack for file hashing
   webpack: (config, { isServer }) => {
     if (!isServer) {
