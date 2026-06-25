@@ -1188,7 +1188,7 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={webglHeadingRef}>WebGL Cases</AnimatedText>
             </h2>
-                <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies.</div>
+                <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies. View on desktop for more content.</div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
                     {!isMobile && (
                   <> 
