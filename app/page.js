@@ -1192,6 +1192,8 @@ useEffect(() => {
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
                     {!isMobile && (
                   <> 
+
+              {/*   WebGL Section 
               <ProjectCard 
                   onMoreClick={() => {
                     console.log('Dornbach More button clicked, triggering animation');
@@ -1220,7 +1222,7 @@ useEffect(() => {
                   <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber, GLSL, Next.js, GSAP </AnimatedText></p>
                   <p><strong>Role:</strong> Code / Cloud visuals</p>
                 </ProjectCard>
-
+*/}
               <ProjectCard 
                   onMoreClick={() => {
                     console.log('Rehau More button clicked, triggering animation');
