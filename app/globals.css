@@ -4,6 +4,12 @@
   --font-inter: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
+/* Ecosia, please stop */
+* {
+  -webkit-text-size-adjust: none !important;
+  text-size-adjust: none !important;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0f172a;
