@@ -1223,6 +1223,23 @@ useEffect(() => {
                   <p><strong>Role:</strong> Code / Cloud visuals</p>
                 </ProjectCard>
 */}
+
+              <ProjectCard 
+                  onMoreClick={() => {
+                    console.log('AI Ching More button clicked, triggering animation');
+                    bytes101TextRef.current?.animate();
+                  }}
+                  title="Temple of Karnak Guided Tour"
+                  image="/images/karnak.jpg"
+                  alt="emple of Karnak"
+                  link="https://temples-eta.vercel.app"
+                  text="The largest temple on earth, reconstructed according to spec and animated in 3D for a guided tour."
+                  className="webglProject"
+                >
+                  <p>Concept Demo</p>
+                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber</AnimatedText></p>
+                  <p><strong>Role:</strong> Concept / Model / Development</p>
+                </ProjectCard>
               <ProjectCard 
                   onMoreClick={() => {
                     console.log('Rehau More button clicked, triggering animation');
