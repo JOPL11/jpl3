@@ -1192,7 +1192,22 @@ useEffect(() => {
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
                     {!isMobile && (
                   <> 
-
+              <ProjectCard 
+                  onMoreClick={() => {
+                    console.log('CubeSite More button clicked, triggering animation');
+                    bytes101TextRef.current?.animate();
+                  }}
+                  title="Cubes"
+                  image="/images/JPL3Poster_3D.jpg"
+                  alt="CubeSite"
+                  link="https://cubistic.vercel.app"
+                  text="Featuring scripted 3D, interaction and animations."
+                  className="webglProject"
+                >
+                  <p>Site Demo In development</p>
+                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> Three.js / React Three Fiber</AnimatedText></p>
+                  <p><strong>Role:</strong> R3F concept architect & creator</p>
+                </ProjectCard>
               {/*   WebGL Section 
               <ProjectCard 
                   onMoreClick={() => {
@@ -1222,7 +1237,7 @@ useEffect(() => {
                   <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber, GLSL, Next.js, GSAP </AnimatedText></p>
                   <p><strong>Role:</strong> Code / Cloud visuals</p>
                 </ProjectCard>
-*/}
+
 
 
               <ProjectCard 
@@ -1256,9 +1271,27 @@ useEffect(() => {
                   <p>Project In development</p>
                   <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber</AnimatedText></p>
                   <p><strong>Role:</strong> 3D model implementation & animation / WebXR implementation</p>
-                </ProjectCard>
-             </> 
-            )}
+                </ProjectCard> */}
+                    <ProjectCard 
+                    onMoreClick={() => {
+                      console.log('S&B More button clicked, triggering animation');
+                      qcTextRef.current?.animate();
+                    }}
+                      title="Schrödinger & Bohr Quantum Pocketwatches "
+                      image="/images/JPL3Poster_QC.jpg"
+                      alt="Quantum Pocketwatch Company"
+                      link="https://quantum-pocketwatch.vercel.app/"
+                      text="<strong>Experimental / Desktop Only</strong>. Featuring custom 3D models and interactions." 
+                      className="webglProject"
+                    >
+                      <p>Visual Concept Experiment</p>
+                      <p><strong>Tools:</strong><AnimatedText ref={qcTextRef} type="project">Three.js / React 3 Fiber / GSAP / Router / Next.js / Blender</AnimatedText></p>
+                      <p><strong>Role:</strong> Concept / Animation / Dev</p>
+                      <p><strong>Duration:</strong> 2 weeks</p>
+                      <p><strong>Info:</strong> nerdRage! A playful take on quantum physics concepts.</p>
+                    </ProjectCard>
+                  </>
+                )}
               <ProjectCard 
                   onMoreClick={() => {
                     console.log('AI Ching More button clicked, triggering animation');
@@ -1275,22 +1308,7 @@ useEffect(() => {
                   <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber</AnimatedText></p>
                   <p><strong>Role:</strong> Concept / Model / Development</p>
                 </ProjectCard>
-              <ProjectCard 
-                  onMoreClick={() => {
-                    console.log('CubeSite More button clicked, triggering animation');
-                    bytes101TextRef.current?.animate();
-                  }}
-                  title="Cubes"
-                  image="/images/JPL3Poster_3D.jpg"
-                  alt="CubeSite"
-                  link="https://cubistic.vercel.app"
-                  text="Featuring scripted 3D, interaction and animations."
-                  className="webglProject"
-                >
-                  <p>Site Demo In development</p>
-                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> Three.js / React Three Fiber</AnimatedText></p>
-                  <p><strong>Role:</strong> R3F concept architect & creator</p>
-                </ProjectCard>
+
              
               <ProjectCard 
                   onMoreClick={() => {
@@ -1349,26 +1367,7 @@ useEffect(() => {
                       <p><strong>Info:</strong> A mysterious facility exploring the intersection of architecture and digital art.</p>
                     </ProjectCard>
 
-                       <ProjectCard 
-                    onMoreClick={() => {
-                      console.log('S&B More button clicked, triggering animation');
-                      qcTextRef.current?.animate();
-                    }}
-                      title="Schrödinger & Bohr Quantum Pocketwatches "
-                      image="/images/JPL3Poster_QC.jpg"
-                      alt="Quantum Pocketwatch Company"
-                      link="https://quantum-pocketwatch.vercel.app/"
-                      text="<strong>Experimental / Desktop Only</strong>. Featuring custom 3D models and interactions." 
-                      className="webglProject"
-                    >
-                      <p>Visual Concept Experiment</p>
-                      <p><strong>Tools:</strong><AnimatedText ref={qcTextRef} type="project">Three.js / React 3 Fiber / GSAP / Router / Next.js / Blender</AnimatedText></p>
-                      <p><strong>Role:</strong> Concept / Animation / Dev</p>
-                      <p><strong>Duration:</strong> 2 weeks</p>
-                      <p><strong>Info:</strong> nerdRage! A playful take on quantum physics concepts.</p>
-                    </ProjectCard>
-                  </>
-                )} */}
+                    */}
         
                   </div>
             </section>
