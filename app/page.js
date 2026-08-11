@@ -1184,12 +1184,46 @@ useEffect(() => {
                <div data-section="webgl-heading"></div>
             <section id="webgl" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="webgl">
             
-             <SectionTracker onSectionChange={setActiveSection} />
+            <SectionTracker onSectionChange={setActiveSection} />
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={webglHeadingRef}>WebGL Cases</AnimatedText>
             </h2>
                 <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies. View on desktop for more content.</div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
+                  <ProjectCard 
+                  onMoreClick={() => {
+                    console.log('karnak More button clicked, triggering animation');
+                    bytes101TextRef.current?.animate();
+                  }}
+                  title="Temple of Karnak Guided Tour"
+                  image="/images/karnak.jpg"
+                  alt="emple of Karnak"
+                  link="https://temples-eta.vercel.app"
+                  text="The largest temple on earth, reconstructed according to spec and animated in 3D for a guided tour."
+                  className="webglProject"
+                >
+                  <p>Concept Demo</p>
+                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber</AnimatedText></p>
+                  <p><strong>Role:</strong> Concept / Model / Development</p>
+                </ProjectCard>
+
+             
+              <ProjectCard 
+                  onMoreClick={() => {
+                    console.log('AI Ching More button clicked, triggering animation');
+                    bytes101TextRef.current?.animate();
+                  }}
+                  title="A.I.-Ching"
+                  image="/images/ching.jpg"
+                  alt="AI-Ching"
+                  link="https://ai-ching.vercel.app"
+                  text="An ancient Taoist text that uses AI to generate insights."
+                  className="webglProject"
+                >
+                  <p>Concept Demo</p>
+                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber</AnimatedText></p>
+                  <p><strong>Role:</strong> Concept / Animation / Development</p>
+                </ProjectCard>
                     {!isMobile && (
                   <> 
               <ProjectCard 
@@ -1292,40 +1326,7 @@ useEffect(() => {
                     </ProjectCard>
                   </>
                 )}
-              <ProjectCard 
-                  onMoreClick={() => {
-                    console.log('AI Ching More button clicked, triggering animation');
-                    bytes101TextRef.current?.animate();
-                  }}
-                  title="Temple of Karnak Guided Tour"
-                  image="/images/karnak.jpg"
-                  alt="emple of Karnak"
-                  link="https://temples-eta.vercel.app"
-                  text="The largest temple on earth, reconstructed according to spec and animated in 3D for a guided tour."
-                  className="webglProject"
-                >
-                  <p>Concept Demo</p>
-                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber</AnimatedText></p>
-                  <p><strong>Role:</strong> Concept / Model / Development</p>
-                </ProjectCard>
-
-             
-              <ProjectCard 
-                  onMoreClick={() => {
-                    console.log('AI Ching More button clicked, triggering animation');
-                    bytes101TextRef.current?.animate();
-                  }}
-                  title="A.I.-Ching"
-                  image="/images/ching.jpg"
-                  alt="AI-Ching"
-                  link="https://ai-ching.vercel.app"
-                  text="An ancient Taoist text that uses AI to generate insights."
-                  className="webglProject"
-                >
-                  <p>Concept Demo</p>
-                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber</AnimatedText></p>
-                  <p><strong>Role:</strong> Concept / Animation / Development</p>
-                </ProjectCard>
+            
 
              {/*     {!isMobile && (
                   <>
