@@ -614,7 +614,7 @@ useEffect(() => {
 
             <p>Specialized in <strong>2D / 3D design, animation and interactive content.</strong></p>
 
-            <p>My core principle is merging design, animation, and code to create work that is not only beautiful but also functional and scalable.</p>
+            <p>My core principle is merging design, animation, and code to create work that is aesthetic and functional and scalable.</p>
 
             <p>I started out as jr. art director and gained proficiency in motion design, 3D visualization and creative development, while also building a strong foundation in web development and interactive design.</p>
 

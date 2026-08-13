@@ -1,0 +1,9 @@
+{
+  "json.schemas": [
+    {
+      "name": "package.json",
+      "url": "https://json.schemastore.org/package.json",
+      "fileMatch": ["package.json"]
+    }
+  ]
+}
