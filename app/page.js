@@ -1393,7 +1393,6 @@ useEffect(() => {
             <button 
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
               className={styles.backToTopFooter}
-              style={{height: '72px'}}
               aria-label="Back to top"
             >
               ↑
