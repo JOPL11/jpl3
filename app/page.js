@@ -1224,6 +1224,22 @@ useEffect(() => {
                   <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber</AnimatedText></p>
                   <p><strong>Role:</strong> Concept / Animation / Development</p>
                 </ProjectCard>
+                <ProjectCard 
+                  onMoreClick={() => {
+                    console.log('Redpoint More button clicked, triggering animation');
+                    bytes101TextRef.current?.animate();
+                  }}
+                  title="Redpoint anti-stress game"
+                  image="/images/redpoint.jpg"
+                  alt="redpoint game"
+                  link="https://dots-flow.vercel.app/"
+                  text="A meditation game to just sit with your thoughts on autopilot. Nothing stressy. Just to kill time."
+                  className="webglProject"
+                >
+                  <p>Concept Demo</p>
+                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber</AnimatedText></p>
+                  <p><strong>Role:</strong> Concept / Model / Development</p>
+                </ProjectCard>
                     {!isMobile && (
                   <> 
               <ProjectCard 
