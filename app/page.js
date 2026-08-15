@@ -1217,7 +1217,7 @@ useEffect(() => {
                   image="/images/ching.jpg"
                   alt="AI-Ching"
                   link="https://ai-ching.vercel.app"
-                  text="An ancient Taoist text that uses AI to generate insights."
+                  text="An ancient Taoist text that uses AI to interpret the meaning of hexagrams."
                   className="webglProject"
                 >
                   <p>Concept Demo</p>
@@ -1233,7 +1233,7 @@ useEffect(() => {
                   image="/images/redpoint.jpg"
                   alt="redpoint game"
                   link="https://dots-flow.vercel.app/"
-                  text="A meditation game to just sit with your thoughts on autopilot. Nothing stressy. Just to kill time."
+                  text="A zen meditation game to just sit with your thoughts on autopilot. Nothing stressy."
                   className="webglProject"
                 >
                   <p>Concept Demo</p>
