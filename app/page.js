@@ -702,7 +702,7 @@ useEffect(() => {
               <h2 id="code" style={{marginTop: '100px'}} className={styles.scrollTarget}><AnimatedText ref={workHeadingRef}>Fullstack Case Study</AnimatedText></h2>
                  <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies</div>
               <div className={styles.projectsGrid} role="grid" aria-label="Projects">
- {/* About section End
+             {/* About section End
               <ProjectCard 
                 onMoreClick={() => {
                     console.log('airbus2 More button clicked, triggering animation');
@@ -844,7 +844,7 @@ useEffect(() => {
                 </ProjectCard>
   */}
 
-
+              {/* 
                 <ProjectCard
                   onMoreClick={() => {
                     console.log('citylink1 More button clicked, triggering animation');
@@ -959,10 +959,12 @@ useEffect(() => {
                   <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Tools:</strong><AnimatedText ref={citylink2TextRef} type="project"> Next.js, Supabase, Geoman-io, leaflet, Openstreetmap, REST</AnimatedText></p>
                 </ProjectCard>
+                */}
                 </div>
             </section>
 
-                      <div data-section="product-heading"></div>
+           
+            <div data-section="product-heading"></div>
             <section id="proto" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="proto">
           
              <SectionTracker onSectionChange={setActiveSection} />
