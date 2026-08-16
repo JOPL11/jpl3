@@ -1244,7 +1244,7 @@ useEffect(() => {
                 </ProjectCard>
                     {!isMobile && (
                   <> 
-              <ProjectCard 
+          {/*     <ProjectCard 
                   onMoreClick={() => {
                     console.log('CubeSite More button clicked, triggering animation');
                     bytes101TextRef.current?.animate();
@@ -1260,7 +1260,7 @@ useEffect(() => {
                   <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> Three.js / React Three Fiber</AnimatedText></p>
                   <p><strong>Role:</strong> R3F concept architect & creator</p>
                 </ProjectCard>
-              {/*   WebGL Section 
+                WebGL Section 
               <ProjectCard 
                   onMoreClick={() => {
                     console.log('Dornbach More button clicked, triggering animation');
