@@ -960,6 +960,7 @@ useEffect(() => {
                   <p><strong>Tools:</strong><AnimatedText ref={citylink2TextRef} type="project"> Next.js, Supabase, Geoman-io, leaflet, Openstreetmap, REST</AnimatedText></p>
                 </ProjectCard>
                 */}
+                <p>Pure next.js projects have been removed for now. If you wanna see some code projects head down to the webGL section.</p>
                 </div>
             </section>
 
