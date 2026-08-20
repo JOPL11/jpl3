@@ -1220,7 +1220,7 @@ useEffect(() => {
                   image="/images/ching.jpg"
                   alt="AI-Ching"
                   link="https://ai-ching.vercel.app"
-                  text="An ancient Taoist text that uses AI to interpret the meaning of hexagrams (randomly chosen using quantum randomness courtesy of the Universitty of Australia's quantum science dept.) through the lens of your question."
+                  text="An ancient Taoist text that uses AI to interpret the meaning of hexagrams (randomly chosen using quantum randomness courtesy of the University of Australia's quantum science dept.) through the lens of your question."
                   className="webglProject"
                 >
                   <p>Concept Demo</p>
