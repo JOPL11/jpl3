@@ -591,16 +591,7 @@ useEffect(() => {
              {/*About Section Detector Here*/} 
 
               
-                <div data-section="overview"></div>
-            <section id="overview" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="overview">
-                <SectionTracker onSectionChange={setActiveSection} />
-                <h2 style={{paddingTop: "13px"}}><AnimatedText ref={overviewHeadingRef}>Overview</AnimatedText></h2>
-                <div style={{paddingBottom:"2rem"}}>
-                  <div style={{height: "33px"}}></div>
-             <p>Developing mission-critical digital experiences for global leaders. Trusted by major brands to translate brand vision into immersive interactive, motion, and installation design.</p><br></br>
-              <p>Explore the work by tapping the logos. </p></div>
-                  <LogoCard />
-            </section>
+
           <div data-section="about"></div>
           <section id="about" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="about">
              <SectionTracker onSectionChange={setActiveSection} />
@@ -692,7 +683,16 @@ useEffect(() => {
               </ul>
          </section>
        
-    
+                    <div data-section="overview"></div>
+            <section id="overview" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="overview">
+                <SectionTracker onSectionChange={setActiveSection} />
+                <h2 style={{paddingTop: "13px"}}><AnimatedText ref={overviewHeadingRef}>Overview</AnimatedText></h2>
+                <div style={{paddingBottom:"2rem"}}>
+                  <div style={{height: "33px"}}></div>
+             <p>Developing mission-critical digital experiences for global leaders. Trusted by major brands to translate brand vision into immersive interactive, motion, and installation design.</p><br></br>
+              <p>Explore the work by tapping the logos. </p></div>
+                  <LogoCard />
+            </section>
              {/* About section End */}
 
                   <div data-section="code-heading"></div>
