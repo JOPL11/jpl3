@@ -422,7 +422,7 @@ useEffect(() => {
           aria-hidden={!isMenuOpen}
         >
           <ul className={styles.mobileMenuList}>
-            {['Overview', 'About', 'Services', 'Code', 'Proto', 'Motion', 'WebGL', 'Contact'].map((item) => (
+            {['About', 'Overview', 'Services', 'Code', 'Proto', 'Motion', 'WebGL', 'Contact'].map((item) => (
               <li key={item} className={styles.mobileMenuItem}>
                 <a 
                   href={`#${item.toLowerCase()}`} 
@@ -461,10 +461,6 @@ useEffect(() => {
           </ul>
         </nav>
       </>
-
-
-
-      
       <main className={styles.main} role="main" id="main-content">
         <div className={styles.contentWrapper}>
           <div className={styles.logoSidebar} role="complementary" aria-label="Logo and Navigation">
