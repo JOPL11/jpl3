@@ -597,7 +597,7 @@ useEffect(() => {
           
             <p>Hi! I&apos;m Jan Peiro.</p><br></br>
 
-            <p>A multidisciplinary designer and creative who bridges the gap between visuals and technology. I hold a state-certified Diploma in Communications Design from Munich and have spent my career transforming ideas into engaging experiences for a global clientele.</p>
+            <p>A multidisciplinary designer and creative who bridges the gap between visuals and technology. I hold a state-certified Diploma in Communications Design from The Blocherer Munich and have spent my career transforming ideas into engaging experiences for a global clientele.</p>
 
             <p>Specialized in <strong>2D / 3D design, animation and interactive content.</strong></p>
 
@@ -1198,7 +1198,7 @@ useEffect(() => {
                   image="/images/karnak.jpg"
                   alt="emple of Karnak"
                   link="https://temples-eta.vercel.app"
-                  text="The largest temple on earth, reconstructed according to spec and animated in 3D for a guided tour."
+                  text="The largest temple on earth, rebuilt based on the best available academic research and animated in 3D for a guided tour."
                   className="webglProject"
                 >
                   <p>Concept Demo</p>
