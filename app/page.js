@@ -597,7 +597,7 @@ useEffect(() => {
           
             <p>Hi! I&apos;m Jan Peiro.</p><br></br>
 
-            <p>A multidisciplinary designer and creative who bridges the gap between visuals and technology. I hold a state-certified Diploma in Communications Design from The Blocherer School in Munich and have spent my career transforming ideas into engaging experiences for a global clientele.</p>
+            <p>A multidisciplinary designer and creative who bridges the gap between visuals and technology. I hold a state-certified diploma in Communications Design from The Blocherer School in Munich, Germany and have spent my career transforming ideas into engaging experiences for a global clientele.</p>
 
             <p>Specialized in <strong>2D / 3D design, animation and interactive content.</strong></p>
 
