@@ -330,7 +330,7 @@ const LogoCard = () => {
       clientLogo: '/images/agencies/SMMD.png',
       clientLogoHeight: 35,
       agencyName: 'SMMD Team',
-      agencyLink: 'https://www.smmd.team',
+      //agencyLink: '',
       exemptFromAnimations: false,
        video: {
         playbackId: '8UuN9JNltg9BwDO1SAAbvKn6vyq2u7vdgwScfVXLUk8',
@@ -677,7 +677,7 @@ const LogoCard = () => {
       clientLogo: '/images/agencies/redBull.png',
       clientLogoHeight: 25,
       agencyName: 'Red Bull Austria',
-      agencyLink: 'https://www.redbull.com/',
+     /// agencyLink: 'https://www.redbull.com/',
       exemptFromAnimations: false,
       description: `
       <p><strong>The Client & Era:</strong> In the mid-2000s, Red Bull was transitioning from an energy drink company into a global media powerhouse and culture brand. Their digital presence needed to match their high-octane, experiential identity.</p><br>
@@ -705,7 +705,7 @@ const LogoCard = () => {
       clientLogo: '/images/agencies/pro7_small2.png',
       clientLogoHeight: 25,
       agencyName: 'Pro7Sat1',
-      agencyLink: 'https://www.prosiebensat1.com/en',
+      //agencyLink: 'https://www.prosiebensat1.com/en',
       exemptFromAnimations: false,
         description: `
       <p><strong>Projects:</strong> Promotional Assets for Major Motion Pictures / Local TV Shows / Video Games</p><br>
@@ -720,7 +720,7 @@ const LogoCard = () => {
       clientLogo: '/images/agencies/HBM.png',
       clientLogoHeight: 45,
       agencyName: 'Burda',
-      agencyLink: 'https://www.burda.com/en/',
+      //agencyLink: 'https://www.burda.com/en/',
       exemptFromAnimations: false,
  description: `
       <p><strong>Projects:</strong> Interactive Presentations and Internal Strategy Showcases<br></p>
