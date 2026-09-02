@@ -1198,7 +1198,7 @@ useEffect(() => {
                   image="/images/karnak.jpg"
                   alt="emple of Karnak"
                   link="https://temples-eta.vercel.app"
-                  text="The largest temple on earth, reconstructed to spec in Blender / React Three Fiber and animated with GSAP for an immersive & interactive guided tour."
+                  text="The largest temple on earth, reconstructed to spec in Blender / React Three Fiber and animated with greensock & GLSL for an immersive & interactive guided tour."
                   className="webglProject"
                 >
                   <p>Concept Demo</p>
