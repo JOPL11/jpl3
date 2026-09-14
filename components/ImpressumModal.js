@@ -37,8 +37,8 @@ export default function ImpressumModal({ isOpen, onClose }) {
             <h3 className={styles.modalContentH3}>Angaben gemäß § 5 TMG</h3>
             <p>
               Jan Peiro<br />
-              Kapuziner Strasse 3<br />
-              67547 Worms
+              Marktplatz 10<br />
+              68526 Ladenburg
             </p>
             
             <h3 className={styles.modalContentH3}>Kontakt</h3>
