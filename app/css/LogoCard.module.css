@@ -148,7 +148,6 @@
 .modalContent {
  position: relative;
  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
   background: transparent;
   border-radius: 12px;
@@ -220,7 +219,6 @@
 .scrollableContent {
   flex: 1;
   padding: 0;
-  -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
   max-height: 100%;
   pointer-events: auto;
@@ -515,7 +513,6 @@ html.no-scroll {
       .modalContent {
        position: static;
        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
         overscroll-behavior: contain;
         background: transparent;
         border-radius: 12px;
@@ -537,7 +534,6 @@ html.no-scroll {
   .modalContent {
   position: static;
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
   background: transparent;
   border-radius: 12px;
