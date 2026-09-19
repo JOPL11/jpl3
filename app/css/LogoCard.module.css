@@ -148,7 +148,6 @@
 .modalContent {
  position: relative;
  overflow-y: auto;
-  overscroll-behavior: contain;
   background: transparent;
   border-radius: 12px;
   max-width: 800px;
@@ -513,7 +512,7 @@ html.no-scroll {
       .modalContent {
        position: static;
        overflow-y: auto;
-        overscroll-behavior: contain;
+        
         background: transparent;
         border-radius: 12px;
         max-width: 800px;
@@ -534,7 +533,7 @@ html.no-scroll {
   .modalContent {
   position: static;
   overflow-y: auto;
-  overscroll-behavior: contain;
+  
   background: transparent;
   border-radius: 12px;
   max-width: 800px;
@@ -606,37 +605,28 @@ html.no-scroll {
   }
   
   .modalContent {
-    padding: 1.5rem;
+    padding: 0rem;
   }
-.clientInfo{
-  padding: 0 1rem 0 0;
-}
-
-  .modalContent {
-    padding: 1.5rem;
+  .clientInfo{
+    padding: 0 1rem 0 0;
   }
-  
   .closeButton {
     font-size: 1.75rem;
   }
-.modalHeader {
+  .modalHeader {
     padding: 1rem 0 0.75rem;
   }
-  
   .scrollableContent {
     padding: 0 1rem 1rem;
   }
-  
   .modalTitle {
     font-size: 1.25rem;
     padding-right: 2rem;
-  }
-  
+  } 
   .closeButton {
     top: 0.75rem;
     right: 0.75rem;
   }
-  
   .modalNavigation {
     justify-content: left;
     padding-left: 0;
@@ -742,7 +732,7 @@ html.no-scroll {
     padding: 0 !important;
   }
   .modalContent {
-    padding: 1.2;
+    padding: 0;
   }
   .logoCard {
     background: transparent;
