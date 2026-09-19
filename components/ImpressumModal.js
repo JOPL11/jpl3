@@ -41,7 +41,7 @@ export default function ImpressumModal({ isOpen, onClose }) {
               68526 Ladenburg
             </p>
             
-            <h3 className={styles.modalContentH3}>Kontakt</h3>
+            <h3 className={styles.modalContentH3}>Contact</h3>
             <p>
               Telefon: +49 (0) 1520 317-2291<br />
               E-Mail: jan.peiro@protonmail.com
