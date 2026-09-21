@@ -1212,11 +1212,11 @@ useEffect(() => {
                     console.log('AI Ching More button clicked, triggering animation');
                     bytes101TextRef.current?.animate();
                   }}
-                  title="A.I.-Ching"
+                  title="A.I. Ching"
                   image="/images/ching.jpg"
                   alt="AI-Ching"
                   link="https://ai-ching.vercel.app"
-                  text="Type in a question. Random numbers piped in from photon beam splitters at the University of Australia cast a hexagram; AI interprets the hexagram through the lens of your question."
+                  text="Type in a question. Random numbers piped in from photon beam splitters at the University of Australia cast one of 64 I Ching hexagrams; AI interprets the meaning of the hexagram through the lens of your question."
                   className="webglProject"
                 >
                   <p>Concept Demo</p>
