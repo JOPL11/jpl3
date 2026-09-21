@@ -649,7 +649,11 @@ function Scene({ modelUrl }) {
         isHovered={isHovered}
       />
       
+
       {/* First cube <NameText /> */}
+
+
+      
       <OrbitingCube speed={1.3} positionOffset={0} rotationSpeed={1} visible={!isHolographic}/>
       
       {/* Second cube with offset position and different speed */}
