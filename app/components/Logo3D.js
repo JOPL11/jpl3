@@ -483,7 +483,7 @@ function NameText() {
   }, [texture]);
 
   return (
-    <mesh position={[-0.15, -0.001, 0.5]}>
+    <mesh position={[0.1, -0.8, 0.5]}>
       <planeGeometry args={[0.88, 0.15]} />
       <meshBasicMaterial 
         map={texture}
@@ -894,7 +894,7 @@ const handleResize = useCallback(() => {
             </EffectComposer>
            
    
-          <Scene modelUrl="/assets/logo2.glb" />
+          <Scene modelUrl="/assets/logo.glb" />
    
         </Suspense>
         <OrbitControls 
