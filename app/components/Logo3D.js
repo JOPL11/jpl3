@@ -325,10 +325,10 @@ function LogoLongs({ size = 0.1, distance = 1.0, intensity = 2.0 }) {
 
 
 // Model component with holographic toggle
-function Model({ url, position = [0, -0.05, 0], isHolographic, onHolographicChange, isHovered }) {
+function Model({ url, position = [0, -0.05, 0], isHolographic, onHolographicChange, isHovered, isMobile }) {
   const { scene } = useGLTF(url);
   const groupRef = useRef();
-
+  const modelScale = isMobile ? 0.032 : 0.05;
   // Update cursor style based on hover state
   useEffect(() => {
     if (groupRef.current) {
@@ -399,7 +399,7 @@ child.material = isHolographic
       position={position} 
       onClick={() => onHolographicChange(!isHolographic)}
     >
-      <primitive object={scene} scale={0.05} />
+      <primitive object={scene} scale={modelScale} />
       {isHolographic && (
         <>
           <HologramCorners />
@@ -647,13 +647,14 @@ function Scene({ modelUrl }) {
         isHolographic={isHovered || isHolographic}
         onHolographicChange={setIsHolographic}
         isHovered={isHovered}
+        isMobile={isMobile}
       />
       
 
       {/* First cube <NameText /> */}
 
 
-      
+
       <OrbitingCube speed={1.3} positionOffset={0} rotationSpeed={1} visible={!isHolographic}/>
       
       {/* Second cube with offset position and different speed */}
