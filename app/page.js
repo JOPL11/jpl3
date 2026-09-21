@@ -1403,7 +1403,7 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={contactHeadingRef}>Contact</AnimatedText>
             </h2>
-            <div style={{height: '0.1rem', marginBottom: '11rem', fontSize: '1.1rem'}}>You can drop words on me from here.</div>
+            <div style={{height: '0.1rem', marginBottom: '11rem', fontSize: '1.1rem'}}>Got words? Drop 'em here.</div>
               <ContactForm />
             </section>
         </div>
