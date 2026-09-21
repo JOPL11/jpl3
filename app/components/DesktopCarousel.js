@@ -125,8 +125,9 @@ export default function DesktopCarousel({ title, description, images = [], class
                   onError={handleImageError}
                   unoptimized={process.env.NODE_ENV === 'development'}
                   style={{
-                    maxWidth: '100%',
-                    height: 'auto',
+                    maxWidth: '90%',
+                    height: '90%',
+                     objectFit: 'contain',
                   }}
                 />
               </>

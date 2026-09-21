@@ -1241,7 +1241,7 @@ useEffect(() => {
                 </ProjectCard>
                     {!isMobile && (
                   <> 
-          {/*     <ProjectCard 
+            <ProjectCard 
                   onMoreClick={() => {
                     console.log('CubeSite More button clicked, triggering animation');
                     bytes101TextRef.current?.animate();
@@ -1257,7 +1257,7 @@ useEffect(() => {
                   <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> Three.js / React Three Fiber</AnimatedText></p>
                   <p><strong>Role:</strong> R3F concept architect & creator</p>
                 </ProjectCard>
-                WebGL Section 
+           
               <ProjectCard 
                   onMoreClick={() => {
                     console.log('Dornbach More button clicked, triggering animation');
@@ -1266,7 +1266,7 @@ useEffect(() => {
                   title="Dornbach"
                   image="/images/corp/dornbach.jpg"
                   alt="Dornbach"
-                  link="https://clouds2-gamma.vercel.app/"
+                 // link="https://clouds2-gamma.vercel.app/"
                   text="Expo installation for Dornbach at the Milan Design Week '26."
                   className="webglProject"
                     client={{
@@ -1286,8 +1286,6 @@ useEffect(() => {
                   <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber, GLSL, Next.js, GSAP </AnimatedText></p>
                   <p><strong>Role:</strong> Code / Cloud visuals</p>
                 </ProjectCard>
-
-
 
               <ProjectCard 
                   onMoreClick={() => {
@@ -1313,15 +1311,23 @@ useEffect(() => {
                     maxWidth: '100%'
                   }}   
                    modalContent={{
-                    description: "An interactive 3D product showcase featuring various models of Rehau products. Users can initiate opening and closing of the doors and windows set in a virtual environment. Information about the products is overlayed in the responsive next.js environment. Images coming soon.",
-                    images: [ ]
+                    description: "An interactive 3D product showcase featuring various models of Rehau products. I made animations and parsed models, updated jsx, converted to WebXR.",
+                    images: [ 
+                     { src: "/images/rehau/rehau1.jpg", alt: "Project Screenshot 1" },
+                     { src: "/images/rehau/rehau2.jpg", alt: "Project Screenshot 2" },
+                     { src: "/images/rehau/rehau3.jpg", alt: "Project Screenshot 3" },
+                     { src: "/images/rehau/rehau3B.jpg", alt: "Project Screenshot 4" },
+                     { src: "/images/rehau/rehau4.jpg", alt: "Project Screenshot 5" },
+
+                    ]
                   }}
                 >
                   <p>Project In development</p>
                   <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber</AnimatedText></p>
                   <p><strong>Role:</strong> 3D model implementation & animation / WebXR implementation</p>
-                </ProjectCard> */}
-                    <ProjectCard 
+                </ProjectCard>
+                 {/*       WebGL Section    */}  
+                 <ProjectCard 
                     onMoreClick={() => {
                       console.log('S&B More button clicked, triggering animation');
                       qcTextRef.current?.animate();
