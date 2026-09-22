@@ -325,10 +325,10 @@ function LogoLongs({ size = 0.1, distance = 1.0, intensity = 2.0 }) {
 
 
 // Model component with holographic toggle
-function Model({ url, position = [0, -0.05, 0], isHolographic, onHolographicChange, isHovered, isMobile }) {
+function Model({ url, position = [0, -0.4, 0], isHolographic, onHolographicChange, isHovered, isMobile }) {
   const { scene } = useGLTF(url);
   const groupRef = useRef();
-  const modelScale = isMobile ? 0.032 : 0.05;
+  const modelScale = isMobile ? 0.028 : 0.045;
   // Update cursor style based on hover state
   useEffect(() => {
     if (groupRef.current) {
