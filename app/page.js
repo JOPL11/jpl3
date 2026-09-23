@@ -594,7 +594,7 @@ useEffect(() => {
                 <div style={{paddingBottom:"2rem"}}>
                   <div style={{height: "33px"}}></div>
              <p>Developing mission-critical digital experiences for global leaders. Trusted by major brands to translate brand vision into immersive interactive, motion, and installation design.</p><br></br>
-              <p>Explore the work by tapping the logos. </p></div>
+              <p>Each logo opens a closer look at a project.</p></div>
                   <LogoCard />
             </section>
 
