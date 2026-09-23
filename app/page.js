@@ -1003,7 +1003,7 @@ useEffect(() => {
                     <p><strong>Description:</strong> Concept, 3D Modeling, Motion, VFX, Design, Post-Production</p>
                     <p><strong>Tools:</strong> Cinema4D, After Effects, Duik, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
                     <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
-                    <p><strong>More:</strong><br /> Be advised this hasn&apos;t been rebranded with my new logo. Still uses the JPL logo instead, hope that doesn&apos;t cause any confusion.</p>
+                    <p><strong>More:</strong><br />Entire reel is Non-AI.</p>
                 </VideoProjectCard>
                 
                   <h2 style={{paddingTop: "1rem", fontSize: '1.40rem', color: "#a2feff"}}>Short Reel 2025</h2>
