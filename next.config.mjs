@@ -1,11 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   productionBrowserSourceMaps: false,
+
   // Enable file hashing for better caching
   generateBuildId: async () => {
     return process.env.GIT_COMMIT_SHA || 'dev';
   },
-  optimizeFonts: false,
+
   // Configure webpack for file hashing
   webpack: (config, { isServer }) => {
     if (!isServer) {
@@ -14,6 +15,7 @@ const nextConfig = {
     }
     return config;
   },
+
   // Configure cache control - NO CACHING EVER
   async headers() {
     return [
@@ -39,15 +41,14 @@ const nextConfig = {
         source: '/(.*)',
         headers: [
           {
-            //key: 'Cache-Control',
-            //value: 'no-cache, no-store, must-revalidate',
             key: 'X-Frame-Options',
-            value: 'ALLOW-FROM https://janpeiro.vercel.app'
+            value: 'SAMEORIGIN',
           },
         ],
       },
     ];
   },
+
   // Keep your existing image configurations
   images: {
     remotePatterns: [
@@ -74,8 +75,10 @@ const nextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     qualities: [1, 25, 50, 75, 100],
   },
-    eslint: {
-    ignoreDuringBuilds: true, // Add this line
+
+  eslint: {
+    ignoreDuringBuilds: true,
   },
 };
+
 export default nextConfig;
