@@ -1342,7 +1342,7 @@ useEffect(() => {
                     maxWidth: '100%'
                   }}   
                 >
-                  <p>Expo installation-piece, project ultimately cancelled</p>
+                  <p>Expo installation-piece unfinished prototype</p>
                   <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> Three.js, React Three Fiber, GLSL (Shader), Next.js, GSAP </AnimatedText></p>
                   <p><strong>Role:</strong> Code / Cloud visuals</p>
                 </ProjectCard>
