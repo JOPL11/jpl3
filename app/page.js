@@ -1318,28 +1318,22 @@ useEffect(() => {
                       <p><strong>Duration:</strong> 2 weeks</p>
                       <p><strong>Info:</strong> nerdRage! A playful take on quantum physics concepts.</p>
                     </ProjectCard>
-                  </>
-                )}
-            
-
-             {/*     {!isMobile && (
-                  <>
-                 <ProjectCard 
+                         <ProjectCard 
                   onMoreClick={() => {
                     console.log('Dornbach More button clicked, triggering animation');
                     bytes101TextRef.current?.animate();
                   }}
-                  title="Dornbach"
+                  title="CloudTunnel"
                   image="/images/corp/dornbach.jpg"
                   alt="Dornbach"
-                 // link="https://clouds2-gamma.vercel.app/"
-                  text="Expo installation for Dornbach at the Milan Design Week '26."
+                  link="https://cloudtunnels.vercel.app/"
+                  text="Expo installation protoype engine for a phyisical installation piece at the Milan Design Week 2026."
                   className="webglProject"
-                    client={{
-                    name: "SMMD Team |",
-                    logo: "/images/agencies/SMMD.png",
+                  //  client={{
+                   // name: "SMMD Team |",
+                    //logo: "/images/agencies/SMMD.png",
                     //website: "https://www.smmd.team/"
-                 }}   
+                // }}   
                   logoWidth={350}
                   logoHeight={90}
                   logoStyle={{
@@ -1348,10 +1342,17 @@ useEffect(() => {
                     maxWidth: '100%'
                   }}   
                 >
-                  <p>Expo installation-piece</p>
-                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber, GLSL, Next.js, GSAP </AnimatedText></p>
+                  <p>Expo installation-piece, project ultimately cancelled</p>
+                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> Three.js, React Three Fiber, GLSL (Shader), Next.js, GSAP </AnimatedText></p>
                   <p><strong>Role:</strong> Code / Cloud visuals</p>
                 </ProjectCard>
+                  </>
+                )}
+            
+
+             {/*     {!isMobile && (
+                  <>
+            
                     <ProjectCard 
                       onMoreClick={() => {
                         console.log('streetlamp More button clicked, triggering animation');
