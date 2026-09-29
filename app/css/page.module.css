@@ -177,11 +177,7 @@
   padding: 1rem 0;
 }
 
-.logo {
-  height: 40px;
-  width: auto;
-  display: block;
-}
+
 
 .siteTitle {
   margin: 0;
@@ -1933,7 +1929,7 @@ a.secondary {
   opacity: 1;
 }
 .logo {
-  height: 1.5rem;
+  height: 1.0rem;
   width: auto;
   object-fit: contain;
 }

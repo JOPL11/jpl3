@@ -366,10 +366,10 @@ useEffect(() => {
   }}
 >
       <Image 
-        src="/images/jp.svg" 
+        src="/images/logo2.png" 
         alt="JP Logo" 
         width={25} 
-        height={25} 
+        height={10} 
         className={styles.logo}
         style={{
            marginLeft: '0px',  // Add some space between the arrow and logo
