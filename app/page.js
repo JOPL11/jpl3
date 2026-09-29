@@ -1427,11 +1427,11 @@ useEffect(() => {
             >
               GitHub
             </button>
-                        <div  >
+             {/*   <BelowFooterWorld />  <div  >
             <Link href="/blog" className={styles.footerLink}>
                   DevBlog
                 </Link>
-                </div>
+                </div>   */}
             <button 
               onClick={() => openModal('privacy')} 
               className={styles.footerLink} 
@@ -1470,7 +1470,7 @@ useEffect(() => {
               aria-label="Curriculum Vitae"
             >
               CV  
-            </button>  {/*   <BelowFooterWorld />   */}
+            </button>  
           </nav>
         </div>
         <PrivacyModal 
