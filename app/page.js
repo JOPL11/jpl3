@@ -1413,7 +1413,7 @@ useEffect(() => {
         <div className={styles.footerContainer}>
           <nav className={styles.footerLinks} role="navigation" aria-label="Footer navigation">
             <button 
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth'})}
               className={styles.backToTopFooter}
               aria-label="Back to top"
             >
@@ -1464,13 +1464,16 @@ useEffect(() => {
             >
               Impressum
             </button>
-            <button 
-              onClick={() => window.open('/assets/CV_2026_JanPeiroLehmann.pdf', '_blank', 'noopener,noreferrer')} 
-              className={styles.footerLink} 
-              aria-label="Curriculum Vitae"
-            >
-              CV  
-            </button>  
+              <a 
+                href="/assets/CV_2026_JanPeiroLehmann.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={styles.footerLink}
+                aria-label="Curriculum Vitae"
+                style={{ textAlign: 'left', display: 'inline-block' }}
+              >
+                CV
+              </a>
           </nav>
         </div>
         <PrivacyModal 
