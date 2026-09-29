@@ -1464,13 +1464,13 @@ useEffect(() => {
             >
               Impressum
             </button>
-                    {/*      <button 
-              onClick={() => window.open('/assets/CV_JanPeiro_2025.pdf', '_blank', 'noopener,noreferrer')} 
+            <button 
+              onClick={() => window.open('/assets/CV_2026_JanPeiroLehmann.pdf', '_blank', 'noopener,noreferrer')} 
               className={styles.footerLink} 
               aria-label="Curriculum Vitae"
             >
               CV  <BelowFooterWorld />
-            </button>*/}
+            </button>  {/*      */}
           </nav>
         </div>
         <PrivacyModal 
