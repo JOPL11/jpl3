@@ -1469,8 +1469,8 @@ useEffect(() => {
               className={styles.footerLink} 
               aria-label="Curriculum Vitae"
             >
-              CV  <BelowFooterWorld />
-            </button>  {/*      */}
+              CV  
+            </button>  {/*   <BelowFooterWorld />   */}
           </nav>
         </div>
         <PrivacyModal 
