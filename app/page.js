@@ -636,7 +636,7 @@ useEffect(() => {
              <section id="services" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="services">
              <SectionTracker onSectionChange={setActiveSection} />
             <h2 style={{paddingTop: "5rem"}}>
-              <AnimatedText ref={servicesHeadingRef}>Core Services</AnimatedText>
+              <AnimatedText ref={servicesHeadingRef}>Core</AnimatedText>
             </h2>
             <div style={{height: '0.1rem', marginBottom: '5rem'}}>Tools</div>
               <p>My toolkit is extensive and constantly evolving, allowing me to own a project from concept to deployment. I&apos;ve split skills into separate categories for clarity:</p>
