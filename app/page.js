@@ -605,7 +605,7 @@ useEffect(() => {
               <AnimatedText ref={aboutHeadingRef}>About</AnimatedText>
             </h2>
           
-            <p>Hi! I&apos;m Jan Peiro.</p><br></br>
+            <p>Hi! I&apos;m Jan Peiro-Lehmann.</p><br></br>
 
             <p>A multidisciplinary designer and creative who bridges the gap between visuals and technology. I hold a state-certified diploma in Communications Design from The Blocherer School in Munich, Germany and have spent my career transforming ideas into engaging experiences for a global clientele.</p>
 
