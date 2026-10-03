@@ -422,7 +422,7 @@ useEffect(() => {
           aria-hidden={!isMenuOpen}
         >
           <ul className={styles.mobileMenuList}>
-         {['Overview', 'About',  'Services',  'Code', 'Proto', 'Motion', 'WebGL', 'Contact'].map((item) => (
+         {['Overview', 'About',  'Services',   'WebGL', 'Product', 'Motion', 'Contact'].map((item) => (
               <li key={item} className={styles.mobileMenuItem}>
                 <a 
                   href={`#${item.toLowerCase()}`} 
@@ -587,7 +587,7 @@ useEffect(() => {
              {/*About Section Detector Here*/} 
 
               
-                    <div data-section="overview"></div>
+           <div data-section="overview"></div>
             <section id="overview" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="overview">
                 <SectionTracker onSectionChange={setActiveSection} />
                 <h2 style={{paddingTop: "13px"}}><AnimatedText ref={overviewHeadingRef}>Overview</AnimatedText></h2>
@@ -690,14 +690,14 @@ useEffect(() => {
          </section>
        
              {/* About section End */}
-
+    {/* 
                   <div data-section="code-heading"></div>
-            <SectionTracker onSectionChange={setActiveSection} /> 
-            <section id="code" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="code">
+            <SectionTracker onSectionChange={setActiveSection} />  
+            <section id="code" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="code"> 
        
               <h2 id="code" style={{marginTop: '100px'}} className={styles.scrollTarget}><AnimatedText ref={workHeadingRef}>Fullstack Case Study</AnimatedText></h2>
                  <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies</div>
-              <div className={styles.projectsGrid} role="grid" aria-label="Projects">
+              <div className={styles.projectsGrid} role="grid" aria-label="Projects"> */}
              {/* About section End
               <ProjectCard 
                 onMoreClick={() => {
@@ -955,229 +955,10 @@ useEffect(() => {
                   <p><strong>Role:</strong> Design & Development</p>
                   <p><strong>Tools:</strong><AnimatedText ref={citylink2TextRef} type="project"> Next.js, Supabase, Geoman-io, leaflet, Openstreetmap, REST</AnimatedText></p>
                 </ProjectCard>
-                */}
+               
                 <p>Pure next.js projects have been removed for now. If you wanna see some code projects head down to the webGL section.</p>
                 </div>
-            </section>
-
-           
-            <div data-section="product-heading"></div>
-            <section id="proto" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="proto">
-          
-             <SectionTracker onSectionChange={setActiveSection} />
-            <h2 style={{paddingTop: "5rem"}}>
-              <AnimatedText ref={productHeadingRef}>Prototype Case</AnimatedText>
-            </h2>
-            <div style={{height: '0.1rem', marginBottom: '7rem'}}>Tap or click the images to look through the pile of photos.</div>
-              <div className={styles.introText}>
-                <div style={{ fontSize: '1rem', fontWeight: 'bold', color: 'white' }}>
-                  Project: <span style={{ fontSize: '1rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Daimler Benz dealership award.</span>
-                </div>
-                <div style={{ fontSize: '1rem', fontWeight: 'bold', color: 'white' }}>
-                  Client: <a href="https://sieberundwolf.de/" target="_blank" rel="noopener" ><span style={{ fontSize: '1rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Sieber & Wolf&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
-                  
-                  <Image src="/images/agencies/sw_neu_white.png" alt="Sieber & Wolf"  width={33} height={16} /></a>
-                </div>
-                <div style={{ fontSize: '1rem', fontWeight: 'bold', color: 'white' }}>
-                  My Task: <span style={{ fontSize: '1rem', fontWeight: 'normal', color: '#acfeff', marginBottom:'3rem', display: 'block', lineHeight: '1.4' }}>Invent a new type of dealership award for Mercedes Benz. I thought up the concept, designed the whole piece including UI and put together a working tech-stack for a fully functional prototype.</span>
-                </div>
-              </div>
-              <ThrowableImages />
-            </section>
-            <div data-section="motion-heading"></div>
-              <section id="motion" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="motion">
-            
-             <SectionTracker onSectionChange={setActiveSection} />
-            <h2 style={{paddingTop: "5rem"}}>
-              <AnimatedText ref={motionHeadingRef}>Motion Cases</AnimatedText>
-            </h2>
-                <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies</div>
-              <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
-              <VideoProjectCard 
-                  title="Long Reel 2025"
-                  image="/images/JPL3Poster_Reel.jpg"
-                  alt="Long Reel 2025"
-                  text="2D / 3D Motion Reel featuring Commercial and Personal Work "
-                  videoUrl= "https://vimeo.com/1115973919"
-                >
-                    <p><strong>Description:</strong> Concept, 3D Modeling, Motion, VFX, Design, Post-Production</p>
-                    <p><strong>Tools:</strong> Cinema4D, After Effects, Duik, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
-                    <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
-                    <p><strong>More:</strong><br />Entire reel is Non-AI.</p>
-                </VideoProjectCard>
-                
-                  <h2 style={{paddingTop: "1rem", fontSize: '1.40rem', color: "#a2feff"}}>Short Reel 2025</h2>
-            <div style={{height: '0.1rem', marginBottom: '1.5rem',marginTop: '-1.3rem', color: "#fff"}}>For those with little time</div>
-              <div id='muxPlayer' style={{ 
-                      borderRadius: '15px',
-                    }}>
-                <div id='holder' style={{ 
-                  width: '100%', 
-                  maxWidth: '850px',
-                  margin: '0',
-                  position: 'relative',
-                  borderRadius: '15px',
-                  overflow: 'hidden',
-                  boxShadow: '0 0 80px rgba(69, 218, 255, 0.7), 0 0 20px rgba(0, 0, 0, 0.2)'
-                }}>
-                  <MuxPlayer
-                    playback-id="jQpM2jwUgrzmGjMoY8UIG7tUXHSaBK6zvWXIlqxJkMs"
-                    poster="https://image.mux.com/jQpM2jwUgrzmGjMoY8UIG7tUXHSaBK6zvWXIlqxJkMs/thumbnail.png?width=960&height=540&time=18"
-                    controls
-                    style={{ 
-                      width: '100%', 
-                      height: '100%',
-                      display: 'block',
-                    }}
-                    accent-color="#0a5fcf"
-                    primary-color="#ffffff"
-                    secondary-color="transparent"
-                  />
-                </div>
-            </div>
-                   {/* About section End 
-                <ProjectCard 
-                  title="Audi Nüremberg"
-                  image="/images/corp/audi.jpg"
-                  alt="Audi Nüremberg"
-                  text="Cinemascreen sized animation for a VIP Event"
-                  client={{
-                    name: "Planstand |",
-                    website: "https://www.planstand.com/",
-                    logo: "/images/agencies/planstand_logo.png"
-                  }}
-                  logoWidth={300}
-                  logoHeight={50}
-                  logoStyle={{
-                    height: '20px',  // Directly set the height
-                    width: 'auto',   // Let width adjust to maintain aspect ratio
-                    maxWidth: '100%' // Ensure it doesn't overflow
-                  }}
-                  modalContent={{
-                    description: `10 Minute long foreground / backdrop screen animation for VIP event, tailored to a stage setup featuring live dancers and a hi-tech sprinkler installation that could depict the Audi logo and more.
-                    <p>Animated excerpts can be seen in the motion reel</p>`,
-                    images: [
-                      { src: "/images/audi_1.jpg", alt: "Project Screenshot 1" },
-                      { src: "/images/audi_2.jpg", alt: "Project Screenshot 2" },
-                      { src: "/images/audi_3.jpg", alt: "Project Screenshot 3" },
-                      { src: "/images/audi_4.jpg", alt: "Project Screenshot 4" },
-                      { src: "/images/audi_5.jpg", alt: "Project Screenshot 6" },
-                      { src: "/images/audi_6.jpg", alt: "Project Screenshot 8" },
-                    ]
-                  }}
-                >
-                  <p>Animation Event</p>
-                  <p><strong>Target Audience:</strong> Showroom visitors</p>
-                  <p><strong>Project Type:</strong> After Effects / Cinema4D</p>
-                  <p><strong>Role:</strong> Lead Designer / animator</p>
-                </ProjectCard>
-                <ProjectCard 
-                  title="Mercedes Benz Animation"
-                  image="/images/corp/mercedes.jpg"
-                  alt="Mercedes Benz Animation"
-                  text="Logo animation for Mercedes Benz"
-                  client={{
-                    name: "Sieber & Wolf |",
-                    website: "https://sieberundwolf.de/",
-                    logo: "/images/agencies/sw_neu_white.png"
-                  }}
-                  logoWidth={300}
-                  logoHeight={50}
-                  logoStyle={{
-                    height: '20px',  // Directly set the height
-                    width: 'auto',   // Let width adjust to maintain aspect ratio
-                    maxWidth: '100%' // Ensure it doesn't overflow
-                  }}
-                  modalContent={{
-                    description: `Logo animation for Mercedes Benz.
-
-                    <p>Animated excerpts can be seen in the motion reel</p>`,
-                    images: [
-                      { src: "/images/mercedes0.jpg", alt: "Project Screenshot 1" },
-                      { src: "/images/mercedes1.jpg", alt: "Project Screenshot 1" },
-                      { src: "/images/mercedes2.jpg", alt: "Project Screenshot 2" },
-                    ]
-                  }}
-                >
-                  <p>Logo Animation</p>
-                  <p><strong>Project Type:</strong> After Effects / Cinema4D</p>
-                  <p><strong>Role:</strong> Lead Designer / animator</p>
-                </ProjectCard>
-                <ProjectCard 
-                  title="Airbus Group"
-                  image="/images/corp/airbus.jpg"
-                  alt="Audi Nüremberg"
-                  text="Multimonitor animation for the Airbus Showroom Ottobrunn"
-                  client={{
-                    name: "SMMD Team |",
-                    logo: "/images/agencies/SMMD_wide.png",
-                    website: "https://www.smmd.team/",
-                  }}
-                  logoWidth={300}
-                  logoHeight={50}
-                  logoStyle={{
-                    height: '20px',  // Directly set the height
-                    width: 'auto',   // Let width adjust to maintain aspect ratio
-                    maxWidth: '100%' // Ensure it doesn't overflow
-                  }}
-                  modalContent={{
-                    description: `Multimonitor animation for the <strong>Airbus Showroom Ottobrunn</strong>.
-  
-                   <p>Animated excerpts can be seen in the motion reel</p>`,
-                    images: [
-                      { src: "/images/airbus_ottobrunn/video/1C.jpg", alt: "Project Screenshot 1" },
-                      { src: "/images/airbus_ottobrunn/video/1.jpg", alt: "Project Screenshot 2" },
-                      { src: "/images/airbus_ottobrunn/video/2.jpg", alt: "Project Screenshot 3" },
-                      { src: "/images/airbus_ottobrunn/video/3.jpg", alt: "Project Screenshot 4" },
-                      { src: "/images/airbus_ottobrunn/video/6.jpg", alt: "Project Screenshot 6" },
-                      { src: "/images/airbus_ottobrunn/video/8.jpg", alt: "Project Screenshot 8" },
-                    ]
-                  }}
-                >
-                  <p>Multi Monitor Animation</p>
-                  <p><strong>Target Audience:</strong> Showroom visitors</p>
-                  <p><strong>Project Type:</strong> After Effects / Cinema4D</p>
-                  <p><strong>Role:</strong> Lead Designer / animator</p>
-                </ProjectCard>
-                <ProjectCard 
-                  title="MTU Aero-Engines"
-                  image="/images/corp/mtu.jpg"
-                  alt="Audi Nüremberg"
-                  text="Multimonitor animation for the MTU Tradefair Booth at the Paris Intnl. Airshow"
-                  client={{
-                    name: "VRPE |",
-                    logo: "/images/agencies/vrpe_logoNew.png",
-                  }}
-                  logoWidth={306}
-                  logoHeight={25}
-                  logoStyle={{
-                    height: '10px',  // Directly set the height
-                    width: 'auto',   // Let width adjust to maintain aspect ratio
-                    maxWidth: '100%' // Ensure it doesn't overflow
-                  }}
-                  modalContent={{
-                    description: `Multimonitor animation for the <strong>Paris International Airshow</strong> Exhibition Booth.
-  
-                   <p>Animated excerpts can be seen in the motion reel</p>`,
-                    images: [
-                      { src: "/images/mtu1.jpg", alt: "Project Screenshot 1" },
-                      { src: "/images/mtu4.jpg", alt: "Project Screenshot 2" },
-                      { src: "/images/mtu5.jpg", alt: "Project Screenshot 3" },
-                      { src: "/images/mtu6.jpg", alt: "Project Screenshot 4" },
-                      { src: "/images/mtu2.jpg", alt: "Project Screenshot 6" },
-                      { src: "/images/mtu7.jpg", alt: "Project Screenshot 8" },
-                    ]
-                  }}
-                >
-                  <p>Multi Monitor Animation</p>
-                  <p><strong>Target Audience:</strong> Showroom visitors</p>
-                  <p><strong>Project Type:</strong> After Effects / Cinema4D</p>
-                  <p><strong>Role:</strong> Solo Visual Concept, Designer & Animator</p>
-                </ProjectCard>
-               */}
- 
-              </div> 
-            </section>
+            </section>  */}
 
             {/*   WebGL Section */}
                <div data-section="webgl-heading"></div>
@@ -1397,6 +1178,225 @@ useEffect(() => {
                     */}
         
                   </div>
+            </section>
+
+           
+            <div data-section="product-heading"></div>
+            <section id="product" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="product">
+          
+             <SectionTracker onSectionChange={setActiveSection} />
+            <h2 style={{paddingTop: "5rem"}}>
+              <AnimatedText ref={productHeadingRef}>Prototype Case</AnimatedText>
+            </h2>
+            <div style={{height: '0.1rem', marginBottom: '7rem'}}>Tap or click the images to look through the pile of photos.</div>
+              <div className={styles.introText}>
+                <div style={{ fontSize: '1rem', fontWeight: 'bold', color: 'white' }}>
+                  Project: <span style={{ fontSize: '1rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Daimler Benz dealership award.</span>
+                </div>
+                <div style={{ fontSize: '1rem', fontWeight: 'bold', color: 'white' }}>
+                  Client: <a href="https://sieberundwolf.de/" target="_blank" rel="noopener" ><span style={{ fontSize: '1rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Sieber & Wolf&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+                  
+                  <Image src="/images/agencies/sw_neu_white.png" alt="Sieber & Wolf"  width={33} height={16} /></a>
+                </div>
+                <div style={{ fontSize: '1rem', fontWeight: 'bold', color: 'white' }}>
+                  My Task: <span style={{ fontSize: '1rem', fontWeight: 'normal', color: '#acfeff', marginBottom:'3rem', display: 'block', lineHeight: '1.4' }}>Invent a new type of dealership award for Mercedes Benz. I thought up the concept, designed the whole piece including UI and put together a working tech-stack for a fully functional prototype.</span>
+                </div>
+              </div>
+              <ThrowableImages />
+            </section>
+            <div data-section="motion-heading"></div>
+              <section id="motion" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="motion">
+            
+             <SectionTracker onSectionChange={setActiveSection} />
+            <h2 style={{paddingTop: "5rem"}}>
+              <AnimatedText ref={motionHeadingRef}>Motion Cases</AnimatedText>
+            </h2>
+                <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies</div>
+              <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
+              <VideoProjectCard 
+                  title="Long Reel"
+                  image="/images/JPL3Poster_Reel.jpg"
+                  alt="Long Reel"
+                  text="2D / 3D Motion Reel featuring Commercial and Personal Work "
+                  videoUrl= "https://vimeo.com/1115973919"
+                >
+                    <p><strong>Description:</strong> Concept, 3D Modeling, Motion, VFX, Design, Post-Production</p>
+                    <p><strong>Tools:</strong> Cinema4D, After Effects, Duik, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
+                    <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
+                    <p><strong>More:</strong><br />Entire reel is Non-AI.</p>
+                </VideoProjectCard>
+                
+                  <h2 style={{paddingTop: "1rem", fontSize: '1.40rem', color: "#a2feff"}}>Short Reel 2025</h2>
+            <div style={{height: '0.1rem', marginBottom: '1.5rem',marginTop: '-1.3rem', color: "#fff"}}>For those with little time</div>
+              <div id='muxPlayer' style={{ 
+                      borderRadius: '15px',
+                    }}>
+                <div id='holder' style={{ 
+                  width: '100%', 
+                  maxWidth: '850px',
+                  margin: '0',
+                  position: 'relative',
+                  borderRadius: '15px',
+                  overflow: 'hidden',
+                  boxShadow: '0 0 80px rgba(69, 218, 255, 0.7), 0 0 20px rgba(0, 0, 0, 0.2)'
+                }}>
+                  <MuxPlayer
+                    playback-id="jQpM2jwUgrzmGjMoY8UIG7tUXHSaBK6zvWXIlqxJkMs"
+                    poster="https://image.mux.com/jQpM2jwUgrzmGjMoY8UIG7tUXHSaBK6zvWXIlqxJkMs/thumbnail.png?width=960&height=540&time=18"
+                    controls
+                    style={{ 
+                      width: '100%', 
+                      height: '100%',
+                      display: 'block',
+                    }}
+                    accent-color="#0a5fcf"
+                    primary-color="#ffffff"
+                    secondary-color="transparent"
+                  />
+                </div>
+            </div>
+                   {/* About section End 
+                <ProjectCard 
+                  title="Audi Nüremberg"
+                  image="/images/corp/audi.jpg"
+                  alt="Audi Nüremberg"
+                  text="Cinemascreen sized animation for a VIP Event"
+                  client={{
+                    name: "Planstand |",
+                    website: "https://www.planstand.com/",
+                    logo: "/images/agencies/planstand_logo.png"
+                  }}
+                  logoWidth={300}
+                  logoHeight={50}
+                  logoStyle={{
+                    height: '20px',  // Directly set the height
+                    width: 'auto',   // Let width adjust to maintain aspect ratio
+                    maxWidth: '100%' // Ensure it doesn't overflow
+                  }}
+                  modalContent={{
+                    description: `10 Minute long foreground / backdrop screen animation for VIP event, tailored to a stage setup featuring live dancers and a hi-tech sprinkler installation that could depict the Audi logo and more.
+                    <p>Animated excerpts can be seen in the motion reel</p>`,
+                    images: [
+                      { src: "/images/audi_1.jpg", alt: "Project Screenshot 1" },
+                      { src: "/images/audi_2.jpg", alt: "Project Screenshot 2" },
+                      { src: "/images/audi_3.jpg", alt: "Project Screenshot 3" },
+                      { src: "/images/audi_4.jpg", alt: "Project Screenshot 4" },
+                      { src: "/images/audi_5.jpg", alt: "Project Screenshot 6" },
+                      { src: "/images/audi_6.jpg", alt: "Project Screenshot 8" },
+                    ]
+                  }}
+                >
+                  <p>Animation Event</p>
+                  <p><strong>Target Audience:</strong> Showroom visitors</p>
+                  <p><strong>Project Type:</strong> After Effects / Cinema4D</p>
+                  <p><strong>Role:</strong> Lead Designer / animator</p>
+                </ProjectCard>
+                <ProjectCard 
+                  title="Mercedes Benz Animation"
+                  image="/images/corp/mercedes.jpg"
+                  alt="Mercedes Benz Animation"
+                  text="Logo animation for Mercedes Benz"
+                  client={{
+                    name: "Sieber & Wolf |",
+                    website: "https://sieberundwolf.de/",
+                    logo: "/images/agencies/sw_neu_white.png"
+                  }}
+                  logoWidth={300}
+                  logoHeight={50}
+                  logoStyle={{
+                    height: '20px',  // Directly set the height
+                    width: 'auto',   // Let width adjust to maintain aspect ratio
+                    maxWidth: '100%' // Ensure it doesn't overflow
+                  }}
+                  modalContent={{
+                    description: `Logo animation for Mercedes Benz.
+
+                    <p>Animated excerpts can be seen in the motion reel</p>`,
+                    images: [
+                      { src: "/images/mercedes0.jpg", alt: "Project Screenshot 1" },
+                      { src: "/images/mercedes1.jpg", alt: "Project Screenshot 1" },
+                      { src: "/images/mercedes2.jpg", alt: "Project Screenshot 2" },
+                    ]
+                  }}
+                >
+                  <p>Logo Animation</p>
+                  <p><strong>Project Type:</strong> After Effects / Cinema4D</p>
+                  <p><strong>Role:</strong> Lead Designer / animator</p>
+                </ProjectCard>
+                <ProjectCard 
+                  title="Airbus Group"
+                  image="/images/corp/airbus.jpg"
+                  alt="Audi Nüremberg"
+                  text="Multimonitor animation for the Airbus Showroom Ottobrunn"
+                  client={{
+                    name: "SMMD Team |",
+                    logo: "/images/agencies/SMMD_wide.png",
+                    website: "https://www.smmd.team/",
+                  }}
+                  logoWidth={300}
+                  logoHeight={50}
+                  logoStyle={{
+                    height: '20px',  // Directly set the height
+                    width: 'auto',   // Let width adjust to maintain aspect ratio
+                    maxWidth: '100%' // Ensure it doesn't overflow
+                  }}
+                  modalContent={{
+                    description: `Multimonitor animation for the <strong>Airbus Showroom Ottobrunn</strong>.
+  
+                   <p>Animated excerpts can be seen in the motion reel</p>`,
+                    images: [
+                      { src: "/images/airbus_ottobrunn/video/1C.jpg", alt: "Project Screenshot 1" },
+                      { src: "/images/airbus_ottobrunn/video/1.jpg", alt: "Project Screenshot 2" },
+                      { src: "/images/airbus_ottobrunn/video/2.jpg", alt: "Project Screenshot 3" },
+                      { src: "/images/airbus_ottobrunn/video/3.jpg", alt: "Project Screenshot 4" },
+                      { src: "/images/airbus_ottobrunn/video/6.jpg", alt: "Project Screenshot 6" },
+                      { src: "/images/airbus_ottobrunn/video/8.jpg", alt: "Project Screenshot 8" },
+                    ]
+                  }}
+                >
+                  <p>Multi Monitor Animation</p>
+                  <p><strong>Target Audience:</strong> Showroom visitors</p>
+                  <p><strong>Project Type:</strong> After Effects / Cinema4D</p>
+                  <p><strong>Role:</strong> Lead Designer / animator</p>
+                </ProjectCard>
+                <ProjectCard 
+                  title="MTU Aero-Engines"
+                  image="/images/corp/mtu.jpg"
+                  alt="Audi Nüremberg"
+                  text="Multimonitor animation for the MTU Tradefair Booth at the Paris Intnl. Airshow"
+                  client={{
+                    name: "VRPE |",
+                    logo: "/images/agencies/vrpe_logoNew.png",
+                  }}
+                  logoWidth={306}
+                  logoHeight={25}
+                  logoStyle={{
+                    height: '10px',  // Directly set the height
+                    width: 'auto',   // Let width adjust to maintain aspect ratio
+                    maxWidth: '100%' // Ensure it doesn't overflow
+                  }}
+                  modalContent={{
+                    description: `Multimonitor animation for the <strong>Paris International Airshow</strong> Exhibition Booth.
+  
+                   <p>Animated excerpts can be seen in the motion reel</p>`,
+                    images: [
+                      { src: "/images/mtu1.jpg", alt: "Project Screenshot 1" },
+                      { src: "/images/mtu4.jpg", alt: "Project Screenshot 2" },
+                      { src: "/images/mtu5.jpg", alt: "Project Screenshot 3" },
+                      { src: "/images/mtu6.jpg", alt: "Project Screenshot 4" },
+                      { src: "/images/mtu2.jpg", alt: "Project Screenshot 6" },
+                      { src: "/images/mtu7.jpg", alt: "Project Screenshot 8" },
+                    ]
+                  }}
+                >
+                  <p>Multi Monitor Animation</p>
+                  <p><strong>Target Audience:</strong> Showroom visitors</p>
+                  <p><strong>Project Type:</strong> After Effects / Cinema4D</p>
+                  <p><strong>Role:</strong> Solo Visual Concept, Designer & Animator</p>
+                </ProjectCard>
+               */}
+ 
+              </div> 
             </section>
 
 
