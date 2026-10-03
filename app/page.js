@@ -1191,7 +1191,7 @@ useEffect(() => {
             <div style={{height: '0.1rem', marginBottom: '7rem'}}>Tap or click the images to look through the pile of photos.</div>
               <div className={styles.introText}>
                 <div style={{ fontSize: '1rem', fontWeight: 'bold', color: 'white' }}>
-                  Project: <span style={{ fontSize: '1rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Daimler Benz dealership award.</span>
+                  Project: <span style={{ fontSize: '1rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Mercedes Benz dealership award.</span>
                 </div>
                 <div style={{ fontSize: '1rem', fontWeight: 'bold', color: 'white' }}>
                   Client: <a href="https://sieberundwolf.de/" target="_blank" rel="noopener" ><span style={{ fontSize: '1rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Sieber & Wolf&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
