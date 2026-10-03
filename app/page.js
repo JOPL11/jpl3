@@ -1424,14 +1424,14 @@ useEffect(() => {
               ↑
             </button>
             <p>&copy; <CopyrightYear /> Jan Peiro. All rights reserved.</p>
-            <button 
+           {/*   <button 
               onClick={() => window.open('https://github.com/JOPL11/jpl3', '_blank', 'noopener,noreferrer')} 
               className={styles.footerLink} 
               aria-label="View on GitHub"
             >
               GitHub
             </button>
-             {/*   <BelowFooterWorld />  <div  >
+              <BelowFooterWorld />  <div  >
             <Link href="/blog" className={styles.footerLink}>
                   DevBlog
                 </Link>

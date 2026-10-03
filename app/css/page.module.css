@@ -1475,12 +1475,8 @@ body.menu-open .navLink.active::after {
   cursor: pointer;
   padding: 1.5rem 1rem;
   transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
   max-width: 200px;
-  height: 70px;
+  max-height: 75px;
   border-radius: 10px;
   margin: 0.5rem 0;
   background: rgba(255, 255, 255, 0.1);
@@ -1488,6 +1484,24 @@ body.menu-open .navLink.active::after {
   margin-bottom: 1rem; /* Adds space below the button */
   position: relative; /* Ensures proper stacking context */
   z-index: 10; /* Keeps it above other footer elements */
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.5s ease;
+  color: #fff;
+  flex: 1;
+  min-width: 270px;
+  text-shadow: 0 0 3px rgba(48, 47, 47, 0.8);
+  box-sizing: border-box;
+  line-height: normal;
+  
+  padding: 0.1rem 1.0rem 0.8rem 1.2rem;
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: left;
+  text-align: left;
 }
 
 .backToTopFooter:hover {
