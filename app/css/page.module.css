@@ -330,8 +330,9 @@ body.menu-open .navLink.active::after {
     height: 350px !important;
   }
   .moreButton {
-    display: inline-flex;
+    display: inline-block;
   }
+
 }
 
 
@@ -357,8 +358,8 @@ body.menu-open .navLink.active::after {
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
-  
 }
+
 }
 
 
@@ -1150,7 +1151,7 @@ max-height: 2000px;
   color: #fff;
   flex: 1;
   min-width: 120px;
-  max-width: 270px;
+ 
   height: 75px;
   text-shadow: 0 0 3px rgba(48, 47, 47, 0.8);
   box-sizing: border-box;
@@ -1237,7 +1238,7 @@ max-height: 2000px;
   justify-content: left;
   text-align: left;
   max-width: 270px;
-  margin-left: 270px;
+  
 }
 
 .viewProjectButton:hover {
@@ -1577,10 +1578,10 @@ max-height: 2000px;
   .moreButton,
   .projectLink,
   .viewProjectButton {
-    width: 100%;
+    max-width: 100% !important;
     padding: 2.5rem 2rem 1rem 1rem;
     line-height: normal;
-    
+    margin-left: 0;
  
   }
 }
