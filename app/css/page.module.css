@@ -24,13 +24,14 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 300;
   background-color: transparent;
   padding: 1rem 2rem;
   min-height: 49px; /* Ensure enough space for the legal links */
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
 }
 
 /* Back to top button - hidden by default */
@@ -52,6 +53,7 @@
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(5px);
+    pointer-events: auto;
 }
 
 .backToTop:hover {
@@ -62,7 +64,6 @@
 .backToTop:active {
   transform: translateY(0);
 }
-
 
 
 /* Section detectors - used for scroll detection */
@@ -144,6 +145,7 @@
 
 /* Header Styles */
 .header {
+  position: fixed;
   background-color: transparent;
   color: white;
   padding: 1rem 2rem;
@@ -151,6 +153,9 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  z-index:  1001;
+  pointer-events: none;
+
 }
 
 .headerContent {
@@ -166,6 +171,7 @@
   width: 100%;
   text-align: center;
   padding: 1rem 0;
+    pointer-events: auto;
 }
 
 
@@ -176,30 +182,49 @@
   font-weight: 500;
   color: white;
 }
-
 .nav {
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
+.menuContainer {
+  position: fixed;
+  top: 20px;
+  right: 100px;
+  max-width: 400px;
+  z-index: 800; /* above section content */
+  min-height: 250px;
+}
+
+
+
 .navLinks {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
+  display: block;
+  columns: 2;
+  column-gap: 4rem;
   margin: 0;
-  padding: 0 0.4rem;
-  width: 100%;
+  padding: 0;
+  width:  380px; 
   box-sizing: border-box;
+  justify-content: center;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  
 }
 
 .navLink {
+  display: block;  
   color: #ccc;
   transition: color 0.2s ease;
   cursor: pointer;
   font-size: 1.2rem;
-  font-weight: 500;
-  white-space: nowrap;
-  padding: 0.25rem 0.5rem;
+  font-weight: 400;
+  white-space: nowrap;  
 }
 
 .navLink:hover {
@@ -210,9 +235,9 @@
 
 
 .navLink {
-  position: relative;
+
   color: inherit;
-  padding: 0;
+
   transition: color 0.3s ease 0.5s;
 }
 
@@ -223,7 +248,7 @@
 .navLink::after {
   content: '';
   position: absolute;
-  bottom: 5px; /* Position below the text */
+  bottom: 1px; /* Position below the text */
   left: 0;
   width: 0;
   height: 3px;
@@ -278,6 +303,39 @@ body.menu-open .navLink.active::after {
     height: 450px !important;
   }
 }
+@media (max-width: 1650px) {
+  .menuContainer {
+    transition: 'opacity 0.4s ease-in-out';
+      width:  300px; 
+  }
+  .navLinks {
+  display: block;
+  columns: 2;
+  column-gap: 2rem;
+  margin: 0;
+  padding: 0;
+  width:  300px; 
+  box-sizing: border-box;
+  justify-content: center;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  
+}
+}
+
+
+
+@media (max-width: 1450px) {
+  .menuContainer {
+    opacity: 0;
+  }
+}
 
 @media (max-width: 1024px) {
     .main {
@@ -312,7 +370,10 @@ body.menu-open .navLink.active::after {
       -o-user-drag: none;
       pointer-events: none;
     }
-
+  .menuContainer {
+    margin-top: 0.5rem; 
+    opacity: 0;
+  }
 
   .content {
     color: #acfeff;
@@ -524,6 +585,7 @@ body.menu-open .navLink.active::after {
   }
   .menuContainer {
     margin-top: 0.5rem; 
+    opacity: 0;
   }
 }
 
@@ -536,33 +598,7 @@ body.menu-open .navLink.active::after {
   padding: 1rem;
 }
 
-.navLinks {
-  display: flex;
-  justify-content: center;
-  gap: 1.6rem;
-  margin: 0;
-  font-size: 1.5rem;
-  padding: 0 0.5rem;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
-}
 
-.navLink {
-  color: #ccc;
-  transition: color 0.1s ease;
-  cursor: pointer;
-  font-weight: 600; /* Making the text bold */
-}
-
-.navLink:hover {
-  color: #fff;
-}
 
 .contentLogo {
   padding: 1.5rem 0 0 0 ;
@@ -1360,13 +1396,7 @@ body.menu-open .navLink.active::after {
     width: 100%; /* Take full width */
   }
   
-  .menuContainer {
-    margin-left: 0;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-  
+
   /* If you have a logo container, add this */
 
 }
@@ -1879,7 +1909,7 @@ a.secondary {
   opacity: 0;
   pointer-events: none;
   position: relative;
-  z-index: 2050; /* Ensure it's above other elements */
+  z-index: 14050; /* Ensure it's above other elements */
   transform: translateY(-10px); /* Move up further to align with arrow */
 }
 
@@ -1890,7 +1920,7 @@ a.secondary {
   display: inline-block;
   position: relative;
   cursor: pointer;
-  z-index: 2060;
+  z-index: 14060;
   border-radius: 8px;
 }
 
@@ -1967,7 +1997,7 @@ a.secondary {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
-  z-index: 999;
+  z-index: 700;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
@@ -2000,7 +2030,6 @@ a.secondary {
 }
 /* Menu items */
 .mobileMenuList {
-  
   list-style: none;
   padding: 0;
   margin: 2rem 0 0;
@@ -2024,13 +2053,12 @@ a.secondary {
 /* Legal Links and Hamburger */
 .legalLinks {
   position: absolute;
-  top: 10px;
+  top: 0px;
   right: 15px; /* Reduced right padding for better edge alignment */
   display: flex;
   align-items: center;
   gap: 12px;
-  z-index: 1001;
-  padding: 5px 0; /* Add some vertical padding */
+  z-index: 6001;
 }
 
 .legalLink {

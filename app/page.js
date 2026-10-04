@@ -218,7 +218,7 @@ export default function Home() {
   const artstationHeadingRef = useRef(null);
 const scrollVelocity = useRef(0);
 const animationFrameId = useRef(null);
-
+const isNarrow = viewportWidth > 0 && viewportWidth <= 1650;
 
   // Map section IDs to their refs
   const sectionRefs = useMemo(() => ({
@@ -226,7 +226,7 @@ const animationFrameId = useRef(null);
     'overview': overviewHeadingRef,
     'code': workHeadingRef,
     'services': servicesHeadingRef,
-    'proto': productHeadingRef,
+    'product': productHeadingRef,
     'motion': motionHeadingRef,
     'video-plane': null,
     'webgl': webglHeadingRef,
@@ -353,18 +353,18 @@ useEffect(() => {
         >
           ↑
         </button>
-   <Link 
-  href="/" 
-  className={`${styles.logoLink} ${showHamburger ? styles.logoVisible : ''}`} 
-  aria-label="Home"
-  style={{
-    opacity: showHamburger ? 1 : 0,
-    pointerEvents: showHamburger ? 'auto' : 'none',
-    transition: 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out',
-    marginLeft: '50px',
-    transform: 'translateY(0px)'
-  }}
->
+        <Link 
+        href="/" 
+        className={`${styles.logoLink} ${showHamburger ? styles.logoVisible : ''}`} 
+        aria-label="Home"
+        style={{
+          opacity: showHamburger ? 1 : 0,
+          pointerEvents: showHamburger ? 'auto' : 'none',
+          transition: 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out',
+          marginLeft: '50px',
+          transform: 'translateY(0px)'
+        }}
+      >
       <Image 
         src="/images/logo2.png" 
         alt="JP Logo" 
@@ -376,38 +376,32 @@ useEffect(() => {
            transform: 'translateY(1px)',  // Fine-tune vertical alignment
            filter: 'invert(0)',
            display: 'block'
-           
-  }}
-      />
-    </Link>
-        <div className={styles.legalLinks}>
-            <button 
-              className={`${styles.hamburger} ${isMenuOpen ? styles.hamburgerActive : ''} ${showHamburger ? styles.hamburgerVisible : ''}`} 
-              onClick={() => {
-                console.log('Hamburger clicked. Current isMenuOpen:', isMenuOpen);
-                setIsMenuOpen(!isMenuOpen);
-              }}
-              aria-label="Toggle menu"
-              aria-expanded={isMenuOpen}
-              style={{
-                opacity: showHamburger ? 1 : 0,
-                pointerEvents: showHamburger ? 'auto' : 'none',
-                transition: 'opacity 0.5s ease-in-out'
-              }}
-            >
-            <span className={styles.hamburgerBox}>
-              <span className={styles.hamburgerInner}></span>
-            </span>
-          </button>
-
-          
-        </div>
-        {/* Header content would go here   |  Privacy */}
-
-        
-      </header>
-
-    <>
+            }} 
+            />
+        </Link>
+            <div className={styles.legalLinks}>
+                <button 
+                  className={`${styles.hamburger} ${isMenuOpen ? styles.hamburgerActive : ''} ${showHamburger ? styles.hamburgerVisible : ''}`} 
+                  onClick={() => {
+                    console.log('Hamburger clicked. Current isMenuOpen:', isMenuOpen);
+                    setIsMenuOpen(!isMenuOpen);
+                  }}
+                  aria-label="Toggle menu"
+                  aria-expanded={isMenuOpen}
+                  style={{
+                    opacity: showHamburger ? 1 : 0,
+                    pointerEvents: showHamburger ? 'auto' : 'none',
+                    transition: 'opacity 0.5s ease-in-out'
+                  }}
+                >
+                <span className={styles.hamburgerBox}>
+                  <span className={styles.hamburgerInner}></span>
+                </span>
+              </button>
+            </div>
+            {/* Header content would go here   |  Privacy */}
+          </header>
+        <>
         {/* Mobile Menu Overlay */}
         <div 
           className={`${styles.mobileMenuOverlay} ${isMenuOpen ? styles.mobileMenuOpen : ''}`}
@@ -462,21 +456,22 @@ useEffect(() => {
         </nav>
       </>
       <main className={styles.main} role="main" id="main-content">
-        <div className={styles.contentWrapper}>
-          <div className={styles.logoSidebar} role="complementary" aria-label="Logo and Navigation">
-            <div>
-              <div className={styles.contentLogo}>
-                <Suspense fallback={<div style={{ width: '350px', height: '250px' }} />}>
-                  <Logo3DWrapper />
-                </Suspense>
-              </div>
-              <div className={styles.menuContainer} >
+            <div className={styles.menuContainer}
+            style={
+    isNarrow
+      ? undefined
+      : {
+          opacity: isMenuOpen ? 0 : 1,
+          pointerEvents: isMenuOpen ? 'none' : 'auto',
+          transition: 'opacity 0.4s ease-in-out',
+        }
+  } >
           {/* <InteractiveMenu activeSection={activeSection} onSectionChange={setActiveSection} /> 
           {/* <InteractiveMenu activeSection={activeSection} onSectionChange={setActiveSection} /> */}
           
        
           
-         {/* 
+         {/* */}
                 <nav className={styles.navLinks} aria-label="Main navigation" >
                                    <a 
                   href="#overview" 
@@ -497,15 +492,9 @@ useEffect(() => {
                   className={`${styles.navLink} ${activeSection === 'services' ? styles.active : ''}`}
                   onClick={(e) => scrollToSection(e, 'services')}
                 >
-                  Services
+                  Core
                 </a>
-                <a 
-                  href="#code" 
-                  className={`${styles.navLink} ${activeSection === 'code' ? styles.active : ''}`}
-                  onClick={(e) => scrollToSection(e, 'code')}
-                >
-                  Code
-                </a>
+              
                   <a 
                   href="#motion" 
                   className={`${styles.navLink} ${activeSection === 'motion' ? styles.active : ''}`}
@@ -521,11 +510,11 @@ useEffect(() => {
                   WebGL
                 </a>
                 <a 
-                  href="#proto" 
-                  className={`${styles.navLink} ${activeSection === 'proto' ? styles.active : ''}`}
-                  onClick={(e) => scrollToSection(e, 'proto')}
+                  href="#product" 
+                  className={`${styles.navLink} ${activeSection === 'profuct' ? styles.active : ''}`}
+                  onClick={(e) => scrollToSection(e, 'product')}
                 >
-                  Proto
+                  Product
                 </a>
                 <a 
                   href="#contact" 
@@ -534,6 +523,7 @@ useEffect(() => {
                 >
                   Contact
                 </a>
+                </nav>
             {/*     <a
                   href="/assets/CV_JanPeiro_2025_Intnl.pdf"
                   className={styles.navLink}
@@ -555,7 +545,7 @@ useEffect(() => {
                   devBlog
                 </Link>
              </nav>
-             */}
+             
                 {/*  
                               <a
                   href="https://github.com/JOPL11/jpl3" 
@@ -577,6 +567,17 @@ useEffect(() => {
               </div>              </div>
               </div> */}  
               </div>
+        <div className={styles.contentWrapper}>
+         
+          <div className={styles.logoSidebar} role="complementary" aria-label="Logo and Navigation">
+            <div>
+              <div className={styles.contentLogo}>
+             
+                <Suspense fallback={<div style={{ width: '350px', height: '250px' }} />}>
+                  <Logo3DWrapper />
+                </Suspense>
+              </div>
+              
             </div>
           </div>
                                  {/*     
@@ -1186,7 +1187,7 @@ useEffect(() => {
           
              <SectionTracker onSectionChange={setActiveSection} />
             <h2 style={{paddingTop: "5rem"}}>
-              <AnimatedText ref={productHeadingRef}>Prototype Case</AnimatedText>
+              <AnimatedText ref={productHeadingRef}>Product Prototype Case</AnimatedText>
             </h2>
             <div style={{height: '0.1rem', marginBottom: '7rem'}}>Tap or click the images to look through the pile of photos.</div>
               <div className={styles.introText}>
@@ -1227,7 +1228,7 @@ useEffect(() => {
                 </VideoProjectCard>
                 
                   <h2 style={{paddingTop: "1rem", fontSize: '1.40rem', color: "#a2feff"}}>Short Reel 2025</h2>
-            <div style={{height: '0.1rem', marginBottom: '1.5rem',marginTop: '-1.3rem', color: "#fff"}}>For those with little time</div>
+            <div style={{height: '0.1rem', marginBottom: '1.5rem',marginTop: '-1.3rem', color: "#fff"}}>Bam</div>
               <div id='muxPlayer' style={{ 
                       borderRadius: '15px',
                     }}>
