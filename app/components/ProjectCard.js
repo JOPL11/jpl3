@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from '../css/page.module.css';
 import { useModal } from './ModalContext';
@@ -42,7 +42,18 @@ export default function ProjectCard({
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const { openModal } = useModal();
-  
+  const [isDesktop, setIsDesktop] = useState(false);
+
+useEffect(() => {
+  const mq = window.matchMedia('(min-width: 1651px)');
+  const update = () => setIsDesktop(mq.matches);
+  update();
+  mq.addEventListener('change', update);
+  return () => mq.removeEventListener('change', update);
+}, []);
+
+const expanded = isDesktop || isExpanded;
+
   const handleViewProject = (e) => {
     e.stopPropagation();
     console.log('View project clicked');
@@ -78,7 +89,7 @@ export default function ProjectCard({
   };
 
   return (
-    <div className={`${styles.projectCard} ${isExpanded ? styles.expanded : ''} ${className}`} role="gridcell" tabIndex="0">
+    <div className={`${styles.projectCard} ${expanded ? styles.expanded : ''} ${className}`} role="gridcell" tabIndex="0">
       <h3>{title}</h3>
       {client && (
         <a 
@@ -115,9 +126,9 @@ export default function ProjectCard({
           dangerouslySetInnerHTML={{ __html: text }}
         />
       )}
-      <div className={`${styles.cardContent} ${isExpanded ? styles.showContent : ''}`}>
-        {children}
-      </div>
+     <div className={`${styles.cardContent} ${expanded ? styles.showContent : ''}`}>
+    {children}
+  </div>
       <div className={styles.projectImage}>
         <Image 
           src={image} 
@@ -144,9 +155,9 @@ export default function ProjectCard({
               onMoreClick();
             }
           }}
-          aria-expanded={isExpanded}
+          aria-expanded={expanded}
         >
-          {isExpanded ? 'Less' : 'More'}
+          {expanded ? 'Less' : 'More'}
         </button>
         {modalContent && (
           <button 

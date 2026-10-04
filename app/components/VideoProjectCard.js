@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from '../css/page.module.css';
 import VideoModal from '../../components/VideoModal';
@@ -11,10 +11,21 @@ export default function VideoProjectCard({
   image, 
   alt, 
   videoUrl,
-  text, // Additional text to display below title
+  text,
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1651px)');
+    const update = () => setIsDesktop(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
+
+  const expanded = isDesktop || isExpanded;
 
   const handleLaunchVideo = (e) => {
     e.stopPropagation();
@@ -33,7 +44,7 @@ export default function VideoProjectCard({
   return (
     <>
       <div 
-        className={`${styles.projectCard} ${isExpanded ? styles.expanded : ''}`} 
+        className={`${styles.projectCard} ${expanded ? styles.expanded : ''}`} 
         role="gridcell" 
         tabIndex="0"
       >
@@ -43,7 +54,7 @@ export default function VideoProjectCard({
             {text}
           </div>
         )}
-        <div className={`${styles.cardContent} ${isExpanded ? styles.showContent : ''}`}>
+        <div className={`${styles.cardContent} ${expanded ? styles.showContent : ''}`}>
           {children}
         </div>
         <div className={styles.projectImage}>
@@ -64,9 +75,9 @@ export default function VideoProjectCard({
           <button 
             className={styles.moreButton}
             onClick={handleMoreClick}
-            aria-expanded={isExpanded}
+            aria-expanded={expanded}
           >
-            {isExpanded ? 'Less' : 'More'}
+            {expanded ? 'Less' : 'More'}
           </button>
           <button 
             className={styles.viewProjectButton}

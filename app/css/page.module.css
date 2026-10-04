@@ -79,6 +79,32 @@
   top: 0;
 }
 
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+
+
+}
+
+/* Desktop styles */
+.logoSidebar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  background-color: transparent;
+  position: relative;
+  z-index: 1;
+}
+
 /* Ensure sections can contain absolute positioned detectors */
 .sectionContainer {
   position: relative;
@@ -267,11 +293,12 @@ body.menu-open .navLink.active::after {
   display: block;
 }
 
-/* Desktop widescreen - 1920px and up */
-@media (min-width: 1920px) {
+/* Desktop widescreen - 1651px and up */
+@media (min-width: 1651px) and (max-width: 1920px) {
 
     .content {
     max-width: 800px;
+
   }
   .Hamburger {
     display:none;
@@ -292,17 +319,22 @@ body.menu-open .navLink.active::after {
   }
   
   .projectImage {
-    height: 450px;
+    height: 350px;
   }
   
   .projectImage img[style*="height"] {
-    height: 450px !important;
+    height: 350px !important;
   }
   
   .projectImage img.project-image-responsive[style*="height"] {
-    height: 450px !important;
+    height: 350px !important;
+  }
+  .moreButton {
+    display: inline-flex;
   }
 }
+
+
 @media (max-width: 1650px) {
   .menuContainer {
     transition: 'opacity 0.4s ease-in-out';
@@ -383,6 +415,7 @@ body.menu-open .navLink.active::after {
     margin: 0 auto;
     width: 100%;
     box-sizing: border-box;
+
   }
   .logoContainer {
     display: flex;
@@ -424,7 +457,7 @@ body.menu-open .navLink.active::after {
   max-width: 100%;
   padding: 0;
   margin: 0;
-  overflow-x: hidden;
+
 }
 
 /* Mobile styles */
@@ -445,29 +478,6 @@ body.menu-open .navLink.active::after {
       display: flex; /* Show on mobile */
     }
   }
-.contentWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0;
-  box-sizing: border-box;
-  font-size: 1.1rem;
-}
-
-/* Desktop styles */
-.logoSidebar {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem 0;
-  background-color: transparent;
-  position: relative;
-  z-index: 1;
-}
 
 /* Mobile styles */
 @media (max-width: 768px) {
@@ -815,6 +825,107 @@ body.menu-open .navLink.active::after {
   padding-bottom: 8.5rem;
   margin-bottom: 0;
 }
+@media (min-width: 1920px) {
+  .projectImage {
+    position: relative;
+  }
+  .projectCard,
+  .projectsGrid,
+  .contentWrapper,
+  .content,
+  .mainContent,
+  .main,
+  .container {
+    overflow: visible;
+  }
+  .projectCard,
+  .projectCard.expanded {
+    padding-bottom: 1rem;
+    padding: 1rem 0rem 8.5rem 0rem;
+    margin-bottom: 1rem;
+  }
+
+  .cardContent,
+  .cardContent.showContent {
+    position: absolute !important;
+    top: auto !important; 
+    bottom: 210px;              /* ← was top: 160px !important */
+    right: 540px;
+    text-align: right;
+    width: 400px;
+    direction: ltr;
+    margin: 0 1rem 0 0;
+    transition: none !important;
+    background: transparent;
+  }
+  .cardContent.showContent p {
+    opacity: 1;
+    line-height: 1.4;
+  }
+  .additionalText {
+    margin-bottom: 30px;
+  }
+  .cardActions {
+    margin-top: 1rem;
+  }
+  .moreButton {
+    display: none !important;
+  }
+  .projectLink {
+    background: #1e5296;
+    border: none;
+    border-radius: 8px;
+    padding: 0.1rem 1.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.5s ease;
+    color: #fff;
+    flex: 1;
+    min-width: 120px;
+    max-width: 270px;
+    height: 75px;
+    text-shadow: 0 0 3px rgba(48, 47, 47, 0.8);
+    box-sizing: border-box;
+    line-height: normal;
+    padding: 0.1rem 1.5rem 0.8rem 1.2rem;
+    display: inline-flex;
+    align-items: flex-end;
+    justify-content: left;
+    text-align: left;
+    margin-left: 270px;
+  }
+}
+  /* Image stays exactly as-is — no layout change */
+
+  /* Content escapes to the left of the card */
+  .cardContent {
+    position: absolute;
+    
+   /* right: 100%;           place its right edge at the card's left edge */
+    width: auto;         /* or whatever fixed/natural width you want */
+    max-height: none;
+    opacity: 1;
+    overflow: visible;
+    margin: 0 1rem 0 0;   /* gap between content and card */
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.1);
+    transition: none;
+    will-change: auto;
+    pointer-events: auto;
+    box-sizing: border-box;
+  }
+
+  .cardContent p {
+    margin: 0.5rem 0 0.5rem 1.5rem;
+    padding: 0 8px 5px 8px;
+    font-size: 1.1rem;
+    opacity: 1;
+    transition: none;
+  }
+
+
+
 
 .cardContent {
   max-height: 0;
@@ -823,14 +934,14 @@ body.menu-open .navLink.active::after {
   margin: 0;
   padding: 0 1.5rem;
   background: rgba(0, 0, 0, 0.1);
-  transition: none; /* Remove transitions for collapsed state */
+  transition: none;
   will-change: max-height, opacity;
   box-sizing: content-box;
   pointer-events: none;
 }
 
 .cardContent.showContent {
-  max-height: 2000px;
+max-height: 2000px;
   opacity: 1;
   margin: 1rem 0;
   padding: 1.5rem;
@@ -846,9 +957,9 @@ body.menu-open .navLink.active::after {
   margin:  0.5rem 0 0.5rem 1.5rem;
   padding: 0 8px 5px 8px;
   font-size: 1.1rem;
-  line-height: 1.6;
+  line-height: 1.2;
   opacity: 0;
-  transition: opacity 0.3s ease;
+   transition: none;  
 }
 
 .cardContent.showContent p {
@@ -1022,7 +1133,7 @@ body.menu-open .navLink.active::after {
 .cardActions {
   display: flex;
   gap: 0.8rem;
-  margin-top: 0.2rem;
+  margin-top: 1rem;
   flex-wrap: wrap;
 }
 
@@ -1039,6 +1150,7 @@ body.menu-open .navLink.active::after {
   color: #fff;
   flex: 1;
   min-width: 120px;
+  max-width: 270px;
   height: 75px;
   text-shadow: 0 0 3px rgba(48, 47, 47, 0.8);
   box-sizing: border-box;
@@ -1124,6 +1236,8 @@ body.menu-open .navLink.active::after {
   align-items: flex-end;
   justify-content: left;
   text-align: left;
+  max-width: 270px;
+  margin-left: 270px;
 }
 
 .viewProjectButton:hover {
@@ -1147,7 +1261,7 @@ body.menu-open .navLink.active::after {
 }
 
 .projectImage {
-  margin-top: 0.2rem;
+  margin-top: 1.0rem;
   margin-bottom: 0.5rem;
   width: 100%;
   border-radius: 8px;
@@ -1466,6 +1580,7 @@ body.menu-open .navLink.active::after {
     width: 100%;
     padding: 2.5rem 2rem 1rem 1rem;
     line-height: normal;
+    
  
   }
 }
@@ -2166,11 +2281,11 @@ a.secondary {
 
 /* Base desktop */
 .projectImage {
-  height: 450px;
+  height: 350px;
 }
 
 .projectImage img {
-  height: 450px;
+  height: 350px;
   width: 100%;
   object-fit: cover;
   object-position: center;
@@ -2179,17 +2294,17 @@ a.secondary {
 
 /* Override any inline styles on images */
 .projectImage img[style*="height"] {
-  height: 450px !important;
+  height: 350px !important;
 }
 
 /* Tablet */
 @media (max-width: 1024px) {
   .projectImage {
-    height: 400px;
+    height: 350px;
   }
   .projectImage img,
   .projectImage img[style*="height"] {
-    height: 400px !important;
+    height: 350px !important;
   }
 }
 
@@ -2207,10 +2322,10 @@ a.secondary {
 /* Small mobile */
 @media (max-width: 480px) {
   .projectImage {
-    height: 300px;
+    height: 350px;
   }
   .projectImage img,
   .projectImage img[style*="height"] {
-    height: 300px !important;
+    height: 350px !important;
   }
 }

@@ -113,7 +113,7 @@ p, button, input, textarea, select {
 h2 {
   font-family: var(--font-inter);
   text-shadow: 0 4 20px rgba(0, 240, 255, 0.2);
-  font-size: 3rem;
+  font-size: 2.35rem;
   font-weight: 600;
 }
 
@@ -122,7 +122,9 @@ h2 {
     color-scheme: dark;
   }
 }
-
+@media (min-width: 1921px) {
+  .main { overflow-x: visible; }
+}
 /* Desktop/Mobile Toggle Utilities */
 @media (min-width: 1025px) {
   .mobile-only {

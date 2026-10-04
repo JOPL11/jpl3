@@ -984,8 +984,8 @@ useEffect(() => {
                   className="webglProject"
                 >
                   <p>Concept Demo</p>
-                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber</AnimatedText></p>
-                  <p><strong>Role:</strong> Concept / Model / Development</p>
+                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber</AnimatedText></p>
+                  <p><strong>Role:</strong><br /> Concept / Model / Development</p>
                 </ProjectCard>
 
              
@@ -1002,8 +1002,8 @@ useEffect(() => {
                   className="webglProject"
                 >
                   <p>Concept Demo</p>
-                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber</AnimatedText></p>
-                  <p><strong>Role:</strong> Concept / Animation / Development</p>
+                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber</AnimatedText></p>
+                  <p><strong>Role:</strong><br /> Concept / Animation / Development</p>
                 </ProjectCard>
                 <ProjectCard 
                   onMoreClick={() => {
@@ -1018,8 +1018,8 @@ useEffect(() => {
                   className="webglProject"
                 >
                   <p>Concept Demo</p>
-                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber</AnimatedText></p>
-                  <p><strong>Role:</strong> Concept / Model / Development</p>
+                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber</AnimatedText></p>
+                  <p><strong>Role:</strong><br /> Concept / Model / Development</p>
                 </ProjectCard>
                     {!isMobile && (
                   <> 
@@ -1061,8 +1061,8 @@ useEffect(() => {
                   }}
                 >
                   <p>Project In development</p>
-                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber</AnimatedText></p>
-                  <p><strong>Role:</strong> 3D model implementation & animation / WebXR implementation</p>
+                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber</AnimatedText></p>
+                  <p><strong>Role:</strong><br /> 3D model implementation & animation / WebXR implementation</p>
                 </ProjectCard>
                  {/*       WebGL Section    */}  
                  <ProjectCard 
@@ -1078,10 +1078,10 @@ useEffect(() => {
                       className="webglProject"
                     >
                       <p>Visual Concept Experiment</p>
-                      <p><strong>Tools:</strong><AnimatedText ref={qcTextRef} type="project">Three.js / React 3 Fiber / GSAP / Router / Next.js / Blender</AnimatedText></p>
-                      <p><strong>Role:</strong> Concept / Animation / Dev</p>
-                      <p><strong>Duration:</strong> 2 weeks</p>
-                      <p><strong>Info:</strong> nerdRage! A playful take on quantum physics concepts.</p>
+                      <p><strong>Tools:</strong><br /><AnimatedText ref={qcTextRef} type="project">Three.js / React 3 Fiber / GSAP / Router / Next.js / Blender</AnimatedText></p>
+                      <p><strong>Role:</strong><br /> Concept / Animation / Dev</p>
+                      <p><strong>Duration:</strong><br /> 2 weeks</p>
+                      <p><strong>Info:</strong><br /> nerdRage! A playful take on quantum physics concepts.</p>
                     </ProjectCard>
                          <ProjectCard 
                   onMoreClick={() => {
@@ -1108,8 +1108,8 @@ useEffect(() => {
                   }}   
                 >
                   <p>Expo installation-piece unfinished prototype</p>
-                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> Three.js, React Three Fiber, GLSL (Shader), Next.js, GSAP </AnimatedText></p>
-                  <p><strong>Role:</strong> Code / Cloud visuals</p>
+                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> Three.js, React Three Fiber, GLSL (Shader), Next.js, GSAP </AnimatedText></p>
+                  <p><strong>Role:</strong><br /> Code / Cloud visuals</p>
                 </ProjectCard>
                   </>
                 )}
@@ -1221,9 +1221,9 @@ useEffect(() => {
                   text="2D / 3D Motion Reel featuring Commercial and Personal Work "
                   videoUrl= "https://vimeo.com/1115973919"
                 >
-                    <p><strong>Description:</strong> Concept, 3D Modeling, Motion, VFX, Design, Post-Production</p>
-                    <p><strong>Tools:</strong> Cinema4D, After Effects, Duik, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
-                    <p><strong>Role:</strong> Concept / Animation / Post-Production</p>
+                    <p><strong>Description:</strong><br /> Concept, 3D Modeling, Motion, VFX, Design, Post-Production</p>
+                    <p><strong>Tools:</strong><br /> Cinema4D, After Effects, Duik, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
+                    <p><strong>Role:</strong><br /> Concept / Animation / Post-Production</p>
                     <p><strong>More:</strong><br />Entire reel is Non-AI.</p>
                 </VideoProjectCard>
                 
