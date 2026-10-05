@@ -4,7 +4,6 @@
   position: relative;
   aspect-ratio: 1/1;
   max-width: 100%;
-  margin-bottom: 450px !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,7 +15,6 @@
   position: relative !important;
   overflow: visible !important;
   background: transparent !important;
-  margin-bottom: 450px !important;
   
 }
 
