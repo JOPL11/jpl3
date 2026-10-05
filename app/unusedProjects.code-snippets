@@ -101,10 +101,8 @@
                         <p><strong>More:</strong><br /> Additional details about this project...</p>
                       </>
                     )
-                  },  */}
-
-                  
-          {/*      <ProjectCard 
+                  },  
+              <ProjectCard 
                  onMoreClick={() => {
                   console.log('bumpi More button clicked, triggering animation');
                   bumpiTextRef.current?.animate();
@@ -205,8 +203,8 @@
                   <p><strong>Role:</strong> Lead Designer / Coder</p>
                   <p><strong>Duration:</strong> 3 months / 6 years of updates</p>
                 </ProjectCard> 
-              */}
-            {/*   <ProjectCard 
+              
+             <ProjectCard 
                   title="Middle Caicos Festival"
                   image="/images/JPL3Poster_BB.jpg"
                   alt="Middle Caicos Festival"
@@ -247,4 +245,6 @@
                   <p><strong>Project Type:</strong> Next.js / React Interface Design</p>
                   <p><strong>Role:</strong> Lead Designer</p>
                   <p><strong>Duration:</strong> 1.5 weeks</p>
-                </ProjectCard> */}
+                </ProjectCard> 
+                
+                */}

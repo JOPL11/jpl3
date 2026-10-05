@@ -1253,6 +1253,7 @@ useEffect(() => {
                     playback-id="jQpM2jwUgrzmGjMoY8UIG7tUXHSaBK6zvWXIlqxJkMs"
                     poster="https://image.mux.com/jQpM2jwUgrzmGjMoY8UIG7tUXHSaBK6zvWXIlqxJkMs/thumbnail.png?width=960&height=540&time=18"
                     controls
+                    disableTracking={true}
                     style={{ 
                       width: '100%', 
                       height: '100%',
