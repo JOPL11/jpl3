@@ -153,9 +153,9 @@ export default function Home() {
     console.log('Found element for section:', sectionId, element);
     
     if (element) {
-      console.log('Scrolling to section:', sectionId, 'at position:', element.offsetTop - 5);
+      console.log('Scrolling to section:', sectionId, 'at position:', element.offsetTop);
       window.scrollTo({
-        top: element.offsetTop - 5,
+        top: element.offsetTop + 110,
         behavior: 'smooth'
       });
       
@@ -523,6 +523,14 @@ useEffect(() => {
                 >
                   Contact
                 </a>
+                         <a 
+                  href="https://jopl.artstation.com/" 
+                  className={styles.navLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Artstation
+                </a>
                 </nav>
             {/*     <a
                   href="/assets/CV_JanPeiro_2025_Intnl.pdf"
@@ -591,7 +599,7 @@ useEffect(() => {
            <div data-section="overview"></div>
             <section id="overview" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="overview">
                 <SectionTracker onSectionChange={setActiveSection} />
-                <h2 style={{paddingTop: "13px"}}><AnimatedText ref={overviewHeadingRef}>Overview</AnimatedText></h2>
+                <h2 style={{paddingTop: "110px"}}><AnimatedText ref={overviewHeadingRef}>Overview</AnimatedText></h2>
                 <div style={{paddingBottom:"2rem"}}>
                   <div style={{height: "33px"}}></div>
              <p>Developing mission-critical digital experiences for global leaders. Trusted by major brands to translate brand vision into immersive interactive, motion, and installation design.</p><br></br>
@@ -1409,7 +1417,7 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={contactHeadingRef}>Contact</AnimatedText>
             </h2>
-            <div style={{height: '0.1rem', marginBottom: '11rem', fontSize: '1.1rem'}}>Drop me a line, tell me about your project.</div>
+            <div style={{height: '0.1rem', marginBottom: '5rem', fontSize: '1.1rem'}}>Drop me a line, tell me about your project.</div>
               <ContactForm />
             </section>
         </div>
