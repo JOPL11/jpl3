@@ -1384,9 +1384,10 @@ a.secondary {
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   min-width: 1920px
+   Desktop layout: min-width 1651px (applies to everything wider, too)
+   Matches the (min-width: 1651px) matchMedia in ProjectCard / VideoProjectCard
    -------------------------------------------------------------------------- */
-@media (min-width: 1920px) {
+@media (min-width: 1651px) {
   .projectImage {
     position: relative;
   }
@@ -1456,12 +1457,6 @@ a.secondary {
     text-align: left;
 
   }
-}
-
-/* --------------------------------------------------------------------------
-   Desktop widescreen: 1651px – 1920px
-   -------------------------------------------------------------------------- */
-@media (min-width: 1651px) {
 
     .content {
     max-width: 800px;
@@ -1475,7 +1470,9 @@ a.secondary {
     display:none;
   }
 
-
+.menuContainer {
+  right:10px;
+}
   .contentWrapper {
     max-width: 1100px;
   }
@@ -1499,7 +1496,6 @@ a.secondary {
   .moreButton {
     display: inline-block;
   }
-
 }
 
 /* --------------------------------------------------------------------------
@@ -1508,7 +1504,7 @@ a.secondary {
 @media (max-width: 1650px) {
   .menuContainer {
     transition: opacity 0.4s ease-in-out;
-      width:  300px; 
+      width:  250px; 
   }
   .navLinks {
   display: block;
