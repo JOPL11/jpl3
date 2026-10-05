@@ -1,0 +1,109 @@
+/* Core accordion — first pass: mechanism + palette from page.module.css
+   (#a2feff text, #61dafb accent). Fine-tune visuals later. */
+
+.accordion {
+  margin-top: 1rem;
+  border-top: 1px solid rgba(162, 254, 255, 0.2);
+}
+
+.item {
+  border-bottom: 1px solid rgba(162, 254, 255, 0.2);
+}
+
+/* Same h3 look as the original inline styles */
+.heading {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: white;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.9rem 0;
+  background: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.trigger:hover,
+.open .trigger {
+  color: #a2feff;
+}
+
+.trigger:focus-visible {
+  outline: 2px solid #61dafb;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* CSS-drawn chevron: points down when closed, up when open */
+.chevron {
+  flex: 0 0 auto;
+  width: 0.55rem;
+  height: 0.55rem;
+  margin-top: -0.2rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease, margin 0.3s ease;
+}
+
+.open .chevron {
+  margin-top: 0.2rem;
+  transform: rotate(-135deg);
+}
+
+/* Height animation without measuring in JS: grid row 0fr -> 1fr.
+   visibility:hidden on the closed panel keeps its content out of the
+   tab order / screen readers; it flips only after the collapse finishes. */
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows 0.35s ease, visibility 0s linear 0.35s;
+}
+
+.open .panel {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition: grid-template-rows 0.35s ease, visibility 0s;
+}
+
+.panelInner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Builds on .skillsList from page.module.css (bullets, color, grid gap) */
+.list {
+  padding: 0.25rem 0 1.25rem;
+}
+
+/* Languages: fill top-to-bottom in two columns */
+.list.twoColumns {
+  display: block;
+  column-count: 2;
+  column-gap: 1.5rem;
+}
+
+.list.twoColumns li {
+  break-inside: avoid;
+  margin-bottom: 0.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel,
+  .open .panel,
+  .chevron {
+    transition: none;
+  }
+}

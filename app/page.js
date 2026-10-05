@@ -15,6 +15,7 @@ import { gsap } from 'gsap';
 
 
 
+
   {/*
 // Dynamically import the component with SSR disabled
 const BelowFooterWorld = dynamic(
@@ -63,7 +64,7 @@ const ImpressumModal = dynamic(() => import('../components/ImpressumModal'), {
 import ProjectCard from './components/ProjectCard';
 import VideoProjectCard from './components/VideoProjectCard';
 import ContactForm from './components/ContactForm';
-
+import Core from './components/Core';
 // Wrapper component to handle WebGL and iOS interaction
 const Logo3DWrapper = dynamic(
   () => import('./components/Logo3DWrapperB').then(mod => mod.default),
@@ -332,9 +333,28 @@ useEffect(() => {
 ***************************************************************
 ***************************************************************
 ***                                                         ***
+***                                                         ***
+***                                                         ***
+***                                                         ***
+***                                                         ***
+***                                                         ***
+***                                                         ***
+***                                                         ***
+***                                                         ***
+***                                                         ***
 ***                 Website Analysis Active                 ***
 ***                                                         ***
-***                 Welcome to My Console                   ***
+***                 Welcome to The Console                  ***
+***                                                         ***
+***                                                         ***
+***                                                         ***
+***                                                         ***
+***                                                         ***
+***                                                         ***
+***                                                         ***
+***                                                         ***
+***                                                         ***
+***                                                         ***
 ***                                                         ***
 ***************************************************************
 ***************************************************************
@@ -494,20 +514,19 @@ useEffect(() => {
                 >
                   Core
                 </a>
-              
+                     <a 
+                  href="#webgl" 
+                  className={`${styles.navLink} ${activeSection === 'webgl' ? styles.active : ''}`}
+                  onClick={(e) => scrollToSection(e, 'webgl')}
+                >
+                  WebGL
+                </a>
                   <a 
                   href="#motion" 
                   className={`${styles.navLink} ${activeSection === 'motion' ? styles.active : ''}`}
                   onClick={(e) => scrollToSection(e, 'motion')}
                 >
                   Motion
-                </a>
-                <a 
-                  href="#webgl" 
-                  className={`${styles.navLink} ${activeSection === 'webgl' ? styles.active : ''}`}
-                  onClick={(e) => scrollToSection(e, 'webgl')}
-                >
-                  WebGL
                 </a>
                 <a 
                   href="#product" 
@@ -642,64 +661,12 @@ useEffect(() => {
             </section>
 
 
-             <section id="services" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="services">
-             <SectionTracker onSectionChange={setActiveSection} />
-            <h2 style={{paddingTop: "5rem"}}>
-              <AnimatedText ref={servicesHeadingRef}>Core</AnimatedText>
-            </h2>
-            <div style={{height: '0.1rem', marginBottom: '5rem'}}>Tools</div>
-              <p>My toolkit is extensive and constantly evolving, allowing me to own a project from concept to deployment. I&apos;ve split skills into separate categories for clarity:</p>
-              <ul className={styles.skillsList} role="list">
-              <h3 style={{fontSize: '1.3rem', fontWeight: '400', marginTop: '1rem', color: 'white'}}>Languages</h3>
-              <div style={{display: 'flex', gap: '0', justifyContent: 'flex-start'}}>
-                  <ul className={styles.skillsList} role="list" style={{margin: 0, flex: 1}}>
-                      <li role="listitem">English (native)</li>
-                      <li role="listitem">German (fluent)</li>
-                  </ul>
-                  <ul className={styles.skillsList} role="list" style={{margin: '0 0 0 -1rem', flex: 1}}>
-                      <li role="listitem">Spanish (fluent)</li>
-                      <li role="listitem">French (fluent)</li>
-                  </ul>
-              </div>
-                <h3 style={{fontSize: '1.3rem', fontWeight: '400', marginTop: '1rem', color: 'white'}}>Strategy & Creative Direction</h3>
-                <li role="listitem">Brand Identity Systems</li>
-                <li role="listitem">Customer Experience / Design Psychology</li>
-                <li role="listitem">Creative Direction</li>
-                <li role="listitem">Stakeholder Communication & Alignment</li>
-                <li role="listitem">Strategic Writing & Presentations</li>
-                <li role="listitem">Project Ideation & Pitching</li>
-                <li role="listitem">Project Management</li>
-                <li role="listitem">UI / UIX Architecture</li>
-                <h3 style={{fontSize: '1.3rem', fontWeight: '400', marginTop: '1rem', color: 'white'}}>Design, Motion & Creative</h3>
-                <li role="listitem">Design, Animation, Concept Development</li>
-                <li role="listitem">Illustration, Typography, Logo Design, Layout, Branding</li>
-                <li role="listitem">Cinema4D, Blender, Adobe Suite</li>
-                <li role="listitem">3D Modeling, 3D Animation, 3D Rendering</li>
-                <li role="listitem">Octane Render, Corona Render</li>
-                <li role="listitem">After Effects, Cavalry, Lottie</li>
-                <li role="listitem">DaVinci Resolve, Premiere Pro</li>
-                <li role="listitem">Video Edit, Video Post-Production, Compositing, Motion Graphics</li>
-                <h3 style={{fontSize: '1.3rem', fontWeight: '400', marginTop: '1rem', color: 'white'}}>Code</h3>
-                <li role="listitem">Development, Rapid Prototyping</li>
-                <li role="listitem">React, Next.js, Vue.js, html, css, javascript</li>
-                <li role="listitem">Three.js, React 3 Fiber, WebXR</li>
-                <li role="listitem">Typescript, JSX</li>
-                <li role="listitem">GSAP, Framer Motion, CSS Animations, Spring</li>
-                <li role="listitem">Bootstrap, Tailwind, MaterialUI</li>
-                <li role="listitem">vite, git, gitlab, npm, yarn</li>
-                <li role="listitem">SQL / Supabase Experience</li>
-                <li role="listitem">Unity, C#, DOTween</li>
-                <li role="listitem">GLSL, HLSL experience</li>
-                <li role="listitem">SEO, Analytics</li>
-
-                 {/*  
-                <li role="listitem">Octane, Redshift, Corona Render Engines</li>
-                <li role="listitem">After Effects, Video Edit, Video Post-Production</li>    */}
-              </ul>
-         </section>
+            <section id="services" aria-labelledby="services">
+              <Core headingRef={servicesHeadingRef} onSectionChange={setActiveSection} />
+            </section>
        
-             {/* About section End */}
-    {/* 
+              {/* About section End */}
+              {/* 
                   <div data-section="code-heading"></div>
             <SectionTracker onSectionChange={setActiveSection} />  
             <section id="code" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="code"> 
