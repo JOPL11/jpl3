@@ -2112,6 +2112,7 @@ a.secondary {
     top: 2.5rem;
     height: auto;
     overflow: visible;
+    min-height: 380px; 
   }
 
     .navLinks {

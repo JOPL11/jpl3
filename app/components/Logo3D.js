@@ -826,7 +826,7 @@ const handleResize = useCallback(() => {
           transition: 'opacity 500ms ease-in-out',
           visibility: isLoaded ? 'visible' : 'visible',
           maxWidth: 'none', // Add this
-          minWidth: isLibreWolf ? `${desktopWidth}px` : '100vw' // Add this
+          minWidth: isLibreWolf ? `${desktopWidth}px` : '100vw', // Add this
       }}
     >
       {!isLoaded && <LoadingBar width={width} />}
@@ -863,7 +863,7 @@ const handleResize = useCallback(() => {
           overflow: 'visible', // Allow canvas content to overflow
           width: '100vw', // Make canvas full viewport width
           maxWidth: 'none', // Add this
-          minWidth: '100vw' // Add this
+          minWidth: '100vw', // Add this
         }}
       >
         <color attach="background" args={[0x000000, 0]} />
