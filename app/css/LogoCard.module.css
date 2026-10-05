@@ -166,10 +166,14 @@
   user-select: none !important;
   touch-action: pan-y !important;
   pointer-events: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--foreground-muted) transparent;
 }
 
 .modal-content.scrolling {
     pointer-events: none;
+      scrollbar-width: thin;
+  scrollbar-color: var(--foreground-muted) transparent;
 }
 
 .modalDescription {
@@ -512,7 +516,8 @@ html.no-scroll {
       .modalContent {
        position: static;
        overflow-y: auto;
-        
+          scrollbar-width: thin;
+  scrollbar-color: var(--foreground-muted) transparent;
         background: transparent;
         border-radius: 12px;
         max-width: 800px;
@@ -533,7 +538,8 @@ html.no-scroll {
   .modalContent {
   position: static;
   overflow-y: auto;
-  
+    scrollbar-width: thin;
+  scrollbar-color: var(--foreground-muted) transparent;
   background: transparent;
   border-radius: 12px;
   max-width: 800px;
@@ -605,6 +611,8 @@ html.no-scroll {
   }
   
   .modalContent {
+      scrollbar-width: thin;
+  scrollbar-color: var(--foreground-muted) transparent;
     padding: 0rem;
   }
   .clientInfo{
@@ -618,6 +626,7 @@ html.no-scroll {
   }
   .scrollableContent {
     padding: 0 1rem 1rem;
+     scrollbar-width: thin;
   }
   .modalTitle {
     font-size: 1.25rem;
@@ -632,7 +641,7 @@ html.no-scroll {
     padding-left: 0;
     margin-left: 0;
     margin-right: auto;
-    margin-top: 1rem;
+    margin-top: 4.5rem;
   }
 
 }
@@ -733,6 +742,9 @@ html.no-scroll {
   }
   .modalContent {
     padding: 0;
+      scrollbar-width: thin;
+  scrollbar-color: var(--foreground-muted) transparent;
+    
   }
   .logoCard {
     background: transparent;
@@ -755,7 +767,8 @@ html.no-scroll {
   }
 .scrollableContent {
     padding: 0 !important;
-    padding-right: 30px  !important;
+    padding-right: 50px  !important;
+    scrollbar-width: thin;
   }
   .clientInfo {
 padding: 0 !important;

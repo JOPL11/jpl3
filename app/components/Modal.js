@@ -3,6 +3,8 @@
 
 import React, { useEffect, useRef, useCallback, useState } from 'react';
 import styles from '../css/Modal.module.css';
+import Image from 'next/image';
+
 
 export default function Modal({ isOpen, onClose, children, fullBleed = false, className = '' }) {
   const modalRef = useRef(null);
@@ -126,11 +128,19 @@ export default function Modal({ isOpen, onClose, children, fullBleed = false, cl
 
   return (
     <div className={`${styles.modalOverlay} ${isClosing ? styles.closing : ''}`} onClick={handleClose}>
+         
       <div 
         ref={modalRef}
         className={`${styles.modalContent} ${className} ${fullBleed ? styles.fullBleed : ''} ${isClosing ? styles.closing : ''}`}
         onClick={(e) => e.stopPropagation()}
-      >
+      >        
+   <Image 
+                src="/images/logo2.png" 
+                alt="JP Logo" 
+                width={60} 
+                height={20} 
+                className={styles.logo}
+         />
         <button 
           className={styles.closeButton} 
           onClick={handleClose}
@@ -138,6 +148,7 @@ export default function Modal({ isOpen, onClose, children, fullBleed = false, cl
         >
           &times;
         </button>
+
         {renderChildren()}
       </div>
     </div>
