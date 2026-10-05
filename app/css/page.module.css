@@ -1,3 +1,7 @@
+/* ==========================================================================
+   BASE STYLES (non-media rules, original source order preserved)
+   ========================================================================== */
+
 /* Hero Container */
 .heroContainer {
   width: 100%;
@@ -293,165 +297,6 @@ body.menu-open .navLink.active::after {
   display: block;
 }
 
-/* Desktop widescreen - 1651px and up */
-@media (min-width: 1651px) and (max-width: 1920px) {
-
-    .content {
-    max-width: 800px;
-
-  }
-  .Hamburger {
-    display:none;
-    opacity: 0;
-  }
-  .hamburgerBox {
-    display:none;
-  }
-
-
-  .contentWrapper {
-    max-width: 1800px;
-  }
-  
-  .projectsGrid {
-    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
-    gap: 2rem;
-  }
-  
-  .projectImage {
-    height: 350px;
-  }
-  
-  .projectImage img[style*="height"] {
-    height: 350px !important;
-  }
-  
-  .projectImage img.project-image-responsive[style*="height"] {
-    height: 350px !important;
-  }
-  .moreButton {
-    display: inline-block;
-  }
-
-}
-
-
-@media (max-width: 1650px) {
-  .menuContainer {
-    transition: 'opacity 0.4s ease-in-out';
-      width:  300px; 
-  }
-  .navLinks {
-  display: block;
-  columns: 2;
-  column-gap: 2rem;
-  margin: 0;
-  padding: 0;
-  width:  300px; 
-  box-sizing: border-box;
-  justify-content: center;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
-}
-
-}
-
-
-
-@media (max-width: 1450px) {
-  .menuContainer {
-    opacity: 0;
-  }
-}
-
-@media (max-width: 1024px) {
-    .main {
-      width: 100%;
-      max-width: 100%;
-      padding: 0;
-      margin: 0;
-    }
-    .logoSidebar {
-      width: 100%;
-      height: auto;
-      padding: 4rem 0 0;
-    }
-
-    .projectsGrid {
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    }
-
-      .contentLogo {
-      max-width: 450px;  
-      min-height: 0;
-        padding: 5rem 0 0;  
-      z-index: 0;
-      filter: drop-shadow(0 22px 11px rgba(0, 0, 0, 0));
-      user-select: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      -webkit-user-drag: none;
-      -khtml-user-drag: none;
-      -moz-user-drag: none;
-      -o-user-drag: none;
-      pointer-events: none;
-    }
-  .menuContainer {
-    margin-top: 0.5rem; 
-    opacity: 0;
-  }
-
-  .content {
-    color: #acfeff;
-    border-radius: 8px;
-    padding: 2rem 0 0;
-    max-width: 800px;
-    margin: 0 auto;
-    width: 100%;
-    box-sizing: border-box;
-
-  }
-  .logoContainer {
-    display: flex;
-    align-items: center;
-    max-width: 400px;
-       padding: 2rem 0 0;
-  }
-  .contentLogo {
-    max-width: 450px;  
-    min-height: 0;
-       padding: 3rem 0 0;  
-    z-index: 0;
-    filter: drop-shadow(0 22px 11px rgba(0, 0, 0, 0));
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
-    pointer-events: none;
-  }
-
-  }
-
-
-
-/* Always show underline on desktop */
-@media (min-width: 769px) {
-  .navLink.active::after {
-    display: block;
-  }
-}
-
 /* Main Content Styles */
 .main {
   width: 100%;
@@ -459,145 +304,6 @@ body.menu-open .navLink.active::after {
   padding: 0;
   margin: 0;
 
-}
-
-/* Mobile styles */
-@media (max-width: 768px) {
-
-  
-}
-  @media (max-width: 480px) {
-    .contentLogo {
-      max-width: 300px;  
-      min-height: 0;
-      padding: 0.25rem;  
-      z-index: 0;
-      filter: drop-shadow(0 22px 11px rgba(0, 0, 0, 0));
-      
-    }
-    .backToTop {
-      display: flex; /* Show on mobile */
-    }
-  }
-
-/* Mobile styles */
-@media (max-width: 768px) {
-
-    .backToTop {
-    display: flex; /* Show on mobile */
-  }
-  
-  .header {
-    padding-right: 5rem; /* Section detectors - these are used for scroll detection but should be invisible */
-  }
-
-  .languagesContainer {
-    flex-wrap: nowrap;
-    overflow-x: hidden;
-    scrollbar-width: none; /* Hide scrollbar for Firefox */
-    -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
-  }
-   .contentWrapper {
-    padding: 0;
-  }
-  .navLinks {
-    gap: 2.2rem;
-    padding: 0.25rem;
-    margin: 2.5rem;
-  }
-  .navLink {
-    font-size: 1.2rem;
-    padding: 0.15rem 0.15rem;
-  }
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  .languagesContainer::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .languagesContainer > section {
-    flex: 0 0 auto;
-    min-width: 200px;
-  }
-  
-  .profileImageContainer {
-    width: 120px;
-    height: 120px;
-    position: sticky;
-    right: 0;
-    top: 45%;
-    background: white;
-    z-index: 1;
-  }
-
-
-  .contentWrapper {
-    flex-direction: column;
-  }
-  
-  .projectImage {
-    height: 350px; /* Maintain 150px height on mobile */
-  }
-  
-  .projectsGrid {
-    grid-template-columns: 1fr; /* Single column on mobile */
-    gap: 1rem;
-  }
-  
-  .logoSidebar {
-    width: 100%;
-    min-height: 0; /* Remove any minimum height */
-    height: auto; /* Let the content determine the height */
-    padding: 1rem 0;
-    margin-bottom: 0rem;
-  }
-  
-  .contentLogo {
-    max-width: 350px;  
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
-    padding: 3rem 0 0;  
-    transition: all 0.3s ease;
-    filter: drop-shadow(0 22px 11px rgba(0, 0, 0, 0));
-  }
-  .logoContainer {
-    position: static; /* Allow logo to scroll with the page on mobile */
-    z-index: 10;
-    width: 100%;
-    text-align: center;
-    background-color: #1a1a1a; /* Match the header background */
-    padding: 0.5rem 0;
-  }
-  
-
-  .logoSidebar {
-    position: static;
-    flex: 0 0 auto;
-    height: auto;
-    max-height: none;
-    padding: 1rem 0;
-  }
-  
-  .logoContainer {
-    position: static;
-    width: 100%;
-    text-align: center;
-    background-color: #1a1a1a;
-    padding: 0;
-  }
-  
-  .contentLogo {
-    max-width: 20px;
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
-    padding: 0;
-
-  }
-  .menuContainer {
-    margin-top: 0.5rem; 
-    opacity: 0;
-  }
 }
 
 .contentLogo {
@@ -826,77 +532,7 @@ body.menu-open .navLink.active::after {
   padding-bottom: 8.5rem;
   margin-bottom: 0;
 }
-@media (min-width: 1920px) {
-  .projectImage {
-    position: relative;
-  }
-  .projectCard,
-  .projectsGrid,
-  .contentWrapper,
-  .content,
-  .mainContent,
-  .main,
-  .container {
-    overflow: visible;
-  }
-  .projectCard,
-  .projectCard.expanded {
-    padding-bottom: 1rem;
-    padding: 1rem 0rem 8.5rem 0rem;
-    margin-bottom: 1rem;
-  }
 
-  .cardContent,
-  .cardContent.showContent {
-    position: absolute !important;
-    top: auto !important; 
-    bottom: 210px;              /* ← was top: 160px !important */
-    right: 540px;
-    text-align: right;
-    width: 400px;
-    direction: ltr;
-    margin: 0 1rem 0 0;
-    transition: none !important;
-    background: transparent;
-  }
-  .cardContent.showContent p {
-    opacity: 1;
-    line-height: 1.4;
-  }
-  .additionalText {
-    margin-bottom: 30px;
-  }
-  .cardActions {
-    margin-top: 1rem;
-  }
-  .moreButton {
-    display: none !important;
-  }
-  .projectLink {
-    background: #1e5296;
-    border: none;
-    border-radius: 8px;
-    padding: 0.1rem 1.5rem;
-    font-size: 1.2rem;
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.5s ease;
-    color: #fff;
-    flex: 1;
-    min-width: 120px;
-    max-width: 270px;
-    height: 75px;
-    text-shadow: 0 0 3px rgba(48, 47, 47, 0.8);
-    box-sizing: border-box;
-    line-height: normal;
-    padding: 0.1rem 1.5rem 0.8rem 1.2rem;
-    display: inline-flex;
-    align-items: flex-end;
-    justify-content: left;
-    text-align: left;
-    margin-left: 270px;
-  }
-}
   /* Image stays exactly as-is — no layout change */
 
   /* Content escapes to the left of the card */
@@ -1045,7 +681,7 @@ max-height: 2000px;
 .clientInfo {
   font-size: 1.1rem;
   color: #e5e7eb;
-  margin: 0.rem 0 0.05rem 0;
+  margin: 0 0 0.05rem 0;
   line-height: 1.6;
   display: flex;
   align-items: center;
@@ -1311,281 +947,6 @@ max-height: 2000px;
   opacity: 1;
 }
 
-/* iPad Pro (portrait & landscape) */
-@media only screen 
-  and (min-device-width: 1024px) 
-  and (max-device-width: 1366px) 
-  and (-webkit-min-device-pixel-ratio: 2) {
-      .contentLogo {
-    padding: 5rem 0 0 !important; /* Force more top padding */
-  }
-  .logoContainer{
-      padding: 3rem 0 0; /* Increase top padding to move logo lower */
-    }
-  .logoSidebar {
-    padding: 3rem 0 0;
-    top: 2rem; /* Move down further */
-    height: auto;
-    overflow: none;
-  }
-  .navLinks {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin: 0;
-    font-size: 2rem;
-    padding: 0;
-    width: 80%;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
-  }
-}
-
-/* iPad Pro 11" (834 x 1194) */
-@media only screen 
-  and (min-device-width: 834px) 
-  and (max-device-width: 834px) 
-  and (-webkit-min-device-pixel-ratio: 2) {
-  .contentLogo {
-    padding: 4rem 0 0 !important; /* Top padding for iPad Pro 11" */
-  }
-  .logoContainer{
-    padding: 2.5rem 0 0; /* Top padding to move logo lower */
-  }
-  .logoSidebar {
-    padding: 2.5rem 0 0;
-    top: 1.5rem; /* Position for iPad Pro 11" */
-    height: auto;
-    overflow: none;
-  }
-  .navLinks {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin: 0;
-    font-size: 1.8rem; /* Slightly smaller font for 11" */
-    padding: 0;
-    width: 80%;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
-  }
-}
-
-/* Asus Zenbook (portrait & landscape) */
-@media only screen 
-  and (min-device-width: 853px) 
-  and (max-device-width: 853px) 
-  and (-webkit-min-device-pixel-ratio: 2) {
-
-  .logoSidebar {
-    top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 1 rem 0 0;
-    background-color: transparent;
-    height: auto;
-    overflow: hidden;
-  }
-  .navLinks {
-    display: flex;
-    justify-content: center;
-    gap: 2.1rem;
-    margin: 0.1rem;
-    font-size: 2rem;
-    padding: 0 0.5rem;
-    width: 50%;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
-  }
-}
-
-/* iPad Air (portrait & landscape) */
-@media only screen 
-  and (min-device-width: 820px) 
-  and (max-device-width: 820px) 
-  and (-webkit-min-device-pixel-ratio: 2) {
-  .logoContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 300px; /* Fixed width for better control */
-    margin: 0 auto; /* Center the container */
-    padding: 1rem 0; /* Vertical padding only */
-    text-align: center;
-  }
- 
-  .logoSidebar {
-    top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 2rem 0 0;
-    background-color: transparent;
-    width: 100%;
-    max-width: 820px;
-    margin: 0 auto;
-    overflow: visible;
-  }
- 
-  .navLinks {
-    display: flex;
-    justify-content: center;
-    gap: 1.1rem;
-    margin: 1rem auto; /* Center the nav links */
-    font-size: 1.8rem; /* Slightly smaller font for better fit */
-    padding: 0.5rem;
-    width: 60%;
-    max-width: 600px; /* Limit max width */
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
-    overflow: visible;
-  }
-}
-
-/* iPad OS  (portrait & landscape) */
-@media only screen 
-  and (min-device-width: 810px) 
-  and (max-device-width: 820px) 
-  and (-webkit-min-device-pixel-ratio: 2) {
-
-    .contentLogo{
-      padding: 2rem 0 0;
-    }
-.logoSidebar {
-    top: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center align the logo and nav */
-    padding: 3rem 0 0 ;
-    background-color: transparent;
-    height: auto;
-    overflow: visible;
-    width: 100%; /* Ensure full width */
-  }
-  
-  .content {
-    scroll-padding-top: 1500px;
-  }
-  
-  .main {
-    flex: 1;
-    padding: 0.1rem;
-    width: 100%; /* Removed duplicate width property */
-    margin: 0 auto;
-    box-sizing: border-box;
-  }
-  
-  /* Navigation Links */
-  .navLinks {
-    font-size: 1.4rem;
-    display: flex;
-    gap: 1.8rem;
-    justify-content: center;
-    margin: 0.1rem 0 0 0; /* Simplified margin */
-    width: 100%; /* Take full width */
-  }
-  
-
-  /* If you have a logo container, add this */
-
-}
-
-/* SurfacePro 7 (portrait & landscape) */
-@media only screen 
-  and (min-device-width: 912px) 
-  and (max-device-width: 912px) 
-  and (-webkit-min-device-pixel-ratio: 2) {
-  .logoSidebar {
-    flex: 0 0 1rem;  /* Narrower for Surface Pro's aspect ratio */
-    padding: 1.5rem 0 0;
-    top: 4.5rem;
-    height: auto;
-    overflow: visible;
-    min-height: 400px;
-    visibility: visible !important;
-  }
-
-  .contentLogo {
-    display: block !important;  /* Ensure it's visible */
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-  
-  .logoContainer {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-}
-
-@media (max-width: 480px) {
-
-    .logoSidebar {
-    flex: 0 0 1remx;  /* Narrower for Surface Pro's aspect ratio */
-    padding: 0.1rem 0 0;
-    top: 2.5rem;
-    height: auto;
-    overflow: visible;
-  }
-
-    .navLinks {
-    display: flex;
-    justify-content: center;
-    gap: 1.1rem;
-    margin: 0.1rem 0rem 0 0.5rem;
-    font-size: 2rem;
-    padding: 0;
-    width: 90%;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
-  }
-  .cardActions {
-    flex-direction: column;
-  }
-  
-  .moreButton,
-  .projectLink,
-  .viewProjectButton {
-    max-width: 100% !important;
-    padding: 2.5rem 2rem 1rem 1rem;
-    line-height: normal;
-    margin-left: 0;
- 
-  }
-}
-
 /* Footer Styles */
 .footer {
   width: 100%;
@@ -1664,19 +1025,6 @@ max-height: 2000px;
 .backToTopFooter:hover {
   color: #a2feff;
   background: rgba(255, 255, 255, 0.2);
-}
-
-/* Mobile styles */
-@media (max-width: 768px) {
-  .footerLinks {
-    padding: 1.5rem;
-    gap: 0.75rem;
-  }
-  
-  .backToTopFooter {
-    max-width: 100%;
-    margin: 0.5rem 0 1rem;
-  }
 }
 
 .footerContent {
@@ -1758,46 +1106,6 @@ max-height: 2000px;
   outline-offset: 2px;
 }
 
-
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .header {
-    padding: 1rem;
-    text-align: center;
-  }
-  
-  .nav {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin-top: 1rem;
-  }
-  
-  .navLink {
-    margin-right: 0;
-    padding: 0.5rem;
-  }
-
-    .navLinks {
-    margin-left: 0;
-    padding: 0;
-    width: 100%;
-  }
-  
-  .main {
-    padding: 1rem;
-  }
-  
-  .content {
-    padding: 1.5rem;
-  }
-  
-  .footer {
-    padding: 0rem 0rem;
-  }
-}
-
 .main code {
   font-family: inherit;
   background: var(--gray-alpha-100);
@@ -1864,153 +1172,6 @@ a.secondary {
 
 .footer img {
   flex-shrink: 0;
-}
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: none;
-    text-underline-offset: 4px;
-  }
-}
-
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
-    /* Adjust navigation links if needed */
-  .navLinks {
-    margin-left: 0;
-    padding: 0 1rem;
-    margin: 0.1rem;
-     width: 100%;
-  }
-
-  .main {
-    align-items: center;
-  }
-
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-@media (min-width: 280px) and (max-width: 430px) {
-
-  .contentLogo {
-    padding: 1rem 1rem 0;
-  }
-  .contentWrapper {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  
-  .mainContent {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  
-  /* Adjust navigation links if needed */
-  .navLinks {
-    margin-left: 0;
-    padding: 0;
-    margin: 0.1rem;
-     width: 100%;
-  }
-  
-
-  .page {
-    padding: 16px;
-    padding-bottom: 80px;
-  }
-
-  .main {
-    align-items: center;
-  }
-
-    .mainContent {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  
-  /* Ensure content doesn't touch screen edges */
-  .content {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-  
-  /* Adjust navigation links if needed */
-  .navLinks {
-    margin-left: 0;
-    padding: 0 1rem;
-    margin: 0.1rem;
-  }
-  .projectsGrid {
-    grid-template-columns: 1fr;
-    justify-content: center;
-  }
-
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-}
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
 }
 
 /* Hamburger Menu Royale with Cheese*/
@@ -2122,12 +1283,6 @@ a.secondary {
   opacity: 1;
   visibility: visible;
 }
-@supports not (backdrop-filter: blur(0px)) {
-  .mobileMenuOverlay.mobileMenuOpen {
-    background-color: rgba(24, 30, 64, 0.9);
-    backdrop-filter: none;
-  }
-}
 /* Mobile Menu */
 .mobileMenu {
   position: fixed;
@@ -2198,6 +1353,932 @@ a.secondary {
   color: rgba(255, 255, 255, 0.3);
   font-size: 1.1rem;
 }
+
+/* ============================================
+   PROJECT IMAGE HEIGHT OVERRIDES
+   Ensures consistent image sizing across all
+   breakpoints (fixes mobile 150px cap issue)
+   ============================================ */
+
+/* Base desktop */
+.projectImage {
+  height: 350px;
+}
+
+.projectImage img {
+  height: 350px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Override any inline styles on images */
+.projectImage img[style*="height"] {
+  height: 350px !important;
+}
+
+
+/* ==========================================================================
+   RESPONSIVE STYLES (large → small)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   min-width: 1920px
+   -------------------------------------------------------------------------- */
+@media (min-width: 1920px) {
+  .projectImage {
+    position: relative;
+  }
+  .projectCard,
+  .projectsGrid,
+  .contentWrapper,
+  .content,
+  .mainContent,
+  .main,
+  .container {
+    overflow: visible;
+  }
+  .projectCard,
+  .projectCard.expanded {
+    padding-bottom: 1rem;
+    padding: 1rem 0rem 8.5rem 0rem;
+    margin-bottom: 1rem;
+  }
+
+  .cardContent,
+  .cardContent.showContent {
+    position: absolute !important;
+    top: auto !important; 
+    bottom: 212px;              /* ← was top: 160px !important */
+    right: 100%;
+    text-align: right;
+    width: 400px;
+    direction: ltr;
+    margin: 0 1rem 0 0;
+    transition: none !important;
+    background: transparent;
+  }
+  .cardContent.showContent p {
+    opacity: 1;
+    line-height: 1.4;
+  }
+  .additionalText {
+    margin-bottom: 30px;
+  }
+  .cardActions {
+    margin-top: 1rem;
+  }
+  .moreButton {
+    display: none !important;
+  }
+  .projectLink {
+    background: #1e5296;
+    border: none;
+    border-radius: 8px;
+    padding: 0.1rem 1.5rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.5s ease;
+    color: #fff;
+    flex: 1;
+    min-width: 120px;
+    max-width: 270px;
+    height: 75px;
+    text-shadow: 0 0 3px rgba(48, 47, 47, 0.8);
+    box-sizing: border-box;
+    line-height: normal;
+    padding: 0.1rem 1.5rem 0.8rem 1.2rem;
+    display: inline-flex;
+    align-items: flex-end;
+    justify-content: left;
+    text-align: left;
+
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Desktop widescreen: 1651px – 1920px
+   -------------------------------------------------------------------------- */
+@media (min-width: 1651px) {
+
+    .content {
+    max-width: 800px;
+
+  }
+  .Hamburger {
+    display:none;
+    opacity: 0;
+  }
+  .hamburgerBox {
+    display:none;
+  }
+
+
+  .contentWrapper {
+    max-width: 1100px;
+  }
+  
+  .projectsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+    gap: 2rem;
+  }
+  
+  .projectImage {
+    height: 350px;
+  }
+  
+  .projectImage img[style*="height"] {
+    height: 350px !important;
+  }
+  
+  .projectImage img.project-image-responsive[style*="height"] {
+    height: 350px !important;
+  }
+  .moreButton {
+    display: inline-block;
+  }
+
+}
+
+/* --------------------------------------------------------------------------
+   max-width: 1650px
+   -------------------------------------------------------------------------- */
+@media (max-width: 1650px) {
+  .menuContainer {
+    transition: opacity 0.4s ease-in-out;
+      width:  300px; 
+  }
+  .navLinks {
+  display: block;
+  columns: 2;
+  column-gap: 2rem;
+  margin: 0;
+  padding: 0;
+  width:  300px; 
+  box-sizing: border-box;
+  justify-content: center;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+}
+
+}
+
+/* --------------------------------------------------------------------------
+   max-width: 1450px
+   -------------------------------------------------------------------------- */
+@media (max-width: 1450px) {
+  .menuContainer {
+    opacity: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   max-width: 1024px (tablet)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    .main {
+      width: 100%;
+      max-width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+    .logoSidebar {
+      width: 100%;
+      height: auto;
+      padding: 4rem 0 0;
+    }
+
+    .projectsGrid {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+
+      .contentLogo {
+      max-width: 450px;  
+      min-height: 0;
+        padding: 5rem 0 0;  
+      z-index: 0;
+      filter: drop-shadow(0 22px 11px rgba(0, 0, 0, 0));
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -webkit-user-drag: none;
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      -o-user-drag: none;
+      pointer-events: none;
+    }
+  .menuContainer {
+    margin-top: 0.5rem; 
+    opacity: 0;
+  }
+
+  .content {
+    color: #acfeff;
+    border-radius: 8px;
+    padding: 2rem 0 0;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+
+  }
+  .logoContainer {
+    display: flex;
+    align-items: center;
+    max-width: 400px;
+       padding: 2rem 0 0;
+  }
+  .contentLogo {
+    max-width: 450px;  
+    min-height: 0;
+       padding: 3rem 0 0;  
+    z-index: 0;
+    filter: drop-shadow(0 22px 11px rgba(0, 0, 0, 0));
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    pointer-events: none;
+  }
+
+  /* Project image heights - tablet */
+  .projectImage {
+    height: 350px;
+  }
+  .projectImage img,
+  .projectImage img[style*="height"] {
+    height: 350px !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Device-specific queries (largest → smallest device width)
+   -------------------------------------------------------------------------- */
+
+/* iPad Pro (portrait & landscape) */
+@media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+      .contentLogo {
+    padding: 5rem 0 0 !important; /* Force more top padding */
+  }
+  .logoContainer{
+      padding: 3rem 0 0; /* Increase top padding to move logo lower */
+    }
+  .logoSidebar {
+    padding: 3rem 0 0;
+    top: 2rem; /* Move down further */
+    height: auto;
+    overflow: none;
+  }
+  .navLinks {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0;
+    font-size: 2rem;
+    padding: 0;
+    width: 80%;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+  }
+}
+
+/* SurfacePro 7 (portrait & landscape) */
+@media only screen 
+  and (min-device-width: 912px) 
+  and (max-device-width: 912px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+  .logoSidebar {
+    flex: 0 0 1rem;  /* Narrower for Surface Pro's aspect ratio */
+    padding: 1.5rem 0 0;
+    top: 4.5rem;
+    height: auto;
+    overflow: visible;
+    min-height: 400px;
+    visibility: visible !important;
+  }
+
+  .contentLogo {
+    display: block !important;  /* Ensure it's visible */
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  .logoContainer {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Asus Zenbook (portrait & landscape) */
+@media only screen 
+  and (min-device-width: 853px) 
+  and (max-device-width: 853px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+  .logoSidebar {
+    top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1rem 0 0;
+    background-color: transparent;
+    height: auto;
+    overflow: hidden;
+  }
+  .navLinks {
+    display: flex;
+    justify-content: center;
+    gap: 2.1rem;
+    margin: 0.1rem;
+    font-size: 2rem;
+    padding: 0 0.5rem;
+    width: 50%;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+  }
+}
+
+/* iPad Pro 11" (834 x 1194) */
+@media only screen 
+  and (min-device-width: 834px) 
+  and (max-device-width: 834px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+  .contentLogo {
+    padding: 4rem 0 0 !important; /* Top padding for iPad Pro 11" */
+  }
+  .logoContainer{
+    padding: 2.5rem 0 0; /* Top padding to move logo lower */
+  }
+  .logoSidebar {
+    padding: 2.5rem 0 0;
+    top: 1.5rem; /* Position for iPad Pro 11" */
+    height: auto;
+    overflow: visible;
+  }
+  .navLinks {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0;
+    font-size: 1.8rem; /* Slightly smaller font for 11" */
+    padding: 0;
+    width: 80%;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+  }
+}
+
+/* iPad Air (portrait & landscape) */
+@media only screen 
+  and (min-device-width: 820px) 
+  and (max-device-width: 820px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+  .logoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px; /* Fixed width for better control */
+    margin: 0 auto; /* Center the container */
+    padding: 1rem 0; /* Vertical padding only */
+    text-align: center;
+  }
+ 
+  .logoSidebar {
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2rem 0 0;
+    background-color: transparent;
+    width: 100%;
+    max-width: 820px;
+    margin: 0 auto;
+    overflow: visible;
+  }
+ 
+  .navLinks {
+    display: flex;
+    justify-content: center;
+    gap: 1.1rem;
+    margin: 1rem auto; /* Center the nav links */
+    font-size: 1.8rem; /* Slightly smaller font for better fit */
+    padding: 0.5rem;
+    width: 60%;
+    max-width: 600px; /* Limit max width */
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    overflow: visible;
+  }
+}
+
+/* iPad OS  (portrait & landscape) */
+@media only screen 
+  and (min-device-width: 810px) 
+  and (max-device-width: 820px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .contentLogo{
+      padding: 2rem 0 0;
+    }
+.logoSidebar {
+    top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align the logo and nav */
+    padding: 3rem 0 0 ;
+    background-color: transparent;
+    height: auto;
+    overflow: visible;
+    width: 100%; /* Ensure full width */
+  }
+  
+  .content {
+    scroll-padding-top: 1500px;
+  }
+  
+  .main {
+    flex: 1;
+    padding: 0.1rem;
+    width: 100%; /* Removed duplicate width property */
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  
+  /* Navigation Links */
+  .navLinks {
+    font-size: 1.4rem;
+    display: flex;
+    gap: 1.8rem;
+    justify-content: center;
+    margin: 0.1rem 0 0 0; /* Simplified margin */
+    width: 100%; /* Take full width */
+  }
+  
+
+  /* If you have a logo container, add this */
+
+}
+
+/* --------------------------------------------------------------------------
+   min-width: 769px - always show underline on desktop
+   -------------------------------------------------------------------------- */
+@media (min-width: 769px) {
+  .navLink.active::after {
+    display: block;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   max-width: 768px (mobile)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+
+  .backToTop {
+    display: flex; /* Show on mobile */
+  }
+  
+  .header {
+    padding-right: 5rem; /* Section detectors - these are used for scroll detection but should be invisible */
+  }
+
+  .languagesContainer {
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+  }
+   .contentWrapper {
+    padding: 0;
+  }
+  .navLinks {
+    gap: 2.2rem;
+    padding: 0.25rem;
+    margin: 2.5rem;
+  }
+  .navLink {
+    font-size: 1.2rem;
+    padding: 0.15rem 0.15rem;
+  }
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .languagesContainer::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .languagesContainer > section {
+    flex: 0 0 auto;
+    min-width: 200px;
+  }
+  
+  .profileImageContainer {
+    width: 120px;
+    height: 120px;
+    position: sticky;
+    right: 0;
+    top: 45%;
+    background: white;
+    z-index: 1;
+  }
+
+
+  .contentWrapper {
+    flex-direction: column;
+  }
+  
+  .projectImage {
+    height: 350px; /* Maintain 150px height on mobile */
+  }
+  
+  .projectsGrid {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 1rem;
+  }
+  
+  .logoSidebar {
+    width: 100%;
+    min-height: 0; /* Remove any minimum height */
+    height: auto; /* Let the content determine the height */
+    padding: 1rem 0;
+    margin-bottom: 0rem;
+  }
+  
+  .contentLogo {
+    max-width: 350px;  
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding: 3rem 0 0;  
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 22px 11px rgba(0, 0, 0, 0));
+  }
+  .logoContainer {
+    position: static; /* Allow logo to scroll with the page on mobile */
+    z-index: 10;
+    width: 100%;
+    text-align: center;
+    background-color: #1a1a1a; /* Match the header background */
+    padding: 0.5rem 0;
+  }
+  
+
+  .logoSidebar {
+    position: static;
+    flex: 0 0 auto;
+    height: auto;
+    max-height: none;
+    padding: 1rem 0;
+  }
+  
+  .logoContainer {
+    position: static;
+    width: 100%;
+    text-align: center;
+    background-color: #1a1a1a;
+    padding: 0;
+  }
+  
+  .contentLogo {
+    max-width: 20px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    padding: 0;
+
+  }
+  .menuContainer {
+    margin-top: 0.5rem; 
+    opacity: 0;
+  }
+
+  /* Footer */
+  .footerLinks {
+    padding: 1.5rem;
+    gap: 0.75rem;
+  }
+  
+  .backToTopFooter {
+    max-width: 100%;
+    margin: 0.5rem 0 1rem;
+  }
+
+  /* Responsive Design */
+  .header {
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .navLink {
+    margin-right: 0;
+    padding: 0.5rem;
+  }
+
+    .navLinks {
+    margin-left: 0;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .main {
+    padding: 1rem;
+  }
+  
+  .content {
+    padding: 1.5rem;
+  }
+  
+  .footer {
+    padding: 0rem 0rem;
+  }
+
+  /* Project image heights - mobile */
+  .projectImage {
+    height: 350px;
+  }
+  .projectImage img,
+  .projectImage img[style*="height"] {
+    height: 350px !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   max-width: 600px
+   -------------------------------------------------------------------------- */
+@media (max-width: 600px) {
+  .page {
+    padding: 32px;
+    padding-bottom: 80px;
+  }
+
+    /* Adjust navigation links if needed */
+  .navLinks {
+    margin-left: 0;
+    padding: 0 1rem;
+    margin: 0.1rem;
+     width: 100%;
+  }
+
+  .main {
+    align-items: center;
+  }
+
+  .main ol {
+    text-align: center;
+  }
+
+  .ctas {
+    flex-direction: column;
+  }
+
+  .ctas a {
+    font-size: 14px;
+    height: 40px;
+    padding: 0 16px;
+  }
+
+  a.secondary {
+    min-width: auto;
+  }
+
+  .footer {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   max-width: 480px (small mobile)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+    .contentLogo {
+      max-width: 300px;  
+      min-height: 0;
+      padding: 0.25rem;  
+      z-index: 0;
+      filter: drop-shadow(0 22px 11px rgba(0, 0, 0, 0));
+      
+    }
+    .backToTop {
+      display: flex; /* Show on mobile */
+    }
+
+    .logoSidebar {
+    flex: 0 0 1rem;  /* Narrower for Surface Pro's aspect ratio */
+    padding: 0.1rem 0 0;
+    top: 2.5rem;
+    height: auto;
+    overflow: visible;
+  }
+
+    .navLinks {
+    display: flex;
+    justify-content: center;
+    gap: 1.1rem;
+    margin: 0.1rem 0rem 0 0.5rem;
+    font-size: 2rem;
+    padding: 0;
+    width: 90%;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+  }
+  .cardActions {
+    flex-direction: column;
+  }
+  
+  .moreButton,
+  .projectLink,
+  .viewProjectButton {
+    max-width: 100% !important;
+    padding: 2.5rem 2rem 1rem 1rem;
+    line-height: normal;
+    margin-left: 0;
+ 
+  }
+
+  /* Project image heights - small mobile */
+  .projectImage {
+    height: 350px;
+  }
+  .projectImage img,
+  .projectImage img[style*="height"] {
+    height: 350px !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   min-width: 280px and max-width: 430px (smallest phones)
+   -------------------------------------------------------------------------- */
+@media (min-width: 280px) and (max-width: 430px) {
+
+  .contentLogo {
+    padding: 1rem 1rem 0;
+  }
+  .contentWrapper {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .mainContent {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  
+  /* Adjust navigation links if needed */
+  .navLinks {
+    margin-left: 0;
+    padding: 0;
+    margin: 0.1rem;
+     width: 100%;
+  }
+  
+
+  .page {
+    padding: 16px;
+    padding-bottom: 80px;
+  }
+
+  .main {
+    align-items: center;
+  }
+
+    .mainContent {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  /* Ensure content doesn't touch screen edges */
+  .content {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
+  /* Adjust navigation links if needed */
+  .navLinks {
+    margin-left: 0;
+    padding: 0 1rem;
+    margin: 0.1rem;
+  }
+  .projectsGrid {
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+
+  .main ol {
+    text-align: center;
+  }
+
+  .ctas {
+    flex-direction: column;
+  }
+
+  .ctas a {
+    font-size: 14px;
+    height: 40px;
+    padding: 0 16px;
+  }
+
+  a.secondary {
+    min-width: auto;
+  }
+
+  .footer {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+/* ==========================================================================
+   FEATURE / CAPABILITY QUERIES (not size-based)
+   ========================================================================== */
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  a.primary:hover {
+    background: var(--button-primary-hover);
+    border-color: transparent;
+  }
+
+  a.secondary:hover {
+    background: var(--button-secondary-hover);
+    border-color: transparent;
+  }
+
+  .footer a:hover {
+    text-decoration: none;
+    text-underline-offset: 4px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .logo {
+    filter: invert();
+  }
+}
+
+@supports not (backdrop-filter: blur(0px)) {
+  .mobileMenuOverlay.mobileMenuOpen {
+    background-color: rgba(24, 30, 64, 0.9);
+    backdrop-filter: none;
+  }
+}
+
 /* Firefox specific fixes */
 @-moz-document url-prefix() {
   /* Fix hamburger hover color */
@@ -2271,62 +2352,5 @@ a.secondary {
   .hamburgerActive .hamburgerInner::after {
     transform: translateY(-8px) rotate(-45deg) !important;
     -webkit-transform: translateY(-8px) rotate(-45deg) !important;
-  }
-}
-
-/* ============================================
-   PROJECT IMAGE HEIGHT OVERRIDES
-   Ensures consistent image sizing across all
-   breakpoints (fixes mobile 150px cap issue)
-   ============================================ */
-
-/* Base desktop */
-.projectImage {
-  height: 350px;
-}
-
-.projectImage img {
-  height: 350px;
-  width: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
-
-/* Override any inline styles on images */
-.projectImage img[style*="height"] {
-  height: 350px !important;
-}
-
-/* Tablet */
-@media (max-width: 1024px) {
-  .projectImage {
-    height: 350px;
-  }
-  .projectImage img,
-  .projectImage img[style*="height"] {
-    height: 350px !important;
-  }
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .projectImage {
-    height: 350px;
-  }
-  .projectImage img,
-  .projectImage img[style*="height"] {
-    height: 350px !important;
-  }
-}
-
-/* Small mobile */
-@media (max-width: 480px) {
-  .projectImage {
-    height: 350px;
-  }
-  .projectImage img,
-  .projectImage img[style*="height"] {
-    height: 350px !important;
   }
 }
