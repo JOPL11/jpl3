@@ -2,7 +2,7 @@
 
 import { useEffect, useState, Suspense, useRef, useMemo, useCallback } from 'react';
 import Image from 'next/image';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, useGLTF, useTexture } from '@react-three/drei';
 import * as THREE from 'three';
 import styles from './Logo3D.module.css';
@@ -142,6 +142,44 @@ const hologram = new THREE.ShaderMaterial({
 
 // Preload the GLB file
 useGLTF.preload('/assets/logo.glb');
+
+// ---------------------------------------------------------------------------
+// iOS support
+// Everything iOS-specific is gated behind `isIOS`, so Android / Windows /
+// macOS / Linux keep exactly the same render path as before.
+// ---------------------------------------------------------------------------
+// iPadOS 13+ reports itself as "MacIntel", so UA sniffing alone misses iPads.
+function detectIOS() {
+  if (typeof window === 'undefined' || !window.navigator) return false;
+  const ua = navigator.userAgent || '';
+  const classicIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+  const iPadOS = navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
+  return classicIOS || iPadOS;
+}
+
+// Individual switches so you can bisect on a real device if anything still looks off.
+const IOS_TWEAKS = {
+  noMultisampling: true, // MSAA + half-float + alpha render targets are flaky in Safari
+  noCompositingLayerHack: true, // drop translate3d / backface-hidden on the canvas
+  clipAndIsolate: true, // clip the container + isolate its stacking context
+  edgeFeather: true, // soft vertical fade so any residual box edge can't show
+  panYTouchAction: true, // let the page scroll when a finger starts on the logo
+};
+
+// OrbitControls sets touch-action:none on the canvas, which on iOS traps the page
+// scroll whenever a finger lands on the 350px-tall logo. Re-allow vertical panning.
+// Must be rendered AFTER <OrbitControls /> so it runs after controls.connect().
+function IOSTouchAction() {
+  const gl = useThree((state) => state.gl);
+  useEffect(() => {
+    const el = gl.domElement;
+    el.style.touchAction = 'pan-y';
+    el.style.webkitTouchCallout = 'none';
+    el.style.webkitUserSelect = 'none';
+    el.style.userSelect = 'none';
+  }, [gl]);
+  return null;
+}
 
 // Custom hook for mobile detection
 function useMobileDetect() {
@@ -726,8 +764,9 @@ const LoadingBar = ({ width = 80 }) => {
   );
 };
 
-export default function Logo3D({ width = '100vw', height = 350, className = '' }) {
+export default function Logo3D({ width = '100vw', height = 350, className = '', onContextLost }) {
   const [isLoaded, setIsLoaded] = useState(false);
+  const isIOS = useMemo(detectIOS, []);
   const canvasRef = useRef();
   const isMobile = useMobileDetect();
   const rendererRef = useRef();
@@ -827,6 +866,14 @@ const handleResize = useCallback(() => {
           visibility: isLoaded ? 'visible' : 'visible',
           maxWidth: 'none', // Add this
           minWidth: isLibreWolf ? `${desktopWidth}px` : '100vw', // Add this
+          ...(isIOS && IOS_TWEAKS.clipAndIsolate ? {
+            overflow: 'hidden',
+            isolation: 'isolate',
+          } : null),
+          ...(isIOS && IOS_TWEAKS.edgeFeather ? {
+            WebkitMaskImage: 'linear-gradient(to bottom, transparent 0, #000 12%, #000 88%, transparent 100%)',
+            maskImage: 'linear-gradient(to bottom, transparent 0, #000 12%, #000 88%, transparent 100%)',
+          } : null),
       }}
     >
       {!isLoaded && <LoadingBar width={width} />}
@@ -853,13 +900,23 @@ const handleResize = useCallback(() => {
           // Force clear the canvas
           gl.clearColor(0, 0, 0, 0);
           gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+          // iOS can kill WebGL contexts under memory pressure; let the wrapper fall back to 2D
+          if (isIOS && onContextLost) {
+            gl.domElement.addEventListener('webglcontextlost', (e) => {
+              e.preventDefault();
+              onContextLost();
+            }, { once: true });
+          }
         }}
         style={{
           display: 'block',
           background: 'transparent',
-          WebkitBackfaceVisibility: 'hidden',
-          WebkitTransform: 'translate3d(0,0,0)',
-          transform: 'translate3d(0,0,0)',
+          ...(isIOS && IOS_TWEAKS.noCompositingLayerHack ? null : {
+            WebkitBackfaceVisibility: 'hidden',
+            WebkitTransform: 'translate3d(0,0,0)',
+            transform: 'translate3d(0,0,0)',
+          }),
           overflow: 'visible', // Allow canvas content to overflow
           width: '100vw', // Make canvas full viewport width
           maxWidth: 'none', // Add this
@@ -887,7 +944,7 @@ const handleResize = useCallback(() => {
                 /> 
             </>
           )} */}
-            <EffectComposer>
+            <EffectComposer multisampling={isIOS && IOS_TWEAKS.noMultisampling ? 0 : undefined}>
             <SMAA />
               <Bloom 
                 luminanceThreshold={0.4} 
@@ -916,6 +973,7 @@ const handleResize = useCallback(() => {
           rotateSpeed={0.3}
           target={[0, 0, 0]}
         />
+        {isIOS && IOS_TWEAKS.panYTouchAction && <IOSTouchAction />}
       </Canvas>
     </div>
   );

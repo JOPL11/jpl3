@@ -34,16 +34,24 @@ const Logo3D = dynamic(
   }
 );
 
+// Quick rollback switch: set to true to restore the old behaviour (2D image on iOS).
+const FORCE_2D_ON_IOS = false;
+
 const Logo3DWrapper = memo(function Logo3DWrapper() {
   const [hasWebGL, setHasWebGL] = useState(false);
   const [isIOSDevice, setIsIOSDevice] = useState(false);
+  const [contextLost, setContextLost] = useState(false);
+  const handleContextLost = useCallback(() => setContextLost(true), []);
 
   // Check WebGL support
   const checkWebGL = useCallback(() => {
     try {
       const canvas = document.createElement('canvas');
       const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-      return !!gl;
+      const ok = !!gl;
+      // Release the probe context right away; iOS only allows a handful of live contexts
+      gl?.getExtension?.('WEBGL_lose_context')?.loseContext();
+      return ok;
     } catch (e) {
       return false;
     }
@@ -55,12 +63,9 @@ const Logo3DWrapper = memo(function Logo3DWrapper() {
         const iosStatus = checkIfIOS();
         setIsIOSDevice(iosStatus);
         
-        // Only check WebGL if not on iOS
-        let webglStatus = 'N/A (iOS)';
-        if (!iosStatus) {
-          webglStatus = checkWebGL();
-          setHasWebGL(webglStatus);
-        }
+        // Check WebGL on every device (iOS included now)
+        const webglStatus = checkWebGL();
+        setHasWebGL(webglStatus);
         // Debug log
         if (process.env.NODE_ENV === 'development') {
           console.log('Logo3DWrapper: Mounted', { 
@@ -71,17 +76,18 @@ const Logo3DWrapper = memo(function Logo3DWrapper() {
       }, [checkWebGL]);
 
   // Render appropriate logo based on device and WebGL support
-  if (isIOSDevice) {
+  if (FORCE_2D_ON_IOS && isIOSDevice) {
     return <Logo2D />;
   }
 
-  if (!hasWebGL) {
+  // 2D fallback: no WebGL, or the (iOS) GPU context was killed mid-session
+  if (!hasWebGL || contextLost) {
     return <Logo2D />;
   }
 
   return (
     <Suspense fallback={<Logo2D />}>
-      <Logo3D width="100vw" height={350} />
+      <Logo3D width="100vw" height={350} onContextLost={handleContextLost} />
     </Suspense>
   );
 });
