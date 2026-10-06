@@ -5,7 +5,7 @@
    One rule above the first item, one below every item. opacity: var(--rule-opacity);
    Tweak --rule-opacity to make them stronger or fainter. */
 .accordion {
-  --rule-opacity: 0.5;
+  --rule-opacity: 0.4;
   position: relative;
   margin-top: 1.5rem;
 }
@@ -18,7 +18,7 @@
   right: 0;
   height: 1px;
   background-image: linear-gradient(to right, #a2feff, #a2feff);
-  opacity: 1;
+  opacity:  var(--rule-opacity);
   pointer-events: none;
 }
 
