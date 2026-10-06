@@ -87,7 +87,8 @@ function AccordionItem({ group, isOpen, onToggle }) {
           onClick={onToggle}
         >
           <span>{group.title}</span>
-          <span className={local.chevron} aria-hidden="true" />
+          <span className={local.plus} aria-hidden="true" />
+          
         </button>
       </h3>
 
@@ -152,8 +153,11 @@ export default function Core({
     >
       {onSectionChange && <SectionTracker onSectionChange={onSectionChange} />}
 
+
+
       <h2 id="core-heading" style={{ paddingTop: '5rem' }}>
         <AnimatedText ref={headingRef}>Core</AnimatedText>
+              
       </h2>
       <div style={{ height: '0.1rem', marginBottom: '5rem' }}>Tools</div>
 
@@ -161,9 +165,7 @@ export default function Core({
         My toolkit is extensive and constantly evolving, allowing me to own a
         project from concept to deployment. I&apos;ve split skills into separate
         categories for clarity:
-      </p>
-
-      <div className={local.accordion}>
+      </p>      <div className={local.accordion}>
         {groups.map((group) => (
           <AccordionItem
             key={group.id}

@@ -1,27 +1,51 @@
 /* Core accordion — first pass: mechanism + palette from page.module.css
    (#a2feff text, #61dafb accent). Fine-tune visuals later. */
 
+/* Rules: borders can't hold a gradient, so each rule is a 1px pseudo-element.
+   One rule above the first item, one below every item.
+   Tweak --rule-opacity to make them stronger or fainter. */
 .accordion {
+  --rule-opacity: 0.5;
+  position: relative;
   margin-top: 1rem;
-  border-top: 1px solid rgba(162, 254, 255, 0.2);
+}
+
+.accordion::before,
+.item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, #a2feff, #a2feff);
+  opacity: var(--rule-opacity);
+  pointer-events: none;
+}
+
+.accordion::before {
+  top: 0;
 }
 
 .item {
-  border-bottom: 1px solid rgba(162, 254, 255, 0.2);
+  position: relative;
 }
 
-/* Same h3 look as the original inline styles */
+.item::after {
+  bottom: 0;
+}
+
+/* Same h3 look as the original inline styles justify-content: space-between; */
 .heading {
   margin: 0;
   font-size: 1.3rem;
   font-weight: 400;
   color: white;
 }
-
+/* to place the plus at different parts of the line, switch justify-content: space-between; flex-end< flex-start*/
 .trigger {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content:  space-between; 
   gap: 1rem;
   width: 100%;
   padding: 0.9rem 0;
@@ -45,21 +69,37 @@
   border-radius: 4px;
 }
 
-/* CSS-drawn chevron: points down when closed, up when open */
-.chevron {
+/* CSS-drawn plus: two bars. On open the vertical bar rotates onto the
+   horizontal one, so the plus turns into a minus. */
+.plus {
+  position: relative;
   flex: 0 0 auto;
-  width: 0.55rem;
-  height: 0.55rem;
-  margin-top: -0.2rem;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;
-  transform: rotate(45deg);
-  transition: transform 0.3s ease, margin 0.3s ease;
+  width: 0.9rem;
+  height: 0.9rem;
 }
 
-.open .chevron {
-  margin-top: 0.2rem;
-  transform: rotate(-135deg);
+.plus::before,
+.plus::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.plus::before {
+  transform: translate(-50%, -50%);
+}
+
+.plus::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.open .plus::after {
+  transform: translate(-50%, -50%) rotate(0deg);
 }
 
 /* Height animation without measuring in JS: grid row 0fr -> 1fr.
@@ -103,7 +143,8 @@
 @media (prefers-reduced-motion: reduce) {
   .panel,
   .open .panel,
-  .chevron {
+  .plus::before,
+  .plus::after {
     transition: none;
   }
 }

@@ -92,7 +92,7 @@
   margin: 0 auto;
   padding: 0;
   box-sizing: border-box;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 
 
 }
@@ -217,23 +217,53 @@
 }
 
 .menuContainer {
+  --nav-width: 500px;      /* width of .navLinks */
+  --nav-gap: 2rem;         /* gap between the two columns */
+  --rule-opacity: 1.0;     /* strength of the vertical rules */
   position: fixed;
-  top: 20px;
+  top: 0px;
   right: 100px;
-  max-width: 400px;
+  max-width: 550px;
   z-index: 800; /* above section content */
-  min-height: 250px;
+  min-height: 100px;
+  overflow-y: visible;
+}
+
+/* Vertical rules: one at the left edge of each nav column, running the full
+   height of the menuContainer, solid at the top fading to transparent. */
+.menuContainer::before,
+.menuContainer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-image: linear-gradient(to bottom, #a2feff, transparent);
+  opacity: var(--rule-opacity);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menuContainer::before {
+  left: 0;
+}
+
+.menuContainer::after {
+  /* left edge of column 2 = (total width + gap) / 2 */
+  left: calc((var(--nav-width) + var(--nav-gap)) / 2);
 }
 
 
 
 .navLinks {
+  
   display: block;
   columns: 2;
-  column-gap: 4rem;
+  column-gap: var(--nav-gap);
   margin: 0;
   padding: 0;
-  width:  380px; 
+  margin-top: 20px;
+  width: var(--nav-width); 
   box-sizing: border-box;
   justify-content: center;
   user-select: none;
@@ -244,17 +274,19 @@
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
-  
+  line-height: 1.725;
 }
 
 .navLink {
   display: block;  
+  padding-left: 1.7rem; /* clearance for the vertical rule */
   color: #ccc;
   transition: color 0.2s ease;
   cursor: pointer;
   font-size: 1.2rem;
   font-weight: 400;
-  white-space: nowrap;  
+  white-space: nowrap; 
+
 }
 
 .navLink:hover {
@@ -700,7 +732,7 @@ max-height: 2000px;
 
 .additionalText {
   color: #e5e7eb;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   margin: 0.3rem 0 0 0;
   line-height: 1.6;
 }
@@ -724,7 +756,7 @@ max-height: 2000px;
 
 .cardContent p {
   margin: 0.25rem 0;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .cardContent.showContent {
@@ -770,7 +802,7 @@ max-height: 2000px;
 .cardActions {
   display: flex;
   gap: 0.8rem;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
   flex-wrap: wrap;
 }
 
@@ -1065,7 +1097,7 @@ max-height: 2000px;
   background: none;
   border: none;
   font-family: inherit;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   cursor: pointer;
   line-height: 1.6;
   display: block;
@@ -1189,7 +1221,6 @@ a.secondary {
   z-index: 14050; /* Ensure it's above other elements */
   transform: translateY(-10px); /* Move up further to align with arrow */
 }
-
 
 .hamburgerBox {
   width: 40px;
@@ -1411,7 +1442,7 @@ a.secondary {
   .cardContent.showContent {
     position: absolute !important;
     top: auto !important; 
-    bottom: 212px;              /* ← was top: 160px !important */
+    bottom: 220px;              /* ← was top: 160px !important */
     right: 100%;
     text-align: right;
     width: 400px;
@@ -1428,7 +1459,7 @@ a.secondary {
     margin-bottom: 30px;
   }
   .cardActions {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
   }
   .moreButton {
     display: none !important;
@@ -1503,16 +1534,18 @@ a.secondary {
    -------------------------------------------------------------------------- */
 @media (max-width: 1650px) {
   .menuContainer {
+    --nav-width: 300px;
+    --nav-gap: 2rem;
     transition: opacity 0.4s ease-in-out;
       width:  250px; 
   }
   .navLinks {
   display: block;
   columns: 2;
-  column-gap: 2rem;
+  column-gap: var(--nav-gap);
   margin: 0;
   padding: 0;
-  width:  300px; 
+  width: var(--nav-width); 
   box-sizing: border-box;
   justify-content: center;
   user-select: none;

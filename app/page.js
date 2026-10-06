@@ -1167,15 +1167,15 @@ useEffect(() => {
             <div style={{height: '0.1rem', marginBottom: '7rem'}}>Tap or click the images to look through the pile of photos.</div>
               <div className={styles.introText}>
                 <div style={{ fontSize: '1rem', fontWeight: 'bold', color: 'white' }}>
-                  Project: <span style={{ fontSize: '1rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Mercedes Benz dealership award.</span>
+                  Project: <span style={{ fontSize: '1.2rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Mercedes Benz dealership award.</span>
                 </div>
-                <div style={{ fontSize: '1rem', fontWeight: 'bold', color: 'white' }}>
-                  Client: <a href="https://sieberundwolf.de/" target="_blank" rel="noopener" ><span style={{ fontSize: '1rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Sieber & Wolf&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+                <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'white' }}>
+                  Client: <a href="https://sieberundwolf.de/" target="_blank" rel="noopener" ><span style={{ fontSize: '1.2rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Sieber & Wolf&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
                   
                   <Image src="/images/agencies/sw_neu_white.png" alt="Sieber & Wolf"  width={33} height={16} /></a>
                 </div>
-                <div style={{ fontSize: '1rem', fontWeight: 'bold', color: 'white' }}>
-                  My Task: <span style={{ fontSize: '1rem', fontWeight: 'normal', color: '#acfeff', marginBottom:'3rem', display: 'block', lineHeight: '1.4' }}>Invent a new type of dealership award for Mercedes Benz. I thought up the concept, designed the whole piece including UI and put together a working tech-stack for a fully functional prototype.</span>
+                <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'white' }}>
+                  My Task: <span style={{ fontSize: '1.2rem', fontWeight: 'normal', color: '#acfeff', marginBottom:'3rem', display: 'block', lineHeight: '1.4' }}>Invent a new type of dealership award for Mercedes Benz. I thought up the concept, designed the whole piece including UI and put together a working tech-stack for a fully functional prototype.</span>
                 </div>
               </div>
               <ThrowableImages />
@@ -1385,7 +1385,7 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={contactHeadingRef}>Contact</AnimatedText>
             </h2>
-            <div style={{height: '0.1rem', marginBottom: '5rem', fontSize: '1.1rem'}}>Drop me a line, tell me about your project.</div>
+            <div style={{height: '0.1rem', marginBottom: '5rem', fontSize: '1.2rem'}}>Drop me a line, tell me about your project.</div>
               <ContactForm />
             </section>
         </div>
@@ -1400,7 +1400,9 @@ useEffect(() => {
             >
               ↑
             </button>
-            <p>&copy; <CopyrightYear /> Jan Peiro. All rights reserved.</p>
+            <div style={{fontSize: '1.2rem'}}>
+            <p>&copy; <CopyrightYear /> Jan Peiro</p>
+            </div>
            {/*   <button 
               onClick={() => window.open('https://github.com/JOPL11/jpl3', '_blank', 'noopener,noreferrer')} 
               className={styles.footerLink} 
