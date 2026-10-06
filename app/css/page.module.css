@@ -452,6 +452,7 @@ body.menu-open .navLink.active::after {
   display: grid;
   gap: 0.5rem;
   color: #a2feff;
+ 
 }
 
 .skillsList li {

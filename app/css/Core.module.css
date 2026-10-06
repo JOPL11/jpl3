@@ -2,12 +2,12 @@
    (#a2feff text, #61dafb accent). Fine-tune visuals later. */
 
 /* Rules: borders can't hold a gradient, so each rule is a 1px pseudo-element.
-   One rule above the first item, one below every item.
+   One rule above the first item, one below every item. opacity: var(--rule-opacity);
    Tweak --rule-opacity to make them stronger or fainter. */
 .accordion {
   --rule-opacity: 0.5;
   position: relative;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .accordion::before,
@@ -18,7 +18,7 @@
   right: 0;
   height: 1px;
   background-image: linear-gradient(to right, #a2feff, #a2feff);
-  opacity: var(--rule-opacity);
+  opacity: 1;
   pointer-events: none;
 }
 
@@ -37,7 +37,7 @@
 /* Same h3 look as the original inline styles justify-content: space-between; */
 .heading {
   margin: 0;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 400;
   color: white;
 }
@@ -48,7 +48,7 @@
   justify-content:  space-between; 
   gap: 1rem;
   width: 100%;
-  padding: 0.9rem 0;
+  padding: 1.9rem 0;
   background: none;
   border: 0;
   color: inherit;

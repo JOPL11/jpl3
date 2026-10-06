@@ -36,7 +36,7 @@
   text-align: center;
    border-radius: 0 0 8px 8px;
   padding: 0.5rem;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   font-weight: 400;
   transition: all 0.3s ease;
   white-space: nowrap;
@@ -90,7 +90,7 @@
   padding-bottom: 1rem;
 }
 .clientText {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: white;
   font-weight: bold;
 }
@@ -114,7 +114,7 @@
 .agencyLink {
   color: #acfeff;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin-left: 0px;
   left: 0px;
   transition: color 0.2s ease;
@@ -186,6 +186,7 @@
   -ms-user-select: none !important;
   user-select: none !important;
   touch-action: pan-y !important;
+  font-size: 1.2rem;
 }
 
 /* Add specific styles for paragraphs within modalDescription */
@@ -237,6 +238,7 @@
   -ms-user-select: none !important;
   user-select: none !important;
   touch-action: pan-y !important;
+  
 }
 
 /* But allow text selection for inputs and textareas */
@@ -263,6 +265,7 @@
   -webkit-user-select: none !important;
   user-select: none !important;
   pointer-events: auto !important;
+  
 }
 
 .scrollableContent.fadeOut {
@@ -411,7 +414,7 @@ html.no-scroll {
   padding-bottom: 1rem;
 }
 .clientText {
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   color: white;
   font-weight: bold;
 }
@@ -481,7 +484,7 @@ html.no-scroll {
 }
 
 .navIndicator {
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   color: #ffffff;
   font-weight: 500;
   padding: 0 11px 0 11px;
@@ -607,7 +610,7 @@ html.no-scroll {
   }
   
   .modalDescription {
-    font-size: 0.95rem;
+    font-size: 1.2rem;
   }
   
   .modalContent {
