@@ -1,6 +1,6 @@
 'use client';
 import Modal from './Modal';
-import { createContext, useContext, useState, useRef } from 'react';
+import { createContext, useContext, useState, useRef, useEffect } from 'react';
 
 const ModalContext = createContext();
 
@@ -12,6 +12,17 @@ export function ModalProvider({ children }) {
   const [suppressScrollRestore, setSuppressScrollRestore] = useState(false);
 
   const closeTimeoutRef = useRef(null);
+console.log('ModalProvider state:', { isOpen, isClosing, hasContent: !!modalContent });
+   useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+    return () => {
+      document.body.classList.remove('modal-open');
+    };
+  }, [isOpen]);
 
   const openModal = (content, className = '') => {
     if (closeTimeoutRef.current) {
@@ -35,7 +46,7 @@ export function ModalProvider({ children }) {
       setModalClassName('');
       setSuppressScrollRestore(false);  // reset after close
       closeTimeoutRef.current = null;
-    }, 600);
+    }, 1600);
   };
 
   return (

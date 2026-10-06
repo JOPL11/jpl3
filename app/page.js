@@ -145,36 +145,30 @@ export default function Home() {
     };
   }, []);
 */} 
-  const scrollToSection = (e, sectionId) => {
-    console.log('scrollToSection called with sectionId:', sectionId);
-    e.preventDefault();
+ const scrollToSection = (e, sectionId) => {
+  e.preventDefault();
 
-    setShowPrivacyModal(false);
-    setShowImpressumModal(false);
-    closeModal();
+  setShowPrivacyModal(false);
+  setShowImpressumModal(false);
+  closeModal();
 
-    console.log('Settin this mfgrs active section to:', sectionId);
-    setActiveSection(sectionId); // Update active section to trigger animation
+  setActiveSection(sectionId);
+
+  requestAnimationFrame(() => {
     requestAnimationFrame(() => {
-    const element = document.getElementById(sectionId);
-    console.log('Found element for this mfgn section:', sectionId, element);
-    
-    if (element) {
-      console.log('Scrolling tf to the mfgn section:', sectionId, 'at the mfgn position:', element.offsetTop);
-      window.scrollTo({
-        top: element.offsetTop + 110,
-        behavior: 'smooth'
-      });
-      
-      // Reset the flag after scroll completes
-      setTimeout(() => {
-        isProgrammaticScroll.current = false;
-      }, 1000);
-    } else {
-      console.error('Crimeny! Could not find element with the mfgn id:', sectionId);
-    }
+      const element = document.getElementById(sectionId);
+      if (element) {
+        window.scrollTo({
+          top: element.offsetTop + 110,
+          behavior: 'smooth'
+        });
+        setTimeout(() => {
+          isProgrammaticScroll.current = false;
+        }, 1000);
+      }
     });
-  };
+  });
+};
 
   const openModal = (type) => {
     // Scroll to top of the page
@@ -534,6 +528,13 @@ useEffect(() => {
                 >
                   WebGL
                 </a>
+                     <a 
+                  href="#product" 
+                  className={`${styles.navLink} ${activeSection === 'profuct' ? styles.active : ''}`}
+                  onClick={(e) => scrollToSection(e, 'product')}
+                >
+                  Product
+                </a>
                   <a 
                   href="#motion" 
                   className={`${styles.navLink} ${activeSection === 'motion' ? styles.active : ''}`}
@@ -541,13 +542,7 @@ useEffect(() => {
                 >
                   Motion
                 </a>
-                <a 
-                  href="#product" 
-                  className={`${styles.navLink} ${activeSection === 'profuct' ? styles.active : ''}`}
-                  onClick={(e) => scrollToSection(e, 'product')}
-                >
-                  Product
-                </a>
+           
                 <a 
                   href="#contact" 
                   className={`${styles.navLink} ${activeSection === 'contact' ? styles.active : ''}`}

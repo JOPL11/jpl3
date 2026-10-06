@@ -85,16 +85,15 @@ z-index: 21474;
   to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fadeOutSlideDown {
-  from { opacity: 1; transform: translateY(0); }
-  to   { opacity: 1; transform: translateY(100%); }
-}
-
 .modalContent.closing {
-  animation: fadeOutSlideDown 1.6s cubic-bezier(0.7, 0, 0.84, 0) both;
-  transition: none;
-
+  animation: fadeOutSlideUp 0.6s cubic-bezier(0.4, 0, 1, 1) both;
 }
+
+@keyframes fadeOutSlideUp {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-100%); }
+}
+
 
 /* Scrollable content area within modal */
 .scrollableContent {
@@ -457,8 +456,8 @@ z-index: 21474;
 
   .closeButton {
   position: absolute;
-  top: 0.05rem;
-  left: 1.7rem;
+  top: 0.5rem;
+  left: 1.9rem;
   }
 
 .logo {

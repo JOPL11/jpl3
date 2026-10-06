@@ -69,6 +69,11 @@
   transform: translateY(0);
 }
 
+/* Hide the back-to-top button whenever any ModalContext modal is open */
+:global(body.modal-open) .backToTop{
+  display: none !important;
+}
+
 
 /* Section detectors - used for scroll detection */
 .sectionDetector {
@@ -217,14 +222,14 @@
 }
 
 .menuContainer {
-  --nav-width: 500px;      /* width of .navLinks */
+  --nav-width: 450px;      /* width of .navLinks */
   --nav-gap: 2rem;         /* gap between the two columns */
   --rule-opacity: 1.0;     /* strength of the vertical rules */
   position: fixed;
   top: 0px;
-  right: 100px;
+  right: 70px;
   max-width: 550px;
-  z-index: 2147483647; /* above section content */
+  z-index: 15000; /* above section content */
   min-height: 100px;
   overflow-y: visible;
 }
@@ -531,7 +536,7 @@ body.menu-open .navLink.active::after {
   left: 0;
   right: 0;
   bottom: 0;
-  border: 1px solid transparent;
+  
   border-radius: 8px; /* Match the card's border radius */
   background: linear-gradient(
     to bottom, 
@@ -1307,7 +1312,7 @@ a.secondary {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
-  z-index: 700;
+  z-index: 7500;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
@@ -1324,7 +1329,7 @@ a.secondary {
   width: 280px;
   height: 100vh;
   background: linear-gradient(180deg, #0f172a 10%, #070a13 70%);
-  z-index: 999;
+  z-index: 8000;
   transition: right 0.5s ease-in-out;
   padding: 1rem 0;
   overflow-y: auto;
@@ -1504,8 +1509,8 @@ a.secondary {
     display:none;
   }
 
-.menuContainer {
-  right:10px;
+  .menuContainer {
+  right:0px;
 }
   .contentWrapper {
     max-width: 1100px;
@@ -1541,6 +1546,7 @@ a.secondary {
     --nav-gap: 2rem;
     transition: opacity 0.4s ease-in-out;
       width:  250px; 
+      margin-top:1.3rem;
   }
   .navLinks {
   display: block;
@@ -1560,6 +1566,14 @@ a.secondary {
   -moz-user-drag: none;
   -o-user-drag: none;
 }
+.hamburger {
+    transform: none !important;
+    -webkit-transform: none !important;
+    will-change: auto !important;
+    backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important;
+    display: none;
+  }
 
 }
 
@@ -1569,6 +1583,14 @@ a.secondary {
 @media (max-width: 1450px) {
   .menuContainer {
     display: none;
+  }
+  .hamburger {
+    transform: none !important;
+    -webkit-transform: none !important;
+    will-change: auto !important;
+    backface-visibility: hidden !important;
+    -webkit-backface-visibility: hidden !important;
+    display: block;
   }
 }
 

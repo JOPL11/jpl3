@@ -118,13 +118,7 @@ export default function Modal({
         className={`${styles.modalContent} ${className} ${fullBleed ? styles.fullBleed : ''} ${isClosing ? styles.closing : ''}`}
         onClick={(e) => e.stopPropagation()}
       >
-        <Image
-          src="/images/logo2.png"
-          alt="JP Logo"
-          width={60}
-          height={20}
-          className={styles.logo}
-        />
+  
         <button
           className={styles.closeButton}
           onClick={handleClose}
