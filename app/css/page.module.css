@@ -224,7 +224,7 @@
   top: 0px;
   right: 100px;
   max-width: 550px;
-  z-index: 800; /* above section content */
+  z-index: 2147483647; /* above section content */
   min-height: 100px;
   overflow-y: visible;
 }
@@ -380,6 +380,7 @@ body.menu-open .navLink.active::after {
   max-width: 1000px;
   margin: 0 auto;
   padding: 1rem;
+
 }
 
 .content h2 {
@@ -1567,7 +1568,7 @@ a.secondary {
    -------------------------------------------------------------------------- */
 @media (max-width: 1450px) {
   .menuContainer {
-    opacity: 0;
+    display: none;
   }
 }
 

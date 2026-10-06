@@ -12,8 +12,8 @@ import LogoCard from './components/LogoCard';
 import { useMemo } from 'react';
 import LocomotiveScroll from 'locomotive-scroll';
 import { gsap } from 'gsap';
-
-
+import { createPortal } from 'react-dom';
+import { useModal } from './components/ModalContext';
 
 
   {/*
@@ -81,6 +81,7 @@ function CopyrightYear() {
 }
 
 export default function Home() {
+  const { closeModal } = useModal();
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
   const [showImpressumModal, setShowImpressumModal] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -147,14 +148,19 @@ export default function Home() {
   const scrollToSection = (e, sectionId) => {
     console.log('scrollToSection called with sectionId:', sectionId);
     e.preventDefault();
-    console.log('Setting active section to:', sectionId);
+
+    setShowPrivacyModal(false);
+    setShowImpressumModal(false);
+    closeModal();
+
+    console.log('Settin this mfgrs active section to:', sectionId);
     setActiveSection(sectionId); // Update active section to trigger animation
-    
+    requestAnimationFrame(() => {
     const element = document.getElementById(sectionId);
-    console.log('Found element for section:', sectionId, element);
+    console.log('Found element for this mfgn section:', sectionId, element);
     
     if (element) {
-      console.log('Scrolling to section:', sectionId, 'at position:', element.offsetTop);
+      console.log('Scrolling tf to the mfgn section:', sectionId, 'at the mfgn position:', element.offsetTop);
       window.scrollTo({
         top: element.offsetTop + 110,
         behavior: 'smooth'
@@ -165,8 +171,9 @@ export default function Home() {
         isProgrammaticScroll.current = false;
       }, 1000);
     } else {
-      console.error('Could not find element with id:', sectionId);
+      console.error('Crimeny! Could not find element with the mfgn id:', sectionId);
     }
+    });
   };
 
   const openModal = (type) => {
@@ -220,6 +227,8 @@ export default function Home() {
 const scrollVelocity = useRef(0);
 const animationFrameId = useRef(null);
 const isNarrow = viewportWidth > 0 && viewportWidth <= 1650;
+const [mounted, setMounted] = useState(false);
+useEffect(() => setMounted(true), []);
 
   // Map section IDs to their refs
   const sectionRefs = useMemo(() => ({
@@ -364,7 +373,8 @@ useEffect(() => {
   return (
     <div className={styles.container} role="document">
       <MouseGradient />
-      <div className="content-wrapper">
+         {mounted && createPortal(
+          <>
       <header role="banner" className={styles.header}>
         <button 
           className={styles.backToTop}
@@ -421,7 +431,7 @@ useEffect(() => {
             </div>
             {/* Header content would go here   |  Privacy */}
           </header>
-        <>
+       
         {/* Mobile Menu Overlay */}
         <div 
           className={`${styles.mobileMenuOverlay} ${isMenuOpen ? styles.mobileMenuOpen : ''}`}
@@ -474,18 +484,21 @@ useEffect(() => {
             </li>
           </ul>
         </nav>
-      </>
-      <main className={styles.main} role="main" id="main-content">
-            <div className={styles.menuContainer}
+    
+      
+       
+          <div
+            className={styles.menuContainer}
             style={
-    isNarrow
-      ? undefined
-      : {
-          opacity: isMenuOpen ? 0 : 1,
-          pointerEvents: isMenuOpen ? 'none' : 'auto',
-          transition: 'opacity 0.4s ease-in-out',
-        }
-  } >
+              isNarrow
+                ? undefined
+                : {
+                    opacity: isMenuOpen ? 0 : 1,
+                    pointerEvents: isMenuOpen ? 'none' : 'auto',
+                    transition: 'opacity 0.4s ease-in-out',
+                  }
+            }
+          >
           {/* <InteractiveMenu activeSection={activeSection} onSectionChange={setActiveSection} /> 
           {/* <InteractiveMenu activeSection={activeSection} onSectionChange={setActiveSection} /> */}
           
@@ -593,7 +606,13 @@ useEffect(() => {
                 />
               </div>              </div>
               </div> */}  
-              </div>
+               
+            </div>
+            </>,
+            document.body
+            )}
+        <div className="content-wrapper">
+          <main className={styles.main} role="main" id="main-content">
         <div className={styles.contentWrapper}>
          
           <div className={styles.logoSidebar} role="complementary" aria-label="Logo and Navigation">
