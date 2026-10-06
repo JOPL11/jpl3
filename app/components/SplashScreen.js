@@ -96,9 +96,7 @@ export default function SplashScreen({ onComplete }) {
           alpha: true,
           powerPreference: 'high-performance'
         }}
-        camera={{ position: [0, 0, 5], fov: 45 }}
-      >
-
+        camera={{ position: [0, 0, 5], fov: 45 }} >
       </Canvas>
     </div>
   );

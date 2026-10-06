@@ -86,6 +86,12 @@ export default function Home() {
   const [showImpressumModal, setShowImpressumModal] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showHamburger, setShowHamburger] = useState(true);
+  const [showDesktopNav, setShowDesktopNav] = useState(false);
+
+useEffect(() => {
+  const t = setTimeout(() => setShowDesktopNav(true), 2500); // 2.5s delay
+  return () => clearTimeout(t);
+}, []);
 
   // Toggle menu-open class on body when menu state changes
   useEffect(() => {
@@ -487,9 +493,9 @@ useEffect(() => {
               isNarrow
                 ? undefined
                 : {
-                    opacity: isMenuOpen ? 0 : 1,
-                    pointerEvents: isMenuOpen ? 'none' : 'auto',
-                    transition: 'opacity 0.4s ease-in-out',
+                  opacity: isMenuOpen || !showDesktopNav ? 0 : 1,
+                  pointerEvents: isMenuOpen || !showDesktopNav ? 'none' : 'auto',
+                  transition: 'opacity 0.8s ease-in-out',
                   }
             }
           >

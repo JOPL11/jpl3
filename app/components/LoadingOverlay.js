@@ -73,20 +73,7 @@ useEffect(() => {
           opacity: logoVisible ? 1 : 0,
           transition: 'opacity 0.5s ease-out'
         }}>
-                  <Image 
-              src="/images/logoAnima/J.svg" 
-              alt="J" 
-              className={styles.letterJ}
-              width={50}  // Add appropriate width
-              height={50} // Add appropriate height
-            />
-            <Image 
-              src="/images/logoAnima/P.svg" 
-              alt="P" 
-              className={styles.letterP}
-              width={50}  // Add appropriate width
-              height={50} // Add appropriate height
-            />
+              
           <div></div>
         </div>
    
