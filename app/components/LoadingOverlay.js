@@ -80,7 +80,7 @@ useEffect(() => {
         </div>
             <div className={styles.staticLine} style={{ 
               opacity: lineVisible ? 1 : 0,
-              width: lineVisible ? '40px' : '0',
+              width: lineVisible ? '300px' : '0',
               transition: 'opacity 0.3s ease-out 0.3s, width 0.3s ease-out 0.5s', // Add 0.3s delay
               transitionDelay: lineVisible ? '0.2s' : '0.1s' // Fade in after 0.3s, fade out immediately
             }}></div>
