@@ -110,18 +110,18 @@
 }
 */
 .formGroup {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   position: relative;
 }
 
 .formGroup:last-child {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .formGroup label {
   display: block;
   margin-bottom: 0.75rem;
-  font-weight: 500;
+  font-weight: 300;
   color: #a2feff;
   font-size: 1.2rem;
   letter-spacing: 0.02em;
@@ -171,13 +171,14 @@
 .checkboxLabel {
   display: block;
   position: relative;
-  
+  max-width: 500px;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   color: #e5e7eb;
   line-height: 1.6;
   margin: 0;
   text-align: left;
+  font-weight: 100;
 }
 
 .checkboxInput {
@@ -348,7 +349,7 @@
   }
   
   .formGroup {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.1rem;
   }
   
   .formInput,

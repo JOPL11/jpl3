@@ -1170,9 +1170,9 @@ useEffect(() => {
                   Project: <span style={{ fontSize: '1.2rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Mercedes Benz dealership award.</span>
                 </div>
                 <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'white' }}>
-                  Client: <a href="https://sieberundwolf.de/" target="_blank" rel="noopener" ><span style={{ fontSize: '1.2rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Sieber & Wolf&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+                  Client: <span style={{ fontSize: '1.2rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Sieber & Wolf&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
                   
-                  <Image src="/images/agencies/sw_neu_white.png" alt="Sieber & Wolf"  width={33} height={16} /></a>
+                  <Image src="/images/agencies/sw_neu_white.png" alt="Sieber & Wolf"  width={33} height={16} />
                 </div>
                 <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'white' }}>
                   My Task: <span style={{ fontSize: '1.2rem', fontWeight: 'normal', color: '#acfeff', marginBottom:'3rem', display: 'block', lineHeight: '1.4' }}>Invent a new type of dealership award for Mercedes Benz. I thought up the concept, designed the whole piece including UI and put together a working tech-stack for a fully functional prototype.</span>
@@ -1182,7 +1182,6 @@ useEffect(() => {
             </section>
             <div data-section="motion-heading"></div>
               <section id="motion" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="motion">
-            
              <SectionTracker onSectionChange={setActiveSection} />
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={motionHeadingRef}>Motion Cases</AnimatedText>

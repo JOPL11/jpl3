@@ -126,6 +126,8 @@
 /* Builds on .skillsList from page.module.css (bullets, color, grid gap) */
 .list {
   padding: 0.25rem 0 1.25rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
 }
 
 /* Languages: fill top-to-bottom in two columns */
@@ -137,7 +139,6 @@
 
 .list.twoColumns li {
   break-inside: avoid;
-  margin-bottom: 0.5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {

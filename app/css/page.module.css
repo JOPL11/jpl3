@@ -1322,7 +1322,7 @@ a.secondary {
   right: -300px; /* Start off-screen */
   width: 280px;
   height: 100vh;
-  background: #0e0e0e;
+  background: linear-gradient(180deg, #0f172a 10%, #070a13 70%);
   z-index: 999;
   transition: right 0.5s ease-in-out;
   padding: 1rem 0;
@@ -1345,7 +1345,8 @@ a.secondary {
   padding: 1rem 2rem;
   color: white;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 2rem;
+  font-weight: 500;
   transition: background-color 0.2s ease;
 }
 .mobileMenuLink:hover {
