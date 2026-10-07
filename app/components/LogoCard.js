@@ -20,14 +20,13 @@ const LogoCard = () => {
   const logosRef = useRef([]);
 
   // Helper function to render HTML
-  const createMarkup = (html) => {
-    return { 
-      __html: DOMPurify.sanitize(html, {
-        ADD_TAGS: ['mux-player'],
-        ADD_ATTR: ['playback-id', 'metadata-video-title', 'metadata-viewer-user-id']
-      }) 
-    };
+ const createMarkup = (html) => {
+  return { 
+    __html: DOMPurify.sanitize(html, {
+      ADD_ATTR: ['target', 'style'],  // if you ever need <a target="_blank">
+    }) 
   };
+};
 
   // =================== SIMPLE ENTRANCE ANIMATION ===================
   useEffect(() => {
@@ -265,12 +264,11 @@ const LogoCard = () => {
                 <mux-player
                   playback-id={logo.video.playbackId}
                   poster={logo.video.thumbnail}
-                  metadata-video-title={logo.video.title}
-                  metadata-viewer-user-id={logo.video.userId}
                   accent-color={logo.video.accentColor}
                   primary-color={logo.video.primaryColor}
                   secondary-color={logo.video.secondaryColor}
-                  no-analytics={true}
+                  disableTracking={true}
+                  disable-tracking
                   autoplay={false}
                   controls-list={logo.id === 18 ? 'nodownload' : 'nodownload'}
                   style={{ 
