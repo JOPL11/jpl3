@@ -51,9 +51,6 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-  google: '2W2j8wsuhNB701AQ3dPZ3GWIx6RhQTF9zH-R9bTrtGM',
-  },
   other: {
     google: 'notranslate',
   },
