@@ -35,8 +35,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Jan Peiro - Creative Technologist',
-    description: 'Portfolio of Jan Peiro - Creative Developer.',
+    title: 'Jan Peiro - Design / Motion / Code',
+    description: 'Portfolio of Jan Peiro.',
     images: ['/images/og-image.jpg'],
     creator: '@janpeiro',
   },
@@ -53,5 +53,8 @@ export const metadata = {
   },
   verification: {
     google: 'google-site-verification=iGLpuC-ydCLPjzPlxwOi7JVmXibniROkt6LEreUROtE',
+  },
+  other: {
+    google: 'notranslate',
   },
 };
