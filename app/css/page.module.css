@@ -88,6 +88,10 @@
   top: 0;
 }
 
+.overviewSection h2 {
+  margin-top: 3px;
+}
+
 .contentWrapper {
   display: flex;
   flex-direction: column;
@@ -98,8 +102,6 @@
   padding: 0;
   box-sizing: border-box;
   font-size: 1.2rem;
-
-
 }
 
 /* Desktop styles */

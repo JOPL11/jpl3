@@ -636,9 +636,9 @@ useEffect(() => {
 
               
            <div data-section="overview"></div>
-            <section id="overview" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="overview">
+            <section id="overview" className={`${styles.content} ${styles.scrollTarget} `} aria-labelledby="overview">
                 <SectionTracker onSectionChange={setActiveSection} />
-                <h2 style={{paddingTop: "110px"}}><AnimatedText ref={overviewHeadingRef}>Overview</AnimatedText></h2>
+                <h2 style={{paddingTop: "118px"}}><AnimatedText ref={overviewHeadingRef}>Overview</AnimatedText></h2>
                 <div style={{paddingBottom:"2rem"}}>
                   <div style={{height: "33px"}}></div>
              <p>Developing mission-critical digital experiences for global leaders. Trusted by major brands to translate brand vision into immersive interactive, motion, and installation design.</p><br></br>

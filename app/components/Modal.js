@@ -17,19 +17,21 @@ export default function Modal({
   const contentRef = useRef(null);
 
   // Handle smooth scrolling for mouse wheel inside the modal content
-  const handleWheel = useCallback((e) => {
-    if (!contentRef.current) return;
+const handleWheel = useCallback((e) => {
+  if (!contentRef.current) return;
 
-    const { scrollTop, scrollHeight, clientHeight } = contentRef.current;
-    const isAtTop = scrollTop === 0 && e.deltaY < 0;
-    const isAtBottom = scrollTop + clientHeight >= scrollHeight - 1 && e.deltaY > 0;
+  // Always prevent scroll bleed to the page beneath
+  e.preventDefault();
 
-    // Only prevent default if we're not at the boundaries
-    if (!isAtTop && !isAtBottom) {
-      e.preventDefault();
-      contentRef.current.scrollTop += e.deltaY * 0.8;
-    }
-  }, []);
+  const { scrollTop, scrollHeight, clientHeight } = contentRef.current;
+  const isAtTop = scrollTop === 0 && e.deltaY < 0;
+  const isAtBottom = scrollTop + clientHeight >= scrollHeight - 1 && e.deltaY > 0;
+
+  // Only scroll the modal content if not at the boundaries
+  if (!isAtTop && !isAtBottom) {
+    contentRef.current.scrollTop += e.deltaY * 0.8;
+  }
+}, []);
 
   // Delegates close to the context, which orchestrates the outro animation
   const handleClose = useCallback(() => {
@@ -56,6 +58,12 @@ export default function Modal({
       const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
 
       window.addEventListener('keydown', handleEsc);
+
+      // Pure bleed-killer: swallow every wheel event on the window so the
+    // page beneath the modal can never scroll, regardless of where the
+    // cursor is.
+    const killBleed = (e) => e.preventDefault();
+    window.addEventListener('wheel', killBleed, { passive: false });
 
       // Simple, non-destructive scroll lock.
       // Preserves window.scrollY so programmatic scrolls still work
