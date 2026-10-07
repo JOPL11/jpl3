@@ -60,6 +60,7 @@ export default function Modal({
       // Simple, non-destructive scroll lock.
       // Preserves window.scrollY so programmatic scrolls still work
       // and no restoration is needed on cleanup.
+      document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
       if (scrollbarWidth > 0) {
         document.body.style.paddingRight = `${scrollbarWidth}px`;
@@ -75,9 +76,10 @@ export default function Modal({
         if (contentElement) {
           contentElement.removeEventListener('wheel', handleWheel);
         }
-
+        document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
         document.body.style.paddingRight = '';
+        
 
         // Drop focus from any modal elements
         if (document.activeElement && document.activeElement.blur) {
