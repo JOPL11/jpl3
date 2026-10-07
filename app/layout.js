@@ -1,20 +1,14 @@
-'use client';
-
 import { Inter } from 'next/font/google';
-import "./globals.css";
+import './globals.css';
 import { ModalProvider } from './components/ModalContext';
-import dynamic from 'next/dynamic';
 import ScriptLoader from './components/ScriptLoader';
 import { LoadingProvider } from './contexts/LoadingContext';
 import LoadingOverlay from './components/LoadingOverlay';
-import { useEffect } from 'react';
-import { usePathname } from 'next/navigation';
-
-
-//import DecorativeFlow from './components/DecorativeFlow';
+import ScrollToTop from './ScrollToTop';
+import { metadata } from './metadata'; 
+import { Analytics } from '@vercel/analytics/next';
 
 const version = process.env.NEXT_PUBLIC_APP_VERSION || new Date().getTime();
-
 
 const inter = Inter({
   subsets: ['latin'],
@@ -27,36 +21,28 @@ const inter = Inter({
   preload: true,
 });
 
+export { metadata };
+
 export default function RootLayout({ children }) {
-  const pathname = usePathname();
-
-  // Scroll to top on route change
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={inter.variable} translate="no">
       <head>
-        <ScriptLoader version={version}/>
-        <meta 
-          name="viewport" 
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" 
+        <ScriptLoader version={version} />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
-        <link rel="icon" href={`/favicon.ico?v=${version}`}  />
+        <link rel="icon" href={`/favicon.ico?v=${version}`} />
       </head>
-
       <body className={inter.className} suppressHydrationWarning={true}>
+        <ScrollToTop />
         <LoadingProvider>
           <ModalProvider>
             <LoadingOverlay />
-  
             {children}
           </ModalProvider>
-         {/*  <div style={{ width: '100vw', height: '100vh', position: 'fixed', top: 0, left: 0, pointerEvents: 'none' }}>
-            <DecorativeFlow />
-          </div>*/}
         </LoadingProvider>
+          <Analytics />
       </body>
     </html>
   );
