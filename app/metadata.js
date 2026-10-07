@@ -52,9 +52,10 @@ export const metadata = {
     },
   },
   verification: {
-  google: 'iGLpuC-ydCLPjzPlxwOi7JVmXibniROkt6LEreUROtE',
+  google: '2W2j8wsuhNB701AQ3dPZ3GWIx6RhQTF9zH-R9bTrtGM',
   },
   other: {
     google: 'notranslate',
   },
 };
+
