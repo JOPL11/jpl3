@@ -52,7 +52,7 @@ export const metadata = {
     },
   },
   verification: {
-    google: 'google-site-verification=iGLpuC-ydCLPjzPlxwOi7JVmXibniROkt6LEreUROtE',
+  google: 'iGLpuC-ydCLPjzPlxwOi7JVmXibniROkt6LEreUROtE',
   },
   other: {
     google: 'notranslate',
