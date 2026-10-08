@@ -12,7 +12,7 @@ const DesktopCarousel = dynamic(
   () => import('./DesktopCarousel'),
   { ssr: false }
 );
-
+import DeformImage from './DeformImage';
 const ModalWrapper = ({ children, isDesktop }) => {
   const content = typeof children === 'function' ? children() : children;
   return (
@@ -38,27 +38,26 @@ export default function ProjectCard({
   className = '',    // Add className prop with default empty string
   modalClassName = '', // Add modalClassName prop for custom modal styling
   onViewProject,
-  onMoreClick = () => {} // Add onMoreClick with default empty function
+  onMoreClick = () => {}, // Add onMoreClick with default empty function
+  deform = false,
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const { openModal } = useModal();
   const [isDesktop, setIsDesktop] = useState(false);
 
-useEffect(() => {
-  const mq = window.matchMedia('(min-width: 1651px)');
-  const update = () => setIsDesktop(mq.matches);
-  update();
-  mq.addEventListener('change', update);
-  return () => mq.removeEventListener('change', update);
-}, []);
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 1651px)');
+    const update = () => setIsDesktop(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
 
-const expanded = isDesktop || isExpanded;
+  const expanded = isDesktop || isExpanded;
 
   const handleViewProject = (e) => {
     e.stopPropagation();
-    console.log('View project clicked');
     if (onViewProject) {
-      console.log('Calling onViewProject');
       onViewProject();
     }
     if (modalContent) {
@@ -89,7 +88,11 @@ const expanded = isDesktop || isExpanded;
   };
 
   return (
-    <div className={`${styles.projectCard} ${expanded ? styles.expanded : ''} ${className}`} role="gridcell" tabIndex="0">
+    <div
+      className={`${styles.projectCard} ${deform ? styles.deformCard : ''} ${expanded ? styles.expanded : ''} ${className}`}
+      role="gridcell"
+      tabIndex="0"
+    >
       <h3>{title}</h3>
       {client && (
         <a 
@@ -126,25 +129,39 @@ const expanded = isDesktop || isExpanded;
           dangerouslySetInnerHTML={{ __html: text }}
         />
       )}
-     <div className={`${styles.cardContent} ${expanded ? styles.showContent : ''}`}>
-    {children}
-  </div>
-      <div className={styles.projectImage}>
-        <Image 
-          src={image} 
-          alt={alt}
-          width={800}
-          height={600}
-          className="project-image-responsive"
-          style={{
-            width: '100%',
-            height: '150px',
-            objectFit: 'cover',
-            objectPosition: 'center'
-          }}
-          priority
-        />
+      <div className={`${styles.cardContent} ${expanded ? styles.showContent : ''}`}>
+        {children}
       </div>
+
+      <div className={`${styles.projectImage} ${deform ? styles.deformImage : ''}`}>
+        {deform ? (
+          <DeformImage
+            src={image}
+            alt={alt}
+            width={800}
+            height={600}
+            priority
+            className="project-image-responsive"
+            imageClassName="project-image-responsive"
+          />
+        ) : (
+          <Image 
+            src={image} 
+            alt={alt}
+            width={800}
+            height={600}
+            className="project-image-responsive"
+            style={{
+              width: '100%',
+              height: '150px',
+              objectFit: 'cover',
+              objectPosition: 'center'
+            }}
+            priority
+          />
+        )}
+      </div>
+
       <div className={styles.cardActions}>
         <button 
           className={styles.moreButton}

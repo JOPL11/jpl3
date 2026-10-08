@@ -655,7 +655,7 @@ max-height: 2000px;
   border-radius: 0px;
   overflow: hidden;
   border: none; /* Remove the solid border */
-  background: #2a3540;
+  background: transparent;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -1863,4 +1863,8 @@ a.secondary {
     transform: translateY(-8px) rotate(-45deg) !important;
     -webkit-transform: translateY(-8px) rotate(-45deg) !important;
   }
+  .projectCard.deformCard,
+.projectImage.deformImage {
+  overflow: visible;
+}
 }

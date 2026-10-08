@@ -87,7 +87,7 @@ export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showHamburger, setShowHamburger] = useState(true);
   const [showDesktopNav, setShowDesktopNav] = useState(false);
-
+console.log('[Home] render');
 useEffect(() => {
   const t = setTimeout(() => setShowDesktopNav(true), 2500); // 2.5s delay
   return () => clearTimeout(t);
@@ -975,6 +975,7 @@ useEffect(() => {
                <div className={styles.divider3}></div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
                   <ProjectCard 
+                   deform
                   onMoreClick={() => {
                     console.log('karnak More button clicked, triggering animation');
                     bytes101TextRef.current?.animate();
@@ -993,6 +994,7 @@ useEffect(() => {
 
              
               <ProjectCard 
+                deform
                   onMoreClick={() => {
                     console.log('AI Ching More button clicked, triggering animation');
                     bytes101TextRef.current?.animate();
@@ -1009,6 +1011,7 @@ useEffect(() => {
                   <p><strong>Role:</strong><br /> Concept / Animation / Development</p>
                 </ProjectCard>
                 <ProjectCard 
+                  deform
                   onMoreClick={() => {
                     console.log('Redpoint More button clicked, triggering animation');
                     bytes101TextRef.current?.animate();
@@ -1029,6 +1032,7 @@ useEffect(() => {
          
 
               <ProjectCard 
+                deform
                   onMoreClick={() => {
                     console.log('Rehau More button clicked, triggering animation');
                     bytes101TextRef.current?.animate();
@@ -1069,6 +1073,7 @@ useEffect(() => {
                 </ProjectCard>
                  {/*       WebGL Section    */}  
                  <ProjectCard 
+                    deform
                     onMoreClick={() => {
                       console.log('S&B More button clicked, triggering animation');
                       qcTextRef.current?.animate();
@@ -1084,8 +1089,9 @@ useEffect(() => {
                       <p><strong>Tools:</strong><br /><AnimatedText ref={qcTextRef} type="project">Three.js / React / R3F  / GSAP / Router / Next.js / Blender</AnimatedText></p>
                       <p><strong>Role:</strong><br /> Concept / Animation / Dev</p>
                     </ProjectCard>
-                         <ProjectCard 
-                  onMoreClick={() => {
+                    <ProjectCard 
+                     deform
+                     onMoreClick={() => {
                     console.log('Dornbach More button clicked, triggering animation');
                     bytes101TextRef.current?.animate();
                   }}
@@ -1218,6 +1224,7 @@ useEffect(() => {
                               <div className={styles.divider3}></div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
               <VideoProjectCard 
+              
                   title="Long Reel"
                   image="/images/JPL3Poster_Reel.jpg"
                   alt="Long Reel"

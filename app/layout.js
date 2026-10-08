@@ -7,6 +7,7 @@ import { LoadingProvider } from './contexts/LoadingContext';
 import LoadingOverlay from './components/LoadingOverlay';
 import ScrollToTop from './ScrollToTop';
 import { Analytics } from '@vercel/analytics/next';
+import { ScrollVelocityProvider } from './contexts/ScrollVelocityContext';
 
 const version = process.env.NEXT_PUBLIC_APP_VERSION || new Date().getTime();
 
@@ -259,14 +260,16 @@ export default function RootLayout({ children }) {
 
         <link rel="icon" href={`/favicon.ico?v=${version}`} />
       </head>
-      <body className={inter.className} suppressHydrationWarning={true}>
+   <body className={inter.className} suppressHydrationWarning={true}>
         <ScrollToTop />
-        <LoadingProvider>
-          <ModalProvider>
-            <LoadingOverlay />
-            {children}
-          </ModalProvider>
-        </LoadingProvider>
+        <ScrollVelocityProvider>
+          <LoadingProvider>
+            <ModalProvider>
+              <LoadingOverlay />
+              {children}
+            </ModalProvider>
+          </LoadingProvider>
+        </ScrollVelocityProvider>
         <Analytics />
       </body>
     </html>

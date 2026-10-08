@@ -1,0 +1,25 @@
+.fallbackImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* canvas paints on top; keep this visible underneath so if GL fails
+     or hasn't loaded a texture yet, users still see the real image */
+}
+
+.wrap {
+  position: relative;
+  width: 100%;
+  height: 350px;      /* match the card strip */
+  overflow: visible;
+}
+
+.canvasLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.canvasLayer canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
