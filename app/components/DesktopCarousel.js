@@ -99,10 +99,12 @@ export default function DesktopCarousel({ title, description, images = [], class
                   <Image
                     src={images[0].src}
                     alt={images[0]?.alt || 'Project hero image'}
-                    width={600}
-                    height={400}
-                    className={styles.heroImage}
-                    priority={true}
+
+                    width={1200}
+                    height={800}
+                    className={styles.carouselImage}
+                    priority={currentIndex === 1}
+                    key={`image-${currentImageIndex}`}
                     onError={handleImageError}
                     unoptimized={process.env.NODE_ENV === 'development'}
                   />
