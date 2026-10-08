@@ -1,7 +1,7 @@
 :root {
   --background: #0f172a;
   --foreground: #ffffff;
-  --font-inter: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-overused-grotesk: 'Overused Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 /* Ecosia, please stop */
@@ -9,6 +9,7 @@
   -webkit-text-size-adjust: none !important;
   text-size-adjust: none !important;
 }
+
 /* Hide outer scrollbar while a modal is open */
 html:has(body.modal-open),
 body.modal-open {
@@ -22,6 +23,7 @@ body.modal-open::-webkit-scrollbar {
   width: 0;
   height: 0;
 }
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0f172a;
@@ -35,11 +37,11 @@ body.modal-open::-webkit-scrollbar {
     background: #0f172a !important;
     background-color: #0f172a !important;
   }
-  
+
   * {
     background-color: transparent !important;
   }
-  
+
   .container {
     background: #0f172a !important;
     background-color: #0f172a !important;
@@ -66,10 +68,12 @@ body {
   font-weight: 300;
   position: relative;
   min-height: 100vh;
+  font-size:1.1rem;
+  letter-spacing: 0.008em; 
 }
 
 html {
-  font-family: var(--font-inter);
+  font-family: var(--font-overused-grotesk);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--background);
@@ -97,11 +101,10 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: var(--font-inter);
+  font-family: var(--font-overused-grotesk);
   background-color: var(--background);
   color: var(--foreground);
   line-height: 1.5;
-  color: var(--foreground);
   background: var(--background);
   overflow-x: hidden;
 }
@@ -119,12 +122,13 @@ a {
 
 h1, h3, h4, h5, h6,
 p, button, input, textarea, select {
-  font-family: var(--font-inter);
+  font-family: var(--font-overused-grotesk);
   text-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
 }
+
 h2 {
-  font-family: var(--font-inter);
-  text-shadow: 0 4 20px rgba(0, 240, 255, 0.2);
+  font-family: var(--font-overused-grotesk);
+  text-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
   font-size: 2.35rem;
   font-weight: 600;
 }
@@ -134,9 +138,11 @@ h2 {
     color-scheme: dark;
   }
 }
+
 @media (min-width: 1921px) {
   .main { overflow-x: visible; }
 }
+
 /* Desktop/Mobile Toggle Utilities */
 @media (min-width: 1025px) {
   .mobile-only {
@@ -169,18 +175,18 @@ h2 {
     width: 100%;
     height: 100%;
   }
-  
+
   /* Hide scrollbar but allow scrolling */
   .descriptionSlide {
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
   }
-  
+
   .descriptionSlide::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
   }
 }
-/* In app/globals.css */
+
 /* Firefox-specific fixes to disable blur effects */
 @-moz-document url-prefix() {
   [class*="modalOverlay"] {
@@ -188,13 +194,13 @@ h2 {
     -webkit-backdrop-filter: none !important;
     background-color: rgba(0, 0, 0, 0.8) !important;
   }
-  
+
   [class*="consentBanner"] {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     background-color: rgba(0, 0, 0, 0.9) !important;
   }
-  
+
   [class*="modalContent"] {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
@@ -207,7 +213,7 @@ h2 {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
   }
-  
+
   .cookieConsent {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
