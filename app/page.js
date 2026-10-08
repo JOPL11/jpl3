@@ -971,7 +971,7 @@ useEffect(() => {
               <AnimatedText ref={webglHeadingRef}>WebGL Cases</AnimatedText>
             </h2>
                
-                <div style={{height: '0.1rem', marginBottom: '3rem'}}>Selected Case Studies. View on desktop for more.</div>
+                <div style={{height: '0.1rem', marginBottom: '3rem'}}>View on desktop for more.</div>
                <div className={styles.divider3}></div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
                   <ProjectCard 
@@ -1196,7 +1196,7 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={productHeadingRef}>Product Prototype Case</AnimatedText>
             </h2>
-            <div style={{height: '0.1rem', marginBottom: '3rem'}}>Tap or click the images to look through the pile.</div>
+            <div style={{height: '0.1rem', marginBottom: '3rem'}}>Tap or click the images.</div>
               
               <div className={styles.divider3}></div>
               <div className={styles.introText}>
@@ -1220,7 +1220,7 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={motionHeadingRef}>Motion Cases</AnimatedText>
             </h2>
-                <div style={{height: '0.1rem', marginBottom: '3rem'}}>Selected Case Studies</div>
+                <div style={{height: '0.1rem', marginBottom: '3rem'}}>Video Edit / 2D / 3D</div>
                               <div className={styles.divider3}></div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
               <VideoProjectCard 
