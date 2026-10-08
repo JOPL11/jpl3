@@ -97,7 +97,7 @@ export default function ContactForm() {
           value={formData.message}
           onChange={handleChange}
           required
-          rows="5"
+          rows="2"
           className={styles.formTextarea}
         />
       </div>

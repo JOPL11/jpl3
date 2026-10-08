@@ -161,8 +161,9 @@
 }
 .formTextarea {
   resize: vertical;
-  min-height: 140px;
+  min-height: 100px;
   line-height: 1.6;
+  overflow-y: hidden;
 }
 
 .checkboxGroup {
@@ -174,14 +175,16 @@
 .checkboxLabel {
   display: block;
   position: relative;
-  max-width: 500px;
+  max-width: auto;
   cursor: pointer;
-  font-size: 0.7rem;
+  font-size: 1.0rem !important;
   color: #e5e7eb;
   line-height: 1.6;
   margin: 0;
   text-align: left;
   font-weight: 100;
+  padding-top: 2px;
+  padding-bottom: 40px;
 }
 
 .checkboxInput {
@@ -242,7 +245,7 @@
 }
 
 .errorText {
-  color: #db2828;
+  color: #ffffff;
   font-size: 0.9rem;
   margin-top: 0.5rem;
   margin-left: 0rem;
@@ -273,7 +276,10 @@
   justify-content: left;
   text-align: left;
   margin-left: 30px;
-  margin-top: 0rem;
+  margin-top: 1m5rem;
+  
+  
+
   }
   
   .submitButton:hover {

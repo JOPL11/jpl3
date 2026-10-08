@@ -1412,8 +1412,8 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={contactHeadingRef}>Contact</AnimatedText>
             </h2>
-            <div style={{height: '0.1rem', marginBottom: '3rem', fontSize: '1.2rem'}}>Drop me a line, tell me about your project.</div>
-                          <div style={{width: '23rem'}} className={styles.divider3}></div>
+            <div style={{height: '0.1rem', marginBottom: '3rem', fontSize: '1.2rem'}}>Get in touch. I will get back to you as soon as possible.</div>
+                          <div style={{width: '30rem'}} className={styles.divider3}></div>
                           <div style={{height: '0.1rem', marginBottom: '3rem'}}></div>
               <ContactForm />
             </section>
