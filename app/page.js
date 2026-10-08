@@ -1075,8 +1075,6 @@ useEffect(() => {
                       <p>Visual Concept Experiment</p>
                       <p><strong>Tools:</strong><br /><AnimatedText ref={qcTextRef} type="project">Three.js / React 3 Fiber / GSAP / Router / Next.js / Blender</AnimatedText></p>
                       <p><strong>Role:</strong><br /> Concept / Animation / Dev</p>
-                      <p><strong>Duration:</strong><br /> 2 weeks</p>
-                      <p><strong>Info:</strong><br /> nerdRage! A playful take on quantum physics concepts.</p>
                     </ProjectCard>
                          <ProjectCard 
                   onMoreClick={() => {

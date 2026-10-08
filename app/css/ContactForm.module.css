@@ -132,7 +132,7 @@
   width: 100%;
   padding: 0.75rem 1rem;
   border: none;
-  border-left: 1px solid rgba(162, 254, 255, 0.5);   /* left wall */
+ /*  border-left: 1px solid rgba(162, 254, 255, 0.5);   left wall */
   border-bottom: 1px solid rgba(162, 254, 255, 0.5);  /* bottom line */
   border-radius: 0;
   font-size: 1.2rem;
@@ -153,7 +153,7 @@
 .formInput:focus,
 .formTextarea:focus {
   outline: none;
-  border-left: 1px solid rgba(162, 254, 255, 0.2);   /* left wall */
+ /* border-left: 1px solid rgba(162, 254, 255, 0.2);    left wall */
   border-bottom: 1px solid rgba(162, 254, 255, 0.2);  /* bottom line */
   box-shadow: -1px 1px 0 0 #a2feff; /* thickens both lines on focus */
   background: transparent;
