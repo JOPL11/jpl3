@@ -655,7 +655,7 @@ useEffect(() => {
           
             <p>Hi! I&apos;m Jan Peiro.</p><br></br>
 
-            <p>A multidisciplinary designer and creative who bridges the gap between visuals and technology. I hold a state-certified diploma in Communications Design from The Blocherer School in Munich, Germany and have spent my career transforming ideas into engaging experiences for a global clientele.</p>
+            <p>A multidisciplinary designer and creative who bridges the gap between visuals and technology. I hold a diploma in Communications Design from The Blocherer School in Munich, Germany and have spent my career transforming ideas into engaging experiences for a global clientele.</p>
 
             <p>Specialized in <strong>2D / 3D design, animation and interactive content.</strong></p>
 
@@ -1210,10 +1210,9 @@ useEffect(() => {
                   title="Long Reel"
                   image="/images/JPL3Poster_Reel.jpg"
                   alt="Long Reel"
-                  text="2D / 3D Motion Reel featuring Commercial and Personal Work "
+                  text="2D / 3D Motion Reel featuring Commercial and Personal Work in Concept, 3D Modeling, Motion, VFX, Design, Post-Production"
                   videoUrl= "https://vimeo.com/1115973919"
                 >
-                    <p><strong>Description:</strong><br /> Concept, 3D Modeling, Motion, VFX, Design, Post-Production</p>
                     <p><strong>Tools:</strong><br /> Cinema4D, After Effects, Duik, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
                     <p><strong>Role:</strong><br /> Concept / Animation / Post-Production</p>
                     <p><strong>More:</strong><br />Entire reel is Non-AI.</p>

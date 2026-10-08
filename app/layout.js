@@ -11,11 +11,20 @@ import { Analytics } from '@vercel/analytics/next';
 const version = process.env.NEXT_PUBLIC_APP_VERSION || new Date().getTime();
 
 // ─── Font ──────────────────────────────────────────────────
-// Replace the `src` paths with whatever you actually have in /public/fonts.
-// Add/remove weight entries to match your files on disk.
-const overusedGrotesk = localFont({
-  src: '../public/fonts/OverusedGrotesk-VF.ttf',
-  variable: '--font-overused-grotesk',
+// InterVariable.ttf is a variable font containing all weights (100–900)
+// and both upright + italic axes in a single file.
+const inter = localFont({
+  src: '../public/fonts/InterVariable.ttf',
+  variable: '--font-inter',
+  display: 'swap',
+  fallback: ['system-ui', 'sans-serif'],
+  adjustFontFallback: true,
+  preload: true,
+});
+
+const grotesk = localFont({
+  src: '../public/fonts/NeueHaasDisplayMedium.ttf',
+  variable: '--font-inter',
   display: 'swap',
   fallback: ['system-ui', 'sans-serif'],
   adjustFontFallback: true,
@@ -53,7 +62,13 @@ export const metadata = {
     'Interactive Design',
     'Portfolio',
     'Germany',
-    'Creative Technologist',
+    'JPL',
+    'Airbus Showroom',
+    'Development',
+    'Graphic Design',
+    'Communications Design',
+    'Next',
+    'React Design',
   ],
 
   // Authorship
@@ -224,7 +239,7 @@ export default function RootLayout({ children }) {
   };
 
   return (
-    <html lang="en" className={overusedGrotesk.variable} translate="no">
+    <html lang="en" className={inter.variable} translate="no">
       <head>
         <ScriptLoader version={version} />
 
@@ -244,7 +259,7 @@ export default function RootLayout({ children }) {
 
         <link rel="icon" href={`/favicon.ico?v=${version}`} />
       </head>
-      <body className={overusedGrotesk.className} suppressHydrationWarning={true}>
+      <body className={inter.className} suppressHydrationWarning={true}>
         <ScrollToTop />
         <LoadingProvider>
           <ModalProvider>
