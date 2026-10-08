@@ -640,6 +640,7 @@ useEffect(() => {
                 <SectionTracker onSectionChange={setActiveSection} />
                 <h2 style={{paddingTop: "118px"}}><AnimatedText ref={overviewHeadingRef}>Overview</AnimatedText></h2>
                 <div style={{paddingBottom:"2rem"}}>
+                  <div className={styles.divider3}></div>
                   <div style={{height: "33px"}}></div>
              <p>Developing mission-critical digital experiences for global leaders. Trusted by major brands to translate brand vision into immersive interactive, motion, and installation design.</p><br></br>
               <p>Each logo opens a closer look at a project.</p></div>
@@ -653,7 +654,12 @@ useEffect(() => {
               <AnimatedText ref={aboutHeadingRef}>About</AnimatedText>
             </h2>
           
-            <p>Hi! I&apos;m Jan Peiro.</p><br></br>
+            <p>Hi! I&apos;m Jan Peiro.</p>
+                  <div className={styles.divider3}></div>
+            <br>
+              
+                    </br>
+     
 
             <p>A multidisciplinary designer and creative who bridges the gap between visuals and technology. I hold a diploma in Communications Design from The Blocherer School in Munich, Germany and have spent my career transforming ideas into engaging experiences for a global clientele.</p>
 
@@ -964,7 +970,9 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={webglHeadingRef}>WebGL Cases</AnimatedText>
             </h2>
-                <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies. View on desktop for more content.</div>
+               
+                <div style={{height: '0.1rem', marginBottom: '3rem'}}>Selected Case Studies. View on desktop for more content.</div>
+               <div className={styles.divider3}></div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
                   <ProjectCard 
                   onMoreClick={() => {
@@ -975,11 +983,11 @@ useEffect(() => {
                   image="/images/karnak.jpg"
                   alt="emple of Karnak"
                   link="https://temples-eta.vercel.app"
-                  text="The largest temple on earth, reconstructed to spec in Blender / Three.js / React Three Fiber and animated with greensock & GLSL for an immersive & interactive guided tour."
+                  text="The largest temple on earth, reconstructed to spec in Blender / Three.js / React / R3F and animated with greensock & GLSL for an immersive & interactive guided tour."
                   className="webglProject"
                 >
                   <p>Concept Demo</p>
-                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber</AnimatedText></p>
+                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
                   <p><strong>Role:</strong><br /> Concept / Model / Development</p>
                 </ProjectCard>
 
@@ -997,7 +1005,7 @@ useEffect(() => {
                   className="webglProject"
                 >
                   <p>Concept Demo</p>
-                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber</AnimatedText></p>
+                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
                   <p><strong>Role:</strong><br /> Concept / Animation / Development</p>
                 </ProjectCard>
                 <ProjectCard 
@@ -1013,7 +1021,7 @@ useEffect(() => {
                   className="webglProject"
                 >
                   <p>Concept Demo</p>
-                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber</AnimatedText></p>
+                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
                   <p><strong>Role:</strong><br /> Concept / Model / Development</p>
                 </ProjectCard>
                     {!isMobile && (
@@ -1056,7 +1064,7 @@ useEffect(() => {
                   }}
                 >
                   <p>Project In development</p>
-                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React Three Fiber</AnimatedText></p>
+                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
                   <p><strong>Role:</strong><br /> 3D model implementation & animation / WebXR implementation</p>
                 </ProjectCard>
                  {/*       WebGL Section    */}  
@@ -1073,7 +1081,7 @@ useEffect(() => {
                       className="webglProject"
                     >
                       <p>Visual Concept Experiment</p>
-                      <p><strong>Tools:</strong><br /><AnimatedText ref={qcTextRef} type="project">Three.js / React 3 Fiber / GSAP / Router / Next.js / Blender</AnimatedText></p>
+                      <p><strong>Tools:</strong><br /><AnimatedText ref={qcTextRef} type="project">Three.js / React / R3F  / GSAP / Router / Next.js / Blender</AnimatedText></p>
                       <p><strong>Role:</strong><br /> Concept / Animation / Dev</p>
                     </ProjectCard>
                          <ProjectCard 
@@ -1101,7 +1109,7 @@ useEffect(() => {
                   }}   
                 >
                   <p>Expo installation-piece unfinished prototype</p>
-                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> Three.js, React Three Fiber, GLSL (Shader), Next.js, GSAP </AnimatedText></p>
+                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> Three.js, React, GLSL (Shader), Next.js, GSAP </AnimatedText></p>
                   <p><strong>Role:</strong><br /> Code / Cloud visuals</p>
                 </ProjectCard>
                   </>
@@ -1123,7 +1131,7 @@ useEffect(() => {
                   className="webglProject"
                 >
                   <p>Site Demo In development</p>
-                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> Three.js / React Three Fiber</AnimatedText></p>
+                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> Three.js / React</AnimatedText></p>
                   <p><strong>Role:</strong> R3F concept architect & creator</p>
                 </ProjectCard>
            
@@ -1145,7 +1153,7 @@ useEffect(() => {
                       className="webglProject"
                     >
                       <p>R3F Concept Demo</p>
-                      <p><strong>Tools:</strong><AnimatedText ref={streetlampTextRef} type="project">Three.js / React 3 Fiber / GSAP / Blender</AnimatedText></p>
+                      <p><strong>Tools:</strong><AnimatedText ref={streetlampTextRef} type="project">Three.js / React / R3F3 Fiber / GSAP / Blender</AnimatedText></p>
                       <p><strong>Role:</strong> Concept / Animation / Dev</p>
                       <p><strong>Duration:</strong> 3 weeks</p>
                       <p><strong>Info:</strong> An immersive 3D experience exploring a scifi landscape through motion and interaction.</p>
@@ -1163,7 +1171,7 @@ useEffect(() => {
                       className="webglProject"
                     >
                       <p>Visual Concept Demo</p>
-                      <p><strong>Tools:</strong><AnimatedText ref={facilityTextRef} type="project">Three.js / React 3 Fiber / GLSL / GSAP / Blender / Adobe Suite</AnimatedText></p>
+                      <p><strong>Tools:</strong><AnimatedText ref={facilityTextRef} type="project">Three.js / React / R3F3 Fiber / GLSL / GSAP / Blender / Adobe Suite</AnimatedText></p>
                       <p><strong>Role:</strong> Concept / Animation / Dev</p>
                       <p><strong>Duration:</strong> 3 weeks</p>
                       <p><strong>Info:</strong> A mysterious facility exploring the intersection of architecture and digital art.</p>
@@ -1182,9 +1190,11 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={productHeadingRef}>Product Prototype Case</AnimatedText>
             </h2>
-            <div style={{height: '0.1rem', marginBottom: '7rem'}}>Tap or click the images to look through the pile of photos.</div>
+            <div style={{height: '0.1rem', marginBottom: '3rem'}}>Tap or click the images to look through the pile of photos.</div>
+              
+              <div className={styles.divider3}></div>
               <div className={styles.introText}>
-                <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'white' }}>
+                <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'white', paddingTop: "3rem" }}>
                   Project: <span style={{ fontSize: '1.2rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Mercedes Benz dealership award.</span>
                 </div>
                 <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'white' }}>
@@ -1204,7 +1214,8 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={motionHeadingRef}>Motion Cases</AnimatedText>
             </h2>
-                <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies</div>
+                <div style={{height: '0.1rem', marginBottom: '3rem'}}>Selected Case Studies</div>
+                              <div className={styles.divider3}></div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
               <VideoProjectCard 
                   title="Long Reel"
@@ -1401,7 +1412,9 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={contactHeadingRef}>Contact</AnimatedText>
             </h2>
-            <div style={{height: '0.1rem', marginBottom: '5rem', fontSize: '1.2rem'}}>Drop me a line, tell me about your project.</div>
+            <div style={{height: '0.1rem', marginBottom: '3rem', fontSize: '1.2rem'}}>Drop me a line, tell me about your project.</div>
+                          <div style={{width: '23rem'}} className={styles.divider3}></div>
+                          <div style={{height: '0.1rem', marginBottom: '3rem'}}></div>
               <ContactForm />
             </section>
         </div>

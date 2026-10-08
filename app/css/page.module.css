@@ -436,6 +436,14 @@ body.menu-open .navLink.active::after {
   opacity: 0.8;
 }
 
+.divider3 {
+  height: 1px;
+  width: 98%;
+  margin: 0px 0;
+  background-color: #a2feff;
+  opacity: 0.3;
+}
+
 /* Showcase Link */
 .showcaseLink {
   color: #a2feff;
@@ -1450,7 +1458,7 @@ a.secondary {
   .cardContent.showContent {
     position: absolute !important;
     top: auto !important; 
-    bottom: 236px;              /* ← was top: 160px !important */
+    bottom: 206px;              /* ← was top: 160px !important */
     right: 99.5%;
     text-align: right;
     width: 400px;

@@ -77,7 +77,9 @@ function AccordionItem({ group, isOpen, onToggle }) {
 
   return (
     <div className={`${local.item} ${isOpen ? local.open : ''}`}>
+
       <h3 className={local.heading}>
+            
         <button
           type="button"
           id={triggerId}
@@ -159,13 +161,16 @@ export default function Core({
         <AnimatedText ref={headingRef}>Core</AnimatedText>
               
       </h2>
-      <div style={{ height: '0.1rem', marginBottom: '5rem' }}>Tools</div>
-
-      <p>
+      <div style={{ height: '0.1rem', marginBottom: '3rem' }}>Tools</div>
+                 <div className={styles.divider3}></div>
+      <div style={{ height: '0.1rem', marginBottom: '150px', marginTop: '2rem' }}>
+      <p >
         My toolkit is extensive and constantly evolving, allowing me to own a
         project from concept to deployment. I&apos;ve split skills into separate
         categories for clarity:
-      </p>      <div className={local.accordion}>
+      </p>      
+      </div>
+      <div className={local.accordion}>
         {groups.map((group) => (
           <AccordionItem
             key={group.id}
