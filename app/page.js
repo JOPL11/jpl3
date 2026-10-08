@@ -971,7 +971,7 @@ useEffect(() => {
               <AnimatedText ref={webglHeadingRef}>WebGL Cases</AnimatedText>
             </h2>
                
-                <div style={{height: '0.1rem', marginBottom: '3rem'}}>Selected Case Studies. View on desktop for more content.</div>
+                <div style={{height: '0.1rem', marginBottom: '3rem'}}>Selected Case Studies. View on desktop for more.</div>
                <div className={styles.divider3}></div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
                   <ProjectCard 
@@ -1196,7 +1196,7 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={productHeadingRef}>Product Prototype Case</AnimatedText>
             </h2>
-            <div style={{height: '0.1rem', marginBottom: '3rem'}}>Tap or click the images to look through the pile of photos.</div>
+            <div style={{height: '0.1rem', marginBottom: '3rem'}}>Tap or click the images to look through the pile.</div>
               
               <div className={styles.divider3}></div>
               <div className={styles.introText}>
@@ -1419,7 +1419,7 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={contactHeadingRef}>Contact</AnimatedText>
             </h2>
-            <div style={{height: '0.1rem', marginBottom: '3rem', fontSize: '1.2rem'}}>Get in touch. I will get back to you as soon as possible.</div>
+            <div style={{height: '0.1rem', marginBottom: '3rem', fontSize: '1.2rem'}}>Get in touch. I'll get back to you.</div>
                           <div style={{width: '30rem'}} className={styles.divider3}></div>
                           <div style={{height: '0.1rem', marginBottom: '3rem'}}></div>
               <ContactForm />
