@@ -453,7 +453,7 @@ const LogoCard = () => {
       <strong>Role:</strong> Visual Narrative Strategy, Solo Motion Design, Rendering<br>
       <strong>Tech:</strong> After Effects, Photoshop<br>
       Created 11 minute Backdrop film for a stage presentation at the Q5 Unveiling Ceremony in Nuremburg Germany, a VIP Event. Needed to be choreographed in time with professional dancers and a large electronically actuated on-stage water sprinkler system. I had three weeks to animate it, make it fit choreographicallly. It worked beautifully. </p><br>
-      <p><strong>Strategic Impact:</strong> Transformed VIP brand engagement, elevating corporate storytelling from passive to participatory. Boris Becker was fist pumping and whooping at my animation. The entire elite crowd went wild as lightning and thunder rolled to a visceral on-screen culmination.</p><br>
+      <p><strong>Strategic Impact:</strong> Transformed VIP brand engagement, elevating corporate storytelling from passive to participatory. Boris Becker was fist pumping and whooping at my animation. The entire crowd went wild as lightning and thunder rolled to a visceral on-screen culmination.</p><br>
       
  <img src="/images/audi_5.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
  <img src="/images/audi_4.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />     

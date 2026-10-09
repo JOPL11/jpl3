@@ -1214,27 +1214,61 @@ useEffect(() => {
               </div>
               <ThrowableImages />
             </section>
+
+
             <div data-section="motion-heading"></div>
               <section id="motion" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="motion">
              <SectionTracker onSectionChange={setActiveSection} />
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={motionHeadingRef}>Motion Cases</AnimatedText>
             </h2>
-                <div style={{height: '0.1rem', marginBottom: '3rem'}}>Video Edit / 2D / 3D</div>
-                              <div className={styles.divider3}></div>
-              <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
-              <VideoProjectCard 
-              
-                  title="Long Reel"
-                  image="/images/JPL3Poster_Reel.jpg"
-                  alt="Long Reel"
-                  text="2D / 3D Motion Reel featuring Commercial and Personal Work in Concept, 3D Modeling, Motion, VFX, Design, Post-Production"
-                  videoUrl= "https://vimeo.com/1115973919"
-                >
-                    <p><strong>Tools:</strong><br /> Cinema4D, After Effects, Duik, Bodymovin, Red Giant, Element3D, Stardust, Corona, Octane, Redshift, Media Encoder</p>
-                    <p><strong>Role:</strong><br /> Concept / Animation / Post-Production</p>
-                    <p><strong>More:</strong><br />Entire reel is Non-AI.</p>
-                </VideoProjectCard>
+            <div style={{height: 'auto', marginBottom: '3rem'}}>Video Edit / 2D / 3D</div>
+            <div className={styles.divider3}></div>
+            <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
+    
+
+            <h2 style={{paddingTop: "1rem", fontSize: '1.5rem', color: "#a2feff"}}>Long Reel 2025</h2>
+            <div>
+            <div style={{height: 'auto', paddingTop: "0.2rem",  color: "#fff"}}>
+            2D / 3D Motion Reel featuring Commercial and Personal Work in Concept, 3D Modeling, Motion, VFX, Design, Post-Production</div>
+            <div style={{height: 'auto', paddingTop: "0.2rem", color: "#fff"}}>
+            <p><strong>Tools:</strong><br />Cinema4D, After Effects, Duik, Bodymovin, Red Giant, Element3D, Stardust, Corona,   Octane, Redshift, Media Encoder</p>
+            </div>
+            <div style={{height: 'auto', paddingTop: "0.2rem",  color: "#fff"}}>
+            <p><strong>Role:</strong><br /> Concept / Animation / Modeling / Post-Production</p>
+            </div>
+             
+            
+                    
+              <div id='muxPlayer' style={{ 
+              borderRadius: '15px',
+                    }}>
+                <div id='holder' style={{ 
+                  width: '100%', 
+                  maxWidth: '850px',
+                  margin: '0',
+                  position: 'relative',
+                  borderRadius: '15px',
+                  overflow: 'hidden',
+                  boxShadow: '0 0 80px rgba(69, 218, 255, 0.7), 0 0 20px rgba(0, 0, 0, 0.2)'
+                }}>
+                  <MuxPlayer
+                    playback-id="3X8I28I83EWFPOb3nuHNVH5JMLMVcjaRvxVCOGsj701k"
+                    poster="https://image.mux.com/3X8I28I83EWFPOb3nuHNVH5JMLMVcjaRvxVCOGsj701k/thumbnail.png?width=960&height=540&time=18"
+                    controls
+                    disableTracking={true}
+                    style={{ 
+                      width: '100%', 
+                      height: '100%',
+                      display: 'block',
+                    }}
+                    accent-color="#0a5fcf"
+                    primary-color="#ffffff"
+                    secondary-color="transparent"
+                  />
+                </div>
+            </div>
+</div>
                 
                   <h2 style={{paddingTop: "1rem", fontSize: '1.40rem', color: "#a2feff"}}>Short Reel 2025</h2>
             <div style={{height: '0.1rem', marginBottom: '1.5rem',marginTop: '-1.3rem', color: "#fff"}}>Bam</div>
