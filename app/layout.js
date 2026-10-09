@@ -35,9 +35,9 @@ const grotesk = localFont({
 // ─── Site constants ────────────────────────────────────────
 const SITE_URL = 'https://janpeiro.vercel.app';
 const SITE_NAME = 'Jan Peiro';
-const SITE_TITLE = 'Jan Peiro — Creative Developer';
+const SITE_TITLE = 'Jan Peiro — Creative';
 const SITE_DESCRIPTION =
-  'Creative Developer and Designer crafting interactive experiences at the intersection of design, motion, and code.';
+  'Intersection of design, motion, and code.';
 
 // ─── Metadata ──────────────────────────────────────────────
 export const metadata = {
@@ -234,7 +234,7 @@ export default function RootLayout({ children }) {
     mainEntity: {
       '@type': 'Person',
       name: 'Jan Peiro',
-      jobTitle: 'Creative Developer',
+      jobTitle: 'Creative',
       url: SITE_URL,
     },
   };

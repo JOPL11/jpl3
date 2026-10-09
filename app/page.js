@@ -1027,52 +1027,7 @@ useEffect(() => {
                   <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
                   <p><strong>Role:</strong><br /> Concept / Model / Development</p>
                 </ProjectCard>
-                    {!isMobile && (
-                  <> 
-         
-
-              <ProjectCard 
-                deform
-                  onMoreClick={() => {
-                    console.log('Rehau More button clicked, triggering animation');
-                    bytes101TextRef.current?.animate();
-                  }}
-                  title="Rehau"
-                  image="/images/corp/rehau.jpg"
-                  alt="Rehau"
-                  //link="https://cubistic.vercel.app"
-                  text="Product showcase for the International Door & Window manufacturer."
-                  className="webglProject"
-                    client={{
-                    name: "SMMD Team |",
-                    logo: "/images/agencies/SMMD.png",
-                    //website: "https://www.smmd.team/"
-                 }}   
-                  logoWidth={350}
-                  logoHeight={90}
-                  logoStyle={{
-                    height: '30px',
-                    width: 'auto',   
-                    maxWidth: '100%'
-                  }}   
-                   modalContent={{
-                    description: "An interactive 3D product showcase featuring various models of Rehau products. I made animations and parsed models, updated jsx, converted to WebXR.",
-                    images: [ 
-                     { src: "/images/rehau/rehau1.jpg", alt: "Project Screenshot 1" },
-                     { src: "/images/rehau/rehau2.jpg", alt: "Project Screenshot 2" },
-                     { src: "/images/rehau/rehau3.jpg", alt: "Project Screenshot 3" },
-                     { src: "/images/rehau/rehau3B.jpg", alt: "Project Screenshot 4" },
-                     { src: "/images/rehau/rehau4.jpg", alt: "Project Screenshot 5" },
-
-                    ]
-                  }}
-                >
-                  <p>Project In development</p>
-                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
-                  <p><strong>Role:</strong><br /> 3D model implementation & animation / WebXR implementation</p>
-                </ProjectCard>
-                 {/*       WebGL Section    */}  
-                 <ProjectCard 
+                            <ProjectCard 
                     deform
                     onMoreClick={() => {
                       console.log('S&B More button clicked, triggering animation');
@@ -1118,6 +1073,52 @@ useEffect(() => {
                   <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> Three.js, React, GLSL (Shader), Next.js, GSAP </AnimatedText></p>
                   <p><strong>Role:</strong><br /> Code / Cloud visuals</p>
                 </ProjectCard>
+                    {!isMobile && (
+                  <> 
+         
+
+              <ProjectCard 
+                deform
+                  onMoreClick={() => {
+                    console.log('Rehau More button clicked, triggering animation');
+                    bytes101TextRef.current?.animate();
+                  }}
+                  title="Rehau"
+                  image="/images/corp/rehau.jpg"
+                  alt="Rehau"
+                  //link="https://cubistic.vercel.app"
+                  text="Product showcase for the International Door & Window manufacturer."
+                  className="webglProject"
+                    client={{
+                    name: "SMMD Team |",
+                    logo: "/images/agencies/SMMD.png",
+                    //website: "https://www.smmd.team/"
+                 }}   
+                  logoWidth={350}
+                  logoHeight={90}
+                  logoStyle={{
+                    height: '30px',
+                    width: 'auto',   
+                    maxWidth: '100%'
+                  }}   
+                   modalContent={{
+                    description: "An interactive 3D product showcase featuring various models of Rehau products. I made animations and parsed models, updated jsx, converted to WebXR.",
+                    images: [ 
+                     { src: "/images/rehau/rehau1.jpg", alt: "Project Screenshot 1" },
+                     { src: "/images/rehau/rehau2.jpg", alt: "Project Screenshot 2" },
+                     { src: "/images/rehau/rehau3.jpg", alt: "Project Screenshot 3" },
+                     { src: "/images/rehau/rehau3B.jpg", alt: "Project Screenshot 4" },
+                     { src: "/images/rehau/rehau4.jpg", alt: "Project Screenshot 5" },
+
+                    ]
+                  }}
+                >
+                  <p>Project In development</p>
+                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
+                  <p><strong>Role:</strong><br /> 3D model implementation & animation / WebXR implementation</p>
+                </ProjectCard>
+                 {/*       WebGL Section    */}  
+     
                   </>
                 )}
             
@@ -1222,7 +1223,7 @@ useEffect(() => {
             <h2 style={{paddingTop: "5rem"}}>
               <AnimatedText ref={motionHeadingRef}>Motion Cases</AnimatedText>
             </h2>
-            <div style={{height: 'auto', marginBottom: '3rem'}}>Video Edit / 2D / 3D</div>
+            <div style={{height: 'auto', marginBottom: '1.4rem'}}>Video Edit / 2D / 3D</div>
             <div className={styles.divider3}></div>
             <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
     
