@@ -1253,8 +1253,8 @@ useEffect(() => {
                   boxShadow: '0 0 80px rgba(69, 218, 255, 0.7), 0 0 20px rgba(0, 0, 0, 0.2)'
                 }}>
                   <MuxPlayer
-                    playback-id="3X8I28I83EWFPOb3nuHNVH5JMLMVcjaRvxVCOGsj701k"
-                    poster="https://image.mux.com/3X8I28I83EWFPOb3nuHNVH5JMLMVcjaRvxVCOGsj701k/thumbnail.png?width=960&height=540&time=18"
+                    playback-id="Li7lobGhBKhtYMn9HqXmm4005O00fWpbrVHLfiDePuTxA"
+                    poster="https://image.mux.com/Li7lobGhBKhtYMn9HqXmm4005O00fWpbrVHLfiDePuTxA/thumbnail.png?fit_mode=preserve&width=214&height=121&time=39"
                     controls
                     disableTracking={true}
                     style={{ 
