@@ -340,7 +340,7 @@ const LogoCard = () => {
         thumbnail: 'https://image.mux.com/8UuN9JNltg9BwDO1SAAbvKn6vyq2u7vdgwScfVXLUk8/thumbnail.png?width=960&height=360&time=10'
       },
       description: `
-      <img src="/images/airbus_berlin/table0.jpg" alt="Airbus Munich Showroom" style="width: 100%; margin: 1rem 0; border-radius: 8px;" />
+      <img src="/images/airbus_berlin/table0.jpg" alt="Airbus Munich Showroom" style="width: 100%; margin: 1rem 0; border-radius: 2px;" />
 
     
       <p><strong>The Mission:</strong> Airbus Group required a next-generation digital interface for its most important spaces: its International Headquarters in Berlin and its premier Showroom in Munich. The mandate was to create interactive, multi-sensory experiences that could communicate the complexity and ambition of aerospace innovation to VIPs, partners, and policymakers.</p>
@@ -354,7 +354,7 @@ const LogoCard = () => {
       <p><strong>Solution: </strong> Designed and coded a custom multi-monitor touchtable interface that allowed executives to interactively explore fleet data, global operations, and company history. This is mission-critical UIX for daily use.</p><br>
       <p><strong>Longevity: </strong> This has been consistantly updated and in use for ten years. </p>
 
-      <img src="/images/airbus_berlin/table6.jpg" alt="Airbus Munich Showroom" style="width: 100%; margin: 1rem 0; border-radius: 8px;" />
+      <img src="/images/airbus_berlin/table6.jpg" alt="Airbus Munich Showroom" style="width: 100%; margin: 1rem 0; border-radius: 2px;" />
 
     
 
@@ -365,7 +365,7 @@ const LogoCard = () => {
     <p style="margin-top: 3rem;"><strong>2. </strong> Visual Spectacles: Munich Large-Format Video Features.<br>
       <strong>Challenge:</strong> Provide awe-inspiring ambient narrative and brand moments.<br>
       <strong>Solution:</strong> Produced a suite of large-scale, multi-monitor video features. This included a complex 3D animated sequence visualizing flight dynamics across a range of products, and a stylized 2D motion graphics piece celebrating engineering milestones, both rendered in ultra-high resolution for close viewing.</p><br>
-        <img src="/images/airbus_ottobrunn/video/1C.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+        <img src="/images/airbus_ottobrunn/video/1C.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
       <p><strong>The Outcome & Impact:</strong></p>
       <ul>
         <li><p>Instrumental in transforming two key Airbus facilities from static spaces into dynamic, technology-forward brand experiences that enabled distinguished visitors to feel the Full Bandwidth of Big-League Aerospace Corporations.</p></li>
@@ -375,7 +375,7 @@ const LogoCard = () => {
         
     
       </ul>
-      <img src="/images/airbus_ottobrunn/video/8.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+      <img src="/images/airbus_ottobrunn/video/8.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
 `
   },   
  
@@ -392,12 +392,12 @@ const LogoCard = () => {
       <p><strong>Challenge: </strong> Create the interface for a dynamic installation that showcases selected Airbus technology for visitors to the Munich based Airbus Showroom, a 650 square meter space featuring many installation pieces.<br>
       <strong>Solution: </strong> Airbus Munich Showroom (Ottobrunn, Germany)</p><br>
       <P><strong>Challenge: </strong> Concept, Design, Animation, UIX Concept & Development.</p><br>
-    <img src="/images/airbus_ottobrunn/airbus_33B.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
-         <img src="/images/airbus_ottobrunn/airbus_14B.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
-     <img src="/images/airbus_ottobrunn/airbus_18B.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
-         <img src="/images/airbus_ottobrunn/airbus_44B.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
-     <img src="/images/airbus_ottobrunn/airbus_21B.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
-         <img src="/images/airbus_ottobrunn/airbus_66B.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+    <img src="/images/airbus_ottobrunn/airbus_33B.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
+         <img src="/images/airbus_ottobrunn/airbus_14B.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
+     <img src="/images/airbus_ottobrunn/airbus_18B.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
+         <img src="/images/airbus_ottobrunn/airbus_44B.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
+     <img src="/images/airbus_ottobrunn/airbus_21B.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
+         <img src="/images/airbus_ottobrunn/airbus_66B.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
 
     `,
     description2: ``
@@ -412,7 +412,7 @@ const LogoCard = () => {
       agencyName: 'VRPE',
       exemptFromAnimations: false,
       description: `
-       <img src="/images/mtu8.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+       <img src="/images/mtu8.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
       <p>Delivered two flagship digital experiences for a global aerospace leader:<br> <br> 
       <strong>1)</strong> An immersive multi-monitor 3D visualization for their Paris Airshow exhibition.<br>
       <strong>2)</strong> A dynamic, interactive corporate presentation tool deployed for global stakeholder meetings. Owned concept, design, animation, and development.</p><br>
@@ -421,8 +421,8 @@ const LogoCard = () => {
       <p><strong>Outcome:</strong> The Airshow visualization delivered a competitive show-floor advantage that commanded attention, driving executive engagement. The presentation tool was adopted as a strategic asset that traveled the world, consistently elevating their brand for business development across the globe.</p><br>
       <p><strong>Tech:</strong> Cinema4D, Corona Render Engine, Adobe After-Effects, High-resolution render pipeline, javascript</p>
 
-      <img src="/images/mtu1.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
-      <img src="/images/mtu6.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+      <img src="/images/mtu1.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
+      <img src="/images/mtu6.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
    
     `,
      video: {
@@ -435,8 +435,8 @@ const LogoCard = () => {
         thumbnail: 'https://image.mux.com/SnN00m01uyBae8LPAZuNlKXY5nzn01ELE600rh1lA98lKf8/thumbnail.png?width=960&height=540&time=4'
       },
     description2: `      
-    <img src="/images/mtu2.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
-            <img src="/images/mtu7.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+    <img src="/images/mtu2.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
+            <img src="/images/mtu7.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
 `
   },            
     { id: 4, src: '/images/mini/audi.jpg', alt: 'Logo 4', 
@@ -448,19 +448,19 @@ const LogoCard = () => {
       //agencyLink: 'https://www.planstand.com',
       exemptFromAnimations: false,
       description: `
-       <img src="/images/audi_1.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+       <img src="/images/audi_1.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
       <p><strong>Project 1:</strong> Cinema Screen Motion Design<br>
       <strong>Role:</strong> Visual Narrative Strategy, Solo Motion Design, Rendering<br>
       <strong>Tech:</strong> After Effects, Photoshop<br>
       Created 11 minute Backdrop film for a stage presentation at the Q5 Unveiling Ceremony in Nuremburg Germany, a VIP Event. Needed to be choreographed in time with professional dancers and a large electronically actuated on-stage water sprinkler system. I had three weeks to animate it, make it fit choreographicallly. It worked beautifully. </p><br>
       <p><strong>Strategic Impact:</strong> Transformed VIP brand engagement, elevating corporate storytelling from passive to participatory. Boris Becker was fist pumping and whooping at my animation. The entire elite crowd went wild as lightning and thunder rolled to a visceral on-screen culmination.</p><br>
       
- <img src="/images/audi_5.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
- <img src="/images/audi_4.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />     
+ <img src="/images/audi_5.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
+ <img src="/images/audi_4.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />     
  
- <img src="/images/audi_2.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />     
- <img src="/images/audi_7.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" /> 
- <img src="/images/audi_6.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" /> 
+ <img src="/images/audi_2.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />     
+ <img src="/images/audi_7.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" /> 
+ <img src="/images/audi_6.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" /> 
  <p style="margin-top: 3rem;"><strong>Project 2:</strong> Online Animation<br>
       <strong>Role:</strong> Lead Visual Concept Engineer, Solo Motion Design<br>
       <strong>Tech:</strong> javascript<br>
@@ -479,7 +479,7 @@ const LogoCard = () => {
       //agencyLink: 'https://www.sieberundwolf.de/',
       exemptFromAnimations: true,
       description: `
-            <img src="/images/throwable/merc77.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+            <img src="/images/throwable/merc77.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
       <p style="margin-top: 3rem;"><strong>1) Product Design: </strong> A Next-Generation Brand Award for Mercedes-Benz Dealerships</</p><br><br>
       <p><strong>Context:</strong> Mercedes-Benz (Daimler AG) sought to reinvent its prestigious annual dealership award—a symbolic object representing the pinnacle of brand partnership and excellence. The mandate was to evolve a traditional award trophy into a modern brand statement that reflected Mercedes-Benz core identity and forward-looking vision.</p>
       <p><strong>My Role:</strong> Creative Director & Design Lead</p>
@@ -487,8 +487,8 @@ const LogoCard = () => {
       <p><strong>Tech:</strong> Cinema4D, AutoCAD, After Effects, Corona Render Engine</p><br><br><br>
 
       
-             <img src="/images/throwable/merc4.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
-                <img src="/images/throwable/merc66.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+             <img src="/images/throwable/merc4.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
+                <img src="/images/throwable/merc66.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
 
       <p style="margin-top: 5rem;"><strong>2) Logo Animation: </strong> Logo Animation for Mercedes-Benz: Procat, an internal Product Catalog</p><br>
        <p><strong>Context:</strong> To maintain its global premium standard, Mercedes-Benz (Daimler AG) requires consistently high-quality visual assets for internal communications, from product documentation to employee training.</p>
@@ -496,9 +496,9 @@ const LogoCard = () => {
       <p><strong>My Role:</strong> Solo Technical Concept, Solo 3D Animator, Solo Renderer</p>
       <p><strong>The Work:</strong> Developed a series of visual concepts and refined the chosen variation.</p>
       <p><strong>Tech:</strong> After Effects, Superluminal Stardust, Adobe Illustrator</p>
-             <img src="/images/mercedes0.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
-                    <img src="/images/mercedes1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
-           <img src="/images/mercedes2.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+            <img src="/images/mercedes0.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
+            <img src="/images/mercedes1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
+           <img src="/images/mercedes2.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
     `,
      video: {
         playbackId: 'jmYPtgcoLfFSHsvUp13YHgwHY7UIqL8aPkcL8x01RHGY',
@@ -520,7 +520,7 @@ const LogoCard = () => {
       //agencyLink: 'https://www.becc-agency.com',
       exemptFromAnimations: true,
       description: `
-  <img src="/images/BMW1.jpg" alt="Visual concept recreating the tone of BMW's global rebrand narrative - Image is recreated to evoke. Not an official asset" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+  <img src="/images/BMW1.jpg" alt="Visual concept recreating the tone of BMW's global rebrand narrative - Image is recreated to evoke. Not an official asset" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
       <p><strong>Project 1:</strong> Narrative Films for the BMW Global Rebranding<br>
       <strong>Role:</strong> Internal Storyteller & Consensus Architect, Narration Author, Voice Recording & Voice Narration<br>
 
@@ -538,7 +538,7 @@ const LogoCard = () => {
 
         <p><strong>Tech:</strong> Adobe Premiere, Adobe After Effects, Garageband<br>
         <strong>Outcome: </strong>The videos were well-received by the team (especially the voiceover!) and were integrated into their workflow as part of the vast ecosystem of materials supporting the historic redesign.</p><br>
-<img src="/images/A3.jpg" alt="BMW Style Guide Motion Motion design study visualizing easing curves in the style of a premium automotive style guide. Created as concept work. Not an offical BMW asset" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+<img src="/images/A3.jpg" alt="BMW Style Guide Motion Motion design study visualizing easing curves in the style of a premium automotive style guide. Created as concept work. Not an offical BMW asset" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
       <p><strong>Project 2:</strong> Global Web Animation Language for BMW.com's Style Guide<br>
       <strong>Role:</strong> Motion Systems Architect<br>
       <strong>Tech:</strong> GSAP (The Acclaimed, Crossbrowser 'GreenSock Animation Platform'), rapid prototyping, systems thinking.<br>
@@ -648,7 +648,7 @@ const LogoCard = () => {
       <li><p><strong>Phase 2 – Website Build:</strong> As the <strong>Sole Developer & Animator</strong>, I translated the approved broadcast design into a fully interactive, responsive, official website, ensuring a seamless brand experience from TV to web. </p></li>
       
       </ul>
-      <img src="/images/JPL3Poster_SW.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+      <img src="/images/JPL3Poster_SW.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
       <p  style="margin-top: 5rem;"><strong>Project 2: Spiegel Geschichte (History Channel)</strong></p>
 
         <ul>
@@ -662,9 +662,9 @@ const LogoCard = () => {
 
       <p><strong>Impact:</strong> Delivered the definitive digital homes for two major Spiegel TV brands, blending strategic media insight with hands-on design and technical execution.</p>
 
-        <img src="/images/SGA_1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
-        <img src="/images/SGA_2.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
-        <img src="/images/SGA_3.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+        <img src="/images/SGA_1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
+        <img src="/images/SGA_2.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
+        <img src="/images/SGA_3.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
     `,
     description2: `` 
    },
@@ -773,8 +773,8 @@ const LogoCard = () => {
       <p><strong>Role:</strong> Concept, Design, Programming<br></p>
 
            
-        <img src="/images/ds1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
-                <img src="/images/ds2.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+        <img src="/images/ds1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
+                <img src="/images/ds2.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
 
      <p><strong>Project 2:</strong> The official website for Horse Life 2, featuring interactive elements and game previews with interactive graphical elements recreated & animated from the game.<br></p>
      <p><strong>Role:</strong> Solo Concept, Sole Designer, Sole Coder<br></p>
@@ -810,9 +810,9 @@ const LogoCard = () => {
       <p><strong>Outcome:</strong> These assets became the standard digital presentation format for HP's global sales teams for the duration of the campaign.</p><br>
       <p><strong>Tech:</strong> Cinema4D, After Effects, Web technologies</p>
 
-        <img src="/images/hp3.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
-                <img src="/images/hp5.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
-                        <img src="/images/hp1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 8px;" />
+        <img src="/images/hp3.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
+                <img src="/images/hp5.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
+                        <img src="/images/hp1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
     `,
     description2: `` 
    },

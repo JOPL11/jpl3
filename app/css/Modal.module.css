@@ -273,8 +273,9 @@
   width: 100%;
   margin-bottom: 1rem;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 2px;
   background: #0f172a;
+  border-radius: 2px;
 }
 
 .imageCounter {
@@ -295,13 +296,13 @@
   display: block;
   width: 100%;
   height: auto;
-  max-height: 90vh;
+  max-height: 100%;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
 
 .modalImageContainer:hover .modalImage {
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
 /* Consent Banner Styles */

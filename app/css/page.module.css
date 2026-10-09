@@ -978,7 +978,6 @@ max-height: 2000px;
   transition: all 0.2s ease;
   max-width: 200px;
   max-height: 75px;
-  border-radius: 10px;
   margin: 0.5rem 0;
   background: rgba(255, 255, 255, 0.1);
   margin-top: 1rem; /* Pulls the button up by 100px */
