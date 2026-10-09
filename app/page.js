@@ -1230,12 +1230,15 @@ useEffect(() => {
             <h2 style={{paddingTop: "1rem", fontSize: '1.5rem', color: "#a2feff"}}>Long Reel 2025</h2>
             <div>
             <div style={{height: 'auto', paddingTop: "0.2rem",  color: "#fff"}}>
-            2D / 3D Motion Reel featuring Commercial and Personal Work in Concept, 3D Modeling, Motion, VFX, Design, Post-Production</div>
+            <p>2D / 3D Motion Reel featuring Commercial and Personal Work in Concept, 3D Modeling, Motion, VFX, Design, Post-Production.</p></div>
             <div style={{height: 'auto', paddingTop: "0.2rem", color: "#fff"}}>
             <p><strong>Tools:</strong><br />Cinema4D, After Effects, Duik, Bodymovin, Red Giant, Element3D, Stardust, Corona,   Octane, Redshift, Media Encoder</p>
             </div>
             <div style={{height: 'auto', paddingTop: "0.2rem",  color: "#fff"}}>
             <p><strong>Role:</strong><br /> Concept / Animation / Modeling / Post-Production</p>
+            </div>
+            <div style={{height: 'auto', paddingTop: "0.2rem",  color: "#fff"}}>
+            <p><strong>Info:</strong><br />No AI was used here. I've played around with AI for video but it makes me feel like I didn't accomplish anything.</p>
             </div>
              
             
@@ -1254,7 +1257,7 @@ useEffect(() => {
                 }}>
                   <MuxPlayer
                     playback-id="Li7lobGhBKhtYMn9HqXmm4005O00fWpbrVHLfiDePuTxA"
-                    poster="https://image.mux.com/Li7lobGhBKhtYMn9HqXmm4005O00fWpbrVHLfiDePuTxA/thumbnail.png?fit_mode=preserve&width=214&height=121&time=39"
+                    poster="https://image.mux.com/Li7lobGhBKhtYMn9HqXmm4005O00fWpbrVHLfiDePuTxA/thumbnail.png?width=960&height=540&time=12"
                     controls
                     disableTracking={true}
                     style={{ 
@@ -1268,9 +1271,8 @@ useEffect(() => {
                   />
                 </div>
             </div>
-</div>
-                
-                  <h2 style={{paddingTop: "1rem", fontSize: '1.40rem', color: "#a2feff"}}>Short Reel 2025</h2>
+          </div>
+          <h2 style={{paddingTop: "1rem", fontSize: '1.40rem', color: "#a2feff"}}>Short Reel 2025</h2>
             <div style={{height: '0.1rem', marginBottom: '1.5rem',marginTop: '-1.3rem', color: "#fff"}}>Bam</div>
               <div id='muxPlayer' style={{ 
                       borderRadius: '15px',
