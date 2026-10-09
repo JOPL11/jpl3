@@ -1101,11 +1101,11 @@ useEffect(() => {
                   link="https://cloudtunnels.vercel.app/"
                   text="Expo installation protoype engine for a phyisical installation piece at the Milan Design Week 2026."
                   className="webglProject"
-                  //  client={{
-                   // name: "SMMD Team |",
-                    //logo: "/images/agencies/SMMD.png",
+                    client={{
+                    name: "SMMD Team |",
+                    logo: "/images/agencies/SMMD.png",
                     //website: "https://www.smmd.team/"
-                // }}   
+                }}   
                   logoWidth={350}
                   logoHeight={90}
                   logoStyle={{
