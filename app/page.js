@@ -501,9 +501,6 @@ useEffect(() => {
           >
           {/* <InteractiveMenu activeSection={activeSection} onSectionChange={setActiveSection} /> 
           {/* <InteractiveMenu activeSection={activeSection} onSectionChange={setActiveSection} /> */}
-          
-       
-          
          {/* */}
                 <nav className={styles.navLinks} aria-label="Main navigation" >
                                    <a 

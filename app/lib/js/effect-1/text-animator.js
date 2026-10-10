@@ -4,7 +4,7 @@ import { TextSplitter } from '../textSplitter.js';
 // Use global SplitType
 const SplitType = typeof window !== 'undefined' ? window.SplitType : null;
 
-const lettersAndSymbols = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '!', '@', '#', '$', '%', '^', '&', '*', '-', '_', '+', '=', ';', ':', '<', '>', ','];
+const lettersAndSymbols = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '!', '@', '#', '{', '%', '^', '&', '*', '-', '_', '+', '=', ';', ':', '<', '>', ','];
 
 // Defines a class to create hover effects on text.
 export class TextAnimator {

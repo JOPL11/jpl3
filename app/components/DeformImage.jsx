@@ -356,7 +356,7 @@ function makeVariation(src) {
      * grain; large = chunky blocks. Rounded to a whole number so block edges
      * land on crisp pixel boundaries.
      */
-    cell: Math.round(range(10, 22)),
+    cell: Math.round(range(10, 110)),
 
     /**
      * extrude (0.05 – 0.14): how far active blocks get dragged along the scroll
@@ -364,7 +364,7 @@ function makeVariation(src) {
      * card ≈ 35px). Each block gets its own random fraction (30–100%) of this,
      * which gives the streaky, stepped "pixels pulled along" look.
      */
-    extrude: range(0.05, 0.14),
+    extrude: range(0.05, 0.24),
 
     /**
      * split (0.008 – 0.02): RGB channel separation along the scroll axis, as a
@@ -475,7 +475,7 @@ function makeVariation(src) {
      * ghostAlpha (0.28 – 0.5): opacity of a visible ghost cell. Each cell also
      * gets its own random 55–100% of this so the ghost shimmers unevenly.
      */
-    ghostAlpha: range(0.28, 0.5),
+    ghostAlpha: range(0.9, 1.0),
 
     /**
      * ghostDensity (0.5 – 0.85): the fraction of ghost cells that can be visible
