@@ -165,7 +165,7 @@ const fragmentShader = /* glsl */ `
 `;
 
 // Ghost layers: coarse-pixel, semi-transparent copies of the image that float
-// in front of / behind it on the Z axis. Each coarse cell is either present or
+// in front of it on the Z axis (two layers, at different depths). Each coarse cell is either present or
 // dissolved, so the ghost reads as scattered floating pixels, not a flat overlay.
 const ghostFragmentShader = /* glsl */ `
   uniform sampler2D uTexture;
@@ -210,6 +210,109 @@ const ghostFragmentShader = /* glsl */ `
 
     vec4 t = tex(c);
     gl_FragColor = vec4(t.rgb, t.a * inside * vis * flick * uAlpha);
+  }
+`;
+
+// Straggler pixels: small (and occasionally large) squares torn from the image
+// edge. They launch from the edge the scroll is trailing, travel out toward the
+// canvas edge, and retract back into the image as the scroll settles. Only the
+// part outside the image is drawn, so the image edge itself stays clean and the
+// squares appear to slide out of / sink back into it.
+const stragglerFragmentShader = /* glsl */ `
+  uniform sampler2D uTexture;
+  uniform vec2  uSize;
+  uniform float uImageAspect;
+  uniform float uPad;
+  uniform float uSeed;
+  uniform float uAmtB;          // launch amount at the BOTTOM edge (scrolling down)
+  uniform float uAmtT;          // launch amount at the TOP edge (scrolling up)
+  uniform float uStragSize;     // base square size in px
+  uniform float uStragBig;      // fraction of squares that are large variants
+  uniform float uStragDensity;  // fraction of slots that hold a straggler
+  varying vec2 vUv;
+
+  float hash(vec2 p) {
+    return fract(sin(dot(p + uSeed, vec2(127.1, 311.7))) * 43758.5453);
+  }
+  float rnd(vec2 id, float salt) {
+    return hash(id + salt * 19.7);
+  }
+
+  vec4 tex(vec2 uv) {
+    float aspect = uSize.x / uSize.y;
+    vec2 ratio = vec2(
+      min(aspect / uImageAspect, 1.0),
+      min(uImageAspect / aspect, 1.0)
+    );
+    uv = (uv - 0.5) * ratio + 0.5;
+    // This lookup sits inside a branch/loop, where screen-space derivatives are
+    // undefined, so a large negative bias pins it to the base mip level.
+    return texture2D(uTexture, clamp(uv, 0.0, 1.0), -16.0);
+  }
+
+  void main() {
+    float W = uSize.x;
+    float H = uSize.y;
+    float ipy = vUv.y * (H + 2.0 * uPad) - uPad;   // px, y up, 0 = image bottom
+    float px  = vUv.x * W;
+
+    bool atBottom = ipy < 0.0;
+    bool atTop    = ipy > H;
+    if (!(atBottom || atTop)) discard;             // never draw over the image
+
+    float amt = atBottom ? uAmtB : uAmtT;
+    if (amt < 0.004) discard;                      // at rest: nothing to do
+
+    float t    = atBottom ? -ipy : ipy - H;        // px outward from the launch edge
+    float edge = atBottom ? 0.0 : 1.0;
+
+    const float COL = 30.0;                        // slot width (>= biggest square)
+    float col0 = floor(px / COL);
+
+    vec4 best = vec4(0.0);
+    for (int ci = -1; ci <= 1; ci++) {
+      for (int k = 0; k < 2; k++) {
+        vec2 id = vec2(col0 + float(ci), float(k) + edge * 5.0);
+
+        float exists = step(rnd(id, 1.0), uStragDensity);
+        if (exists < 0.5) continue;
+
+        // size: mostly small, some large
+        float rs  = rnd(id, 2.0);
+        float big = step(rnd(id, 3.0), uStragBig);
+        float s   = uStragSize * mix(0.7 + 0.9 * rs, 3.0 + 2.5 * rs, big);
+        s = max(floor(min(s, COL)), 2.0);
+
+        float xc    = floor((id.x + rnd(id, 4.0)) * COL);
+        float depth = s + rnd(id, 5.0) * 24.0;     // where it lives inside the image
+
+        // how far it travels; a few go all the way to the canvas edge
+        float reach = 0.3 + 0.7 * rnd(id, 6.0);
+        reach = rnd(id, 7.0) > 0.75 ? 1.0 : reach;
+        float tMax = max(uPad - 1.0 - 0.5 * s, 0.0) * reach;
+
+        // staggered launch / return: low "lead" values go first and return last
+        float lead = rnd(id, 8.0) * 0.6;
+        float e = clamp((amt - lead * 0.8) / (1.0 - lead * 0.8), 0.0, 1.0);
+        e = e * e * (3.0 - 2.0 * e);
+
+        float tc = floor(mix(-depth, tMax, e) + 0.5);
+
+        float ax = 1.0 - smoothstep(-0.5, 0.5, abs(px - xc) - 0.5 * s);
+        float at = 1.0 - smoothstep(-0.5, 0.5, abs(t - tc) - 0.5 * s);
+        float a  = ax * at * smoothstep(0.0, 0.75, t) * smoothstep(0.0, 0.1, e);
+
+        if (a > best.a) {
+          // colour = the image pixel it was torn from (its home, inside the edge)
+          float hy = atBottom ? depth / H : 1.0 - depth / H;
+          vec4 c = tex(vec2(clamp(xc / W, 0.0, 1.0), clamp(hy, 0.0, 1.0)));
+          best = vec4(c.rgb, a * c.a);
+        }
+      }
+    }
+
+    if (best.a < 0.003) discard;
+    gl_FragColor = best;
   }
 `;
 
@@ -358,12 +461,13 @@ function makeVariation(src) {
     ghostCell: Math.round(range(18, 34)),
 
     /**
-     * ghostZ (50 – 100 px): how far a ghost layer floats from the image along
-     * the Z axis at full scroll speed (the back layer travels 80% of this).
-     * Because the layers share the card's swivel pivot, this distance becomes
-     * sideways parallax when the card turns: ±(ghostZ × sin(yaw)), e.g. about
-     * ±40px at 100px and 29°. Perspective also scales the front layer up a few
-     * percent (about 8% at 80px), so it slightly overhangs the image.
+     * ghostZ (50 – 100 px): how far the FARTHER ghost layer floats toward the
+     * camera at full scroll speed; the nearer layer floats half that. Both sit in
+     * front of the image. Because the layers share the card's swivel pivot, this
+     * distance becomes sideways parallax when the card turns: ±(z × sin(yaw)),
+     * e.g. about 48px for the far layer at 100px and 29° (24px for the near one),
+     * so the two ghosts fan out like a stepped echo. Perspective also scales the
+     * far layer up by roughly 10% at 100px, so it slightly overhangs the image.
      */
     ghostZ: range(50, 100),
 
@@ -382,21 +486,54 @@ function makeVariation(src) {
 
     /**
      * ghostLag (0.025 – 0.05): how quickly the ghosts fade back once the scroll
-     * stops, as a per-frame blend at 60fps. The ghosts appear fast (attack is
-     * fixed at 0.16 per frame) but release slowly, so they trail the main
-     * image like an afterimage: about 0.5 – 1s to disappear. Lower = longer
+     * stops, as a per-frame blend at 60fps. The near ghost appears at 0.16 per
+     * frame and releases at this rate; the far ghost is lazier (0.12 attack,
+     * 70% of this rate on release), so it lingers longest and the two peel away
+     * from the image in sequence. About 0.5 – 1s to disappear. Lower = longer
      * linger.
      */
     ghostLag: range(0.025, 0.05),
+
+    /**
+     * stragSize (3.5 – 6.5 px): base size of a straggler square. Most squares are
+     * 0.7 – 1.6× this (about 2.5 – 10px); the "big" variants below are 3 – 5.5×
+     * (about 10 – 36px, capped at 30px).
+     */
+    stragSize: range(3.5, 6.5),
+
+    /**
+     * stragBig (0.12 – 0.25): the fraction of stragglers that are large variants.
+     * Mixing a few big squares in among the tiny ones gives the scatter detail
+     * and scale contrast.
+     */
+    stragBig: range(0.12, 0.25),
+
+    /**
+     * stragDensity (0.3 – 0.5): the fraction of available slots that hold a
+     * straggler. The grid has one slot per 30px of width and two per column on
+     * each edge, so on a 600px card that's 40 slots per edge, 12 – 20 stragglers
+     * with these values.
+     */
+    stragDensity: range(0.3, 0.5),
+
+    /**
+     * stragLag (0.03 – 0.055): how quickly stragglers retract once the scroll
+     * stops (per-frame blend at 60fps). They launch quickly (0.2 per frame) and
+     * return slowly, taking roughly 1 – 2s to sink back into the image, each at
+     * its own moment (low-lead ones are last). Lower = longer linger.
+     */
+    stragLag: range(0.03, 0.055),
   };
 }
 
 function DeformPlane({ src, resolveSrc, velocityRef, hoverRef, hoveredRef, rectRef, onReady }) {
   const groupRef = useRef(null);   // carries the swivel; all layers rotate together
   const meshRef = useRef(null);    // the main image
-  const frontRef = useRef(null);   // ghost layer in front (+z)
-  const backRef = useRef(null);    // ghost layer behind (−z)
-  const ghostState = useRef({ f: 0, b: 0 });
+  const nearRef = useRef(null);    // nearer ghost layer (floats half the distance)
+  const farRef = useRef(null);     // farther ghost layer (floats the full distance)
+  const stragRef = useRef(null);   // straggler pixels layer
+  const ghostState = useRef({ n: 0, f: 0 });
+  const stragState = useRef({ b: 0, t: 0 });
   const spring = useRef({ x: 0, v: 0 });
   const yaw = useRef(0);
   const onReadyRef = useRef(onReady);
@@ -451,7 +588,19 @@ function DeformPlane({ src, resolveSrc, velocityRef, hoverRef, hoveredRef, rectR
       uAlpha: { value: variation.ghostAlpha },
       uLayer: { value: layer },
     });
-    return { front: make(1), back: make(2) };
+    const strag = {
+      uTexture: uniforms.uTexture,
+      uSize: uniforms.uSize,
+      uImageAspect: uniforms.uImageAspect,
+      uPad: uniforms.uPad,
+      uSeed: uniforms.uSeed,
+      uAmtB: { value: 0 },
+      uAmtT: { value: 0 },
+      uStragSize: { value: variation.stragSize },
+      uStragBig: { value: variation.stragBig },
+      uStragDensity: { value: variation.stragDensity },
+    };
+    return { near: make(1), far: make(2), strag };
   }, [uniforms, variation]);
 
   useEffect(() => {
@@ -490,8 +639,9 @@ function DeformPlane({ src, resolveSrc, velocityRef, hoverRef, hoveredRef, rectR
     if (mesh && w > 0 && h > 0) {
       // The mesh is the image plus `by` px above and below, so blocks can spill.
       mesh.scale.set(w, h + 2 * by, 1);
-      frontRef.current?.scale.set(w, h + 2 * by, 1);
-      backRef.current?.scale.set(w, h + 2 * by, 1);
+      nearRef.current?.scale.set(w, h + 2 * by, 1);
+      farRef.current?.scale.set(w, h + 2 * by, 1);
+      stragRef.current?.scale.set(w, h + 2 * by, 1);
       u.uSize.value.set(w, h);
       u.uPad.value = by;
     }
@@ -506,16 +656,31 @@ function DeformPlane({ src, resolveSrc, velocityRef, hoverRef, hoveredRef, rectR
     sp.x = THREE.MathUtils.clamp(sp.x + sp.v * s, -1.15, 1.15);
     u.uV.value = sp.x;
 
-    // Ghost layers: fast attack, slow release (an afterimage that lingers after
-    // the main image has settled), pushed out along Z by their visibility.
+    // Ghost layers (both in front of the image): fast attack, slow release, so
+    // they trail the main image like an afterimage. The farther layer is lazier
+    // on both ends, so it lingers longest. Each is pushed out along +Z by its
+    // visibility: the near one up to half of ghostZ, the far one up to all of it.
     const gs = ghostState.current;
     const aNow = Math.min(Math.abs(sp.x), 1);
-    gs.f += (aNow - gs.f) * (aNow > gs.f ? 0.16 * s : variation.ghostLag * s);
-    gs.b += (aNow - gs.b) * (aNow > gs.b ? 0.12 * s : variation.ghostLag * 0.7 * s);
-    ghost.front.uAmt.value = gs.f;
-    ghost.back.uAmt.value = gs.b;
-    if (frontRef.current) frontRef.current.position.z = variation.ghostZ * gs.f;
-    if (backRef.current) backRef.current.position.z = -variation.ghostZ * 0.8 * gs.b;
+    gs.n += (aNow - gs.n) * (aNow > gs.n ? 0.16 * s : variation.ghostLag * s);
+    gs.f += (aNow - gs.f) * (aNow > gs.f ? 0.12 * s : variation.ghostLag * 0.7 * s);
+    ghost.near.uAmt.value = gs.n;
+    ghost.far.uAmt.value = gs.f;
+    if (nearRef.current) nearRef.current.position.z = variation.ghostZ * 0.5 * gs.n;
+    if (farRef.current) farRef.current.position.z = variation.ghostZ * gs.f;
+
+    // Stragglers. Driven by the shaped velocity *target* (not the spring), so the
+    // spring's overshoot can't flip the launch edge mid-retract. Scrolling down
+    // feeds the bottom edge, scrolling up the top edge; each edge has its own
+    // fast-attack / slow-release amount, so a scroll reversal simply retracts
+    // one edge while the other launches.
+    const st = stragState.current;
+    const pos = Math.max(target, 0);
+    const neg = Math.max(-target, 0);
+    st.b += (pos - st.b) * (pos > st.b ? 0.2 * s : variation.stragLag * s);
+    st.t += (neg - st.t) * (neg > st.t ? 0.2 * s : variation.stragLag * s);
+    ghost.strag.uAmtB.value = st.b;
+    ghost.strag.uAmtT.value = st.t;
 
     u.uHoverStrength.value += ((hoveredRef.current ? 1 : 0) - u.uHoverStrength.value) * 0.15;
     u.uHover.value.x += (hoverRef.current.x - u.uHover.value.x) * 0.2;
@@ -532,22 +697,12 @@ function DeformPlane({ src, resolveSrc, velocityRef, hoverRef, hoveredRef, rectR
     }
   });
 
-  // All three layers are transparent and drawn back-to-front by renderOrder (no
-  // depth test), so the ghosts blend correctly with the main image and each other.
+  // All layers are transparent and drawn back-to-front by renderOrder (no depth
+  // test): the main image, then the near ghost, the far ghost (closest to the
+  // camera), and finally the straggler pixels, so they blend correctly.
   return (
     <group ref={groupRef} visible={false}>
-      <mesh ref={backRef} renderOrder={0} frustumCulled={false}>
-        <planeGeometry args={[1, 1, 1, 1]} />
-        <shaderMaterial
-          vertexShader={vertexShader}
-          fragmentShader={ghostFragmentShader}
-          uniforms={ghost.back}
-          transparent
-          depthTest={false}
-          depthWrite={false}
-        />
-      </mesh>
-      <mesh ref={meshRef} renderOrder={1} frustumCulled={false}>
+      <mesh ref={meshRef} renderOrder={0} frustumCulled={false}>
         <planeGeometry args={[1, 1, 1, 1]} />
         <shaderMaterial
           vertexShader={vertexShader}
@@ -559,12 +714,34 @@ function DeformPlane({ src, resolveSrc, velocityRef, hoverRef, hoveredRef, rectR
           depthWrite={false}
         />
       </mesh>
-      <mesh ref={frontRef} renderOrder={2} frustumCulled={false}>
+      <mesh ref={nearRef} renderOrder={1} frustumCulled={false}>
         <planeGeometry args={[1, 1, 1, 1]} />
         <shaderMaterial
           vertexShader={vertexShader}
           fragmentShader={ghostFragmentShader}
-          uniforms={ghost.front}
+          uniforms={ghost.near}
+          transparent
+          depthTest={false}
+          depthWrite={false}
+        />
+      </mesh>
+      <mesh ref={farRef} renderOrder={2} frustumCulled={false}>
+        <planeGeometry args={[1, 1, 1, 1]} />
+        <shaderMaterial
+          vertexShader={vertexShader}
+          fragmentShader={ghostFragmentShader}
+          uniforms={ghost.far}
+          transparent
+          depthTest={false}
+          depthWrite={false}
+        />
+      </mesh>
+      <mesh ref={stragRef} renderOrder={3} frustumCulled={false}>
+        <planeGeometry args={[1, 1, 1, 1]} />
+        <shaderMaterial
+          vertexShader={vertexShader}
+          fragmentShader={stragglerFragmentShader}
+          uniforms={ghost.strag}
           transparent
           depthTest={false}
           depthWrite={false}
