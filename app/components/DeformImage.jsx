@@ -47,8 +47,8 @@ const MAX_YAW = 0.5;     // ≈ 29°
 const PEAK_ATTACK = 14;    // rise speed (1/s). Higher = snappier up to the peak.
 const PEAK_BAND = 0.03;    // input must fall this far below the peak to start the release
 const PEAK_HOLD = 0.18;    // seconds held at the peak before the fall begins
-const PEAK_FALL = 1.1;     // seconds the fall takes (from the end of the hold)
-const FALL_POWER = 2;      // fall = 1 − u^p. 2 = parabola; 3 = longer hang, harder drop
+const PEAK_FALL = 0.5;     // seconds the fall takes (from the end of the hold)
+const FALL_POWER = 3;      // fall = 1 − u^p. 2 = parabola; 3 = longer hang, harder drop
 
 // ─── Shared, pre-decoded image cache ───────────────────────
 // Keyed by URL. The texture is fed from the *same optimized URL the visible
