@@ -9,8 +9,25 @@ import { useScrollVelocity } from '../contexts/ScrollVelocityContext';
 // Canvases are created this far (vertically) before a card reaches the viewport,
 // so the WebGL context + texture are ready long before the card is seen.
 const MOUNT_MARGIN = '100% 0px';
-// ...and torn down only after the card has been far away for this long.
-const UNMOUNT_DELAY_MS = 1500;
+// Canvas lifecycle. Creating a canvas is EXPENSIVE (new WebGL context + shader
+// compiles + a texture upload, all on the main thread), and tearing one down is
+// not free either. Doing that repeatedly while the user scrolls is a prime cause
+// of hitches, so by default a canvas is created ONCE (when its card first comes
+// near) and then kept alive; off-screen canvases simply stop rendering.
+// Nine live contexts is well inside the browser limit (~16) and tiny in memory.
+// Set KEEP_ALIVE = false to go back to tearing down far-away canvases.
+const KEEP_ALIVE = true;
+const UNMOUNT_DELAY_MS = 4000;   // only used when KEEP_ALIVE is false
+// Canvases that want to mount are spaced at least this far apart, so two cards
+// arriving together never build two contexts in the same frame.
+const MOUNT_STAGGER_MS = 350;
+let nextMountAt = 0;
+function scheduleMount(fn) {
+  const now = performance.now();
+  const at = Math.max(now, nextMountAt);
+  nextMountAt = at + MOUNT_STAGGER_MS;
+  return setTimeout(fn, at - now);
+}
 // ─── Pivot axes ────────────────────────────────────────────
 // The card can turn on two axes, driven by the same scroll spring:
 //   • PITCH: tilt about the HORIZONTAL (X) axis: the top edge swings toward /
@@ -565,7 +582,7 @@ function DeformPlane({ src, resolveSrc, velocityRef, hoverRef, hoveredRef, rectR
   const onReadyRef = useRef(onReady);
   onReadyRef.current = onReady;
   const variation = useMemo(() => makeVariation(src), [src]);
-  const { camera, size, gl, invalidate } = useThree();
+  const { camera, size, gl, scene, invalidate } = useThree();
 
   useLayoutEffect(() => {
     camera.position.set(0, 0, size.height / 2 / Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)));
@@ -644,9 +661,17 @@ function DeformPlane({ src, resolveSrc, velocityRef, hoverRef, hoveredRef, rectR
         gl.initTexture?.(tex);
         uniforms.uTexture.value = tex;
         uniforms.uImageAspect.value = img.naturalWidth / img.naturalHeight;
-        if (groupRef.current) groupRef.current.visible = true;
-        invalidate();
-        onReadyRef.current?.();
+        // Compile every shader program WITHOUT blocking the main thread (uses the
+        // browser's parallel shader compile when available; ANGLE/Windows and
+        // Firefox are slow at synchronous compiles), and only then reveal.
+        return Promise.resolve(gl.compileAsync?.(scene, camera))
+          .catch(() => {})
+          .then(() => {
+            if (cancelled) return;
+            if (groupRef.current) groupRef.current.visible = true;
+            invalidate();
+            onReadyRef.current?.();
+          });
       })
       .catch((err) => {
         console.warn('[DeformImage] texture load failed, keeping the plain image:', err);
@@ -657,7 +682,7 @@ function DeformPlane({ src, resolveSrc, velocityRef, hoverRef, hoveredRef, rectR
       uniforms.uTexture.value = null;
       tex?.dispose();
     };
-  }, [resolveSrc, uniforms, gl, invalidate]);
+  }, [resolveSrc, uniforms, gl, scene, camera, invalidate]);
 
   useFrame((_, delta) => {
     const u = uniforms;
@@ -824,6 +849,13 @@ export default function DeformImage({
 
   const [layout, setLayout] = useState({ x: 0, y: 0, w: 0, h: 0, bx: 0, by: 0 });
   const [mounted, setMounted] = useState(false); // canvas exists (near the viewport)
+  const mountedRef = useRef(false);
+  const mountTimerRef = useRef(null);
+  const aliveRef = useRef(true);   // false once this component is unmounting
+  useEffect(() => {
+    aliveRef.current = true;
+    return () => { aliveRef.current = false; };
+  }, []);
   const [visible, setVisible] = useState(false); // on screen => render loop runs
   const [reducedMotion, setReducedMotion] = useState(false);
   const [glFailed, setGlFailed] = useState(false);
@@ -866,23 +898,30 @@ export default function DeformImage({
     };
   }, [bleed]);
 
-  // A wide observer decides when the canvas should EXIST (early, with
-  // hysteresis); a tight one decides when it should actually RENDER.
+  // A wide observer decides when the canvas should EXIST (early, staggered, and
+  // by default kept alive); a tight one decides when it should actually RENDER.
   useEffect(() => {
     const el = wrapRef.current;
     if (!el) return;
-    let timer = null;
+    let unmountTimer = null;
 
     const near = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          if (timer) { clearTimeout(timer); timer = null; }
-          setMounted(true);
-        } else if (!timer) {
-          timer = setTimeout(() => {
+          if (unmountTimer) { clearTimeout(unmountTimer); unmountTimer = null; }
+          if (!mountedRef.current && !mountTimerRef.current) {
+            mountTimerRef.current = scheduleMount(() => {
+              mountTimerRef.current = null;
+              mountedRef.current = true;
+              setMounted(true);
+            });
+          }
+        } else if (!KEEP_ALIVE && mountedRef.current && !unmountTimer) {
+          unmountTimer = setTimeout(() => {
+            mountedRef.current = false;
             setMounted(false);
             setReady(false);
-            timer = null;
+            unmountTimer = null;
           }, UNMOUNT_DELAY_MS);
         }
       },
@@ -898,7 +937,8 @@ export default function DeformImage({
     return () => {
       near.disconnect();
       vis.disconnect();
-      if (timer) clearTimeout(timer);
+      if (unmountTimer) clearTimeout(unmountTimer);
+      if (mountTimerRef.current) { clearTimeout(mountTimerRef.current); mountTimerRef.current = null; }
     };
   }, []);
 
@@ -985,10 +1025,18 @@ export default function DeformImage({
             camera={{ fov: 30, near: 10, far: 5000, position: [0, 0, 1000] }}
             onCreated={({ gl }) => {
               gl.setClearColor(0x000000, 0);
+              // NB: R3F calls forceContextLoss() when a <Canvas> unmounts, which fires
+              // this event too. Only treat it as a real loss while still mounted.
               gl.domElement.addEventListener('webglcontextlost', (e) => {
-                e.preventDefault();
-                console.warn('[DeformImage] WebGL context lost for', src);
-                setReady(false); // fall back to the plain <Image> instead of a blank card
+                if (!aliveRef.current) return;
+                e.preventDefault(); // allows the browser to restore it later
+                console.warn('[DeformImage] WebGL context genuinely lost for', src);
+                setReady(false); // show the plain <Image> instead of a blank card
+              });
+              gl.domElement.addEventListener('webglcontextrestored', () => {
+                if (!aliveRef.current) return;
+                console.info('[DeformImage] WebGL context restored for', src);
+                setReady(true); // three re-creates programs/textures on its own
               });
             }}
           >
