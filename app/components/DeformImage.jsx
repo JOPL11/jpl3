@@ -11,8 +11,17 @@ import { useScrollVelocity } from '../contexts/ScrollVelocityContext';
 const MOUNT_MARGIN = '100% 0px';
 // ...and torn down only after the card has been far away for this long.
 const UNMOUNT_DELAY_MS = 1500;
-// Max Y-axis swivel in radians at full scroll speed (0.5 rad ≈ 29°).
-const MAX_YAW = 0.5;
+// ─── Pivot axes ────────────────────────────────────────────
+// The card can turn on two axes, driven by the same scroll spring:
+//   • PITCH: tilt about the HORIZONTAL (X) axis: the top edge swings toward /
+//     away from you. This matches vertical scrolling, so it's the default.
+//   • YAW:   swivel about the VERTICAL (Y) axis: left/right turn.
+// Either can be switched off; a disabled axis costs nothing and stays at 0.
+const ENABLE_PITCH = true;
+const ENABLE_YAW = false;
+// Max angle in radians at full scroll speed.
+const MAX_PITCH = 1.6;   // ≈ 34°  (a wide, short card needs more angle than yaw)
+const MAX_YAW = 0.5;     // ≈ 29°
 
 // ─── Shared, pre-decoded image cache ───────────────────────
 // Keyed by URL. The texture is fed from the *same optimized URL the visible
@@ -55,7 +64,8 @@ const fragmentShader = /* glsl */ `
   uniform vec2  uSize;          // image rect in CSS px
   uniform float uImageAspect;
   uniform float uV;             // scroll velocity (spring), roughly -1..1
-  uniform float uSwing;         // swivel, normalised: yaw / MAX_YAW, roughly -1..1
+  uniform float uSwing;         // yaw (Y-axis turn), normalised: yaw / MAX_YAW, roughly -1..1
+  uniform float uTilt;          // pitch (X-axis tilt), normalised: pitch / MAX_PITCH, roughly -1..1
   uniform vec2  uHover;         // 0..1, y up
   uniform float uHoverStrength; // 0..1
   // per-card variation
@@ -149,9 +159,11 @@ const fragmentShader = /* glsl */ `
     vec3 col = vec3(r, g.g, b);
 
     // ── 3. Exposure + directional light: the card brightens with speed, and as
-    //       it swivels the near side catches more light than the far side.
+    //       it turns, the edge that swings toward you catches more light than the
+    //       edge that swings away. (+pitch lifts the TOP edge toward you; +yaw
+    //       pushes the RIGHT edge away.)
     col *= 1.0 + a * uBright;
-    col *= 1.0 + uSwing * (iuv.x - 0.5) * 0.25;
+    col *= 1.0 + uTilt * (iuv.y - 0.5) * 0.25 - uSwing * (iuv.x - 0.5) * 0.25;
 
     // ── 4. Hover: a soft glow under the cursor (lenses open up there too).
     col *= 1.0 + hv * 0.12;
@@ -352,14 +364,15 @@ function makeVariation(src) {
 
   return {
     /**
-     * cell (10 – 22 px): size of the square pixel blocks. Small = fine, fussy
-     * grain; large = chunky blocks. Rounded to a whole number so block edges
+     * cell (10 – 110 px): size of the square pixel blocks. Small = fine, fussy
+     * grain; large = chunky blocks. The wide range means some cards get a fine
+     * grid and others a few huge blocks. Rounded to a whole number so block edges
      * land on crisp pixel boundaries.
      */
     cell: Math.round(range(10, 110)),
 
     /**
-     * extrude (0.05 – 0.14): how far active blocks get dragged along the scroll
+     * extrude (0.05 – 0.24): how far active blocks get dragged along the scroll
      * axis at full speed, as a fraction of the image height (0.10 on a 350px
      * card ≈ 35px). Each block gets its own random fraction (30–100%) of this,
      * which gives the streaky, stepped "pixels pulled along" look.
@@ -472,7 +485,7 @@ function makeVariation(src) {
     ghostZ: range(50, 100),
 
     /**
-     * ghostAlpha (0.28 – 0.5): opacity of a visible ghost cell. Each cell also
+     * ghostAlpha (0.9 – 1.0): opacity of a visible ghost cell. Each cell also
      * gets its own random 55–100% of this so the ghost shimmers unevenly.
      */
     ghostAlpha: range(0.9, 1.0),
@@ -523,6 +536,18 @@ function makeVariation(src) {
      * its own moment (low-lead ones are last). Lower = longer linger.
      */
     stragLag: range(0.03, 0.055),
+
+    /**
+     * pitch (0.7 – 1.0): strength of the X-axis tilt. Pitch target = v × MAX_PITCH
+     * × pitch (MAX_PITCH = 0.6 rad), so about 24° – 34° at full speed, and the
+     * spring can overshoot that by ~15%. The direction is the same for every card
+     * and always follows the scroll: scrolling DOWN swings the top edge toward
+     * you and the bottom edge away; scrolling UP does the opposite. Only the
+     * amount varies per card (set it to a constant 1 for identical tilt on all
+     * cards). The random draw the old random sign used is kept, so nothing else
+     * changes.
+     */
+    pitch: (r(), range(0.7, 1.0)),
   };
 }
 
@@ -536,6 +561,7 @@ function DeformPlane({ src, resolveSrc, velocityRef, hoverRef, hoveredRef, rectR
   const stragState = useRef({ b: 0, t: 0 });
   const spring = useRef({ x: 0, v: 0 });
   const yaw = useRef(0);
+  const pitch = useRef(0);
   const onReadyRef = useRef(onReady);
   onReadyRef.current = onReady;
   const variation = useMemo(() => makeVariation(src), [src]);
@@ -557,6 +583,7 @@ function DeformPlane({ src, resolveSrc, velocityRef, hoverRef, hoveredRef, rectR
       uImageAspect: { value: 1 },
       uV: { value: 0 },
       uSwing: { value: 0 },
+      uTilt: { value: 0 },
       uHover: { value: new THREE.Vector2(0.5, 0.5) },
       uHoverStrength: { value: 0 },
       uCell: { value: variation.cell },
@@ -686,14 +713,35 @@ function DeformPlane({ src, resolveSrc, velocityRef, hoverRef, hoveredRef, rectR
     u.uHover.value.x += (hoverRef.current.x - u.uHover.value.x) * 0.2;
     u.uHover.value.y += (hoverRef.current.y - u.uHover.value.y) * 0.2;
 
-    // Swivel on a central vertical pivot (lazier low-pass trailing the spring),
-    // plus a small turn toward the cursor's side while hovered.
+    // Pivot on the card's centre. Each enabled axis follows the scroll spring
+    // through its own lazier low-pass (so it trails the effect slightly), plus a
+    // small turn toward the cursor while hovered. A disabled axis is held at 0.
     if (mesh) {
-      const hoverYaw = (hoverRef.current.x - 0.5) * 0.25 * u.uHoverStrength.value;
-      const yawTarget = sp.x * MAX_YAW * variation.swivel + hoverYaw;
-      yaw.current += (yawTarget - yaw.current) * Math.min(0.1 * s, 1);
-      if (groupRef.current) groupRef.current.rotation.y = yaw.current;
+      const hs = u.uHoverStrength.value;
+      const follow = Math.min(0.1 * s, 1);
+
+      // Yaw (Y axis, left/right): hover pushes the cursor's side away.
+      const yawTarget = ENABLE_YAW
+        ? sp.x * MAX_YAW * variation.swivel + (hoverRef.current.x - 0.5) * 0.25 * hs
+        : 0;
+      yaw.current += (yawTarget - yaw.current) * follow;
+
+      // Pitch (X axis, up/down). Positive pitch = top edge toward you, and
+      // sp.x is positive when scrolling down, so scrolling down tips the top
+      // toward you / bottom away, and scrolling up does the reverse, on every
+      // card. Hover pushes the cursor's side away (the negative sign: hovering
+      // near the top tips the top edge away from you).
+      const pitchTarget = ENABLE_PITCH
+        ? sp.x * MAX_PITCH * variation.pitch - (hoverRef.current.y - 0.5) * 0.25 * hs
+        : 0;
+      pitch.current += (pitchTarget - pitch.current) * follow;
+
+      if (groupRef.current) {
+        groupRef.current.rotation.y = yaw.current;
+        groupRef.current.rotation.x = pitch.current;
+      }
       u.uSwing.value = THREE.MathUtils.clamp(yaw.current / MAX_YAW, -1.5, 1.5);
+      u.uTilt.value = THREE.MathUtils.clamp(pitch.current / MAX_PITCH, -1.5, 1.5);
     }
   });
 
