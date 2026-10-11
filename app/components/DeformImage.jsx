@@ -37,8 +37,18 @@ function scheduleMount(fn) {
 const ENABLE_PITCH = true;
 const ENABLE_YAW = false;
 // Max angle in radians at full scroll speed.
-const MAX_PITCH = 1.6;   // ≈ 34°  (a wide, short card needs more angle than yaw)
+const MAX_PITCH = 1.6;   // ≈ 92°: nearly edge-on at full speed (a wide, short card needs a big angle)
 const MAX_YAW = 0.5;     // ≈ 29°
+
+// ─── Hang time ("zero-g" apex) ─────────────────────────────
+// The pitch/yaw angle follows an envelope, not the raw spring: it rises quickly
+// to the peak, HANGS there, then falls back along a parabola, slow at first
+// (weightless at the apex) and speeding up as it drops.
+const PEAK_ATTACK = 14;    // rise speed (1/s). Higher = snappier up to the peak.
+const PEAK_BAND = 0.03;    // input must fall this far below the peak to start the release
+const PEAK_HOLD = 0.18;    // seconds held at the peak before the fall begins
+const PEAK_FALL = 1.1;     // seconds the fall takes (from the end of the hold)
+const FALL_POWER = 2;      // fall = 1 − u^p. 2 = parabola; 3 = longer hang, harder drop
 
 // ─── Shared, pre-decoded image cache ───────────────────────
 // Keyed by URL. The texture is fed from the *same optimized URL the visible
@@ -547,17 +557,24 @@ function makeVariation(src) {
     stragDensity: range(0.3, 0.5),
 
     /**
-     * stragLag (0.03 – 0.055): how quickly stragglers retract once the scroll
-     * stops (per-frame blend at 60fps). They launch quickly (0.2 per frame) and
-     * return slowly, taking roughly 1 – 2s to sink back into the image, each at
-     * its own moment (low-lead ones are last). Lower = longer linger.
+     * stragLag (0.03 – 0.055): extra "tail" on the stragglers' release, a
+     * per-frame blend at 60fps. Each frame, a straggler amount that wants to
+     * shrink moves this fraction (3 – 5.5%) of the remaining distance toward its
+     * target, so it decays exponentially: fastest at the start, slower at the
+     * end. Time constant = 1 / (stragLag × 60): about 0.55s at 0.03 and 0.30s at
+     * 0.055, i.e. the amount falls to a third in roughly 0.6s / 0.3s.
+     * It's applied on TOP of the hang-time envelope (which already holds and
+     * parabolically falls), so it only stretches the very end of the retraction.
+     * LOWER = they linger longer: halve the numbers to double the tail
+     * (range(0.015, 0.028)). Launch speed is a separate fixed 0.2 per frame.
      */
     stragLag: range(0.03, 0.055),
 
     /**
      * pitch (0.7 – 1.0): strength of the X-axis tilt. Pitch target = v × MAX_PITCH
-     * × pitch (MAX_PITCH = 0.6 rad), so about 24° – 34° at full speed, and the
-     * spring can overshoot that by ~15%. The direction is the same for every card
+     * × pitch (MAX_PITCH = 1.6 rad), so up to about 64° – 92° at full speed.
+     * The angle comes from the hang-time envelope (see PEAK_* at the top of the
+     * file), not the spring, so it holds the peak and never overshoots it. The direction is the same for every card
      * and always follows the scroll: scrolling DOWN swings the top edge toward
      * you and the bottom edge away; scrolling UP does the opposite. Only the
      * amount varies per card (set it to a constant 1 for identical tilt on all
@@ -708,6 +725,27 @@ function DeformPlane({ src, resolveSrc, velocityRef, hoverRef, hoveredRef, rectR
     sp.x = THREE.MathUtils.clamp(sp.x + sp.v * s, -1.15, 1.15);
     u.uV.value = sp.x;
 
+    // Hang-time envelope for the tilt/turn (lives on the spring ref so it adds no
+    // hooks). While the input rises, holds near the peak, or reverses it follows
+    // the input. When the input falls away from the peak it HOLDS the peak for
+    // PEAK_HOLD seconds, then falls along 1 − u^FALL_POWER (a parabola: zero slope
+    // at the apex), never dropping below what the input still supports.
+    const en = (sp.env ||= { x: 0, peak: 0, t: 0, releasing: false });
+    const dt = Math.min(delta, 0.05);
+    const mag = Math.abs(target);
+    const ax = Math.abs(en.x);
+    if ((target * en.x < 0 && mag > 0.05) || mag > ax - PEAK_BAND) {
+      en.x += (target - en.x) * (1 - Math.exp(-dt * PEAK_ATTACK));
+      en.releasing = false;
+      en.t = 0;
+    } else {
+      if (!en.releasing) { en.releasing = true; en.peak = ax; en.t = 0; }
+      en.t += dt;
+      const u = Math.min(Math.max((en.t - PEAK_HOLD) / PEAK_FALL, 0), 1);
+      const curve = en.peak * (1 - Math.pow(u, FALL_POWER));
+      en.x = (en.x < 0 ? -1 : 1) * Math.max(curve, mag);
+    }
+
     // Ghost layers (both in front of the image): fast attack, slow release, so
     // they trail the main image like an afterimage. The farther layer is lazier
     // on both ends, so it lingers longest. Each is pushed out along +Z by its
@@ -721,14 +759,17 @@ function DeformPlane({ src, resolveSrc, velocityRef, hoverRef, hoveredRef, rectR
     if (nearRef.current) nearRef.current.position.z = variation.ghostZ * 0.5 * gs.n;
     if (farRef.current) farRef.current.position.z = variation.ghostZ * gs.f;
 
-    // Stragglers. Driven by the shaped velocity *target* (not the spring), so the
-    // spring's overshoot can't flip the launch edge mid-retract. Scrolling down
-    // feeds the bottom edge, scrolling up the top edge; each edge has its own
-    // fast-attack / slow-release amount, so a scroll reversal simply retracts
-    // one edge while the other launches.
+    // Stragglers. They follow the SAME hang-time envelope as the tilt (en.x), not
+    // the raw scroll velocity: they stay out while the card hangs at its peak
+    // (when it's edge-on and they're hard to see), then retract as it falls back
+    // toward flat, which is when you can actually see them. The envelope is also
+    // immune to the spring's overshoot, so it can't flip the launch edge
+    // mid-retract. Scrolling down feeds the bottom edge, scrolling up the top
+    // edge; each edge has its own amount, so a scroll reversal retracts one edge
+    // while the other launches. `stragLag` adds a little extra tail on top.
     const st = stragState.current;
-    const pos = Math.max(target, 0);
-    const neg = Math.max(-target, 0);
+    const pos = Math.max(en.x, 0);
+    const neg = Math.max(-en.x, 0);
     st.b += (pos - st.b) * (pos > st.b ? 0.2 * s : variation.stragLag * s);
     st.t += (neg - st.t) * (neg > st.t ? 0.2 * s : variation.stragLag * s);
     ghost.strag.uAmtB.value = st.b;
@@ -743,11 +784,11 @@ function DeformPlane({ src, resolveSrc, velocityRef, hoverRef, hoveredRef, rectR
     // small turn toward the cursor while hovered. A disabled axis is held at 0.
     if (mesh) {
       const hs = u.uHoverStrength.value;
-      const follow = Math.min(0.1 * s, 1);
+      const follow = Math.min(0.3 * s, 1);   // just de-jitters; keeps the plateau
 
       // Yaw (Y axis, left/right): hover pushes the cursor's side away.
       const yawTarget = ENABLE_YAW
-        ? sp.x * MAX_YAW * variation.swivel + (hoverRef.current.x - 0.5) * 0.25 * hs
+        ? en.x * MAX_YAW * variation.swivel + (hoverRef.current.x - 0.5) * 0.25 * hs
         : 0;
       yaw.current += (yawTarget - yaw.current) * follow;
 
@@ -757,7 +798,7 @@ function DeformPlane({ src, resolveSrc, velocityRef, hoverRef, hoveredRef, rectR
       // card. Hover pushes the cursor's side away (the negative sign: hovering
       // near the top tips the top edge away from you).
       const pitchTarget = ENABLE_PITCH
-        ? sp.x * MAX_PITCH * variation.pitch - (hoverRef.current.y - 0.5) * 0.25 * hs
+        ? en.x * MAX_PITCH * variation.pitch - (hoverRef.current.y - 0.5) * 0.25 * hs
         : 0;
       pitch.current += (pitchTarget - pitch.current) * follow;
 
