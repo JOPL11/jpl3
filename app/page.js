@@ -1044,14 +1044,14 @@ useEffect(() => {
                     <ProjectCard 
                      deform
                      onMoreClick={() => {
-                    console.log('Dornbach More button clicked, triggering animation');
+                    console.log('More button clicked, triggering animation');
                     bytes101TextRef.current?.animate();
                   }}
                   title="CloudTunnel"
                   image="/images/corp/dornbach.jpg"
                   alt="Dornbach"
                   link="https://cloudtunnels.vercel.app/"
-                  text="Expo installation protoype engine for a phyisical installation piece at the Milan Design Week 2026."
+                  text="Expo installation protoype engine for a physical installation piece at the Milan Design Week 2026."
                   className="webglProject"
                     client={{
                     name: "SMMD Team |",
