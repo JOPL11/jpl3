@@ -11,6 +11,7 @@ import styles from '../css/LogoCard.module.css';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
+
 const LogoCard = () => {
   const { openModal } = useModal();
   const [currentLogoIndex, setCurrentLogoIndex] = useState(null);
@@ -20,34 +21,35 @@ const LogoCard = () => {
   const logosRef = useRef([]);
 
   // Helper function to render HTML
- const createMarkup = (html) => {
-  return { 
-    __html: DOMPurify.sanitize(html, {
-      ADD_ATTR: ['target', 'style'],  // if you ever need <a target="_blank">
-    }) 
+  const createMarkup = (html) => {
+    return {
+      __html: DOMPurify.sanitize(html, {
+        ADD_ATTR: ['target', 'style'], // if you ever need <a target="_blank">
+      }),
+    };
   };
-};
 
   // =================== SIMPLE ENTRANCE ANIMATION ===================
   useEffect(() => {
     if (!containerRef.current) return;
 
     // Just fade in from current grid positions
-    const animatedLogos = logosRef.current.filter((logo, i) => 
-      logo && logos[i] && !logos[i].exemptFromAnimations
+    const animatedLogos = logosRef.current.filter(
+      (logo, i) => logo && logos[i] && !logos[i].exemptFromAnimations
     );
 
-    gsap.fromTo(animatedLogos,
+    gsap.fromTo(
+      animatedLogos,
       {
         opacity: 0,
-        scale: 0.9
+        scale: 0.9,
       },
       {
         opacity: 1,
         scale: 1,
         duration: 0.8,
         stagger: 0.05,
-        ease: "power2.out"
+        ease: 'power2.out',
       }
     );
   }, []);
@@ -56,51 +58,51 @@ const LogoCard = () => {
   useEffect(() => {
     const mouse = { x: 0, y: 0 };
     const radius = 250;
-    
+
     const handleMouseMove = (e) => {
       mouse.x = e.clientX;
       mouse.y = e.clientY;
-      
+
       logosRef.current.forEach((logo, i) => {
         if (!logo || !logos[i] || logos[i].exemptFromAnimations) return;
-        
+
         const rect = logo.getBoundingClientRect();
         const logoCenterX = rect.left + rect.width / 2;
         const logoCenterY = rect.top + rect.height / 2;
-        
+
         const dx = mouse.x - logoCenterX;
         const dy = mouse.y - logoCenterY;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        
+
         if (distance < radius && distance > 10) {
           const pushStrength = (1 - distance / radius) * 25;
           const angle = Math.atan2(dy, dx);
-          
+
           // Push AWAY from cursor
           gsap.to(logo, {
             x: Math.cos(angle) * -pushStrength,
             y: Math.sin(angle) * -pushStrength,
-            scale: 1.05,
+           // scale: 1.05,
             duration: 0.4,
-            ease: "power2.out",
-            overwrite: "auto"
+            ease: 'power2.out',
+            overwrite: 'auto',
           });
         } else {
           // Return to normal
           gsap.to(logo, {
             x: 0,
             y: 0,
-            scale: 1,
+           // scale: 1,
             duration: 0.6,
-            ease: "elastic.out(1.1, 0.6)",
-            overwrite: "auto"
+            ease: 'elastic.out(1.1, 0.6)',
+            overwrite: 'auto',
           });
         }
       });
     };
-    
+
     window.addEventListener('mousemove', handleMouseMove);
-    
+
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
@@ -110,44 +112,45 @@ const LogoCard = () => {
   const handleLogoClick = async (logo, index) => {
     const clickedLogo = logosRef.current[index];
     if (!clickedLogo) return;
-    
+
     // Create ripple element
     const ripple = document.createElement('div');
     ripple.className = styles.ripple;
     clickedLogo.appendChild(ripple);
-    
+
     // Animate ripple
-    gsap.fromTo(ripple, 
-      { 
-        scale: 0, 
+    gsap.fromTo(
+      ripple,
+      {
+        scale: 0,
         opacity: 1,
         x: '50%',
-        y: '50%'
+        y: '50%',
       },
-      { 
-        scale: 4, 
+      {
+        scale: 4,
         opacity: 0,
         duration: 0.6,
-        ease: "power2.out",
+        ease: 'power2.out',
         onComplete: () => {
           ripple.remove();
-        }
+        },
       }
     );
-    
+
     // Bounce effect on clicked logo
     gsap.to(clickedLogo, {
       scale: 1.2,
       duration: 0.15,
       yoyo: true,
       repeat: 1,
-      ease: "power2.inOut",
-      overwrite: "auto"
+      ease: 'power2.inOut',
+      overwrite: 'auto',
     });
-    
+
     // Wait then open modal
-    await new Promise(resolve => setTimeout(resolve, 400));
-    
+    await new Promise((resolve) => setTimeout(resolve, 400));
+
     setCurrentLogoIndex(index);
     setCurrentLogos(logos);
     openModal(<ModalContent logo={logo} index={index} logos={logos} />);
@@ -156,7 +159,7 @@ const LogoCard = () => {
   // =================== MODAL CONTENT ===================
   const ModalContent = ({ logo, index, logos }) => {
     const [isFading, setIsFading] = useState(true);
-    
+
     useEffect(() => {
       const timer = setTimeout(() => {
         setIsFading(false);
@@ -166,25 +169,38 @@ const LogoCard = () => {
 
     const handleNavigate = (direction) => {
       if (!logos) return;
-      
+
       setIsFading(true);
-      
+
       setTimeout(() => {
-        const newIndex = direction === 'next' 
-          ? (index + 1) % logos.length
-          : (index - 1 + logos.length) % logos.length;
-        
+        const newIndex =
+          direction === 'next'
+            ? (index + 1) % logos.length
+            : (index - 1 + logos.length) % logos.length;
+
         const newLogo = logos[newIndex];
         setCurrentLogoIndex(newIndex);
-        openModal(<ModalContent key={newIndex} logo={newLogo} index={newIndex} logos={logos} />);
+        openModal(
+          <ModalContent
+            key={newIndex}
+            logo={newLogo}
+            index={newIndex}
+            logos={logos}
+          />
+        );
       }, 300);
     };
+
     return (
-      <div className={`${styles.scrollableContent} ${isFading ? styles.fadeOut : ''}`}>
+      <div
+        className={`${styles.scrollableContent} ${
+          isFading ? styles.fadeOut : ''
+        }`}
+      >
         <div className={styles.modalContent} data-logo={logo.id}>
           {/* Navigation arrows */}
           <div className={styles.modalNavigation}>
-            <button 
+            <button
               className={styles.navButton}
               onClick={() => handleNavigate('prev')}
               disabled={logos.length <= 1}
@@ -194,7 +210,7 @@ const LogoCard = () => {
             <span className={styles.navIndicator}>
               {index + 1} / {logos.length}
             </span>
-            <button 
+            <button
               className={styles.navButton}
               onClick={() => handleNavigate('next')}
               disabled={logos.length <= 1}
@@ -207,99 +223,104 @@ const LogoCard = () => {
           </div>
           {/* Client Info Section */}
           <div className={styles.clientInfo}>
-            <span  className={styles.clientText}>{logo.clientText || ''}</span>
+            <span className={styles.clientText}>{logo.clientText || ''}</span>
 
-         
-          {logo.agencyName && (
-            logo.agencyLink ? (
-              <a 
-                href={logo.agencyLink} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className={styles.agencyLink}
-                onClick={(e) => e.stopPropagation()}
+            {logo.agencyName &&
+              (logo.agencyLink ? (
+                <a
+                  href={logo.agencyLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.agencyLink}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {logo.agencyName}
+                </a>
+              ) : (
+                <span style={{ color: 'white' }}>{logo.agencyName}</span>
+              ))}
+            {logo.clientLogo && (
+              <div
+                className={styles.clientLogo}
+                style={
+                  logo.clientLogoHeight
+                    ? { '--logo-height': `${logo.clientLogoHeight}px` }
+                    : {}
+                }
               >
-                {logo.agencyName}
-              </a>
-            ) : (
-              <span style={{ color: 'white' }}>
-                {logo.agencyName}
-              </span>
-            )
-          )}
-           {logo.clientLogo && (
-            <div 
-              className={styles.clientLogo}
-              style={logo.clientLogoHeight ? { '--logo-height': `${logo.clientLogoHeight}px` } : {}}
-            >  |  &nbsp;  &nbsp; &nbsp; 
-              <Image
-                src={logo.clientLogo}
-                alt="Client Logo"
-                width={100}
-                height={40}
-                className={styles.clientLogoImage}
-              />
-            </div>
-          )}
-        </div>
+                {' '}
+                | &nbsp; &nbsp; &nbsp;
+                <Image
+                  src={logo.clientLogo}
+                  alt="Client Logo"
+                  width={100}
+                  height={40}
+                  className={styles.clientLogoImage}
+                />
+              </div>
+            )}
+          </div>
           {logo.description && (
-            <div 
+            <div
               className={styles.modalDescription}
               dangerouslySetInnerHTML={createMarkup(logo.description)}
             />
           )}
-            {logo.video && (
-              <div className={`mux-player-container ${logo.id === 1 ? 'white-bg' : ''}`} style={{ 
-                width: '100%', 
+          {logo.video && (
+            <div
+              className={`mux-player-container ${
+                logo.id === 1 ? 'white-bg' : ''
+              }`}
+              style={{
+                width: '100%',
                 height: '100%',
                 maxWidth: logo.id === 18 ? '600px' : '100%',
                 maxHeight: logo.id === 18 ? '500px' : '100%',
                 aspectRatio: logo.id === 18 ? '5/4' : '16/9',
-                maxWidth: logo.id === 1 ? '100%' : '100%', 
-                maxHeight: logo.id === 1 ? '240px' : '100%',
                 overflow: 'hidden',
                 borderRadius: '8px',
-                position: 'relative'
-              }}>
-                <mux-player
-                  playback-id={logo.video.playbackId}
-                  poster={logo.video.thumbnail}
-                  accent-color={logo.video.accentColor}
-                  primary-color={logo.video.primaryColor}
-                  secondary-color={logo.video.secondaryColor}
-                  disableTracking={true}
-                  disable-tracking
-                  autoplay={false}
-                  controls-list={logo.id === 18 ? 'nodownload' : 'nodownload'}
-                  style={{ 
-                    width: '100%', 
-                    height: '100%',
-                    transform: logo.id === 18 ? 'scale(1.0)' : 'none',
-                    objectFit: 'cover'
-                  }}
-                  controls={logo.id === 18 ? false : true}
-                  muted={logo.id === 18 ? false : false}
-                  loop={logo.id === 18 ? true : false}
-                />
-              </div>
-            )}
+                position: 'relative',
+              }}
+            >
+              <mux-player
+                playback-id={logo.video.playbackId}
+                poster={logo.video.thumbnail}
+                accent-color={logo.video.accentColor}
+                primary-color={logo.video.primaryColor}
+                secondary-color={logo.video.secondaryColor}
+                disableTracking={true}
+                disable-tracking
+                autoplay={false}
+                controls-list={logo.id === 18 ? 'nodownload' : 'nodownload'}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  transform: logo.id === 18 ? 'scale(1.0)' : 'none',
+                  objectFit: 'cover',
+                }}
+                controls={logo.id === 18 ? false : true}
+                muted={logo.id === 18 ? false : false}
+                loop={logo.id === 18 ? true : false}
+              />
+            </div>
+          )}
           {logo.description2 && (
-            <div 
-    className={`${styles.modalDescription} ${styles.secondaryDescription}`}
-        dangerouslySetInnerHTML={createMarkup(logo.description2)}
+            <div
+              className={`${styles.modalDescription} ${styles.secondaryDescription}`}
+              dangerouslySetInnerHTML={createMarkup(logo.description2)}
             />
           )}
         </div>
-        
+
         {/* Bottom Navigation arrows */}
-        <div 
+        <div
           className={`${styles.modalNavigation} ${styles.bottomNavigation}`}
           style={{
-            left: '0', 
-            marginLeft: '0'
+            left: '0',
+            marginLeft: '0',
           }}
         >
-          <button 
+          <button
             className={styles.navButton}
             onClick={() => handleNavigate('prev')}
             disabled={logos.length <= 1}
@@ -309,7 +330,7 @@ const LogoCard = () => {
           <span className={styles.navIndicator}>
             {index + 1} / {logos.length}
           </span>
-          <button 
+          <button
             className={styles.navButton}
             onClick={() => handleNavigate('next')}
             disabled={logos.length <= 1}
@@ -322,7 +343,10 @@ const LogoCard = () => {
   };
 
   const logos = [
-    { id: 1, src: '/images/mini/airbus.jpg', alt: 'Logo 2', 
+    {
+      id: 1,
+      src: '/images/mini/airbus.svg',
+      alt: 'Logo 2',
       title: 'Airbus Group Digital Interfaces',
       clientText: `Agency:`,
       clientLogo: '/images/agencies/SMMD.png',
@@ -330,19 +354,19 @@ const LogoCard = () => {
       agencyName: 'SMMD Team',
       //agencyLink: '',
       exemptFromAnimations: false,
-       video: {
+      video: {
         playbackId: '8UuN9JNltg9BwDO1SAAbvKn6vyq2u7vdgwScfVXLUk8',
         title: 'MTU Aero Engines',
         userId: 'user-id-007',
         accentColor: 'transparent',
         primaryColor: '#82a7b3',
         secondaryColor: 'transparent',
-        thumbnail: 'https://image.mux.com/8UuN9JNltg9BwDO1SAAbvKn6vyq2u7vdgwScfVXLUk8/thumbnail.png?width=960&height=360&time=10'
+        thumbnail:
+          'https://image.mux.com/8UuN9JNltg9BwDO1SAAbvKn6vyq2u7vdgwScfVXLUk8/thumbnail.png?width=960&height=360&time=10',
       },
       description: `
       <img src="/images/airbus_berlin/table0.jpg" alt="Airbus Munich Showroom" style="width: 100%; margin: 1rem 0; border-radius: 2px;" />
 
-    
       <p><strong>The Mission:</strong> Airbus Group required a next-generation digital interface for its most important spaces: its International Headquarters in Berlin and its premier Showroom in Munich. The mandate was to create interactive, multi-sensory experiences that could communicate the complexity and ambition of aerospace innovation to VIPs, partners, and policymakers.</p>
 
       <p><strong>My Role:</strong> Lead Digital Experience Designer & Developer.</p>
@@ -355,13 +379,8 @@ const LogoCard = () => {
       <p><strong>Longevity: </strong> This has been consistantly updated and in use for ten years. </p>
 
       <img src="/images/airbus_berlin/table6.jpg" alt="Airbus Munich Showroom" style="width: 100%; margin: 1rem 0; border-radius: 2px;" />
-
-    
-
-
-      
     `,
-    description2: `
+      description2: `
     <p style="margin-top: 3rem;"><strong>2. </strong> Visual Spectacles: Munich Large-Format Video Features.<br>
       <strong>Challenge:</strong> Provide awe-inspiring ambient narrative and brand moments.<br>
       <strong>Solution:</strong> Produced a suite of large-scale, multi-monitor video features. This included a complex 3D animated sequence visualizing flight dynamics across a range of products, and a stylized 2D motion graphics piece celebrating engineering milestones, both rendered in ultra-high resolution for close viewing.</p><br>
@@ -372,15 +391,15 @@ const LogoCard = () => {
         <li><p>Helped establish a new standard for corporate engagement, merging tactile interaction with cinematic narrative.</p></li>
         <li><p>Demonstrated end-to-end mastery across the digital spectrum: from functional enterprise UIX to emotive brand spectacle.</p></li>
         <li><p>Translated Airbus's engineering marvel into visceral, interactive experiences that made corporate vision tangible for VIPs and decision-makers.</p></li>
-        
-    
       </ul>
       <img src="/images/airbus_ottobrunn/video/8.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
-`
-  },   
- 
-  {   id: 2,
-           src: '/images/mini/airbus.jpg', alt: 'Logo 2', 
+`,
+    },
+
+    {
+      id: 2,
+      src: '/images/mini/airbus.svg',
+      alt: 'Logo 2',
       title: 'Airbus Group Digital Interfaces',
       clientText: `Agency:   VRPE`,
       clientLogo: '/images/agencies/vrpe_logoNew.png',
@@ -400,12 +419,14 @@ const LogoCard = () => {
          <img src="/images/airbus_ottobrunn/airbus_66B.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
 
     `,
-    description2: ``
-  },   
-   {   id: 3, src: '/images/mini/aeromtu.jpg', 
-        alt: 'Logo 1', 
-        title: 'Digital Experiences for MTU Aero Engines',
-        
+      description2: ``,
+    },
+    {
+      id: 3,
+      src: '/images/mini/aeromtu.svg',
+      alt: 'Logo 1',
+      title: 'Digital Experiences for MTU Aero Engines',
+
       clientText: `Agency:   VRPE`,
       clientLogo: '/images/agencies/vrpe_logoNew.png',
       clientLogoHeight: 15,
@@ -425,21 +446,25 @@ const LogoCard = () => {
       <img src="/images/mtu6.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
    
     `,
-     video: {
+      video: {
         playbackId: 'SnN00m01uyBae8LPAZuNlKXY5nzn01ELE600rh1lA98lKf8',
         title: 'MTU Aero Engines',
         userId: 'user-id-007',
         accentColor: 'transparent',
         primaryColor: '#82a7b3',
         secondaryColor: 'transparent',
-        thumbnail: 'https://image.mux.com/SnN00m01uyBae8LPAZuNlKXY5nzn01ELE600rh1lA98lKf8/thumbnail.png?width=960&height=540&time=4'
+        thumbnail:
+          'https://image.mux.com/SnN00m01uyBae8LPAZuNlKXY5nzn01ELE600rh1lA98lKf8/thumbnail.png?width=960&height=540&time=4',
       },
-    description2: `      
+      description2: `      
     <img src="/images/mtu2.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
             <img src="/images/mtu7.jpg" alt="Actual Still frame from motion footage" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
-`
-  },            
-    { id: 4, src: '/images/mini/audi.jpg', alt: 'Logo 4', 
+`,
+    },
+    {
+      id: 4,
+      src: '/images/mini/audi.svg',
+      alt: 'Logo 4',
       title: 'Audi Nuremberg & Audi Middle East',
       clientText: `Agency:`,
       clientLogo: '/images/agencies/planstand_logo.png',
@@ -468,9 +493,12 @@ const LogoCard = () => {
 
             
     `,
-    description2: ``
-  },
-    { id: 5, src: '/images/mini/automerc4.jpg', alt: 'Logo 5', 
+      description2: ``,
+    },
+    {
+      id: 5,
+      src: '/images/mini/automerc4.svg',
+      alt: 'Logo 5',
       title: 'Mercedes-Benz Product Design & Visual Development',
       clientText: `Agency: `,
       clientLogo: '/images/agencies/sw_neu_white.png',
@@ -500,18 +528,22 @@ const LogoCard = () => {
             <img src="/images/mercedes1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
            <img src="/images/mercedes2.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
     `,
-     video: {
+      video: {
         playbackId: 'jmYPtgcoLfFSHsvUp13YHgwHY7UIqL8aPkcL8x01RHGY',
         title: 'Mercedes Benz Procat',
         userId: 'user-id-007',
         accentColor: 'transparent',
         primaryColor: '#82a7b3',
         secondaryColor: 'transparent',
-        thumbnail: 'https://image.mux.com/jmYPtgcoLfFSHsvUp13YHgwHY7UIqL8aPkcL8x01RHGY/thumbnail.png?time=3&width=960&height=540'
+        thumbnail:
+          'https://image.mux.com/jmYPtgcoLfFSHsvUp13YHgwHY7UIqL8aPkcL8x01RHGY/thumbnail.png?time=3&width=960&height=540',
       },
-    description2: ``
-  },
-    { id: 6, src: '/images/mini/bmw.jpg', alt: 'Logo 6', 
+      description2: ``,
+    },
+    {
+      id: 6,
+      src: '/images/mini/bmw.svg',
+      alt: 'Logo 6',
       title: 'BMW Group',
       clientText: `Agency: `,
       clientLogo: '/images/agencies/Becc_wht.png',
@@ -548,20 +580,19 @@ const LogoCard = () => {
       <p><strong>Role:</strong> 3D Experience Director / Animation Concept / Motion Design /&nbsp;Rendering</p>
       <p><strong>Outcome: </strong>Translated an existing 2D typographic campaign into a commanding environmental experience for the multi-monitor video wall at for BMW's nerve center, their global headquarters in Munich. Conceptualized, designed, and rendered in Cinema4D to create a dynamic, large-scale brand statement a dynamic brand monument visible to every executive and visitor.</p>
       <p><strong>Tech:</strong> Cinema4D, Corona Render, After Effects, High-res pipeline.</p><br><br>
-
-
-
-
     `,
-    description2: ``
-  },
-    { id: 7, src: '/images/mini/autotoyota.jpg', alt: 'Logo 7', 
+      description2: ``,
+    },
+    {
+      id: 7,
+      src: '/images/mini/autotoyota.jpg',
+      alt: 'Logo 7',
       title: 'Toyota at the International Motor Show, Frankfurt (IAA)',
       clientText: `Agency: `,
       clientLogo: '/images/agencies/Becc_wht.png',
       clientLogoHeight: 45,
       agencyName: 'BECC Agency',
-     // agencyLink: 'https://www.becc-agency.com',
+      // agencyLink: 'https://www.becc-agency.com',
       exemptFromAnimations: false,
       description: `
       <p><strong>Project:</strong> Immersive 3D Animation Concept for Gigantic Screen<br><br>
@@ -574,10 +605,14 @@ const LogoCard = () => {
       <strong>Role:</strong> Animation Concept Designer and Motion Developer<br>
       <strong>Tech:</strong> After Effects, Red Giant</p>
     `,
-    description2: ``
-  },
-    { id: 8, src: '/images/mini/autoTuvB.jpg', alt: 'Logo 8', 
-      title: 'TÜV SÜD - Visualizing Safety & Strategy for a Global Certification Leader',
+      description2: ``,
+    },
+    {
+      id: 8,
+      src: '/images/mini/autoTuvB.svg',
+      alt: 'Logo 8',
+      title:
+        'TÜV SÜD - Visualizing Safety & Strategy for a Global Certification Leader',
       clientText: `Agency: `,
       clientLogo: '/images/agencies/sw_neu_white.png',
       clientLogoHeight: 25,
@@ -600,9 +635,12 @@ const LogoCard = () => {
 
           <p><strong>Outcome:</strong> Provided a robust, flexible animation toolkit that elevated TÜV SÜD&apos;s communication, allowing them to explain intricate technical and strategic topics with clarity, authority, and visual impact.</p>
     `,
-    description2: ``
-  },
-{ id: 18, src: '/images/mini/strellson.jpg', alt: 'Logo 18' , 
+      description2: ``,
+    },
+    {
+      id: 18,
+      src: '/images/mini/strellson.jpg',
+      alt: 'Logo 18',
       title: 'Strellson Digital Brand Atmosphere',
       clientText: `Agency: `,
       clientLogo: '/images/agencies/coma2_logo.png',
@@ -619,19 +657,23 @@ const LogoCard = () => {
 
  
     `,
-     video: {
+      video: {
         playbackId: 'KprssZj01q3fxYtOoimOn4VgnkvzYN802lB4W1rejQ4NM',
         title: 'Strellson1',
         userId: 'user-id-007',
         accentColor: 'transparent',
         primaryColor: '#82a7b3',
         secondaryColor: 'transparent',
-        thumbnail: 'https://image.mux.com/KprssZj01q3fxYtOoimOn4VgnkvzYN802lB4W1rejQ4NM/thumbnail.png?width=480&height=270&time=18'
+        thumbnail:
+          'https://image.mux.com/KprssZj01q3fxYtOoimOn4VgnkvzYN802lB4W1rejQ4NM/thumbnail.png?width=480&height=270&time=18',
       },
-    description2: ``
-   },
-    { id: 9, src: '/images/mini/spiegel.jpg', alt: 'Spiegel TV', 
-       title: ' Digital Brand Architect for Spiegel TV Channels',
+      description2: ``,
+    },
+    {
+      id: 9,
+      src: '/images/mini/spiegel.jpg',
+      alt: 'Spiegel TV',
+      title: ' Digital Brand Architect for Spiegel TV Channels',
       clientText: `Distributor: `,
       clientLogo: '/images/agencies/spiegeltvlogo.png',
       clientLogoHeight: 25,
@@ -658,24 +700,25 @@ const LogoCard = () => {
       
       </ul>
 
-
-
       <p><strong>Impact:</strong> Delivered the definitive digital homes for two major Spiegel TV brands, blending strategic media insight with hands-on design and technical execution.</p>
 
         <img src="/images/SGA_1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
         <img src="/images/SGA_2.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
         <img src="/images/SGA_3.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
     `,
-    description2: `` 
-   },
+      description2: ``,
+    },
 
-       { id: 10, src: '/images/mini/rb.jpg', alt: 'Red Bull TV', 
-       title: 'Red Bull Austria: Early Digital Experiences for a Media Pioneer',
+    {
+      id: 10,
+      src: '/images/mini/rb.jpg',
+      alt: 'Red Bull TV',
+      title: 'Red Bull Austria: Early Digital Experiences for a Media Pioneer',
       clientText: `Client: `,
       clientLogo: '/images/agencies/redBull.png',
       clientLogoHeight: 25,
       agencyName: 'Red Bull Austria',
-     /// agencyLink: 'https://www.redbull.com/',
+      /// agencyLink: 'https://www.redbull.com/',
       exemptFromAnimations: false,
       description: `
       <p><strong>The Client & Era:</strong> In the mid-2000s, Red Bull was transitioning from an energy drink company into a global media powerhouse and culture brand. Their digital presence needed to match their high-octane, experiential identity.</p><br>
@@ -695,57 +738,69 @@ const LogoCard = () => {
         I was entrusted with creating the digital centerpiece for this internal shift—an interactive intranet experience that would define and showcase Red Bull’s emerging digital media strategy.
       <p><strong>Tech:</strong> Macromedia Flash, Adobe Suite</p>
     `,
-    description2: `` 
-   },
-    { id: 11, src: '/images/mini/pro7.jpg', alt: 'Logo 11', 
-       title: 'Online Ad Campaigns',
+      description2: ``,
+    },
+    {
+      id: 11,
+      src: '/images/mini/pro7.jpg',
+      alt: 'Logo 11',
+      title: 'Online Ad Campaigns',
       clientText: `Direct Client: `,
       clientLogo: '/images/agencies/pro7_small2.png',
       clientLogoHeight: 25,
       agencyName: 'Pro7Sat1',
       //agencyLink: 'https://www.prosiebensat1.com/en',
       exemptFromAnimations: false,
-        description: `
+      description: `
       <p><strong>Projects:</strong> Promotional Assets for Major Motion Pictures / Local TV Shows / Video Games</p><br>
     <p>Developed digital assets for advertising campaigns for theatrical releases as part of integrated on-air promotions for the Pro7Sat1 Media Group.<br></p>
      <p><strong>Role:</strong> Design, Motion, Programming<br></p>
     `,
-    description2: `` 
-   },
-    { id: 12, src: '/images/mini/sburda.jpg', alt: 'Logo 12', 
-       title: 'Burda Presentations',
+      description2: ``,
+    },
+    {
+      id: 12,
+      src: '/images/mini/sburda.jpg',
+      alt: 'Logo 12',
+      title: 'Burda Presentations',
       clientText: `Direct Client:`,
       clientLogo: '/images/agencies/HBM.png',
       clientLogoHeight: 45,
       agencyName: 'Burda',
       //agencyLink: 'https://www.burda.com/en/',
       exemptFromAnimations: false,
- description: `
+      description: `
       <p><strong>Projects:</strong> Interactive Presentations and Internal Strategy Showcases<br></p>
       <p>Burda New Media presentations by the Marketing Manager to promote his ideas and strategies internally for various digital media initiatives.</p><br>
      <p><strong>Role:</strong> Visual Concept (CI adapted), Design, Animation, Programming<br></p>
     `,
-    description2: `` 
-   },
-    { id: 13, src: '/images/mini/fsecure.jpg', alt: 'Logo 13' , 
-       title: 'F-Secure Interactive Presentations / Video Animations',
+      description2: ``,
+    },
+    {
+      id: 13,
+      src: '/images/mini/fsecure.jpg',
+      alt: 'Logo 13',
+      title: 'F-Secure Interactive Presentations / Video Animations',
       clientText: `Agency: `,
       clientLogo: '/images/agencies/publicorange.png',
       clientLogoHeight: 25,
       agencyName: 'Publicorange',
       //agencyLink: 'https://www.publicorange.com',
       exemptFromAnimations: false,
- description: `
+      description: `
       <p><strong>Project 1: </strong> Security Suite Interactive Presentations  <br>
       <strong>Role:</strong> Interactivity<br></p>
 
       <p><strong>Project 2: </strong>  Security Suite Videos <br>
       <strong>Role:</strong> Animation<br></p>
     `,
-    description2: `` 
-   },
-    { id: 14, src: '/images/mini/swisscom.jpg', alt: 'Logo 14' , 
-       title: 'Swisscom Installer Package',
+      description2: ``,
+    },
+    {
+      id: 14,
+      src: '/images/mini/swisscom.jpg',
+      alt: 'Logo 14',
+      title: 'Swisscom Installer Package',
       clientText: `Agency: `,
       clientLogo: '/images/agencies/publicorange.png',
       clientLogoHeight: 25,
@@ -758,9 +813,12 @@ const LogoCard = () => {
       <p><strong>Value:</strong> Reduced customer setup friction and provided a branded, guided first touchpoint with the service.</p>
       <p><strong>Role:</strong>  Design, Programming<br></p>
     `,
-    description2: `` 
-   },
-    { id: 15, src: '/images/mini/ds.jpg', alt: 'Logo 15',
+      description2: ``,
+    },
+    {
+      id: 15,
+      src: '/images/mini/ds.jpg',
+      alt: 'Logo 15',
       title: 'Teaser Website For a Videogame',
       clientText: `Agency: `,
       clientLogo: '/images/agencies/publicorange.png',
@@ -768,7 +826,7 @@ const LogoCard = () => {
       agencyName: 'Publicorange',
       //agencyLink: 'https://www.publicorange.com',
       exemptFromAnimations: false,
- description: `
+      description: `
       <p><strong>Project 1:</strong> Risen 2 Teaser Website. A roughly 23K pixel wide parallax scroller made with animated graphical assets from the game. It was cut up into various segments and had to be finely controlled for memory mitigation.<br></p>
       <p><strong>Role:</strong> Concept, Design, Programming<br></p>
 
@@ -778,12 +836,13 @@ const LogoCard = () => {
 
      <p><strong>Project 2:</strong> The official website for Horse Life 2, featuring interactive elements and game previews with interactive graphical elements recreated & animated from the game.<br></p>
      <p><strong>Role:</strong> Solo Concept, Sole Designer, Sole Coder<br></p>
-
-
     `,
-    description2: `` 
-   },
-    { id: 16, src: '/images/mini/siemens.jpg', alt: 'Logo 16', 
+      description2: ``,
+    },
+    {
+      id: 16,
+      src: '/images/mini/siemens.jpg',
+      alt: 'Logo 16',
       title: 'Siemens Global: Interactive Technology Explainer',
       clientText: `Agency: `,
       clientLogo: '/images/agencies/fiction-films.png',
@@ -791,20 +850,23 @@ const LogoCard = () => {
       agencyName: 'FictionFilms',
       //agencyLink: 'https://www.fiction-films.com',
       exemptFromAnimations: false,
- description: `
+      description: `
       <p><strong>Project 1:</strong> Interactive infopage about washing machine technology for the global siemens website.<br></p>
       <p><strong>My Role:</strong> Interactive Developer – programmed the animated interface and interactive diagrams.</p>
       <p><strong>Outcome:</strong> The interactive elements helped users better understand complex washing technology through visual exploration.</p>
     `,
-    description2: `` 
-   },
-    { id: 17, src: '/images/mini/hp.jpg', alt: 'Logo 17' , 
+      description2: ``,
+    },
+    {
+      id: 17,
+      src: '/images/mini/hp.jpg',
+      alt: 'Logo 17',
       title: 'HP Digital Global Campaign Solutions',
       clientText: `Agency: PepperGlobal`,
       clientLogo: '/images/agencies/pepper_logo.png',
       clientLogoHeight: 25,
-      agencyName: 'Pepper Global', 
- description: `
+      agencyName: 'Pepper Global',
+      description: `
       <p><strong>Scope:</strong> Global digital campaign deliverables for Hewlett Packard (HP), including interactive presentations & motion graphics tailored to fit seamlessly into a given campaign's visual identity, animated explainers, and motion graphics. Additionally, created flagship brand animations for Pepper Global's own agency promotion.</p>
       <p><strong>Role:</strong> Lead Concept, Design, and Development. Translated HP's core campaign look & feel into sophisticated, audio-driven animated films and interactive experiences used in global sales and marketing initiatives.</p><br>
       <p><strong>Outcome:</strong> These assets became the standard digital presentation format for HP's global sales teams for the duration of the campaign.</p><br>
@@ -814,10 +876,13 @@ const LogoCard = () => {
                 <img src="/images/hp5.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
                         <img src="/images/hp1.jpg" alt="Airbus Munich Showroom" style="width: 100%;  margin: 1rem 0; border-radius: 2px;" />
     `,
-    description2: `` 
-   },
-    
-     { id: 19, src: '/images/mini/twenty.jpg', alt: 'Logo 19' , 
+      description2: ``,
+    },
+
+    {
+      id: 19,
+      src: '/images/mini/twenty.jpg',
+      alt: 'Logo 19',
       title: 'Motion Picture Digital Delivarables',
       clientText: `Agency: `,
       clientLogo: '/images/agencies/nt2.png',
@@ -825,60 +890,67 @@ const LogoCard = () => {
       agencyName: 'NakedToast',
       // agencyLink: 'https://www.nakedtoast.com',
       exemptFromAnimations: false,
- description: `
+      description: `
       <p><strong>Projects:</strong> Landingpages / Digital Campaign Deliverables for Motion Pictures.<br></p>
       <p><strong>Role:</strong> Concept, Design, Programming<br></p>
       <p>Developed high-impact digital marketing components for global theatrical releases from leading studios. Work included promotional microsites, interactive landing pages, and animated banner ad suites—all designed under strict NDA for unreleased film properties.</p>
     `,
-    description2: `` 
-   },
-    { id: 20, src: '/images/mini/universal.jpg', alt: 'Logo 20' , 
+      description2: ``,
+    },
+    {
+      id: 20,
+      src: '/images/mini/universal.jpg',
+      alt: 'Logo 20',
       title: 'Marketing Assets for Motion Pictures',
       clientText: `Agency: `,
       clientLogo: '/images/agencies/nt2.png',
       clientLogoHeight: 65,
       agencyName: 'NakedToast',
-       //agencyLink: 'https://www.nakedtoast.com',
+      //agencyLink: 'https://www.nakedtoast.com',
       exemptFromAnimations: false,
- description: `
+      description: `
       <p><strong>Campaigns:</strong> Digital launch assets for major theatrical releases.</p>
         <p><strong>Challenge:</strong> Create captivating, campaign-specific digital experiences under strict NDA and brand guidelines to build anticipation pre-release.</p>
         <p><strong>My Role:</strong> Lead Interactive Designer & Developer – conceptualized and built promotional microsites, interactive landing pages, and animated ad suites.</p>
         <p><strong>Key Deliverables:</strong> One-page scroll experiences, interactive video teasers, rich media banners.</p>
         <p><strong>Tech:</strong> HTML5, CSS3, JavaScript (GSAP), Adobe Creative Suite.</p>
     `,
-    description2: `` 
-   },
-    { id: 21, src: '/images/mini/wb.jpg', alt: 'Logo 21' , 
-      title: 'Advertising Assets / Campaign Deliverables for Motion Pictures',
+      description2: ``,
+    },
+    {
+      id: 21,
+      src: '/images/mini/wb.jpg',
+      alt: 'Logo 21',
+      title:
+        'Advertising Assets / Campaign Deliverables for Motion Pictures',
       clientText: `Agency: `,
       clientLogo: '/images/agencies/nt2.png',
       clientLogoHeight: 65,
       agencyName: 'NakedToast',
-       //agencyLink: 'https://www.nakedtoast.com',
+      //agencyLink: 'https://www.nakedtoast.com',
       exemptFromAnimations: false,
- description: `
+      description: `
       <p><strong>Campaigns:</strong> Digital launch assets for major theatrical releases.</p>
         <p><strong>Challenge:</strong> Create captivating, campaign-specific digital experiences under strict NDA and brand guidelines to build anticipation pre-release.</p>
         <p><strong>My Role:</strong> Lead Interactive Designer & Developer – conceptualized and built promotional microsites, interactive landing pages, and animated ad suites.</p>
         <p><strong>Key Deliverables:</strong> One-page scroll experiences, interactive video teasers, rich media banners.</p>
         <p><strong>Tech:</strong> HTML5, CSS3, JavaScript (GSAP), Adobe Creative Suite.</p>
     `,
-    description2: `` 
-   },
+      description2: ``,
+    },
   ];
 
   return (
     <div ref={containerRef} className={styles.logoContainer}>
       {logos.map((logo, index) => (
-        <div 
-          key={logo.id} 
-          ref={(el) => logosRef.current[index] = el}
+        <div
+          key={logo.id}
+          ref={(el) => (logosRef.current[index] = el)}
           className={styles.logoCard}
           onClick={() => handleLogoClick(logo, index)}
           style={{
-            willChange: 'transform', // Performance hint
-            transformStyle: 'preserve-3d'
+          //  willChange: 'transform', // Performance hint
+            transformStyle: 'preserve-3d',
           }}
         >
           <div className={styles.logoWrapper}>
@@ -889,11 +961,12 @@ const LogoCard = () => {
               height={150}
               className={styles.logoImage}
               priority={logo.id <= 6} // Only preload first 6 images
+              unoptimized={logo.src.endsWith('.svg')} // SVGs bypass the optimizer
             />
           </div>
-           <div className={styles.agencyName}>
-    {logo.agencyName || 'Agency Name'}
-  </div>
+          <div className={styles.agencyName}>
+            {logo.agencyName || 'Agency Name'}
+          </div>
         </div>
       ))}
     </div>

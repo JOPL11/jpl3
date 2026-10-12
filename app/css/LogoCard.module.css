@@ -52,6 +52,7 @@
   height: 100%;
   padding: 0; /* Remove wrapper padding */
   margin: 0;  /* Remove any margins */
+  will-change: auto;
 }
 
 /* Logo Image */
@@ -61,6 +62,8 @@
   height: auto;
   object-fit: contain;
   filter: grayscale(10%) brightness(1.5);
+   shape-rendering: geometricPrecision;  /* <-- key for SVG crispness */
+  image-rendering: -webkit-optimize-contrast;
   transition: all 0.3s ease;
 }
 
@@ -68,6 +71,7 @@
 .logoCard:hover .logoImage {
   filter: grayscale(0%) brightness(2);
   transform: scale(1.05);
+  will-change: transform;
 }
 .logoCard:hover .logoWrapper{
   filter: grayscale(0%);
