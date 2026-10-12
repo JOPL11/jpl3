@@ -1852,3 +1852,30 @@ a.secondary {
 .projectImage.deformImage {
   overflow: visible;
 }
+
+/* ─── Full-bleed 3D logo header ─────────────────────────────────────────
+   The 3D canvas is a tall layer (z-index: -1) anchored to the top of the page.
+   For it to paint BEHIND the page content, no ancestor between it and
+   .content-wrapper may create its own stacking context, and the transparent
+   layout wrappers in front of it must let pointer events fall through. */
+.logoSidebar {
+  z-index: auto;               /* was 1: stacking context that put the canvas above the text */
+}
+.contentLogo {
+  z-index: auto;               /* was 1 */
+  filter: none;                /* a fully transparent drop-shadow still creates a stacking context */
+}
+
+/* Pointer events pass through the empty wrappers to the canvas behind them
+   (for the logo's hover / click), while real content opts back in. */
+.main,
+.contentWrapper,
+.logoSidebar {
+  pointer-events: none;
+}
+.contentWrapper > * {
+  pointer-events: auto;
+}
+.contentWrapper > .logoSidebar {
+  pointer-events: none;
+}

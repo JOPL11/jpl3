@@ -122,16 +122,23 @@ a {
 }
 
 h1, h3, h4, h5, h6,
-p, button, input, textarea, select {
+button, input, textarea, select {
   font-family: var(--font-grotesk);
   text-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+  font-weight: 500;
+}
+
+p {
+  font-family: var(--font-inter);
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+  font-weight: 300;
 }
 
 h2 {
-  font-family: var(--font-inter);
+  font-family: var(--font-grotesk);
   text-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
   font-size: 2.35rem;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 @media (prefers-color-scheme: dark) {

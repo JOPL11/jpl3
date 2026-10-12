@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, Suspense, useRef, useMemo, useCallback } from 'react';
+import { useEffect, useLayoutEffect, useState, Suspense, useRef, useMemo, useCallback } from 'react';
 import Image from 'next/image';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, useGLTF, useTexture } from '@react-three/drei';
@@ -764,14 +764,102 @@ const LoadingBar = ({ width = 80 }) => {
   );
 };
 
-export default function Logo3D({ width = '100vw', height = 350, className = '', onContextLost }) {
+// ─── Full-bleed header ─────────────────────────────────────
+// With FULL_BLEED the 3D canvas is a 100vw × (mount-time viewport height) layer
+// that sits BEHIND the page content and scrolls with the page, while this
+// component's own layout box keeps its original size (width 100vw × height + 25),
+// so the page structure and spacing don't change. Set to false to roll back to
+// the original in-flow canvas.
+const FULL_BLEED = true;
+const BASE_CAMERA_Z = 4.7; // must match the <Canvas camera> position below
+const BASE_FOV = 45;       // must match the <Canvas camera> fov below
+
+// Keeps the logo exactly the same size and position on screen while the canvas
+// grows taller: the camera's world-units-per-pixel stays constant (so the fov
+// widens with the canvas height), and a view offset slides the frustum so the
+// origin lands `originY` px from the top of the canvas (where it used to be).
+function FullBleedCamera({ baseHeight, originY }) {
+  const camera = useThree((state) => state.camera);
+  const size = useThree((state) => state.size);
+
+  useLayoutEffect(() => {
+    if (!camera.isPerspectiveCamera || !size.width || !size.height) return;
+    const d = BASE_CAMERA_Z;
+    const unitsPerPx = (2 * d * Math.tan(THREE.MathUtils.degToRad(BASE_FOV / 2))) / baseHeight;
+    camera.fov = THREE.MathUtils.radToDeg(2 * Math.atan((unitsPerPx * size.height) / 2 / d));
+    camera.setViewOffset(size.width, size.height, 0, size.height / 2 - originY, size.width, size.height);
+    camera.updateProjectionMatrix();
+    return () => {
+      camera.clearViewOffset();
+      camera.fov = BASE_FOV;
+      camera.updateProjectionMatrix();
+    };
+  }, [camera, size.width, size.height, baseHeight, originY]);
+
+  return null;
+}
+
+export default function Logo3D({ width = '100vw', height = 350, className = '', onContextLost, fullBleed = FULL_BLEED }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const isIOS = useMemo(detectIOS, []);
   const canvasRef = useRef();
   const isMobile = useMobileDetect();
   const rendererRef = useRef();
   const resizeTimeout = useRef();
-  
+
+  // ── Full-bleed layer measurements ──
+  const boxRef = useRef(null);     // this component's own layout box (keeps its footprint)
+  const layerRef = useRef(null);   // the tall canvas layer
+  const [layerH, setLayerH] = useState(0);     // layer height in px (the viewport height at mount)
+  const [layerTop, setLayerTop] = useState(0); // page Y of the box top; the layer starts at page Y = 0
+  const [inView, setInView] = useState(true);
+
+  // "Mounted dvh": the height is captured at mount and re-measured when the width
+  // changes (rotation / window resize). On touch devices the URL bar changes
+  // innerHeight while scrolling, and re-sizing a WebGL canvas for that would
+  // flicker, so there only a width change counts.
+  useLayoutEffect(() => {
+    if (!fullBleed) return;
+    const box = boxRef.current;
+    if (!box) return;
+    const coarse = window.matchMedia('(pointer: coarse)').matches;
+    let lastW = window.innerWidth;
+
+    const measure = (force) => {
+      const w = window.innerWidth;
+      if (force === true || !coarse || w !== lastW) {
+        setLayerH(window.innerHeight);
+        lastW = w;
+      }
+      setLayerTop(Math.round(box.getBoundingClientRect().top + window.scrollY));
+    };
+
+    measure(true);
+    const ro = new ResizeObserver(() => measure(false));
+    ro.observe(box);
+    ro.observe(document.body); // content above the logo can change the box's page position
+    const onResize = () => measure(false);
+    const onOrient = () => setTimeout(() => measure(true), 250);
+    window.addEventListener('resize', onResize);
+    window.addEventListener('orientationchange', onOrient);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', onResize);
+      window.removeEventListener('orientationchange', onOrient);
+    };
+  }, [fullBleed]);
+
+  // The layer scrolls away with the page; stop rendering the heavy scene (bloom +
+  // SMAA) once it's off-screen.
+  useEffect(() => {
+    if (!fullBleed || !layerH) return;
+    const el = layerRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), { rootMargin: '120px 0px' });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [fullBleed, layerH]);
+
   // Force explicit desktop dimensions for problematic browsers
   const isLibreWolf = typeof window !== 'undefined' && window.navigator.userAgent.includes('LibreWolf');
   const desktopWidth = isLibreWolf ? '100vw' : (width === '100vw' ? window.innerWidth : width);
@@ -855,6 +943,7 @@ const handleResize = useCallback(() => {
 
   return (
     <div 
+      ref={boxRef}
       className={`${styles.logoContainer} ${className}`} 
       style={{ 
           width: isLibreWolf ? `${desktopWidth}px` : '100vw', 
@@ -866,17 +955,19 @@ const handleResize = useCallback(() => {
           visibility: isLoaded ? 'visible' : 'visible',
           maxWidth: 'none', // Add this
           minWidth: isLibreWolf ? `${desktopWidth}px` : '100vw', // Add this
-          ...(isIOS && IOS_TWEAKS.clipAndIsolate ? {
+          ...(!fullBleed && isIOS && IOS_TWEAKS.clipAndIsolate ? {
             overflow: 'hidden',
             isolation: 'isolate',
           } : null),
-          ...(isIOS && IOS_TWEAKS.edgeFeather ? {
+          ...(!fullBleed && isIOS && IOS_TWEAKS.edgeFeather ? {
             WebkitMaskImage: 'linear-gradient(to bottom, transparent 0, #000 12%, #000 88%, transparent 100%)',
             maskImage: 'linear-gradient(to bottom, transparent 0, #000 12%, #000 88%, transparent 100%)',
           } : null),
       }}
     >
       {!isLoaded && <LoadingBar width={width} />}
+      {(() => {
+      const canvasNode = (
       <Canvas 
         ref={canvasRef}
         className={styles.canvasContainer}
@@ -890,7 +981,9 @@ const handleResize = useCallback(() => {
           stencil: false,
           depth: true,
         }}
-        dpr={isMobile ? 1 : [1, 2]}
+        // the full-bleed canvas has ~2.4x the pixels, so cap the pixel ratio a bit lower
+        dpr={isMobile ? 1 : (fullBleed ? [1, 1.5] : [1, 2])}
+        frameloop={fullBleed && !inView ? 'demand' : 'always'}
         onCreated={({ gl, scene }) => {
           setIsLoaded(true);
           gl.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1 : 2));
@@ -924,6 +1017,7 @@ const handleResize = useCallback(() => {
         }}
       >
         <color attach="background" args={[0x000000, 0]} />
+        {fullBleed && <FullBleedCamera baseHeight={height + 25} originY={layerTop + (height + 25) / 2} />}
         <Suspense fallback={null}>
      {/*       {!isMobile && (
             <>
@@ -975,6 +1069,41 @@ const handleResize = useCallback(() => {
         />
         {isIOS && IOS_TWEAKS.panYTouchAction && <IOSTouchAction />}
       </Canvas>
+      );
+
+      if (!fullBleed) return canvasNode;
+      if (!layerH) return null; // not measured yet
+
+      // The tall layer: anchored to the top of the PAGE (not the box), centred on
+      // the viewport width, painted behind the page content (z-index -1; the page
+      // CSS must not trap it in a stacking context above the content), and
+      // pointer-events enabled so the logo's hover/click still works through the
+      // transparent wrappers in front of it.
+      return (
+        <div
+          ref={layerRef}
+          style={{
+            position: 'absolute',
+            left: '50%',
+            top: -layerTop,
+            width: '100vw',
+            height: layerH,
+            transform: 'translateX(-50%)',
+            zIndex: -1,
+            pointerEvents: 'auto',
+            overflow: isIOS && IOS_TWEAKS.clipAndIsolate ? 'hidden' : 'visible',
+            isolation: 'isolate',
+            ...(isIOS && IOS_TWEAKS.edgeFeather ? {
+              // fade only the bottom edge into the page; a top fade would dim the logo itself
+              WebkitMaskImage: 'linear-gradient(to bottom, #000 0, #000 88%, transparent 100%)',
+              maskImage: 'linear-gradient(to bottom, #000 0, #000 88%, transparent 100%)',
+            } : null),
+          }}
+        >
+          {canvasNode}
+        </div>
+      );
+      })()}
     </div>
   );
 }
