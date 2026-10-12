@@ -24,8 +24,8 @@ const inter = localFont({
 });
 
 const grotesk = localFont({
-  src: '../public/fonts/NeueHaasDisplayMedium.ttf',
-  variable: '--font-inter',
+  src: '../public/fonts/FoundersGrotesk-Regular.otf',
+  variable: '--font-grotesk',
   display: 'swap',
   fallback: ['system-ui', 'sans-serif'],
   adjustFontFallback: true,
@@ -35,7 +35,7 @@ const grotesk = localFont({
 // ─── Site constants ────────────────────────────────────────
 const SITE_URL = 'https://janpeiro.vercel.app';
 const SITE_NAME = 'Jan Peiro';
-const SITE_TITLE = 'Jan Peiro — Creative';
+const SITE_TITLE = 'Jan Peiro Portfolio';
 const SITE_DESCRIPTION =
   'Intersection of design, motion, and code.';
 

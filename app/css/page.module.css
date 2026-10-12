@@ -75,6 +75,44 @@
 }
 
 
+
+/* Section styles for intersection observation */
+.section {
+  min-height: 100vh; /* Ensure sections take up at least the full viewport height */
+  position: relative;
+  padding: 2rem 0;
+  overflow: visible;
+}
+
+/* Debug styles - can be removed later */
+.sectionDetector {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: rgba(255, 0, 0, 0.5);
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0.5;
+  overflow: visible;
+}
+
+/* Hide WebGL projects on mobile, except the first one */
+.projectsGrid > :global(.webglProject) ~ :global(.webglProject) {
+  display: none;
+   overflow: visible;
+}
+
+/* Show all projects on larger screens */
+@media (min-width: 768px) {
+  .projectsGrid > :global(.webglProject) ~ :global(.webglProject) {
+    display: block;
+    overflow: visible;
+  }
+}
+
+
 /* Section detectors - used for scroll detection */
 .sectionDetector {
   position: absolute;
@@ -1806,8 +1844,11 @@ a.secondary {
     transform: translateY(-8px) rotate(-45deg) !important;
     -webkit-transform: translateY(-8px) rotate(-45deg) !important;
   }
-  .projectCard.deformCard,
+}
+
+/* ─── Deform cards: let the WebGL canvas draw outside the image strip ───
+   MUST stay at top level (not inside any @media / @-moz-document block). */
+.projectCard.deformCard,
 .projectImage.deformImage {
   overflow: visible;
-}
 }

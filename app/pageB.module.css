@@ -7,6 +7,7 @@ section {
   min-height: 100vh; /* Ensure sections take up at least the full viewport height */
   position: relative;
   padding: 2rem 0;
+  overflow: visible;
 }
 
 /* Debug styles - can be removed later */
@@ -20,17 +21,20 @@ section {
   z-index: 1000;
   pointer-events: none;
   opacity: 0.5;
+   overflow: visible;
 }
 
 /* Hide WebGL projects on mobile, except the first one */
 .projectsGrid > :global(.webglProject) ~ :global(.webglProject) {
   display: none;
+   overflow: visible;
 }
 
 /* Show all projects on larger screens */
 @media (min-width: 768px) {
   .projectsGrid > :global(.webglProject) ~ :global(.webglProject) {
     display: block;
+    overflow: visible;
   }
 }
 
