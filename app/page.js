@@ -1020,7 +1020,7 @@ useEffect(() => {
                   <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
                   <p><strong>Role:</strong><br /> Concept / Model / Development</p>
                 </ProjectCard>
-                            <ProjectCard 
+                <ProjectCard 
                     deform
                     onMoreClick={() => {
                       console.log('S&B More button clicked, triggering animation');
@@ -1066,8 +1066,7 @@ useEffect(() => {
                   <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> Three.js, React, GLSL (Shader), Next.js, GSAP </AnimatedText></p>
                   <p><strong>Role:</strong><br /> Code / Cloud visuals</p>
                 </ProjectCard>
-                    {!isMobile && (
-                  <> 
+               
          
 
               <ProjectCard 
@@ -1111,7 +1110,8 @@ useEffect(() => {
                   <p><strong>Role:</strong><br /> 3D model implementation & animation / WebXR implementation</p>
                 </ProjectCard>
                  {/*       WebGL Section    */}  
-     
+          {!isMobile && (
+                  <> 
                   </>
                 )}
             
