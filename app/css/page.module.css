@@ -98,20 +98,20 @@
   overflow: visible;
 }
 
-/* Hide WebGL projects on mobile, except the first one */
+/* Hide WebGL projects on mobile, except the first one
 .projectsGrid > :global(.webglProject) ~ :global(.webglProject) {
   display: none;
    overflow: visible;
 }
-
-/* Show all projects on larger screens */
+ */
+/* Show all projects on larger screens
 @media (min-width: 768px) {
   .projectsGrid > :global(.webglProject) ~ :global(.webglProject) {
     display: block;
     overflow: visible;
   }
 }
-
+ */
 
 /* Section detectors - used for scroll detection */
 .sectionDetector {

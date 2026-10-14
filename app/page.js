@@ -1041,23 +1041,7 @@ useEffect(() => {
                   <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
                   <p><strong>Role:</strong><br /> Concept / Model / Development</p>
                 </ProjectCard>
-                <ProjectCard 
-                    deform
-                    onMoreClick={() => {
-                      console.log('S&B More button clicked, triggering animation');
-                      qcTextRef.current?.animate();
-                    }}
-                      title="Schrödinger & Bohr Quantum Pocketwatches "
-                      image="/images/JPL3Poster_QC.jpg"
-                      alt="Quantum Pocketwatch Company"
-                      link="https://quantum-pocketwatch.vercel.app/"
-                      text="<strong>Experimental / Desktop Only</strong>. Featuring custom 3D models and interactions." 
-                      className="webglProject"
-                    >
-                      <p>Visual Concept Experiment</p>
-                      <p><strong>Tools:</strong><br /><AnimatedText ref={qcTextRef} type="project">Three.js / React / R3F  / GSAP / Router / Next.js / Blender</AnimatedText></p>
-                      <p><strong>Role:</strong><br /> Concept / Animation / Dev</p>
-                    </ProjectCard>
+          
                     <ProjectCard 
                      deform
                      onMoreClick={() => {
@@ -1131,8 +1115,26 @@ useEffect(() => {
                   <p><strong>Role:</strong><br /> 3D model implementation & animation / WebXR implementation</p>
                 </ProjectCard>
                  {/*       WebGL Section    */}  
+        
           {!isMobile && (
                   <> 
+                   <ProjectCard 
+                    deform
+                    onMoreClick={() => {
+                      console.log('S&B More button clicked, triggering animation');
+                      qcTextRef.current?.animate();
+                    }}
+                      title="Schrödinger & Bohr Quantum Pocketwatches "
+                      image="/images/JPL3Poster_QC.jpg"
+                      alt="Quantum Pocketwatch Company"
+                      link="https://quantum-pocketwatch.vercel.app/"
+                      text="<strong>Experimental / Desktop Only</strong>. Featuring custom 3D models and interactions." 
+                      className="webglProject"
+                    >
+                      <p>Visual Concept Experiment</p>
+                      <p><strong>Tools:</strong><br /><AnimatedText ref={qcTextRef} type="project">Three.js / React / R3F  / GSAP / Router / Next.js / Blender</AnimatedText></p>
+                      <p><strong>Role:</strong><br /> Concept / Animation / Dev</p>
+                    </ProjectCard>
                   </>
                 )}
             
