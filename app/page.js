@@ -9,6 +9,7 @@ import MouseGradient from './components/MouseGradient';
 import AnimatedText from './components/AnimatedText';
 import ThrowableImages from './components/ThrowableImages';
 import LogoCard from './components/LogoCard';
+//import HorizontalScroller from './components/Horizontal'
 import { useMemo } from 'react';
 import LocomotiveScroll from 'locomotive-scroll';
 import { gsap } from 'gsap';
@@ -1003,6 +1004,26 @@ useEffect(() => {
                   <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
                   <p><strong>Role:</strong><br /> Concept / Animation / Development</p>
                 </ProjectCard>
+
+                      <ProjectCard 
+                   deform
+                  onMoreClick={() => {
+                    console.log('Embryo More button clicked, triggering animation');
+                    bytes101TextRef.current?.animate();
+                  }}
+                  title="Embryo"
+                  image="/images/embryo.jpg"
+                  alt="Embryo"
+                  link="https://embryo-bay.vercel.app/"
+                  text="Pre-alpha version. More like just a sketch right now."
+                  className="webglProject"
+                >
+                  <p>Concept Demo</p>
+                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
+                  <p><strong>Role:</strong><br /> Concept / Development</p>
+                </ProjectCard>
+
+
                 <ProjectCard 
                   deform
                   onMoreClick={() => {
@@ -1435,12 +1456,90 @@ useEffect(() => {
                   <p><strong>Project Type:</strong> After Effects / Cinema4D</p>
                   <p><strong>Role:</strong> Solo Visual Concept, Designer & Animator</p>
                 </ProjectCard>
+
+                 <HorizontalScroller label="Selected work" snap>
+              {projects.map((p) => (
+                <article key={p.slug} className="hs-card">
+                     <ProjectCard
+                  onMoreClick={() => {
+                    console.log('citylink1 More button clicked, triggering animation');
+                    citylink1TextRef.current?.animate();
+                  }} 
+                  title="CityLink Info Page"
+                  image="/images/corp/sb4.jpg"
+                  alt="CityLink Info Page"
+                  link="https://sbinfo1.vercel.app"
+                  text="A GDPR-compliant info page for a civics oriented app."
+                
+               
+                  client={{
+                    name: "CityLink |",
+                    logo: "/images/citylinklongwhite.svg",
+                    website: "https://sbinfo1.vercel.app",
+                  }}
+                  logoWidth={300}
+                  logoHeight={50}
+                  logoStyle={{
+                    height: '30px',  
+                    width: 'auto', 
+                    maxWidth: '100%'
+                  }}
+
+                >
+                  <p><strong>Target Audience:</strong> Municipal officials</p>
+                  <p><strong>Project Type:</strong> Infopage about the Neighborhood Clean-up mobile App</p>
+                  <p><strong>Role:</strong> Design & Development</p>
+                  <p><strong>Duration:</strong> 4 days</p>
+                  <p><strong>Tools:</strong><AnimatedText ref={citylink1TextRef} type="project"> Next.js, react</AnimatedText></p>
+                  <p><strong>Info:</strong> The app this page describes is currently in development and visible / testable in the projectCards below.</p>
+                </ProjectCard>
+              
+               <ProjectCard 
+                 onMoreClick={() => {
+                  console.log('bumpi More button clicked, triggering animation');
+                  bumpiTextRef.current?.animate();
+                }}
+                  title="Bumpi App"
+                  image="/images/corp/sb3.jpg"
+                  alt="Bumpi App"
+                  link="https://sb202.vercel.app"
+                  textPosition="bottom"
+                  text={`<b>Current Project Pre-Alpha Demo.</b>
+                  <br />
+                  <br />
+                  A GDPR-compliant civics-oriented app designed to help keep local neighborhoods clean. Some features get enabled and disabled based on current development stage.  
+                   <br /> <br />The app uses geofencing, optional geolocation, text-input, voice-to-text. Hash3 deviceID, -ip address and user-agent scrambling and other security features feeding into a near real-time municipal dashboard.`}
+                  client={{
+                    name: "Bumpi App |",
+                    logo: "/images/bumpilongwhite.svg",
+                    website: "https://sbinfo1.vercel.app"
+                  }}
+                  logoWidth={250}
+                  logoHeight={40}
+                  logoStyle={{
+                    top: '15px',
+                    height: '25px',
+                    width: 'auto',   
+                    maxWidth: '100%'
+                  }}
+                >
+                  <p><strong>Target Audience:</strong> Municipal Citizens</p>
+                  <p><strong>Project Type:</strong> Neighborhood clean-up App</p>
+                  <p><strong>Role:</strong> Design & Development</p>
+                  <p><strong>Tools:</strong><AnimatedText ref={bumpiTextRef} type="project"> Next.js, Supabase, Openstreetmap,</AnimatedText></p>
+                  <p><strong>Features:</strong> Game Mode, Leaderboard, Score Distribution, manual or automatic Geolocation, Rate Limiting, CSRF Prevention, XSS Prevention, RLS, Optional Analytics, Optional Auth, Hashed IP Geofencing, Comprehensive Crash Guarding, i18n multilanguage support</p>
+                  <p><strong>Goal:</strong> Make something fun, easy to use and secure in compliance with GDPR. At the same time making for a more streamlined and efficient process for municipal officials to manage environmental reports.</p>
+                </ProjectCard>
+
+                </article>
+              ))}
+            </HorizontalScroller>
+
                */}
  
               </div> 
             </section>
-
-
+           
             {/*   MOTION ENDS HERE             <hr className={styles.divider2} /> */}  
             <div data-section="contact"></div>
             <section id="contact" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="contact">

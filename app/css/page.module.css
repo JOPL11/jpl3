@@ -1374,6 +1374,26 @@ a.secondary {
   color: rgba(255, 255, 255, 0.3);
   font-size: 1.1rem;
 }
+.hs-viewport {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;  /* kills macOS back/forward swipe at edges */
+  cursor: grab;
+  user-select: none;
+  /* do NOT set scroll-behavior: smooth — it fights the JS-driven scrollLeft */
+}
+.hs-viewport:focus-visible { outline: 2px solid currentColor; }
+.hs-viewport::-webkit-scrollbar { display: none; }
+.hs-viewport:active { cursor: grabbing; }
+.hs-track {
+  position: relative;      /* keeps offsetLeft math reliable */
+  display: flex;
+  width: max-content;
+  gap: 2rem;
+}
+.hs-track img { -webkit-user-drag: none; }
 
 /* ============================================
    PROJECT IMAGE HEIGHT OVERRIDES
