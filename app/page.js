@@ -968,6 +968,27 @@ useEffect(() => {
                 <div style={{height: '0.1rem', marginBottom: '3rem'}}>View on desktop for more.</div>
                <div className={styles.divider3}></div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
+
+
+              <ProjectCard 
+                   deform
+                  onMoreClick={() => {
+                    console.log('Embryo More button clicked, triggering animation');
+                    bytes101TextRef.current?.animate();
+                  }}
+                  title="Embryo"
+                  image="/images/embryo.jpg"
+                  alt="Embryo"
+                  link="https://embryo-bay.vercel.app/"
+                  text="Pre-alpha version. More like just a sketch right now."
+                  className="webglProject"
+                >
+                  <p>Concept Demo</p>
+                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
+                  <p><strong>Role:</strong><br /> Concept / Development</p>
+                </ProjectCard>
+
+
                   <ProjectCard 
                    deform
                   onMoreClick={() => {
@@ -1004,25 +1025,6 @@ useEffect(() => {
                   <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
                   <p><strong>Role:</strong><br /> Concept / Animation / Development</p>
                 </ProjectCard>
-
-                      <ProjectCard 
-                   deform
-                  onMoreClick={() => {
-                    console.log('Embryo More button clicked, triggering animation');
-                    bytes101TextRef.current?.animate();
-                  }}
-                  title="Embryo"
-                  image="/images/embryo.jpg"
-                  alt="Embryo"
-                  link="https://embryo-bay.vercel.app/"
-                  text="Pre-alpha version. More like just a sketch right now."
-                  className="webglProject"
-                >
-                  <p>Concept Demo</p>
-                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
-                  <p><strong>Role:</strong><br /> Concept / Development</p>
-                </ProjectCard>
-
 
                 <ProjectCard 
                   deform
