@@ -1054,7 +1054,7 @@ useEffect(() => {
                   image="/images/corp/dornbach.jpg"
                   alt="Dornbach"
                   link="https://cloudtunnels.vercel.app/"
-                  text="Expo installation protoype engine for a physical installation piece at the Milan Design Week 2026."
+                  text="Expo installation prototype engine for a physical installation piece at the Milan Design Week 2026."
                   className="webglProject"
                     client={{
                     name: "SMMD Team |",
