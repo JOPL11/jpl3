@@ -659,7 +659,7 @@ useEffect(() => {
 
             <p>Specialized in <strong>2D / 3D design, animation and interactive content.</strong></p>
 
-            <p>My core principle is merging design, animation and code to create work that is aesthetic, functional and scalable. In plain english, I studied graphic design and taught myself 3D modeling, video production & continued coding from since I was a kid.</p>
+            <p>My core principle is merging design, animation and code to create work that is aesthetic, functional and scalable. In plain english, I studied graphic design and taught myself 3D modeling, video production and code. But I also draw and paint, so actually I'm an artist who studied graphic design and taught myself 3d animation. No wait, been coding since I was a kid, so I'm a coder who studied graphic design and learned 3D animation. I also wrote a novel. Guitarrist too. That's not important though.</p>
 
             <p>I started out as jr. art director and gained proficiency in motion design, 3D visualization and creative development, while also building a strong foundation in web development and interactive design.</p>
 
