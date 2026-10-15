@@ -661,7 +661,7 @@ useEffect(() => {
 
             <p>My core principle is merging design, animation and code to create work that is aesthetic, functional and scalable.</p>
 
-            <p>I started out as jr. art director and gained proficiency in motion design, 3D visualization and creative development, while also building a strong foundation in web development and interactive design. I've art directed, coded, animated and designed various international and national projects across the fashion, entertainment, automotive and aersopace industries - spanning the online, physical expo installation and motion design fields.</p>
+            <p>I started out as jr. art director and gained proficiency in motion design, 3D visualization and creative development, while also building a strong foundation in web development and interactive design. I've art directed, coded, animated and designed various international and national projects across the fashion, entertainment, automotive and aersopace industries - spanning online, physical expo installation and motion design fields.</p>
 
             <p>Global Remote | EST / CET / EET</p>
 
@@ -969,7 +969,7 @@ useEffect(() => {
                <div className={styles.divider3}></div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
 
-
+{/* 
               <ProjectCard 
                    deform
                   onMoreClick={() => {
@@ -988,7 +988,7 @@ useEffect(() => {
                   <p><strong>Role:</strong><br /> Concept / Development</p>
                 </ProjectCard>
 
-
+*/}
                   <ProjectCard 
                    deform
                   onMoreClick={() => {
