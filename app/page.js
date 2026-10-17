@@ -1044,35 +1044,6 @@ useEffect(() => {
                   <p><strong>Role:</strong><br /> Concept / Model / Development</p>
                 </ProjectCard>
           
-                    <ProjectCard 
-                     deform
-                     onMoreClick={() => {
-                    console.log('More button clicked, triggering animation');
-                    bytes101TextRef.current?.animate();
-                  }}
-                  title="CloudTunnel"
-                  image="/images/corp/dornbach.jpg"
-                  alt="Dornbach"
-                  link="https://cloudtunnels.vercel.app/"
-                  text="Expo installation prototype engine for a physical installation piece at the Milan Design Week 2026."
-                  className="webglProject"
-                    client={{
-                    name: "SMMD Team |",
-                    logo: "/images/agencies/SMMD.png",
-                    //website: "https://www.smmd.team/"
-                }}   
-                  logoWidth={350}
-                  logoHeight={90}
-                  logoStyle={{
-                    height: '30px',
-                    width: 'auto',   
-                    maxWidth: '100%'
-                  }}   
-                >
-                  <p>Expo installation-piece unfinished prototype</p>
-                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> Three.js, React, GLSL (Shader), Next.js, GSAP </AnimatedText></p>
-                  <p><strong>Role:</strong><br /> Code / Cloud visuals</p>
-                </ProjectCard>
                
          
 
@@ -1126,6 +1097,41 @@ useEffect(() => {
             
 
              {/*  
+
+
+
+                    <ProjectCard 
+                     deform
+                     onMoreClick={() => {
+                    console.log('More button clicked, triggering animation');
+                    bytes101TextRef.current?.animate();
+                  }}
+                  title="CloudTunnel"
+                  image="/images/corp/dornbach.jpg"
+                  alt="Dornbach"
+                  link="https://cloudtunnels.vercel.app/"
+                  text="Expo installation prototype engine for a physical installation piece at the Milan Design Week 2026."
+                  className="webglProject"
+                    client={{
+                    name: "SMMD Team |",
+                    logo: "/images/agencies/SMMD.png",
+                    //website: "https://www.smmd.team/"
+                }}   
+                  logoWidth={350}
+                  logoHeight={90}
+                  logoStyle={{
+                    height: '30px',
+                    width: 'auto',   
+                    maxWidth: '100%'
+                  }}   
+                >
+                  <p>Expo installation-piece unfinished prototype</p>
+                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> Three.js, React, GLSL (Shader), Next.js, GSAP </AnimatedText></p>
+                  <p><strong>Role:</strong><br /> Code / Cloud visuals</p>
+                </ProjectCard>
+
+
+
                       <ProjectCard 
                     deform
                     onMoreClick={() => {
