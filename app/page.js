@@ -1120,7 +1120,13 @@ useEffect(() => {
         
           {!isMobile && (
                   <> 
-                   <ProjectCard 
+          
+                  </>
+                )}
+            
+
+             {/*  
+                      <ProjectCard 
                     deform
                     onMoreClick={() => {
                       console.log('S&B More button clicked, triggering animation');
@@ -1137,12 +1143,6 @@ useEffect(() => {
                       <p><strong>Tools:</strong><br /><AnimatedText ref={qcTextRef} type="project">Three.js / React / R3F  / GSAP / Router / Next.js / Blender</AnimatedText></p>
                       <p><strong>Role:</strong><br /> Concept / Animation / Dev</p>
                     </ProjectCard>
-                  </>
-                )}
-            
-
-             {/*  
-             
                 <ProjectCard 
                   onMoreClick={() => {
                     console.log('CubeSite More button clicked, triggering animation');
