@@ -969,7 +969,7 @@ useEffect(() => {
                <div className={styles.divider3}></div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
 
-{/* 
+{/* */}
               <ProjectCard 
                    deform
                   onMoreClick={() => {
@@ -980,15 +980,15 @@ useEffect(() => {
                   image="/images/embryo.jpg"
                   alt="Embryo"
                   link="https://embryo-bay.vercel.app/"
-                  text="Pre-alpha version. More like just a sketch right now."
+                  text="A thing found in Ridley Scott's dark nightmares. "
                   className="webglProject"
                 >
-                  <p>Concept Demo</p>
+                  <p>Concept Demo / Opus in fabrica</p>
                   <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
-                  <p><strong>Role:</strong><br /> Concept / Development</p>
+                  <p><strong>Role:</strong><br /> Concept / Development / Some modeling</p>
                 </ProjectCard>
 
-*/}
+
                   <ProjectCard 
                    deform
                   onMoreClick={() => {
