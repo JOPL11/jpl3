@@ -969,7 +969,7 @@ useEffect(() => {
                <div className={styles.divider3}></div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
 
-{/* 
+{/*  */}
               <ProjectCard 
                    deform
                   onMoreClick={() => {
@@ -987,7 +987,7 @@ useEffect(() => {
                   <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
                   <p><strong>Role:</strong><br /> Concept / Development / Some modeling</p>
                 </ProjectCard>
-*/}
+
 
                   <ProjectCard 
                    deform
