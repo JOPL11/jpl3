@@ -984,7 +984,7 @@ useEffect(() => {
                   image="/images/embryo.jpg"
                   alt="Embryo"
                   link="https://embryo-bay.vercel.app/"
-                  text="A thing found in Ridley Scott's dark nightmares. "
+                  text="Under construction. Not ready for mobile."
                   className="webglProject"
                 >
                   <p>Concept Demo / Opus in fabrica</p>
