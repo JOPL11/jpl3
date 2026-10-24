@@ -140,6 +140,7 @@ export default function ProjectCard({
             alt={alt}
             width={800}
             height={600}
+            quality={89}  
             priority
             className="project-image-responsive"
             imageClassName="project-image-responsive"
