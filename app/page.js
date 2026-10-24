@@ -970,6 +970,10 @@ useEffect(() => {
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
 
 {/*  */}
+        
+          {!isMobile && (
+                  <> 
+          
               <ProjectCard 
                    deform
                   onMoreClick={() => {
@@ -1117,10 +1121,7 @@ useEffect(() => {
                   <p><strong>Role:</strong><br /> 3D model implementation & animation / WebXR implementation</p>
                 </ProjectCard>
                  {/*       WebGL Section    */}  
-        
-          {!isMobile && (
-                  <> 
-          
+
                   </>
                 )}
             
