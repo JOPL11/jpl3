@@ -962,10 +962,10 @@ useEffect(() => {
             
             <SectionTracker onSectionChange={setActiveSection} />
             <h2 style={{paddingTop: "5rem"}}>
-              <AnimatedText ref={webglHeadingRef}>WebGL Cases</AnimatedText>
+              <AnimatedText ref={webglHeadingRef}>WebGL Playground</AnimatedText>
             </h2>
                
-                <div style={{height: '0.1rem', marginBottom: '3rem'}}>View on desktop for more.</div>
+                <div style={{height: '0.1rem', marginBottom: '3rem'}}>Fun with in-browser interactive realtime 3D</div>
                <div className={styles.divider3}></div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
 
