@@ -214,17 +214,17 @@ useEffect(() => {
   const motionHeadingRef = useRef(null);
   const productHeadingRef = useRef(null);
   const bytes101TextRef = useRef(null);
-  const citylink1TextRef = useRef(null);
-  const citylink2TextRef = useRef(null);
-  const bumpiTextRef = useRef(null);
-  const airbusTextRef = useRef(null);
-  const airbus2TextRef = useRef(null);
-  const motionTextRef = useRef(null);
-  const streetlampTextRef = useRef(null);
-  const qcTextRef = useRef(null);
-  const facilityTextRef = useRef(null);
-  const roadrichTextRef = useRef(null);
-  const artstationHeadingRef = useRef(null);
+ // const citylink1TextRef = useRef(null);
+ // const citylink2TextRef = useRef(null);
+ // const bumpiTextRef = useRef(null);
+ // const airbusTextRef = useRef(null);
+ // const airbus2TextRef = useRef(null);
+ // const motionTextRef = useRef(null);
+ // const streetlampTextRef = useRef(null);
+//  const qcTextRef = useRef(null);
+ // const facilityTextRef = useRef(null);
+ // const roadrichTextRef = useRef(null);
+ // const artstationHeadingRef = useRef(null);
 const scrollVelocity = useRef(0);
 const animationFrameId = useRef(null);
 const isNarrow = viewportWidth > 0 && viewportWidth <= 1650;
@@ -971,10 +971,7 @@ useEffect(() => {
 
 {/*  */}
         
-          {!isMobile && (
-                  <> 
-                   </>
-                )}
+
           <ProjectCard 
                    deform
                   onMoreClick={() => {
@@ -993,7 +990,9 @@ useEffect(() => {
                   <p><strong>Role:</strong><br /> Concept / Model / Development</p>
                 </ProjectCard>
 
-
+          {!isMobile && (
+                  <> 
+              
 
               <ProjectCard 
                    deform
@@ -1013,7 +1012,8 @@ useEffect(() => {
                   <p><strong>Role:</strong><br /> Concept / Development / Models</p>
                 </ProjectCard>
            
-
+                   </>
+                )}
         
              
               <ProjectCard 

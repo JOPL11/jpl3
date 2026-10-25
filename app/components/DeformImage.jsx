@@ -672,7 +672,11 @@ function DeformPlane({ src, resolveSrc, velocityRef, hoverRef, hoveredRef, rectR
       .then((img) => {
         if (cancelled) return;
         tex = new THREE.Texture(img);
-        tex.anisotropy = 4;
+        tex.anisotropy = gl.capabilities.getMaxAnisotropy?.() ?? 4;   // was 4
+        tex.minFilter = THREE.LinearFilter;      // no mip chain; the plane is 1:1 with
+        tex.magFilter = THREE.LinearFilter;      // the image, so mips mostly hurt
+        tex.generateMipmaps = false;
+      //  tex.colorSpace = THREE.SRGBColorSpace;   // let three do color management
         tex.needsUpdate = true;
         // Upload to the GPU now (card still off-screen), not on its first visible frame.
         gl.initTexture?.(tex);
@@ -874,6 +878,7 @@ export default function DeformImage({
   imageClassName,
   priority = false,
   sizes,
+  quality, 
   // Px the canvas (and mesh) extend above and below the image. This is the room
   // for (1) blocks that spill past the top/bottom edges and (2) the swivel's
   // perspective growth. Blocks never spill farther than this. Raise it for a
@@ -1025,6 +1030,7 @@ export default function DeformImage({
         height={height}
         priority={priority}
         sizes={sizes}
+        quality={quality} 
         className={imageClassName}
         // Pre-decode the loaded image into the shared cache so the texture is
         // available instantly when the canvas mounts.
@@ -1061,7 +1067,7 @@ export default function DeformImage({
           <Canvas
             // Off-screen canvases keep their context + texture but stop looping.
             frameloop={visible ? 'always' : 'demand'}
-            dpr={[1, 1.5]}
+            dpr={[1, 2.5]}
             gl={{ antialias: true, alpha: true }}
             camera={{ fov: 30, near: 10, far: 5000, position: [0, 0, 1000] }}
             onCreated={({ gl }) => {
