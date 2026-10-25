@@ -973,27 +973,9 @@ useEffect(() => {
         
           {!isMobile && (
                   <> 
-              <ProjectCard 
-                   deform
-                  onMoreClick={() => {
-                    console.log('Embryo More button clicked, triggering animation');
-                    bytes101TextRef.current?.animate();
-                  }}
-                  title="Embryo"
-                  image="/images/embryo.jpg"
-                  alt="Embryo"
-                  link="https://embryo-bay.vercel.app/"
-                  text="Under construction. Not ready for mobile."
-                  className="webglProject"
-                >
-                  <p>Concept Demo / Opus in Fabrica</p>
-                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
-                  <p><strong>Role:</strong><br /> Concept / Development / Models</p>
-                </ProjectCard>
-            </>
+                   </>
                 )}
-
-                  <ProjectCard 
+          <ProjectCard 
                    deform
                   onMoreClick={() => {
                     console.log('karnak More button clicked, triggering animation');
@@ -1011,6 +993,28 @@ useEffect(() => {
                   <p><strong>Role:</strong><br /> Concept / Model / Development</p>
                 </ProjectCard>
 
+
+
+              <ProjectCard 
+                   deform
+                  onMoreClick={() => {
+                    console.log('Embryo More button clicked, triggering animation');
+                    bytes101TextRef.current?.animate();
+                  }}
+                  title="Embryo"
+                  image="/images/embryo.jpg"
+                  alt="Embryo"
+                  link="https://embryo-bay.vercel.app/"
+                  text="Under construction. Not ready for mobile."
+                  className="webglProject"
+                >
+                  <p>Concept Demo / Opus in Fabrica</p>
+                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
+                  <p><strong>Role:</strong><br /> Concept / Development / Models</p>
+                </ProjectCard>
+           
+
+        
              
               <ProjectCard 
                 deform
