@@ -973,7 +973,6 @@ useEffect(() => {
         
           {!isMobile && (
                   <> 
-          
               <ProjectCard 
                    deform
                   onMoreClick={() => {
@@ -987,11 +986,12 @@ useEffect(() => {
                   text="Under construction. Not ready for mobile."
                   className="webglProject"
                 >
-                  <p>Concept Demo / Opus in fabrica</p>
+                  <p>Concept Demo / Opus in Fabrica</p>
                   <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
-                  <p><strong>Role:</strong><br /> Concept / Development / Some modeling</p>
+                  <p><strong>Role:</strong><br /> Concept / Development / Models</p>
                 </ProjectCard>
-
+            </>
+                )}
 
                   <ProjectCard 
                    deform
@@ -1122,8 +1122,7 @@ useEffect(() => {
                 </ProjectCard>
                  {/*       WebGL Section    */}  
 
-                  </>
-                )}
+                 
             
 
              {/*  
@@ -1263,9 +1262,7 @@ useEffect(() => {
             <div style={{height: 'auto', paddingTop: "0.2rem",  color: "#fff"}}>
             <p><strong>Role:</strong><br /> Concept / Animation / Modeling / Post-Production</p>
             </div>
-            <div style={{height: 'auto', paddingTop: "0.2rem",  color: "#fff"}}>
-            <p><strong>Info:</strong><br />No AI was used here. I've played around with AI for video but it makes me feel like I didn't accomplish anything.</p>
-            </div>
+           
              
             
                     
