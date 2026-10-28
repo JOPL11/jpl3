@@ -882,7 +882,7 @@ const handleResize = useCallback(() => {
     
     const canvasHeight = isLibreWolf ? desktopHeight : height;
     
-    const pixelRatio = Math.min(window.devicePixelRatio, isMobile ? 1 : 2);
+    const pixelRatio = Math.min(window.devicePixelRatio, isMobile ? 1 : 1.5);
     
     // Update renderer size and pixel ratio
     rendererRef.current.setPixelRatio(pixelRatio);
@@ -971,7 +971,7 @@ const handleResize = useCallback(() => {
         frameloop={fullBleed && !inView ? 'demand' : 'always'}
         onCreated={({ gl, scene }) => {
           setIsLoaded(true);
-          gl.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1 : 2));
+          gl.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1 : 1.5));
           gl.setClearColor(0, 0, 0, 0);
           scene.background = null;
           
