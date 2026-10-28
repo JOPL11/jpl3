@@ -437,78 +437,63 @@ child.material = isHolographic
       position={position} 
       onClick={() => onHolographicChange(!isHolographic)}
     >
-      <primitive object={scene} scale={modelScale} />
-      {isHolographic && (
-        <>
-          <HologramCorners />
-          <LogoCorners />
-          <LogoLongs />
-          {[...Array(152)].map((_, i) => (
-        <DelayedOscillatingBox 
-          key={i} 
-          delay={i * 100} // Stagger the appearance of each box
-          color={i % 2 === 0 ? 0x87CEEB : 0x87CEEB} // Alternate colors
-        />
-      ))}
-        </>
-      )}
+    <primitive object={scene} scale={modelScale} />
+{isHolographic && (
+  <>
+    <HologramCorners />
+    <LogoCorners />
+    <LogoLongs />
+    <OscillatingBoxes count={152} color={0x35aeea} />
+  </>
+)}
     </group>
   );
 }
 
 
-function DelayedOscillatingBox({ delay = 20, color = 0x87CEEB }) {
-  const boxRef = useRef();
-  const [visible, setVisible] = useState(false);
-  const randomX = useRef((Math.random() * 0.5 - 0.5) * 1.9); 
-  const randomY = useRef((Math.random() * -0.2 - 0.5) * 1.9);
-  const startTime = useRef(0);
-  
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setVisible(true);
-    }, delay);
-    
-    return () => clearTimeout(timer);
-  }, [delay]);
-  
-  useFrame(({ clock }) => {
-    if (boxRef.current && visible) {
-      // Start timing when the box becomes visible
-      if (startTime.current === 0) {
-        startTime.current = clock.getElapsedTime();
-      }
-      // Each box oscillates independently based on its own start time
-      const elapsed = clock.getElapsedTime() - startTime.current;
-      boxRef.current.position.z = Math.sin(elapsed * 0.5) * 22;
+function OscillatingBoxes({ count = 152, color = 0x35aeea }) {
+  const ref = useRef();
+  const dummy = useMemo(() => new THREE.Object3D(), []);
+  // Precompute per-instance random offsets + stagger delay once
+  const data = useMemo(() => Array.from({ length: count }, (_, i) => ({
+    x: (Math.random() * 0.5 - 0.5) * 1.9,
+    y: (Math.random() * -0.2 - 0.5) * 1.9,
+    delay: i * 0.1,          // seconds, not ms — no setTimeout
+  })), [count]);
 
-      const isElongated = Math.floor(elapsed *2) % 2 === 0;
-      boxRef.current.scale.set(
-        0.08,  // x scale
-        0.08,  // y scale
-        isElongated ? 1 : 0.1  // z scale
-      );
+  // ONE shared material for all instances
+  const material = useMemo(() => new THREE.MeshStandardMaterial({
+    color, emissive: color, emissiveIntensity: 0.5, toneMapped: false,
+  }), [color]);
+
+  useFrame(({ clock }) => {
+    const t = clock.getElapsedTime();
+    for (let i = 0; i < count; i++) {
+      const { x, y, delay } = data[i];
+      const elapsed = t - delay;
+      if (elapsed < 0) {
+        // not yet "visible": park it far away / scale 0
+        dummy.position.set(x, y, 0);
+        dummy.scale.set(0, 0, 0);
+      } else {
+        const z = Math.sin(elapsed * 0.5) * 22;
+        const isElongated = Math.floor(elapsed * 2) % 2 === 0;
+        dummy.position.set(x, y, z);
+        dummy.scale.set(0.08, 0.08, isElongated ? 1 : 0.1);
+      }
+      dummy.updateMatrix();
+      ref.current.setMatrixAt(i, dummy.matrix);
     }
+    ref.current.instanceMatrix.needsUpdate = true;
   });
 
-  if (!visible) return null;
-
   return (
-    <mesh 
-      ref={boxRef} 
-      position={[randomX.current, randomY.current, 0]} // Random x,y position, z=0
-      
-    >
+    <instancedMesh ref={ref} args={[null, null, count]} material={material}>
       <boxGeometry args={[0.2, 0.2, 1]} />
-      <meshStandardMaterial 
-        color={color} 
-        emissive={color}
-        emissiveIntensity={0.8}
-        toneMapped={false}
-      />
-    </mesh>
+    </instancedMesh>
   );
 }
+
 
 function NameText() {
   const texture = useTexture('/assets/janpeiro.png');
@@ -973,7 +958,7 @@ const handleResize = useCallback(() => {
         className={styles.canvasContainer}
         camera={{ position: [0, 0, 4.7], fov: 45, near: 0.1, far: 1000 }}
         gl={{
-          antialias: true,
+          //antialias: true,
           powerPreference: 'high-performance',
           alpha: true,
           premultipliedAlpha: false,
@@ -982,7 +967,7 @@ const handleResize = useCallback(() => {
           depth: true,
         }}
         // the full-bleed canvas has ~2.4x the pixels, so cap the pixel ratio a bit lower
-        dpr={isMobile ? 1 : (fullBleed ? [1, 1.5] : [1, 2])}
+        dpr={isMobile ? 1 : (fullBleed ? [1, 1.25] : [1, 1.5])}
         frameloop={fullBleed && !inView ? 'demand' : 'always'}
         onCreated={({ gl, scene }) => {
           setIsLoaded(true);
@@ -1045,7 +1030,7 @@ const handleResize = useCallback(() => {
                 mipmapBlur 
                 luminanceSmoothing={0.3} 
                 intensity={0.5} 
-                kernelSize={4}
+                kernelSize={2}
               />
             </EffectComposer>
            
