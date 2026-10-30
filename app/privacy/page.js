@@ -22,7 +22,7 @@ export default function PrivacyPage() {
           Note: Our hosting provider (Vercel) may collect server logs for operational purposes, but we do not access or store these logs.
         </p>
         <p className="text-sm text-gray-600 mb-4">
-          <strong>Privacy Policy:</strong> We do not use any analytics, tracking, or data collection technologies on this website.
+          <strong>Analytics &amp; Video:</strong> We use the free tier of Vercel Analytics, which collects aggregated, anonymized usage data without cookies or persistent identifiers. We use MUX for video delivery with telemetry and tracking disabled.
         </p>
       </section>
 
@@ -36,21 +36,6 @@ export default function PrivacyPage() {
           <li>Improve our website and services</li>
           <li>Ensure the security of our website</li>
         </ul>
-      </section>
-
-<section className="mb-8">
-        <h2 className="text-2xl font-semibold mb-4">Your Rights</h2>
-        <p className="mb-4">
-          You have the right to:
-        </p>
-        <ul className="list-disc pl-6 mb-4 space-y-2">
-          <li>Request access to your personal information</li>
-          <li>Request correction or deletion of your information</li>
-          <li>Withdraw your consent for data processing</li>
-        </ul>
-        <p>
-          To exercise these rights, please contact us through our contact form.
-        </p>
       </section>
 
       <section>

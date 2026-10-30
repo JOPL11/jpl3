@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
-import { Canvas, useThree, useFrame } from '@react-three/fiber';
+import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera } from '@react-three/drei';
 import * as THREE from 'three';
 
@@ -90,7 +90,7 @@ export default function SplashScreen({ onComplete }) {
       pointerEvents: isVisible ? 'auto' : 'none',
     }}>
       <Canvas 
-        dpr={[1, 2]}
+        dpr={[1, 1.5]}
         gl={{ 
           antialias: true, 
           alpha: true,

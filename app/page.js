@@ -15,7 +15,8 @@ import LocomotiveScroll from 'locomotive-scroll';
 import { gsap } from 'gsap';
 import { createPortal } from 'react-dom';
 import { useModal } from './components/ModalContext';
-
+import PrivacyContent from './components/PrivacyContent';
+import styles from './css/page.module.css';
 
   {/*
 // Dynamically import the component with SSR disabled
@@ -55,13 +56,7 @@ function useViewportWidth() {
   return width;
 }
 
-const PrivacyModal = dynamic(() => import('../components/PrivacyModal'), {
-  ssr: false,
-});
-import styles from "./css/page.module.css";
-const ImpressumModal = dynamic(() => import('../components/ImpressumModal'), {
-  ssr: false,
-});
+
 import ProjectCard from './components/ProjectCard';
 import VideoProjectCard from './components/VideoProjectCard';
 import ContactForm from './components/ContactForm';
@@ -82,12 +77,11 @@ function CopyrightYear() {
 }
 
 export default function Home() {
-  const { closeModal } = useModal();
-  const [showPrivacyModal, setShowPrivacyModal] = useState(false);
-  const [showImpressumModal, setShowImpressumModal] = useState(false);
+  const { openModal, closeModal } = useModal();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showHamburger, setShowHamburger] = useState(true);
   const [showDesktopNav, setShowDesktopNav] = useState(false);
+
 console.log('[Home] render');
 useEffect(() => {
   const t = setTimeout(() => setShowDesktopNav(true), 2500); // 2.5s delay
@@ -101,7 +95,6 @@ useEffect(() => {
     } else {
       document.body.classList.remove('menu-open');
     }
-    
     // Cleanup function to remove the class when component unmounts
     return () => {
       document.body.classList.remove('menu-open');
@@ -109,7 +102,6 @@ useEffect(() => {
   }, [isMenuOpen]);
 
 
-  const [modalContent, setModalContent] = useState('privacy');
   const [activeSection, setActiveSection] = useState('welcome-heading');
   const isProgrammaticScroll = useRef(false);
   const scrollTimeout = useRef(null);
@@ -154,11 +146,7 @@ useEffect(() => {
 */} 
  const scrollToSection = (e, sectionId) => {
   e.preventDefault();
-
-  setShowPrivacyModal(false);
-  setShowImpressumModal(false);
   closeModal();
-
   setActiveSection(sectionId);
 
   requestAnimationFrame(() => {
@@ -177,32 +165,6 @@ useEffect(() => {
   });
 };
 
-  const openModal = (type) => {
-    // Scroll to top of the page
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-    
-    // Set modal content and show modal
-    setModalContent(type);
-    setShowPrivacyModal(true);
-    
-    // Prevent default anchor behavior
-    return false;
-  };
-
-  useEffect(() => {
-    const handleOpenPrivacyModal = () => {
-      openModal('privacy');
-    };
-
-    window.addEventListener('openPrivacyModal', handleOpenPrivacyModal);
-    
-    return () => {
-      window.removeEventListener('openPrivacyModal', handleOpenPrivacyModal);
-    };
-  }, []);
 
   // Refs for animated headings
   const overviewHeadingRef = useRef(null)
@@ -352,7 +314,7 @@ useEffect(() => {
 ***                                                         ***
 ***                                                         ***
 ***                                                         ***
-***                 Website Analysis Active                 ***
+***                 Webapp Analysis Active                  ***
 ***                                                         ***
 ***                 Welcome to The Console                  ***
 ***                                                         ***
@@ -1591,30 +1553,8 @@ useEffect(() => {
             <Link href="/blog" className={styles.footerLink}>
                   DevBlog
                 </Link>
-                </div>   */}
-            <button 
-              onClick={() => openModal('privacy')} 
-              className={styles.footerLink} 
-              aria-label="Privacy Policy"
-            >
-              
-              Privacy Policy
-            </button>
-            <button 
-              onClick={() => openModal('tos')} 
-              className={styles.footerLink} 
-              aria-label="Terms of Service"
-            >
-              Terms of Service
-            </button>
-            <button 
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} 
-              className={styles.footerLink} 
-              aria-label="Contact"
-            >
-              Contact
-            </button>
-            <button 
+                </div>
+                            <button 
               onClick={(e) => {
                 e.preventDefault();
                 setShowImpressumModal(true);
@@ -1623,6 +1563,36 @@ useEffect(() => {
               aria-label="Impressum"
             >
               Impressum
+            </button>   */}
+          <button 
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+              openModal(<PrivacyContent />, 'privacyModal');
+            }} 
+            className={styles.footerLink} 
+            aria-label="Privacy Policy"
+          >
+            Privacy Policy
+          </button>
+          <button 
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+              openModal(
+                <PrivacyContent scrollToTerms />, 
+                'privacyModal'
+              );
+            }} 
+            className={styles.footerLink} 
+            aria-label="Terms of Service"
+          >
+            Terms of Service
+          </button>
+            <button 
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} 
+              className={styles.footerLink} 
+              aria-label="Contact"
+            >
+              Contact
             </button>
               <a 
                 href="/assets/CV_2026_JanPeiro.pdf" 
@@ -1635,19 +1605,8 @@ useEffect(() => {
                 CV
               </a>
           </nav>
-        </div>
-        <PrivacyModal 
-          isOpen={showPrivacyModal} 
-          onClose={() => setShowPrivacyModal(false)}
-          type={modalContent}
-        />
-        <ImpressumModal 
-          isOpen={showImpressumModal} 
-          onClose={() => setShowImpressumModal(false)}
-        />
-        
-      </footer>
-      
+        </div>      
+      </footer> 
       </div>
     </div>
   );

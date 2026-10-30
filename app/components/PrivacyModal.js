@@ -2,6 +2,8 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import styles from '../app/css/Modal.module.css';
+import { useModal } from './ModalContext';
+import styles from '../css/ModalLink.module.css';
 
 export default function PrivacyModal({ isOpen, onClose, type = 'privacy' }) {
   const [content, setContent] = useState('');
@@ -84,6 +86,8 @@ export default function PrivacyModal({ isOpen, onClose, type = 'privacy' }) {
   }, [isOpen, onClose, handleWheel]);
 
   if (!isOpen) return null;
+
+  
 
   return (
     <div 

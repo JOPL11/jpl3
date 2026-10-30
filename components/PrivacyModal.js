@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import styles from '../app/css/PrivacyModal.module.css';
+import styles from '../app/css/Modal.module.css';
 
 export default function PrivacyModal({ isOpen, onClose, type = 'privacy' }) {
   useEffect(() => {
@@ -81,7 +81,7 @@ export default function PrivacyModal({ isOpen, onClose, type = 'privacy' }) {
             <h3 className={styles.modalContentH3} style={{ marginTop: '1.5rem' }}>Third-Party Services</h3>
             <p>This website may include embedded content from:</p>
             <ul>
-              <li><strong>Vimeo</strong>: For video content. When you view embedded videos, Vimeo may collect data about your interaction. <a href="https://vimeo.com/privacy" target="_blank" rel="noopener noreferrer">View Vimeo&apos;s privacy policy</a></li>
+              <li><strong>MUX</strong>: For video delivery. We have disabled all telemetry and tracking on our MUX integration; no cookies or persistent identifiers are set for video playback. <a href="https://www.mux.com/privacy" target="_blank" rel="noopener noreferrer">View MUX&apos;s privacy policy</a></li>
               <li><strong>Vercel</strong>: For hosting and analytics. Vercel processes data on our behalf under a data processing agreement. <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">View Vercel&apos;s privacy policy</a></li>
             </ul>
           </section>
