@@ -61,7 +61,7 @@ import ProjectCard from './components/ProjectCard';
 import VideoProjectCard from './components/VideoProjectCard';
 import ContactForm from './components/ContactForm';
 import Core from './components/Core';
-// Wrapper component to handle WebGL and iOS interaction
+// Wrapper component to handle Playground and iOS interaction
 const Logo3DWrapper = dynamic(
   () => import('./components/Logo3DWrapperB').then(mod => mod.default),
   { 
@@ -169,7 +169,7 @@ useEffect(() => {
   // Refs for animated headings
   const overviewHeadingRef = useRef(null)
   const aboutHeadingRef = useRef(null);
-  const webglHeadingRef = useRef(null);
+  const playgroundHeadingRef = useRef(null);
   const servicesHeadingRef = useRef(null);
   const workHeadingRef = useRef(null);
   const contactHeadingRef = useRef(null);
@@ -202,9 +202,9 @@ useEffect(() => setMounted(true), []);
     'product': productHeadingRef,
     'motion': motionHeadingRef,
     'video-plane': null,
-    'webgl': webglHeadingRef,
+    'Playground': playgroundHeadingRef,
     'contact': contactHeadingRef,
-  }), [aboutHeadingRef, overviewHeadingRef, workHeadingRef, webglHeadingRef, servicesHeadingRef, contactHeadingRef, motionHeadingRef, productHeadingRef]);
+  }), [aboutHeadingRef, overviewHeadingRef, workHeadingRef, playgroundHeadingRef, servicesHeadingRef, contactHeadingRef, motionHeadingRef, productHeadingRef]);
   
   // Trigger animation when section changes
   const isIOS = checkIfIOS();
@@ -409,7 +409,7 @@ useEffect(() => {
           aria-hidden={!isMenuOpen}
         >
           <ul className={styles.mobileMenuList}>
-         {['Overview', 'About',  'Services',   'WebGL', 'Product', 'Motion', 'Contact'].map((item) => (
+         {['Overview', 'About',  'Services', 'Playground', 'Product', 'Motion', 'Contact'].map((item) => (
               <li key={item} className={styles.mobileMenuItem}>
                 <a 
                   href={`#${item.toLowerCase()}`} 
@@ -488,11 +488,11 @@ useEffect(() => {
                   Core
                 </a>
                      <a 
-                  href="#webgl" 
-                  className={`${styles.navLink} ${activeSection === 'webgl' ? styles.active : ''}`}
-                  onClick={(e) => scrollToSection(e, 'webgl')}
+                  href="#Playground" 
+                  className={`${styles.navLink} ${activeSection === 'Playground' ? styles.active : ''}`}
+                  onClick={(e) => scrollToSection(e, 'Playground')}
                 >
-                  WebGL
+                  Playground
                 </a>
                      <a 
                   href="#product" 
@@ -914,17 +914,17 @@ useEffect(() => {
                   <p><strong>Tools:</strong><AnimatedText ref={citylink2TextRef} type="project"> Next.js, Supabase, Geoman-io, leaflet, Openstreetmap, REST</AnimatedText></p>
                 </ProjectCard>
                
-                <p>Pure next.js projects have been removed for now. If you wanna see some code projects head down to the webGL section.</p>
+                <p>Pure next.js projects have been removed for now. If you wanna see some code projects head down to the Playground section.</p>
                 </div>
             </section>  */}
 
-            {/*   WebGL Section */}
-               <div data-section="webgl-heading"></div>
-            <section id="webgl" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="webgl">
+            {/*   Playground Section */}
+               <div data-section="Playground-heading"></div>
+            <section id="playground" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="Playground">
             
             <SectionTracker onSectionChange={setActiveSection} />
             <h2 style={{paddingTop: "5rem"}}>
-              <AnimatedText ref={webglHeadingRef}>WebGL Playground</AnimatedText>
+              <AnimatedText ref={playgroundHeadingRef}>Playground</AnimatedText>
             </h2>
                
                 <div style={{height: '0.1rem', marginBottom: '3rem'}}>Fun with in-browser interactive realtime 3D</div>
@@ -945,7 +945,7 @@ useEffect(() => {
                   alt="emple of Karnak"
                   link="https://temples-eta.vercel.app"
                   text="The largest temple on earth, reconstructed to spec in Blender / Three.js / React / R3F and animated with greensock & GLSL for an immersive & interactive guided tour."
-                  className="webglProject"
+                  className="PlaygroundProject"
                 >
                   <p>Concept Demo</p>
                   <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
@@ -967,7 +967,7 @@ useEffect(() => {
                   alt="Embryo"
                   link="https://embryo-bay.vercel.app/"
                   text="Under construction. Not ready for mobile."
-                  className="webglProject"
+                  className="PlaygroundProject"
                 >
                   <p>Concept Demo / Opus in Fabrica</p>
                   <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
@@ -989,7 +989,7 @@ useEffect(() => {
                   alt="AI-Ching"
                   link="https://ai-ching.vercel.app"
                   text="Type in a question. Random numbers piped in from photon beam splitters at the University of Australia cast one of 64 I Ching hexagrams; AI interprets the meaning of the hexagram through the lens of your question."
-                  className="webglProject"
+                  className="PlaygroundProject"
                 >
                   <p>Concept Demo</p>
                   <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
@@ -1007,7 +1007,7 @@ useEffect(() => {
                   alt="redpoint game"
                   link="https://dots-flow.vercel.app/"
                   text="A zen meditation game to just sit with your thoughts on autopilot. Nothing stressy."
-                  className="webglProject"
+                  className="PlaygroundProject"
                 >
                   <p>Concept Demo</p>
                   <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
@@ -1025,7 +1025,7 @@ useEffect(() => {
                   alt="Dornbach"
                   link="https://cloudtunnels.vercel.app/"
                   text="Expo installation prototype engine for a physical installation piece at the Milan Design Week 2026."
-                  className="webglProject"
+                  className="PlaygroundProject"
                     client={{
                     name: "SMMD Team |",
                     logo: "/images/agencies/SMMD.png",
@@ -1057,7 +1057,7 @@ useEffect(() => {
                   alt="Rehau"
                   //link="https://cubistic.vercel.app"
                   text="Product showcase for the International Door & Window manufacturer."
-                  className="webglProject"
+                  className="PlaygroundProject"
                     client={{
                     name: "SMMD Team |",
                     logo: "/images/agencies/SMMD.png",
@@ -1086,7 +1086,7 @@ useEffect(() => {
                   <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
                   <p><strong>Role:</strong><br /> 3D model implementation & animation / WebXR implementation</p>
                 </ProjectCard>
-                 {/*       WebGL Section    */}  
+                 {/*       Playground Section    */}  
 
                  
             
@@ -1109,7 +1109,7 @@ useEffect(() => {
                       alt="Quantum Pocketwatch Company"
                       link="https://quantum-pocketwatch.vercel.app/"
                       text="<strong>Experimental / Desktop Only</strong>. Featuring custom 3D models and interactions." 
-                      className="webglProject"
+                      className="PlaygroundProject"
                     >
                       <p>Visual Concept Experiment</p>
                       <p><strong>Tools:</strong><br /><AnimatedText ref={qcTextRef} type="project">Three.js / React / R3F  / GSAP / Router / Next.js / Blender</AnimatedText></p>
@@ -1125,7 +1125,7 @@ useEffect(() => {
                   alt="CubeSite"
                   link="https://cubistic.vercel.app"
                   text="Featuring scripted 3D, interaction and animations."
-                  className="webglProject"
+                  className="PlaygroundProject"
                 >
                   <p>Site Demo In development</p>
                   <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> Three.js / React</AnimatedText></p>
@@ -1147,7 +1147,7 @@ useEffect(() => {
                       alt="Streetlamp 2044"
                       text="<strong>Experimental</strong>. Featuring custom audiotracks, 3D models and animations."
                       link="https://jpl3d2.vercel.app/"
-                      className="webglProject"
+                      className="PlaygroundProject"
                     >
                       <p>R3F Concept Demo</p>
                       <p><strong>Tools:</strong><AnimatedText ref={streetlampTextRef} type="project">Three.js / React / R3F3 Fiber / GSAP / Blender</AnimatedText></p>
@@ -1165,7 +1165,7 @@ useEffect(() => {
                       alt="The Facility"
                       text="<strong>Experimental / Desktop Only</strong>. Featuring custom audiotracks, 3D models and animations."
                       link="https://facility3.vercel.app/"
-                      className="webglProject"
+                      className="PlaygroundProject"
                     >
                       <p>Visual Concept Demo</p>
                       <p><strong>Tools:</strong><AnimatedText ref={facilityTextRef} type="project">Three.js / React / R3F3 Fiber / GLSL / GSAP / Blender / Adobe Suite</AnimatedText></p>
