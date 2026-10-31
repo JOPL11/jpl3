@@ -73,11 +73,9 @@ const DEFAULT_GROUPS = [
       title: 'AI',
       items: [
         'AI is a Roman legion; I command the armies of the North.',
-        'Model routing: DeepSeek (ideation), Claude / GLM (precision)',
+        'Model routing: DeepSeek (code ideation), Claude / GLM (code precision)',
         'Prompt Engineering & Model Evaluation',
         'LLM Integration (API, RAG)',
-        'AI-Assisted Prototyping & Code Generation',
-        'AI-Assisted Writing & Ideation',
       ],
     },
 ];
