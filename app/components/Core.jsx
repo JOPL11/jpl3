@@ -72,7 +72,7 @@ const DEFAULT_GROUPS = [
       id: 'ai',
       title: 'AI',
       items: [
-        'AI is a grammar teacher, I am a novelist.',
+        'AI is the grammar freak, I am the novelist.',
         'Model routing: DeepSeek (code ideation), Claude / GLM (code precision)',
         'Prompt Engineering & Model Evaluation',
         'LLM Integration (API, RAG)',
