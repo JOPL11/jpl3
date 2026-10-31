@@ -68,6 +68,18 @@ const DEFAULT_GROUPS = [
       'SEO, Analytics',
     ],
   },
+    {
+      id: 'ai',
+      title: 'AI',
+      items: [
+        'AI is a Roman legion; I command the armies of the North.',
+        'Model routing: DeepSeek (ideation), Claude / GLM (precision)',
+        'Prompt Engineering & Model Evaluation',
+        'LLM Integration (API, RAG)',
+        'AI-Assisted Prototyping & Code Generation',
+        'AI-Assisted Writing & Ideation',
+      ],
+    },
 ];
 
 function AccordionItem({ group, isOpen, onToggle }) {
