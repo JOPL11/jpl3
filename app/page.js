@@ -630,15 +630,16 @@ useEffect(() => {
             <p>Eligible to work in the EU, UK, and Canada without visa sponsorship.</p>
 
               <div style={{height: '1rem'}}></div>
-         {/* <div className={styles.profileImageContainer}>
+         {/* */}<div className={styles.profileImageContainer}>
               <Image
                 src="/images/me3.jpg"
                 alt="Jan Peiro"
                 className={styles.profileImage}
                 width={210}
                 height={210}
+                quality={100}
               />
-            </div> */}  
+            </div>   
             <br /><p style={{color: 'white', fontSize: '0.8rem', width: "200px", marginTop: '-20px'}}></p>
             </section>
 
