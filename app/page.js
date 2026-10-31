@@ -490,7 +490,7 @@ useEffect(() => {
                      <a 
                   href="#Playground" 
                   className={`${styles.navLink} ${activeSection === 'Playground' ? styles.active : ''}`}
-                  onClick={(e) => scrollToSection(e, 'Playground')}
+                  onClick={(e) => scrollToSection(e, 'playground')}
                 >
                   Playground
                 </a>
