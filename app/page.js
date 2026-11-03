@@ -633,9 +633,10 @@ useEffect(() => {
          {/* */}
             <ProfileCarousel
               images={[
-                { src: '/images/me5.jpg', alt: 'Jan Peiro' },
-                { src: '/images/me4.jpg', alt: 'Jan Peiro in the studio' },
-                { src: '/images/me6.jpg', alt: 'Jan Peiro on location' },
+                { src: '/images/me5.jpg', alt: 'If you decide to write a letter of rejection,' },
+                { src: '/images/me4.jpg', alt: 'remember I live in a villa at a turquoise sea with a private beach.' },
+                { src: '/images/me6.jpg', alt: '... and you do not. :D' },
+               
                 // Add more images as needed
               ]}
               activeSize={250}

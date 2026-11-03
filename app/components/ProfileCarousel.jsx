@@ -150,78 +150,73 @@ export default function ProfileCarousel({ images, activeSize = 250, dormantSize 
   }, [activeIndex]);
 
   return (
-    <div
-      ref={containerRef}
-      className={styles.profileCarousel}
-      role="region"
-      aria-label="Image carousel"
-      aria-roledescription="carousel"
-    >
+    <div className={styles.profileCarouselOuter}>
       <div
-        ref={trackRef}
-        className={styles.profileCarouselTrack}
-        style={{ transform: `translateX(${translateX}px)` }}
+        ref={containerRef}
+        className={styles.profileCarousel}
+        role="region"
+        aria-label="Image carousel"
+        aria-roledescription="carousel"
       >
-        {images.map((img, i) => (
-          <div
-            key={i}
-            className={`${styles.profileCarouselItem} ${i === activeIndex ? styles.active : ''}`}
-            style={{
-              width: `${getItemWidth(i)}px`,
-              height: `${getItemWidth(i)}px`,
-              opacity: 1,
-            }}
-            onClick={() => goTo(i)}
-            role="button"
-            tabIndex={0}
-            aria-label={`View image ${i + 1} of ${images.length}`}
-            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') goTo(i); }}
-          >
-            <Image
-              src={img.src}
-              alt={img.alt}
-              width={getItemWidth(i)}
-              height={getItemWidth(i)}
-              className={styles.profileCarouselImage}
-              quality={100}
-            />
-          </div>
-        ))}
-      </div>
+        <div
+          ref={trackRef}
+          className={styles.profileCarouselTrack}
+          style={{ transform: `translateX(${translateX}px)` }}
+        >
+          {images.map((img, i) => (
+            <div
+              key={i}
+              className={`${styles.profileCarouselItem} ${i === activeIndex ? styles.active : ''}`}
+              style={{
+                width: `${getItemWidth(i)}px`,
+                height: `${getItemWidth(i)}px`,
+              }}
+              onClick={() => goTo(i)}
+              role="button"
+              tabIndex={0}
+              aria-label={`View image ${i + 1} of ${images.length}`}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') goTo(i); }}
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                width={getItemWidth(i)}
+                height={getItemWidth(i)}
+                className={styles.profileCarouselImage}
+                quality={100}
+              />
+            </div>
+          ))}
+        </div>
 
-      {/* Arrows
-      {activeIndex > 0 && (
-        <button
-          className={`${styles.profileCarouselArrow} ${styles.left}`}
-          onClick={goPrev}
-          aria-label="Previous image"
-        >
-          ‹
-        </button>
-      )} 
-      {activeIndex < images.length - 1 && (
-        <button
-          className={`${styles.profileCarouselArrow} ${styles.right}`}
-          onClick={goNext}
-          aria-label="Next image"
-        >
-          ›
-        </button>
-      )}
- */}
-      {/* Dots 
-      <div className={styles.profileCarouselDots} role="tablist" aria-label="Image navigation">
-        {images.map((_, i) => (
+        {/* Arrows + Dots — unchanged, now positioned inside .profileCarousel
+        {activeIndex > 0 && (
           <button
-            key={i}
-            className={`${styles.profileCarouselDot} ${i === activeIndex ? styles.active : ''}`}
-            onClick={() => goTo(i)}
-            role="tab"
-            aria-selected={i === activeIndex}
-            aria-label={`Go to image ${i + 1}`}
-          />
-        ))}
-      </div> */}
+            className={`${styles.profileCarouselArrow} ${styles.left}`}
+            onClick={goPrev}
+            aria-label="Previous image"
+          >‹</button>
+        )}
+        {activeIndex < images.length - 1 && (
+          <button
+            className={`${styles.profileCarouselArrow} ${styles.right}`}
+            onClick={goNext}
+            aria-label="Next image"
+          >›</button>
+        )}
+        <div className={styles.profileCarouselDots} role="tablist" aria-label="Image navigation">
+          {images.map((_, i) => (
+            <button
+              key={i}
+              className={`${styles.profileCarouselDot} ${i === activeIndex ? styles.active : ''}`}
+              onClick={() => goTo(i)}
+              role="tab"
+              aria-selected={i === activeIndex}
+              aria-label={`Go to image ${i + 1}`}
+            />
+          ))}
+        </div>  */}
+      </div>
     </div>
   );
 }
