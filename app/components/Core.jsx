@@ -73,6 +73,7 @@ const DEFAULT_GROUPS = [
       title: 'AI',
       items: [
         'Non-agentic syntax correction',
+        'Roles: AI is the grammar genie, I am the storywriter',
         'DeepSeek, Claude, GLM',
         'LLM Integration (API, RAG)',
       ],
