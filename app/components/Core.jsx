@@ -72,8 +72,8 @@ const DEFAULT_GROUPS = [
       id: 'ai',
       title: 'AI',
       items: [
-        'Syntax correction',
-        'Model routing: DeepSeek, Claude, GLM',
+        'Non-agentic syntax correction',
+        'DeepSeek, Claude, GLM',
         'LLM Integration (API, RAG)',
       ],
     },
