@@ -627,9 +627,7 @@ useEffect(() => {
 
             <p>Global Remote | EST / CET / EET</p>
 
-            <p>Eligible to work in the EU, UK, and Canada without visa sponsorship.</p>
-
-              <div style={{height: '1rem'}}></div>
+            <div style={{height: '1rem'}}></div>
          {/* */}
             <ProfileCarousel
               images={[
