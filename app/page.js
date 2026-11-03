@@ -636,6 +636,8 @@ useEffect(() => {
                 { src: '/images/me5.jpg', alt: 'If you do decide to write me a letter of rejection,' },
                 { src: '/images/me4.jpg', alt: 'remember I live in a villa at a turquoise sea with a private beach' },
                 { src: '/images/me6.jpg', alt: '... and you do not :D :P' },
+                { src: '/images/me7.jpg', alt: 'JPL' },
+                { src: '/images/me8.jpg', alt: 'JPL' },
                
                 // Add more images as needed
               ]}
