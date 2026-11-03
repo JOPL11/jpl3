@@ -17,7 +17,7 @@ import { createPortal } from 'react-dom';
 import { useModal } from './components/ModalContext';
 import PrivacyContent from './components/PrivacyContent';
 import styles from './css/page.module.css';
-
+import ProfileCarousel from './components/ProfileCarousel';
   {/*
 // Dynamically import the component with SSR disabled
 const BelowFooterWorld = dynamic(
@@ -630,16 +630,17 @@ useEffect(() => {
             <p>Eligible to work in the EU, UK, and Canada without visa sponsorship.</p>
 
               <div style={{height: '1rem'}}></div>
-         {/* */}<div className={styles.profileImageContainer}>
-              <Image
-                src="/images/me3.jpg"
-                alt="Jan Peiro"
-                className={styles.profileImage}
-                width={210}
-                height={210}
-                quality={100}
-              />
-            </div>   
+         {/* */}
+            <ProfileCarousel
+              images={[
+                { src: '/images/me5.jpg', alt: 'Jan Peiro' },
+                { src: '/images/me4.jpg', alt: 'Jan Peiro in the studio' },
+                { src: '/images/me6.jpg', alt: 'Jan Peiro on location' },
+                // Add more images as needed
+              ]}
+              activeSize={250}
+              dormantSize={120}
+            />
             <br /><p style={{color: 'white', fontSize: '0.8rem', width: "200px", marginTop: '-20px'}}></p>
             </section>
 
