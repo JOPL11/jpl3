@@ -636,8 +636,8 @@ useEffect(() => {
                 { src: '/images/me5.jpg', alt: 'JPL' },
                 { src: '/images/me4.jpg', alt: 'JPL' },
                 { src: '/images/me6.jpg', alt: 'JPL' },
-               // { src: '/images/me3.jpg', alt: 'JPL' },
-               // { src: '/images/me7.jpg', alt: 'Wild hair' },
+                { src: '/images/me9.jpg', alt: 'JPL' },
+                { src: '/images/me7.jpg', alt: 'Wild hair' },
 
                
                 // Add more images as needed
