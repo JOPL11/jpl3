@@ -1026,11 +1026,11 @@ const handleResize = useCallback(() => {
             <EffectComposer multisampling={isIOS && IOS_TWEAKS.noMultisampling ? 0 : undefined}>
             <SMAA />
               <Bloom 
-                luminanceThreshold={0.4} 
+                luminanceThreshold={0.5} 
                 mipmapBlur 
-                luminanceSmoothing={0.3} 
-                intensity={0.5} 
-                kernelSize={2}
+                luminanceSmoothing={0.4} 
+                intensity={1.5} 
+                kernelSize={1}
               />
             </EffectComposer>
            
