@@ -630,7 +630,7 @@ useEffect(() => {
             <p>Global Remote | EST / CET / EET</p>
 
             <div style={{height: '1rem'}}></div>
-         {/* */}
+         {/*
             <ProfileCarousel
               images={[
                 { src: '/images/me5.jpg', alt: 'JPL' },
@@ -644,7 +644,7 @@ useEffect(() => {
               ]}
               activeSize={250}
               dormantSize={120}
-            />
+            /> */}
             <br /><p style={{color: 'white', fontSize: '0.8rem', width: "200px", marginTop: '-20px'}}></p>
             </section>
 
