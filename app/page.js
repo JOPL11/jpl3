@@ -1036,7 +1036,7 @@ useEffect(() => {
                   <p><strong>Role:</strong><br /> Concept / Model / Development</p>
                 </ProjectCard>
           
-                   <ProjectCard 
+            {/*       <ProjectCard 
                      deform
                      onMoreClick={() => {
                     console.log('More button clicked, triggering animation');
@@ -1108,7 +1108,7 @@ useEffect(() => {
                   <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
                   <p><strong>Role:</strong><br /> 3D model implementation & animation / WebXR implementation</p>
                 </ProjectCard>
-                 {/*       Playground Section    */}  
+                        Playground Section    */}  
 
                  
             
