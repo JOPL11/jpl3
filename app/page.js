@@ -935,7 +935,23 @@ useEffect(() => {
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
 
 {/*  */}
-        
+                        <ProjectCard 
+                deform
+                  onMoreClick={() => {
+                    console.log('WarRoom More button clicked, triggering animation');
+                    bytes101TextRef.current?.animate();
+                  }}
+                  title="War Room"
+                  image="/images/warroom.jpg"
+                  alt="warroom"
+                  link="https://warroom-silk.vercel.app"
+                  text="Ask a question and history's three greatest strategists answer in their own voices, then rebut each other, and finally a fourth voice synthesizes a verdict. A Spatial AI Interface built with RAG, Blender, Next.js, and Three.js / React Three Fiber."
+                  className="PlaygroundProject"
+                >
+                  <p>Concept Demo</p>
+                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React / AI</AnimatedText></p>
+                  <p><strong>Role:</strong><br /> Concept / Animation / Development</p>
+                </ProjectCard>
 
           <ProjectCard 
                    deform
@@ -954,6 +970,8 @@ useEffect(() => {
                   <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
                   <p><strong>Role:</strong><br /> Concept / Model / Development</p>
                 </ProjectCard>
+
+          
 
           {!isMobile && (
                   <> 
@@ -991,13 +1009,14 @@ useEffect(() => {
                   image="/images/ching.jpg"
                   alt="AI-Ching"
                   link="https://ai-ching.vercel.app"
-                  text="Type in a question. Random numbers piped in from photon beam splitters at the University of Australia cast one of 64 I Ching hexagrams; AI interprets the meaning of the hexagram through the lens of your question."
+                  text="Type in a question. Random numbers piped in from photon beam splitters at the University of Australia cast one of 64 I Ching hexagrams; AI interprets the meaning of the hexagram through the lens of your question. Spatial AI Interface"
                   className="PlaygroundProject"
                 >
                   <p>Concept Demo</p>
-                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
+                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React / AI</AnimatedText></p>
                   <p><strong>Role:</strong><br /> Concept / Animation / Development</p>
                 </ProjectCard>
+
 
                 <ProjectCard 
                   deform
