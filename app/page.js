@@ -666,7 +666,7 @@ useEffect(() => {
               <AnimatedText ref={workHeadingRef}>React</AnimatedText>
             </h2>
                
-                <div style={{height: '0.1rem', marginBottom: '3rem'}}>Fun with in-browser interactive realtime 3D</div>
+                <div style={{height: '0.1rem', marginBottom: '3rem'}}>Web work. Design, build, ship.</div>
                <div className={styles.divider3}></div>
               <div className={styles.projectsGrid} role="grid" aria-label="Projects"> {/*  */}
     <ProjectCard 
