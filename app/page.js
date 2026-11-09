@@ -632,7 +632,7 @@ useEffect(() => {
 
             <p>I started out as jr. art director and gained proficiency in motion design, 3D visualization and creative development, while also building a strong foundation in web development and interactive design. I've art directed, coded, animated and designed various international and national projects across the fashion, entertainment, automotive, broadcast and aerospace industries - spanning online, physical expo installation and motion design fields.</p>
 
-            <p>Born in Barcelona, raised in Montreal. I've also lived in Philadelphia, Toronto, Freiburg, Ladenburg, Munich, Barcelona & am currently watching the world burn from a beach in Egypt.</p>
+            <p>Born in Barcelona, raised in Montreal. I've also lived in Philadelphia, Toronto, Freiburg, Ladenburg, Munich, Barcelona & am currently watching the world burn from a private beach in Egypt.</p>
             
             <p>Global Remote | EST / CET / EET</p>
 
