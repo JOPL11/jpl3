@@ -169,7 +169,7 @@ export default function Core({
 
 
       <h2 id="core-heading" style={{ paddingTop: '5rem' }}>
-        <AnimatedText ref={headingRef}>Core</AnimatedText>
+        <AnimatedText ref={headingRef}>Services</AnimatedText>
               
       </h2>
       <div style={{ height: '0.1rem', marginBottom: '3rem' }}>Tools</div>

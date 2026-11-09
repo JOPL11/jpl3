@@ -197,7 +197,7 @@ useEffect(() => setMounted(true), []);
   const sectionRefs = useMemo(() => ({
     'about': aboutHeadingRef,
     'overview': overviewHeadingRef,
-    'code': workHeadingRef,
+    'react': workHeadingRef,
     'services': servicesHeadingRef,
     'product': productHeadingRef,
     'motion': motionHeadingRef,
@@ -409,7 +409,7 @@ useEffect(() => {
           aria-hidden={!isMenuOpen}
         >
           <ul className={styles.mobileMenuList}>
-         {['Overview', 'About',  'Services', 'Playground', 'Product', 'Motion', 'Contact'].map((item) => (
+         {['Overview', 'About',  'Services', 'React', 'Playground', 'Product', 'Motion', 'Contact'].map((item) => (
               <li key={item} className={styles.mobileMenuItem}>
                 <a 
                   href={`#${item.toLowerCase()}`} 
@@ -485,7 +485,14 @@ useEffect(() => {
                   className={`${styles.navLink} ${activeSection === 'services' ? styles.active : ''}`}
                   onClick={(e) => scrollToSection(e, 'services')}
                 >
-                  Core
+                  Services
+                </a>
+                <a 
+                  href="#code" 
+                  className={`${styles.navLink} ${activeSection === 'code' ? styles.active : ''}`}
+                  onClick={(e) => scrollToSection(e, 'code')}
+                >
+                  React
                 </a>
                      <a 
                   href="#Playground" 
@@ -496,7 +503,7 @@ useEffect(() => {
                 </a>
                      <a 
                   href="#product" 
-                  className={`${styles.navLink} ${activeSection === 'profuct' ? styles.active : ''}`}
+                  className={`${styles.navLink} ${activeSection === 'product' ? styles.active : ''}`}
                   onClick={(e) => scrollToSection(e, 'product')}
                 >
                   Product
@@ -651,14 +658,84 @@ useEffect(() => {
             </section>
        
               {/* About section End */}
-              {/* 
-                  <div data-section="code-heading"></div>
+             
+            <div data-section="work-heading"></div>
             <SectionTracker onSectionChange={setActiveSection} />  
             <section id="code" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="code"> 
-       
-              <h2 id="code" style={{marginTop: '100px'}} className={styles.scrollTarget}><AnimatedText ref={workHeadingRef}>Fullstack Case Study</AnimatedText></h2>
-                 <div style={{height: '0.1rem', marginBottom: '5rem'}}>Selected Case Studies</div>
-              <div className={styles.projectsGrid} role="grid" aria-label="Projects"> */}
+              <h2 style={{paddingTop: "5rem"}}>
+              <AnimatedText ref={workHeadingRef}>React</AnimatedText>
+            </h2>
+               
+                <div style={{height: '0.1rem', marginBottom: '3rem'}}>Fun with in-browser interactive realtime 3D</div>
+               <div className={styles.divider3}></div>
+              <div className={styles.projectsGrid} role="grid" aria-label="Projects"> {/*  */}
+    <ProjectCard 
+                 onMoreClick={() => {
+                  console.log('Mamdouh Law More button clicked, triggering animation');
+                  roadrichTextRef.current?.animate();
+                }}
+                  title="Mamdouh Law"
+                  image="/images/law.jpg"
+                  alt="Mamdouh Law"
+                  link="https://legal-mamdouh.vercel.app/en"
+                  textPosition="bottom"
+                  text={`
+                  <br />
+                  Legal Counsel in four Languages`}
+                  client={{
+                    name: "Mamdouh & Partners ",
+                    //logo: "/images/rrlogolongwhite.svg",
+                    //website: "#"
+                  }}
+                  logoWidth={250}
+                  logoHeight={40}
+                  logoStyle={{
+                    height: '20px',
+                    width: 'auto',   
+                    maxWidth: '100%'
+                  }}
+                >
+                  <p><strong>Target Audience:</strong> People seeking counsel</p>
+                  <p><strong>Project Type:</strong> Company Webapp</p>
+                  <p><strong>Role:</strong> Design & Development</p>
+                  <p><strong>Tools:</strong><AnimatedText ref={bytes101TextRef} type="project"> Next.js, Typescript</AnimatedText></p>
+
+                </ProjectCard>
+
+                 <ProjectCard 
+                 onMoreClick={() => {
+                  console.log('RoadRich More button clicked, triggering animation');
+                  roadrichTextRef.current?.animate();
+                }}
+                  title="RoadRich App"
+                  image="/images/corp/rr4.jpg"
+                  alt="RoadRich App"
+                  link="https://roadrich.vercel.app/"
+                  textPosition="bottom"
+                  text={`<b>Proof of Concept Demo</b>
+                  <br />
+                  <br />
+                  Share locations of cool Sperrmüll you encounter on the streets of Berlin. Maybe you don't want it. Maybe someone else will.`}
+                  client={{
+                    name: "RoadRich |",
+                    logo: "/images/rrlogolongwhite.svg",
+                    //website: "#"
+                  }}
+                  logoWidth={250}
+                  logoHeight={40}
+                  logoStyle={{
+                    height: '20px',
+                    width: 'auto',   
+                    maxWidth: '100%'
+                  }}
+                >
+                  <p><strong>Target Audience:</strong> Sperrmüll Hunters</p>
+                  <p><strong>Project Type:</strong> Neighborhood clean-up App</p>
+                  <p><strong>Role:</strong> Design & Development</p>
+                  <p><strong>Tools:</strong><AnimatedText ref={bytes101TextRef} type="project"> Next.js, Typescript, Tailwind, Supabase, Openstreetmap</AnimatedText></p>
+                  <p><strong>Features:</strong> Photo capture / compression. Geolocation. Supabase. Openstreetmap.</p>
+                  <p><strong>Goal:</strong> Make something fun, easy to use and secure in compliance with GDPR.</p>
+                </ProjectCard>
              {/* About section End
               <ProjectCard 
                 onMoreClick={() => {
@@ -917,9 +994,9 @@ useEffect(() => {
                   <p><strong>Tools:</strong><AnimatedText ref={citylink2TextRef} type="project"> Next.js, Supabase, Geoman-io, leaflet, Openstreetmap, REST</AnimatedText></p>
                 </ProjectCard>
                
-                <p>Pure next.js projects have been removed for now. If you wanna see some code projects head down to the Playground section.</p>
+                <p>Pure next.js projects have been removed for now. If you wanna see some code projects head down to the Playground section.</p> */}
                 </div>
-            </section>  */}
+            </section>  
 
             {/*   Playground Section */}
                <div data-section="Playground-heading"></div>
