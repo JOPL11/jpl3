@@ -636,7 +636,7 @@ useEffect(() => {
 
             <p>I left Germany in 2024/25 after witnessing too much institutional & street-level radicalism, behavioral patterns that denote widespread mental-health issues, completely dysfunctional work culture and a tech stack so stagnant that in 2025 I was asked to teach an online course in Dreamweaver (wherein English to explain HTML was verboten, on top).</p>
 
-            <p>I now live in Egypt, in a villa with a private beach and blazing fast internet.</p>
+            <p>I now live in Egypt, in a villa with a private beach and blazing fast internet. There are many Germans here as well on the next beach over. I can hear them complain about and dehumanize the locals as they sunbathe. Occasionally I go to a cafe and two German ladies will be sitting in the corner, screeching like pterodactyls fighting over a piece of meat, not realizing that everyone is utterly embarrassed to be in their vicinity.</p>
 
             <p>Global Remote | EST / CET / EET</p>
 
