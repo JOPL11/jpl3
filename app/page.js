@@ -634,13 +634,17 @@ useEffect(() => {
 
             <p>Born in Barcelona, raised in Montreal. I've also lived in Philadelphia, Toronto, Munich and Barcelona.</p>
 
-            <p>After 20 years paying insane taxes with nothing but a kick in the head to show for it, I recently left Germany for good due to its renazification, its outdated tech stack, its contempt for creativity and its extremely limited capacity for self-reflection. I now live in a beautiful villa with a private beach in Egypt.</p>
+           <p>After 20 years paying insane taxes with nothing but a kick in the head to show for it, I recently left Germany for good due to its renazification and its outdated tech stack, and a whole lot of other reasons.</p> 
+
+            <p>I now live in a beautiful villa with a private beach in Egypt.</p> 
 
             <p>Global Remote | EST / CET / EET</p>
 
             <div style={{height: '1rem'}}></div>
          {/*
             <ProfileCarousel
+<p>After 20 years paying insane taxes with nothing but a kick in the head to show for it, I recently left Germany for good due to its renazification, its outdated tech stack, its contempt for creativity and its extremely limited capacity for self-reflection. I could go on and on. A lurking phenotype-based gatekeeper caste-system posing as a liberal democracy. Widespread dark triad psychologies. Careful, Europe - Germany is a predator masquerading as an altruist. Germany is a guy who steals your wallet, drowns you in the lake and then tells everyone how he only tried to help you.</p> 
+                 
               images={[
                 { src: '/images/me5.jpg', alt: 'JPL' },
                 { src: '/images/me4.jpg', alt: 'JPL' },
