@@ -634,7 +634,7 @@ useEffect(() => {
 
             <p>Born in Barcelona, raised in Montreal. I've also lived in Philadelphia, Toronto, Munich and Barcelona.</p>
 
-            <p>I left Germany in 2024/25 after witnessing too much institutional & street-level radicalism, behavioral patterns that denote widespread mental-health issues, and a tech stack so stagnant that in 2025 I was asked to teach an online course in Dreamweaver (wherein English to explain HTML was verboten, on top).</p>
+            <p>I left Germany in 2024/25 after witnessing too much institutional & street-level radicalism, behavioral patterns that denote widespread mental-health issues, completely dysfunctional work culture and a tech stack so stagnant that in 2025 I was asked to teach an online course in Dreamweaver (wherein English to explain HTML was verboten, on top).</p>
 
             <p>I now live in Egypt, in a villa with a private beach and blazing fast internet.</p>
 
