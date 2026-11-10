@@ -632,7 +632,11 @@ useEffect(() => {
 
             <p>I started out as a junior art director and gained proficiency in motion design, 3D visualization and creative development, while also building a strong foundation in web development and interactive design. I've art directed, coded, animated and designed various international and national projects across the fashion, entertainment, automotive, broadcast and aerospace industries — spanning online, physical expo installation and motion design fields.</p>
 
-            <p>Born in Barcelona, raised in Montreal. I've also lived in Philadelphia, Toronto, Munich and Barcelona. I left Germany in 2024/25 after encountering rising institutional and societal radicalism — and a tech stack so stagnant that in 2025 I was asked to teach an online course in Dreamweaver (English to describe HTML was verboten, on top). I now live in Egypt, in a villa with a private beach, and wonder why I didn't leave Doucheland much sooner.</p>
+            <p>Born in Barcelona, raised in Montreal. I've also lived in Philadelphia, Toronto, Munich and Barcelona.</p> 
+
+           <p>I left Germany in 2024/25 after witnessing too much atavistic institutional, street-level radicalism and interpersonal toxicity — and a tech stack so stagnant that in 2025 I was asked to teach an online course in Dreamweaver (wherein English to explain HTML was verboten, on top).</p> 
+            
+            <p>I now live in Egypt, in a villa with a private beach and blazing fast internet.</p>
 
             <p>Global Remote | EST / CET / EET</p>
 
