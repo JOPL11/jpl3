@@ -624,7 +624,6 @@ useEffect(() => {
             <p>Hi! I&apos;m Jan Peiro.</p>
             <div className={styles.divider3}></div>
             <br />
-            <br />
             <p>A multidisciplinary designer and creative who bridges the gap between visuals and technology. I hold a diploma in Communications Design from The Blocherer School in Munich, Germany, and have spent my career transforming ideas into engaging experiences for a global clientele.</p>
 
             <p>Specialized in <strong>2D / 3D design, animation and interactive content.</strong></p>
@@ -633,7 +632,7 @@ useEffect(() => {
 
             <p>I started out as a junior art director and gained proficiency in motion design, 3D visualization and creative development, while also building a strong foundation in web development and interactive design. I've art directed, coded, animated and designed various international and national projects across the fashion, entertainment, automotive, broadcast and aerospace industries — spanning online, physical expo installation and motion design fields.</p>
 
-            <p>Born in Barcelona, raised in Montreal. I've also lived in Philadelphia, Toronto, Freiburg, Ladenburg, Munich and Barcelona. I left Germany after encountering rising  atavistic racism and scumbaggery in both institutions and people — and a tech stack so stagnant that in 2025 I was asked to teach an online course in Dreamweaver (!) without using English for HTML references (!!). I now live in Egypt, in a beachside villa with blazing fast internet.</p>
+            <p>Born in Barcelona, raised in Montreal. I've also lived in Philadelphia, Toronto, Munich and Barcelona. I left Germany in 2024/25 after encountering rising institutional and societal radicalism — and a tech stack so stagnant that in 2025 I was asked to teach an online course in Dreamweaver (English to describe HTML was verboten, on top). I now live in Egypt, in a villa with a private beach, and wonder why I didn't leave Doucheland much sooner.</p>
 
             <p>Global Remote | EST / CET / EET</p>
 
