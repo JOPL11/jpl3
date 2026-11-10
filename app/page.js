@@ -624,16 +624,16 @@ useEffect(() => {
             <p>Hi! I&apos;m Jan Peiro.</p>
             <div className={styles.divider3}></div>
             <br />
-            <p>A multidisciplinary designer and creative who bridges the gap between visuals and technology. I hold a diploma in Communications Design from The Blocherer School in Munich, Germany and have spent my career transforming ideas into engaging experiences for a global clientele.</p>
+            <p>A multidisciplinary designer and creative who bridges the gap between visuals and technology. I hold a diploma in Communications Design from The Blocherer School in Munich, Germany, and have spent my career transforming ideas into engaging experiences for a global clientele.</p>
 
             <p>Specialized in <strong>2D / 3D design, animation and interactive content.</strong></p>
 
             <p>My core principle is merging design, animation and code to create work that is aesthetic, functional and scalable.</p>
 
-            <p>I started out as jr. art director and gained proficiency in motion design, 3D visualization and creative development, while also building a strong foundation in web development and interactive design. I've art directed, coded, animated and designed various international and national projects across the fashion, entertainment, automotive, broadcast and aerospace industries - spanning online, physical expo installation and motion design fields.</p>
+            <p>I started out as a junior art director and gained proficiency in motion design, 3D visualization and creative development, while also building a strong foundation in web development and interactive design. I've art directed, coded, animated and designed various international and national projects across the fashion, entertainment, automotive, broadcast and aerospace industries — spanning online, physical expo installation and motion design fields.</p>
 
-            <p>Born in Barcelona, raised in Montreal. I've also lived in Philadelphia, Toronto, Freiburg, Ladenburg, Munich, Barcelona & am currently watching the world burn from a private beach in Egypt.</p>
-            
+            <p>Born in Barcelona, raised in Montreal. I've also lived in Philadelphia, Toronto, Freiburg, Ladenburg, Munich and Barcelona. I left Germany after encountering intolerable levels of rising institutional and societal racism — coupled with a rather dimwitted prevailing tech stack (WordPress is hi-tech over there). I now live in Egypt, in a villa with a private beach.</p>
+
             <p>Global Remote | EST / CET / EET</p>
 
             <div style={{height: '1rem'}}></div>
