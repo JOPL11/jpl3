@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useEffect, useRef, useCallback } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from '../css/Modal.module.css';
+import Lenis from 'lenis';
 
 export default function Modal({
   isOpen,
@@ -16,32 +17,22 @@ export default function Modal({
 
   const topKey = layers.length ? layers[layers.length - 1].key : null;
 
-  const handleWheel = useCallback((e) => {
-    const el = contentRef.current;
-    if (!el) return;
-    e.preventDefault();
-    const { scrollTop, scrollHeight, clientHeight } = el;
-    const isAtTop = scrollTop === 0 && e.deltaY < 0;
-    const isAtBottom = scrollTop + clientHeight >= scrollHeight - 1 && e.deltaY > 0;
-    if (!isAtTop && !isAtBottom) el.scrollTop += e.deltaY * 0.8;
-  }, []);
-
-  // Scroll lock + ESC + bleed killer: once per open, not per swap
+  // Page scroll lock + ESC: once per open, not per swap.
+  // (Wheel bleed is handled by overflow:hidden on html/body plus the page
+  // Lenis being stopped in ModalContext, so no window wheel listener needed.)
   useEffect(() => {
     if (!isOpen) return;
+
     const handleEsc = (e) => e.key === 'Escape' && onCloseRef.current();
-    const killBleed = (e) => e.preventDefault();
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
 
     window.addEventListener('keydown', handleEsc);
-    window.addEventListener('wheel', killBleed, { passive: false });
     document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
     if (scrollbarWidth > 0) document.body.style.paddingRight = `${scrollbarWidth}px`;
 
     return () => {
       window.removeEventListener('keydown', handleEsc);
-      window.removeEventListener('wheel', killBleed);
       document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
       document.body.style.paddingRight = '';
@@ -49,14 +40,32 @@ export default function Modal({
     };
   }, [isOpen]);
 
-  // Wheel listener must re-attach to each new top panel's scroll node
+  // One Lenis instance per top panel. Re-runs when a new panel mounts,
+  // destroying the previous instance.
   useEffect(() => {
     if (!isOpen) return;
-    const el = contentRef.current;
-    if (!el) return;
-    el.addEventListener('wheel', handleWheel, { passive: false });
-    return () => el.removeEventListener('wheel', handleWheel);
-  }, [isOpen, topKey, handleWheel]);
+    const wrapper = contentRef.current;
+    if (!wrapper || !wrapper.firstElementChild) return;
+
+    const lenis = new Lenis({
+      wrapper,
+      content: wrapper.firstElementChild,
+      lerp: 0.1,
+      smoothWheel: true,
+    });
+
+    let rafId;
+    const raf = (time) => {
+      lenis.raf(time);
+      rafId = requestAnimationFrame(raf);
+    };
+    rafId = requestAnimationFrame(raf);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenis.destroy();
+    };
+  }, [isOpen, topKey]);
 
   if (!isOpen && !isClosing) return null;
 
@@ -94,12 +103,14 @@ export default function Modal({
                 &times;
               </button>
             )}
+            {/* Scroller (wrapper) */}
             <div
               ref={isTop ? contentRef : undefined}
               className="scrollableContent"
-              style={{ overflowY: 'auto', overflowX: 'visible !important', height: '100%', width: '100%' }}
+              style={{ overflowY: 'auto', height: '100%', width: '100%' }}
             >
-              {body}
+              {/* Lenis needs exactly one child to measure (content) */}
+              <div>{body}</div>
             </div>
           </div>
         );

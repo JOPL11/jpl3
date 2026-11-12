@@ -517,3 +517,12 @@
   animation: none;       /* end state of fadeInSlideUp is identical, so no visual jump */
   pointer-events: none;
 }
+
+.contentFade {
+  animation: contentFadeIn 0.5s ease-out both;
+}
+
+@keyframes contentFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

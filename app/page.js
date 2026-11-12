@@ -202,7 +202,7 @@ const scrollToSection = (e, sectionId) => {
  // const streetlampTextRef = useRef(null);
 //  const qcTextRef = useRef(null);
  // const facilityTextRef = useRef(null);
- // const roadrichTextRef = useRef(null);
+  const roadrichTextRef = useRef(null);
  // const artstationHeadingRef = useRef(null);
 const scrollVelocity = useRef(0);
 const animationFrameId = useRef(null);

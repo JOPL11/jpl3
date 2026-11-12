@@ -172,6 +172,7 @@
   pointer-events: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--foreground-muted) transparent;
+  margin: 0 auto; 
 }
 
 .modal-content.scrolling {
@@ -654,7 +655,7 @@ html.no-scroll {
 
 @media (max-width: 595px) {
   .modalNavigation.bottomNavigation {
-    margin-left: 10px !important;
+    margin: 0 auto; 
   }
 }
 

@@ -15,30 +15,53 @@ export function ModalProvider({ children }) {
   const layerRef = useRef(null);
   const statusRef = useRef('closed'); // 'closed' | 'open' | 'closing'
   const keyRef = useRef(0);
+  const contentKeyRef = useRef(0);
   const closeTimeoutRef = useRef(null);
   const outgoingTimeoutRef = useRef(null);
 
-  useEffect(() => {
-    document.body.classList.toggle('modal-open', isOpen);
-    return () => document.body.classList.remove('modal-open');
-  }, [isOpen]);
+useEffect(() => {
+  document.body.classList.toggle('modal-open', isOpen);
+  if (isOpen) window.lenis?.stop();
+  else window.lenis?.start();
+  return () => {
+    document.body.classList.remove('modal-open');
+    window.lenis?.start();
+  };
+}, [isOpen]);
 
- const openModal = (content, className = '', { layer = true } = {}) => {
+const openModal = (content, className = '', { layer = true } = {}) => {
   if (closeTimeoutRef.current) {
     clearTimeout(closeTimeoutRef.current);
     closeTimeoutRef.current = null;
   }
-  clearTimeout(outgoingTimeoutRef.current);
 
   const prev = layerRef.current;
-  const next = { key: ++keyRef.current, content, className };
+  const contentKey = ++contentKeyRef.current;
 
-  if (layer && prev && statusRef.current === 'open') {
-    // Already open and this is a section open: keep old panel underneath
+  // Swap: modal is open and caller asked for no layering (LogoCard arrows).
+  // Keep the SAME panel key so the panel doesn't remount or replay the slide-up;
+  // only the content changes and fades in.
+  if (!layer && prev && statusRef.current === 'open') {
+    const next = {
+      key: prev.key,
+      contentKey,
+      swap: true,
+      content,
+      className: className || prev.className,
+    };
+    layerRef.current = next;
+    setLayer(next);
+    return;
+  }
+
+  // Fresh open or section open: new panel key, full slide-up
+  clearTimeout(outgoingTimeoutRef.current);
+  const next = { key: ++keyRef.current, contentKey, swap: false, content, className };
+
+  if (prev && statusRef.current === 'open') {
     setOutgoing(prev);
     outgoingTimeoutRef.current = setTimeout(() => setOutgoing(null), SLIDE_MS);
   } else {
-    // Fresh open, or a swap (e.g. LogoCard next/prev): no layering
     setOutgoing(null);
   }
 
@@ -48,7 +71,6 @@ export function ModalProvider({ children }) {
   setIsClosing(false);
   setIsOpen(true);
 };
-
   const closeModal = () => {
     if (statusRef.current !== 'open') return; // guards ESC spam / double close
     statusRef.current = 'closing';
