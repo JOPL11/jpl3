@@ -153,7 +153,11 @@ const LogoCard = () => {
 
     setCurrentLogoIndex(index);
     setCurrentLogos(logos);
-    openModal(<ModalContent logo={logo} index={index} logos={logos} />);
+  
+  openModal(<ModalContent logo={logo} index={index} logos={logos} />);
+  '',
+  { layer: false }
+
   };
 
   // =================== MODAL CONTENT ===================
@@ -186,7 +190,9 @@ const LogoCard = () => {
             logo={newLogo}
             index={newIndex}
             logos={logos}
-          />
+          />,
+          '',
+          { layer: false }
         );
       }, 300);
     };

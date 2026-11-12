@@ -18,6 +18,9 @@ import { useModal } from './components/ModalContext';
 import PrivacyContent from './components/PrivacyContent';
 import styles from './css/page.module.css';
 import ProfileCarousel from './components/ProfileCarousel';
+   import PlaygroundContent from './components/PlaygroundContent';
+   import ReactContent from './components/ReactContent';
+   import MotionContent from './components/MotionContent';
   {/*
 // Dynamically import the component with SSR disabled
 const BelowFooterWorld = dynamic(
@@ -144,9 +147,23 @@ useEffect(() => {
     };
   }, []);
 */} 
- const scrollToSection = (e, sectionId) => {
+const MODAL_SECTIONS = {
+  playground: () => <PlaygroundContent />,
+  react:      () => <ReactContent />,
+  motion:     () => <MotionContent />,
+};
+
+const scrollToSection = (e, sectionId) => {
   e.preventDefault();
-  closeModal();
+
+  const make = MODAL_SECTIONS[sectionId];
+  if (make) {
+    setActiveSection(sectionId);
+    openModal(make(), `${sectionId}Modal`);
+    return;                 // no scrolling, no closeModal
+  }
+
+  closeModal();             // other items: close any modal, then scroll
   setActiveSection(sectionId);
 
   requestAnimationFrame(() => {

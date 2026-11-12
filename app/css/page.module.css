@@ -140,6 +140,7 @@
   padding: 0;
   box-sizing: border-box;
   font-size: 1.2rem;
+  overflow: visible !important;
 }
 
 /* Desktop styles */
@@ -1608,6 +1609,7 @@ a.secondary {
   .main,
   .container {
     overflow: visible;
+    overflow-x: visible !important;
   }
   .projectCard,
   .projectCard.expanded {
@@ -1883,8 +1885,8 @@ a.secondary {
   
   /* Ensure content doesn't touch screen edges */
   .content {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
   
   /* Adjust navigation links if needed */
@@ -2061,10 +2063,30 @@ a.secondary {
 .contentWrapper,
 .logoSidebar {
   pointer-events: none;
+  overflow: visible !important;
 }
 .contentWrapper > * {
   pointer-events: auto;
 }
 .contentWrapper > .logoSidebar {
   pointer-events: none;
+}
+
+/* Modal single-column layout */
+.modalColumn {
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem 5rem;
+  overflow: visible !important;
+}
+
+.modalColumn .projectsGrid {
+  grid-template-columns: 1fr;   /* beats the minmax(600px, 1fr) desktop rule */
+  gap: 2.5rem;
+  overflow: visible !important;
+}
+
+.modalColumn .divider3 {
+  width: 100%;
 }

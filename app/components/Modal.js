@@ -1,143 +1,109 @@
-// components/Modal.js
 'use client';
 
 import React, { useEffect, useRef, useCallback } from 'react';
 import styles from '../css/Modal.module.css';
-import Image from 'next/image';
 
 export default function Modal({
   isOpen,
   isClosing = false,
   onClose,
-  children,
+  layers = [],
   fullBleed = false,
-  className = '',
 }) {
-  const modalRef = useRef(null);
   const contentRef = useRef(null);
+  const onCloseRef = useRef(onClose);
+  onCloseRef.current = onClose;
 
-  // Handle smooth scrolling for mouse wheel inside the modal content
-const handleWheel = useCallback((e) => {
-  if (!contentRef.current) return;
+  const topKey = layers.length ? layers[layers.length - 1].key : null;
 
-  // Always prevent scroll bleed to the page beneath
-  e.preventDefault();
+  const handleWheel = useCallback((e) => {
+    const el = contentRef.current;
+    if (!el) return;
+    e.preventDefault();
+    const { scrollTop, scrollHeight, clientHeight } = el;
+    const isAtTop = scrollTop === 0 && e.deltaY < 0;
+    const isAtBottom = scrollTop + clientHeight >= scrollHeight - 1 && e.deltaY > 0;
+    if (!isAtTop && !isAtBottom) el.scrollTop += e.deltaY * 0.8;
+  }, []);
 
-  const { scrollTop, scrollHeight, clientHeight } = contentRef.current;
-  const isAtTop = scrollTop === 0 && e.deltaY < 0;
-  const isAtBottom = scrollTop + clientHeight >= scrollHeight - 1 && e.deltaY > 0;
-
-  // Only scroll the modal content if not at the boundaries
-  if (!isAtTop && !isAtBottom) {
-    contentRef.current.scrollTop += e.deltaY * 0.8;
-  }
-}, []);
-
-  // Delegates close to the context, which orchestrates the outro animation
-  const handleClose = useCallback(() => {
-    onClose();
-  }, [onClose]);
-
-  // Set up the content ref with the modal content element
-  const setContentRef = (node) => {
-    contentRef.current = node;
-
-    if (node) {
-      node.classList.add('scrollableContent');
-      node.style.overflowY = 'auto';
-      node.style.height = '100%';
-    }
-  };
-
-  // Body scroll lock, ESC handler, wheel listener — only while isOpen
+  // Scroll lock + ESC + bleed killer: once per open, not per swap
   useEffect(() => {
-    const handleEsc = (e) => e.key === 'Escape' && handleClose();
-
-    if (isOpen) {
-      // Prevent layout shift when the scrollbar disappears
-      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-
-      window.addEventListener('keydown', handleEsc);
-
-      // Pure bleed-killer: swallow every wheel event on the window so the
-    // page beneath the modal can never scroll, regardless of where the
-    // cursor is.
+    if (!isOpen) return;
+    const handleEsc = (e) => e.key === 'Escape' && onCloseRef.current();
     const killBleed = (e) => e.preventDefault();
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+    window.addEventListener('keydown', handleEsc);
     window.addEventListener('wheel', killBleed, { passive: false });
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    if (scrollbarWidth > 0) document.body.style.paddingRight = `${scrollbarWidth}px`;
 
-      // Simple, non-destructive scroll lock.
-      // Preserves window.scrollY so programmatic scrolls still work
-      // and no restoration is needed on cleanup.
-      document.documentElement.style.overflow = 'hidden';
-      document.body.style.overflow = 'hidden';
-      if (scrollbarWidth > 0) {
-        document.body.style.paddingRight = `${scrollbarWidth}px`;
-      }
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+      window.removeEventListener('wheel', killBleed);
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+      document.activeElement?.blur?.();
+    };
+  }, [isOpen]);
 
-      const contentElement = contentRef.current;
-      if (contentElement) {
-        contentElement.addEventListener('wheel', handleWheel, { passive: false });
-      }
-
-      return () => {
-        window.removeEventListener('keydown', handleEsc);
-        if (contentElement) {
-          contentElement.removeEventListener('wheel', handleWheel);
-        }
-        document.documentElement.style.overflow = '';
-        document.body.style.overflow = '';
-        document.body.style.paddingRight = '';
-        
-
-        // Drop focus from any modal elements
-        if (document.activeElement && document.activeElement.blur) {
-          document.activeElement.blur();
-        }
-      };
-    }
-  }, [isOpen, handleClose, handleWheel]);
-
-  // Render children, wrapping them in a scrollable container
-  const renderChildren = () => {
-    if (!children) return null;
-
-    if (typeof children === 'function') {
-      return (
-        <div ref={setContentRef} className="scrollableContent">
-          {children({ contentRef })}
-        </div>
-      );
-    }
-
-    return (
-      <div ref={setContentRef} className="scrollableContent">
-        {children}
-      </div>
-    );
-  };
+  // Wheel listener must re-attach to each new top panel's scroll node
+  useEffect(() => {
+    if (!isOpen) return;
+    const el = contentRef.current;
+    if (!el) return;
+    el.addEventListener('wheel', handleWheel, { passive: false });
+    return () => el.removeEventListener('wheel', handleWheel);
+  }, [isOpen, topKey, handleWheel]);
 
   if (!isOpen && !isClosing) return null;
 
   return (
     <div
       className={`${styles.modalOverlay} ${isClosing ? styles.closing : ''}`}
-      onClick={handleClose}
+      onClick={() => onCloseRef.current()}
     >
-      <div
-        ref={modalRef}
-        className={`${styles.modalContent} ${className} ${fullBleed ? styles.fullBleed : ''} ${isClosing ? styles.closing : ''}`}
-        onClick={(e) => e.stopPropagation()}
-      >
-  
-        <button
-          className={styles.closeButton}
-          onClick={handleClose}
-          aria-label="Close modal"
-        >
-          &times;
-        </button>
-        {renderChildren()}
-      </div>
+      {layers.map((layer, i) => {
+        const isTop = i === layers.length - 1;
+        const body =
+          typeof layer.content === 'function'
+            ? layer.content({ contentRef })
+            : layer.content;
+
+        return (
+          <div
+            key={layer.key}
+            className={[
+              styles.modalContent,
+              layer.className,
+              fullBleed ? styles.fullBleed : '',
+              isTop && isClosing ? styles.closing : '',
+              !isTop ? styles.outgoing : '',
+            ].join(' ')}
+            onClick={(e) => e.stopPropagation()}
+            aria-hidden={!isTop}
+          >
+            {isTop && (
+              <button
+                className={styles.closeButton}
+                onClick={() => onCloseRef.current()}
+                aria-label="Close modal"
+              >
+                &times;
+              </button>
+            )}
+            <div
+              ref={isTop ? contentRef : undefined}
+              className="scrollableContent"
+              style={{ overflowY: 'auto', overflowX: 'visible !important', height: '100%', width: '100%' }}
+            >
+              {body}
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }

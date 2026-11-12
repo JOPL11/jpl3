@@ -60,7 +60,8 @@
   max-width: 100%;
   width: 100%;
   height: 100%;
-  align-items: center;  
+  align-items: center; 
+  overflow-y: visible !important; 
 }
 /* CityLink Modal - Larger than other modals */
 .projectModal.citylinkModal .modalContent {
@@ -107,6 +108,7 @@
   max-height: 100%;
   pointer-events: auto;
      scroll-behavior: smooth; 
+     overflow-x: visible !important;
 }
 
 /* Scrollbar styling */
@@ -130,6 +132,7 @@
 .scrollableContent {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: thin;  /* Firefox */
+  overflow-x: visible !important;
 }
 
 .modalContent.fullBleed {
@@ -443,6 +446,7 @@
     margin: 0 0 0 0;
     border-radius: 0;
     overflow-y: auto;
+    overflow-x: visible !important;
       scrollbar-width: thin;
   scrollbar-color: var(--foreground-muted) transparent;
   }
@@ -503,4 +507,13 @@
   scrollbar-width: thin;  /* Firefox */
 }
 
+}
+
+/* Previous panel: frozen at its end state, underneath the incoming one */
+.modalContent.outgoing {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  animation: none;       /* end state of fadeInSlideUp is identical, so no visual jump */
+  pointer-events: none;
 }
