@@ -2079,7 +2079,7 @@ a.secondary {
   max-width: 720px;
   width: 100%;
   margin: 0 auto;
-  padding: 5rem 1rem 8rem; 
+  padding: 0.8rem 1rem 8rem; 
   overflow: visible !important;
 }
 
