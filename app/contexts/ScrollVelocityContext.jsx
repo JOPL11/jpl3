@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useEffect, useRef } from 'react';
 
-const ScrollVelocityContext = createContext(null);
+export const ScrollVelocityContext = createContext(null);
 
 export function ScrollVelocityProvider({ children }) {
   const velocityRef = useRef(0);

@@ -96,7 +96,7 @@ const fragmentShader = /* glsl */ `
   uniform vec2  uHover;         // 0..1, y up
   uniform float uHoverStrength; // 0..1
   // per-card variation
-  uniform float uCell;          // pixel-block size in px
+  uniform float uCell;          // block size in px
   uniform float uExtrude;       // max block drag, as a fraction of image height
   uniform float uSplit;         // RGB split, as a fraction of image height
   uniform float uBright;        // exposure boost at full speed
@@ -132,27 +132,29 @@ const fragmentShader = /* glsl */ `
     // the top and bottom, so iuv.y runs below 0 and above 1 in those margins.
     vec2 iuv = vec2(vUv.x, (vUv.y * (uSize.y + 2.0 * uPad) - uPad) / uSize.y);
     float ipy = iuv.y * uSize.y;
-    // 1 inside the image, 0 outside, with a ~1px soft edge (the edge is made in
-    // the shader, so it needs its own anti-aliasing when the card swivels).
+    // 1 inside the image, 0 outside, with a ~1px soft edge.
     float inside = smoothstep(-0.75, 0.75, min(ipy, uSize.y - ipy));
 
     // soft mask around the cursor
     vec2 hd = (iuv - uHover) * vec2(aspect, 1.0);
     float hv = exp(-dot(hd, hd) * 9.0) * uHoverStrength;
 
-    // ── 1. Lens blocks: a square grid; every cell has a random threshold h and
+    // ── 1. Lens blocks: a grid of cells; every cell has a random threshold h and
     //       "ignites" once the scroll intensity passes it. An ignited cell
-    //       magnifies its own content around the cell centre, like a tiny lens.
-    //       Low-h cells ignite first and settle last, so as the scroll eases off
-    //       the lenses relax back to the plain image staggered, not all at once.
+    //       magnifies its own content around the cell centre, but only inside
+    //       a CIRCLE inscribed in the cell, so each lens is round.
     vec2 grid   = uSize / uCell;
     vec2 cellId = floor(iuv * grid);
     vec2 center = (cellId + 0.5) / grid;
     float h = hash(cellId);
 
+    // Offset from the cell centre (image space) and its circular mask.
+    // d * uSize is in px, and a cell is uCell px square, so the radius is uCell/2.
+    vec2  d    = iuv - center;
+    float circ = 1.0 - smoothstep(0.5 * uCell - 1.0, 0.5 * uCell, length(d * uSize));
+
     // Cells whose centre lies outside the image are "ghost" cells. They ignite
-    // less readily the farther out they are (fall -> 0 after uSpill rows), and
-    // never extend past the canvas edge.
+    // less readily the farther out they are, and never extend past the canvas edge.
     float cyPx  = center.y * uSize.y;
     float outPx = max(max(-cyPx, 0.0), max(cyPx - uSize.y, 0.0));
     float fall  = clamp(1.0 - outPx / (uSpill * uCell), 0.0, 1.0);
@@ -163,12 +165,14 @@ const fragmentShader = /* glsl */ `
     float sOn  = smoothstep(0.0, 0.22, sExc);
     float lens = max(sOn, 0.6 * smoothstep(0.0, 0.22, hExc));
 
-    float zoom  = mix(1.0, uZoom, lens);
-    float ca    = uAberr * lens;
+    // Restrict the lens effect to the circle
+    float lensC = lens * circ;
+
+    float zoom  = mix(1.0, uZoom, lensC);
+    float ca    = uAberr * lensC;
     // ignited blocks are also dragged a little along the scroll axis
-    float shift = (0.3 + 0.7 * hash(cellId + 7.0)) * uExtrude * a * dir * sOn;
+    float shift = (0.3 + 0.7 * hash(cellId + 7.0)) * uExtrude * a * dir * sOn * circ;
     vec2  off   = vec2(0.0, shift);
-    vec2  d     = iuv - center;
 
     // Ghost blocks sample the image mirrored across the nearest edge, so what
     // spills out of the frame is real image content, not stretched edge pixels.
@@ -177,27 +181,24 @@ const fragmentShader = /* glsl */ `
     cm = clamp(cm, 0.0, 1.0);
 
     // ── 2. Chromatic aberration. Radial: each channel is magnified by a slightly
-    //       different amount, so colour fringes grow toward the block's edge.
+    //       different amount, so colour fringes grow toward the lens edge.
     //       Plus a small directional split along the scroll axis.
-    vec2 sp = vec2(0.0, uSplit * uV) * (1.0 + lens * 1.5);
+    vec2 sp = vec2(0.0, uSplit * uV) * (1.0 + lensC * 1.5);
     vec4  g = tex(cm + d / zoom + off);
     float r = tex(cm + d / (zoom * (1.0 + ca)) + off + sp).r;
     float b = tex(cm + d / (zoom * (1.0 - ca)) + off - sp).b;
     vec3 col = vec3(r, g.g, b);
 
-    // ── 3. Exposure + directional light: the card brightens with speed, and as
-    //       it turns, the edge that swings toward you catches more light than the
-    //       edge that swings away. (+pitch lifts the TOP edge toward you; +yaw
-    //       pushes the RIGHT edge away.)
+    // ── 3. Exposure + directional light.
     col *= 1.0 + a * uBright;
     col *= 1.0 + uTilt * (iuv.y - 0.5) * 0.25 - uSwing * (iuv.x - 0.5) * 0.25;
 
     // ── 4. Hover: a soft glow under the cursor (lenses open up there too).
     col *= 1.0 + hv * 0.12;
 
-    // Outside the image only ignited blocks are visible; everything else is fully
-    // transparent. The canvas is premultiplied-alpha, so premultiply the colour.
-    float ghostA = smoothstep(0.0, 0.35, lens);
+    // Outside the image only ignited (round) blocks are visible; everything else
+    // is fully transparent. Premultiplied alpha.
+    float ghostA = smoothstep(0.0, 0.35, lensC);
     float alpha  = g.a * mix(ghostA, 1.0, inside);
     gl_FragColor = vec4(clamp(col, 0.0, 1.0) * alpha, alpha);
   }
@@ -243,15 +244,19 @@ const ghostFragmentShader = /* glsl */ `
     vec2 c    = clamp((cid + 0.5) / grid, 0.0, 1.0);   // flat, pixelated colour
     float h   = hash(cid + uLayer * 17.3);
 
+    // Position inside the cell, -0.5..0.5, and the circle inscribed in it.
+    // Cells are uCell px square, so 1.0 / uCell is a one-pixel soft edge.
+    vec2  lp   = iuv * grid - cid - 0.5;
+    float circ = 1.0 - smoothstep(0.5 - 1.0 / uCell, 0.5, length(lp));
+
     // cells appear as the layer gains visibility; low-h cells first, last to go
     float vis   = smoothstep(0.0, 0.3, uAmt * uDensity - h);
     float flick = 0.55 + 0.45 * hash(cid + 3.1 + uLayer);
 
     vec4 t = tex(c);
-    gl_FragColor = vec4(t.rgb, t.a * inside * vis * flick * uAlpha);
+    gl_FragColor = vec4(t.rgb, t.a * inside * vis * flick * uAlpha * circ);
   }
 `;
-
 // Straggler pixels: small (and occasionally large) squares torn from the image
 // edge. They launch from the edge the scroll is trailing, travel out toward the
 // canvas edge, and retract back into the image as the scroll settles. Only the
@@ -265,8 +270,8 @@ const stragglerFragmentShader = /* glsl */ `
   uniform float uSeed;
   uniform float uAmtB;          // launch amount at the BOTTOM edge (scrolling down)
   uniform float uAmtT;          // launch amount at the TOP edge (scrolling up)
-  uniform float uStragSize;     // base square size in px
-  uniform float uStragBig;      // fraction of squares that are large variants
+  uniform float uStragSize;     // base size in px
+  uniform float uStragBig;      // fraction that are large variants
   uniform float uStragDensity;  // fraction of slots that hold a straggler
   varying vec2 vUv;
 
@@ -305,7 +310,7 @@ const stragglerFragmentShader = /* glsl */ `
     float t    = atBottom ? -ipy : ipy - H;        // px outward from the launch edge
     float edge = atBottom ? 0.0 : 1.0;
 
-    const float COL = 30.0;                        // slot width (>= biggest square)
+    const float COL = 30.0;                        // slot width (>= biggest dot)
     float col0 = floor(px / COL);
 
     vec4 best = vec4(0.0);
@@ -316,7 +321,7 @@ const stragglerFragmentShader = /* glsl */ `
         float exists = step(rnd(id, 1.0), uStragDensity);
         if (exists < 0.5) continue;
 
-        // size: mostly small, some large
+        // size: mostly small, some large (this is the DIAMETER)
         float rs  = rnd(id, 2.0);
         float big = step(rnd(id, 3.0), uStragBig);
         float s   = uStragSize * mix(0.7 + 0.9 * rs, 3.0 + 2.5 * rs, big);
@@ -337,9 +342,11 @@ const stragglerFragmentShader = /* glsl */ `
 
         float tc = floor(mix(-depth, tMax, e) + 0.5);
 
-        float ax = 1.0 - smoothstep(-0.5, 0.5, abs(px - xc) - 0.5 * s);
-        float at = 1.0 - smoothstep(-0.5, 0.5, abs(t - tc) - 0.5 * s);
-        float a  = ax * at * smoothstep(0.0, 0.75, t) * smoothstep(0.0, 0.1, e);
+        // Round dot: signed distance to a circle of diameter s, with a ~1px edge
+        float dist = length(vec2(px - xc, t - tc)) - 0.5 * s;
+        float a    = (1.0 - smoothstep(-0.5, 0.5, dist))
+                   * smoothstep(0.0, 0.75, t)       // only the part outside the image
+                   * smoothstep(0.0, 0.1, e);
 
         if (a > best.a) {
           // colour = the image pixel it was torn from (its home, inside the edge)
@@ -583,6 +590,18 @@ function makeVariation(src) {
      */
     pitch: (r(), range(0.7, 1.0)),
   };
+}
+
+// Nearest scrolling ancestor, ignoring the page itself (body/html scroll
+// the viewport, where the default root already works).
+function getScrollParent(el) {
+  let p = el.parentElement;
+  while (p && p !== document.body && p !== document.documentElement) {
+    const oy = getComputedStyle(p).overflowY;
+    if (oy === 'auto' || oy === 'scroll') return p;
+    p = p.parentElement;
+  }
+  return null;
 }
 
 function DeformPlane({ src, resolveSrc, velocityRef, hoverRef, hoveredRef, rectRef, onReady }) {
@@ -946,12 +965,16 @@ export default function DeformImage({
 
   // A wide observer decides when the canvas should EXIST (early, staggered, and
   // by default kept alive); a tight one decides when it should actually RENDER.
-  useEffect(() => {
-    const el = wrapRef.current;
-    if (!el) return;
-    let unmountTimer = null;
+ useEffect(() => {
+  const el = wrapRef.current;
+  if (!el) return;
+  let unmountTimer = null;
 
-    const near = new IntersectionObserver(
+  // null on the page (viewport root, as before); the modal's scroller inside
+  // a modal, so rootMargin is measured against it and the lookahead works.
+  const root = getScrollParent(el);
+
+  const near = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           if (unmountTimer) { clearTimeout(unmountTimer); unmountTimer = null; }
@@ -971,20 +994,25 @@ export default function DeformImage({
           }, UNMOUNT_DELAY_MS);
         }
       },
-      { rootMargin: MOUNT_MARGIN, threshold: 0 }
+      { root, rootMargin: MOUNT_MARGIN, threshold: 0 }
     );
+
     const vis = new IntersectionObserver(
       ([entry]) => setVisible(entry.isIntersecting),
-      { rootMargin: '50px 0px', threshold: 0 }
+      { root, rootMargin: '50px 0px', threshold: 0 }
     );
 
     near.observe(el);
     vis.observe(el);
+
     return () => {
       near.disconnect();
       vis.disconnect();
       if (unmountTimer) clearTimeout(unmountTimer);
-      if (mountTimerRef.current) { clearTimeout(mountTimerRef.current); mountTimerRef.current = null; }
+      if (mountTimerRef.current) {
+        clearTimeout(mountTimerRef.current);
+        mountTimerRef.current = null;
+      }
     };
   }, []);
 

@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import styles from '../css/Modal.module.css';
 import Lenis from 'lenis';
+import { ScrollVelocityContext } from '../contexts/ScrollVelocityContext';
 
 export default function Modal({
   isOpen,
@@ -12,10 +13,15 @@ export default function Modal({
   fullBleed = false,
 }) {
   const contentRef = useRef(null);
+  // Same shape as the page-level provider's ref: px/ms, smoothed, decaying.
+  // DeformImage etc. read this instead of window scroll while a modal is open.
+  const velocityRef = useRef(0);
   const onCloseRef = useRef(onClose);
   onCloseRef.current = onClose;
 
-  const topKey = layers.length ? layers[layers.length - 1].key : null;
+  const topLayer = layers.length ? layers[layers.length - 1] : null;
+  const topKey = topLayer ? topLayer.key : null;
+  const topContentKey = topLayer ? topLayer.contentKey : null;
 
   // Page scroll lock + ESC: once per open, not per swap.
   // (Wheel bleed is handled by overflow:hidden on html/body plus the page
@@ -54,9 +60,26 @@ export default function Modal({
       smoothWheel: true,
     });
 
+    // Velocity sampling: identical algorithm to ScrollVelocityProvider, but
+    // reading this panel's scroller instead of window.scrollY.
+    let lastY = wrapper.scrollTop;
+    let lastT = performance.now();
+    velocityRef.current = 0;
+
     let rafId;
     const raf = (time) => {
       lenis.raf(time);
+
+      const now = performance.now();
+      const dt = now - lastT;
+      if (dt > 0) {
+        const raw = (wrapper.scrollTop - lastY) / dt;
+        velocityRef.current += (raw - velocityRef.current) * 0.15;
+        velocityRef.current *= 0.92;
+      }
+      lastY = wrapper.scrollTop;
+      lastT = now;
+
       rafId = requestAnimationFrame(raf);
     };
     rafId = requestAnimationFrame(raf);
@@ -64,8 +87,9 @@ export default function Modal({
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
+      velocityRef.current = 0;
     };
-  }, [isOpen, topKey]);
+  }, [isOpen, topKey, topContentKey]);
 
   if (!isOpen && !isClosing) return null;
 
@@ -74,6 +98,7 @@ export default function Modal({
       className={`${styles.modalOverlay} ${isClosing ? styles.closing : ''}`}
       onClick={() => onCloseRef.current()}
     >
+      <ScrollVelocityContext.Provider value={velocityRef}>
       {layers.map((layer, i) => {
         const isTop = i === layers.length - 1;
         const body =
@@ -105,8 +130,9 @@ export default function Modal({
             )}
             {/* Scroller (wrapper) */}
             <div
+              key={layer.contentKey}
               ref={isTop ? contentRef : undefined}
-              className="scrollableContent"
+              className={`scrollableContent ${layer.swap ? styles.contentFade : ''}`}
               style={{ overflowY: 'auto', height: '100%', width: '100%' }}
             >
               {/* Lenis needs exactly one child to measure (content) */}
@@ -115,6 +141,7 @@ export default function Modal({
           </div>
         );
       })}
+      </ScrollVelocityContext.Provider>
     </div>
   );
 }
