@@ -10,9 +10,7 @@
   overflow: hidden;
   height:52vh;
 }
-.subhead{
-  opacity: 0.4;
-}
+
 /* Additional fallback for any browser that might override */
 .container {
   background-color: #0f172a !important;
@@ -2081,7 +2079,7 @@ a.secondary {
   max-width: 720px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 1rem 5rem;
+  padding: 5rem 1rem 8rem; 
   overflow: visible !important;
 }
 
