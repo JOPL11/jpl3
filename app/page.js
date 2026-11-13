@@ -150,6 +150,7 @@ useEffect(() => {
 const MODAL_SECTIONS = {
   playground: () => <PlaygroundContent />,
   react:      () => <ReactContent />,
+  code:       () => <ReactContent />, 
   motion:     () => <MotionContent />,
 };
 
@@ -505,9 +506,9 @@ useEffect(() => {
                   Services
                 </a>
                 <a 
-                  href="#code" 
-                  className={`${styles.navLink} ${activeSection === 'code' ? styles.active : ''}`}
-                  onClick={(e) => scrollToSection(e, 'code')}
+                  href="#react"
+                  className={`${styles.navLink} ${activeSection === 'react' ? styles.active : ''}`}
+                  onClick={(e) => scrollToSection(e, 'react')}
                 >
                   React
                 </a>

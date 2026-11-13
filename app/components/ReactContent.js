@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import AnimatedText from './AnimatedText';
 import ProjectCard from './ProjectCard';
+import ModalFooter from './ModalFooter';
 import styles from '../css/page.module.css';
 
 export default function ReactContent() {
@@ -26,6 +27,7 @@ export default function ReactContent() {
   }, []);
 
   return (
+    <>
     <div className={`${styles.content} ${styles.modalColumn}`}>
               <h2>
               <AnimatedText ref={workHeadingRef}>React</AnimatedText>
@@ -361,6 +363,8 @@ export default function ReactContent() {
                
                 <p>Pure next.js projects have been removed for now. If you wanna see some code projects head down to the Playground section.</p> */}
                 </div>
-    </div>
+           </div>
+       <ModalFooter />
+    </>
   );
 }

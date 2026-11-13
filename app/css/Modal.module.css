@@ -530,3 +530,18 @@
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+
+.modalContent:global(.playgroundModal),
+.modalContent:global(.reactModal),
+.modalContent:global(.motionModal) {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  scrollbar-width: none;
+}
+
+.modalContent:global(.playgroundModal)::-webkit-scrollbar,
+.modalContent:global(.reactModal)::-webkit-scrollbar,
+.modalContent:global(.motionModal)::-webkit-scrollbar {
+  display: none;
+}

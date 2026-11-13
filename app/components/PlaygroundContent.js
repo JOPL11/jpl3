@@ -4,7 +4,9 @@ import { useState, useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 import AnimatedText from './AnimatedText';
 import ProjectCard from './ProjectCard';
+import ModalFooter from './ModalFooter';
 import styles from '../css/page.module.css';
+
 
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(false);
@@ -35,6 +37,7 @@ export default function PlaygroundContent() {
   const streetlampTextRef = useRef(null);
 
   return (
+    <>
     <div className={`${styles.content} ${styles.modalColumn}`}>
             
             <h2 style={{ color: '#c25e00', fontWeight: 'Bold'}}>
@@ -311,5 +314,7 @@ export default function PlaygroundContent() {
         
                   </div>
     </div>
+     <ModalFooter />
+    </>
   );
 }

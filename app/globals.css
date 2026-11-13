@@ -254,7 +254,7 @@ h2 {
     color: #000000;
     text-shadow: none;
   }
-  & .scrollableContent h2 { font-size: clamp(3rem, 6vw, 4rem); }
+  & .scrollableContent h2 { font-size: clamp(2rem, 6vw, 3rem); }
   & [class*="moreButton"],
   & [class*="viewProjectButton"],
   & [class*="projectLink"] {
@@ -286,7 +286,7 @@ h2 {
   --modal-fg: #ffffff;
   --modal-heading: #c25e00;
   --modal-glow: #c25e00;
-  & .scrollableContent h2 { font-size: clamp(3rem, 6vw, 4rem); }
+  & .scrollableContent h2 { font-size: clamp(2rem, 6vw, 3rem); }
   & [class*="moreButton"],
   & [class*="viewProjectButton"],
   & [class*="projectLink"] {
@@ -306,6 +306,17 @@ h2 {
   
 }
 
+/* Motion: warm ember */
+.motionModal {
+  --modal-bg: linear-gradient(180deg, #0f183d 10%, #040d2b 70%);
+  --modal-fg: #ffe9d9;
+  --modal-heading: #f1f1f1;
+  --modal-glow: rgba(17, 122, 184, 0.3);
+}
+
+
+
+
 
 /* Text colors inside any themed modal.
    .scrollableContent is a literal class on the scroll wrapper, so this
@@ -320,4 +331,14 @@ h2 {
 [class*="Modal"] .scrollableContent li {
   color: var(--modal-fg, inherit);
   text-shadow: 0 0 10px var(--modal-glow, rgba(0, 240, 255, 0.2));
+}
+
+.scrollableContent {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollableContent::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
