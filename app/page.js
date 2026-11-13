@@ -1031,7 +1031,7 @@ useEffect(() => {
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
 
 {/*  */}
-                        <ProjectCard 
+              <ProjectCard 
                 deform
                   onMoreClick={() => {
                     console.log('WarRoom More button clicked, triggering animation');

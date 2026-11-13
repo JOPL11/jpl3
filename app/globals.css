@@ -231,9 +231,93 @@ h2 {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
   }
-
   .cookieConsent {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
   }
+}
+
+/* Playground: grey */
+.reactModal {
+  --modal-bg: linear-gradient(180deg, #646464 10%, #2b2b2b 70%);
+  --modal-fg: #cacaca;
+  --modal-glow: rgba(59, 59, 59, 0.35);
+  --modal-heading: #cfcfcf;
+  & .scrollableContent h2,
+  & .scrollableContent h3,
+  & .scrollableContent [class*="subhead"] {
+    color: #181818;
+    text-shadow: 0 0 20px var(--modal-glow);
+  }
+  & .scrollableContent p,
+  & .scrollableContent li {
+    color: #000000;
+    text-shadow: none;
+  }
+  & .scrollableContent h2 { font-size: clamp(3rem, 6vw, 4rem); }
+  & [class*="moreButton"],
+  & [class*="viewProjectButton"],
+  & [class*="projectLink"] {
+    background: #f5f5f5;
+    color: #161616;
+  }
+  & [class*="moreButton"]:hover,
+  & [class*="viewProjectButton"]:hover,
+  & [class*="projectLink"]:hover {
+    background: #ffffff;
+  }
+  & [class*="moreButton"]:focus,
+  & [class*="viewProjectButton"]:focus,
+  & [class*="projectLink"]:focus {
+    background: #ffffff;
+  }
+  & [class*="additionalText"] {
+    color: #f8f8f8;
+    text-shadow: none;
+  }
+  & [class*="additionalText"] b {
+    color: #f8f8f8;         /* your module sets <b> to #fff */
+    text-shadow: none;
+  }
+}
+/* React: teal/ocean */
+.playgroundModal {
+  --modal-bg: linear-gradient(180deg, #181818 10%, #020202 70%);
+  --modal-fg: #ffffff;
+  --modal-heading: #c25e00;
+  --modal-glow: #c25e00;
+  & .scrollableContent h2 { font-size: clamp(3rem, 6vw, 4rem); }
+  & [class*="moreButton"],
+  & [class*="viewProjectButton"],
+  & [class*="projectLink"] {
+    background: #c25e00;
+    color: #f1f1f1;
+  }
+  & [class*="moreButton"]:hover,
+  & [class*="viewProjectButton"]:hover,
+  & [class*="projectLink"]:hover {
+    background: #dd6b01;
+  }
+  & [class*="moreButton"]:focus,
+  & [class*="viewProjectButton"]:focus,
+  & [class*="projectLink"]:focus {
+    background: #dd6b01;
+  }
+  
+}
+
+
+/* Text colors inside any themed modal.
+   .scrollableContent is a literal class on the scroll wrapper, so this
+   outranks the module rules on .content h2, p etc. */
+[class*="Modal"] .scrollableContent h2,
+[class*="Modal"] .scrollableContent h3 {
+  color: var(--modal-heading, inherit);
+  text-shadow: 0 0 20px var(--modal-glow, rgba(0, 240, 255, 0.2));
+}
+
+[class*="Modal"] .scrollableContent p,
+[class*="Modal"] .scrollableContent li {
+  color: var(--modal-fg, inherit);
+  text-shadow: 0 0 10px var(--modal-glow, rgba(0, 240, 255, 0.2));
 }

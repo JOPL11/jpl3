@@ -10,7 +10,9 @@
   overflow: hidden;
   height:52vh;
 }
-
+.subhead{
+  opacity: 0.4;
+}
 /* Additional fallback for any browser that might override */
 .container {
   background-color: #0f172a !important;
@@ -1510,7 +1512,9 @@ a.secondary {
   background-color: transparent;
   color: #a2feff;
 }
-
+.modalColumn {
+  padding: 3rem 1rem 8rem;
+}
 /* Legal Links and Hamburger */
 .legalLinks {
   position: absolute;

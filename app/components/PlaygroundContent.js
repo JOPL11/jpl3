@@ -37,16 +37,16 @@ export default function PlaygroundContent() {
   return (
     <div className={`${styles.content} ${styles.modalColumn}`}>
             
-            <h2>
+            <h2 style={{ color: '#c25e00', fontWeight: 'Bold'}}>
               <AnimatedText ref={playgroundHeadingRef}>Playground</AnimatedText>
             </h2>
                
-                <div style={{height: '0.1rem', marginBottom: '3rem'}}>Fun with in-browser interactive realtime 3D</div>
+            <div class={styles.subhead} style={{height: '0.1rem', marginBottom: '3rem', fontSize: '1.4rem', color: '#ffffff', opacity: '0.9'}}>Fun with in-browser interactive realtime 3D</div>
                <div className={styles.divider3}></div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
 
 {/*  */}
-                        <ProjectCard 
+               <ProjectCard 
                 deform
                   onMoreClick={() => {
                     console.log('WarRoom More button clicked, triggering animation');
