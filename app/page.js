@@ -644,7 +644,7 @@ useEffect(() => {
             <p>Hi! I&apos;m Jan Peiro.</p>
             <div className={styles.divider3}></div>
             <br />
-            <p>A multidisciplinary designer and creative who bridges the gap between visuals and technology. I hold a diploma in Communications Design from the Blocherer Schule für Kommunikationsdesign in Munich, Germany, and have spent my career transforming ideas into engaging experiences for a global clientele.</p>
+            <p>A multidisciplinary designer and creative who bridges the gap between visuals and technology. I hold a diploma in Communications Design from the Blocherer Schule für Design in Munich, Germany, and have spent my career transforming ideas into engaging experiences for a global clientele.</p>
 
             <p>Specialized in <strong>2D / 3D design, animation and interactive content.</strong></p>
 
@@ -654,7 +654,7 @@ useEffect(() => {
 
             <p>Born in Barcelona, raised in Montreal, Toronto and Philadelphia. I've also lived in Barcelona, Munich, Kaiserslautern, Freiburg, Ladenburg and Worms.</p>
 
-            <p>Recently left Germany after 25 years due to over-exposure to creeping renazification. Rather than participate in the chronically toxic German nightmare of atavistic NPCs, I relocated to a sunny villa with a private beach in Egypt.</p>
+            <p>After 20 years paying insane taxes with nothing but a kick in the head to show for it, I recently left Germany for good due to its renazification, its  widespread dark-triad psychologies, its outdated tech stack, its contempt for creativity and its extremely limited capacity for self-reflection.</p> 
 
             <p>Canadian / Spanish citizenship. Global Remote | EST / CET / EET</p>
 
@@ -663,8 +663,9 @@ useEffect(() => {
             <div style={{height: '1rem'}}></div>
          {/*
             <ProfileCarousel
-<p>After 20 years paying insane taxes with nothing but a kick in the head to show for it, I recently left Germany for good due to its renazification, its outdated tech stack, its contempt for creativity and its extremely limited capacity for self-reflection. I could go on and on. A lurking phenotype-based gatekeeper caste-system posing as a liberal democracy. Widespread dark triad psychologies. Careful, Europe - Germany is a predator masquerading as an altruist. Germany is a guy who steals your wallet, drowns you in the lake and then tells everyone how he only tried to help you.</p> 
-                   <p>After 20 years paying insane taxes with nothing but a kick in the head to show for it, I recently left Germany for good due to its renazification and its outdated tech stack, and a whole lot of other reasons.</p> 
+
+                   <p>After 20 years paying insane taxes with nothing but a kick in the head to show for it, I recently left Germany for good due to its renazification and its outdated tech stack.</p> 
+                               <p>Recently left Germany after 25 years due to over-exposure to creeping renazification. Rather than participate in the chronically toxic German nightmare of atavistic NPCs, I relocated to a sunny villa with a private beach in Egypt. The canary has escaped the nazi coalmine.</p>
               images={[
                 { src: '/images/me5.jpg', alt: 'JPL' },
                 { src: '/images/me4.jpg', alt: 'JPL' },
