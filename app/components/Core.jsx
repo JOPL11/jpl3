@@ -18,7 +18,7 @@ const DEFAULT_GROUPS = [
     columns: 2,
     items: [
       'English (native)',
-      'German (fluent)',
+      'German (fluent but shelved)',
       'Spanish (fluent)',
       'French (fluent)',
     ],
