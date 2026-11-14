@@ -29,7 +29,7 @@ useEffect(() => {
   };
 }, [isOpen]);
 
-const openModal = (content, className = '', { layer = true } = {}) => {
+const openModal = (content, className = '', { layer = true, header = null } = {}) => {
   if (closeTimeoutRef.current) {
     clearTimeout(closeTimeoutRef.current);
     closeTimeoutRef.current = null;
@@ -48,6 +48,7 @@ const openModal = (content, className = '', { layer = true } = {}) => {
       swap: true,
       content,
       className: className || prev.className,
+      header: prev.header,
     };
     layerRef.current = next;
     setLayer(next);
@@ -56,7 +57,7 @@ const openModal = (content, className = '', { layer = true } = {}) => {
 
   // Fresh open or section open: new panel key, full slide-up
   clearTimeout(outgoingTimeoutRef.current);
-  const next = { key: ++keyRef.current, contentKey, swap: false, content, className };
+  const next = { key: ++keyRef.current, contentKey, swap: false, content, className, header };
 
   if (prev && statusRef.current === 'open') {
     setOutgoing(prev);

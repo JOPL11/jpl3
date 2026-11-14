@@ -533,7 +533,8 @@
 
 .modalContent:global(.playgroundModal),
 .modalContent:global(.reactModal),
-.modalContent:global(.motionModal) {
+.modalContent:global(.motionModal),
+.modalContent:global(.overviewModal) {
   padding-top: 0;
   padding-left: 0;
   padding-right: 0;
@@ -543,6 +544,17 @@
 
 .modalContent:global(.playgroundModal)::-webkit-scrollbar,
 .modalContent:global(.reactModal)::-webkit-scrollbar,
-.modalContent:global(.motionModal)::-webkit-scrollbar {
+.modalContent:global(.motionModal)::-webkit-scrollbar,
+.modalContent:global(.overviewModal) {
   display: none;
+}
+.standingHeader {
+  flex: none;
+  width: 100%;
+  max-width: 800px;      /* matches LogoCard's .modalContent */
+  padding: 0 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .standingHeader { padding: 0 1rem; }
 }

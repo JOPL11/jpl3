@@ -2076,7 +2076,7 @@ a.secondary {
 
 /* Modal single-column layout */
 .modalColumn {
-  max-width: 720px;
+  max-width: 800px;
   width: 100%;
   margin: 0 auto;
   padding: 0.8rem 1rem 8rem; 

@@ -7,6 +7,7 @@ import { useModal } from './ModalContext';
 import DOMPurify from 'dompurify';
 import '@mux/mux-player';
 import { gsap } from 'gsap';
+import OverviewHeader from './OverviewHeader';
 import styles from '../css/LogoCard.module.css';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -154,10 +155,11 @@ const LogoCard = () => {
     setCurrentLogoIndex(index);
     setCurrentLogos(logos);
   
-  openModal(<ModalContent logo={logo} index={index} logos={logos} />);
-  '',
-  { layer: false }
-
+  openModal(
+      <ModalContent logo={logo} index={index} logos={logos} />,
+      '',
+      { header: <OverviewHeader /> }
+    );
   };
 
   // =================== MODAL CONTENT ===================
@@ -310,44 +312,40 @@ const LogoCard = () => {
               />
             </div>
           )}
-          {logo.description2 && (
+         {logo.description2 && (
             <div
               className={`${styles.modalDescription} ${styles.secondaryDescription}`}
               dangerouslySetInnerHTML={createMarkup(logo.description2)}
             />
           )}
-        </div>
 
-        {/* Bottom Navigation arrows */}
-        <div
-          className={`${styles.modalNavigation} ${styles.bottomNavigation}`}
-          style={{
-            left: '0',
-            marginLeft: '0',
-          }}
-        >
-          <button
-            className={styles.navButton}
-            onClick={() => handleNavigate('prev')}
-            disabled={logos.length <= 1}
+          {/* Bottom Navigation arrows */}
+          <div
+            className={`${styles.modalNavigation} ${styles.bottomNavigation}`}
+            style={{ marginLeft: 0, paddingLeft: 0 }}
           >
-            ◀
-          </button>
-          <span className={styles.navIndicator}>
-            {index + 1} / {logos.length}
-          </span>
-          <button
-            className={styles.navButton}
-            onClick={() => handleNavigate('next')}
-            disabled={logos.length <= 1}
-          >
-            ▶
-          </button>
+            <button
+              className={styles.navButton}
+              onClick={() => handleNavigate('prev')}
+              disabled={logos.length <= 1}
+            >
+              ◀
+            </button>
+            <span className={styles.navIndicator}>
+              {index + 1} / {logos.length}
+            </span>
+            <button
+              className={styles.navButton}
+              onClick={() => handleNavigate('next')}
+              disabled={logos.length <= 1}
+            >
+              ▶
+            </button>
+          </div>
         </div>
       </div>
     );
   };
-
   const logos = [
     {
       id: 1,

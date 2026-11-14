@@ -33,10 +33,10 @@ export default function MotionContent() {
   return (
     <>
     <div className={`${styles.content} ${styles.modalColumn}`}>
-            <h2>
+            <h2 style={{fontWeight: '600', fontSize: '2.35rem'}}>
               <AnimatedText ref={motionHeadingRef}>Motion Cases</AnimatedText>
             </h2>
-            <div style={{height: 'auto', marginBottom: '1.4rem'}}>Video Edit / 2D / 3D</div>
+            <div style={{height: '0.1rem', marginBottom: '3rem', fontSize: '1.2rem'}}>Video Edit / 2D / 3D</div>
             <div className={styles.divider3}></div>
             <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
     

@@ -128,12 +128,17 @@ export default function Modal({
                 &times;
               </button>
             )}
+            {/* Standing header: outside the keyed scroller, so it doesn't
+                remount or fade when the content swaps (LogoCard arrows). */}
+            {layer.header && (
+              <div className={styles.standingHeader}>{layer.header}</div>
+            )}
             {/* Scroller (wrapper) */}
             <div
               key={layer.contentKey}
               ref={isTop ? contentRef : undefined}
               className={`scrollableContent ${layer.swap ? styles.contentFade : ''}`}
-              style={{ overflowY: 'auto', height: '100%', width: '100%' }}
+              style={{ overflowY: 'auto', flex: '1 1 0', minHeight: 0, width: '100%' }}
             >
               {/* Lenis needs exactly one child to measure (content) */}
               <div>{body}</div>

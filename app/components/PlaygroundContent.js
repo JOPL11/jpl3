@@ -40,11 +40,11 @@ export default function PlaygroundContent() {
     <>
     <div className={`${styles.content} ${styles.modalColumn}`}>
             
-            <h2 style={{ color: '#c25e00', fontWeight: 'Bold'}}>
+            <h2 style={{ color: '#c25e00', fontWeight: '600', fontSize: '2.35rem'}}>
               <AnimatedText ref={playgroundHeadingRef}>Playground</AnimatedText>
             </h2>
                
-            <div class={styles.subhead} style={{height: '0.1rem', marginBottom: '3rem', fontSize: '1.4rem', color: '#ffffff', opacity: '0.9'}}>Fun with in-browser interactive realtime 3D</div>
+            <div class={styles.subhead} style={{height: '0.1rem', marginBottom: '3rem', fontSize: '1.2rem', color: '#ffffff', opacity: '0.9'}}>Fun with in-browser interactive realtime 3D</div>
                <div className={styles.divider3}></div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
 

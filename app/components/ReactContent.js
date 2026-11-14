@@ -29,11 +29,11 @@ export default function ReactContent() {
   return (
     <>
     <div className={`${styles.content} ${styles.modalColumn}`}>
-              <h2>
+               <h2 style={{fontWeight: '600', fontSize: '2.35rem'}}>
               <AnimatedText ref={workHeadingRef}>React</AnimatedText>
             </h2>
                
-                <div style={{height: '0.1rem', marginBottom: '3rem'}}>Web work. Design, build, ship.</div>
+                <div style={{height: '0.1rem', marginBottom: '3rem', fontSize: '1.2rem'}}>Web work. Design, build, ship.</div>
                <div className={styles.divider3}></div>
               <div className={styles.projectsGrid} role="grid" aria-label="Projects"> {/*  */}
     <ProjectCard 
