@@ -17,6 +17,8 @@ export default function SectionTracker({ onSectionChange }) {
       lastScrollY.current = currentScrollY > 0 ? currentScrollY : 0;
     };
 
+
+    
     window.addEventListener('scroll', handleScroll, { passive: true });
     
     // Configuration for the intersection observer
