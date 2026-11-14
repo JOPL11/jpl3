@@ -654,7 +654,7 @@ useEffect(() => {
 
             <p>Born in Barcelona, raised in Montreal, Toronto and Philadelphia. I've also lived in Barcelona, Munich, Kaiserslautern, Freiburg, Ladenburg and Worms.</p>
 
-            <p>After 20 years paying insane taxes with nothing but a kick in the head to show for it, I recently left Germany for good due to its renazification, its  widespread dark-triad psychologies, its outdated tech stack, its contempt for creativity and its extremely limited capacity for self-reflection.</p> 
+            <p>I recently left Germany for good due to its renazification & the widespread dark-triad psychologies of too many people there.</p> 
 
             <p>Canadian / Spanish citizenship. Global Remote | EST / CET / EET</p>
 
