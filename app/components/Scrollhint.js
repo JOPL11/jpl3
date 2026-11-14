@@ -24,6 +24,9 @@ export default function ScrollHint({
 }) {
   const [visible, setVisible] = useState(false);
 
+
+
+  
   useEffect(() => {
     const el = targetRef ? targetRef.current : null;
     if (targetRef && !el) return;
