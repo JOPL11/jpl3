@@ -116,30 +116,38 @@
   height: 100%;
 }
 /* Desktop-specific sizing */
+/* Height scales linearly from 350px at 768px up to 450px at 1280px,
+   so there is no dip in the 768 to 1279 range. */
 @media (min-width: 568px) {
   .stackContainer {
     max-width: 1200px;
     height: 350px;
   }
 }
-@media (min-width: 768px) {
+
+/* Tablet range: portrait card that scales up with the viewport.
+   Width grows with vw (floor 360, cap 520); aspect-ratio 4/5 derives the height.
+   The images use object-fit: cover, so the sides get cropped to fit. */
+@media (min-width: 768px) and (max-width: 1279px) {
   .stackContainer {
-    max-width: 1200px;
-    height: 300px;
+    width: clamp(360px, 46vw, 520px);
+    max-width: none;
+    height: auto;
+    aspect-ratio: 4 / 5;
   }
 }
-@media (min-width: 1024px) {
-  .stackContainer {
-    max-width: 1400px;
-    height: 300px;
-  }
-}
+
+/* Back to the wide landscape stack. width and aspect-ratio are reset
+   explicitly because the tablet rule above no longer applies. */
 @media (min-width: 1280px) {
   .stackContainer {
+    width: 100%;
     max-width: 1600px;
     height: 450px;
+    aspect-ratio: auto;
   }
 }
+
 @media (min-width: 1920px) {
   .stackContainer {
     max-width: 1700px;

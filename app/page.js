@@ -7,7 +7,7 @@ import Link from 'next/link';
 import SectionTracker from './components/SectionTracker';
 import MouseGradient from './components/MouseGradient';
 import AnimatedText from './components/AnimatedText';
-import ThrowableImages from './components/ThrowableImages';
+import ThrowableProjects from './components/ThrowableProjects';
 import LogoCard from './components/LogoCard';
 //import HorizontalScroller from './components/Horizontal'
 import { useMemo } from 'react';
@@ -654,6 +654,8 @@ useEffect(() => {
 
             <p>Born in Barcelona, raised in Montreal. I've also lived in Philadelphia, Toronto, Munich and Barcelona.</p>
 
+            <p>I left Germany recently due to rising renazification & cognitive decline across the board, and won't be returning until Germany gets its massive personality issues sorted - which I don't think will ever happen. Meanwhile I live in a villa woith a private beach in Egypt, wondering why I didn't leave sooner.</p>
+
             <p>Global Remote | EST / CET / EET</p>
 
             <div style={{height: '1rem'}}></div>
@@ -688,25 +690,21 @@ useEffect(() => {
           
              <SectionTracker onSectionChange={setActiveSection} />
             <h2 style={{paddingTop: "5rem"}}>
-              <AnimatedText ref={productHeadingRef}>Product Prototype Case</AnimatedText>
+              <AnimatedText ref={productHeadingRef}>Current Projects</AnimatedText>
             </h2>
             <div style={{height: '0.1rem', marginBottom: '3rem'}}>Tap or click the images.</div>
               
               <div className={styles.divider3}></div>
               <div className={styles.introText}>
                 <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'white', paddingTop: "3rem" }}>
-                  Project: <span style={{ fontSize: '1.2rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Mercedes Benz dealership award.</span>
+                  Project: <span style={{ fontSize: '1.2rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Current Shit.</span>
                 </div>
+             
                 <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'white' }}>
-                  Client: <span style={{ fontSize: '1.2rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Sieber & Wolf&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
-                  
-                  <Image src="/images/agencies/sw_neu_white.png" alt="Sieber & Wolf"  width={33} height={16} />
-                </div>
-                <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'white' }}>
-                  My Task: <span style={{ fontSize: '1.2rem', fontWeight: 'normal', color: '#acfeff', marginBottom:'3rem', display: 'block', lineHeight: '1.4' }}>Invent a new type of dealership award for Mercedes Benz. I thought up the concept, designed the whole piece including UI and put together a working tech-stack for a fully functional prototype.</span>
+                  My Task: <span style={{ fontSize: '1.2rem', fontWeight: 'normal', color: '#acfeff', marginBottom:'3rem', display: 'block', lineHeight: '1.4' }}>Current Projects under contruction.</span>
                 </div>
               </div>
-              <ThrowableImages />
+              <ThrowableProjects />
             </section>
 
 
