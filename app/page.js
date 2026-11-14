@@ -654,11 +654,11 @@ useEffect(() => {
 
             <p>Born in Barcelona, raised in Montreal. I've also lived in Philadelphia, Toronto, Munich and Barcelona.</p>
 
-            <p>Available for select remote projects.</p>
-
             <p>Canadian / Spanish citizenship. Global Remote | EST / CET / EET</p>
 
             <p>Recently left Germany after 25 years due to over-exposure to creeping renazification. Rather than participate in the chronic German nightmare of atavistic darkness, I bailed to a sunny villa with a private beach in Egypt.</p>
+
+            <p>Available for select projects, not seeking German-based roles.</p>
 
             <div style={{height: '1rem'}}></div>
          {/*
