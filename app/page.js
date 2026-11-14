@@ -654,8 +654,6 @@ useEffect(() => {
 
             <p>Born in Barcelona, raised in Montreal. I've also lived in Philadelphia, Toronto, Munich and Barcelona.</p>
 
-            <p>I left Germany recently due to rising renazification & cognitive decline across the board, and won't be returning until Germany gets its massive personality issues sorted - which I don't think will ever happen. Meanwhile I live in a villa with a private beach in Egypt, wondering why I didn't leave sooner.</p>
-
             <p>Global Remote | EST / CET / EET</p>
 
             <div style={{height: '1rem'}}></div>
@@ -681,7 +679,7 @@ useEffect(() => {
               <Core headingRef={servicesHeadingRef} onSectionChange={setActiveSection} />
             </section>
        
-              {/* About section End */}
+              {/* About section End 
              
           
            
@@ -697,17 +695,17 @@ useEffect(() => {
               <div className={styles.divider3}></div>
               <div className={styles.introText}>
                 <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'white', paddingTop: "3rem" }}>
-                  Project: <span style={{ fontSize: '1.2rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Current Shit.</span>
+                  Project: <span style={{ fontSize: '1.2rem', fontWeight: 'normal', color: '#acfeff' }}>&nbsp;Various Mediums</span>
                 </div>
              
                 <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: 'white' }}>
-                  My Task: <span style={{ fontSize: '1.2rem', fontWeight: 'normal', color: '#acfeff', marginBottom:'3rem', display: 'block', lineHeight: '1.4' }}>Current Projects under contruction.</span>
+                  My Task: <span style={{ fontSize: '1.2rem', fontWeight: 'normal', color: '#acfeff', marginBottom:'3rem', display: 'block', lineHeight: '1.4' }}>Works In Progress</span>
                 </div>
               </div>
               <ThrowableProjects />
             </section>
 
-
+*/}
            
             {/*   MOTION ENDS HERE             <hr className={styles.divider2} /> */}  
             <div data-section="contact"></div>
