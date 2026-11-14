@@ -652,7 +652,7 @@ useEffect(() => {
 
             <p>I started out as a junior art director and gained proficiency in motion design, 3D visualization and creative development, while also building a strong foundation in web development and interactive design. I've art directed, coded, animated and designed various projects in Germany and internationally for the fashion, entertainment, automotive, broadcast and aerospace industries — spanning online, physical expo installations and motion design.</p>
 
-            <p>Born in Barcelona, raised in Montreal. I've also lived in Philadelphia, Toronto, Munich and Barcelona.</p>
+            <p>Born in Barcelona, raised in Montreal. I've also lived in Philadelphia, Barcelona, Toronto, Munich, Kaiserslautern, Freiburg, Ladenburg and Worms.</p>
 
             <p>Recently left Germany after 25 years due to over-exposure to creeping renazification. Rather than participate in the chronically toxic German nightmare of atavistic NPCs, I relocated to a sunny villa with a private beach in Egypt.</p>
 
