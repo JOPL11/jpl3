@@ -650,11 +650,11 @@ useEffect(() => {
 
             <p>My core principle is merging design, animation and code to create work that is aesthetic, functional and scalable.</p>
 
-            <p>I started out as a junior art director and gained proficiency in motion design, 3D visualization and creative development, while also building a strong foundation in web development and interactive design. I've art directed, coded, animated and designed various projects in Germany and internationally for the fashion, entertainment, automotive, broadcast and aerospace industries — spanning online, physical expo installations and motion design fields.</p>
+            <p>I started out as a junior art director and gained proficiency in motion design, 3D visualization and creative development, while also building a strong foundation in web development and interactive design. I've art directed, coded, animated and designed various projects in Germany and internationally for the fashion, entertainment, automotive, broadcast and aerospace industries — spanning online, physical expo installations and motion design.</p>
 
             <p>Born in Barcelona, raised in Montreal. I've also lived in Philadelphia, Toronto, Munich and Barcelona.</p>
 
-            <p>Recently left Germany after 25 years due to over-exposure to creeping renazification. Rather than participate in the chronic German atavistic nightmare of toxic NPCs, I relocated to a sunny villa with a private beach in Egypt.</p>
+            <p>Recently left Germany after 25 years due to over-exposure to creeping renazification. Rather than participate in the chronically toxic German nightmare of atavistic NPCs, I relocated to a sunny villa with a private beach in Egypt.</p>
 
             <p>Canadian / Spanish citizenship. Global Remote | EST / CET / EET</p>
 
