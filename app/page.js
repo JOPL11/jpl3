@@ -658,7 +658,7 @@ useEffect(() => {
 
             <p>Canadian / Spanish citizenship. Global Remote | EST / CET / EET</p>
 
-            <p>Recently left Germany after 25 years due to over-exposure to creeping renazification. Rather than participate in the chronic German nightmare of atavism & darkness, I bailed to a sunny villa with a private beach in Egypt.</p>
+            <p>Recently left Germany after 25 years due to over-exposure to creeping renazification. Rather than participate in the chronic German nightmare of atavistic darkness, I bailed to a sunny villa with a private beach in Egypt.</p>
 
             <div style={{height: '1rem'}}></div>
          {/*
