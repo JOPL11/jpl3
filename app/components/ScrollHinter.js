@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import styles from '../css/ScrollHint.module.css';
+import styles from '../css/ScrollHinter.module.css';
 
 /**
  * Signals that a modal or page is scrollable.
