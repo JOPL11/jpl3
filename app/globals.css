@@ -239,6 +239,7 @@ h2 {
 
 /* Playground: grey */
 .reactModal {
+  --modal-hint: #fff; 
   --modal-bg: linear-gradient(180deg, #646464 10%, #2b2b2b 70%);
   --modal-fg: #cacaca;
   --modal-glow: rgba(59, 59, 59, 0.35);
@@ -282,6 +283,8 @@ h2 {
 }
 /* React: teal/ocean */
 .playgroundModal {
+  --modal-hint: #fff; 
+  --hint-bottom: 2.5rem;
   --modal-bg: linear-gradient(180deg, #181818 10%, #020202 70%);
   --modal-fg: #ffffff;
   --modal-heading: #c25e00;

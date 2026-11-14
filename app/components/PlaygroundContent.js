@@ -44,7 +44,7 @@ export default function PlaygroundContent() {
               <AnimatedText ref={playgroundHeadingRef}>Playground</AnimatedText>
             </h2>
                
-            <div class={styles.subhead} style={{height: '0.1rem', marginBottom: '3rem', fontSize: '1.2rem', color: '#ffffff', opacity: '0.9'}}>Fun with in-browser interactive realtime 3D</div>
+            <div  style={{height: '0.1rem', marginBottom: '3rem', fontSize: '1.2rem', color: '#ffffff', opacity: '0.9'}}>Fun with in-browser interactive realtime 3D</div>
                <div className={styles.divider3}></div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
 

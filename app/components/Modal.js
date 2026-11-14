@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import styles from '../css/Modal.module.css';
 import Lenis from 'lenis';
+import ScrollHint from './ScrollHint';
 import { ScrollVelocityContext } from '../contexts/ScrollVelocityContext';
 
 export default function Modal({
@@ -143,6 +144,9 @@ export default function Modal({
               {/* Lenis needs exactly one child to measure (content) */}
               <div>{body}</div>
             </div>
+            {isTop && (
+              <ScrollHint targetRef={contentRef} watchKey={layer.contentKey} />
+            )}
           </div>
         );
       })}

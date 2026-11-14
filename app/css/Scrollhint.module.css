@@ -1,0 +1,59 @@
+.hint {
+  left: 0;
+  right: 0;
+ bottom: var(--hint-bottom, 2.25rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  pointer-events: none;
+  z-index: 20;
+  color: var(--modal-hint, #a2feff);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.inPanel { position: absolute; }
+.inPage  { position: fixed; }
+
+.visible {
+  opacity: 0.85;
+  transform: translateY(0);
+}
+
+.label {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  text-indent: 0.3em;           /* balances the trailing letter-spacing */
+  text-shadow: 0 0 20px var(--modal-glow, rgba(0, 240, 255, 0.2));
+}
+
+.chevrons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0;
+  filter: drop-shadow(0 0 10px var(--modal-glow, rgba(0, 240, 255, 0.2)));
+}
+
+.chevrons svg {
+  animation: hintBob 1.8s ease-in-out infinite;
+}
+
+.chevrons svg + svg {
+  margin-top: -12px;
+  animation-delay: 0.2s;
+  opacity: 0.55;
+}
+
+@keyframes hintBob {
+  0%, 100% { transform: translateY(-2px); }
+  50%      { transform: translateY(5px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chevrons svg { animation: none; }
+  .hint { transition: opacity 0.2s ease; transform: none; }
+}
