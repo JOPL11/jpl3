@@ -534,7 +534,8 @@
 .modalContent:global(.playgroundModal),
 .modalContent:global(.reactModal),
 .modalContent:global(.motionModal),
-.modalContent:global(.overviewModal) {
+.modalContent:global(.overviewModal),
+.modalContent:global(.productModal) {
   padding-top: 0;
   padding-left: 0;
   padding-right: 0;

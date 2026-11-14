@@ -17,10 +17,11 @@ import { createPortal } from 'react-dom';
 import { useModal } from './components/ModalContext';
 import PrivacyContent from './components/PrivacyContent';
 import styles from './css/page.module.css';
-import ProfileCarousel from './components/ProfileCarousel';
+//import ProfileCarousel from './components/ProfileCarousel';
    import PlaygroundContent from './components/PlaygroundContent';
    import ReactContent from './components/ReactContent';
    import MotionContent from './components/MotionContent';
+   import ProductContent from './components/ProductContent';
   {/*
 // Dynamically import the component with SSR disabled
 const BelowFooterWorld = dynamic(
@@ -60,8 +61,8 @@ function useViewportWidth() {
 }
 
 
-import ProjectCard from './components/ProjectCard';
-import VideoProjectCard from './components/VideoProjectCard';
+//import ProjectCard from './components/ProjectCard';
+//import VideoProjectCard from './components/VideoProjectCard';
 import ContactForm from './components/ContactForm';
 import Core from './components/Core';
 // Wrapper component to handle Playground and iOS interaction
@@ -152,6 +153,7 @@ const MODAL_SECTIONS = {
   react:      () => <ReactContent />,
   code:       () => <ReactContent />, 
   motion:     () => <MotionContent />,
+  product:    () => <ProductContent />,
 };
 
 const scrollToSection = (e, sectionId) => {

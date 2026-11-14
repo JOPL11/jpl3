@@ -1,5 +1,5 @@
 'use client';
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import styles from '../css/ThrowableImages.module.css';
 import Image from 'next/image';
 const IMAGES = [
@@ -18,77 +18,76 @@ const IMAGES = [
 const ThrowableImages = ({ isActive = false }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  // Scope all DOM work to THIS instance. document.querySelector would also
+  // match another copy of the stack elsewhere on the page (e.g. under a modal).
+  const stackRef = useRef(null);
+
   const handleClick = useCallback(() => {
-  if (isAnimating) return;
-  
-  setIsAnimating(true);
-  
-  // Animate the current card out
-  const card = document.querySelector(`.${styles.throwable}:nth-child(${activeIndex + 1})`);
-  if (card) {
-    card.style.transition = 'transform 0.3s ease-out, opacity 0.3s ease-out';
-    card.style.transform = `translate(500px, -200px) rotate(30deg)`;
-    card.style.opacity = '0';
-  }
-  
-  // Move to next image after animation
-  setTimeout(() => {
-    setActiveIndex(prev => {
-      const newIndex = (prev + 1) % IMAGES.length;
-      
-      // If we're resetting to the first image, animate them back in staggered
+    if (isAnimating || !stackRef.current) return;
+
+    setIsAnimating(true);
+
+    const cards = Array.from(stackRef.current.children);
+    const card = cards[activeIndex];
+
+    // Animate the current card out
+    if (card) {
+      card.style.transition = 'transform 0.3s ease-out, opacity 0.3s ease-out';
+      card.style.transform = `translate(500px, -200px) rotate(30deg)`;
+      card.style.opacity = '0';
+    }
+
+    // Move to next image after animation
+    setTimeout(() => {
+      const newIndex = (activeIndex + 1) % IMAGES.length;
+
+      // Wrapped around: animate the whole stack back in from the left, staggered
       if (newIndex === 0) {
-        const cards = document.querySelectorAll(`.${styles.throwable}`);
-        cards.forEach((card, idx) => {
-          // Set initial position off-screen to the left
-          card.style.transition = 'none';
-          card.style.transform = 'translateX(-1000px)';
-          card.style.opacity = '0';
-          
-          // Force reflow
-          void card.offsetHeight;
-          
-          // Animate back in with staggered delay
+        cards.forEach((c, idx) => {
+          c.style.transition = 'none';
+          c.style.transform = 'translateX(-1000px)';
+          c.style.opacity = '0';
+
+          void c.offsetHeight; // force reflow
+
           setTimeout(() => {
-            card.style.transition = `transform 0.5s ease-out ${idx * 100}ms, opacity 0.5s ease ${idx * 100}ms`;
-            card.style.transform = `rotate(${IMAGES[idx].rotation}deg)`;
-            card.style.opacity = '1';
+            c.style.transition = `transform 0.5s ease-out ${idx * 100}ms, opacity 0.5s ease ${idx * 100}ms`;
+            c.style.transform = `rotate(${IMAGES[idx].rotation}deg)`;
+            c.style.opacity = '1';
           }, 10);
         });
-      } else {
-        // For normal card transitions
-        if (card) {
-          card.style.transition = 'none';
-          card.style.transform = `rotate(${IMAGES[prev].rotation}deg)`;
-          card.style.opacity = '0.8';
-          void card.offsetHeight;
-        }
+      } else if (card) {
+        // Normal transition: put the thrown card back in place, hidden
+        card.style.transition = 'none';
+        card.style.transform = `rotate(${IMAGES[activeIndex].rotation}deg)`;
+        card.style.opacity = '0.8';
+        void card.offsetHeight;
       }
-      
+
+      setActiveIndex(newIndex);
       setIsAnimating(false);
-      return newIndex;
-    });
-  }, 300);
-}, [activeIndex, isAnimating]);
+    }, 300);
+  }, [activeIndex, isAnimating]);
+
   return (
     <div className={styles.container}>
-      <div className={styles.stackContainer} onClick={handleClick}>
+      <div ref={stackRef} className={styles.stackContainer} onClick={handleClick}>
         {IMAGES.map((img, index) => {
           const isActiveCard = index === activeIndex;
           const isLastCard = index === IMAGES.length - 1;
-          
+
           return (
-               <div
-                  key={img.id}
-                  className={`${styles.throwable} ${isActiveCard ? styles.active : ''}`}
-                  style={{
-                    zIndex: img.zIndex,
-                    opacity: isActiveCard ? 1 : index < activeIndex ? 0 : 0.8,
-                    transform: `rotate(${img.rotation}deg)`,
-                    transition: 'transform 0.2s ease-out, opacity 0.3s ease',
-                    cursor: isActiveCard ? 'pointer' : 'default',
-                  }}
-                >
+            <div
+              key={img.id}
+              className={`${styles.throwable} ${isActiveCard ? styles.active : ''}`}
+              style={{
+                zIndex: img.zIndex,
+                opacity: isActiveCard ? 1 : index < activeIndex ? 0 : 0.8,
+                transform: `rotate(${img.rotation}deg)`,
+                transition: 'transform 0.2s ease-out, opacity 0.3s ease',
+                cursor: isActiveCard ? 'pointer' : 'default',
+              }}
+            >
               <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                 <Image
                   src={img.src}
