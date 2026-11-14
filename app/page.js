@@ -654,7 +654,7 @@ useEffect(() => {
 
             <p>Born in Barcelona, raised in Montreal. I've also lived in Philadelphia, Toronto, Munich and Barcelona.</p>
 
-            <p>I left Germany recently due to rising renazification & cognitive decline across the board, and won't be returning until Germany gets its massive personality issues sorted - which I don't think will ever happen. Meanwhile I live in a villa woith a private beach in Egypt, wondering why I didn't leave sooner.</p>
+            <p>I left Germany recently due to rising renazification & cognitive decline across the board, and won't be returning until Germany gets its massive personality issues sorted - which I don't think will ever happen. Meanwhile I live in a villa with a private beach in Egypt, wondering why I didn't leave sooner.</p>
 
             <p>Global Remote | EST / CET / EET</p>
 
