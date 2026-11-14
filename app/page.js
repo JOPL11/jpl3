@@ -644,19 +644,21 @@ useEffect(() => {
             <p>Hi! I&apos;m Jan Peiro.</p>
             <div className={styles.divider3}></div>
             <br />
-            <p>A multidisciplinary designer and creative who bridges the gap between visuals and technology. I hold a diploma in Communications Design from The Blocherer School in Munich, Germany, and have spent my career transforming ideas into engaging experiences for a global clientele.</p>
+            <p>A multidisciplinary designer and creative who bridges the gap between visuals and technology. I hold a diploma in Communications Design from the Blocherer Schule für Kommunikationsdesign in Munich, Germany, and have spent my career transforming ideas into engaging experiences for a global clientele.</p>
 
             <p>Specialized in <strong>2D / 3D design, animation and interactive content.</strong></p>
 
             <p>My core principle is merging design, animation and code to create work that is aesthetic, functional and scalable.</p>
 
-            <p>I started out as a junior art director and gained proficiency in motion design, 3D visualization and creative development, while also building a strong foundation in web development and interactive design. I've art directed, coded, animated and designed various international and national projects across the fashion, entertainment, automotive, broadcast and aerospace industries — spanning online, physical expo installation and motion design fields.</p>
+            <p>I started out as a junior art director and gained proficiency in motion design, 3D visualization and creative development, while also building a strong foundation in web development and interactive design. I've art directed, coded, animated and designed various international and national projects across the fashion, entertainment, automotive, broadcast and aerospace industries — spanning online, physical expo installations and motion design fields.</p>
 
             <p>Born in Barcelona, raised in Montreal. I've also lived in Philadelphia, Toronto, Munich and Barcelona.</p>
 
-             <p>Recently left Germany after 25 years due to over-exposure to creeping renazification.</p>
+            <p>Available for select remote projects.</p>
 
-            <p>Global Remote | EST / CET / EET</p>
+            <p>Canadian / Spanish citizenship. Global Remote | EST / CET / EET</p>
+
+            <p>Recently left Germany after 25 years due to over-exposure to creeping renazification. Rather than participate in the chronic German nightmare of atavism & darkness, I bailed to a sunny villa with a private beach in Egypt.</p>
 
             <div style={{height: '1rem'}}></div>
          {/*
