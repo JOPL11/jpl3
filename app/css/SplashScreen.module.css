@@ -13,6 +13,8 @@
   overflow: hidden;
 }
 
+
+
 .splashScreen::before {
   content: '';
   position: absolute;

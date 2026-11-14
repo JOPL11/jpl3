@@ -654,7 +654,7 @@ useEffect(() => {
 
             <p>Born in Barcelona, raised in Montreal, Toronto and Philadelphia. I've also lived in Barcelona, Munich, Kaiserslautern, Freiburg, Ladenburg and Worms.</p>
 
-            <p>I recently left Germany for good due to its nazi-clown affliction. I now live in a sunny villa with a private beach in Egypt.</p> 
+            <p>I recently left Germany for good due to its ever expanding nazi-clown affliction. I now live in a sunny villa with a private beach in Egypt.</p> 
 
             <p>Canadian / Spanish citizenship. Global Remote | EST / CET / EET</p>
 
