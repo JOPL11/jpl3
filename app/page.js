@@ -654,6 +654,8 @@ useEffect(() => {
 
             <p>Born in Barcelona, raised in Montreal. I've also lived in Philadelphia, Toronto, Munich and Barcelona.</p>
 
+             <p>Recently left Germany after 25 years due to over-exposure to creeping renazification.</p>
+
             <p>Global Remote | EST / CET / EET</p>
 
             <div style={{height: '1rem'}}></div>
