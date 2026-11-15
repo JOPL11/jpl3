@@ -451,8 +451,8 @@
     border-radius: 0;
     overflow-y: auto;
     overflow-x: visible !important;
-      scrollbar-width: thin;
-  scrollbar-color: var(--foreground-muted) transparent;
+    scrollbar-width: thin;
+    scrollbar-color: var(--foreground-muted) transparent;
   }
 
   .modalDescription {

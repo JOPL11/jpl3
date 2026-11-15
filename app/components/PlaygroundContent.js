@@ -39,7 +39,6 @@ export default function PlaygroundContent() {
   return (
     <>
     <div className={`${styles.content} ${styles.modalColumn}`}>
-            
             <h2 style={{ color: '#c25e00', fontWeight: '600', fontSize: '2.35rem'}}>
               <AnimatedText ref={playgroundHeadingRef}>Playground</AnimatedText>
             </h2>

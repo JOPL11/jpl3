@@ -39,7 +39,7 @@ export default function MotionContent() {
             <div style={{height: '0.1rem', marginBottom: '3rem', fontSize: '1.2rem'}}>Video Edit / 2D / 3D</div>
             <div className={styles.divider3}></div>
             <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
-    <h2 style={{paddingTop: "1rem", fontSize: '1.5rem', color: "#a2feff"}}>Long Reel 2025</h2>
+             <h2 style={{paddingTop: "0rem", fontSize: '1.5rem', color: "#a2feff"}}>Long Reel 2025</h2>
                     
               <div id='muxPlayer' style={{ 
               borderRadius: '15px',
