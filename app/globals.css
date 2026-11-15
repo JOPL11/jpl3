@@ -91,13 +91,13 @@ html {
 
 /* Text selection styles */
 ::selection {
-  background: transparent;
-  color: inherit;
+  background: #84cbfa;
+  color: #272727;
 }
 
 ::-moz-selection {
-  background: transparent;
-  color: inherit;
+  background: #84cbfa;
+  color: #272727;
 }
 
 /* Ensure content stays above the gradient */

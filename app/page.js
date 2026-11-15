@@ -654,18 +654,19 @@ useEffect(() => {
 
             <p>Born in Barcelona, raised in Montreal, Toronto and Philadelphia. I've also lived in Barcelona, Munich, Kaiserslautern, Freiburg, Ladenburg and Worms.</p>
 
-            <p>I recently left Germany for good due to its ever expanding nazi-clown affliction. I now live in a sunny villa with a private beach in Egypt.</p> 
+            <p>I recently left Germany for good due to its ever expanding nazi-clown affliction, and currently live in a bright villa with a private beach in Egypt.</p> 
 
-            <p>Canadian / Spanish citizenship. Global Remote | EST / CET / EET</p>
+            <p>Canadian & Spanish citizenship. Global Remote | EST / CET / EET</p>
 
             <p>Available for select projects.</p>
 
             <div style={{height: '1rem'}}></div>
-         {/*
-            <ProfileCarousel
 
-                   <p>After 20 years paying insane taxes with nothing but a kick in the head to show for it, I recently left Germany for good due to its renazification and its outdated tech stack.</p> 
-                               <p>Recently left Germany after 25 years due to over-exposure to creeping renazification. Rather than participate in the chronically toxic German nightmare of atavistic NPCs, I relocated to a sunny villa with a private beach in Egypt. The canary has escaped the nazi coalmine.</p>
+               {/*      
+               
+              <ProfileCarousel
+              <p>After 20 years paying insane taxes with nothing but a kick in the head to show for it, I recently left Germany for good due to its renazification and its outdated tech stack.</p> 
+              <p>Recently left Germany after 25 years due to over-exposure to creeping renazification. Rather than participate in the chronically toxic German nightmare of atavistic NPCs, I relocated to a sunny villa with a private beach in Egypt. The canary has escaped the nazi coalmine.</p>
               images={[
                 { src: '/images/me5.jpg', alt: 'JPL' },
                 { src: '/images/me4.jpg', alt: 'JPL' },
@@ -678,7 +679,6 @@ useEffect(() => {
             /> */}
             <br /><p style={{color: 'white', fontSize: '0.8rem', width: "200px", marginTop: '-20px'}}></p>
             </section>
-
 
             <section id="services" aria-labelledby="services">
               <Core headingRef={servicesHeadingRef} onSectionChange={setActiveSection} />

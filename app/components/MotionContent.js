@@ -39,21 +39,7 @@ export default function MotionContent() {
             <div style={{height: '0.1rem', marginBottom: '3rem', fontSize: '1.2rem'}}>Video Edit / 2D / 3D</div>
             <div className={styles.divider3}></div>
             <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
-    
-
-            <h2 style={{paddingTop: "1rem", fontSize: '1.5rem', color: "#a2feff"}}>Long Reel 2025</h2>
-            <div>
-            <div style={{height: 'auto', paddingTop: "0.2rem",  color: "#fff"}}>
-            <p>2D / 3D Motion Reel featuring Commercial and Personal Work in Concept, 3D Modeling, Motion, VFX, Design, Post-Production.</p></div>
-            <div style={{height: 'auto', paddingTop: "0.2rem", color: "#fff"}}>
-            <p><strong>Tools:</strong><br />Cinema4D, After Effects, Duik, Bodymovin, Red Giant, Element3D, Stardust, Corona,   Octane, Redshift, Media Encoder</p>
-            </div>
-            <div style={{height: 'auto', paddingTop: "0.2rem",  color: "#fff"}}>
-            <p><strong>Role:</strong><br /> Concept / Animation / Modeling / Post-Production</p>
-            </div>
-           
-             
-            
+    <h2 style={{paddingTop: "1rem", fontSize: '1.5rem', color: "#a2feff"}}>Long Reel 2025</h2>
                     
               <div id='muxPlayer' style={{ 
               borderRadius: '15px',
@@ -83,12 +69,23 @@ export default function MotionContent() {
                   />
                 </div>
             </div>
+            
+            
+            <div style={{height: 'auto', paddingTop: "0.2rem",  color: "#fff", fontSize: '1.2rem'}}>
+            <div >
+            <p>2D / 3D Motion Reel featuring Commercial and Personal Work in Concept, 3D Modeling, Motion, VFX, Design, Post-Production.</p></div>
+            <div style={{height: 'auto', paddingTop: "0.2rem", color: "#fff"}}>
+            <p><strong style={{color: "#a2feff"}}>Tools:</strong> Cinema4D, After Effects, Duik, Bodymovin, Red Giant, Element3D, Stardust, Corona,   Octane, Redshift, Media Encoder</p>
+            </div>
+            <div style={{height: 'auto', paddingTop: "0.2rem",  color: "#fff"}}>
+            <p><strong style={{color: "#a2feff"}}>Role:</strong> Concept / Animation / Modeling / Post-Production</p>
+            </div>
           </div>
           <h2 style={{paddingTop: "1rem", fontSize: '1.40rem', color: "#a2feff"}}>Short Reel 2025</h2>
-            <div style={{height: '0.1rem', marginBottom: '1.5rem',marginTop: '-1.3rem', color: "#fff"}}>Bam</div>
+            <div style={{height: '0.1rem', marginBottom: '1.5rem',marginTop: '-1.3rem', color: "#fff", fontSize: '1.2rem'}}>Bam</div>
               <div id='muxPlayer' style={{ 
                       borderRadius: '15px',
-                    }}>
+                }}>
                 <div id='holder' style={{ 
                   width: '100%', 
                   maxWidth: '850px',
@@ -267,8 +264,6 @@ export default function MotionContent() {
                   alt="CityLink Info Page"
                   link="https://sbinfo1.vercel.app"
                   text="A GDPR-compliant info page for a civics oriented app."
-                
-               
                   client={{
                     name: "CityLink |",
                     logo: "/images/citylinklongwhite.svg",
@@ -281,7 +276,6 @@ export default function MotionContent() {
                     width: 'auto', 
                     maxWidth: '100%'
                   }}
-
                 >
                   <p><strong>Target Audience:</strong> Municipal officials</p>
                   <p><strong>Project Type:</strong> Infopage about the Neighborhood Clean-up mobile App</p>
