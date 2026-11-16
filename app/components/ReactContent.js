@@ -48,7 +48,7 @@ export default function ReactContent() {
                   textPosition="bottom"
                   text={`
                   <br />
-                  Legal Counsel in four Languages`}
+                  Legal Counsel in four Languages. Site nearing completion.`}
                   client={{
                     name: "Mamdouh & Partners ",
                     //logo: "/images/rrlogolongwhite.svg",
