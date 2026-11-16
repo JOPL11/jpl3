@@ -69,7 +69,7 @@ export default function ReactContent() {
 
                 </ProjectCard>
 
-                 <ProjectCard 
+            {/*       <ProjectCard 
                  onMoreClick={() => {
                   console.log('RoadRich More button clicked, triggering animation');
                   roadrichTextRef.current?.animate();
@@ -103,7 +103,7 @@ export default function ReactContent() {
                   <p><strong>Features:</strong> Photo capture / compression. Geolocation. Supabase. Openstreetmap.</p>
                   <p><strong>Goal:</strong> Make something fun, easy to use and secure in compliance with GDPR.</p>
                 </ProjectCard>
-             {/* About section End
+            About section End
               <ProjectCard 
                 onMoreClick={() => {
                     console.log('airbus2 More button clicked, triggering animation');
@@ -245,7 +245,7 @@ export default function ReactContent() {
                 </ProjectCard>
   */}
 
-              {/* 
+             
                 <ProjectCard
                   onMoreClick={() => {
                     console.log('citylink1 More button clicked, triggering animation');
@@ -279,7 +279,7 @@ export default function ReactContent() {
                   <p><strong>Tools:</strong><AnimatedText ref={citylink1TextRef} type="project"> Next.js, react</AnimatedText></p>
                   <p><strong>Info:</strong> The app this page describes is currently in development and visible / testable in the projectCards below.</p>
                 </ProjectCard>
-              
+               {/* 
                <ProjectCard 
                  onMoreClick={() => {
                   console.log('bumpi More button clicked, triggering animation');
