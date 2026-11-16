@@ -17,6 +17,7 @@ import { createPortal } from 'react-dom';
 import { useModal } from './components/ModalContext';
 import PrivacyContent from './components/PrivacyContent';
 import styles from './css/page.module.css';
+import LangSwitcher from './components/LangSwitcher';
 //import ProfileCarousel from './components/ProfileCarousel';
    import PlaygroundContent from './components/PlaygroundContent';
    import ReactContent from './components/ReactContent';
@@ -88,7 +89,7 @@ export default function Home() {
 
 console.log('[Home] render');
 useEffect(() => {
-  const t = setTimeout(() => setShowDesktopNav(true), 2500); // 2.5s delay
+  const t = setTimeout(() => setShowDesktopNav(true), 500); // 2.5s delay
   return () => clearTimeout(t);
 }, []);
 
@@ -174,7 +175,7 @@ const scrollToSection = (e, sectionId) => {
       const element = document.getElementById(sectionId);
       if (element) {
         window.scrollTo({
-          top: element.offsetTop + 110,
+          top: element.offsetTop + 75,
           behavior: 'smooth'
         });
         setTimeout(() => {
@@ -356,6 +357,10 @@ useEffect(() => {
   return (
     <div className={styles.container} role="document">
       <MouseGradient />
+      <LangSwitcher onChange={(code) => {
+  // hook your translation layer here
+  console.log('lang ->', code);
+}} />
          {mounted && createPortal(
           <>
       <header role="banner" className={styles.header}>
@@ -386,7 +391,7 @@ useEffect(() => {
         className={styles.logo}
         style={{
            marginLeft: '0px',  // Add some space between the arrow and logo
-           transform: 'translateY(1px)',  // Fine-tune vertical alignment
+           transform: 'translateY(1px) translateX(-30px)',  // Fine-tune vertical alignment
            filter: 'invert(0)',
            display: 'block'
             }} 
@@ -484,8 +489,8 @@ useEffect(() => {
           >
           {/* <InteractiveMenu activeSection={activeSection} onSectionChange={setActiveSection} /> 
           {/* <InteractiveMenu activeSection={activeSection} onSectionChange={setActiveSection} /> */}
-         {/* */}
-                <nav className={styles.navLinks} aria-label="Main navigation" >
+          {/* */}
+                <nav className={styles.navLinks} aria-label="Main navigation">
                                    <a 
                   href="#overview" 
                   className={`${styles.navLink} ${activeSection === 'overview' ? styles.active : ''}`}
@@ -654,7 +659,7 @@ useEffect(() => {
 
             <p>Born in Barcelona, raised in Montreal, Toronto and Philadelphia. I've also lived in Barcelona, Munich, Kaiserslautern, Freiburg, Ladenburg and Worms.</p>
 
-            <p>I recently left Germany for good due to its ever expanding nazi-clown affliction, and currently live in a bright villa with a private beach in Egypt.</p> 
+            <p>I recently left Germany for good due to its ever-expanding nazi-clown affliction, and currently live in a bright villa with a private beach in Egypt.</p> 
 
             <p>Canadian & Spanish citizenship. Global Remote | EST / CET / EET</p>
 

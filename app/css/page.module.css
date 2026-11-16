@@ -42,7 +42,7 @@
 .backToTop {
   display: none;
   position: absolute;
-  left: 1.4rem;
+  left: 0.5rem;
   background: transparent;
   border: 0px solid rgba(255, 255, 255, 0.2);
   color: white;
@@ -1479,7 +1479,7 @@ a.secondary {
   right: -300px; /* Start off-screen */
   width: 280px;
   height: 100vh;
-  background: linear-gradient(180deg, #0f172a 10%, #070a13 70%);
+  background: linear-gradient(180deg, #070707 10%, #000000 70%);
   z-index: 8000;
   transition: right 0.5s ease-in-out;
   padding: 1rem 0;

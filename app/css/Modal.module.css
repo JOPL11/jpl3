@@ -152,8 +152,8 @@
 
 .closeButton {
   position: absolute;
-  top: 0.55rem;
-  left: 2rem;
+  top: 0.6rem;
+  left: 1.0rem;
   background: transparent;
   border: none;
   display: flex;

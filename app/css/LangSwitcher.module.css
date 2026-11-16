@@ -1,0 +1,48 @@
+.switcher {
+  position: fixed;
+  top: 1.3rem;          /* match your header vertical rhythm */
+  left: 8.5rem;        /* top-right; change to left: 1.5rem for top-left */
+  z-index: 99;
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  align-items: center;
+  font-family: inherit;
+  font-size: 1.0rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  mix-blend-mode: difference; /* keeps it visible on any bg; drop if not needed */
+}
+
+.lang {
+  background: none;
+  border: none;
+  padding: 0.25rem 0;
+  color: #fff;
+  opacity: 0.45;
+  cursor: pointer;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  transition: opacity 0.25s ease;
+  white-space: nowrap;
+}
+
+.lang:hover { opacity: 0.85; }
+
+.lang.active {
+  opacity: 1;
+  font-weight: 600;
+}
+
+/* optional: a short tick after the active label */
+.lang.active::after {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  margin-left: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  vertical-align: middle;
+}
