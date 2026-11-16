@@ -44,7 +44,7 @@ export default function ReactContent() {
                   title="Mamdouh Law"
                   image="/images/law.jpg"
                   alt="Mamdouh Law"
-                  link="https://legal-nine-beta.vercel.app/"
+                  link="https://law-mamdouh.vercel.app/"
                   textPosition="bottom"
                   text={`
                   <br />
