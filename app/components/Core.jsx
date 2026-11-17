@@ -59,6 +59,7 @@ const DEFAULT_GROUPS = [
       'React, Next.js, html, css, javascript',
       'Three.js, React 3 Fiber, WebXR',
       'Typescript, JSX',
+      'PWA',
       'GSAP, Framer Motion, CSS Animations, Spring',
       'Bootstrap, Tailwind, MaterialUI',
       'vite, git, npm, yarn',
