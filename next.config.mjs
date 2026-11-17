@@ -48,6 +48,14 @@ const nextConfig = {
       },
     ];
   },
+  async rewrites() {
+  return [
+    { source: '/playground', destination: '/' },
+    { source: '/react',      destination: '/' },
+    { source: '/motion',     destination: '/' },
+    { source: '/product',    destination: '/' },
+  ];
+},
 
   // Keep your existing image configurations
   images: {

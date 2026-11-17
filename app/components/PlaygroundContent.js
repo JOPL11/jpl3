@@ -46,23 +46,7 @@ export default function PlaygroundContent() {
                <div className={styles.divider3}></div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
 {/*  */}
-              <ProjectCard 
-                deform
-                  onMoreClick={() => {
-                    console.log('WarRoom More button clicked, triggering animation');
-                    bytes101TextRef.current?.animate();
-                  }}
-                  title="War Room"
-                  image="/images/warroom.jpg"
-                  alt="warroom"
-                  link="https://warroom-silk.vercel.app"
-                  text="Ask a question and history's three greatest strategists answer in their own voices, then rebut each other, and finally a fourth voice synthesizes a verdict. A Spatial AI Interface built with RAG, Blender, Next.js, and Three.js / React Three Fiber."
-                  className="PlaygroundProject"
-                >
-                  <p>Concept Demo</p>
-                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React / AI</AnimatedText></p>
-                  <p><strong>Role:</strong><br /> Concept / Animation / Development</p>
-                </ProjectCard>
+
 
                 <ProjectCard 
                    deform
@@ -82,7 +66,23 @@ export default function PlaygroundContent() {
                   <p><strong>Role:</strong><br /> Concept / Model / Development</p>
                 </ProjectCard>
 
-          
+              <ProjectCard 
+                deform
+                  onMoreClick={() => {
+                    console.log('WarRoom More button clicked, triggering animation');
+                    bytes101TextRef.current?.animate();
+                  }}
+                  title="War Room"
+                  image="/images/warroom.jpg"
+                  alt="warroom"
+                  link="https://warroom-silk.vercel.app"
+                  text="Ask a question and history's three greatest strategists answer in their own voices, then rebut each other, and finally a fourth voice synthesizes a verdict. A Spatial AI Interface built with RAG, Blender, Next.js, and Three.js / React Three Fiber."
+                  className="PlaygroundProject"
+                >
+                  <p>Concept Demo</p>
+                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React / AI</AnimatedText></p>
+                  <p><strong>Role:</strong><br /> Concept / Animation / Development</p>
+                </ProjectCard>
 
           {!isMobile && (
                   <> 
@@ -105,11 +105,87 @@ export default function PlaygroundContent() {
                   <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
                   <p><strong>Role:</strong><br /> Concept / Development / Models</p>
                 </ProjectCard>
+
+                  <ProjectCard 
+                  deform
+                      onMoreClick={() => {
+                        console.log('streetlamp More button clicked, triggering animation');
+                        streetlampTextRef.current?.animate();
+                      }}
+                      title="Streetlamp 2044"
+                      image="/images/JPL3Poster_R3F.jpg"
+                      alt="Streetlamp 2044"
+                      text="<strong>Experimental</strong>. Featuring custom audiotracks, 3D models and animations."
+                      link="https://jpl3d2.vercel.app/"
+                      className="PlaygroundProject"
+                    >
+                      <p>R3F Concept Demo</p>
+                      <p><strong>Tools:</strong><AnimatedText ref={streetlampTextRef} type="project">Three.js / React / R3F3 Fiber / GSAP / Blender</AnimatedText></p>
+                      <p><strong>Role:</strong> Concept / Animation / Dev</p>
+                      <p><strong>Duration:</strong> 3 weeks</p>
+                      <p><strong>Info:</strong> An immersive 3D experience exploring a scifi landscape through motion and interaction.</p>
+                    </ProjectCard>
+
+                    <ProjectCard 
+                    deform
+                      onMoreClick={() => {
+                        console.log('Facility More button clicked, triggering animation');
+                        facilityTextRef.current?.animate();
+                      }}
+                      title="The Facility"
+                      image="https://cdna.artstation.com/p/assets/images/images/077/341/642/large/jan-peiro-box1.jpg?1719257986"
+                      alt="The Facility"
+                      text="<strong>Experimental / Desktop Only</strong>. Featuring custom audiotracks, 3D models and animations."
+                      link="https://facility3.vercel.app/"
+                      className="PlaygroundProject"
+                    >
+                      <p>Visual Concept Demo</p>
+                      <p><strong>Tools:</strong><AnimatedText ref={facilityTextRef} type="project">Three.js / React / R3F3 Fiber / GLSL / GSAP / Blender / Adobe Suite</AnimatedText></p>
+                      <p><strong>Role:</strong> Concept / Animation / Dev</p>
+                      <p><strong>Duration:</strong> 3 weeks</p>
+                      <p><strong>Info:</strong> A mysterious facility exploring the intersection of architecture and digital art.</p>
+                    </ProjectCard>
+
+                 <ProjectCard 
+                    deform
+                    onMoreClick={() => {
+                      console.log('S&B More button clicked, triggering animation');
+                      qcTextRef.current?.animate();
+                    }}
+                      title="Schrödinger & Bohr Quantum Pocketwatches "
+                      image="/images/JPL3Poster_QC.jpg"
+                      alt="Quantum Pocketwatch Company"
+                      link="https://quantum-pocketwatch.vercel.app/"
+                      text="<strong>Experimental / Desktop Only</strong>. Featuring custom 3D models and interactions." 
+                      className="PlaygroundProject"
+                    >
+                      <p>Visual Concept Experiment</p>
+                      <p><strong>Tools:</strong><br /><AnimatedText ref={qcTextRef} type="project">Three.js / React / R3F  / GSAP / Router / Next.js / Blender</AnimatedText></p>
+                      <p><strong>Role:</strong><br /> Concept / Animation / Dev</p>
+                    </ProjectCard>
            
                    </>
                 )}
         
-             
+               
+                <ProjectCard 
+                deform
+                  onMoreClick={() => {
+                    console.log('CubeSite More button clicked, triggering animation');
+                    bytes101TextRef.current?.animate();
+                  }}
+                  title="Cubes"
+                  image="/images/JPL3Poster_3D.jpg"
+                  alt="CubeSite"
+                  link="https://cubistic.vercel.app"
+                  text="Featuring scripted 3D, interaction and animations."
+                  className="PlaygroundProject"
+                >
+                  <p>Site Demo In development</p>
+                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> Three.js / React</AnimatedText></p>
+                  <p><strong>Role:</strong> R3F concept architect & creator</p>
+                </ProjectCard>
+           
               <ProjectCard 
                 deform
                   onMoreClick={() => {
@@ -147,7 +223,7 @@ export default function PlaygroundContent() {
                   <p><strong>Role:</strong><br /> Concept / Model / Development</p>
                 </ProjectCard>
           
-            {/*       <ProjectCard 
+           <ProjectCard 
                      deform
                      onMoreClick={() => {
                     console.log('More button clicked, triggering animation');
@@ -178,7 +254,7 @@ export default function PlaygroundContent() {
                 </ProjectCard>
 
          
-
+ {/*  
               <ProjectCard 
                 deform
                   onMoreClick={() => {
@@ -231,82 +307,13 @@ export default function PlaygroundContent() {
                 
 
 
-                      <ProjectCard 
-                    deform
-                    onMoreClick={() => {
-                      console.log('S&B More button clicked, triggering animation');
-                      qcTextRef.current?.animate();
-                    }}
-                      title="Schrödinger & Bohr Quantum Pocketwatches "
-                      image="/images/JPL3Poster_QC.jpg"
-                      alt="Quantum Pocketwatch Company"
-                      link="https://quantum-pocketwatch.vercel.app/"
-                      text="<strong>Experimental / Desktop Only</strong>. Featuring custom 3D models and interactions." 
-                      className="PlaygroundProject"
-                    >
-                      <p>Visual Concept Experiment</p>
-                      <p><strong>Tools:</strong><br /><AnimatedText ref={qcTextRef} type="project">Three.js / React / R3F  / GSAP / Router / Next.js / Blender</AnimatedText></p>
-                      <p><strong>Role:</strong><br /> Concept / Animation / Dev</p>
-                    </ProjectCard>
-                <ProjectCard 
-                  onMoreClick={() => {
-                    console.log('CubeSite More button clicked, triggering animation');
-                    bytes101TextRef.current?.animate();
-                  }}
-                  title="Cubes"
-                  image="/images/JPL3Poster_3D.jpg"
-                  alt="CubeSite"
-                  link="https://cubistic.vercel.app"
-                  text="Featuring scripted 3D, interaction and animations."
-                  className="PlaygroundProject"
-                >
-                  <p>Site Demo In development</p>
-                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> Three.js / React</AnimatedText></p>
-                  <p><strong>Role:</strong> R3F concept architect & creator</p>
-                </ProjectCard>
-           
+                
             
              
              {!isMobile && (
                   <>
             
-                    <ProjectCard 
-                      onMoreClick={() => {
-                        console.log('streetlamp More button clicked, triggering animation');
-                        streetlampTextRef.current?.animate();
-                      }}
-                      title="Streetlamp 2044"
-                      image="/images/JPL3Poster_R3F.jpg"
-                      alt="Streetlamp 2044"
-                      text="<strong>Experimental</strong>. Featuring custom audiotracks, 3D models and animations."
-                      link="https://jpl3d2.vercel.app/"
-                      className="PlaygroundProject"
-                    >
-                      <p>R3F Concept Demo</p>
-                      <p><strong>Tools:</strong><AnimatedText ref={streetlampTextRef} type="project">Three.js / React / R3F3 Fiber / GSAP / Blender</AnimatedText></p>
-                      <p><strong>Role:</strong> Concept / Animation / Dev</p>
-                      <p><strong>Duration:</strong> 3 weeks</p>
-                      <p><strong>Info:</strong> An immersive 3D experience exploring a scifi landscape through motion and interaction.</p>
-                    </ProjectCard>
-                    <ProjectCard 
-                      onMoreClick={() => {
-                        console.log('Facility More button clicked, triggering animation');
-                        facilityTextRef.current?.animate();
-                      }}
-                      title="The Facility"
-                      image="https://cdna.artstation.com/p/assets/images/images/077/341/642/large/jan-peiro-box1.jpg?1719257986"
-                      alt="The Facility"
-                      text="<strong>Experimental / Desktop Only</strong>. Featuring custom audiotracks, 3D models and animations."
-                      link="https://facility3.vercel.app/"
-                      className="PlaygroundProject"
-                    >
-                      <p>Visual Concept Demo</p>
-                      <p><strong>Tools:</strong><AnimatedText ref={facilityTextRef} type="project">Three.js / React / R3F3 Fiber / GLSL / GSAP / Blender / Adobe Suite</AnimatedText></p>
-                      <p><strong>Role:</strong> Concept / Animation / Dev</p>
-                      <p><strong>Duration:</strong> 3 weeks</p>
-                      <p><strong>Info:</strong> A mysterious facility exploring the intersection of architecture and digital art.</p>
-                    </ProjectCard>
-
+                  
                     */}
         
                   </div>

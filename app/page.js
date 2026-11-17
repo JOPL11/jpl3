@@ -18,6 +18,7 @@ import { useModal } from './components/ModalContext';
 import PrivacyContent from './components/PrivacyContent';
 import styles from './css/page.module.css';
 import LangSwitcher from './components/LangSwitcher';
+import { usePathname } from 'next/navigation';
 //import ProfileCarousel from './components/ProfileCarousel';
    import PlaygroundContent from './components/PlaygroundContent';
    import ReactContent from './components/ReactContent';
@@ -86,6 +87,16 @@ export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showHamburger, setShowHamburger] = useState(true);
   const [showDesktopNav, setShowDesktopNav] = useState(false);
+
+  const pathname = usePathname();
+useEffect(() => {
+  const slug = pathname.replace('/', '');
+  if (MODAL_SECTIONS[slug]) {
+    setActiveSection(slug);
+    openModal(MODAL_SECTIONS[slug](), `${slug}Modal`, { path: pathname, push: false });
+  }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
 
 console.log('[Home] render');
 useEffect(() => {
@@ -160,12 +171,13 @@ const MODAL_SECTIONS = {
 const scrollToSection = (e, sectionId) => {
   e.preventDefault();
 
-  const make = MODAL_SECTIONS[sectionId];
-  if (make) {
-    setActiveSection(sectionId);
-    openModal(make(), `${sectionId}Modal`);
-    return;                 // no scrolling, no closeModal
-  }
+const make = MODAL_SECTIONS[sectionId];
+if (make) {
+  const slug = sectionId === 'code' ? 'react' : sectionId;   // alias → one URL
+  setActiveSection(sectionId);
+  openModal(make(), `${sectionId}Modal`, { path: `/${slug}` });
+  return;
+}
 
   closeModal();             // other items: close any modal, then scroll
   setActiveSection(sectionId);
