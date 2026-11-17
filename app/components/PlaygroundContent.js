@@ -64,21 +64,21 @@ export default function PlaygroundContent() {
                   <p><strong>Role:</strong><br /> Concept / Animation / Development</p>
                 </ProjectCard>
 
-          <ProjectCard 
+                <ProjectCard 
                    deform
                   onMoreClick={() => {
                     console.log('karnak More button clicked, triggering animation');
                     bytes101TextRef.current?.animate();
                   }}
-                  title="Temple of Karnak Guided Tour"
+                  title="Temple of Karnak 3D PWA"
                   image="/images/karnak.jpg"
-                  alt="emple of Karnak"
+                  alt="Temple of Karnak"
                   link="https://temples-eta.vercel.app"
-                  text="The largest temple on earth, reconstructed to spec in Blender / Three.js / React / R3F and animated with greensock & GLSL for an immersive & interactive guided tour."
+                  text="The largest temple on earth, reconstructed to spec in Blender / Three.js / React / R3F and animated with greensock & GLSL for an immersive & interactive guided tour. Private Web App access included. Works offline if installed."
                   className="PlaygroundProject"
                 >
                   <p>Concept Demo</p>
-                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
+                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React PWA</AnimatedText></p>
                   <p><strong>Role:</strong><br /> Concept / Model / Development</p>
                 </ProjectCard>
 
