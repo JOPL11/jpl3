@@ -88,15 +88,33 @@ export default function Home() {
   const [showHamburger, setShowHamburger] = useState(true);
   const [showDesktopNav, setShowDesktopNav] = useState(false);
 
-  const pathname = usePathname();
+  const MODAL_SECTIONS = {
+  playground: () => <PlaygroundContent />,
+  react:      () => <ReactContent />,
+  code:       () => <ReactContent />, 
+  motion:     () => <MotionContent />,
+  product:    () => <ProductContent />,
+};
+
+
+const DEEP_LINKS = {
+  ...MODAL_SECTIONS,
+  privacy: () => <PrivacyContent />,
+  terms:   () => <PrivacyContent scrollToTerms />,
+};
+
+const pathname = usePathname();
 useEffect(() => {
   const slug = pathname.replace('/', '');
-  if (MODAL_SECTIONS[slug]) {
+  const make = DEEP_LINKS[slug];
+  if (make) {
     setActiveSection(slug);
-    openModal(MODAL_SECTIONS[slug](), `${slug}Modal`, { path: pathname, push: false });
+    const cls = slug === 'privacy' || slug === 'terms' ? 'privacyModal' : `${slug}Modal`;
+    openModal(make(), cls, { path: pathname, push: false });
   }
   // eslint-disable-next-line react-hooks/exhaustive-deps
 }, []);
+
 
 console.log('[Home] render');
 useEffect(() => {
@@ -160,13 +178,6 @@ useEffect(() => {
     };
   }, []);
 */} 
-const MODAL_SECTIONS = {
-  playground: () => <PlaygroundContent />,
-  react:      () => <ReactContent />,
-  code:       () => <ReactContent />, 
-  motion:     () => <MotionContent />,
-  product:    () => <ProductContent />,
-};
 
 const scrollToSection = (e, sectionId) => {
   e.preventDefault();
@@ -782,7 +793,7 @@ useEffect(() => {
           <button 
             onClick={() => {
               window.scrollTo({ top: 0, behavior: 'smooth' });
-              openModal(<PrivacyContent />, 'privacyModal');
+               openModal(<PrivacyContent />, 'privacyModal', { path: '/privacy' });
             }} 
             className={styles.footerLink} 
             aria-label="Privacy Policy"
@@ -791,12 +802,9 @@ useEffect(() => {
           </button>
           <button 
             onClick={() => {
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-              openModal(
-                <PrivacyContent scrollToTerms />, 
-                'privacyModal'
-              );
-            }} 
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                openModal(<PrivacyContent scrollToTerms />, 'privacyModal', { path: '/terms' });
+              }} 
             className={styles.footerLink} 
             aria-label="Terms of Service"
           >

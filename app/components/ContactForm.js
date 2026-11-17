@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import styles from '../css/ContactForm.module.css';
+import { useModal } from './ModalContext';
+import PrivacyContent from './PrivacyContent';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -12,6 +14,7 @@ export default function ContactForm() {
   });
   const [status, setStatus] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const { openModal, closeModal } = useModal();
   const [touched, setTouched] = useState({
     gdprConsent: false
   });
@@ -119,8 +122,7 @@ export default function ContactForm() {
             href="#" 
             onClick={(e) => {
               e.preventDefault();
-              const event = new CustomEvent('openPrivacyModal');
-              window.dispatchEvent(event);
+              openModal(<PrivacyContent />, 'privacyModal', { path: '/privacy' });
             }}
             className={styles.privacyLink}
           >

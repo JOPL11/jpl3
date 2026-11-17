@@ -54,6 +54,7 @@ const nextConfig = {
     { source: '/react',      destination: '/' },
     { source: '/motion',     destination: '/' },
     { source: '/product',    destination: '/' },
+    { source: '/privacy',    destination: '/' },
     { source: '/overview/:id', destination: '/' },
   ];
 },

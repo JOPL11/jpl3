@@ -36,14 +36,14 @@ export default function ModalFooter() {
             <p>&copy; {new Date().getFullYear()} Jan Peiro</p>
           </div>
           <button
-            onClick={() => openModal(<PrivacyContent />, 'privacyModal')}
+            onClick={() => openModal(<PrivacyContent />, 'privacyModal', { path: '/privacy' })}
             className={styles.footerLink}
             aria-label="Privacy Policy"
           >
             Privacy Policy
           </button>
           <button
-            onClick={() => openModal(<PrivacyContent scrollToTerms />, 'privacyModal')}
+            onClick={() => openModal(<PrivacyContent scrollToTerms />, 'privacyModal', { path: '/terms' })}
             className={styles.footerLink}
             aria-label="Terms of Service"
           >
