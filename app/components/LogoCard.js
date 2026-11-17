@@ -158,7 +158,7 @@ const LogoCard = () => {
   openModal(
   <ModalContent logo={logo} index={index} logos={logos} />,
   '',
-      { header: <OverviewHeader />, path: `/overview/${logo.id}` }
+      { header: <OverviewHeader />, path: `/overview/${logo.slug ?? logo.id}` }
     );
   };
 
@@ -194,7 +194,7 @@ const LogoCard = () => {
             logos={logos}
           />,
           '',
-          { layer: false, path: `/overview/${newLogo.id}` }
+          { layer: false, path: `/overview/${newLogo.slug ?? newLogo.id}` }
         );
       }, 300);
     };
@@ -349,6 +349,7 @@ const LogoCard = () => {
   const logos = [
     {
       id: 1,
+      slug: 'Airbus-Berlin-Touch-Interface',
       src: '/images/mini/airbus.svg',
       alt: 'Logo 2',
       title: 'Airbus Group Digital Interfaces',
@@ -402,6 +403,7 @@ const LogoCard = () => {
 
     {
       id: 2,
+      slug: 'Airbus-Ottobrunn-Touch-Interface',
       src: '/images/mini/airbus.svg',
       alt: 'Logo 2',
       title: 'Airbus Group Digital Interfaces',
@@ -427,6 +429,7 @@ const LogoCard = () => {
     },
     {
       id: 3,
+      slug: 'mtu-aero-engines',
       src: '/images/mini/aeromtu.svg',
       alt: 'Logo 1',
       title: 'Digital Experiences for MTU Aero Engines',
@@ -467,6 +470,7 @@ const LogoCard = () => {
     },
     {
       id: 4,
+      slug: 'audi-nuremberg-middle-east',
       src: '/images/mini/audi.svg',
       alt: 'Logo 4',
       title: 'Audi Nuremberg & Audi Middle East',
@@ -501,6 +505,7 @@ const LogoCard = () => {
     },
     {
       id: 5,
+      slug: 'mercedes-benz-product-design',
       src: '/images/mini/automerc4.svg',
       alt: 'Logo 5',
       title: 'Mercedes-Benz Product Design & Visual Development',
@@ -546,6 +551,7 @@ const LogoCard = () => {
     },
     {
       id: 6,
+      slug: 'bmw-group',
       src: '/images/mini/bmw.svg',
       alt: 'Logo 6',
       title: 'BMW Group',
@@ -589,6 +595,7 @@ const LogoCard = () => {
     },
     {
       id: 7,
+      slug: 'toyota-iaa-frankfurt',
       src: '/images/mini/autotoyota.jpg',
       alt: 'Logo 7',
       title: 'Toyota at the International Motor Show, Frankfurt (IAA)',
@@ -613,6 +620,7 @@ const LogoCard = () => {
     },
     {
       id: 8,
+      slug: 'tuv-sud-global-certification',
       src: '/images/mini/autoTuvB.svg',
       alt: 'Logo 8',
       title:
@@ -643,6 +651,7 @@ const LogoCard = () => {
     },
     {
       id: 18,
+      slug: 'strellson-digital-brand',
       src: '/images/mini/strellson.jpg',
       alt: 'Logo 18',
       title: 'Strellson Digital Brand Atmosphere',
@@ -675,6 +684,7 @@ const LogoCard = () => {
     },
     {
       id: 9,
+      slug: 'spiegel-tv-channels',
       src: '/images/mini/spiegel.jpg',
       alt: 'Spiegel TV',
       title: ' Digital Brand Architect for Spiegel TV Channels',
@@ -715,6 +725,7 @@ const LogoCard = () => {
 
     {
       id: 10,
+      slug: 'red-bull-austria',
       src: '/images/mini/rb.jpg',
       alt: 'Red Bull TV',
       title: 'Red Bull Austria: Early Digital Experiences for a Media Pioneer',
@@ -746,6 +757,7 @@ const LogoCard = () => {
     },
     {
       id: 11,
+      slug: 'Pro7-online-ad-campaigns',
       src: '/images/mini/pro7.jpg',
       alt: 'Logo 11',
       title: 'Online Ad Campaigns',
@@ -764,6 +776,7 @@ const LogoCard = () => {
     },
     {
       id: 12,
+      slug: 'burda-presentations',
       src: '/images/mini/sburda.jpg',
       alt: 'Logo 12',
       title: 'Burda Presentations',
@@ -782,6 +795,7 @@ const LogoCard = () => {
     },
     {
       id: 13,
+      slug: 'f-secure-presentations',
       src: '/images/mini/fsecure.jpg',
       alt: 'Logo 13',
       title: 'F-Secure Interactive Presentations / Video Animations',
@@ -802,6 +816,7 @@ const LogoCard = () => {
     },
     {
       id: 14,
+      slug: 'swisscom-installer-package',
       src: '/images/mini/swisscom.jpg',
       alt: 'Logo 14',
       title: 'Swisscom Installer Package',
@@ -821,6 +836,7 @@ const LogoCard = () => {
     },
     {
       id: 15,
+      slug: 'videogame-teaser-website',
       src: '/images/mini/ds.jpg',
       alt: 'Logo 15',
       title: 'Teaser Website For a Videogame',
@@ -845,6 +861,7 @@ const LogoCard = () => {
     },
     {
       id: 16,
+      slug: 'siemens-technology-explainer',
       src: '/images/mini/siemens.jpg',
       alt: 'Logo 16',
       title: 'Siemens Global: Interactive Technology Explainer',
@@ -863,6 +880,7 @@ const LogoCard = () => {
     },
     {
       id: 17,
+      slug: 'hp-global-campaigns',
       src: '/images/mini/hp.jpg',
       alt: 'Logo 17',
       title: 'HP Digital Global Campaign Solutions',
@@ -885,6 +903,7 @@ const LogoCard = () => {
 
     {
       id: 19,
+      slug: 'motion-picture-deliverables',
       src: '/images/mini/twenty.jpg',
       alt: 'Logo 19',
       title: 'Motion Picture Digital Delivarables',
@@ -903,6 +922,7 @@ const LogoCard = () => {
     },
     {
       id: 20,
+      slug: 'motion-picture-marketing-assets',
       src: '/images/mini/universal.jpg',
       alt: 'Logo 20',
       title: 'Marketing Assets for Motion Pictures',
@@ -923,6 +943,7 @@ const LogoCard = () => {
     },
     {
       id: 21,
+      slug: 'motion-picture-campaign-assets',
       src: '/images/mini/wb.jpg',
       alt: 'Logo 21',
       title:
