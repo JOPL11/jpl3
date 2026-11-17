@@ -156,9 +156,9 @@ const LogoCard = () => {
     setCurrentLogos(logos);
   
   openModal(
-      <ModalContent logo={logo} index={index} logos={logos} />,
-      '',
-      { header: <OverviewHeader /> }
+  <ModalContent logo={logo} index={index} logos={logos} />,
+  '',
+      { header: <OverviewHeader />, path: `/overview/${logo.id}` }
     );
   };
 
@@ -194,7 +194,7 @@ const LogoCard = () => {
             logos={logos}
           />,
           '',
-          { layer: false }
+          { layer: false, path: `/overview/${newLogo.id}` }
         );
       }, 300);
     };
