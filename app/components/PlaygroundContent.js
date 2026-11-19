@@ -58,7 +58,7 @@ export default function PlaygroundContent() {
                   image="/images/karnak.jpg"
                   alt="Temple of Karnak"
                   link="https://temples-eta.vercel.app"
-                  text="The largest temple on earth, reconstructed to spec in Blender / Three.js / React / R3F and animated with greensock & GLSL for an immersive & interactive guided tour. Private Web App access included. Works offline if installed."
+                  text="The largest temple on earth, reconstructed to spec in Blender / Three.js / React / R3F and animated with greensock & GLSL for an immersive & interactive guided tour. Private Web App access included. Works offline if installed from Safari, Chrome, Brave & Edge. (Firefox doesn't currently offer PWA linkage.)"
                   className="PlaygroundProject"
                 >
                   <p>Concept Demo</p>
