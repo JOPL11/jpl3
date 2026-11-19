@@ -88,7 +88,17 @@ export default function Home() {
   const [showHamburger, setShowHamburger] = useState(true);
   const [showDesktopNav, setShowDesktopNav] = useState(false);
 
-  
+
+const MODAL_SECTIONS = {
+  playground: () => <PlaygroundContent />,
+  react:      () => <ReactContent />,
+  code:       () => <ReactContent />,
+  motion:     () => <MotionContent />,
+  product:    () => <ProductContent />,
+};
+
+
+
 
 const DEEP_LINKS = {
   ...MODAL_SECTIONS,
@@ -175,7 +185,7 @@ useEffect(() => {
 const scrollToSection = (e, sectionId) => {
   e.preventDefault();
 
-const make = MODAL_SECTIONS[sectionId];
+const make = MODAL_SECTIONS[sectionId]; 
 if (make) {
   const slug = sectionId === 'code' ? 'react' : sectionId;   // alias → one URL
   setActiveSection(sectionId);
