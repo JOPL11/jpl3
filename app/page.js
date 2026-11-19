@@ -88,14 +88,7 @@ export default function Home() {
   const [showHamburger, setShowHamburger] = useState(true);
   const [showDesktopNav, setShowDesktopNav] = useState(false);
 
-  const MODAL_SECTIONS = {
-  playground: () => <PlaygroundContent />,
-  react:      () => <ReactContent />,
-  code:       () => <ReactContent />, 
-  motion:     () => <MotionContent />,
-  product:    () => <ProductContent />,
-};
-
+  
 
 const DEEP_LINKS = {
   ...MODAL_SECTIONS,

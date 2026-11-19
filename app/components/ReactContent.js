@@ -246,7 +246,7 @@ export default function ReactContent() {
   */}
 
              
-                <ProjectCard
+          {/*        <ProjectCard
                   onMoreClick={() => {
                     console.log('citylink1 More button clicked, triggering animation');
                     citylink1TextRef.current?.animate();
@@ -279,7 +279,7 @@ export default function ReactContent() {
                   <p><strong>Tools:</strong><AnimatedText ref={citylink1TextRef} type="project"> Next.js, react</AnimatedText></p>
                   <p><strong>Info:</strong> The app this page describes is currently in development and visible / testable in the projectCards below.</p>
                 </ProjectCard>
-               {/* 
+              
                <ProjectCard 
                  onMoreClick={() => {
                   console.log('bumpi More button clicked, triggering animation');
