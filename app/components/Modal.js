@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import styles from '../css/Modal.module.css';
 import Lenis from 'lenis';
-import ScrollHint from './ScrollHint';
+import ScrollHint from './ScrollHinter';
 import RailNav from './RailNav';
 import { normalizeSectionId, CONTENT_RAILS } from './sectionRegistry';
 import { ScrollVelocityContext } from '../contexts/ScrollVelocityContext';
