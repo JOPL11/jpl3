@@ -694,7 +694,7 @@ useEffect(() => {
 
             <p>Born in Barcelona, raised in Montreal, Toronto and Philadelphia. I've also lived in Barcelona, Munich, Kaiserslautern, Freiburg, Ladenburg and Worms.</p>
 
-            <p>I recently left Germany for good after witnessing its (frankly disgusting) systemic renazification, and currently live in a bright villa with a private beach in Egypt instead.</p> 
+            <p>I recently left Germany for good after witnessing its (frankly disgusting) creeping systemic renazification, and currently live in a bright villa with a private beach in Egypt instead.</p> 
 
             <p>Canadian & Spanish citizenship. Global Remote | EST / CET / EET</p>
 
