@@ -14,6 +14,8 @@ function sectionIdFromClass(className = '') {
   return cls ? normalizeSectionId(cls.replace(/Modal$/, '')) : null;
 }
 
+
+
 export default function Modal({
   isOpen,
   isClosing = false,
