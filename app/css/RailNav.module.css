@@ -46,7 +46,7 @@
 .tick {
   display: block;
   width: 14px;
-  height: 4px;
+  height: 2px;
   background: currentColor;
   transition: width 0.25s ease;
 }
@@ -83,6 +83,13 @@
   outline-offset: 4px;
 }
 
+@media (max-width: 1099px) {
+  .panel {
+    display: block;
+    left: 1.6rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .tick, .label, .item { transition: none; }
 }
@@ -114,9 +121,9 @@
     width: 0;
     overflow: hidden;
   }
-  .panel .tick { width: 10px; height: 4px }
+  .panel .tick { width: 10px; height: 2px }
   .panel .item:hover .tick,
-  .panel .active .tick { width: 18px; height: 4px }
+  .panel .active .tick { width: 18px; height: 2px }
 }
 
 
@@ -144,7 +151,7 @@
 
   .panel .tick {
     width: 4px;
-    height: 4px;
+    height: 2px;
   }
 
   .panel .item:hover .tick,

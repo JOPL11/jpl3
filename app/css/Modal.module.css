@@ -163,11 +163,13 @@
   cursor: pointer;
   color: #fff;
   transition: all 0.2s ease;
+  transform-origin: center center;
   -webkit-tap-highlight-color: transparent;
   z-index: 1001; /* Increased z-index to ensure it stays on top */
 }
 
 .closeButton:hover {
+  transform-origin: center center;
   background: transparent;
   transform: rotate(90deg);
 }
@@ -468,7 +470,7 @@
   .closeButton {
   position: absolute;
   top: 0.5rem;
-  left: 1.9rem;
+  left: 1.1rem;
   }
 
 .logo {
