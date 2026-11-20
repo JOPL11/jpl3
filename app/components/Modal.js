@@ -3,8 +3,16 @@
 import React, { useEffect, useRef } from 'react';
 import styles from '../css/Modal.module.css';
 import Lenis from 'lenis';
-import ScrollHint from './ScrollHinter';
+import ScrollHint from './ScrollHint';
+import RailNav from './RailNav';
+import { normalizeSectionId, CONTENT_RAILS } from './sectionRegistry';
 import { ScrollVelocityContext } from '../contexts/ScrollVelocityContext';
+
+// 'playgroundModal playgroundModal' -> 'playground'
+function sectionIdFromClass(className = '') {
+  const cls = className.split(' ').find((c) => c.endsWith('Modal'));
+  return cls ? normalizeSectionId(cls.replace(/Modal$/, '')) : null;
+}
 
 export default function Modal({
   isOpen,
@@ -147,6 +155,14 @@ export default function Modal({
             {isTop && (
               <ScrollHint targetRef={contentRef} watchKey={layer.contentKey} />
             )}
+           {isTop && CONTENT_RAILS[sectionIdFromClass(layer.className)] !== false && (
+                <RailNav
+                  activeId={sectionIdFromClass(layer.className)}
+                  contentRail={CONTENT_RAILS[sectionIdFromClass(layer.className)]}
+                  scrollerRef={contentRef}
+                  watchKey={layer.contentKey}
+                />
+              )}
           </div>
         );
       })}

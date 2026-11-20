@@ -19,6 +19,8 @@ import PrivacyContent from './components/PrivacyContent';
 import styles from './css/page.module.css';
 import LangSwitcher from './components/LangSwitcher';
 import { usePathname } from 'next/navigation';
+import RailNav from './components/RailNav';
+import { registerModalSections } from './components/sectionRegistry';
 //import ProfileCarousel from './components/ProfileCarousel';
    import PlaygroundContent from './components/PlaygroundContent';
    import ReactContent from './components/ReactContent';
@@ -82,13 +84,6 @@ function CopyrightYear() {
   return <>{year}</>;
 }
 
-export default function Home() {
-  const { openModal, closeModal } = useModal();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showHamburger, setShowHamburger] = useState(true);
-  const [showDesktopNav, setShowDesktopNav] = useState(false);
-
-
 const MODAL_SECTIONS = {
   playground: () => <PlaygroundContent />,
   react:      () => <ReactContent />,
@@ -96,6 +91,15 @@ const MODAL_SECTIONS = {
   motion:     () => <MotionContent />,
   product:    () => <ProductContent />,
 };
+registerModalSections(MODAL_SECTIONS);
+
+export default function Home() {
+  const { openModal, closeModal } = useModal();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showHamburger, setShowHamburger] = useState(true);
+  const [showDesktopNav, setShowDesktopNav] = useState(false);
+
+
 
 
 
@@ -383,12 +387,17 @@ useEffect(() => {
   return (
     <div className={styles.container} role="document">
       <MouseGradient />
+      <RailNav
+  variant="page"
+  activeId={activeSection}
+  onSelect={(id) => scrollToSection({ preventDefault() {} }, id)}
+/>
       <LangSwitcher onChange={(code) => {
   // hook your translation layer here
   console.log('lang ->', code);
 }} />
-         {mounted && createPortal(
-          <>
+      {mounted && createPortal(
+      <>
       <header role="banner" className={styles.header}>
         <button 
           className={styles.backToTop}

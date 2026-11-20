@@ -1,0 +1,155 @@
+.rail {
+  display: none;               /* hidden when there's no room beside the content */
+  z-index: 30;
+}
+
+@media (min-width: 1100px) {
+  .rail { display: block; }
+}
+
+.panel {
+  position: absolute;          /* inside the modal panel */
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.page {
+  position: fixed;             /* on the main page */
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.4rem 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: var(--rail-color, rgba(255, 255, 255, 0.4));
+  text-shadow: none;           /* global button style adds a glow */
+  transition: color 0.25s ease;
+}
+
+.tick {
+  display: block;
+  width: 14px;
+  height: 4px;
+  background: currentColor;
+  transition: width 0.25s ease;
+}
+
+.label {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+/* Hovering the rail reveals every label */
+.rail:hover .label {
+  opacity: 0.85;
+  transform: none;
+}
+
+.item:hover,
+.active {
+  color: var(--rail-active, var(--modal-hint, #a2feff));
+}
+
+.item:hover .tick { width: 26px; }
+.active .tick     { width: 28px; }
+
+.active .label { opacity: 0.85; }
+
+.item:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tick, .label, .item { transition: none; }
+}
+
+/* Content mode: ticks only, a bit more air between them */
+.contentList { gap: 0.45rem; }
+
+/* Page rail: visible from 820px; labels only from 1100px up.
+   (Modal rails keep their own 1100px cutoff above.) */
+@media (min-width: 820px) {
+  .page { display: block; }
+}
+
+@media (max-width: 1099px) {
+  .page .label {
+    visibility: hidden;
+    width: 0;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 821px) and (max-width: 1099px) {
+  .panel {
+    display: block;
+    left: 0.4rem;
+  }
+  .panel .label {
+    visibility: hidden;
+    width: 0;
+    overflow: hidden;
+  }
+  .panel .tick { width: 10px; height: 4px }
+  .panel .item:hover .tick,
+  .panel .active .tick { width: 18px; height: 4px }
+}
+
+
+/* Narrow screens: horizontal rail across the top of the modal */
+@media (min-width: 330px) and (max-width: 819px) {
+  .panel {
+    z-index: 150000;
+    display: block;
+    top: 1.5rem;
+    left: 54%;
+    transform: translateX(-50%);   /* was translateY(-50%) for the vertical version */
+  }
+
+  .panel .list {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .panel .item {
+    padding: 0.6rem 0.2rem;        /* keeps a comfortable tap target */
+  }
+
+  .panel .label { display: none; }
+
+  .panel .tick {
+    width: 4px;
+    height: 4px;
+  }
+
+  .panel .item:hover .tick,
+  .panel .active .tick {
+    width: 26px;                   /* active segment grows, like the vertical ticks */
+    height: 2px;
+  }
+}
