@@ -1439,9 +1439,9 @@ a.secondary {
 }
 .logoLink {
   display: flex;
-  align-items: center;
+  align-items: left;
   justify-content: center;
-  opacity: 0.8;
+  opacity: 0.1;
   transition: opacity 0.3s ease;
   border-radius: 8px;
   padding: 8px;

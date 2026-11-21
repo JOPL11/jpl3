@@ -99,9 +99,7 @@
 
 /* Page rail: visible from 820px; labels only from 1100px up.
    (Modal rails keep their own 1100px cutoff above.) */
-@media (min-width: 820px) {
-  .page { display: block; }
-}
+
 
 @media (max-width: 1099px) {
   .page .label {

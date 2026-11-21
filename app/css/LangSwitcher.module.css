@@ -11,7 +11,7 @@
   font-size: 1.0rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  mix-blend-mode: difference; /* keeps it visible on any bg; drop if not needed */
+  mix-blend-mode: none; /* keeps it visible on any bg; drop if not needed */
 }
 
 .lang {

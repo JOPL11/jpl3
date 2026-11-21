@@ -694,8 +694,6 @@ useEffect(() => {
 
             <p>Born in Barcelona, raised in Montreal, Toronto and Philadelphia. I've also lived in Barcelona, Munich, Kaiserslautern, Freiburg, Ladenburg and Worms.</p>
 
-            <p>I recently left Germany for good after witnessing its (frankly disgusting) creeping systemic renazification, and currently live in a bright villa with a private beach in Egypt instead.</p> 
-
             <p>Canadian & Spanish citizenship. Global Remote | EST / CET / EET</p>
 
             <p>Available for select projects.</p>
@@ -704,6 +702,8 @@ useEffect(() => {
 
                {/*      
                
+            <p>I recently left Germany for good after witnessing its (frankly disgusting) creeping systemic renazification, and left that sinking ship to live in a bright villa with a private beach in Egypt instead.</p> 
+
               <ProfileCarousel
               <p>After 20 years paying insane taxes with nothing but a kick in the head to show for it, I recently left Germany for good due to its renazification and its outdated tech stack.</p> 
               <p>Recently left Germany after 25 years due to over-exposure to creeping renazification. Rather than participate in the chronically toxic German nightmare of atavistic NPCs, I relocated to a sunny villa with a private beach in Egypt. The canary has escaped the nazi coalmine.</p>
