@@ -55,6 +55,12 @@ const posts = [
     date: '2025-11-11',
     excerpt: '8th.',
   },
+      {
+    id: 'nine',
+    title: 'Relocated to Egypt',
+    date: '2026-11-23',
+    excerpt: '9th.',
+  },
 
 ];
 

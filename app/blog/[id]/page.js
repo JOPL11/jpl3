@@ -162,8 +162,54 @@ const posts = {
       </>
     ),
   },
-};
+  'nine': {
+    title: 'Relocation to Egypt',
+    date: '2025-11-23',
+    content: (
+      <>
+        <p>Relocation and the Death of The German Dream</p>
+          <ul>
+            <li>Der Untergang der Nachkriegszeit </li>
+            <p>I integrated successfully into German culture but then it became clear that integration in Germany brings unique problems with it. I have to back up a little here, to give a fuller picture. My family moved to Montreal when I was one year old, I grew up there learning English and French at school and German at home. Thus due to Canadian culture in Montreal being predominantly English at the time, I grew up speaking both English and German without an accent. I was later groomed for Germany by my mother when she sent me to a German school in Montreal. It was only much later that I realized that what should have been a great advantage in theory would become a curse in practice. The Germans don't see integration as a step toward a cooperation. They see an integrated person as a subject to be abused. The strange 180 flip people made when they discovered I spoke German always left me slightly puzzled, and towards the end of my stay I understood that integration means taking on an unspoken set of rules no less than kneeling to the Herrenklasse. I retract my integration. I suspect I now have Post Germanic Stress Disorder. Walking it off </p>
 
+
+
+It had been a lovely day in Munich, Bavaria. The sky was full of bulging white cumulus clouds, the air was crisp, and I was seated in a spacious meeting-room at a large round table, across from a small man with a face that had the features of both Heinrich Himmler and Alvin the chipmunk.
+
+To his left, a tall voluptuous bombshell blond was seated, shuffling a printout of my CV. She was drop dead gorgeous, a pen stuck in her tousled hair, large glasses, the spitting image of a hot secretary.
+
+To his right, a small lady with a gnarled face like a turnip sat poised like a cat. Her green skin was coarse and her hoop earrings gleamed in the sun that streamed in through the windows. 
+
+The man began the meeting cordially, introducing himself as the company owner and CEO, giving me the usual introductory line of PR scented bullshit about their company. Global player blah blah, vast client portfolio blah blah, what have you.
+
+At some point the lady to the man's right introduced herself, speaking in the typical barnyard bavarian tounge, as the company psychologist. It was the local dialect that shall we say did not reek of sophistication to begin with. It was linguistically stuck somewhere between German and Austrian the way a cat is stuck in the engineblock of a BMW for 100 miles on the Autobahn before a Bavarian identifies the noise and pulls over to rescue his engine.
+
+The greenskinned psychologist lady quickly got down to brass tacks: "Mister P," she smiled through clenched teeth framed by her petite tusks, "We see that you are from abroad - a Spanish citizen."
+I nodded amicably, it was true I was Spanish on paper, I had two passports and had spent 3 years in Barcelona - she continued with a piercing stare, "We see that those whom we here in Bavaria call foreign Southerners occasionally like to raise their voice at women, and in the course of sometimes doing so, whether your hand should somehow slip and you find yourself slapping them in the face. What I'm asking is, Mr. P, being Spanish, do you beat women?"
+
+Well that was a shock.
+
+I wasn't prepared for that level of intercultural exchange.
+
+The first thing I wanted to ask matter-of-factly was how many Jews she'd gassed before breakfast, but my mind shoved that one out of the way. Then the image of me comedically lunging across the table at her popped into my head, dismissed that too. Where’d she get her degree, University of Auschwitz? My mind raced and I looked over to the CEO and his SS She-wolf, who were grinning hungrily at me as though I was lunch and that was a perfectly legitimate question.
+
+The CV sitting on the desk before them clearly showed I had lived in Spain for three years, that much was true. The rest of the time spent in Montreal, Toronto and Philly just sort of didn’t seem to catch their eye. Likewise, they seemed to have been unaware I’d previously been on the team that had handed them Lufthansa as a client.
+
+Then images of my German mother disowning my brother because he had planned his wedding for the same day she had planned to redecorate her kitchen, popped into my head. Then I remembered how she disowned me for following the rules she had created - rules which stated that not following them would result in my disownment. Then the suicide threats of my previous two Munich girlfriends popped into my head, both suffering from / wielding a thing called BPD, which deserves its own novel but not right here. Then the images of Spielberg Germans screaming at Auschwitz Jews washed over me. Their mastery at flattening people into a single loaded term and their complete outrage at having it done to themselves. The long history of warfare and murder and relentless infighting that made up the bulk of German history - from the Holy Roman Empire when they were a wildly splintered collection of feudal states murdering eachother in the name of order, to their infamous installment of the industrial genocide state murdering others in the name of order, to their current enactment of prejudice without an iota of self-awareness congealing into its newer form in the name of order, and all these visions of ‘order’ ultimately serving no other purpose than to facilitate sadistic enactments of mass moral schizophrenia squeezed through a pistol barrel of Narcisstic Personality Disorder at high velocity, washed over me.
+
+"This . . . interview . . . is over." I muttered.
+
+On my way out the door I noted the workers there were made up of a disproportionally large number of blond and blue-eyed people. Jesus, I thought, what kind of Aryan brotherhood had I wandered into here?
+
+Bavaria was so backwards that even its psychologists were full of xenophobia and misandry. What hope was there for that place? That was the moment that finally rammed it home for me - Munich was a lost cause.
+
+
+           
+          </ul>
+      </>
+    ),
+  },
+};
 // This is a workaround component to handle the async params
 function BlogPostWrapper({ params }) {
   const post = posts[params.id];
