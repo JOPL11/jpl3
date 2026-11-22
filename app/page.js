@@ -685,15 +685,15 @@ useEffect(() => {
             <p>Hi! I&apos;m Jan Peiro.</p>
             <div className={styles.divider3}></div>
             <br />
-            <p>A multidisciplinary designer and creative who bridges the gap between visuals and technology. I hold a diploma in Communications Design from the Blocherer Schule für Design in Munich, Germany, and have spent my career transforming ideas into engaging experiences for a global clientele.</p>
+            <p>A multidisciplinary designer and creative who bridges the gap between visuals and technology. I hold a diploma in Communications Design from the Blocherer Schule für Grafik Design in Munich, Germany, and have spent my career transforming ideas into engaging experiences for a global clientele.</p>
 
-            <p>Specialized in <strong>2D / 3D design, animation and interactive content.</strong></p>
+            <p>Specialized in <strong>2D/3D design, animation and interactive content.</strong></p>
 
             <p>My core principle is merging design, animation and code to create work that is aesthetic, functional and scalable.</p>
 
             <p>I started out as a junior art director and gained proficiency in motion design, 3D visualization and creative development, while also building a strong foundation in web development and interactive design. I've art directed, coded, animated and designed various projects in Germany and internationally for the fashion, entertainment, automotive, broadcast and aerospace industries — spanning online, physical expo installations and motion design.</p>
 
-            <p>Born in Barcelona; raised in Montreal, Toronto and Philadelphia. I've also lived in Barcelona, Munich, Kaiserslautern, Freiburg, Ladenburg and Worms. The whole country left a bitter taste — I suspect I have Post Germanic Stress Disorder. Recently traded the gray German skies for a villa at the beach in Egypt.</p>
+            <p>Born in Barcelona; raised in Montreal, Toronto and Philadelphia. I've also lived in Barcelona, Munich, Kaiserslautern, Freiburg, Ladenburg and Worms. I integrated successfully into German culture but then it became clear that integration means kneeling to the Herrenklasse. Screw that noise. I suspect I now have Post Germanic Stress Disorder. Walking it off after relocating to a bright villa at a sunny beach in Egypt.</p>
 
             <p>Canadian & Spanish citizenship. Global Remote | EST / CET / EET</p> 
 
