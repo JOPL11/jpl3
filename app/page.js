@@ -20,6 +20,7 @@ import styles from './css/page.module.css';
 import LangSwitcher from './components/LangSwitcher';
 import { usePathname } from 'next/navigation';
 import RailNav from './components/RailNav';
+import LiveStatus from './components/LiveStatus'
 import { registerModalSections } from './components/sectionRegistry';
 //import ProfileCarousel from './components/ProfileCarousel';
    import PlaygroundContent from './components/PlaygroundContent';
@@ -694,16 +695,17 @@ useEffect(() => {
 
             <p>Born in Barcelona, raised in Montreal, Toronto and Philadelphia. I've also lived in Barcelona, Munich, Kaiserslautern, Freiburg, Ladenburg and Worms.</p>
 
-            <p>Canadian & Spanish citizenship. Global Remote | EST / CET / EET</p>
+            <p>Left Germany because after 20 years, it sucked too much and Germans started getting extremely weird. I live in Egypt in a bright villa at the beach now. Very friendly people here.</p> 
+
+            <p>Canadian & Spanish citizenship. Global Remote | EST / CET / EET</p> 
 
             <p>Available for select projects.</p>
 
             <div style={{height: '1rem'}}></div>
 
                {/*      
-               
-            <p>I recently left Germany for good after witnessing its (frankly disgusting) creeping systemic renazification, and left that sinking ship to live in a bright villa with a private beach in Egypt instead.</p> 
 
+                           <p>I recently left Germany for good after witnessing its (frankly disgusting) creeping systemic renazification for too many years. I finally left that sinking ship and now live in a bright villa with a private beach in Egypt instead.</p> 
               <ProfileCarousel
               <p>After 20 years paying insane taxes with nothing but a kick in the head to show for it, I recently left Germany for good due to its renazification and its outdated tech stack.</p> 
               <p>Recently left Germany after 25 years due to over-exposure to creeping renazification. Rather than participate in the chronically toxic German nightmare of atavistic NPCs, I relocated to a sunny villa with a private beach in Egypt. The canary has escaped the nazi coalmine.</p>
@@ -754,17 +756,19 @@ useEffect(() => {
            
             {/*   MOTION ENDS HERE             <hr className={styles.divider2} /> */}  
             <div data-section="contact"></div>
-            <section id="contact" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="contact">
-            
-             <SectionTracker onSectionChange={setActiveSection} />
-            <h2 style={{paddingTop: "5rem"}}>
-              <AnimatedText ref={contactHeadingRef}>Contact</AnimatedText>
-            </h2>
-            <div style={{height: '0.1rem', marginBottom: '3rem', fontSize: '1.2rem'}}>Get in touch. I'll get back to you.</div>
-                          <div style={{width: '30rem'}} className={styles.divider3}></div>
-                          <div style={{height: '0.1rem', marginBottom: '3rem'}}></div>
-              <ContactForm />
-            </section>
+        <section id="contact" className={`${styles.content} ${styles.scrollTarget}`} aria-labelledby="contact">
+
+  <SectionTracker onSectionChange={setActiveSection} />
+  <h2 style={{paddingTop: "5rem"}}>
+    <AnimatedText ref={contactHeadingRef}>Contact</AnimatedText>
+  </h2>
+
+  <LiveStatus timeZone="Europe/Amsterdam" />
+
+  <div style={{width: '30rem'}} className={styles.divider3}></div>
+  <div style={{height: '0.1rem', marginBottom: '3rem'}}></div>
+  <ContactForm />
+</section>
         </div>
       </main>
       <footer className={styles.footer} role="contentinfo">

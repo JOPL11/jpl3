@@ -1,0 +1,53 @@
+.status {
+  display: flex;
+    align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 1.2rem;
+   margin-top: 0.55em;
+
+}
+
+.dot {
+  margin-top: 0.55em;
+  position: relative;
+  flex: none;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: #3dbcdc;
+  animation: blink 1.6s ease-in-out infinite;
+}
+
+  .status {
+    margin-bottom: 2rem;     /* a bit more room on mobile */
+  }
+
+/* soft expanding ring for the "live" feel */
+.dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: inherit;
+  animation: ring 1.6s ease-out infinite;
+}
+
+@media (max-width: 600px) {
+  .status {
+    margin-bottom: 4rem;     /* a bit more room on mobile */
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.35; }
+}
+
+@keyframes ring {
+  from { transform: scale(1);   opacity: 0.6; }
+  to   { transform: scale(2.8); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot, .dot::after { animation: none; }
+}

@@ -18,7 +18,7 @@ const DEFAULT_GROUPS = [
     columns: 2,
     items: [
       'English (native)',
-      'German (fluent but shelved)',
+      'German (fluent)',
       'Spanish (fluent)',
       'French (fluent)',
     ],
@@ -69,17 +69,6 @@ const DEFAULT_GROUPS = [
       'SEO, Analytics',
     ],
   },
-    {
-      id: 'ai',
-      title: 'AI',
-      items: [
-        'Non-agentic Code Workflow.',
-        'No Video, no Writing, No Design, No Art.',
-        'Deep Technical Discussions.',
-        'DeepSeek, Claude, GLM.',
-        'LLM Integration (API, RAG)',
-      ],
-    },
 ];
 
 function AccordionItem({ group, isOpen, onToggle }) {
