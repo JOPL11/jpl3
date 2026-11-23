@@ -486,6 +486,7 @@
   -moz-user-drag: none;
   -o-user-drag: none;
   line-height: 1.85;
+  letter-spacing: 0.08em;
 }
 
 .navLink {
