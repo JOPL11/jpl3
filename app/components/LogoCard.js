@@ -109,6 +109,29 @@ const LogoCard = () => {
     };
   }, []);
 
+   // =================== OPEN / SWITCH A LOGO ===================
+  // One function for the first open, the arrows and the rail.
+  const showLogo = (i, { swap = false } = {}) => {
+    const logo = logos[i];
+    setCurrentLogoIndex(i);
+
+    const rail = {
+      count: logos.length,
+      active: i,
+      onSelect: (n) => showLogo(n, { swap: true }),
+    };
+    const path = `/overview/${logo.slug ?? logo.id}`;
+    const content = <ModalContent key={i} logo={logo} index={i} logos={logos} />;
+
+    if (swap) {
+      // Same panel, new content (fades in, no slide-up)
+      openModal(content, '', { layer: false, path, rail });
+    } else {
+      // First open: full slide-up with the standing "Overview" header
+      openModal(content, 'overviewModal', { header: <OverviewHeader />, path, rail });
+    }
+  };
+
   // =================== CLICK HANDLER ===================
   const handleLogoClick = async (logo, index) => {
     const clickedLogo = logosRef.current[index];
@@ -152,14 +175,8 @@ const LogoCard = () => {
     // Wait then open modal
     await new Promise((resolve) => setTimeout(resolve, 400));
 
-    setCurrentLogoIndex(index);
     setCurrentLogos(logos);
-  
-  openModal(
-  <ModalContent logo={logo} index={index} logos={logos} />,
-  '',
-      { header: <OverviewHeader />, path: `/overview/${logo.slug ?? logo.id}` }
-    );
+    showLogo(index);
   };
 
   // =================== MODAL CONTENT ===================
@@ -185,17 +202,7 @@ const LogoCard = () => {
             : (index - 1 + logos.length) % logos.length;
 
         const newLogo = logos[newIndex];
-        setCurrentLogoIndex(newIndex);
-        openModal(
-          <ModalContent
-            key={newIndex}
-            logo={newLogo}
-            index={newIndex}
-            logos={logos}
-          />,
-          '',
-          { layer: false, path: `/overview/${newLogo.slug ?? newLogo.id}` }
-        );
+        showLogo(newIndex, { swap: true });
       }, 300);
     };
 

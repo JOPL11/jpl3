@@ -14,6 +14,10 @@ const CLOSE_MS = 1700; // modal close animation (1600ms) + a little
  *   one tick per site section; click opens its modal / scrolls the page.
  *   On the page: variant="page" + onSelect={(id) => ...}
  *
+ * Index mode              <RailNav indexRail={{ count, active, onSelect }} />
+ *   one tick per item of a stepped set (e.g. the LogoCard logos); fully
+ *   controlled by the caller. No labels.
+ *
  * Content mode            <RailNav contentRail={{ selector }} scrollerRef={ref} />
  *   one tick per matching element inside the modal's scroller, no labels;
  *   the active tick follows the scroll, click scrolls to that element.
@@ -25,7 +29,11 @@ export default function RailNav({
   contentRail = null,
   scrollerRef = null,
   watchKey = 0,
+  indexRail = null,
 }) {
+  if (indexRail) {
+    return <IndexRail {...indexRail} />;
+  }
   if (contentRail && scrollerRef) {
     return <ContentRail selector={contentRail.selector} scrollerRef={scrollerRef} watchKey={watchKey} />;
   }
@@ -176,6 +184,30 @@ function ContentRail({ selector, scrollerRef, watchKey }) {
               type="button"
               className={`${styles.item} ${i === active ? styles.active : ''}`}
               onClick={() => goTo(i)}
+              aria-label={`Project ${i + 1}`}
+              aria-current={i === active ? 'true' : undefined}
+            >
+              <span className={styles.tick} />
+            </button>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
+
+function IndexRail({ count, active, onSelect }) {
+  if (!count || count < 2) return null;
+
+  return (
+    <nav className={`${styles.rail} ${styles.panel}`} aria-label="Projects">
+      <ul className={`${styles.list} ${styles.contentList} ${styles.dense}`}>
+        {Array.from({ length: count }, (_, i) => (
+          <li key={i}>
+            <button
+              type="button"
+              className={`${styles.item} ${i === active ? styles.active : ''}`}
+              onClick={() => i !== active && onSelect?.(i)}
               aria-label={`Project ${i + 1}`}
               aria-current={i === active ? 'true' : undefined}
             >

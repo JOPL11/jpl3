@@ -37,7 +37,7 @@ export function ModalProvider({ children }) {
   const openModal = (
     content,
     className = '',
-    { layer: doLayer = true, header = null, path = null, push = true } = {}
+    { layer: doLayer = true, header = null, path = null, push = true, rail = null } = {}
   ) => {
     if (closeTimeoutRef.current) {
       clearTimeout(closeTimeoutRef.current);
@@ -68,6 +68,7 @@ export function ModalProvider({ children }) {
         content,
         className: className || prev.className,
         header: prev.header,
+        rail: rail ?? prev.rail,
       };
       layerRef.current = next;
       setLayer(next);
@@ -76,7 +77,7 @@ export function ModalProvider({ children }) {
 
     // ---- Fresh open or section open: new panel, full slide-up ----
     clearTimeout(outgoingTimeoutRef.current);
-    const next = { key: ++keyRef.current, contentKey, swap: false, content, className, header };
+    const next = { key: ++keyRef.current, contentKey, swap: false, content, className, header, rail };
 
     if (prev && wasOpen) {
       setOutgoing(prev);

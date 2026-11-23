@@ -533,10 +533,11 @@
   to   { opacity: 1; }
 }
 
+
+
 .modalContent:global(.playgroundModal),
 .modalContent:global(.reactModal),
 .modalContent:global(.motionModal),
-.modalContent:global(.overviewModal),
 .modalContent:global(.productModal) {
   padding-top: 0;
   padding-left: 0;
@@ -545,10 +546,15 @@
   scrollbar-width: none;
 }
 
+/* Overview (LogoCard): keep the top and side padding, drop only the bottom */
+.modalContent:global(.overviewModal) {
+  padding-bottom: 0;
+}
+
 .modalContent:global(.playgroundModal)::-webkit-scrollbar,
 .modalContent:global(.reactModal)::-webkit-scrollbar,
 .modalContent:global(.motionModal)::-webkit-scrollbar,
-.modalContent:global(.overviewModal) {
+.modalContent:global(.overviewModal)::-webkit-scrollbar {
   display: none;
 }
 .standingHeader {

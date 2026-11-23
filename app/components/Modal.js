@@ -23,6 +23,7 @@ export default function Modal({
   layers = [],
   fullBleed = false,
 }) {
+  console.log('Modal layers:', layers);
   const contentRef = useRef(null);
   // Same shape as the page-level provider's ref: px/ms, smoothed, decaying.
   // DeformImage etc. read this instead of window scroll while a modal is open.
@@ -158,14 +159,15 @@ export default function Modal({
               <ScrollHint targetRef={contentRef} watchKey={layer.contentKey} />
             )}
             {isTop && <FullscreenToggle variant="panel" />}
-           {isTop && CONTENT_RAILS[sectionIdFromClass(layer.className)] !== false && (
-                <RailNav
-                  activeId={sectionIdFromClass(layer.className)}
-                  contentRail={CONTENT_RAILS[sectionIdFromClass(layer.className)]}
-                  scrollerRef={contentRef}
-                  watchKey={layer.contentKey}
-                />
-              )}
+            {isTop && layer.rail && <RailNav indexRail={layer.rail} />}
+            {isTop && !layer.rail && CONTENT_RAILS[sectionIdFromClass(layer.className)] !== false && (
+              <RailNav
+                activeId={sectionIdFromClass(layer.className)}
+                contentRail={CONTENT_RAILS[sectionIdFromClass(layer.className)]}
+                scrollerRef={contentRef}
+                watchKey={layer.contentKey}
+              />
+            )}
           </div>
         );
       })}
