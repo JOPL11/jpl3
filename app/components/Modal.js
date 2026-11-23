@@ -7,7 +7,7 @@ import ScrollHint from './ScrollHinter';
 import RailNav from './RailNav';
 import { normalizeSectionId, CONTENT_RAILS } from './sectionRegistry';
 import { ScrollVelocityContext } from '../contexts/ScrollVelocityContext';
-
+import FullscreenToggle from './FullscreenToggle';
 // 'playgroundModal playgroundModal' -> 'playground'
 function sectionIdFromClass(className = '') {
   const cls = className.split(' ').find((c) => c.endsWith('Modal'));
@@ -157,6 +157,7 @@ export default function Modal({
             {isTop && (
               <ScrollHint targetRef={contentRef} watchKey={layer.contentKey} />
             )}
+            {isTop && <FullscreenToggle variant="panel" />}
            {isTop && CONTENT_RAILS[sectionIdFromClass(layer.className)] !== false && (
                 <RailNav
                   activeId={sectionIdFromClass(layer.className)}
