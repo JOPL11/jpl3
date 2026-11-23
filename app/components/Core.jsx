@@ -69,6 +69,16 @@ const DEFAULT_GROUPS = [
       'SEO, Analytics',
     ],
   },
+    {
+    id: 'AI',
+    title: 'AI',
+    items: [
+      'I work across LLM models more like a bricklayer than a prompter.',
+      'Mostly non-agentic workflow, unless I have to ram something home quickly.',
+      'I dont use it for motion or 3D modeling as it robs me of a feeling of accomplishment.',
+      'Same goes for writing. For designing I dont let LLM models have anything to say.',
+    ],
+  },
 ];
 
 function AccordionItem({ group, isOpen, onToggle }) {

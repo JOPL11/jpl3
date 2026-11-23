@@ -60,7 +60,7 @@ export default function FullscreenToggle({ variant = 'page' }) {
       aria-label={isFull ? 'Exit fullscreen' : 'Enter fullscreen'}
       aria-pressed={isFull}
     >
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+      <svg viewBox="0 0 24 24" width="25" height="25" fill="none" stroke="currentColor"
            strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         {isFull ? (
           <>

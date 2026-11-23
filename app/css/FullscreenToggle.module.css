@@ -2,13 +2,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 42px;
+  height: 42px;
   padding: 0;
   background: none;
   border: 0;
   cursor: pointer;
-  color: var(--fs-color, var(--modal-hint, rgba(255, 255, 255, 0.55)));
+  color: var(--fs-color, var(--modal-hint, rgba(255, 255, 255, 0.95)));
   text-shadow: none;
   filter: drop-shadow(0 0 8px var(--modal-glow, rgba(0, 240, 255, 0.2)));
   transition: color 0.25s ease, transform 0.25s ease;
@@ -25,7 +25,7 @@
 }
 
 .toggle:focus-visible {
-  outline: 1px solid currentColor;
+  outline: 2px solid currentColor;
   outline-offset: 2px;
 }
 
