@@ -704,7 +704,7 @@ useEffect(() => {
             <div style={{height: '1rem'}}></div>
 
                {/*      
- <Link href="/blog" style={{ textDecoration: 'underline' }}> Recently relocated</Link>
+                           <Link href="/blog" style={{ textDecoration: 'underline' }}> Recently relocated</Link>
                            <p>I recently left Germany for good after witnessing its (frankly disgusting) creeping systemic renazification for too many years. I finally left that sinking ship and now live in a bright villa with a private beach in Egypt instead.</p> 
               <ProfileCarousel
               <p>After 20 years paying insane taxes with nothing but a kick in the head to show for it, I recently left Germany for good due to its renazification and its outdated tech stack.</p> 
