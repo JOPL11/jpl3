@@ -182,7 +182,8 @@ const posts = {
 
 <p>At some point the lady to the man's right introduced herself, speaking in the typical barnyard bavarian tounge, as the company psychologist. It was the local dialect that shall we say did not reek of sophistication to begin with. It was linguistically stuck somewhere between German and Austrian the way a cat is stuck in the engineblock of a BMW for 100 miles on the Autobahn before a Bavarian identifies the noise and pulls over to rescue his engine.</p>
 
-<p>The psychologist lady quickly got down to brass tacks: "Mister P," she smiled through clenched teeth framed by her petite tusks, "We see that you are from abroad - a Spanish citizen."</p>
+<p>The psychologist lady quickly got down to brass tacks: "Mister P," she smiled through clenched teeth, "We see that you are from abroad - a Spanish citizen."</p>
+
 <p>I nodded amicably, it was true I was Spanish on paper, I had two passports and had spent 3 years in Barcelona - she continued with a piercing stare, "We see that those whom we here in Bavaria call foreign Southerners occasionally like to raise their voice at women, and in the course of sometimes doing so, whether your hand should somehow slip and you find yourself slapping them in the face. What I'm asking is, Mr. P, being Spanish, do you beat women?"</p>
 
 <p>Well that was a shock.</p>

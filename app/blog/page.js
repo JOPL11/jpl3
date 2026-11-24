@@ -67,7 +67,7 @@ const posts = [
 export default function BlogPage() {
   return (
     <>
-      <MouseGradient />
+    <MouseGradient />
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.headerLeft}>
@@ -81,7 +81,7 @@ export default function BlogPage() {
             <h1 className={styles.title}>devBlog</h1>
           </div>
           <Link href="/" className={styles.backButton}>
-            ← Back to Portfolio
+            ◀ Back to Portfolio
           </Link>
         </div>
         <div className={styles.posts}>
