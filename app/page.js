@@ -17,7 +17,7 @@ import { createPortal } from 'react-dom';
 import { useModal } from './components/ModalContext';
 import PrivacyContent from './components/PrivacyContent';
 import styles from './css/page.module.css';
-import LangSwitcher from './components/LangSwitcher';
+//import LangSwitcher from './components/LangSwitcher';
 import { usePathname } from 'next/navigation';
 import RailNav from './components/RailNav';
 import LiveStatus from './components/LiveStatus'
@@ -395,10 +395,12 @@ useEffect(() => {
   onSelect={(id) => scrollToSection({ preventDefault() {} }, id)}
 />
 <FullscreenToggle />
-      <LangSwitcher onChange={(code) => {
+{/*     <LangSwitcher onChange={(code) => {
   // hook your translation layer here
   console.log('lang ->', code);
 }} />
+ */}
+
       {mounted && createPortal(
       <>
       <header role="banner" className={styles.header}>
