@@ -167,6 +167,7 @@ export default function PlaygroundContent() {
                    </>
                 )}
          <ProjectCard 
+         deform
                   onMoreClick={() => {
                     console.log('Bytes101 More button clicked, triggering animation');
                     bytes101TextRef.current?.animate();
