@@ -400,7 +400,7 @@ function Model({ url, position = [0, -0.4, 0], isHolographic, onHolographicChang
   });
 
   // Apply materials to meshes
-  useEffect(() => {
+useLayoutEffect(() => {
     scene.traverse((child) => {
       if (child.isMesh) {
         child.castShadow = true;
@@ -451,36 +451,37 @@ child.material = isHolographic
   );
 }
 
-
 function OscillatingBoxes({ count = 152, color = 0x35aeea }) {
   const ref = useRef();
+  const startTime = useRef(null); // time of first frame, so delays count from mount
   const dummy = useMemo(() => new THREE.Object3D(), []);
-  // Precompute per-instance random offsets + stagger delay once
   const data = useMemo(() => Array.from({ length: count }, (_, i) => ({
     x: (Math.random() * 0.5 - 0.5) * 1.9,
     y: (Math.random() * -0.2 - 0.5) * 1.9,
-    delay: i * 0.1,          // seconds, not ms — no setTimeout
+    delay: i * 0.1,
   })), [count]);
 
-  // ONE shared material for all instances
   const material = useMemo(() => new THREE.MeshStandardMaterial({
     color, emissive: color, emissiveIntensity: 0.5, toneMapped: false,
   }), [color]);
 
   useFrame(({ clock }) => {
-    const t = clock.getElapsedTime();
+    const now = clock.getElapsedTime();
+    if (startTime.current === null) startTime.current = now;
+    const t = now - startTime.current;
+
     for (let i = 0; i < count; i++) {
       const { x, y, delay } = data[i];
       const elapsed = t - delay;
       if (elapsed < 0) {
-        // not yet "visible": park it far away / scale 0
         dummy.position.set(x, y, 0);
         dummy.scale.set(0, 0, 0);
       } else {
+        const fade = THREE.MathUtils.smoothstep(elapsed, 0, 1.5); // grow in over 1.5s
         const z = Math.sin(elapsed * 0.5) * 22;
         const isElongated = Math.floor(elapsed * 2) % 2 === 0;
         dummy.position.set(x, y, z);
-        dummy.scale.set(0.08, 0.08, isElongated ? 1 : 0.1);
+        dummy.scale.set(0.08 * fade, 0.08 * fade, (isElongated ? 1 : 0.1) * fade);
       }
       dummy.updateMatrix();
       ref.current.setMatrixAt(i, dummy.matrix);
@@ -494,7 +495,6 @@ function OscillatingBoxes({ count = 152, color = 0x35aeea }) {
     </instancedMesh>
   );
 }
-
 
 function NameText() {
   const texture = useTexture('/assets/janpeiro.png');
