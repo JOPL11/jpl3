@@ -166,7 +166,22 @@ export default function PlaygroundContent() {
            
                    </>
                 )}
-        
+         <ProjectCard 
+                  onMoreClick={() => {
+                    console.log('Bytes101 More button clicked, triggering animation');
+                    bytes101TextRef.current?.animate();
+                  }}
+                  title="Bytes101"
+                  image="/images/bytes101.jpg"
+                  alt="Bytes101"
+                  link="https://bytes101.vercel.app"
+                  text="Featuring custom 3D models and animations."
+                  className="webglProject"
+                >
+                  <p>Concept Demo</p>
+                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> Three.js / React Three Fiber</AnimatedText></p>
+                  <p><strong>Role:</strong> Concept / Animation / Dev</p>
+                </ProjectCard>
                
                 <ProjectCard 
                 deform
