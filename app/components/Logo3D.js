@@ -441,7 +441,7 @@ child.material = isHolographic
     {/* <OscillatingBoxes count={152} color={0x35aeea} /> */}
   </>
 )}
- {isHovered && <OscillatingBoxes count={152} color={0x35aeea} />}
+  {/*{isHovered && <OscillatingBoxes count={152} color={0x35aeea} />} */}
     </group>
   );
 }
@@ -622,7 +622,7 @@ function OrbitingCube({ radius = 2.5, speed = 0.5, positionOffset = 1.3, rotatio
       <pointLight 
         ref={lightRef}
         color="#FFFFFF" 
-        intensity={visible ? 1 : 0} 
+        intensity={visible ? 0 : 0} 
         distance={3} 
         decay={2} 
       />
@@ -674,12 +674,12 @@ function Scene({ modelUrl }) {
 
 
 
-      <OrbitingCube speed={1.3} positionOffset={0} rotationSpeed={1} visible={!isHolographic}/>
+      <OrbitingCube speed={1.3} positionOffset={0} rotationSpeed={1} />
       
-      {/* Second cube with offset position and different speed */}
-      <OrbitingCube  speed={1.4} positionOffset={Math.PI} rotationSpeed={-0.8} visible={!isHolographic}/>
+      {/* Second cube with offset position and different speed  visible={!isHolographic} */}
+      <OrbitingCube  speed={1.4} positionOffset={Math.PI} rotationSpeed={-0.8} />
 
-      <OrbitingCube  speed={1.2} positionOffset={Math.PI / 2} rotationSpeed={0.9} visible={!isHolographic}/>
+      <OrbitingCube  speed={1.2} positionOffset={Math.PI / 2} rotationSpeed={0.9} />
        <pointLight position={[2, -4, 11]} intensity={33.3} color="#87cacf" />
       <pointLight position={[2, 0, 8]} intensity={33.3} color="#87cacf" />
       <pointLight position={[-3.5, -0.7, 5.5]} intensity={44} color="#87cacf" />
