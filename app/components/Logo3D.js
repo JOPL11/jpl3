@@ -514,7 +514,7 @@ function NameText() {
   );
 }
 
-function OrbitingCube({ radius = 1.5, speed = 0.5, positionOffset = 1.3, rotationSpeed = 8, visible = true }) {
+function OrbitingCube({ radius = 2.5, speed = 0.5, positionOffset = 1.3, rotationSpeed = 8, visible = true }) {
   const cubeRef = useRef();
   const lightRef = useRef();
   const smallCube1Ref = useRef();
@@ -527,9 +527,9 @@ function OrbitingCube({ radius = 1.5, speed = 0.5, positionOffset = 1.3, rotatio
     const time = clock.getElapsedTime() * speed;
     const phaseShift = time * 0.3;
     
-    const x = Math.sin(time * 0.1 + positionOffset  + phaseShift) * radius * 0.9;
-    const y = Math.sin(time * 0.1 + positionOffset + phaseShift * 0.1) * radius * 0.7;
-    const z = Math.cos(time * 0.1 + positionOffset + phaseShift) * radius * 0.6;
+    const x = Math.sin(time * 0.1 + positionOffset  + phaseShift) * radius * 1.2;
+    const y = Math.sin(time * 0.1 + positionOffset + phaseShift * 0.1) * radius * 1.7;
+    const z = Math.cos(time * 0.1 + positionOffset + phaseShift) * radius * 1.6;
     
     // Update main cube position and rotation
     cubeRef.current.position.set(x, y, z);
