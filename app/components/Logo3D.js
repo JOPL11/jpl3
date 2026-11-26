@@ -44,7 +44,7 @@ void main() {
   
   // Calculate distance from glitch band with some easing
   float distanceToBand = abs(verticalPosition - glitchBand);
-  float glitchAmount = smoothstep(0.2, 0.0, distanceToBand);  // Creates a smooth falloff
+  float glitchAmount = 1.0 - smoothstep(0.0, 0.2, distanceToBand);  // Creates a smooth falloff
   
   // Only apply glitch when close to the band
   float glitchStrength = 0.0;
@@ -90,9 +90,10 @@ const holographicFragmentShader = `
   
   void main() {
     // Base color with fresnel effect
-    vec3 normal = normalize(vNormal);
-    vec3 viewDir = normalize(cameraPosition + vPosition);
-    float fresnel = pow(1.0 - abs(dot(normal, viewDir)), 1.5);
+vec3 normal = normalize(vNormal);
+vec3 viewDir = normalize(cameraPosition + vPosition);
+float facing = clamp(abs(dot(normal, viewDir)), 0.0, 1.0);
+float fresnel = pow(1.0 - facing, 1.5);
     
     // Thin scan lines with high frequency
     float scanLine = sin(vPosition.y * 0.2 + uTime * 1.0) * 0.8 + 0.3;
@@ -878,7 +879,7 @@ const handleResize = useCallback(() => {
     
     const canvasHeight = isLibreWolf ? desktopHeight : height;
     
-    const pixelRatio = Math.min(window.devicePixelRatio, isMobile ? 1 : 1.5);
+    const pixelRatio = Math.min(window.devicePixelRatio, isMobile ? 1 : 1.25);
     
     // Update renderer size and pixel ratio
     rendererRef.current.setPixelRatio(pixelRatio);
@@ -952,7 +953,7 @@ const handleResize = useCallback(() => {
       <Canvas 
         ref={canvasRef}
         className={styles.canvasContainer}
-        camera={{ position: [0, 0, 4.7], fov: 45, near: 0.1, far: 1000 }}
+        camera={{ position: [0, 0, 4.9], fov: 45, near: 0.1, far: 1000 }}
         gl={{
           //antialias: true,
           powerPreference: 'high-performance',
@@ -963,7 +964,7 @@ const handleResize = useCallback(() => {
           depth: true,
         }}
         // the full-bleed canvas has ~2.4x the pixels, so cap the pixel ratio a bit lower
-        dpr={isMobile ? 1 : (fullBleed ? [1, 1.25] : [1, 1.5])}
+        dpr={isMobile ? 1 : (fullBleed ? [1, 1.15] : [1, 1.25])}
         frameloop={fullBleed && !inView ? 'demand' : 'always'}
         onCreated={({ gl, scene }) => {
           setIsLoaded(true);
@@ -1025,7 +1026,7 @@ const handleResize = useCallback(() => {
                 luminanceThreshold={0.5} 
                 mipmapBlur 
                 luminanceSmoothing={0.4} 
-                intensity={1.5} 
+                intensity={0.5} 
                 kernelSize={1}
               />
             </EffectComposer>
