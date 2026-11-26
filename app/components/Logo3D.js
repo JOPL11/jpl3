@@ -443,7 +443,7 @@ child.material = isHolographic
     <HologramCorners />
     <LogoCorners />
     <LogoLongs />
-    <OscillatingBoxes count={152} color={0x35aeea} />
+    {/* <OscillatingBoxes count={152} color={0x35aeea} /> */}
   </>
 )}
     </group>
@@ -637,17 +637,17 @@ function OrbitingCube({ radius = 1.5, speed = 0.5, positionOffset = 1.3, rotatio
 
 function Scene({ modelUrl }) {
   const isMobile = useMobileDetect();
-  const [isHolographic, setIsHolographic] = useState(false);
+  const [isHolographic, setIsHolographic] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
   
   // Toggle holographic effect on hover
   useEffect(() => {
     if (isHovered) {
-      setIsHolographic(true);
+      setIsHolographic(false);
     } else {
       const timer = setTimeout(() => {
-        setIsHolographic(false);
-      }, 500); // Small delay before turning off the effect
+        setIsHolographic(true);
+      }, 500); // small delay before the hologram comes back
       return () => clearTimeout(timer);
     }
   }, [isHovered]);
@@ -667,7 +667,7 @@ function Scene({ modelUrl }) {
       >
       <Model 
         url={modelUrl} 
-        isHolographic={isHovered || isHolographic}
+        isHolographic={isHolographic}
         onHolographicChange={setIsHolographic}
         isHovered={isHovered}
         isMobile={isMobile}
