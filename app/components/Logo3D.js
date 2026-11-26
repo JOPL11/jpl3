@@ -211,9 +211,9 @@ function HologramCorners({ size = 0.1, distance = 1.2, intensity = 2.0 }) {
   const points = useMemo(() => [
     // Top points (two corners)
   
-    { position: [-distance, distance, -1.5] },    // Top-left
+  {/*  { position: [-distance, distance, -1.5] },    // Top-left
     { position: [-distance, distance, -2.0] },  
-    {/* { position: [-distance, distance, -2.5] }, 
+     { position: [-distance, distance, -2.5] }, 
     { position: [-distance, distance, -1.5] }, 
     { position: [-distance, distance, -1.0] }, 
     { position: [-distance, distance, -0.5] }, 
@@ -234,7 +234,7 @@ function HologramCorners({ size = 0.1, distance = 1.2, intensity = 2.0 }) {
     { position: [distance, distance, 1.0] },      
     { position: [distance, distance, 1.5] },   
     { position: [distance, distance, 2.0] },  
-    { position: [distance, distance, 2.5] }, */} ,
+    { position: [distance, distance, 2.5] },  ,
     
     // Middle points
     { position: [-distance, 0, -0.5] },          // Middle-left
@@ -244,22 +244,16 @@ function HologramCorners({ size = 0.1, distance = 1.2, intensity = 2.0 }) {
     { position: [0, -distance, -2.0] },  
     { position: [0, -distance, -2.5] }, 
    
-  /*  { position: [0, -distance, -1.5] }, 
+   { position: [0, -distance, -1.5] }, 
     { position: [0, -distance, -1.0] }, 
-    { position: [0, -distance, -0.5] }, */   
+    { position: [0, -distance, -0.5] },   
     { position: [1, -distance, 0] }, 
     { position: [-0.5, -distance, 0.8] },             
-   /*  { position: [0, -distance, 1.0] },   
+   { position: [0, -distance, 1.0] },   
     { position: [0, -distance, 1.5] },   
-    { position: [0, -distance, 2.0] },   */ 
-     { position: [-1, -distance, -0.5] },       
-       
-         
-    
-    // Additional points for visual effect
-    { position: [-distance, distance, 0] },      // Top-left middle
-    { position: [distance, distance, 0] },       // Top-right middle
+    { position: [0, -distance, 2.0] },   
 
+*/}
   ], [distance]);
 
   return (
@@ -284,7 +278,7 @@ function HologramCorners({ size = 0.1, distance = 1.2, intensity = 2.0 }) {
 function LogoCorners({ size = 0.1, distance = 1.0, intensity = 2.0 }) {
   console.log('LogoCorners is rendering');
   const lines = useMemo(() => [
-    { position: [1.1, 0.02, 0.25] },  
+ {/*   { position: [1.1, 0.02, 0.25] },  
     { position: [1.1, 0.54, 0.25] },
 
     { position: [1.1, 0.02, -0.65] },  
@@ -306,9 +300,10 @@ function LogoCorners({ size = 0.1, distance = 1.0, intensity = 2.0 }) {
     { position: [-1.7, 1.0, 0.25] },
 
     { position: [-1.7, -0.9, -0.65] },
-    { position: [-1.7, -0.9, 0.25] },
+    { position: [-1.7, -0.9, 0.25] },*/} 
   ], []);
   
+  {/* 
   return (
     <group>
       {lines.map((line, index) => (
@@ -323,12 +318,12 @@ function LogoCorners({ size = 0.1, distance = 1.0, intensity = 2.0 }) {
         </mesh>
       ))}
     </group>
-  );
+  ); */}
 }
 
 function LogoLongs({ size = 0.1, distance = 1.0, intensity = 2.0 }) {
   const lines2 = useMemo(() => [
-    { position: [ 1.25, 0.02, 0.05 ] },  
+ {/*  { position: [ 1.25, 0.02, 0.05 ] },  
     { position: [ 1.25, 0.54, 0.05 ] },
 
     { position: [ 1.25, 0.02, -0.45 ] },  
@@ -341,9 +336,9 @@ function LogoLongs({ size = 0.1, distance = 1.0, intensity = 2.0 }) {
     { position: [0.2, 1.0, 0.05 ] },
 
     { position: [0.2, 0.3, -0.45 ] },
-    { position: [0.2, 0.3, 0.05 ] },
+    { position: [0.2, 0.3, 0.05 ] }, */}  
   ], []);
-  
+  {/* 
   return (
     <group>
       {lines2.map((line, index) => (
@@ -358,7 +353,7 @@ function LogoLongs({ size = 0.1, distance = 1.0, intensity = 2.0 }) {
         </mesh>
       ))}
     </group>
-  );
+  ); */}
 }
 
 
