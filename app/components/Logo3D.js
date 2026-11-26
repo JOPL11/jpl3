@@ -299,14 +299,14 @@ function LogoCorners({ size = 0.1, distance = 1.0, intensity = 2.0 }) {
     { position: [0.1, 0.54, -0.65] },
     { position: [-0.4, 0.54, -0.65] },
 
-    { position: [0.1, 0.54, 0.25] },
-    { position: [-0.4, 0.54, 0.25] },
+    { position: [-1.7, 0.54, 0.25] },
+    { position: [-1.7, 0.54, 0.25] },
 
-    { position: [0.36, -1.4, -0.65] },
-    { position: [0.36, -1.4, 0.25] },
+    { position: [-1.7, 1.0, -0.65] },
+    { position: [-1.7, 1.0, 0.25] },
 
-    { position: [0.36, -0.9, -0.65] },
-    { position: [0.36, -0.9, 0.25] },
+    { position: [-1.7, -0.9, -0.65] },
+    { position: [-1.7, -0.9, 0.25] },
   ], []);
   
   return (
@@ -337,11 +337,11 @@ function LogoLongs({ size = 0.1, distance = 1.0, intensity = 2.0 }) {
     { position: [-1.05, -0.5, 0.05 ] },
     { position: [-1.05, -0.5, -0.48 ] },
 
-    { position: [0.2, -1.4, -0.45 ] },
-    { position: [0.2, -1.4, 0.05 ] },
+    { position: [0.2, 1.0, -0.45 ] },
+    { position: [0.2, 1.0, 0.05 ] },
 
-    { position: [0.2, -0.9, -0.45 ] },
-    { position: [0.2, -0.9, 0.05 ] },
+    { position: [0.2, 0.3, -0.45 ] },
+    { position: [0.2, 0.3, 0.05 ] },
   ], []);
   
   return (
@@ -446,6 +446,7 @@ child.material = isHolographic
     {/* <OscillatingBoxes count={152} color={0x35aeea} /> */}
   </>
 )}
+ {isHovered && <OscillatingBoxes count={152} color={0x35aeea} />}
     </group>
   );
 }
