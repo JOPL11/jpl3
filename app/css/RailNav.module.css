@@ -149,7 +149,7 @@
   .panel {
     z-index: 150000;
     display: block;
-    top: 4rem;
+    top: 2rem;
     left: 50%;
     transform: translateX(-50%);   /* was translateY(-50%) for the vertical version */
   }

@@ -81,23 +81,7 @@ export default function PlaygroundContent() {
                   <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React / AI</AnimatedText></p>
                   <p><strong>Role:</strong><br /> Concept / Animation / Development</p>
                 </ProjectCard>
-     <ProjectCard 
-                // deform
-                  onMoreClick={() => {
-                    console.log('AI Ching More button clicked, triggering animation');
-                    bytes101TextRef.current?.animate();
-                  }}
-                  title="A.I. Ching"
-                  image="/images/ching.jpg"
-                  alt="AI-Ching"
-                  link="https://ai-ching.vercel.app"
-                  text="Type in a question. Random numbers piped in from photon beam splitters at the University of Australia cast one of 64 I Ching hexagrams; AI interprets the meaning of the hexagram through the lens of your question. Spatial AI Interface"
-                  className="PlaygroundProject"
-                >
-                  <p>Concept Demo</p>
-                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React / AI</AnimatedText></p>
-                  <p><strong>Role:</strong><br /> Concept / Animation / Development</p>
-                </ProjectCard>
+
           {!isMobile && (
                 <>
               <ProjectCard 
@@ -155,6 +139,24 @@ export default function PlaygroundContent() {
                   <p><strong>Role:</strong> Concept / Animation / Dev</p>
                 </ProjectCard>
                {/* 
+
+                    <ProjectCard 
+                // deform
+                  onMoreClick={() => {
+                    console.log('AI Ching More button clicked, triggering animation');
+                    bytes101TextRef.current?.animate();
+                  }}
+                  title="A.I. Ching"
+                  image="/images/ching.jpg"
+                  alt="AI-Ching"
+                  link="https://ai-ching.vercel.app"
+                  text="Type in a question. Random numbers piped in from photon beam splitters at the University of Australia cast one of 64 I Ching hexagrams; AI interprets the meaning of the hexagram through the lens of your question. Spatial AI Interface"
+                  className="PlaygroundProject"
+                >
+                  <p>Concept Demo</p>
+                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React / AI</AnimatedText></p>
+                  <p><strong>Role:</strong><br /> Concept / Animation / Development</p>
+                </ProjectCard>
                 <ProjectCard 
                 // deform
                   onMoreClick={() => {
