@@ -138,9 +138,8 @@ export default function PlaygroundContent() {
                   <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> Three.js / React Three Fiber</AnimatedText></p>
                   <p><strong>Role:</strong> Concept / Animation / Dev</p>
                 </ProjectCard>
-               {/* 
 
-                    <ProjectCard 
+                      <ProjectCard 
                 // deform
                   onMoreClick={() => {
                     console.log('AI Ching More button clicked, triggering animation');
@@ -157,6 +156,9 @@ export default function PlaygroundContent() {
                   <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React / AI</AnimatedText></p>
                   <p><strong>Role:</strong><br /> Concept / Animation / Development</p>
                 </ProjectCard>
+               {/* 
+
+              
                 <ProjectCard 
                 // deform
                   onMoreClick={() => {
