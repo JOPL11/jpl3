@@ -179,7 +179,7 @@
 }
 
 /* Narrow screens: horizontal rail across the top of the modal */
-@media (max-width: 330px) {
+@media (max-width: 530px) {
   .panel {
 
     display: none;
