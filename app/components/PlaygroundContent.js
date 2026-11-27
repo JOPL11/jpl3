@@ -83,11 +83,27 @@ export default function PlaygroundContent() {
                   <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React / AI</AnimatedText></p>
                   <p><strong>Role:</strong><br /> Concept / Animation / Development</p>
                 </ProjectCard>
-
+     <ProjectCard 
+                deform
+                  onMoreClick={() => {
+                    console.log('AI Ching More button clicked, triggering animation');
+                    bytes101TextRef.current?.animate();
+                  }}
+                  title="A.I. Ching"
+                  image="/images/ching.jpg"
+                  alt="AI-Ching"
+                  link="https://ai-ching.vercel.app"
+                  text="Type in a question. Random numbers piped in from photon beam splitters at the University of Australia cast one of 64 I Ching hexagrams; AI interprets the meaning of the hexagram through the lens of your question. Spatial AI Interface"
+                  className="PlaygroundProject"
+                >
+                  <p>Concept Demo</p>
+                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React / AI</AnimatedText></p>
+                  <p><strong>Role:</strong><br /> Concept / Animation / Development</p>
+                </ProjectCard>
+                
           {!isMobile && (
-                  <> 
-              
-
+                <>
+            
               <ProjectCard 
                    deform
                   onMoreClick={() => {
@@ -106,6 +122,63 @@ export default function PlaygroundContent() {
                   <p><strong>Role:</strong><br /> Concept / Development / Models</p>
                 </ProjectCard>
 
+                 <ProjectCard 
+                    deform
+                    onMoreClick={() => {
+                      console.log('S&B More button clicked, triggering animation');
+                      qcTextRef.current?.animate();
+                    }}
+                      title="Schrödinger & Bohr Quantum Pocketwatches "
+                      image="/images/JPL3Poster_QC.jpg"
+                      alt="Quantum Pocketwatch Company"
+                      link="https://quantum-pocketwatch.vercel.app/"
+                      text="<strong>Experimental / Desktop Only</strong>. Featuring custom 3D models and interactions." 
+                      className="PlaygroundProject"
+                    >
+                      <p>Visual Concept Experiment</p>
+                      <p><strong>Tools:</strong><br /><AnimatedText ref={qcTextRef} type="project">Three.js / React / R3F  / GSAP / Router / Next.js / Blender</AnimatedText></p>
+                      <p><strong>Role:</strong><br /> Concept / Animation / Dev</p>
+                    </ProjectCard>
+           
+       </>
+                )}
+
+         <ProjectCard 
+         deform
+                  onMoreClick={() => {
+                    console.log('Bytes101 More button clicked, triggering animation');
+                    bytes101TextRef.current?.animate();
+                  }}
+                  title="Bytes101"
+                  image="/images/bytes101.jpg"
+                  alt="Bytes101"
+                  link="https://bytes101.vercel.app"
+                  text="Featuring custom 3D models and animations."
+                  className="webglProject"
+                >
+                  <p>Concept Demo</p>
+                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> Three.js / React Three Fiber</AnimatedText></p>
+                  <p><strong>Role:</strong> Concept / Animation / Dev</p>
+                </ProjectCard>
+               {/* 
+                <ProjectCard 
+                deform
+                  onMoreClick={() => {
+                    console.log('CubeSite More button clicked, triggering animation');
+                    bytes101TextRef.current?.animate();
+                  }}
+                  title="Cubes"
+                  image="/images/JPL3Poster_3D.jpg"
+                  alt="CubeSite"
+                  link="https://cubistic.vercel.app"
+                  text="Featuring scripted 3D, interaction and animations."
+                  className="PlaygroundProject"
+                >
+                  <p>Site Demo In development</p>
+                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> Three.js / React</AnimatedText></p>
+                  <p><strong>Role:</strong> R3F concept architect & creator</p>
+                </ProjectCard>
+                {/* 
                   <ProjectCard 
                   deform
                       onMoreClick={() => {
@@ -146,79 +219,9 @@ export default function PlaygroundContent() {
                       <p><strong>Info:</strong> A mysterious facility exploring the intersection of architecture and digital art.</p>
                     </ProjectCard>
 
-                 <ProjectCard 
-                    deform
-                    onMoreClick={() => {
-                      console.log('S&B More button clicked, triggering animation');
-                      qcTextRef.current?.animate();
-                    }}
-                      title="Schrödinger & Bohr Quantum Pocketwatches "
-                      image="/images/JPL3Poster_QC.jpg"
-                      alt="Quantum Pocketwatch Company"
-                      link="https://quantum-pocketwatch.vercel.app/"
-                      text="<strong>Experimental / Desktop Only</strong>. Featuring custom 3D models and interactions." 
-                      className="PlaygroundProject"
-                    >
-                      <p>Visual Concept Experiment</p>
-                      <p><strong>Tools:</strong><br /><AnimatedText ref={qcTextRef} type="project">Three.js / React / R3F  / GSAP / Router / Next.js / Blender</AnimatedText></p>
-                      <p><strong>Role:</strong><br /> Concept / Animation / Dev</p>
-                    </ProjectCard>
-           
-                   </>
-                )}
-         <ProjectCard 
-         deform
-                  onMoreClick={() => {
-                    console.log('Bytes101 More button clicked, triggering animation');
-                    bytes101TextRef.current?.animate();
-                  }}
-                  title="Bytes101"
-                  image="/images/bytes101.jpg"
-                  alt="Bytes101"
-                  link="https://bytes101.vercel.app"
-                  text="Featuring custom 3D models and animations."
-                  className="webglProject"
-                >
-                  <p>Concept Demo</p>
-                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> Three.js / React Three Fiber</AnimatedText></p>
-                  <p><strong>Role:</strong> Concept / Animation / Dev</p>
-                </ProjectCard>
-               
-                <ProjectCard 
-                deform
-                  onMoreClick={() => {
-                    console.log('CubeSite More button clicked, triggering animation');
-                    bytes101TextRef.current?.animate();
-                  }}
-                  title="Cubes"
-                  image="/images/JPL3Poster_3D.jpg"
-                  alt="CubeSite"
-                  link="https://cubistic.vercel.app"
-                  text="Featuring scripted 3D, interaction and animations."
-                  className="PlaygroundProject"
-                >
-                  <p>Site Demo In development</p>
-                  <p><strong>Project Type:</strong><AnimatedText ref={bytes101TextRef} type="project"> Three.js / React</AnimatedText></p>
-                  <p><strong>Role:</strong> R3F concept architect & creator</p>
-                </ProjectCard>
-           
-              <ProjectCard 
-                deform
-                  onMoreClick={() => {
-                    console.log('AI Ching More button clicked, triggering animation');
-                    bytes101TextRef.current?.animate();
-                  }}
-                  title="A.I. Ching"
-                  image="/images/ching.jpg"
-                  alt="AI-Ching"
-                  link="https://ai-ching.vercel.app"
-                  text="Type in a question. Random numbers piped in from photon beam splitters at the University of Australia cast one of 64 I Ching hexagrams; AI interprets the meaning of the hexagram through the lens of your question. Spatial AI Interface"
-                  className="PlaygroundProject"
-                >
-                  <p>Concept Demo</p>
-                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React / AI</AnimatedText></p>
-                  <p><strong>Role:</strong><br /> Concept / Animation / Development</p>
-                </ProjectCard>
+                 */}
+          
+         
 
 
                 <ProjectCard 
@@ -227,11 +230,11 @@ export default function PlaygroundContent() {
                     console.log('Redpoint More button clicked, triggering animation');
                     bytes101TextRef.current?.animate();
                   }}
-                  title="Redpoint anti-stress game"
+                  title="Redpoint"
                   image="/images/redpoint.jpg"
                   alt="redpoint game"
                   link="https://dots-flow.vercel.app/"
-                  text="A zen meditation game to just sit with your thoughts on autopilot. Nothing stressy."
+                  text="A zen meditation game to just sit with your thoughts on autopilot."
                   className="PlaygroundProject"
                 >
                   <p>Concept Demo</p>
@@ -269,72 +272,16 @@ export default function PlaygroundContent() {
                   <p><strong>Role:</strong><br /> Code / Cloud visuals</p>
                 </ProjectCard>
 
-         
- {/*  
-              <ProjectCard 
-                deform
-                  onMoreClick={() => {
-                    console.log('Rehau More button clicked, triggering animation');
-                    bytes101TextRef.current?.animate();
-                  }}
-                  title="Rehau"
-                  image="/images/corp/rehau.jpg"
-                  alt="Rehau"
-                  //link="https://cubistic.vercel.app"
-                  text="Product showcase for the International Door & Window manufacturer."
-                  className="PlaygroundProject"
-                    client={{
-                    name: "SMMD Team |",
-                    logo: "/images/agencies/SMMD.png",
-                    //website: "https://www.smmd.team/"
-                 }}   
-                  logoWidth={350}
-                  logoHeight={90}
-                  logoStyle={{
-                    height: '30px',
-                    width: 'auto',   
-                    maxWidth: '100%'
-                  }}   
-                   modalContent={{
-                    description: "An interactive 3D product showcase featuring various models of Rehau products. I made animations and parsed models, updated jsx, converted to WebXR.",
-                    images: [ 
-                     { src: "/images/rehau/rehau1.jpg", alt: "Project Screenshot 1" },
-                     { src: "/images/rehau/rehau2.jpg", alt: "Project Screenshot 2" },
-                     { src: "/images/rehau/rehau3.jpg", alt: "Project Screenshot 3" },
-                     { src: "/images/rehau/rehau3B.jpg", alt: "Project Screenshot 4" },
-                     { src: "/images/rehau/rehau4.jpg", alt: "Project Screenshot 5" },
-
-                    ]
-                  }}
-                >
-                  <p>Project In development</p>
-                  <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React</AnimatedText></p>
-                  <p><strong>Role:</strong><br /> 3D model implementation & animation / WebXR implementation</p>
-                </ProjectCard>
-                        Playground Section    */}  
 
                  
             
 
-             {/*  
-
-
-
-                
-
-
-                
-            
              
-             {!isMobile && (
-                  <>
-            
-                  
-                    */}
         
                   </div>
     </div>
      <ModalFooter />
+      
     </>
   );
 }

@@ -44,7 +44,7 @@ void main() {
   
   // Calculate distance from glitch band with some easing
   float distanceToBand = abs(verticalPosition - glitchBand);
-  float glitchAmount = 1.0 - smoothstep(0.0, 0.2, distanceToBand);  // Creates a smooth falloff
+ float glitchAmount = 1.0 - smoothstep(0.0, 0.2, distanceToBand);
   
   // Only apply glitch when close to the band
   float glitchStrength = 0.0;
@@ -117,6 +117,7 @@ float fresnel = pow(1.0 - facing, 1.5);
     finalColor += (random(uv + uTime * 0.5) - 0.8) * 0.06;
     
     // Final color with alpha
+   // finalColor = min(finalColor, vec3(6.0));
     gl_FragColor = vec4(finalColor, 1.9 * (0.5 + fresnel * 0.5));
   }
 `;
