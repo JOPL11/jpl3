@@ -47,7 +47,7 @@ export default function PlaygroundContent() {
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
                 {/*  */}
                 <ProjectCard 
-                   deform
+                 //  // deform
                   onMoreClick={() => {
                     console.log('karnak More button clicked, triggering animation');
                     bytes101TextRef.current?.animate();
@@ -65,7 +65,7 @@ export default function PlaygroundContent() {
                 </ProjectCard>
 
               <ProjectCard 
-                deform
+              //  // deform
                   onMoreClick={() => {
                     console.log('WarRoom More button clicked, triggering animation');
                     bytes101TextRef.current?.animate();
@@ -82,7 +82,7 @@ export default function PlaygroundContent() {
                   <p><strong>Role:</strong><br /> Concept / Animation / Development</p>
                 </ProjectCard>
      <ProjectCard 
-                deform
+                // deform
                   onMoreClick={() => {
                     console.log('AI Ching More button clicked, triggering animation');
                     bytes101TextRef.current?.animate();
@@ -101,7 +101,7 @@ export default function PlaygroundContent() {
           {!isMobile && (
                 <>
               <ProjectCard 
-                   deform
+                   // deform
                   onMoreClick={() => {
                     console.log('Embryo More button clicked, triggering animation');
                     bytes101TextRef.current?.animate();
@@ -119,7 +119,7 @@ export default function PlaygroundContent() {
                 </ProjectCard>
 
                  <ProjectCard 
-                    deform
+                    // deform
                     onMoreClick={() => {
                       console.log('S&B More button clicked, triggering animation');
                       qcTextRef.current?.animate();
@@ -138,7 +138,7 @@ export default function PlaygroundContent() {
                   </>
                 )}
              <ProjectCard 
-                 deform
+                 // deform
                   onMoreClick={() => {
                     console.log('Bytes101 More button clicked, triggering animation');
                     bytes101TextRef.current?.animate();
@@ -156,7 +156,7 @@ export default function PlaygroundContent() {
                 </ProjectCard>
                {/* 
                 <ProjectCard 
-                deform
+                // deform
                   onMoreClick={() => {
                     console.log('CubeSite More button clicked, triggering animation');
                     bytes101TextRef.current?.animate();
@@ -174,7 +174,7 @@ export default function PlaygroundContent() {
                 </ProjectCard>
                 {/* 
                   <ProjectCard 
-                  deform
+                  // deform
                       onMoreClick={() => {
                         console.log('streetlamp More button clicked, triggering animation');
                         streetlampTextRef.current?.animate();
@@ -194,7 +194,7 @@ export default function PlaygroundContent() {
                     </ProjectCard>
 
                     <ProjectCard 
-                    deform
+                    // deform
                       onMoreClick={() => {
                         console.log('Facility More button clicked, triggering animation');
                         facilityTextRef.current?.animate();
@@ -214,7 +214,7 @@ export default function PlaygroundContent() {
                     </ProjectCard>
                  */}
                 <ProjectCard 
-                  deform
+                  // deform
                   onMoreClick={() => {
                     console.log('Redpoint More button clicked, triggering animation');
                     bytes101TextRef.current?.animate();
@@ -232,7 +232,7 @@ export default function PlaygroundContent() {
                 </ProjectCard>
           
            <ProjectCard 
-                     deform
+                     // deform
                      onMoreClick={() => {
                     console.log('More button clicked, triggering animation');
                     bytes101TextRef.current?.animate();
