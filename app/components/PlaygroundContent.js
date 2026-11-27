@@ -45,9 +45,7 @@ export default function PlaygroundContent() {
             <div  style={{height: '0.1rem', marginBottom: '3rem', fontSize: '1.2rem', color: '#ffffff', opacity: '0.9'}}>Fun with in-browser interactive realtime 3D</div>
                <div className={styles.divider3}></div>
               <div className={styles.projectsGrid} role="grid" aria-label="Showcase projects">
-{/*  */}
-
-
+                {/*  */}
                 <ProjectCard 
                    deform
                   onMoreClick={() => {
@@ -100,10 +98,8 @@ export default function PlaygroundContent() {
                   <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> React / AI</AnimatedText></p>
                   <p><strong>Role:</strong><br /> Concept / Animation / Development</p>
                 </ProjectCard>
-                
           {!isMobile && (
                 <>
-            
               <ProjectCard 
                    deform
                   onMoreClick={() => {
@@ -139,12 +135,10 @@ export default function PlaygroundContent() {
                       <p><strong>Tools:</strong><br /><AnimatedText ref={qcTextRef} type="project">Three.js / React / R3F  / GSAP / Router / Next.js / Blender</AnimatedText></p>
                       <p><strong>Role:</strong><br /> Concept / Animation / Dev</p>
                     </ProjectCard>
-           
-       </>
+                  </>
                 )}
-
-         <ProjectCard 
-         deform
+             <ProjectCard 
+                 deform
                   onMoreClick={() => {
                     console.log('Bytes101 More button clicked, triggering animation');
                     bytes101TextRef.current?.animate();
@@ -218,12 +212,7 @@ export default function PlaygroundContent() {
                       <p><strong>Duration:</strong> 3 weeks</p>
                       <p><strong>Info:</strong> A mysterious facility exploring the intersection of architecture and digital art.</p>
                     </ProjectCard>
-
                  */}
-          
-         
-
-
                 <ProjectCard 
                   deform
                   onMoreClick={() => {
@@ -271,17 +260,9 @@ export default function PlaygroundContent() {
                   <p><strong>Project Type:</strong><br /><AnimatedText ref={bytes101TextRef} type="project"> Three.js, React, GLSL (Shader), Next.js, GSAP </AnimatedText></p>
                   <p><strong>Role:</strong><br /> Code / Cloud visuals</p>
                 </ProjectCard>
-
-
-                 
-            
-
-             
-        
                   </div>
-    </div>
+            </div>
      <ModalFooter />
-      
     </>
   );
 }
